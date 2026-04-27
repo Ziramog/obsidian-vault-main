@@ -66,5 +66,19 @@ También en: /home/hermes/Transfer-files/main_fixed.py
 - Cron 20:00 daily: genera summary derivado del log crudo
 - Si VPS se cae: todo en GitHub, maximo 30 min perdido
 
+### Opus Phase 3 delivered (mercadolibre_scraper.py + lead_cache.py)
+Opus 4.6 wrote both files. Both pass ast.parse. Dependencies OK.
+
+Production paths:
+- /home/hermes/workspace/projects/scraping/mercadolibre_scraper.py (784 lines)
+- /home/hermes/workspace/projects/scraping/lead_cache.py (790 lines)
+
+Cache initialized: data/leads_cache.db (0 leads — empty, ready)
+
+Test: python3 lead_cache.py stats → 0 leads
+Test: python3 mercadolibre_scraper.py --list-provinces → 24 provinces
+
+Juan said: "moves todo a produccion" → confirmed done.
+
 ---
-*Last update: 2026-04-27 20:15*
+*Last update: 2026-04-27 21:17*
