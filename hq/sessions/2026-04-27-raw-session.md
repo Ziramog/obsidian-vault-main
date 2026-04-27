@@ -20,6 +20,8 @@
 6. Cron job: Daily Session Summary 20:00 (job: 53a5bb507d02)
 7. Session notes actualizadas en obsidian-vault
 8. Git push completado
+9. Opus 4.6 consulted re: scraper optimization
+10. Fase 1 aplicada a main_fixed.py (5 fixes críticos)
 
 ### Pendientes / Flags
 - Franco Roma: specs pendientes + audio meeting analysis
@@ -39,6 +41,17 @@
 - outreach-daemon: online ~63MB
 - hermes-gateway: online
 - Chrome headless: ~236MB (principal consumidor de RAM)
+
+### Scraper — Fase 1 applied (main_fixed.py)
+main_fixed.py ahora con:
+1. normalize_phone con area codes por ciudad (no más 0351 hardcodeado)
+2. Asset blocking (images/media/fonts) → reduce proxy GB ~60-70%
+3. Contexto Playwright rotativo por ciudad (nuevo UA + viewport cada vez)
+4. SQLite dedup cache (entre corridas, sobrevive reinicios)
+5. --js-flags=--max-old-space-size=512 (limita RAM de Chrome)
+
+Archivo: /home/hermes/.hermes/skills/research/google-maps-scraper/scripts/main_fixed.py
+También en: /home/hermes/Transfer-files/main_fixed.py
 
 ### Juan's clarification on backup strategy
 - Backup de 30 min: NO genera contenido nuevo. Solo hace `git push` del vault.
