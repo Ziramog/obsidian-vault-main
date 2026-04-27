@@ -40,5 +40,18 @@
 - hermes-gateway: online
 - Chrome headless: ~236MB (principal consumidor de RAM)
 
+### Juan's clarification on backup strategy
+- Backup de 30 min: NO genera contenido nuevo. Solo hace `git push` del vault.
+- Yo voy escribiendo el log crudo en tiempo real.
+- El cron solo empuja — no crea nada.
+- Daily summary (20:00): se deriva del log crudo, no al revés.
+- Maximo perdida si se cae: 30 min de conversacion.
+
+### Lo que definimos
+- Log crudo: `hq/sessions/YYYY-MM-DD-raw-session.md` — lo actualizo yo mientras hablamos
+- Cron 30 min: solo `git push` (no genera contenido)
+- Cron 20:00 daily: genera summary derivado del log crudo
+- Si VPS se cae: todo en GitHub, maximo 30 min perdido
+
 ---
-*Last update: 2026-04-27 19:XX*
+*Last update: 2026-04-27 19:50*
