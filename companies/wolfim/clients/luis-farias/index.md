@@ -17,8 +17,8 @@
 ## Pipeline
 - [x] First contact
 - [x] Proposal sent v1 (mar 2026)
-- [x] Proposal sent v2 (27 Abr 2026) — diagnóstico profundo
-- [x] Seguimiento programado — contacto mañana 28 Abr por la mañana
+- [ ] Proposal sent v2 (27 Abr 2026) — diagnóstico profundo
+- [ ] Seguimiento programado — contacto mañana 28 Abr por la mañana
 - [ ] Contract signed
 - [ ] Payment received (50% = $150 USD)
 
