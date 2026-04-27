@@ -15,11 +15,11 @@
 - [x] First contact
 - [x] Proposal sent (PDF)
 - [ ] Partner reviews
+- [ ] Contract signed
+- [ ] Payment received
 
 ## Proposal
 ![[farias_asociados_propuesta.pdf]]
-- [ ] Contract signed
-- [ ] Payment received
 
 ## Next Steps
 - Follow up: socio retorna feedback (expected Friday post Apr 26)
