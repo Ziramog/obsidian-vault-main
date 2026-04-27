@@ -4,7 +4,7 @@
 **Location:** Córdoba, Argentina
 **Vertical:** Estudio jurídico
 **Owner:** [[companies/wolfim]]
-**Status:** 🔥 Hot lead — reunión del 26 Abr
+**Status:** 🔥 Hot lead — specs pending
 
 ## Offer
 - Setup fee: $300 USD
@@ -13,19 +13,17 @@
 
 ## Pipeline
 - [x] First contact
-- [x] Demo/intro call (NodeMaven meeting)
-- [x] Proposal sent
+- [x] Demo/intro call (26 Abr)
+- [x] Proposal sent — mockup entregado
 - [ ] Specs finalized
 - [ ] Contract signed
 - [ ] Payment received
 
 ## Next Steps
-- Esperar specs del cliente
-- Socio revisa propuesta
-
-## Analysis
-- [[analyses/2026-04-26-nodeMaven-franco-roma]] (pending — audio to process)
+- Esperar feedback del cliente con su hermano (mockup revisando)
+- Si no hay respuesta mañana martes 28 → Juan lo llama
 
 ## Notes
-- NodeMaven meeting Apr 26 — capturar detalles
-- Precio acordado. Solo faltan specs.
+- Precio acordado verbally. Solo faltan specs técnicas.
+- Mockup ya entregado. Cliente lo ve con hermano.
+- Decision: mañana si no hay respuesta
