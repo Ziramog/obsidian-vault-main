@@ -80,5 +80,25 @@ Test: python3 mercadolibre_scraper.py --list-provinces → 24 provinces
 
 Juan said: "moves todo a produccion" → confirmed done.
 
+## 19:38 —mercadolibre_scraper.py reescrito con Playwright
+
+httpx version falló — ML detecta y redirige a captcha (account-verification).
+Reescrito con Playwright, mismo patrón que main_fixed.py:
+- browser.launch() + context.new_context()
+- Proxy DataImpulse + UA pool + viewport pool
+- Asset blocking
+- Webdriver fingerprint hidden
+
+Fixes applied:
+- detect_block(): false positive en "access denied" en texto de accesibilidad ML
+- create_browser_context(): usabrowser.new_context() en vez de persistent_context
+- browser.close() en finally
+
+Test: python3 mercadolibre_scraper.py --province cordoba --pages 1
+Result: 11 leads reales en 42s — nombre, ciudad, ml_profile_url
+
+Transfer-files: permission denied (root owned). Production path is canonical:
+/home/hermes/workspace/projects/scraping/mercadolibre_scraper.py
+
 ---
 *Last update: 2026-04-27 21:17*
