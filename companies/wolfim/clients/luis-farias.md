@@ -15,6 +15,9 @@
 - [x] First contact
 - [x] Proposal sent (PDF)
 - [ ] Partner reviews
+
+## Proposal
+![[farias_asociados_propuesta.pdf]]
 - [ ] Contract signed
 - [ ] Payment received
 

@@ -19,5 +19,8 @@
 ## Analysis
 - [[analyses/YYYY-MM-DD-rivas-inmuebles]] (pending)
 
+## Proposal
+![[rivas_inmuebles_propuesta.pdf]]
+
 ## Notes
 - Lead identificado. Necesita contacto.
