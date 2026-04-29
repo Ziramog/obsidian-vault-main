@@ -71,3 +71,15 @@
 - **PAGO 50% RECIBIDO** (29/04/2026)
 - **Nuevo scope (29/04/2026):** cambio radical de frontend — replica de sitio que Franco likes. Juan trabaja en PC local con Claude Code. Scope extra cubierto en el precio original.
 - **URL sitio referencia (pendiente):** Juan va a compartirla cuando la tenga
+
+## Sitio Referencia (29/04/2026)
+- **URL:** https://www.senadaadzem.com/
+- **Qué es:** Agente de lujo en Douglas Elliman, South Florida ($55M listings)
+- **Estilo a replicar:**
+  - Hero cinematográfico + tagline premium
+  - Grid de propiedades con fotos HD y precios USD
+  - Testimonios de clientes
+  - Mapa de zonas de cobertura
+  - News/press coverage
+  - Diseño ultra-premium minimalista
+- **Nota:** Escala muy diferente a Córdoba pero el estilo es replicable
