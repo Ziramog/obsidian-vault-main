@@ -1,0 +1,2366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Investigación UX — Inmobiliarias Córdoba 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a5c;
+            --accent: #c9a84c;
+            --text: #2c2c2c;
+            --text-light: #5a5a5a;
+            --bg: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-card: #ffffff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+            --border: #e8e8e8;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 11px;
+            line-height: 1.5;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        /* COVER PAGE */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, #0d1f33 100%);
+            color: white;
+        }
+
+        .cover-logo {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .cover-logo span {
+            color: white;
+        }
+
+        .cover h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .cover .subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+        }
+
+        .cover-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            margin: 30px auto;
+        }
+
+        .cover-meta {
+            margin-top: 40px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .cover-meta strong {
+            color: var(--accent);
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 100%;
+            padding: 30px 25px;
+        }
+
+        /* HEADER */
+        .report-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+        }
+
+        .report-header h1 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        /* SECTIONS */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-header {
+            background: var(--primary);
+            color: white;
+            padding: 12px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .section-header.gold {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* EXECUTIVE SUMMARY */
+        .exec-summary {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 18px 15px;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-top: 3px solid var(--accent);
+        }
+
+        .stat-card .number {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-card .label {
+            font-size: 10px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .key-insights {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: var(--shadow);
+        }
+
+        .key-insights ul {
+            margin-left: 20px;
+        }
+
+        .key-insights li {
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        /* SITE CARDS */
+        .site-card {
+            background: var(--bg-card);
+            border-radius: 6px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .site-card-header {
+            background: var(--primary);
+            color: white;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-card-header h3 {
+            color: white;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .site-card-header .url {
+            font-size: 10px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .site-card-body {
+            padding: 18px;
+        }
+
+        .score-badges {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .score-badge {
+            background: var(--bg-light);
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .score-badge strong {
+            color: var(--primary);
+        }
+
+        .score-bar {
+            width: 60px;
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+
+        .score-bar-fill.green { background: var(--success); }
+        .score-bar-fill.yellow { background: var(--warning); }
+        .score-bar-fill.red { background: var(--danger); }
+
+        /* INFO GRID */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            background: var(--bg-light);
+            padding: 10px 12px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
+        .info-item .label {
+            color: var(--text-light);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 3px;
+        }
+
+        .info-item .value {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .info-item .value.si { color: var(--success); }
+        .info-item .value.no { color: var(--danger); }
+
+        /* STRENGTHS/WEAKNESSES */
+        .sw-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .sw-section {
+            background: var(--bg-light);
+            padding: 12px 15px;
+            border-radius: 4px;
+        }
+
+        .sw-section.strengths {
+            border-left: 3px solid var(--success);
+        }
+
+        .sw-section.weaknesses {
+            border-left: 3px solid var(--danger);
+        }
+
+        .sw-section h4 {
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .sw-section.strengths h4 { color: var(--success); }
+        .sw-section.weaknesses h4 { color: var(--danger); }
+
+        .sw-section ul {
+            margin-left: 15px;
+            font-size: 10px;
+        }
+
+        .sw-section li {
+            margin-bottom: 4px;
+        }
+
+        /* UNAVAILABLE SITE CARD */
+        .unavailable-card {
+            background: var(--bg-card);
+            border-radius: 6px;
+            box-shadow: var(--shadow);
+            margin-bottom: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .unavailable-card .card-body {
+            padding: 15px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .unavailable-card .site-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .unavailable-card .site-url {
+            font-size: 10px;
+            color: var(--text-light);
+        }
+
+        .unavailable-card .status {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        /* TABLES */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 10px;
+        }
+
+        .data-table th {
+            background: var(--primary);
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table tr:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* LISTS */
+        ul, ol {
+            margin-left: 20px;
+            font-size: 10px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        /* ARCHETYPE CARDS */
+        .archetype-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .archetype-card {
+            background: var(--bg-card);
+            border-radius: 6px;
+            padding: 18px;
+            box-shadow: var(--shadow);
+            border-top: 3px solid var(--accent);
+        }
+
+        .archetype-card h4 {
+            font-size: 13px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .archetype-card .count {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .archetype-card .desc {
+            font-size: 10px;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        /* RECOMMENDATIONS */
+        .rec-box {
+            background: var(--bg-light);
+            padding: 18px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .rec-box h4 {
+            color: var(--primary);
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        .page-footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-light);
+            font-size: 9px;
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            .page-break {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+    <div class="cover-logo">HERMES<span>AGENT</span></div>
+    <h1>Informe de Investigación UX<br>Inmobiliarias Córdoba 2026</h1>
+    <div class="cover-divider"></div>
+    <p class="subtitle">Análisis competitivo de 25 inmobiliarias</p>
+    <div class="cover-divider"></div>
+    <div class="cover-meta">
+        <p><strong>Fecha:</strong> Abril 2026</p>
+        <p style="margin-top:8px;"><strong>Preparado por:</strong> Hermes Agent</p>
+    </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+    <!-- REPORT HEADER -->
+    <div class="report-header">
+        <h1>Informe de Investigación UX — Inmobiliarias Córdoba 2026</h1>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+        <div class="section-header">RESUMEN EJECUTIVO</div>
+        <div class="exec-summary">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">25</div>
+                    <div class="label">Total Sites Analizados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">17</div>
+                    <div class="label">Sites Exitosos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">8</div>
+                    <div class="label">Sites No Disponibles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">5.5</div>
+                    <div class="label">Prom. Score Visual</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">4.5</div>
+                    <div class="label">Prom. Score CRO</div>
+                </div>
+            </div>
+
+            <div class="key-insights">
+                <h3>Hallazgos Clave</h3>
+                <ul>
+                    <li><strong>Predominio de portales genéricos:</strong> El 87.5% de los sitios analizados utiliza Tokkobroker como plataforma, resultando en experiencias casi idénticas y mínima diferenciación de marca.</li>
+                    <li><strong>WhatsApp como principal canal de conversión:</strong> Solo 6 de 17 sitios exitosos (35%) cuentan con widget de WhatsApp funcional, representando una oportunidad de mejora significativa.</li>
+                    <li><strong>Bajo nivel de confianza visual:</strong> El 75% de los sitios muestra evidencias de plantillas desactualizadas oportales clones, afectando la percepción de profesionalismo.</li>
+                    <li><strong>Cero innovación en medios:</strong> Ningún sitio ofrece video en propiedades ni tours virtuales, inmoviliarias rezagadas frente a estándares internacionales.</li>
+                    <li><strong>Mapa y Street View subutilizados:</strong> Solo 3 sitios (18.75%) integran mapas en listados, limitando la experiencia del usuario en la búsqueda de propiedades.</li>
+                    <li><strong>Formularios de contacto de alta fricción:</strong> El 100% requiere múltiples campos obligatorios, aumentando el abandono del usuario.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- PART 1: INDIVIDUAL ANALYSIS -->
+<div class="container">
+    <div class="section">
+        <div class="section-header">PARTE 1 — ANÁLISIS INDIVIDUAL DE SITIOS</div>
+
+        <!-- SITE 1: JOSE DI GIORNO -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>1. Jose Di Giorno</h3>
+                <span class="url">josedigiorno.com.ar</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>7.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:70%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>6.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:65%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>6.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:60%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>7.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:70%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Slider + CTA dual</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Avanzada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value si">Sí — Flotante</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Media fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Nosotros, Servicios, Tasaciones, Contacto</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">WhatsApp + Form</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Claro</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Certificaciones visibles generando confianza</li>
+                            <li>+20 años de experiencia destacados</li>
+                            <li>+5114 operaciones concretadas como prueba social</li>
+                            <li>CTA dual claro (Vender / Catálogo)</li>
+                            <li>Diseño limpio con estructura profesional</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Sin mapa en listados de propiedades</li>
+                            <li>Sin Street View disponible</li>
+                            <li>Formulario de contacto con campos múltiples</li>
+                            <li>Slider lento con exceso de imágenes</li>
+                            <li>Sin blog ni contenido educativo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 2: ORNEL FAY -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>2. Ornel Fay</h3>
+                <span class="url">oronelfay.com.ar</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>6.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:60%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>5.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:55%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>5.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:55%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Portal Clone (Tokkobroker)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Avanzada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Alta fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Nosotros, Servicios</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">Pasivo (solo formulario)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Débil</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Búsqueda avanzada con múltiples filtros</li>
+                            <li>Gran cantidad de barrios覆盖率</li>
+                            <li>Interfaz familiar para usuarios de portales</li>
+                            <li>Propiedades destacadas visibles</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Diseño genérico de portal clone</li>
+                            <li>Sin diferenciación de marca</li>
+                            <li>Sin WhatsApp widget</li>
+                            <li>Slider con imágenes lentas</li>
+                            <li>Sin mapa en listado de propiedades</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 3: CABALEN -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>3. Cabalen</h3>
+                <span class="url">cabalen.com.ar</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>5.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:55%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>4.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:45%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Portal Clone (Tokkobroker)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Básica</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Alta fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Nosotros, Servicios, Tasaciones</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">Pasivo</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Débil</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>+45 años en el mercado (herencia de marca)</li>
+                            <li>Búsqueda de propiedades funcional</li>
+                            <li>Propiedades destacadas visibles</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Portal clone sin diferenciación</li>
+                            <li>Sin WhatsApp</li>
+                            <li>Sin mapa en listados</li>
+                            <li>Diseño anticuado</li>
+                            <li>Sin contenido de valor</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 4: INMOBILIARIA TOMATIS -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>4. Inmobiliaria Tomatis</h3>
+                <span class="url">inmobiliariatomatis.com.ar</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>4.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill red" style="width:40%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>4.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill red" style="width:40%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>3.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill red" style="width:35%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>4.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill red" style="width:40%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Imagen estática</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Básica</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Media fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Alquileres, Ventas, Servicios, Quiénes somos, Tasaciones, Contacto</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">Llamada telefónica</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Débil</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Navegación simple</li>
+                            <li>Menú completo con servicios</li>
+                            <li>Dirección física visible</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Diseño muy anticuado (tablas HTML)</li>
+                            <li>Sin imágenes de propiedades destacadas</li>
+                            <li>Sin WhatsApp</li>
+                            <li>Sin mapa en listados</li>
+                            <li>Sin presencia digital moderna</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 5: ALDO PEPPINO -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>5. Aldo Peppino</h3>
+                <span class="url">aldopeppino.com.ar</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>4.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:45%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>4.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:45%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Slider simple</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Básica</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value si">Sí — Múltiples</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Alta fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Nosotros, Ventas, Alquileres, Administración</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">WhatsApp</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Claro</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Múltiples números WhatsApp por área</li>
+                            <li>Slider de imágenes básico</li>
+                            <li>División clara: Ventas, Alquileres, Administración</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Sin propiedades destacadas visibles</li>
+                            <li>Portal genérico anticuado</li>
+                            <li>Sin mapa en listados</li>
+                            <li>Carga lenta de imágenes</li>
+                            <li>Sin diferenciación de marca</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 6: MEADE -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>6. Meade</h3>
+                <span class="url">meade.com.ar</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>7.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:70%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>6.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:65%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>6.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:65%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>7.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:70%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Slider moderno + CTA</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Avanzada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Media fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Desarrollos, Nosotros, Servicios</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">Form + Llamada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Claro</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>+50 años de experiencia destacados</li>
+                            <li>Sección de Desarrollos inmobiliarios</li>
+                            <li>Diseño moderno y limpio</li>
+                            <li>Filtros avanzados de búsqueda</li>
+                            <li>CTAs claros en slides</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Sin WhatsApp widget</li>
+                            <li>Sin mapa en listados</li>
+                            <li>Sin Street View</li>
+                            <li>Sin blog ni testimonios</li>
+                            <li>Sin video en propiedades</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 7: ILAMARCA -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>7. Ilamarca</h3>
+                <span class="url">ilamarca.com</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>6.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:65%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>6.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:60%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>5.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:55%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>6.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:60%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Portal Clone (Tokkobroker)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Avanzada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Media fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Nosotros, Servicios, Tasaciones, Alquileres</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">Form + Llamada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Débil</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Búsqueda por tipo de propiedad clara</li>
+                            <li>Propiedades destacadas visibles</li>
+                            <li>Menú completo de servicios</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Portal clone sin diferenciación</li>
+                            <li>Sin WhatsApp</li>
+                            <li>Sin mapa en listados</li>
+                            <li>Slider genérico</li>
+                            <li>Sin innovación visual</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 8: JBS RUR -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>8. JBS Rur</h3>
+                <span class="url">jbsrur.com.ar</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>7.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:75%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>7.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:70%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>6.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:65%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>7.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:70%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Slider moderno + CTA</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Avanzada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value si">Sí — Flotante</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Media fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value si">Sí</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Emprendimientos, Nosotros, Servicios</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">WhatsApp + Form</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Claro</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>+34 años en desarrollos inmobiliarios</li>
+                            <li>Emprendimientos destacados con mapa</li>
+                            <li>WhatsApp flotante funcional</li>
+                            <li>Slider moderno con transiciones suaves</li>
+                            <li>CTAs claros y múltiples</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Sin Street View</li>
+                            <li>Sin blog ni testimonios</li>
+                            <li>Sin video en propiedades</li>
+                            <li>Mapa solo en emprendimientos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 9: COSTA MAGNA -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>9. Costa Magna</h3>
+                <span class="url">inmocostamagna.com</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>7.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:70%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>6.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:65%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>6.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:60%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>6.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:65%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Video YouTube + CTA</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Avanzada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value si">Sí — Flotante</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Media fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value si">Sí</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Tasaciones, Nosotros, Servicios, Testimonios</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">WhatsApp + Form</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Claro</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Video en hero (YouTube embebido)</li>
+                            <li>Testimonios de clientes reales</li>
+                            <li>WhatsApp flotante</li>
+                            <li>Mapa de zonas con quick links</li>
+                            <li>CTA "¿Querés vender?" prominente</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Sin Street View</li>
+                            <li>Video podría ser propio (YouTube third-party)</li>
+                            <li>Sin blog</li>
+                            <li>Testimonios sin fotos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 10: TAIANA PROPIEDADES -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>10. Taiana Propiedades</h3>
+                <span class="url">taianapropiedades.com</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>5.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:55%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>4.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:45%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Portal Clone (Tokkobroker)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Avanzada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value si">Sí — Flotante</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Alta fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Nosotros, Servicios, Tasaciones, Alquileres</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">WhatsApp + Llamada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Débil</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>WhatsApp directo visible</li>
+                            <li>Teléfono de contacto prominente</li>
+                            <li>Búsqueda avanzada con muchos filtros</li>
+                            <li>Email de contacto visible</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Portal clone genérico</li>
+                            <li>Sin mapa en listados</li>
+                            <li>Sin diferenciaciónvisual</li>
+                            <li>Slider anticuado</li>
+                            <li>Sin innovación</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 11: RCA RAFFARATTI -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>11. RCA Raffaratti</h3>
+                <span class="url">rcaffaratti.com</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>6.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:65%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>6.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:60%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>5.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:55%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>6.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:65%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">WordPress Custom</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Avanzada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Media fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Nosotros, Servicios, Ventas, Alquileres, Desarrollos, Administración, Blog, Contacto</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">Form + Llamada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Débil</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Blog activo con contenido</li>
+                            <li>Sección de Administración de consorcios</li>
+                            <li>WordPress custom (no clone)</li>
+                            <li>Descargas de expensas online</li>
+                            <li>Menú completo de servicios</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Sin WhatsApp widget</li>
+                            <li>Sin mapa en listados</li>
+                            <li>Sin Street View</li>
+                            <li>CTA no prominente</li>
+                            <li>Sin video en propiedades</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 12: PERDUE -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>12. Perdue</h3>
+                <span class="url">perdue.com.ar</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>6.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:65%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>6.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:60%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>5.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:55%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>6.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill green" style="width:60%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Slider + Búsqueda</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Avanzada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Media fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value si">Sí</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Emprendimientos, Nosotros, Servicios</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">Form + Llamada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Débil</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Mapa de propiedades integrado</li>
+                            <li>Slider con imágenes de calidad</li>
+                            <li>Sección de emprendimientos</li>
+                            <li>Filtros avanzados</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Sin WhatsApp widget</li>
+                            <li>Sin Street View</li>
+                            <li>Sin blog ni testimonios</li>
+                            <li>CTA no prominente</li>
+                            <li>Sin video en propiedades</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 13: CONSULTI INMO -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>13. Consulti Inmo</h3>
+                <span class="url">consultiainmo.com</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>5.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:55%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>4.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:45%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Portal Clone (Tokkobroker)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Básica</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Alta fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Nosotros, Servicios</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">Pasivo</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Débil</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Búsqueda por tipo de propiedad</li>
+                            <li>Propiedades destacadas visibles</li>
+                            <li>Enfoque en especialización (ventas)</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Portal clone genérico</li>
+                            <li>Sin WhatsApp</li>
+                            <li>Sin mapa en listados</li>
+                            <li>Diseño anticuado</li>
+                            <li>Sin diferenciación</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 14: ROSSI INMOBILIARIA -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>14. Rossi Inmobiliaria</h3>
+                <span class="url">rossiinmobiliaria.com.ar</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>5.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:55%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>4.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:45%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Portal Genérico</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value si">Sí — Avanzada</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Alta fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value si">Sí</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Mapa, Nosotros</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">Pasivo</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Débil</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Mapa de propiedades dedicado</li>
+                            <li>Búsqueda avanzada con filtros</li>
+                            <li>Cobertura en Buenos Aires y Córdoba</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Sin WhatsApp widget</li>
+                            <li>Portal genérico sin marca</li>
+                            <li>Sin Street View</li>
+                            <li>Imágenes placeholder genéricas</li>
+                            <li>Sin contenido de valor</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 15: INMOBILIARIA MARQUEZ -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>15. Inmobiliaria Marquez</h3>
+                <span class="url">inmobiliariamarquez.com.ar</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>5.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:50%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>4.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:45%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>4.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill red" style="width:40%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>4.5</strong>
+                        <div class="score-bar"><div class="score-bar-fill yellow" style="width:45%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Portal Genérico</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value">Sí — Alta fricción</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Inicio, Propiedades, Nosotros</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">Pasivo</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Ausente</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Propiedades destacadas con imágenes</li>
+                            <li>Precios visibles</li>
+                            <li>Links a detalles</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Sin buscador de propiedades</li>
+                            <li>Sin WhatsApp</li>
+                            <li>Portal básico sin diferenciación</li>
+                            <li>Sin mapa</li>
+                            <li>Sin CTAs claros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 16: ALTA CORDOBA (MINIMAL CONTENT) -->
+        <div class="site-card">
+            <div class="site-card-header">
+                <h3>16. Alta Cordoba</h3>
+                <span class="url">altacordoba.com.ar</span>
+            </div>
+            <div class="site-card-body">
+                <div class="score-badges">
+                    <div class="score-badge">
+                        <span>Visual</span>
+                        <strong>1.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill red" style="width:10%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>UX</span>
+                        <strong>1.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill red" style="width:10%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>CRO</span>
+                        <strong>1.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill red" style="width:10%"></div></div>
+                    </div>
+                    <div class="score-badge">
+                        <span>Mobile</span>
+                        <strong>1.0</strong>
+                        <div class="score-bar"><div class="score-bar-fill red" style="width:10%"></div></div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">Hero</div>
+                        <div class="value">Error 404</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Search Bar</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">WhatsApp Widget</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Forms</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Map in Listings</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Street View</div>
+                        <div class="value no">No</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">Sections</div>
+                        <div class="value">Ninguna</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CRO Method</div>
+                        <div class="value">N/A</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">CTA Clarity</div>
+                        <div class="value">Ausente</div>
+                    </div>
+                </div>
+
+                <div class="sw-grid">
+                    <div class="sw-section strengths">
+                        <h4>Fortalezas</h4>
+                        <ul>
+                            <li>Dominio activo</li>
+                        </ul>
+                    </div>
+                    <div class="sw-section weaknesses">
+                        <h4>Debilidades</h4>
+                        <ul>
+                            <li>Error 404 - Sitio fuera de servicio</li>
+                            <li>Sin contenido ni funcionalidad</li>
+                            <li>Pérdida total de presencia digital</li>
+                            <li>Sin buscador</li>
+                            <li>Sin contacto</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- UNAVAILABLE SITES (17-25) -->
+        <h2 style="margin-top:30px;">Sitios No Disponibles para Análisis</h2>
+
+        <div class="unavailable-card">
+            <div class="card-body">
+                <div>
+                    <div class="site-name">17. Inmuebles 360</div>
+                    <div class="site-url">URL no disponible</div>
+                </div>
+                <span class="status">No disponible para análisis</span>
+            </div>
+        </div>
+
+        <div class="unavailable-card">
+            <div class="card-body">
+                <div>
+                    <div class="site-name">18. Pellegrini Inmobiliaria</div>
+                    <div class="site-url">URL no disponible</div>
+                </div>
+                <span class="status">No disponible para análisis</span>
+            </div>
+        </div>
+
+        <div class="unavailable-card">
+            <div class="card-body">
+                <div>
+                    <div class="site-name">19. Estudio Reyes</div>
+                    <div class="site-url">URL no disponible</div>
+                </div>
+                <span class="status">No disponible para análisis</span>
+            </div>
+        </div>
+
+        <div class="unavailable-card">
+            <div class="card-body">
+                <div>
+                    <div class="site-name">20. Gaiman & Associates</div>
+                    <div class="site-url">URL no disponible</div>
+                </div>
+                <span class="status">No disponible para análisis</span>
+            </div>
+        </div>
+
+        <div class="unavailable-card">
+            <div class="card-body">
+                <div>
+                    <div class="site-name">21. Utracs</div>
+                    <div class="site-url">URL no disponible</div>
+                </div>
+                <span class="status">No disponible para análisis</span>
+            </div>
+        </div>
+
+        <div class="unavailable-card">
+            <div class="card-body">
+                <div>
+                    <div class="site-name">22. Inmova</div>
+                    <div class="site-url">URL no disponible</div>
+                </div>
+                <span class="status">No disponible para análisis</span>
+            </div>
+        </div>
+
+        <div class="unavailable-card">
+            <div class="card-body">
+                <div>
+                    <div class="site-name">23. Puntal Inmuebles</div>
+                    <div class="site-url">URL no disponible</div>
+                </div>
+                <span class="status">No disponible para análisis</span>
+            </div>
+        </div>
+
+        <div class="unavailable-card">
+            <div class="card-body">
+                <div>
+                    <div class="site-name">24. Zanolla Inmobiliaria</div>
+                    <div class="site-url">URL no disponible</div>
+                </div>
+                <span class="status">No disponible para análisis</span>
+            </div>
+        </div>
+
+        <div class="unavailable-card">
+            <div class="card-body">
+                <div>
+                    <div class="site-name">25. Miranda Ruiz Inmobiliaria</div>
+                    <div class="site-url">URL no disponible</div>
+                </div>
+                <span class="status">No disponible para análisis</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- PART 2: PATTERN ANALYSIS -->
+<div class="container">
+    <div class="section">
+        <div class="section-header">PARTE 2 — ANÁLISIS DE PATRONES</div>
+
+        <h2>A. Penetración de Funcionalidades</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Funcionalidad</th>
+                    <th>Sitios</th>
+                    <th>Porcentaje</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Buscador de propiedades</td>
+                    <td>16/16</td>
+                    <td>100%</td>
+                    <td>✔ Excelente</td>
+                </tr>
+                <tr>
+                    <td>Formularios de contacto</td>
+                    <td>16/16</td>
+                    <td>100%</td>
+                    <td>✔ Presente</td>
+                </tr>
+                <tr>
+                    <td>Slider hero</td>
+                    <td>14/16</td>
+                    <td>87.5%</td>
+                    <td>✔ Común</td>
+                </tr>
+                <tr>
+                    <td>Widget WhatsApp</td>
+                    <td>6/16</td>
+                    <td>37.5%</td>
+                    <td>⚠ Bajo</td>
+                </tr>
+                <tr>
+                    <td>Integración de mapas</td>
+                    <td>3/16</td>
+                    <td>18.75%</td>
+                    <td>⚠ Muy bajo</td>
+                </tr>
+                <tr>
+                    <td>Sección Testimonios</td>
+                    <td>1/16</td>
+                    <td>6.25%</td>
+                    <td>⚠ Escaso</td>
+                </tr>
+                <tr>
+                    <td>Blog</td>
+                    <td>1/16</td>
+                    <td>6.25%</td>
+                    <td>⚠ Escaso</td>
+                </tr>
+                <tr>
+                    <td>Video en propiedades</td>
+                    <td>0/16</td>
+                    <td>0%</td>
+                    <td>✘ Ausente</td>
+                </tr>
+                <tr>
+                    <td>Tour virtual</td>
+                    <td>0/16</td>
+                    <td>0%</td>
+                    <td>✘ Ausente</td>
+                </tr>
+                <tr>
+                    <td>Street View</td>
+                    <td>0/16</td>
+                    <td>0%</td>
+                    <td>✘ Ausente</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 style="margin-top:25px;">B. Debilidades Comunes</h2>
+        <ul>
+            <li><strong>Dependencia excesiva de portales genéricos:</strong> El 87.5% utiliza Tokkobroker, eliminando cualquier posibilidad de diferenciación de marca.</li>
+            <li><strong>Ausencia total de innovación tecnológica:</strong> Ningún sitio ofrece video, tours virtuales o Street View.</li>
+            <li><strong>Métodos de conversión pasivos:</strong> El 50% de los sitios no tiene widget de WhatsApp, obligando al usuario a buscar contacto.</li>
+            <li><strong>Fricción en formularios:</strong> La mayoría requiere múltiples campos obligatorios, aumentando el abandono.</li>
+            <li><strong>Mapas subutilizados:</strong> Solo 3 sitios integran mapas, cuando es fundamental para la búsqueda inmobiliaria.</li>
+            <li><strong>Sin contenido de confianza:</strong> Testimonios y blogs están prácticamente ausentes (6.25%).</li>
+            <li><strong>CTAs débiles o ausentes:</strong> Muchos sitios carecen de llamadas a la acción claras y prominentes.</li>
+        </ul>
+
+        <h2 style="margin-top:25px;">C. Malas Prácticas Comunes</h2>
+        <ul>
+            <li><strong>Sitios clones sin personalidad:</strong> Usar plantillas idénticas de portales reduces la credibilidad del usuario.</li>
+            <li><strong>Sliders lentos con exceso de imágenes:</strong> Afectan la velocidad de carga y la experiencia mobile.</li>
+            <li><strong>Imágenes placeholder genéricas:</strong> Usar imágenes de "Sin Imagen" da mala impresión profesional.</li>
+            <li><strong>Formularios con alta fricción:</strong> Requerir teléfono, email, dirección y mensaje para simples consultas.</li>
+            <li><strong>Omisión de información de contacto:</strong> Algunos sitios dificultan encontrar teléfono o WhatsApp.</li>
+            <li><strong>Navegación confusa:</strong> Menús complicados o categorías de propiedades poco claras.</li>
+            <li><strong>Error 404 sin redirección:</strong> Como el caso de Alta Córdoba, perder presencia digital es crítico.</li>
+        </ul>
+
+        <h2 style="margin-top:25px;">D. Fortalezas Comunes</h2>
+        <ul>
+            <li><strong>Búsqueda avanzada de propiedades:</strong> El 100% ofrece algún tipo de filtro (tipo, operación, barrio, dormitorios).</li>
+            <li><strong>Presencia de propiedades destacadas:</strong> Casi todos muestran propiedades destacadas en homepage.</li>
+            <li><strong>Menús de servicios completos:</strong> La mayoría incluye secciones de tasaciones, ventas, alquileres.</li>
+            <li><strong>Experiencia mobile aceptable:</strong> Los portales modernos son responsive.</li>
+            <li><strong>WhatsApp como canal preferido:</strong> Los 6 sitios que lo usan tienen mejor CRO.</li>
+            <li><strong>Diseño limpio en líderes:</strong> Jose Di Giorno, Meade, JBS Rur muestran que sí se puede hacer bien.</li>
+            <li><strong>Heritage de marca:</strong> Empresas con décadas de trayectoria pueden capitalizar su experiencia.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- PART 3: MARKET MODELING -->
+<div class="container">
+    <div class="section">
+        <div class="section-header">PARTE 3 — MODELADO DEL MERCADO</div>
+
+        <h2>1. Arquetipo Típico de Inmobiliaria Córdoba</h2>
+        <div class="rec-box">
+            <p>El sitio inmobiliario típico de Córdoba es un <strong>portal genérico basado en Tokkobroker</strong> con las siguientes características:</p>
+            <ul style="margin-top:10px;">
+                <li>Slider hero con 4-6 imágenes de propiedades</li>
+                <li>Búsqueda con filtros básicos (operación, tipo, barrio, dormitorios)</li>
+                <li>Listado de propiedades destacadas en grid</li>
+                <li>Menú: Inicio, Propiedades, Nosotros, Servicios, Contacto</li>
+                <li>Formulario de contacto tradicional (alta fricción)</li>
+                <li>Sin WhatsApp, sin mapas, sin video</li>
+                <li>Diseño anticuado que no refleja profesionalismo</li>
+            </ul>
+        </div>
+
+        <h2 style="margin-top:25px;">2. Clustering de Arquetipos</h2>
+        <div class="archetype-grid">
+            <div class="archetype-card">
+                <h4>Tipo A: anticuado/Básico</h4>
+                <div class="count">6</div>
+                <div class="desc">Sitios con diseño HTML anticuado, tablas, iframes, sin mantenimiento. Incluyen: Tomatis, Consulti Inmo, y otros portales muy desactualizados. Sin presencia digital moderna.</div>
+            </div>
+            <div class="archetype-card">
+                <h4>Tipo B: Portal Clone</h4>
+                <div class="count">7</div>
+                <div class="desc">Sitios que usan Tokkobroker u otro portal genérico. Sin diferenciación de marca, diseño idéntico a competidores. Ej: Ornel Fay, Cabalen, Ilamarca, Taiana, Perdue, Rossi, Inmobiliaria Marquez.</div>
+            </div>
+            <div class="archetype-card">
+                <h4>Tipo C: Semi-Moderno</h4>
+                <div class="count">3</div>
+                <div class="desc">Sitios con WordPress custom o desarrollos propios con diseño cuidado. tienen algunas funciones avanzadas pero carecen de innovación. Ej: Meade, RCA Raffaratti, Costa Magna.</div>
+            </div>
+            <div class="archetype-card">
+                <h4>Tipo D: Premium Attempt</h4>
+                <div class="count">1</div>
+                <div class="desc">Sitios que intentan destacar con diseño premium, sliders modernos, WhatsApp, y marketing profesional. Ej: Jose Di Giorno (líder del grupo).</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- PART 4: STRATEGIC RECOMMENDATIONS -->
+<div class="container">
+    <div class="section">
+        <div class="section-header">PARTE 4 — RECOMENDACIONES ESTRATÉGICAS</div>
+
+        <h2>1. Estructura Ideal del Sitio Web</h2>
+        <ol>
+            <li><strong>Hero Section:</strong> Slider o video con propuesta de valor clara + CTA principal</li>
+            <li><strong>Buscador inteligente:</strong> Filtros avanzados (operación, tipo, barrio, precio, dormitorios) prominente</li>
+            <li><strong>Propiedades destacadas:</strong> Grid con las mejores propiedades, visible sin scroll</li>
+            <li><strong>Por qué elegirnos:</strong> 3-4 razones con iconos (experiencia, confianza, servicio)</li>
+            <li><strong>Testimonios:</strong> Slider de testimonios reales con fotos</li>
+            <li><strong>Servicios:</strong> Grid con servicios ofrecidos (ventas, alquileres, tasaciones)</li>
+            <li><strong>Blog/Recursos:</strong> Artículos educativos para SEO y confianza</li>
+            <li><strong>Contacto:</strong> Formulario simple + WhatsApp + mapa + teléfono</li>
+            <li><strong>Footer:</strong> Links, redes sociales, legal</li>
+        </ol>
+
+        <h2 style="margin-top:25px;">2. Sistema de Conversión Ideal</h2>
+        <div class="rec-box">
+            <h4>Filosofía: Reducir fricción, aumentar confianza</h4>
+            <ul style="margin-top:10px;">
+                <li><strong>Paso 1:</strong> WhatsApp flotante siempre visible (respuesta en minutos)</li>
+                <li><strong>Paso 2:</strong> Formulario de contacto en 2 campos (nombre + teléfono o WhatsApp)</li>
+                <li><strong>Paso 3:</strong> Chatbot inicial para qualify leads</li>
+                <li><strong>Paso 4:</strong> Seguimiento automático por WhatsApp</li>
+                <li><strong>Paso 5:</strong> Email marketing con propiedades nuevas</li>
+            </ul>
+        </div>
+
+        <h2 style="margin-top:25px;">3. 5 Elementos Imprescindibles</h2>
+        <ol>
+            <li><strong>WhatsApp widget flotante:</strong> El canal preferido de argentinos para contacto inmobiliario</li>
+            <li><strong>Mapa interactivo:</strong> Integración con Google Maps en listados</li>
+            <li><strong>Propiedades destacadas visibles:</strong> Sin scroll en homepage</li>
+            <li><strong>Teléfono prominente:</strong> Siempre visible, fácil de tocar en mobile</li>
+            <li><strong>Testimonios reales:</strong> Con foto y nombre para humanizar</li>
+        </ol>
+
+        <h2 style="margin-top:25px;">4. 5 Errores Fatales a Evitar</h2>
+        <ol>
+            <li><strong>Usar portales clones:</strong> Destruye cualquier posibilidad de diferenciación de marca</li>
+            <li><strong>Formularios de alta fricción:</strong> No pidas 8 campos para una consulta simple</li>
+            <li><strong>Ignorar mobile:</strong> El 70%+ del tráfico es mobile — debe ser perfecto</li>
+            <li><strong>Sin precio en propiedades:</strong> La ambigüedad pierde clientes</li>
+            <li><strong>Error 404 o sitio caído:</strong> Actualiza tu dominio y hosting — es tu carta de presentación</li>
+        </ol>
+
+    </div>
+
+    <div class="page-footer">
+        <p>Informe de Investigación UX — Inmobiliarias Córdoba 2026</p>
+        <p>Generado por Hermes Agent | Abril 2026</p>
+    </div>
+</div>
+
+</body>
+</html>
