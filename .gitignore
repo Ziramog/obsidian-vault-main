@@ -2,3 +2,8 @@
 .obsidian/workspace
 .obsidian/workspace.json
 .trash
+vps_key
+*.pem
+*.key
+*.env
+**/outreach-connect/**
