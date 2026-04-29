@@ -3,7 +3,7 @@
 **Location:** Alta Gracia, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** ✅ CONTRATO CERRADO — arrancamos
+**Status:** 🔨 EN DESARROLLO — cambio radical de frontend
 **Deal:** $400 USD (pago único) + $25 USD/mes
 
 ## Deal Terms
@@ -21,10 +21,21 @@
 - [x] Website analysis (sitio actual vs demo)
 - [x] Proposal sent (PDF)
 - [x] **Deal closed — aceptado 28/04/2026**
-- [ ] Enviar contrato / acordar forma de pago
-- [ ] Recibir 50% inicial ($200 USD)
-- [ ] Recibir credenciales dominio + propiedades
-- [ ] Kickoff / inicio del desarrollo
+- [x] Contrato enviado / forma de pago acordada (Wise)
+- [x] Recibir 50% inicial ($200 USD) → RECIBIDO
+- [x] Recibir credenciales dominio + propiedades
+- [x] Kickoff / inicio del desarrollo
+- [ ] Cambio radical de frontend (ver Notes)
+- [ ] Segunda entrega / остаток del desarrollo
+- [ ] 50% final ($200 USD)
+- [ ] Lanzamiento / Go live
+
+## Cambio Radical de Frontend (29/04/2026)
+- Franco quiere un sitio REPLICA de uno que le gusta
+- Juan lo está haciendo en PC local con Claude Code
+- Frontend completamente nuevo — trabajo extra
+- Scope: solo frontend (estructura + diseño), misma lógica/backend
+- Precio cerrado: **$400 USD** + **$25 USD/mes** (sin cambios)
 
 ## Sitio Actual — Diagnóstico
 - **URL:** roggeroyroma.com.ar
@@ -57,3 +68,6 @@
 - Plazo acordado: 2 semanas
 - Competencia: Argenprop ($200-400/mes atado), Zonaprop (ads pagos)
 - Primer cliente real de Wolfim —交付 con excelencia
+- **PAGO 50% RECIBIDO** (29/04/2026)
+- **Nuevo scope (29/04/2026):** cambio radical de frontend — replica de sitio que Franco likes. Juan trabaja en PC local con Claude Code. Scope extra cubierto en el precio original.
+- **URL sitio referencia (pendiente):** Juan va a compartirla cuando la tenga
