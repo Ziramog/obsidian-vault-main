@@ -20,8 +20,8 @@ companies/wolfim/
 ```
 
 ## Clients
-- [[companies/wolfim/clients/franco-roma]] 🔥
-- [[companies/wolfim/clients/luis-farias]] 📋
+- [[companies/wolfim/clients/franco-roma]] ✅ **CERRADO 28/04** — $400 + $25/mes
+- [[companies/wolfim/clients/luis-farias]] 🔥 PDF enviado
 - [[companies/wolfim/clients/rivas-inmuebles]] 🆕
 - [[companies/wolfim/clients/conforti-propiedades]] 🆕
 
