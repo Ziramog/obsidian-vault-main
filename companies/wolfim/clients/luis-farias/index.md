@@ -4,7 +4,7 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 📋 Seguimiento activo — contacto mañana por la mañana (28 Abr 2026)
+**Status:** 🔥 Propuesta enviada — SILENCIO (1 Mayo 2026)
 
 ## Offer
 - Setup fee: $300 USD (pago único)
@@ -17,8 +17,8 @@
 ## Pipeline
 - [x] First contact
 - [x] Proposal sent v1 (mar 2026)
-- [ ] Proposal sent v2 (27 Abr 2026) — diagnóstico profundo
-- [ ] Seguimiento programado — contacto mañana 28 Abr por la mañana
+- [x] Proposal enviada final HTML (1 Mayo 2026) — por WA
+- [ ] Seguimiento — SILENCIO, reintentar en 2-3 días
 - [ ] Contract signed
 - [ ] Payment received (50% = $150 USD)
 
