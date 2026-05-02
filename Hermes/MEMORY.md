@@ -6,7 +6,7 @@
 ---
 ## Última actualización
 Fecha: 2026-05-02
-Sesión: Apertura — primera sesión post-configuración vault
+Sesión: Cierre — vault configurado, sistema listo para auto-arranque
 
 ---
 
