@@ -23,7 +23,7 @@ Sesión: Apertura — primera sesión post-configuración vault
 
 | Lead | Empresa | Valor | Estado | Próxima acción | Fecha límite |
 |---|---|---|---|---|---|
-| Franco Roma | Roggero & Roma | $400 + $25/mes | ✅ CERRADO 28/04 | Enviar contrato | 2026-05-02 |
+| Franco Roma | Roggero & Roma | $400 + $25/mes | ✅ CERRADO — $200 adelantados 02/05 | Contrato en progreso (50%) | 2026-05-03 |
 | Luis Farias | Farias & Asociados | $300 + $50/mes | PDF enviado | Follow-up si no responde | 2026-05-05 |
 | Comforti Propiedades | — | — | Sin contactar | Integrar a secuencia outreach | pendiente |
 | Rivas Inmuebles | — | — | Sin contactar | Integrar a secuencia outreach | pendiente |
@@ -49,7 +49,7 @@ Sesión: Apertura — primera sesión post-configuración vault
 | Mes | Ingreso | Gasto | Gap | Estado |
 |---|---|---|---|---|
 | Abril 2026 | $400 | $900 | –$500 | 🔴 |
-| Mayo 2026 | $0 | en curso | — | 🟡 En curso |
+| Mayo 2026 | $200 | en curso | — | 🟡 En curso (anticipo Franco Roma) |
 
 ---
 
@@ -57,8 +57,8 @@ Sesión: Apertura — primera sesión post-configuración vault
 
 **Acción:** Enviar contrato a Franco Roma (Roggero & Roma)
 **Comprometida en sesión:** 2026-05-02
-**Ejecutada:** pendiente
-**Resultado:** —
+**Ejecutada:** en curso (50%)
+**Resultado:** $200 adelantados recibidos 02/05 — página en desarrollo (50%)
 
 ---
 
@@ -75,15 +75,14 @@ Sesión: Apertura — primera sesión post-configuración vault
 
 | Servicio | Estado | Última verificación |
 |---|---|---|
-| wolfim-agent Docker | Running (port 4011) | 2026-05-02 |
-| wolfim-client Docker | ⚠️ No en PM2 | 2026-05-02 |
-| wolfim-cron-alerts Docker | ⚠️ No en PM2 | 2026-05-02 |
 | outreach-api (PM2) | Running (pid 213055, uptime 46h) | 2026-05-02 |
 | outreach-daemon (PM2) | Running (pid 228261, uptime 40h, restarts 2) | 2026-05-02 |
+| wolfim-agent Docker | 🔁 Legacy — WA Automation (no activo) | 2026-05-02 |
+| wolfim-client Docker | 🔁 Legacy — WA Automation (no activo) | 2026-05-02 |
+| wolfim-cron-alerts Docker | 🔁 Legacy — WA Automation (no activo) | 2026-05-02 |
 
-**Leads en DB:** [N — consultar Supabase]
-**Outreach enviados (mes actual):** [N — consultar DB]
-**Errores activos en PM2:** Restarts 2 en outreach-daemon — monitorear
+**Leads en DB:** ~800
+**Outreach enviados (mayo 2026):** 0
 
 ---
 
