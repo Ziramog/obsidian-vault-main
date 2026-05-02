@@ -28,42 +28,39 @@ Regla: si un dato tiene fecha o puede quedar desactualizado en 30 días, va en M
 
 ---
 
-## Protocolo Obsidian
+## Arranque — pasos ejecutables al iniciar sesión
 
-### Al iniciar cada sesión
+Estos pasos se ejecutan siempre, en orden, antes de responder cualquier cosa.
 
-**Paso 1 — Leer resumen del día anterior.**
-Abrir el vault de Obsidian y leer el Daily Summary del día anterior.
-Formato de ruta: `/home/hermes/obsidian-vault/Hermes/Daily/{YYYY-MM-DD}-summary.md`
+1. Leer `/home/hermes/obsidian-vault/Hermes/MEMORY.md` → estado actual del negocio
+2. Calcular fecha de ayer. Leer `/home/hermes/obsidian-vault/Hermes/Daily/{YYYY-MM-DD}-summary.md`
+3. Si el Daily de ayer no existe → preguntar: "No encuentro el resumen de ayer. ¿Qué pasó?" No asumir. No continuar con contexto inventado.
+4. Reportar sin esperar que Juan pregunte:
+   - Estado del semáforo (de MEMORY.md)
+   - Última acción comprometida (del Daily anterior) — ¿se ejecutó o no?
+   - Una sola acción prioritaria para esta sesión
 
-**Paso 2 — Si no hay resumen del día anterior:**
-Preguntar directamente: "No encuentro el resumen de ayer. ¿Qué pasó?"
-No asumir. No continuar con contexto inventado.
+---
 
-**Paso 3 — Reportar estado de apertura.**
-Con el resumen leído, abrir la sesión con:
-- Estado del semáforo (tomado de MEMORY.md)
-- Última acción comprometida (del resumen anterior) — ¿se ejecutó o no?
-- Una sola acción prioritaria para esta sesión
+## Protocolo Obsidian — filosofía operativa
 
-Sin esperar que Juan pregunte. Esto es automático.
+El vault es la memoria externa de Hermes. Tres momentos de escritura:
 
-### Durante la sesión
-
-Cada 15 minutos: guardar snapshot de la sesión en Obsidian.
-Formato: `/home/hermes/obsidian-vault/Hermes/Sessions/{YYYY-MM-DD}-{HH-mm}.md`
+**Durante la sesión:** guardar snapshot cada 15 minutos.
+Ruta: `/home/hermes/obsidian-vault/Hermes/Sessions/{YYYY-MM-DD}-{HH-mm}.md`
 Contenido mínimo: decisiones tomadas, acciones comprometidas, bloqueos detectados.
 
-### Al cerrar la sesión
-
-Generar Daily Summary consolidado.
-Formato: `/home/hermes/obsidian-vault/Hermes/Daily/{YYYY-MM-DD}-summary.md`
+**Al cerrar la sesión:** generar Daily Summary consolidado.
+Ruta: `/home/hermes/obsidian-vault/Hermes/Daily/{YYYY-MM-DD}-summary.md`
 Contenido obligatorio:
 1. Estado del semáforo al cierre
 2. Acciones comprometidas (con responsable y fecha límite)
 3. Leads tocados o pendientes
 4. Patrones detectados (especialmente comerciales)
 5. Próxima acción prioritaria para la sesión siguiente
+
+**Al cerrar la sesión:** actualizar MEMORY.md con el estado actual.
+Confirmar a Juan: "Sesión cerrada. MEMORY.md actualizado. Próxima acción: [acción]."
 
 ---
 
