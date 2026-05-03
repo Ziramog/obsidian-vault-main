@@ -16,6 +16,22 @@ Eso vive en MEMORY.md.
 
 ---
 
+## Zona horaria del sistema
+
+**VPS timezone:** `America/Argentina/Buenos_Aires` (UTC-3, sin DST desde marzo 2007)
+
+**Referencia rápida — cron schedule vs hora Argentina:**
+| Cron | Hora Argentina |
+|------|---------------|
+| `0 4 * * *` | 4:00 AM Argentina |
+| `0 7 * * *` | 7:00 AM Argentina |
+| `0 8 * * *` | 8:00 AM Argentina |
+| `0 11 * * *` | 11:00 AM Argentina |
+
+**Regla:** todos los crons se escriben en hora Argentina. El VPS ya está en esa timezone.
+
+---
+
 ## Infraestructura activa
 
 **VPS:** Contabo — activo y prepagado
@@ -55,18 +71,18 @@ Si un servicio falla: diagnóstico primero en PM2 logs antes de asumir problema 
 
     companies/
       wolfim/              ← Wolfim — empresa
-        projects/          ← productos futuros de Wolfim
+        projects/           ← productos futuros de Wolfim
 
     projects/
-      baileysconnect/      ← WhatsApp number connector (próximo deploy)
+      baileysconnect/       ← WhatsApp number connector (próximo deploy)
         apps/
-          api/             ← Express + Baileys service
-          web/             ← Next.js frontend (QR, dashboard, leads, stats)
-      scraping/            ← lead generation
+          api/              ← Express + Baileys service
+          web/              ← Next.js frontend (QR, dashboard, leads, stats)
+      scraping/             ← lead generation
 
-    autonomous-daemon/     ← WhatsApp outreach runner (PM2)
+    autonomous-daemon/      ← WhatsApp outreach runner (PM2)
 
-  .hermes/                 ← config de Hermes (NO TOCAR sin consultar)
+  .hermes/                  ← config de Hermes (NO TOCAR sin consultar)
     SOUL.md
     AGENTS.md
 ```
