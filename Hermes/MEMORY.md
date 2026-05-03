@@ -23,7 +23,7 @@ Sesión: Cron — Inmobiliarias UX pipeline ejecutada (04:30), PDF enviado a Tel
 
 | Lead | Empresa | Valor | Estado | Próxima acción | Fecha límite |
 |---|---|---|---|---|---|
-| Franco Roma | Roggero & Roma | $400 + $25/mes | ✅ CERRADO — $200 adelantados 02/05 | Contrato en progreso (50%) | 2026-05-03 |
+| Franco Roma | Roggero & Roma | $400 + $25/mes | ✅ CERRADO y COBRADO — $200 adelantados 02/05 | Entrega final en curso (sin acción comercial pendiente) | — |
 | Luis Farias | Farias & Asociados | $300 + $50/mes | PDF enviado | Follow-up si no responde | 2026-05-05 |
 | Comforti Propiedades | — | — | Sin contactar | Integrar a secuencia outreach | pendiente |
 | Rivas Inmuebles | — | — | Sin contactar | Integrar a secuencia outreach | pendiente |
