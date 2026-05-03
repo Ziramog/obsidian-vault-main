@@ -55,10 +55,10 @@ Sesión: Cron — Inmobiliarias UX pipeline ejecutada (04:30), PDF enviado a Tel
 
 ## Última acción comprometida
 
-**Acción:** Enviar contrato a Franco Roma (Roggero & Roma)
-**Comprometida en sesión:** 2026-05-02
-**Ejecutada:** en curso (50%)
-**Resultado:** $200 adelantados recibidos 02/05 — página en desarrollo (50%)
+**Acción:** Activar outreach a 117 leads de concesionarias (Supabase)
+**Comprometida en sesión:** 2026-05-03 (domingo)
+**Ejecutada:** pendiente — lunes 2026-05-04
+**Resultado:** —
 
 ---
 
