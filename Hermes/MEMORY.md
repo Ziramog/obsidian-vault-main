@@ -77,11 +77,16 @@ Sesión: Cierre — vault configurado, sistema listo para auto-arranque
 |---|---|---|
 | outreach-api (PM2) | Running (pid 213055, uptime 46h) | 2026-05-02 |
 | outreach-daemon (PM2) | Running (pid 228261, uptime 40h, restarts 2) | 2026-05-02 |
-| wolfim-agent Docker | 🔁 Legacy — WA Automation (no activo) | 2026-05-02 |
-| wolfim-client Docker | 🔁 Legacy — WA Automation (no activo) | 2026-05-02 |
-| wolfim-cron-alerts Docker | 🔁 Legacy — WA Automation (no activo) | 2026-05-02 |
+| maps_master.py | Running (background, cron cada 2h) | 2026-05-03 |
 
-**Leads en DB:** ~800
+**Scraping activo:**
+- Script: `/tmp/maps_master.py` — 12 ciudades × 3 queries → Supabase directo
+- State: `/tmp/concesionarias_batch/maps_state.json`
+- Cron: `0 */2 * * *` → `/tmp/run_maps.sh`
+- Proxy: `datacenterproxy.com:31112` (rotating)
+- Sin proxy para Maps (VPS Alemania = google.de, requiere consent cookies)
+
+**Leads en DB:** 117 total (concesionarias_autos) — 25 nuevos esta sesión
 **Outreach enviados (mayo 2026):** 0
 
 ---
