@@ -4,7 +4,7 @@ type: project
 created: 2026-05-02
 updated: 2026-05-02
 tags: [project, research, startups, latam, idea-validation]
-status: germination
+status: active
 confidence: low
 ---
 
@@ -20,49 +20,70 @@ Encontrar UNA idea que:
 3. Matchée con nuestras capacidades (Next.js, Supabase, WhatsApp, scrapers, automation)
 4. Tenga mercado local real
 
+## Estado actual
+- ✅ YC LatAm scrapeado: 216 companies, 8 industrias
+- ✅ Guardado en `data/yc_latam_raw.json`
+- ✅ Análisis en `01-yc-latam-analysis.md`
+- ⏳ Enrich con descripciones individuales (opcional, para profundizar)
+- ⏳ Match con mercado argentino
+
 ## Fuentes de datos
-- [YC Startup Directory](https://www.ycombinator.com/companies) — 5,860 companies
-- [YC Companies filter: Latin America](https://www.ycombinator.com/companies?regions=Latin+America) — 217 companies
-- [ ] Scraper de YC companies (API o scraping)
+- ✅ YC Startup Directory (LatAm filter): 216 companies
+- ✅ Guardado en `projects/startup-incubator/data/yc_latam_raw.json`
+- [ ] Serper/Browser para enriquecimiento individual (futuro)
 
-## Playbook lento
+## Análisis rápido (216 companies)
 
-### Fase 1 — Germinar (sin fecha límite)
-- [ ] Scrapear YC companies → JSON con nombre, industria, descripción, batch,HQ, URL
-- [ ] Normalizar por industria/categoría
-- [ ] Guardar en CSV/Supabase
-- [ ] Investigar: ¿cuáles de esas ideas tienen mercado en LatAm?
-- [ ] Scoring: Replicabilidad × Mercado LatAm × Nuestros skills
+Top industrias en LatAm:
+- B2B: 76 ✅
+- Fintech: 68 ⚠️ (saturado en payments, ativo en credit)
+- Consumer: 27 ✅
+- Real Estate: 16 ✅
+- Healthcare: 14 ✅
+- Education: 9 ✅
+- Industrials: 4 🔴
+- Government: 2 🔴
 
-### Fase 2 — Nutrir (post-germinación)
-- [ ] Profundizar en las 5-10 ideas más promising
-- [ ] Investigar competencia local (Argentina, LatAm)
-- [ ] Validar con datos: ¿hay demanda real o solo curiosidad?
+Empresas argentinas: 16 (Wallbit, Ping, Sytex, Wibond, Rebill, Coderhouse, etc.)
 
-### Fase 3 — Elegir (post-nutrición)
-- [ ] Una sola idea
-- [ ] Validación de pago (primer cliente antes de construir)
-- [ ] MVP mínimo
+## Ideas promisorias para investigar
 
-## Capacidades disponibles para matchear
-- Next.js / React
-- Supabase (DB + auth + functions)
-- WhatsApp automation (YCloud API)
-- Scrapers (Google Maps, Serper)
-- Make.com automations
-- Ventas B2B (concesionarias, inmobiliarias)
+### 1. B2B Operations / Productivity
+- Ya existe: Sytex (CBA), Encuadrado (Chile), Treinta (Colombia)
+- Concepto: gestión de operaciones para PYMES
+- Match técnico: alto (Next.js + Supabase + automation)
 
-## Categorías YC para investigar primero en LatAm
-- [ ] Fintech (622 companies) — pagos, lending, banking
-- [ ] B2B SaaS (2,994 companies) — herramientas para empresas
-- [ ] Healthcare (668) — healthtech
-- [ ] Real Estate (153) — proptech
-- [ ] Education (124) — edtech
+### 2. B2B Finance & Accounting
+- Ya existe: Chipax, Contalink, Simetrik
+- Concepto: automatizar contabilidad o fiscalidad para independientes
+- Match técnico: medio-alto
 
-## Próximo paso
-Scrapear YC directory completo con categorización por industria.
-Guardar en CSV → Obsidian → Supabase para consultas.
+### 3. B2B HR / Recruiting
+- Ya existe: HENRY, Talentropy, lapzo
+- Concepto: ATS simplificado con WhatsApp como canal
+- Match técnico: alto (WhatsApp integration es diferenciador)
 
-## Nota
-Este proyecto es LONG-TERM. No compete con el pipeline de concessionarias.
-Se trabaja cuando hay espacio mental, no cuando hay presión financiera.
+### 4. B2B Supply Chain / Logistics
+- Ya existe: clicOH, Nuvocargo, SkydropX
+- Concepto: tracking last-mile o gestión de inventario
+- Match técnico: medio
+
+### 5. Healthcare — Consumer Health
+- Ya existe: Terapify, Examedi
+- Concepto: booking de turnos vía WhatsApp para consultorios
+- Match técnico: alto
+
+### 6. Real Estate CRM
+- Ya existe: Mudafy, Houm
+- Concepto: CRM inmobiliario (ya estamos validando con Outreach)
+- Match técnico: 100% — es lo que hacemos
+
+## Nota sobre saturación
+Muchas sub-industrias ya tienen players en LatAm.
+No significa que no hay espacio — significa que la idea está validada.
+Lo que importa es: ¿podemos差异化 (differentiate) con execution más rápida o mejor enfoque?
+
+## Recursos
+- [YC LatAm raw data](data/yc_latam_raw.json)
+- [YC LatAm analysis](01-yc-latam-analysis.md)
+- [YC Companies Directory reference](../../references/yc-companies-directory.md)
