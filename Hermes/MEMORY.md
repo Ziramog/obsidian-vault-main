@@ -13,9 +13,9 @@ Sesión: Cron — Inmobiliarias UX pipeline ejecutada (04:30), PDF enviado a Tel
 ## Semáforo actual
 
 **Estado:** 🔴 Crítico
-**Gap mensual:** $400 ingreso / $900 gasto = –$500/mes
-**Última revisión financiera:** 2026-05-02
-**Próxima revisión financiera:** domingo 2026-05-04
+**Gap mensual:** $200 ingreso / $900 gasto = –$700/mes
+**Última revisión financiera:** 2026-05-03 (domingo)
+**Próxima revisión financiera:** domingo 2026-05-10
 
 ---
 
@@ -49,7 +49,7 @@ Sesión: Cron — Inmobiliarias UX pipeline ejecutada (04:30), PDF enviado a Tel
 | Mes | Ingreso | Gasto | Gap | Estado |
 |---|---|---|---|---|
 | Abril 2026 | $400 | $900 | –$500 | 🔴 |
-| Mayo 2026 | $200 | en curso | — | 🟡 En curso (anticipo Franco Roma) |
+| Mayo 2026 | $200 | en curso | –$700 | 🔴 Crítico (anticipo Franco Roma — $0 otros ingresos) |
 
 ---
 
