@@ -1,5 +1,5 @@
 # AGENTS.md — Contexto técnico y operativo del sistema
-# Ubicación master: ~/.hermes/AGENTS.md (VPS) + vault/Hermes/Config/AGENTS.md (referencia)
+# Ubicación master: ~/.hermes/AGENTS.md (VPS) + obsidian-vault/Hermes/Config/AGENTS.md (referencia)
 # Este archivo describe lo que no cambia semana a semana.
 # Estado del negocio, pipeline y objetivos con fecha → MEMORY.md
 # Principios, protocolos y criterios → SOUL.md
@@ -16,41 +16,37 @@ Eso vive en MEMORY.md.
 
 ---
 
-## Zona horaria del sistema
-
-**VPS timezone:** `America/Argentina/Buenos_Aires` (UTC-3, sin DST desde marzo 2007)
-
-**Referencia rápida — cron schedule vs hora Argentina:**
-| Cron | Hora Argentina |
-|------|---------------|
-| `0 4 * * *` | 4:00 AM Argentina |
-| `0 7 * * *` | 7:00 AM Argentina |
-| `0 8 * * *` | 8:00 AM Argentina |
-| `0 11 * * *` | 11:00 AM Argentina |
-
-**Regla:** todos los crons se escriben en hora Argentina. El VPS ya está en esa timezone.
-
----
-
 ## Infraestructura activa
 
 **VPS:** Contabo — activo y prepagado
 **Dominios:** Wolfim.com, Corantis.com
 **Stack:** Next.js, Supabase, Baileys (WA), Make.com, Resend, LemonSqueezy, MercadoPago
 **Claves de API configuradas:** MiniMax ✓, OpenRouter ✓, Tavily ✓
+**Supabase:** https://mrrieeeilameejhvbccu.supabase.co
+**Zona horaria VPS:** America/Argentina/Buenos_Aires (UTC-3)
 
 ### Servicios en VPS
 
-| Servicio | Tipo | Puerto |
-|---|---|---|
-| wolfim-agent Docker | WhatsApp + API | 4011 |
-| wolfim-client Docker | WhatsApp outreach | — |
-| wolfim-cron-alerts Docker | Cron alerts | — |
-| autonomous-daemon | WhatsApp outreach runner | PM2 |
+| Servicio | Tipo | Puerto | Estado |
+|---|---|---|---|
+| wolfim-agent Docker | WhatsApp + API | 4011 | Running |
+| wolfim-client Docker | WhatsApp outreach | — | Running |
+| wolfim-cron-alerts Docker | Cron alerts | — | Running |
+| outreach-api | API PM2 | — | Running (pid 213055) |
+| autonomous-daemon | WhatsApp outreach runner | — | PM2 (pid 228261) |
 
-**Última verificación de arquitectura:** [fecha — actualizar después de cada cambio en VPS]
-
+**Última verificación de arquitectura:** 2026-05-03
 Si un servicio falla: diagnóstico primero en PM2 logs antes de asumir problema de código.
+
+### Base de datos — Supabase
+
+| Vertical | Rows |
+|---|---|
+| inmobiliarias | ~1.482 |
+| concesionarias_autos | ~418 |
+| concesionarias | ~100 |
+
+Campo `company` a agregar cuando se active segunda empresa (Ango u otra) — sin duplicar infraestructura.
 
 ---
 
@@ -58,41 +54,56 @@ Si un servicio falla: diagnóstico primero en PM2 logs antes de asumir problema 
 
 ```
 /home/hermes/
-  data/
-    baileysconnect/        ← sesiones WhatsApp (BaileysConnect)
-    wolfim/                ← sesiones WhatsApp (wolfim-agent Docker)
+  data/                          ← estado persistente
+    baileysconnect/              ← sesiones WhatsApp (BaileysConnect)
+    wolfim/                      ← sesiones WhatsApp (wolfim-agent Docker)
+    outreach.db                  ← DB principal de outreach
+    wolfim.db
 
   workspace/
-    hq/                    ← estrategia Juan + Hermes
-      research/
-      opportunities/
+    hq/                          ← estrategia Juan + Hermes
+      research/                  ← investigaciones (API providers, modelos, proxies, WA anti-ban)
       decisions/
-      hermes-learning/
+      hermes-learning/           ← agent patterns, experiments, prompting, workflows
+      propuestas/                ← propuestas generadas (VPS genera → Obsidian conserva)
 
     companies/
-      wolfim/              ← Wolfim — empresa
-        projects/           ← productos futuros de Wolfim
+      wolfim/                    ← Wolfim — empresa
+        projects/
 
     projects/
-      baileysconnect/       ← WhatsApp number connector (próximo deploy)
+      baileysconnect/            ← WhatsApp number connector
         apps/
-          api/              ← Express + Baileys service
-          web/              ← Next.js frontend (QR, dashboard, leads, stats)
-      scraping/             ← lead generation
+          api/                   ← Express + Baileys service
+          web/                   ← Next.js frontend
+      outreach-connect/          ← API + outreach runner
+      outreach-connect-daemon/   ← PM2 daemon (daemon.js — main)
+      scraping/                  ← lead generation
+        data/                    ← CSVs scraped por ciudad y vertical
+      x2brain/                   ← Telegram bot + Twitter scraper
 
-    autonomous-daemon/      ← WhatsApp outreach runner (PM2)
+  scripts/                       ← automatización del VPS
+    daily-skills-report.py
+    hermes-auto-solve.py
+    hermes-health-check.py
+    session-append.sh
 
-  .hermes/                  ← config de Hermes (NO TOCAR sin consultar)
+  Transfer-files/                ← outputs temporales para clientes (limpiar post-entrega)
+
+  .hermes/                       ← config de Hermes (NO TOCAR sin consultar)
     SOUL.md
     AGENTS.md
+    memories/
 ```
 
 **Reglas de arquitectura:**
 - `workspace/projects/` = código de productos activos
 - `workspace/companies/` = empresas validadas con negocio real
-- `workspace/hq/` = estrategia y decisiones (no código)
-- `data/` = estado persistente: sesiones WA, DBs, outputs
-- Cada proyecto nuevo = carpeta en `projects/` + subcarpeta en `data/`
+- `workspace/hq/` = estrategia, investigación y decisiones (no código)
+- `data/` = estado persistente: sesiones WA, DBs
+- `Transfer-files/` = temporal — limpiar después de cada entrega a cliente
+- Propuestas: VPS genera en `hq/propuestas/` → Obsidian conserva en `companies/wolfim/clients/{cliente}/`
+- Outreach: infraestructura única compartida, datos aislados por empresa vía campo `company` en DB
 - Código en PC (GitHub) → VPS solo recibe deploy
 
 ---
@@ -100,27 +111,57 @@ Si un servicio falla: diagnóstico primero en PM2 logs antes de asumir problema 
 ## Vault de Obsidian — arquitectura
 
 ```
-/home/hermes/obsidian-vault/ (GitHub repo — sincronizado VPS + PC + Android)
+/home/hermes/obsidian-vault/ (GitHub: Ziramog/obsidian-vault-main — VPS + PC + Android)
   Hermes/
-    MEMORY.md              ← estado actual (Hermes escribe al cerrar sesión)
+    MEMORY.md              ← estado actual del negocio (Hermes escribe al cerrar sesión)
     Config/
       SOUL.md              ← copia de referencia
       AGENTS.md            ← copia de referencia
     Daily/
       YYYY-MM-DD-summary.md
-    Sessions/
+    Sessions/              ← ÚNICA ubicación de sesiones (fuente de verdad)
       YYYY-MM-DD-HH-mm.md
+
+  companies/               ← mapa de conocimiento por empresa
+    wolfim/                ← Wolfim — empresa de Juan
+      README.md            ← qué es, estado actual, modelo de negocio
+      brand/
+      clients/             ← clientes activos de Wolfim
+        franco-roma/
+        luis-farias/
+        rivas-inmuebles/
+      finances/
+      projects/            ← productos y servicios de Wolfim
+      research/
+    ango/                  ← crear solo cuando haya primer movimiento concreto
+
+  projects/                ← proyectos en desarrollo (cross-company)
+  references/              ← conocimiento de referencia permanente
+  templates/               ← plantillas reutilizables
+  hq/                      ← estrategia y decisiones de Juan
+    analyses/
+    finances/
+    inbox/
+    leads/
+    skill-reports/
 ```
 
+**Regla de sesiones:** una sola ubicación → `Hermes/Sessions/`. Las carpetas `hq/sessions/` y `sessions/` raíz son legacy — migrar y eliminar.
+
+**Regla de propuestas:** viven en `companies/wolfim/clients/{cliente}/`. No en `Transfer-files/` del VPS.
+
+**Regla de empresas:** un solo vault, un solo perfil de Obsidian. Separar por perfil solo si hay equipo externo involucrado.
+
+**Regla de outreach:** infraestructura compartida entre empresas. Datos aislados por campo `company` en DB. No duplicar daemon ni scrapers por empresa.
+
 **Flujo de escritura:**
-1. Durante sesión → Hermes guarda snapshot cada 15 min en `Sessions/`
-2. Al cerrar sesión → Hermes genera `Daily/YYYY-MM-DD-summary.md` y actualiza `MEMORY.md`
-3. Juan hace `git push` desde VPS (o automático si está configurado)
-4. GitHub sincroniza a PC y Android
+1. Durante sesión → Hermes guarda snapshot cada 15 min en `Hermes/Sessions/`
+2. Al cerrar sesión → Hermes genera `Hermes/Daily/YYYY-MM-DD-summary.md` y actualiza `Hermes/MEMORY.md`
+3. `git push` desde VPS → GitHub sincroniza a PC y Android
 
 **Flujo de lectura al abrir sesión:**
-1. Hermes lee `MEMORY.md` → estado actual
-2. Hermes lee `Daily/` del día anterior → contexto narrativo
+1. Hermes lee `Hermes/MEMORY.md` → estado actual
+2. Hermes lee `Hermes/Daily/` del día anterior → contexto narrativo
 3. Reporta estado de apertura sin esperar que Juan pregunte
 
 ---
@@ -132,7 +173,7 @@ Si un servicio falla: diagnóstico primero en PM2 logs antes de asumir problema 
 | Wise (USD) | Primera opción siempre para clientes fuera de Argentina |
 | Transferencia internacional | Clientes corporativos con proceso de pago formal |
 | Cripto | Si el cliente no puede usar Wise y tiene wallet |
-| MercadoPago (ARS) | Último recurso — clientes locales sin otra opción. Siempre cotizar en USD y aclarar que el ARS es conversión del día |
+| MercadoPago (ARS) | Último recurso — clientes locales sin otra opción. Cotizar en USD, aclarar que ARS es conversión del día |
 
 Regla: precio siempre en USD. El canal de cobro no cambia el precio.
 
