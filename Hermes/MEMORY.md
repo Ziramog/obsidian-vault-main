@@ -5,8 +5,8 @@
 
 ---
 ## Última actualización
-Fecha: 2026-05-02
-Sesión: Cierre — vault configurado, sistema listo para auto-arranque
+Fecha: 2026-05-03
+Sesión: Cron — Inmobiliarias UX pipeline ejecutada (04:30), PDF enviado a Telegram (Juanchi777)
 
 ---
 
