@@ -1,117 +1,85 @@
-# Plan de migración — wolfim.com → app.wolfim.com
+# Migración wolfim.com → app.wolfim.com
 
-**Fecha:** 2026-05-03
-**Estado:** Plan — sin ejecutar
-**Responsable:** Juan (necesita acceso a Vercel y Cloudflare)
+## Estado actual
 
----
-
-## Situación actual
-
-- **wolfim.com** → Vercel + Cloudflare (Next.js, sitio actual)
-- **app.wolfim.com** → No existe aún
-- **Stack técnico:** wolfim-dashboard (baileysconnect/apps/web) = Next.js 14 en Vercel
+- `wolfim.com` = dashboard WA automation (Vercel + Supabase + login) → conecta a `wolfim-agent` en VPS
+- 0 clientes WA automation
+- 1 cliente webagency (Franco Roma) — sin portal, sin pagos online
+- Pagos WA automation: Mercado Libre + Lemon Squeezy (futuro, no urgente)
+- Todo en GitHub
 
 ---
 
-## Pregunta crítica antes de ejecutar
+## Arquitectura objetivo
 
-**¿wolfim.com (raíz) y app.wolfim.com van a apuntar al mismo proyecto Next.js en Vercel?**
-- SI = un solo proyecto en Vercel con dos dominios configurados
-- NO = son dos proyectos distintos (wolfim.com = landing/webagency, app.wolfim.com = dashboard)
-
-Según lo que dijiste, wolfim.com va a tener la landing de webagency y app.wolfim.com el dashboard. Si es así → **dos proyectos Vercel separados**.
-
----
-
-## Opción A — Dos proyectos separados (recomendado si wolfim.com ≠ app.wolfim.com)
-
-### Paso 1: Configurar app.wolfim.com en Vercel (dashboard)
-
-1. Ir a **vercel.com → proyecto wolfim-dashboard (baileysconnect/apps/web)**
-2. Ir a **Settings → Domains**
-3. Agregar: `app.wolfim.com`
-4. Vercel va a dar un valor CNAME: `cname.vercel-dns.com` (o similar, ver en el dashboard)
-5. Ir a **Cloudflare → DNS** para wolfim.com
-6. Agregar registro:
-   - **Type:** CNAME
-   - **Name:** app
-   - **Target:** `cname.vercel-dns.com`
-   - **Proxy:** DNS only (no proxy de Cloudflare si es CNAME de Vercel — o sí, depende de config)
-
-### Paso 2: Configurar wolfim.com para la landing webagency
-
-1. Crear proyecto Vercel nuevo para la landing
-2. Agregar dominio `wolfim.com` al proyecto
-3. Apuntar DNS de wolfim.com (raíz/apex) al proyecto nuevo
-
-**Para el apex domain (wolfim.com sin www):** se necesita A record, no CNAME. En Cloudflare:
-- **Type:** A
-- **Name:** @ (o vacío)
-- **Target:** Las IPs de Vercel (76.76.21.21 para Vercel)
-
-### Paso 3: Verificar que no se rompe nada
-
-1. Probar wolfim.com → debe seguir respondiendo igual que antes
-2. Probar app.wolfim.com → debe mostrar el dashboard de wolfim
-3. Esperar propagación DNS: hasta 24-48h, pero típicamente 5-30 min
-
----
-
-## Opción B — Un solo proyecto con aliases
-
-Si wolfim.com y app.wolfim.com van a servir contenido diferente pero del mismo repo:
-- Vercel permite agregar múltiples dominios al mismo proyecto
-- Usar rewrites o path-based routing para separar qué se sirve en cada dominio
-- **Más complejo — no recomendado para empezar**
-
----
-
-## DNS en Cloudflare — configuración esperada
-
-### Para app.wolfim.com (subdomain):
 ```
-Type: CNAME
-Name: app
-Target: cname.vercel-dns.com
-Proxy status: DNS only (grey cloud) — hasta verificar que funciona, luego se puede activar Cloudflare proxy (orange)
-TTL: Auto
-```
+app.wolfim.com (Vercel)
+└── Dashboard WA automation
+    ├── Login clientes WA
+    ├── Gestión de cuenta
+    └── Pagos (Mercado Libre / Lemon Squeezy — cuando haya clientes)
+    Conecta a wolfim-agent en VPS
 
-### Para wolfim.com (apex domain):
-```
-Type: A
-Name: @
-Target: 76.76.21.21   ← IP de Vercel
-Proxy status: Proxied (orange) o DNS only — depende de si hay conflicto con Cloudflare
-TTL: Auto
+wolfim.com (Vercel — proyecto separado)
+├── Landing webagency (pública)
+├── /login → portal clientes webagency
+├── /dashboard → gestión de cuenta, pagos mantenimiento
+└── Franco Roma se loguea y paga desde acá
 ```
 
 ---
 
-## Checklist de ejecución
+## Plan de ejecución
 
-- [ ] Confirmar si wolfim.com y app.wolfim.com son proyectos Vercel separados
-- [ ] Obtener el CNAME target de Vercel para app.wolfim.com
-- [ ] Agregar app.wolfim.com como dominio en el proyecto wolfim-dashboard en Vercel
-- [ ] Configurar CNAME en Cloudflare para app.wolfim.com
-- [ ] Probar app.wolfim.com responde correctamente
-- [ ] Probar wolfim.com no se rompió (si es proyecto diferente)
-- [ ] Documentar URLs finales y quién tiene acceso
+### Fase 1 — Crear app.wolfim.com (migración pura)
+
+1. En Vercel: crear nuevo proyecto `app.wolfim.com` apuntando al mismo repo GitHub de wolfim.com
+2. En Cloudflare: agregar registro CNAME `app` → Vercel (proxy activo)
+3. Verificar que `app.wolfim.com` responde igual que `wolfim.com` hoy
+4. **No tocar wolfim.com todavía**
+
+### Fase 2 — Reconvertir wolfim.com a webagency
+
+1. En el repo de wolfim.com: reemplazar dashboard WA por landing webagency
+2. Construir portal clientes webagency:
+   - Login con Supabase Auth (mismo que ya tienen)
+   - Dashboard simple: ver estado del proyecto, historial de pagos
+   - Sistema de pagos: **Stripe** (rápido de integrar con Supabase) o **Mercado Pago** (más conocido en Latam)
+   - Franco Roma como cliente inicial (login creado, accede a su cuenta)
+3. Desplegar y verificar
+
+### Fase 3 — Pagos WA automation (futuro, sin prisa)
+
+1. Cuando aparezca el primer cliente WA:
+   - Integrar Stripe o Mercado Pago en `app.wolfim.com`
+   - Plan básico: $X setup + $Y/mes mantenimiento
+   - Conectar con `wolfim-agent` en VPS
 
 ---
 
-## Notas
+## Decisiones pendientes
 
-- Vercel genera SSL automáticamente para dominios configurados
-- La propagación DNS puede tardar hasta 48h pero típicamente es rápida
-- No tocar los registros DNS existentes hasta tener el nuevo funcionando
-- Backup: exportar configuración actual de Vercel y Cloudflare antes de cambiar
+| Decisión | Opciones | Recomendación |
+|---|---|---|
+| Payment provider webagency | Stripe / Mercado Pago | Stripe (supabase billing nativo, 1 día de集成) |
+| Precio mantenimiento webagency | ¿$25/mes como Franco? | Confirmar con Juan |
+| Repo para app.wolfim.com | Mismo repo + deploy separado | Mismo repo, 2 deploys Vercel |
+| Dominio extra en Vercel | app.wolfim.com como alias | Sí, agregar dominio en Vercel |
 
 ---
 
-## Pendiente
+## Tiempo estimado
 
-- [ ] Acceso a Vercel (proyecto wolfim-dashboard)
-- [ ] Acceso a Cloudflare (dominio wolfim.com)
-- [ ] Confirmar si wolfim.com actual se mueve o se queda donde está
+- Fase 1: 30 min (configurar Vercel + Cloudflare)
+- Fase 2: 2-4 horas (landing + portal + pagos webagency)
+- Fase 3: cuando aparezca cliente WA
+
+---
+
+## Orden de ejecución
+
+1. ✅ Documentar plan (este archivo)
+2. ⏳ Juan confirma plan
+3. ⏳ Ejecutar Fase 1 (app.wolfim.com)
+4. ⏳ Ejecutar Fase 2 (wolfim.com → webagency)
+5. ⏳ Franco Roma accede a portal y paga mantenimiento online
