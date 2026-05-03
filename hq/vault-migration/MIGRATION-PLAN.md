@@ -40,7 +40,7 @@ obsidian-vault/
 │   ├── system-map.md
 │   ├── principles.md
 │   └── changelog.md
-└── 99-Archive/
+└── *99-Archive/*
 ```
 
 ---

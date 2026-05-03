@@ -6,12 +6,12 @@
 
 ## 1. Precios a mostrar en la landing
 
-| Plan | Setup USD | Mantenimiento USD/mes |
-|---|---|---|
-| Landing | $200 | $29 |
-| Profesional | $300 | $29 |
-| Catálogo | $450 | $49 |
-| Ecommerce | $450 | $89 |
+| Plan        | Setup USD | Mantenimiento USD/mes |
+| ----------- | --------- | --------------------- |
+| Landing     | $200      | $29                   |
+| Profesional | $300      | $29                   |
+| depCatálogo | $450      | $49                   |
+| Ecommerce   | $450      | $89                   |
 
 Los precios van en la sección de planes (no en la home).
 
