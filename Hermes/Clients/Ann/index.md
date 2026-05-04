@@ -8,8 +8,9 @@
 - **Vertical:** Cine / producción audiovisual
 
 ## Contrato
-- **Servicio:** Sitio web para su proyecto documental
+- **Servicio:** Sitio web para su proyecto documental — portfolio/trailer site
 - **Valor estimado:** No cotizado aún
+- **Trailer:** https://youtu.be/afRNFWHTJZ0
 - **Adelanto recibido:** $0
 
 ## Estado
