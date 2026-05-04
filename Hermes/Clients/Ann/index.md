@@ -1,31 +1,37 @@
-# Ann
+# Ann — Documental de cine
 
 ## Datos
-- **Empresa:**
+- **Proyecto:** Documental de cine (sin nombre de empresa aún)
 - **Contacto:** Ann
-- **Email:**
-- **WhatsApp:**
-- **Vertical:**
+- **WhatsApp:** Agendado en mobile de Juan
+- **Email:** —
+- **Vertical:** Cine / producción audiovisual
 
 ## Contrato
-- **Valor estimado:** —
+- **Servicio:** Sitio web para su proyecto documental
+- **Valor estimado:** No cotizado aún
 - **Adelanto recibido:** $0
 
 ## Estado
-❓ **Por confirmar**
+🟡 **Lead caliente** — WA agendado, pendiente de contacto
 
 ---
 
 ## Cronología
 
 ```timeline
-2026-05-04  Mencionado por Juan — agregar a pipeline
+2026-05-04  Lead identificado — contacto vía WA agendado en mobile de Juan
+2026-05-04  Sin cotizar aún
 ```
 
 ## Próxima acción
 | Acción | Responsable | Fecha límite |
 |--------|-------------|--------------|
-| Completar datos del cliente | Juan | 2026-05-XX |
+| Contactar por WhatsApp | Juan | Agendado en mobile |
+| Descubrimiento de necesidades | Juan | Pendiente |
+| Cotización | Juan/Hermes | Post-descubrimiento |
 
 ## Notas
-- Pendiente: empresa, vertical, estado, datos de contacto
+- Primer touchpoint: definir qué tipo de web necesita (portfolio, landing del documental, etc.)
+- Dependiendo del scope, definir precio
+- Pendiente: nombre del proyecto, datos de contacto adicionales

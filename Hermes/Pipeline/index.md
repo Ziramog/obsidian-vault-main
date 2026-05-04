@@ -6,8 +6,8 @@ Directorio de leads con conversación abierta o en proceso de cierre.
 
 | Lead | Empresa | Valor | Estado | Probabilidad |
 |------|---------|-------|--------|-------------|
+| Ann | Documental de cine | No cotizado | 🟡 WA agendado | — |
 | Luis Farias | Farias & Asociados | $300 + $50/mes | PDF enviado, evaluando | 60% |
-| Ann | — | — | Por confirmar | — |
 
 ## Checkpoints
 - Julio 2026: $400/mes

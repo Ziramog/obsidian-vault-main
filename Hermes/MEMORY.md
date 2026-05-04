@@ -35,7 +35,7 @@ Hermes/
 |---|---|---|---|---|
 | Franco Roma | Roggero & Roma | $400 + $25/mes | ✅ Cerrado — $200 adelantados | Mantenimiento $25/mes |
 | Luis Farias | Farias & Asociados | $300 + $50/mes | PDF enviado — evalúa esta semana | Follow-up (Juan) |
-| Ann | — | — | Por confirmar | Completar datos |
+| Ann | Documental de cine | — | 🟡 WA agendado — sin cotizar | Primer contacto (Juan) |
 | Comforti Propiedades | — | — | Sin contactar | Integrar a outreach |
 | Rivas Inmuebles | — | — | Sin contactar | Integrar a outreach |
 | Gamma | — | — | Sin contactar | Integrar a outreach |
