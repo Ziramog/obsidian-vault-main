@@ -1,7 +1,7 @@
 # Follow-up — Luis Farias — 2026-05-04 10 AM Argentina
 
 **Canal:** WhatsApp (por confirmar número)
-**Timing:** Lunes 04/05/2026 — 10:00 AM Argentina
+**Timing:** Lunes 04/05/2026 — 9:00 AM Argentina
 
 ---
 
