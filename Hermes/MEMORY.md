@@ -5,8 +5,8 @@
 
 ---
 ## Última actualización
-Fecha: 2026-05-03
-Sesión: Cron — Inmobiliarias UX pipeline ejecutada (04:30), PDF enviado a Telegram (Juanchi777)
+Fecha: 2026-05-04
+Sesión: Cron — Monitoreo de servicios, diagnóstico daemon + cron Maps
 
 ---
 
@@ -57,8 +57,8 @@ Sesión: Cron — Inmobiliarias UX pipeline ejecutada (04:30), PDF enviado a Tel
 
 **Acción:** Activar outreach a 117 leads de concesionarias (Supabase)
 **Comprometida en sesión:** 2026-05-03 (domingo)
-**Ejecutada:** pendiente — lunes 2026-05-04
-**Resultado:** —
+**Ejecutada:** PENDIENTE — no ejecutada aún
+**Estado:** ⚠️ Cron Maps sin output, outreach daemon no activado para estos leads
 
 ---
 
