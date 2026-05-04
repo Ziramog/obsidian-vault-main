@@ -4,7 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-04 | Sesión: reorganización arquitectura
+2026-05-04 | Sesión: limpieza vault v6 — reorganización arquitectura + DeepSeek V4 (trial)
 
 ---
 
