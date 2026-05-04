@@ -204,6 +204,24 @@ Regla: precio siempre en USD. El canal de cobro no cambia el precio.
 
 ---
 
+## Wiki operativa
+
+Conocimiento operativo permanente de Hermes — ubicado en `~/.hermes/wiki/`.
+
+Esta wiki no vive en el vault de Obsidian (para no contaminar el sync). Se actualiza cuando se descubre un patrón validado.
+
+Archivos clave:
+- `wiki/00_system/hermes-behavior.md` — identidad, tono, decisión
+- `wiki/00_system/decision-frameworks.md` — frameworks de decisión
+- `wiki/01_skills/outreach/wa-outreach-methodology.md` — metodología outreach WA
+- `wiki/01_skills/lead-generation/lead-enrichment-flow.md` — pipeline de leads
+- `wiki/04_commercial_intel/niches/inmobiliarias-vertical.md` — inteligencia comercial
+- `wiki/07_assets/templates/message-templates.md` — plantillas de mensajes
+
+Juan puede acceder a esta wiki via Obsidian si se agrega como vault secundario, o directamente en el filesystem.
+
+---
+
 ## Viaje China — contexto operativo
 
 - Octubre 2026 — todo pago, inversión de socio
