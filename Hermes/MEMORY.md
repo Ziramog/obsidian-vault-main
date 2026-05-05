@@ -4,7 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-05 | Sesión: monitoreo automático — flags críticas sin resolución (6 días sin actividad comercial)
+2026-05-05 | Sesión: pitch Ann enviado — esperando respuesta
 
 ## Última acción comprometida
 Outreach a 117 leads de concesionarias — pendiente desde 2026-05-03
@@ -35,7 +35,7 @@ Hermes/
 |---|---|---|---|---|
 | Franco Roma | Roggero & Roma | $400 + $25/mes | ✅ Cerrado — $200 adelantados | Mantenimiento $25/mes |
 | Luis Farias | Farias & Asociados | $300 + $50/mes | PDF enviado — evalúa esta semana | Follow-up (Juan) |
-| Ann | Documental de cine | — | 🟡 WA agendado — sin cotizar | Primer contacto (Juan) |
+| Ann | Documental de cine | — | 🟡 Pitch enviado — esperando respuesta | Seguimiento (Juan) |
 | Comforti Propiedades | — | — | Sin contactar | Integrar a outreach |
 | Rivas Inmuebles | — | — | Sin contactar | Integrar a outreach |
 | Gamma | — | — | Sin contactar | Integrar a outreach |
