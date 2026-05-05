@@ -4,10 +4,10 @@
 
 ---
 ## Última actualización
-2026-05-05 | Sesión cron: monitoreo sin acción comercial — protocolo anti-parálisis activo
+2026-05-05 | Sesión cron: auto-solve — daemon estabilizado, WA necesita re-autenticación
 
-## Última acción comprometida
-Outreach a 117 leads de concesionarias — pendiente desde 2026-05-03
+## Semáforo
+🔴 Crítico — Gap: –$700/mes | $200 ingresados / $900 gastos
 
 ---
 
@@ -61,7 +61,18 @@ Hermes/
 ---
 
 ## Última acción comprometida
-Outreach a 117 leads de concesionarias — pendiente desde 2026-05-03
+- Follow-up Luis Farias (pendiente 5 días)
+- Follow-up Franco Roma — cobrar $200 restantes
+- Outreach a 117+ leads de concesionarias (WA necesita re-autenticación primero)
+
+## Daemon outreach — estado técnico
+- **outreach-daemon**: Running ✅ (pid 421522, restart 0, 99MB RAM)
+- **Bug timezone**: FIXED — `isBusinessHours()` ahora usa Intl API (Argentina correcta)
+- **Bug EACCES state.json**: FIXED — permisos 666
+- **Bug Baileys 401 loop**: FIXED — ahora pide QR fresco en vez de colgar
+- **Bug ecosystem.config**: FIXED — cwd/args/exec_mode corregidos
+- **⚠️ WA desconectado**: Número de WhatsApp requiere re-autenticación (QR scan)
+- **Leads disponibles**: 293 + 140 + 1.000 = 1.433 leads en archivos JSON
 
 ---
 
