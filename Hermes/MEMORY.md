@@ -4,7 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-05 | Sesión: pitch Ann enviado — esperando respuesta
+2026-05-05 | Sesión: mockup Ann generado — pitch enviado — cerramos
 
 ## Última acción comprometida
 Outreach a 117 leads de concesionarias — pendiente desde 2026-05-03
@@ -24,6 +24,7 @@ Hermes/
 ├── Pipeline/         — Leads en conversación activa
 ├── Daily/            — Resúmenes diarios
 ├── Sessions/         — Sesiones de trabajo
+├── projects/         — Mockups y proyectos web
 └── MEMORY.md         — Este archivo
 ```
 
