@@ -22,15 +22,17 @@
 
 ```timeline
 2026-05-04  Lead identificado — contacto vía WA agendado en mobile de Juan
-2026-05-04  Sin cotizar aún
+2026-05-04  Primer mensaje enviado — pitch con wolfim.com + ejemplos + precio desde $300 USD
 ```
+
+## Pitch enviado
+> "Hola Ann... Tenemos muy buenas noticias: sí, podemos hacer la web para tu documental. Te muestro cómo trabajamos: wolfim.com — acá podés ver algunos de nuestros proyectos. Y estos son ejemplos del estilo que podemos lograr: [davincis] [ofskinandsouls]. Los proyectos arrancan en 300 USD y van para arriba según complejidad. Contame qué necesitás y te paso una cotización exacta."
 
 ## Próxima acción
 | Acción | Responsable | Fecha límite |
 |--------|-------------|--------------|
-| Contactar por WhatsApp | Juan | Agendado en mobile |
-| Descubrimiento de necesidades | Juan | Pendiente |
-| Cotización | Juan/Hermes | Post-descubrimiento |
+| Seguimiento Ann — respuesta o silencio | Juan | Pendiente respuesta |
+| Cotización formal post-respuesta | Juan/Hermes | Post-respuesta |
 
 ## Notas
 - Primer touchpoint: definir qué tipo de web necesita (portfolio, landing del documental, etc.)
