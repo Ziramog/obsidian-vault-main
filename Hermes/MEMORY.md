@@ -4,10 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-05 10:00 | Sesión cron: auto-solve — DAEMON CORRIENDO pero WA en loop 401 permanente. QR del 27/04 expirado. Sin canal de outreach activo. Prioridad: re-autenticar WA.
-
-## Semáforo
-🔴 Crítico — Gap: –$700/mes | $200 ingresados / $900 gastos
+2026-05-05 11:00 | Sesión: fixes cron + listado hoteles San Juan para expo minería
 
 ---
 
@@ -65,14 +62,30 @@ Hermes/
 - Follow-up Franco Roma — cobrar $200 restantes
 - Outreach a 117+ leads de concesionarias (WA necesita re-autenticación primero)
 
+---
+
 ## Daemon outreach — estado técnico
-- **outreach-daemon**: Running ✅ (pid 421522, restart 0, 99MB RAM)
-- **Bug timezone**: FIXED — `isBusinessHours()` ahora usa Intl API (Argentina correcta)
-- **Bug EACCES state.json**: FIXED — permisos 666
-- **Bug Baileys 401 loop**: FIXED — ahora pide QR fresco en vez de colgar
-- **Bug ecosystem.config**: FIXED — cwd/args/exec_mode corregidos
-- **⚠️ WA desconectado**: Número de WhatsApp requiere re-autenticación (QR scan)
+- **outreach-daemon**: Running ✅ (pid 421522)
+- **Bug timezone**: FIXED
+- **Bug EACCES state.json**: FIXED
+- **Bug Baileys 401 loop**: FIXED
+- **⚠️ WA desconectado**: Número requiere re-autenticación (QR scan)
 - **Leads disponibles**: 293 + 140 + 1.000 = 1.433 leads en archivos JSON
+
+---
+
+## Cron jobs — fixes aplicados 2026-05-05
+- ✅ Bug `repeat` job `5fea8d5dad57` — `"5/999999"` → objeto JSON
+- ✅ Morning Report `bd62f9437fa4` — deliver `local` → `origin` (Telegram)
+- ⚠️ Gateway tiende a crashear a las 09:15 (scheduler bug con `re` no definido — upstream, no se toca)
+
+---
+
+## Viaje San Juan — Mining Expo 6-8 Mayo 2026
+- Hotel: **Hotel Medias Aguas** (localidad Media Agua, ruta 20, ~30-40km de San Juan Capital)
+- Fechas: noches del 6 y 7 de mayo
+- Estadio del Bicentenario — San Juan Capital
+- ⚠️ Casi todo ocupado por la expo — "Media Agua" no estaba en el listado original
 
 ---
 
