@@ -4,7 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-05 | Sesión cron: auto-solve — daemon estabilizado, WA necesita re-autenticación
+2026-05-05 10:00 | Sesión cron: auto-solve — DAEMON CORRIENDO pero WA en loop 401 permanente. QR del 27/04 expirado. Sin canal de outreach activo. Prioridad: re-autenticar WA.
 
 ## Semáforo
 🔴 Crítico — Gap: –$700/mes | $200 ingresados / $900 gastos
