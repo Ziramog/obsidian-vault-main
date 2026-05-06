@@ -4,7 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-05 11:00 | Sesión: fixes cron + listado hoteles San Juan para expo minería
+2026-05-06 18:30 | Sesión: auto-solve cron fix + root cause model_dump MiniMax + daily summary
 
 ---
 
@@ -74,10 +74,14 @@ Hermes/
 
 ---
 
-## Cron jobs — fixes aplicados 2026-05-05
+## Cron jobs — fixes aplicados 2026-05-05 + root cause fix 2026-05-06
 - ✅ Bug `repeat` job `5fea8d5dad57` — `"5/999999"` → objeto JSON
 - ✅ Morning Report `bd62f9437fa4` — deliver `local` → `origin` (Telegram)
-- ⚠️ Gateway tiende a crashear a las 09:15 (scheduler bug con `re` no definido — upstream, no se toca)
+- ⚠️ Gateway tiende a crashear a las 09:15 (scheduler bug con `re` no definido — upstream)
+- 🔴 ROOT CAUSE: model_dump crash en run_agent.py línea 8890 — MiniMax SDK devuelve dict-subclass con model_dump() roto
+- ✅ Fix: reordenado check en run_agent.py — hasattr(model_dump) and not isinstance(dict) primero
+- ✅ Fix: Hermes Auto-Solve convertido a no_agent mode (ya no pasa por AI pipeline)
+- ⚠️ FIX PENDIENTE: Juan debe restart hermes-agent para pick up fix de run_agent.py
 
 ---
 
