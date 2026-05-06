@@ -4,7 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-06 18:30 | Sesión: auto-solve cron fix + root cause model_dump MiniMax + daily summary
+2026-05-06 09:55 | Sesión: informe Expo San Juan + actualización Luis Farias (retornó, revisa esta semana)
 
 ---
 
@@ -32,7 +32,7 @@ Hermes/
 | Lead | Empresa | Valor | Estado | Próxima acción |
 |---|---|---|---|---|
 | Franco Roma | Roggero & Roma | $400 + $25/mes | ✅ Cerrado — $200 adelantados | Mantenimiento $25/mes |
-| Luis Farias | Farias & Asociados | $300 + $50/mes | PDF enviado — evalúa esta semana | Follow-up (Juan) |
+| Luis Farias | Farias & Asociados | $300 + $50/mes | PDF enviado — retorna a la oficina, revisa "esta semana" | **Follow-up: lunes 7 mayo** |
 | Ann | Documental de cine | — | 🟡 Pitch enviado — esperando respuesta | Seguimiento (Juan) |
 | Comforti Propiedades | — | — | Sin contactar | Integrar a outreach |
 | Rivas Inmuebles | — | — | Sin contactar | Integrar a outreach |
