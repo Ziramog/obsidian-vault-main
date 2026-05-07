@@ -4,7 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-06 23:55 | Sesión cron 23:55 — intervención técnica MiniMax model_dump + flags comerciales activas
+2026-05-07 20:00 | Sesión cron diaria — sin cambios. Flags críticos activos: WA desautenticado, Luis Farias sin respuesta 7+ días, Franco Roma $200 pendientes, ~10 cron jobs pendientes restart gateway. Gap: –$700/mes.
 
 ---
 
