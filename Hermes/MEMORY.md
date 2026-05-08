@@ -4,7 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-07 20:00 | Sesión cron diaria — sin cambios. Flags críticos activos: WA desautenticado, Luis Farias sin respuesta 7+ días, Franco Roma $200 pendientes, ~10 cron jobs pendientes restart gateway. Gap: –$700/mes.
+2026-05-07 22:00 | Sesión licitaciones San Juan completada. Informe HTML entregado (message_id 3189). Proyecto licitaciones: 9 áreas IPEEM (apertura 23/jun), Vicuña adjudica perforación mayo 2026. Pendiente: scrapeo portal compras SJ, contacto CAPRIMSA. Outreach daemon activo. Gap sin actualizar — necesita números de Juan.
 
 ---
 
