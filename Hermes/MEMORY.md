@@ -98,3 +98,33 @@ Hermes/
 
 ## Modo
 Ejecución
+
+---
+
+## Companies
+
+### Wolfim — Operativa
+- Sector: Software SaaS (WhatsApp outreach para inmobiliarias)
+- Dueño: Juan Manuel Gomariz
+- Activa: cliente Franco Roma ($400 + $25/mes) + Luis Farias (PDF enviado)
+- Outreach: daemon WA activo, leads inmobiliarias en Supabase
+- vault: `/home/hermes/obsidian-vault/companies/wolfim/`
+- workspace: `/home/hermes/workspace/companies/wolfim/`
+
+### Ango — Metalúrgica del Padre
+- Sector: Metalurgia / Industrial
+- Dueño: Padre de Juan
+- Estado: arrancando — estructura creada 2026-05-09
+- Necesidad: digitalización comercial, outreach a empresas industriales
+- vault: `/home/hermes/obsidian-vault/companies/ango/`
+- workspace: `/home/hermes/workspace/companies/ango/`
+- **Pendiente:** definir productos, mercado objetivo, leads
+
+### Construvial — Constructora del Amigo
+- Sector: Construcción / Obra civil
+- Dueño: Amigo de Juan
+- Estado: arrancando — estructura creada 2026-05-09
+- Necesidad: digitalización comercial, outreach a desarrollistas y gobierno
+- vault: `/home/hermes/obsidian-vault/companies/construvial/`
+- workspace: `/home/hermes/workspace/companies/construvial/`
+- **Pendiente:** definir productos, mercado objetivo, leads
