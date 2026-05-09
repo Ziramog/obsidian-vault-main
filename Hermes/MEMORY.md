@@ -4,7 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-08 20:00 | Cron session. Sin ingresos nuevos en mayo. Luis Farias: 8+ días sin respuesta. Franco Roma: $200 pendientes de cobro. WA desautenticado 8+ días. ~10 cron jobs pendientes restart. Sin actividad comercial humana desde 28/04. Semáforo 🔴 Crítico (-$700/mes). Revisión semanal domingo 11/05.
+2026-05-09 12:50 | Sesión corta. Modelo DeepSeek. Juan hace debug VPS. Luis Farias: follow-up enviado hoy (no 10+ días — se le mandó lunes + hoy). Sin ingresos nuevos en mayo. Franco Roma: $200 pendientes de cobrar. WA desautenticado 8+ días. Semáforo 🔴 Crítico.
 
 ---
 
