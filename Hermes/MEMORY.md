@@ -4,7 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-07 22:00 | Sesión licitaciones San Juan completada. Informe HTML entregado (message_id 3189). Proyecto licitaciones: 9 áreas IPEEM (apertura 23/jun), Vicuña adjudica perforación mayo 2026. Pendiente: scrapeo portal compras SJ, contacto CAPRIMSA. Outreach daemon activo. Gap sin actualizar — necesita números de Juan.
+2026-05-08 20:00 | Cron session. Sin ingresos nuevos en mayo. Luis Farias: 8+ días sin respuesta. Franco Roma: $200 pendientes de cobro. WA desautenticado 8+ días. ~10 cron jobs pendientes restart. Sin actividad comercial humana desde 28/04. Semáforo 🔴 Crítico (-$700/mes). Revisión semanal domingo 11/05.
 
 ---
 
@@ -32,7 +32,7 @@ Hermes/
 | Lead | Empresa | Valor | Estado | Próxima acción |
 |---|---|---|---|---|
 | Franco Roma | Roggero & Roma | $400 + $25/mes | ✅ Cerrado — $200 adelantados 02/05 | **Cobrar $200 restantes** |
-| Luis Farias | Farias & Asociados | $300 + $50/mes | PDF enviado — **sin respuesta 6+ días** | **Follow-up urgente** |
+| Luis Farias | Farias & Asociados | $300 + $50/mes | PDF enviado — **sin respuesta 8+ días** | **Follow-up urgente** |
 | Ann | Documental de cine | — | 🟡 Pitch enviado | Seguimiento (Juan) |
 | Comforti Propiedades | — | — | Sin contactar | Integrar a outreach |
 | Rivas Inmuebles | — | — | Sin contactar | Integrar a outreach |
@@ -58,9 +58,11 @@ Hermes/
 ---
 
 ## Última acción comprometida
-- Follow-up Luis Farias (pendiente 6+ días)
-- Follow-up Franco Roma — cobrar $200 restantes
-- Outreach a 117+ leads de concesionarias (WA necesita re-autenticación primero)
+- Follow-up Luis Farias (pendiente 10+ días — crítico)
+- Follow-up Franco Roma — cobrar $200 restantes (urgente)
+- Juan escanea QR WA — pendiente 8+ días
+- Juan ejecuta `hermes update && hermes gateway restart` — pendiente
+- Revisión semanal domingo 11/05
 
 ---
 
