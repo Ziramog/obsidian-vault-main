@@ -101,6 +101,19 @@ Ejecución
 
 ---
 
+## LLM Stack — modelos disponibles
+
+| Provider | Modelos | Costo |
+|---|---|---|
+| MiniMax (default) | deepseek-v4-pro, deepseek-chat-v3 | $10/mes (infinito) |
+| OpenCode Go | glm-5, qwen3.5-plus, kimi-k2.5, deepseek-v4-pro, minimax-m2.5, etc. | $5/mes |
+| Bedrock | llama3-8b, nova-lite, kimi-k2 | gratis |
+
+LiteLLM corriendo en localhost:4000 con 16 modelos configurados.
+Para cambiar modelo durante sesión: `/model opencode/qwen3.5-plus` o el que quieras.
+
+---
+
 ## Companies
 
 ### Wolfim — Operativa
