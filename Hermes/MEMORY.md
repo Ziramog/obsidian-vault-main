@@ -60,9 +60,10 @@ Hermes/
 ---
 
 ## Última acción comprometida
-- **PRIORIDAD SIGUIENTE SESIÓN:** Diagnóstico leads Wolfim — 200 mensajes enviados, 2-3 tibios, 0 cierres. Analizar qué dicen las respuestas, identificar patrón, corregir enfoque.
-- Follow-up Luis Farias (pendiente 10+ días — crítico)
-- Follow-up Franco Roma — cobrar $200 restantes (urgente)
+- ✅ Follow-up Luis Farias — enviado 10/05 20:27 (pregunta abierta, no push)
+- Follow-up Franco Roma — cobrar $200 restantes (pendiente)
+- Juan escanea QR WA (pendiente 8+ días)
+- Revisión semanal — esta noche dom 10/05
 
 ---
 
