@@ -105,7 +105,7 @@ Ejecución
 
 | Provider | Modelos | Costo |
 |---|---|---|
-| MiniMax (default) | deepseek-v4-pro, deepseek-chat-v3 | $10/mes (infinito) |
+| MiniMax (default) | minimax-2.7, minimax-2.5, deepseek-v4-pro | $10/mes (infinito) |
 | OpenCode Go | glm-5, qwen3.5-plus, kimi-k2.5, deepseek-v4-pro, minimax-m2.5, etc. | $5/mes |
 | Bedrock | llama3-8b, nova-lite, kimi-k2 | gratis |
 
