@@ -32,7 +32,7 @@ Hermes/
 | Lead | Empresa | Valor | Estado | Próxima acción |
 |---|---|---|---|---|
 | Franco Roma | Roggero & Roma | $400 + $25/mes | ✅ Cerrado — $200 adelantados 02/05 | **Cobrar $200 restantes** |
-| Luis Farias | Farias & Asociados | $300 + $50/mes | PDF enviado — **sin respuesta 8+ días** | **Follow-up urgente** |
+| Luis Farias | Farias & Asociados | $300 + $50/mes | Follow-up hoy — **sin respuesta** (10+ días total) | Llamada directa o email pendiente |
 | Ann | Documental de cine | — | 🟡 Pitch enviado | Seguimiento (Juan) |
 | Comforti Propiedades | — | — | Sin contactar | Integrar a outreach |
 | Rivas Inmuebles | — | — | Sin contactar | Integrar a outreach |
@@ -58,12 +58,9 @@ Hermes/
 ---
 
 ## Última acción comprometida
-- ✅ Scraping Misiones+Corrientes en background (proc_a7d350b4fba2) — 8 ciudades sin proxy
-- Follow-up Luis Farias (pendiente 10+ días — crítico)
-- Follow-up Franco Roma — cobrar $200 restantes (urgente)
-- Juan escanea QR WA — pendiente 8+ días
-- Juan ejecuta `hermes update && hermes gateway restart` — pendiente (fix 5 jobs con error)
-- Revisión semanal domingo 11/05
+- Follow-up Luis Farias — 2 mensajes enviados hoy 10/05, **sin respuesta** — 10+ días total sin respuesta 🔴
+- Cobrar $200 Franco Roma — pendiente
+- Llamada directa a Farias como siguiente paso (alternativa: email)
 
 ---
 
