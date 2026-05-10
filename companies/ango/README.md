@@ -4,7 +4,7 @@
 Empresa metalúrgica familiar con **60+ años de experiencia** en fabricación de tomas de fuerza con embrague (PTO). Fabricante regional de referencia en el mercado argentino.
 
 **Ubicación:** Río Tercero, Córdoba, Argentina  
-**Contacto:** 3571-699006 | contacto@angometalurgica.com.ar
+**Contacto:** 3513157202 | contacto@angometalurgica.com.ar
 
 ---
 
@@ -36,7 +36,7 @@ Empresa metalúrgica familiar con **60+ años de experiencia** en fabricación d
 
 - Empresas con motores industriales a explosión
 - Industrias que requieren transmisión de potencia
-- Sector agrícola, minero, petrolero (potencial)
+- Sector agrícola (equipos de riego), minero, petrolero (potencial)
 - Distribuidores de repuestos industriales
 
 ---
@@ -67,6 +67,7 @@ Empresa metalúrgica familiar con **60+ años de experiencia** en fabricación d
 ## Contacto directo
 
 **AnGO Metalúrgica**  
-Tel: 3571-699006  
+Tel: 3513157202
 Email: contacto@angometalurgica.com.ar  
 Web: angometalurgica.com.ar
+
