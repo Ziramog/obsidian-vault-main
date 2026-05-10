@@ -4,12 +4,12 @@
 
 ---
 ## Última actualización
-2026-05-09 23:55 | Cierre diario. Sin actividad comercial humana. Sistema técnico estable. Cron jobs del día ejecutados. Semáforo 🔴 Crítico — $700/mes gap. Luis Farias 9+ días sin respuesta. Franco Roma $200 pendientes. Revisión semanal domingo 11/05.
+2026-05-10 11:05 | Construvial $225 USD recibidos (viaje San Juan). Proxy DataImpulse agotado. Semáforo 🔴 mejorado a –$475/mes ($425 ingresados / $900 gastos). Discord cron funcional.
 
 ---
 
 ## Semáforo
-🔴 Crítico — Gap: –$700/mes | $200 ingresados / $900 gastos
+🔴 Crítico — Gap: –$475/mes | $425 ingresados / $900 gastos
 
 ---
 
@@ -53,7 +53,9 @@ Hermes/
 | Mes | Ingreso | Gasto | Gap |
 |---|---|---|---|
 | Abril 2026 | $400 | $900 | –$500 |
-| Mayo 2026 | $200 | en curso | –$700 |
+| Mayo 2026 | $425 | en curso | –$475 |
+
+**Ingresos mayo:** Franco Roma $200 + Construvial $225
 
 ---
 
