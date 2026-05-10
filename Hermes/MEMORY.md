@@ -38,7 +38,7 @@ Hermes/
 | Rivas Inmuebles | — | — | Sin contactar | Integrar a outreach |
 | Gamma | — | — | Sin contactar | Integrar a outreach |
 
-**117 leads concesionarias** en Supabase → `concesionarias_autos` — outreach pendiente.
+**117 leads concesionarias** en Supabase → `concesionarias_autos` — outreach en curso (200 mensajes enviados, 2-3 tibios, 0 cierres). Próxima sesión: diagnóstico de respuestas.
 
 ---
 
@@ -60,9 +60,9 @@ Hermes/
 ---
 
 ## Última acción comprometida
-- Follow-up Luis Farias — 2 mensajes enviados hoy 10/05, **sin respuesta** — 10+ días total sin respuesta 🔴
-- Cobrar $200 Franco Roma — pendiente
-- Llamada directa a Farias como siguiente paso (alternativa: email)
+- **PRIORIDAD SIGUIENTE SESIÓN:** Diagnóstico leads Wolfim — 200 mensajes enviados, 2-3 tibios, 0 cierres. Analizar qué dicen las respuestas, identificar patrón, corregir enfoque.
+- Follow-up Luis Farias (pendiente 10+ días — crítico)
+- Follow-up Franco Roma — cobrar $200 restantes (urgente)
 
 ---
 

@@ -1,36 +1,72 @@
-# Ango — Empresa Metalúrgica del Padre
+# ANGO Metalúrgica
 
-## Qué es
+## Resumen
+Empresa metalúrgica familiar con **60+ años de experiencia** en fabricación de tomas de fuerza con embrague (PTO). Fabricante regional de referencia en el mercado argentino.
 
-Empresa metalúrgica industrial con trayectoria. Sector: metalurgia, fabricación de componentes, mecanizado, herrería industrial o similar.
+**Ubicación:** Río Tercero, Córdoba, Argentina  
+**Contacto:** 3571-699006 | contacto@angometalurgica.com.ar
 
-## Contexto
+---
 
-- Dueño: padre de Juan Manuel Gomariz
-- Juan está involucrado en la gestión comercial y estratégica
-- Operación activa en Córdoba, Argentina
-- Necesidad: digitalizar outreach comercial, generar leads industriales
+## Producto principal
 
-## Modelo de negocio
+### Tomas de fuerza con embrague (Power Take-Off)
+- Para motores de combustión interna (Diessel, gasolina)
+- Tamaños: desde Ø165mm (6.5") hasta Ø457mm (18")
+- 1, 2 o 3 discos de embrague
+- Carcazas según normas SAE (N° 6 al N° 00)
+- Montadas sobre rodamientos a rodillos cónicos
 
-- Productos/servicios: [completar con lo que fabrican/venden]
-- Mercado objetivo: empresas industriales, constructoras, talleres, gobierno
-- canales de venta: [completar]
+**Marca registrada:** RG
 
-## Objetivos comerciales
+---
 
-- Generar leads industrialesqualified
-- Outreach a empresas del sector metalúrgico y construcción
--长枪: ¿precios, tiempos de entrega, casos de éxito?
+## Datos comerciales
 
-## Enlaces
+| Campo | Detalle |
+|---|---|
+| Garantía | 1 año bajo condiciones de uso normal |
+| Envíos | Nacional e internacional |
+| Forma de pago | A acordar |
+| Ficha técnica | Disponible en PDF |
 
-- Web: [por definir]
-- Contactos: clients/
-- Pipeline: MEMORY.md (sección Ango)
+---
 
-## notas
+## Mercado objetivo
 
-- Primer contacto con Juan: 2026
-- Sin cuenta digital activa aún
-- Oportunidad: outreach automatizado para sector industrial
+- Empresas con motores industriales a explosión
+- Industrias que requieren transmisión de potencia
+- Sector agrícola, minero, petrolero (potencial)
+- Distribuidores de repuestos industriales
+
+---
+
+## Zonas de crecimiento
+
+- **San Juan** — empresas mineras y agrícolas
+- **Catamarca** — sector minero
+- **Vaca Muerta, Neuquén** — industria oil & gas
+
+---
+
+## Estado
+
+🟡 Colonando — Juan es colaborador externo, no dueña de la empresa
+
+---
+
+## Para hacer
+
+- [ ] Definir estrategia de outreach para cada zona
+- [ ] Listado de empresas target en San Juan, Catamarca, Neuquén
+- [ ] Construir base de leads de empresas industriales
+- [ ] Definir propuesta comercial para nuevos clientes
+
+---
+
+## Contacto directo
+
+**AnGO Metalúrgica**  
+Tel: 3571-699006  
+Email: contacto@angometalurgica.com.ar  
+Web: angometalurgica.com.ar
