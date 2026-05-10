@@ -58,10 +58,11 @@ Hermes/
 ---
 
 ## Última acción comprometida
+- ✅ Scraping Misiones+Corrientes en background (proc_a7d350b4fba2) — 8 ciudades sin proxy
 - Follow-up Luis Farias (pendiente 10+ días — crítico)
 - Follow-up Franco Roma — cobrar $200 restantes (urgente)
 - Juan escanea QR WA — pendiente 8+ días
-- Juan ejecuta `hermes update && hermes gateway restart` — pendiente
+- Juan ejecuta `hermes update && hermes gateway restart` — pendiente (fix 5 jobs con error)
 - Revisión semanal domingo 11/05
 
 ---
