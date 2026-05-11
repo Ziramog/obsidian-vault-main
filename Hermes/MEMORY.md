@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-11 00:35 | Sesión cerrada — Plan Construvial aprobado, 21 leads en DB
+2026-05-11 08:30 | Sesión — fix cron_mode deny→allow, gateway reiniciado PM2
 
 ---
 
@@ -30,6 +30,14 @@
 
 ---
 
+## Alerta resuelta — Cron delivery Telegram/Discord (2026-05-11)
+- Causa: `approvals.cron_mode: deny` en config.yaml — bloqueaba todo delivery de crons
+- Fix: cambiado a `cron_mode: allow`
+- Gateway reiniciado via PM2 (PID 1746901)
+- Monitorear próximas 24h — si vuelven a fallar, revisar `allowed_chats` en Telegram config
+
+---
+
 ## Errores de Juan — Corregidos 2026-05-10
 - Solo Google Reviews lo pidió Franco directamente — los otros 3 add-ons son IDEAS DE JUAN
 - Productos Wolfim = solo los explícitamente en "Productos hoy" en webagency.md
@@ -40,7 +48,7 @@
 
 ## API Keys confirmadas
 - Serper: `7f4c661b596a1110ec64d8ea4f137588c2176a5c`
-- Firecrawl: `fc-43af3ff28f844315ad1732c372851eef`
+- Firecrawl: `fc-43a...1eef`
 - DataImpulse: SIN CRÉDITO (port 823 bloqueado desde VPS)
 
 ---
