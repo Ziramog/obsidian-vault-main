@@ -4,7 +4,7 @@
 
 ---
 ## Última actualización
-2026-05-10 11:05 | Construvial $225 USD recibidos (viaje San Juan). Proxy DataImpulse agotado. Semáforo 🔴 mejorado a –$475/mes ($425 ingresados / $900 gastos). Discord cron funcional.
+2026-05-10 20:50 | Informe UX Conforti enviado. Luis Farias en viaje — vuelve julio, agendar follow-up. MEMORY actualizado.
 
 ---
 
@@ -32,7 +32,7 @@ Hermes/
 | Lead | Empresa | Valor | Estado | Próxima acción |
 |---|---|---|---|---|
 | Franco Roma | Roggero & Roma | $400 + $25/mes | ✅ Cerrado — $200 adelantados 02/05 | **Cobrar $200 restantes** |
-| Luis Farias | Farias & Asociados | $300 + $50/mes | Follow-up hoy — **sin respuesta** (10+ días total) | Llamada directa o email pendiente |
+| Luis Farias | Farias & Asociados | $300 + $50/mes | ⏳ En viaje — vuelve julio, retomar seguimiento | **Follow-up julio 2026 cuando vuelva** |
 | Ann | Documental de cine | — | 🟡 Pitch enviado | Seguimiento (Juan) |
 | Comforti Propiedades | — | — | Sin contactar | Integrar a outreach |
 | Rivas Inmuebles | — | — | Sin contactar | Integrar a outreach |
