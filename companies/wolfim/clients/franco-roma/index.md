@@ -83,3 +83,29 @@
   - News/press coverage
   - Diseño ultra-premium minimalista
 - **Nota:** Escala muy diferente a Córdoba pero el estilo es replicable
+
+## Add-ons para pronta implementación
+Agregar al mantenimiento existente ($25/mes) para dar más valor.
+
+### Add-on 1: Análisis de competencia
+- **Qué hace:** Scraping mensual de inmobiliarias en Alta Gracia/zona
+- **Output:** Informe con posicionamiento relativo de Roggero & Roma
+- **Valor para Franco:** sabe dónde está parado vs la competencia real
+- **Implementación:** uso de scraper existente + formato informe HTML → PDF
+
+### Add-on 2: Preparación de presupuestos
+- **Qué hace:** Generador de presupuestos comparativos para inversores
+- **Output:** PDF con comparativa de propiedades, rendimiento, escenarios
+- **Valor para Franco:** herramienta comercial para cerrar operaciones
+- **Implementación:** datos de propiedades + template PDF + lógica comparativa
+
+### Add-on 3: Generador de descripciones de propiedades
+- **Qué hace:** Copywriting AI que genera descripciones optimizadas para portales
+- **Output:** Texto listo para Zonaprop, Argenprop y web propia
+- Valor para Franco: problema real — escribir descripciones a mano toma tiempo
+- **Implementación:** acceso a datos de propiedad + prompt de copywriting
+
+### Precio sugerido
+- Individual: $15-20 USD/mes por add-on
+- Bundle 3 add-ons: $35 USD/mes
+- Complemento al mantenimiento: no reemplaza, suma

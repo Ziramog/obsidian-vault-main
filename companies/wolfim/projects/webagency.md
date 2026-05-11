@@ -40,6 +40,26 @@
 - Mantenimiento + soporte técnico
 - Google Ads (opcional: setup + gestión)
 
+## Add-ons de mantenimiento (pronta implementación)
+Herramientas que suman valor al mantenimiento mensual sin ser productos independientes.
+
+### Análisis de competencia
+- Scraping mensual de competidores en la zona del cliente
+- Informe en PDF: posicionamiento relativo, gaps, oportunidades
+- Precio: $15-20 USD/mes o incluido en bundle
+
+### Preparación de presupuestos
+- Generador de presupuestos comparativos para inversores
+- PDF con comparativa de propiedades, rendimiento, escenarios
+- Precio: $15-20 USD/mes o incluido en bundle
+
+### Generador de descripciones de propiedades
+- Copywriting AI para descripciones en portales (Zonaprop, Argenprop) y web propia
+- Resuelve el problema real de escribir descripciones a mano
+- Precio: $15-20 USD/mes o incluido en bundle
+
+**Bundle 3 add-ons: $35 USD/mes**
+
 ## Oportunidades a desarrollar (fuera de caja hoy)
 - Outreach automatizado via WhatsApp — captar leads automáticamente
 - CRM con scoring y seguimiento de clientes
