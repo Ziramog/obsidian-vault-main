@@ -55,3 +55,19 @@
 
 ## Modo
 Ejecución
+---
+
+## 2026-05-11 — Fix Telegram cron delivery
+
+**Problema:** Cron reports no llegaban a Telegram hace ~10 días. Dos causas:
+1. 5 crons con `deliver: local` (guardaban output a archivo, no enviaban a Telegram)
+2. Token Telegram `8644817415:AAFHV8fx...` daba 401 Unauthorized (revocado/inválido)
+
+**Solución aplicada:**
+- 5 crons cambiados de `deliver: local` → `deliver: origin` (Morning Report 8AM, Health Check x2, Hermes Daily Update 6AM, Morning Report Test 11AM)
+- Token Telegram actualizado a `8632805727:AAEF34Y45...` (@hermestri3bot — bot nuevo creado x Juan)
+- Gateway restart vía PM2/systemd
+- Test curl → sendMessage funciona (✅ Mensajes llegan a 1479438002)
+- morning-report.py confirmado funcional (envía directo, no depende del gateway)
+
+**Juan debe confirmar:** ¿le llegaron los mensajes de prueba a Telegram?
