@@ -73,6 +73,8 @@ Hermes/
 - **Bug EACCES state.json**: FIXED
 - **Bug Baileys 401 loop**: FIXED
 - **⚠️ WA desconectado**: Número requiere re-autenticación (QR scan pendiente)
+- **DataImpulse sin crédito** (mayo 2026): proxy 823 bloqueado desde VPS. Sin Maps scraping hasta nuevo crédito o alternativa.
+- **Regiones + verticales**: Neuquén + Vaca Muerta = Oil & Gas. San Juan + Catamarca = Mining.
 - **Leads disponibles**: 1,433 en JSON + 117 en Supabase `concesionarias_autos`
 - **QR files**: `/home/hermes/data/baileys-connect/qr.txt` y `/home/hermes/workspace/projects/outreach-connect-daemon/direct-qr.png`
 
