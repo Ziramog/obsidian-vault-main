@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-11 08:30 | Sesión — fix cron_mode deny→allow, gateway reiniciado PM2
+2026-05-11 20:00 | Sesión cron — Fix Telegram delivery, gap –$475/mes, 13 días sin cierre
 
 ---
 
@@ -14,10 +14,11 @@
 ---
 
 ## Pipeline activo
-- Franco Roma: $400+$25/mes — 50% recibido, frontend en desarrollo. Add-ons para pronta implementación (1 pedido Franco + 3 ideas Juan)
-- Luis Farias: PDF enviado — sin respuesta 10+ días. Vuelve julio.
-- Ann: Pitch enviado — seguimiento Juan
+- Franco Roma: $400+$25/mes — $200 adelantados, $200 restantes por cobrar. URGENTE.
+- Luis Farias: PDF enviado — en viaje, vuelve julio. Follow-up retomar julio.
+- Ann: Pitch enviado — seguimiento pendiente
 - Comforti, Rivas, Gamma: leads fríos — integrar a outreach cuando WA esté autenticado
+- Construvial: $225 USD cobrados (10/05)
 
 ---
 
@@ -33,8 +34,11 @@
 ## Alerta resuelta — Cron delivery Telegram/Discord (2026-05-11)
 - Causa: `approvals.cron_mode: deny` en config.yaml — bloqueaba todo delivery de crons
 - Fix: cambiado a `cron_mode: allow`
+- Token Telegram: `8632805727:AAEF34Y45...` (@hermestri3bot)
+- 5 crons cambiados de `deliver: local` → `deliver: origin`
 - Gateway reiniciado via PM2 (PID 1746901)
-- Monitorear próximas 24h — si vuelven a fallar, revisar `allowed_chats` en Telegram config
+- Test curl → sendMessage funciona (✅ Mensajes llegan a 1479438002)
+- Monitorear próximas 24h — confirmar que Juan recibió mensajes de prueba
 
 ---
 
@@ -55,19 +59,20 @@
 
 ## Modo
 Ejecución
+
 ---
 
-## 2026-05-11 — Fix Telegram cron delivery
+## Días sin cierre comercial
+13 (desde Franco Roma 28/04)
 
-**Problema:** Cron reports no llegaban a Telegram hace ~10 días. Dos causas:
-1. 5 crons con `deliver: local` (guardaban output a archivo, no enviaban a Telegram)
-2. Token Telegram `8644817415:AAFHV8fx...` daba 401 Unauthorized (revocado/inválido)
+---
 
-**Solución aplicada:**
-- 5 crons cambiados de `deliver: local` → `deliver: origin` (Morning Report 8AM, Health Check x2, Hermes Daily Update 6AM, Morning Report Test 11AM)
-- Token Telegram actualizado a `8632805727:AAEF34Y45...` (@hermestri3bot — bot nuevo creado x Juan)
-- Gateway restart vía PM2/systemd
-- Test curl → sendMessage funciona (✅ Mensajes llegan a 1479438002)
-- morning-report.py confirmado funcional (envía directo, no depende del gateway)
+## Historial financiero mayo 2026
 
-**Juan debe confirmar:** ¿le llegaron los mensajes de prueba a Telegram?
+| Fecha | Ingreso | Detalle |
+|-------|---------|---------|
+| 02/05 | $200 | Franco Roma — adelantados |
+| 10/05 | $225 USD | Construvial — cobrado |
+| 11/05 | $0 | Sin nuevos ingresos |
+
+**Total mayo:** $425 ingresados / $900 proyectados = Gap –$475
