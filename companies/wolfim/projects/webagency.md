@@ -32,7 +32,17 @@
 ## Portfolio
 - [[hq/services/portfolio-servicios]]
 
-## Notes
-- Precio máximo: $50 USD/mes para Argentina (mercado local)
-- Diferenciación: servicio completo + automatización WhatsApp
-- Ver decisions/ en hq/ para estrategia comercial
+## Productos hoy (validado 2026-05-10)
+- Sitio web propio con branding personalizado
+- Migración desde plataformas genéricas (Wasi, 2clics, etc.)
+- SEO local optimizado para la ciudad/zona del cliente
+- Panel admin para gestión de propiedades
+- Mantenimiento + soporte técnico
+- Google Ads (opcional: setup + gestión)
+
+## Oportunidades a desarrollar (fuera de caja hoy)
+- Outreach automatizado via WhatsApp — captar leads automáticamente
+- CRM con scoring y seguimiento de clientes
+- Sistema de captación de leads con nurturing automático
+
+**Regla: nunca vender como producto lo que no está en "Productos hoy". Las oportunidades a desarrollar son eso — oportunidades, no ofertas.**
