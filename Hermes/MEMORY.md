@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-11 22:00 | Sesión cerrada — Cron delivery Telegram resuelto, gateway con restart loop no bloqueante, Juan se retira
+2026-05-12 00:00 | Sesión cron consolidada — 2026-05-11 | Cron Telegram delivery funcionando ✅ | Sin sesión humana activa | Días sin cierre: 15
 
 ---
 
@@ -63,7 +63,7 @@ Ejecución
 ---
 
 ## Días sin cierre comercial
-14 (desde Franco Roma 28/04)
+15 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
 
 ---
 
