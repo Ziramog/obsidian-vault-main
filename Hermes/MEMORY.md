@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-11 20:00 | Sesión cron — Fix Telegram delivery, gap –$475/mes, 13 días sin cierre
+2026-05-11 22:00 | Sesión cerrada — Cron delivery Telegram resuelto, gateway con restart loop no bloqueante, Juan se retira
 
 ---
 
@@ -34,11 +34,11 @@
 ## Alerta resuelta — Cron delivery Telegram/Discord (2026-05-11)
 - Causa: `approvals.cron_mode: deny` en config.yaml — bloqueaba todo delivery de crons
 - Fix: cambiado a `cron_mode: allow`
-- Token Telegram: `8632805727:AAEF34Y45...` (@hermestri3bot)
+- Token Telegram: `8632805727:AAEF34Y45...` (@hermestri3bot) — funcionando ✅
 - 5 crons cambiados de `deliver: local` → `deliver: origin`
-- Gateway reiniciado via PM2 (PID 1746901)
-- Test curl → sendMessage funciona (✅ Mensajes llegan a 1479438002)
-- Monitorear próximas 24h — confirmar que Juan recibió mensajes de prueba
+- Morning report cron明日 8AM — verificar receipt en sesión siguiente
+- Gateway con restart loop (systemd + PM2 compiten) — NO bloqueante para cron reports
+- Nota: mensajes del bot directos (no crons) pueden perderse si gateway está caído
 
 ---
 
@@ -63,7 +63,7 @@ Ejecución
 ---
 
 ## Días sin cierre comercial
-13 (desde Franco Roma 28/04)
+14 (desde Franco Roma 28/04)
 
 ---
 
