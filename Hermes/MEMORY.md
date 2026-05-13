@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-12 00:00 | Sesión cron consolidada — 2026-05-11 | Cron Telegram delivery funcionando ✅ | Sin sesión humana activa | Días sin cierre: 15
+2026-05-12 23:59 | Daily summary cerrado | Sin sesión humana activa | Días sin cierre: 15 | Sistema estable
 
 ---
 
