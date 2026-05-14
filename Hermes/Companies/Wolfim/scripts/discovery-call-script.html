@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discovery Call — Wolfim · Inmobiliarias</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0d0d0d;
+    color: #e8e0d0;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 32px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .brand-icon {
+    background: #c4ff00;
+    color: #0d0d0d;
+    font-weight: 900;
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+
+  .brand-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  h1 span { color: #c4ff00; }
+
+  .subtitle {
+    font-size: 15px;
+    color: #7a7468;
+    margin-bottom: 40px;
+  }
+
+  /* INTRO */
+  .intro-box {
+    background: rgba(196, 255, 0, 0.05);
+    border: 1px solid rgba(196, 255, 0, 0.15);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+  }
+
+  .intro-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c4ff00;
+    margin-bottom: 8px;
+  }
+
+  .intro-box p {
+    font-size: 14px;
+    color: #c0b8a8;
+    line-height: 1.65;
+  }
+
+  .intro-box strong { color: #e8e0d0; }
+
+  /* QUESTION CARD */
+  .question-card {
+    margin-bottom: 24px;
+    padding: 20px 24px;
+    background: #131310;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .question-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #c4ff00;
+  }
+
+  .q-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c4ff00;
+    margin-bottom: 6px;
+  }
+
+  .q-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .q-why {
+    font-size: 12px;
+    color: #6a6258;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .q-listen {
+    font-size: 12px;
+    color: #5a5448;
+    background: rgba(255,255,255,0.03);
+    border-radius: 4px;
+    padding: 10px 14px;
+    border-left: 2px solid #3a3530;
+  }
+
+  .q-listen strong { color: #8a8070; }
+
+  /* RULES */
+  .rules-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .rules-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5a5448;
+    margin-bottom: 16px;
+  }
+
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .rule-item {
+    background: #131310;
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #8a8070;
+  }
+
+  .rule-item .rule-do {
+    color: #c4ff00;
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 11px;
+  }
+
+  /* CLOSE */
+  .close-section {
+    margin-top: 40px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(196,255,0,0.08), rgba(196,255,0,0.03));
+    border: 1px solid rgba(196, 255, 0, 0.2);
+    border-radius: 8px;
+  }
+
+  .close-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c4ff00;
+    margin-bottom: 12px;
+  }
+
+  .close-line {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e8e0d0;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .close-note {
+    font-size: 12px;
+    color: #6a6258;
+    line-height: 1.5;
+  }
+
+  /* TIMING */
+  .timing-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+    margin-top: 24px;
+  }
+
+  .timing-box {
+    flex: 1;
+    background: #131310;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 6px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .timing-num {
+    font-size: 28px;
+    font-weight: 900;
+    color: #ffffff;
+  }
+
+  .timing-num span { color: #c4ff00; }
+  .timing-label { font-size: 11px; color: #6a6258; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+  .timing-desc { font-size: 12px; color: #5a5448; margin-top: 4px; }
+
+  /* FOOTER */
+  .script-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-note { font-size: 11px; color: #4a4438; }
+  .footer-brand { font-size: 11px; color: #c4ff00; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="brand">
+  <div class="brand-icon">W</div>
+  <div class="brand-name">Wolfim · Discovery Script</div>
+</div>
+
+<h1>Discovery Call<br><span>Inmobiliarias</span></h1>
+<p class="subtitle">5 preguntas · 5 minutos · un lead caliente</p>
+
+<div class="timing-row">
+  <div class="timing-box">
+    <div class="timing-num"><span>5</span> min</div>
+    <div class="timing-label">Duración</div>
+    <div class="timing-desc">No estirar más</div>
+  </div>
+  <div class="timing-box">
+    <div class="timing-num"><span>5</span></div>
+    <div class="timing-label">Preguntas</div>
+    <div class="timing-desc">Una por minuto aproximadamente</div>
+  </div>
+  <div class="timing-box">
+    <div class="timing-num"><span>1</span> meta</div>
+    <div class="timing-label">Objetivo</div>
+    <div class="timing-desc">Calificar y agendar propuesta</div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro-box">
+  <div class="intro-title">El opening — 30 segundos</div>
+  <p>"Buenas [nombre], te llamo de Wolfim. Vi que mostraste interés en la web para tu inmobiliaria. Te puedo robart 5 min? quiero entender tu situación y ver si te convienecharraf. Si no es buen momento decime y te llamo en otro horario."</p>
+  <p style="margin-top:10px;font-size:12px;color:#6a6258;">⚠️ <strong>Regla #1:</strong> Si dice "ahora no puedo" → preguntá "¿Cuándo te llamo?" y poné alarma. No pierdas el lead.</p>
+</div>
+
+<!-- Q1 -->
+<div class="question-card">
+  <div class="q-num">Pregunta 1 · Minuto 1</div>
+  <div class="q-text">"Contame, ¿qué tienen hoy como web? ¿La están usando o está ahí parada?"</div>
+  <div class="q-why">Por qué: sabés si tienen algo (qué tan malo), o nada (más urgencia). Si está parada → tienen dolor.</div>
+  <div class="q-listen"><strong>Escuchá:</strong> "Está desactualizada", "la hizo un amigo", "no sirve para nada", "no tenemos tiempo de actualizarla" → son flags de dolor real.</div>
+</div>
+
+<!-- Q2 -->
+<div class="question-card">
+  <div class="q-num">Pregunta 2 · Minuto 2</div>
+  <div class="q-text">"¿Y qué pasa cuando un cliente nuevo te pregunta si tienen web?"</div>
+  <div class="q-why">Por qué: exposes el costo real del problema. Si responden "le paso el link y se嫌" → ese dolor se puede monetizar.</div>
+  <div class="q-listen"><strong>Escuchá:</strong> Frustración, vergüenza, o resignación. Si hay emoción → hay voluntad de pagar.</div>
+</div>
+
+<!-- Q3 -->
+<div class="question-card">
+  <div class="q-num">Pregunta 3 · Minuto 3</div>
+  <div class="q-text">"¿Cuándo la necesitan? ¿Es algo que quieras resolver este mes o tiene tiempo?"</div>
+  <div class="q-why">Por qué: la urgencia define si vale la pena seguir hablando. "Necesito para marzo" = caliente. "Capaz para fin de año" = frío.</div>
+  <div class="q-listen"><strong>Escuchá:</strong> "YA" o "para la temporada" o "tengo una propiedad nueva que no puedo publicar" → alta urgencia. "Capaz, no tengo apuro" = baja urgencia → no invertir mucho tiempo.</div>
+</div>
+
+<!-- Q4 -->
+<div class="question-card">
+  <div class="q-num">Pregunta 4 · Minuto 4</div>
+  <div class="q-text">"¿Tienen algo de presupuesto para esto o todavía están averiguando?"</div>
+  <div class="q-why">Por qué: es la pregunta de plata. Si tienen budget → es lead real. Si no tienen idea → hay que educarlos o dejar pasar.</div>
+  <div class="q-listen"><strong>Escuchá:</strong> "$300 está bien", "nos dijeron como $200", "no tengo idea cuánto sale", "un poco tengo" → todos son puntos de partida. Lo importante es que NOMBREN dinero.</div>
+</div>
+
+<!-- Q5 -->
+<div class="question-card">
+  <div class="q-num">Pregunta 5 · Minuto 5</div>
+  <div class="q-text">"Si te mando una propuesta con diseño, funcionalidades y precio, ¿vos sos quien decide o tenés que consultarle a alguien?"</div>
+  <div class="q-why">Por qué: sabés si podés cerrar directo o si hay otro decisor. Si tenés que convencer a dos → el proceso es más largo.</div>
+  <div class="q-listen"><strong>Escuchá:</strong> "Yo decido solo" → podés cerrar hoy. "Tengo que hablar con mi socia/mi marido" → pedí el contacto del otro decisor Y ANA UN FOLLOW-UP.</div>
+</div>
+
+<!-- RULES -->
+<div class="rules-section">
+  <div class="rules-title">Reglas del script</div>
+  <div class="rules-grid">
+    <div class="rule-item">
+      <div class="rule-do">HACER</div>
+      Escuchá más de lo que hablás. El objetivo es que el cliente hable, no vos.
+    </div>
+    <div class="rule-item">
+      <div class="rule-do">HACER</div>
+      Tomá notas durante la llamada. Después las necesitás para la propuesta.
+    </div>
+    <div class="rule-item">
+      <div class="rule-do">NO HACER</div>
+      No vendás features. Hablá de resultados: más consultas, más ventas.
+    </div>
+    <div class="rule-item">
+      <div class="rule-do">NO HACER</div>
+      No hablar de precio todavía. La propuesta tiene que llegar por escrito, no en una llamada.
+    </div>
+    <div class="rule-item">
+      <div class="rule-do">HACER</div>
+      Si hay fit, cerrá la llamada con: "Te mando la propuesta hoy. ¿Cuándo la revisás?"
+    </div>
+    <div class="rule-item">
+      <div class="rule-do">HACER</div>
+      Si no hay fit, despedite bien: "Quedamos en contacto. Cuando tengan algo de presupuesto avisame."
+    </div>
+  </div>
+</div>
+
+<!-- CLOSE -->
+<div class="close-section">
+  <div class="close-title">El cierre después de la pregunta 5</div>
+  <div class="close-line">"Perfecto, según lo que me contás tiene sentido que vean la propuesta. Te la mando hoy. ¿La revisás mañana o pasado?"</div>
+  <div class="close-note">
+    → Si dice cuándo → "Genial, te la mando ahora. Cualquier duda me llamás o me escribís por WhatsApp."<br>
+    → Si duda → "Sin compromiso. Es una propuesta, no un contrato. Si no te sirve la guardás y listo."<br>
+    → Si no hay fit → "Quedamos en contacto. Cuando tengas algo de presupuesto avisame."
+  </div>
+</div>
+
+<div class="script-footer">
+  <span class="footer-note">Imprimí esto antes de la llamada · Solo 1 página</span>
+  <span class="footer-brand">Wolfim · Wolfim.com</span>
+</div>
+
+</body>
+</html>
