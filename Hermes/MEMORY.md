@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-14 20:00 | Session summary written | Cron-only day (3 consecutive) | Días sin cierre: 17 | Sistema estable
+2026-05-15 20:00 | Session summary written | Cron-only day (4 consecutive) | Días sin cierre: 18 | Sistema estable
 
 ---
 
@@ -14,11 +14,12 @@
 ---
 
 ## Pipeline activo
-- Franco Roma: $400+$25/mes — $200 adelantados, $200 restantes por cobrar. URGENTE.
+- Franco Roma: $400+$25/mes — $200 adelantados, $200 restantes por cobrar. URGENTE — 18 días.
 - Luis Farias: PDF enviado — en viaje, vuelve julio. Follow-up retomar julio.
 - Ann: Pitch enviado — seguimiento pendiente
 - Comforti, Rivas, Gamma: leads fríos — integrar a outreach cuando WA esté autenticado
 - Construvial: $225 USD cobrados (10/05)
+- Ango: sin actividad
 
 ---
 
@@ -28,6 +29,13 @@
 - Top contactos: CISA (Neuquén), Sigma SA (SJ), Dumandzic (SJ/CAT), CASEMICA (CAT)
 - Solo investigación — sin outreach hasta activación explícita de Juan
 - Posicionamiento: subcontratista de subcontratistas (maquinaria + obra civil para empresas que ya sirven a petroleras/mineras)
+
+---
+
+## Racha cron-only activa
+⚠️ 4 días consecutivos sin sesión humana (11, 12, 13, 14, 15/05)
+→ Último contacto humano: 2026-05-11-22-00
+→ Protocolo: 7+ días → Telegram alert
 
 ---
 
@@ -63,7 +71,7 @@ Ejecución
 ---
 
 ## Días sin cierre comercial
-15 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
+18 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
 
 ---
 
@@ -73,6 +81,14 @@ Ejecución
 |-------|---------|---------|
 | 02/05 | $200 | Franco Roma — adelantados |
 | 10/05 | $225 USD | Construvial — cobrado |
-| 11/05 | $0 | Sin nuevos ingresos |
+| 11/05-15/05 | $0 | Sin nuevos ingresos |
 
 **Total mayo:** $425 ingresados / $900 proyectados = Gap –$475
+**Con Franco Roma cobrado:** –$275
+
+---
+
+## Hito China — octubre 2026
+Meta: > $1.000 USD/mes con operación autónoma.
+**Días restantes:** ~143
+**Estado actual:** 🔴 Crítico — sin flujo de caja positivo, sin actividad comercial.
