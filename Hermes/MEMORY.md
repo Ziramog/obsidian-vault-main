@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-15 20:00 | Session summary written | Cron-only day (4 consecutive) | Días sin cierre: 18 | Sistema estable
+2026-05-15 23:55 | Session finalized | Cron-only day (5 consecutive) | Días sin cierre: 18 | Sistema estable | Alerta 7+ días enviada
 
 ---
 
@@ -33,9 +33,9 @@
 ---
 
 ## Racha cron-only activa
-⚠️ 4 días consecutivos sin sesión humana (11, 12, 13, 14, 15/05)
+⚠️ 5 días consecutivos sin sesión humana (11, 12, 13, 14, 15/05)
 → Último contacto humano: 2026-05-11-22-00
-→ Protocolo: 7+ días → Telegram alert
+→ Protocolo: 7+ días → Telegram alert ENVIADO
 
 ---
 
