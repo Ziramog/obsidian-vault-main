@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-15 23:55 | Session finalized | Cron-only day (5 consecutive) | Días sin cierre: 18 | Sistema estable | Alerta 7+ días enviada
+2026-05-16 23:55 | Session finalized | Cron-only day (6 consecutive) | Días sin cierre: 19 | Sistema estable | Alerta 7+ días enviada
 
 ---
 
@@ -14,7 +14,7 @@
 ---
 
 ## Pipeline activo
-- Franco Roma: $400+$25/mes — $200 adelantados, $200 restantes por cobrar. URGENTE — 18 días.
+- Franco Roma: $400+$25/mes — $200 adelantados, $200 restantes por cobrar. URGENTE — 19 días.
 - Luis Farias: PDF enviado — en viaje, vuelve julio. Follow-up retomar julio.
 - Ann: Pitch enviado — seguimiento pendiente
 - Comforti, Rivas, Gamma: leads fríos — integrar a outreach cuando WA esté autenticado
@@ -33,7 +33,7 @@
 ---
 
 ## Racha cron-only activa
-⚠️ 5 días consecutivos sin sesión humana (11, 12, 13, 14, 15/05)
+⚠️ 6 días consecutivos sin sesión humana (11, 12, 13, 14, 15, 16/05)
 → Último contacto humano: 2026-05-11-22-00
 → Protocolo: 7+ días → Telegram alert ENVIADO
 
@@ -71,7 +71,7 @@ Ejecución
 ---
 
 ## Días sin cierre comercial
-18 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
+19 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
 
 ---
 
@@ -81,7 +81,7 @@ Ejecución
 |-------|---------|---------|
 | 02/05 | $200 | Franco Roma — adelantados |
 | 10/05 | $225 USD | Construvial — cobrado |
-| 11/05-15/05 | $0 | Sin nuevos ingresos |
+| 11/05-16/05 | $0 | Sin nuevos ingresos |
 
 **Total mayo:** $425 ingresados / $900 proyectados = Gap –$475
 **Con Franco Roma cobrado:** –$275
@@ -90,5 +90,5 @@ Ejecución
 
 ## Hito China — octubre 2026
 Meta: > $1.000 USD/mes con operación autónoma.
-**Días restantes:** ~143
+**Días restantes:** ~142
 **Estado actual:** 🔴 Crítico — sin flujo de caja positivo, sin actividad comercial.
