@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-16 23:55 | Session finalized | Cron-only day (6 consecutive) | Días sin cierre: 19 | Sistema estable | Alerta 7+ días enviada
+2026-05-17 20:00 | Session finalized | Cron-only day (7 consecutive) | Días sin cierre: 20 | Sistema estable
 
 ---
 
@@ -33,9 +33,8 @@
 ---
 
 ## Racha cron-only activa
-⚠️ 6 días consecutivos sin sesión humana (11, 12, 13, 14, 15, 16/05)
+⚠️ 7 días consecutivos sin sesión humana (11, 12, 13, 14, 15, 16, 17/05)
 → Último contacto humano: 2026-05-11-22-00
-→ Protocolo: 7+ días → Telegram alert ENVIADO
 
 ---
 
@@ -71,7 +70,7 @@ Ejecución
 ---
 
 ## Días sin cierre comercial
-19 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
+20 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
 
 ---
 
