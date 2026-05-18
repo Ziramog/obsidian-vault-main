@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-17 20:00 | Session finalized | Cron-only day (7 consecutive) | Días sin cierre: 20 | Sistema estable
+2026-05-17 21:55 | Sesión activa | WA outreach funcionando ✅ | Franco ~10 días
 
 ---
 
@@ -16,11 +16,11 @@
 ---
 
 ## Pipeline activo
-- Franco Roma: $400+$25/mes — $200 adelantados, $200 restantes por cobrar. URGENTE — 19 días.
+- Franco Roma: $300 USD restantes — entrega en ~10 días. Add-ons extra ($100) incluidos en ese total.
 - Luis Farias: PDF enviado — en viaje, vuelve julio. Follow-up retomar julio.
 - Ann: Pitch enviado — seguimiento pendiente
-- Comforti, Rivas, Gamma: leads fríos — integrar a outreach cuando WA esté autenticado
-- Construvial: $225 USD cobrados (10/05)
+- Comforti, Rivas, Gamma: leads fríos — INTEGRAR A OUTREACH AHORA (WA funcionando ✅)
+- Construvial: $225 USD cobrados (10/05) + $142 USD viáticos Catamarca (14/05) = $367 total Construvial
 - Ango: sin actividad
 
 ---
@@ -34,9 +34,8 @@
 
 ---
 
-## Racha cron-only activa
-⚠️ 7 días consecutivos sin sesión humana (11, 12, 13, 14, 15, 16, 17/05)
-→ Último contacto humano: 2026-05-11-22-00
+## Racha cron-only
+✅ Racha rota — Sesión humana活跃 17/05/2026
 
 ---
 
@@ -86,12 +85,12 @@ Ejecución
 | 11/05-16/05 | $0 | Sin nuevos ingresos |
 | 17/05 | +$100 USD (pendiente) | Franco Roma — add-ons extra |
 
-**Total mayo:** $425 + $142 = $567 ingresados / $900 gastos proyectados = Gap –$333
-**Con Franco Roma cobrado + extras:** –$133 (~$100 adicionales Franco Roma aún pendientes de cobrar)
+**Total mayo:** $425 + $142 = $567 ingresados / $900 gastos proyectados = Gap actual –$333
+**Con Franco Roma cobrado (~10 días):** $567 + $300 = $867 → Gap proyectado –$33
 
 ---
 
 ## Hito China — octubre 2026
 Meta: > $1.000 USD/mes con operación autónoma.
 **Días restantes:** ~142
-**Estado actual:** 🔴 Crítico — sin flujo de caja positivo, sin actividad comercial.
+**Estado actual:** 🟠 Transición — WA outreach activo, Franco Roma cobra ~10 días, gap mayo casi equilibrado
