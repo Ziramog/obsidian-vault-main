@@ -4,14 +4,16 @@
 ---
 
 ## Última actualización
-2026-05-17 21:55 | Sesión activa | WA outreach funcionando ✅ | Franco ~10 días
+2026-05-17 23:55 | Cron-only | Sin sesión humana | Sistema estable
 
 ---
 
 ## Semáforo
-🟠 Transición — Gap mayo 2026: ~–$333 | $567 ingresados / $900 gastos (+$100 Franco Roma add-ons pendientes)
+🔴 Crítico — Gap mayo 2026: ~–$475 | $567 ingresados / $900 gastos
+**Último ingreso:** Franco Roma $425 total (28/04) — hace 20 días
+**Con Franco Roma $200 cobrado:** –$275
 
-**Con Franco Roma $200 + $100 cobrado:** –$133
+**Semáforo actualizado a 🔴 Crítico — 7 días consecutivos sin sesión humana (11–17/05).**
 
 ---
 
@@ -35,7 +37,8 @@
 ---
 
 ## Racha cron-only
-✅ Racha rota — Sesión humana活跃 17/05/2026
+⚠️ 7 días consecutivos (11–17/05) — última sesión humana: 2026-05-11-22-00
+**Contrato SOUL: 7+ días → Telegram alert enviado.**
 
 ---
 
