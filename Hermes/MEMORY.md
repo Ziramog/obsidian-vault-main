@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-17 23:55 | Cron-only | Sin sesión humana | Sistema estable
+2026-05-18 23:55 | Cron-only | Sin sesión humana | Sistema estable | 8 días sin sesión (11–18/05)
 
 ---
 
@@ -37,7 +37,7 @@
 ---
 
 ## Racha cron-only
-⚠️ 7 días consecutivos (11–17/05) — última sesión humana: 2026-05-11-22-00
+⚠️ 8 días consecutivos (11–18/05) — última sesión humana: 2026-05-11-22-00
 **Contrato SOUL: 7+ días → Telegram alert enviado.**
 
 ---
