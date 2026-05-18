@@ -9,7 +9,9 @@
 ---
 
 ## Semáforo
-🔴 Crítico — Gap mayo 2026: ~–$475 | $425 ingresados / $900 gastos
+🟠 Transición — Gap mayo 2026: ~–$333 | $567 ingresados / $900 gastos (+$100 Franco Roma add-ons pendientes)
+
+**Con Franco Roma $200 + $100 cobrado:** –$133
 
 ---
 
@@ -80,10 +82,12 @@ Ejecución
 |-------|---------|---------|
 | 02/05 | $200 | Franco Roma — adelantados |
 | 10/05 | $225 USD | Construvial — cobrado |
+| 14/05 | $142 USD | Construvial — viáticos Catamarca (gestiones comerciales) |
 | 11/05-16/05 | $0 | Sin nuevos ingresos |
+| 17/05 | +$100 USD (pendiente) | Franco Roma — add-ons extra |
 
-**Total mayo:** $425 ingresados / $900 proyectados = Gap –$475
-**Con Franco Roma cobrado:** –$275
+**Total mayo:** $425 + $142 = $567 ingresados / $900 gastos proyectados = Gap –$333
+**Con Franco Roma cobrado + extras:** –$133 (~$100 adicionales Franco Roma aún pendientes de cobrar)
 
 ---
 
