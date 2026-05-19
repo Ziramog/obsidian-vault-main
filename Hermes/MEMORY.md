@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-18 23:55 | Cron-only | Sin sesión humana | Sistema estable | 8 días sin sesión (11–18/05)
+2026-05-19 22:30 | Sesión activa | Propuesta Construvial reformateada + enviada | Semáforo 🔴
 
 ---
 
@@ -33,6 +33,7 @@
 - Top contactos: CISA (Neuquén), Sigma SA (SJ), Dumandzic (SJ/CAT), CASEMICA (CAT)
 - Solo investigación — sin outreach hasta activación explícita de Juan
 - Posicionamiento: subcontratista de subcontratistas (maquinaria + obra civil para empresas que ya sirven a petroleras/mineras)
+- PROPUESTA ENVIADA 19/05: Propuesta_Construvial_Wolfim_2026.pdf (17 páginas, branding Wolfim, dark/gold cinematic) — guardada en obsidian-vault/companies/construvial/propuesta_2026/
 
 ---
 
