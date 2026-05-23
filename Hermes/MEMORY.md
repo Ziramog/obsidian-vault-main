@@ -116,5 +116,10 @@ Meta: > $1.000 USD/mes con operación autónoma.
 
 ---
 
+## browse.sh — probada 2026-05-23
+CLI browser automation (npm install -g browse, v0.8.0). Requiere `TMPDIR=/home/hermes/tmp` (sino EACCES). Skills pre-definidos 111 (mayoría US: LinkedIn API, Indeed, Glassdoor, gov). NO sirve para ARCA/AFIP/CUITonline (Cloudflare). patchright sigue siendo la tool para scraping argentino.
+
+---
+
 ## Última actualización
 2026-05-23 21:30 | Sesión Air Total | Informe v2.0 guardado + PDF enviado Telegram
