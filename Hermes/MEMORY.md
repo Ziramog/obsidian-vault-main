@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-19 22:30 | Sesión activa | Propuesta Construvial reformateada + enviada | Semáforo 🔴
+2026-05-24 23:50 | Cron-only day | Sin sesión humana — 14 días consecutivos (10–24/05) | Semáforo 🔴
 
 ---
 
@@ -38,7 +38,7 @@
 ---
 
 ## Racha cron-only
-⚠️ 8 días consecutivos (11–18/05) — última sesión humana: 2026-05-11-22-00
+⚠️ 14 días consecutivos (10–24/05) — última sesión humana: 2026-05-11-22-00
 **Contrato SOUL: 7+ días → Telegram alert enviado.**
 
 ---
@@ -75,7 +75,7 @@ Ejecución
 ---
 
 ## Días sin cierre comercial
-20 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
+26 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
 
 ---
 
