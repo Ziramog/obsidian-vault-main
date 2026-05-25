@@ -4,24 +4,24 @@
 ---
 
 ## Última actualización
-2026-05-24 23:50 | Cron-only day | Sin sesión humana — 14 días consecutivos (10–24/05) | Semáforo 🔴
+2026-05-25 23:59 | Cron-only day #15 | Sin sesión humana — 15 días consecutivos (10–25/05) | Semáforo 🔴
 
 ---
 
 ## Semáforo
-🔴 Crítico — Gap mayo 2026: ~–$475 | $567 ingresados / $900 gastos
-**Último ingreso:** Franco Roma $425 total (28/04) — hace 20 días
-**Con Franco Roma $200 cobrado:** –$275
+🔴 Crítico — Gap mayo 2026: ~–$333 | $567 ingresados / $900 gastos
+**Último ingreso:** Franco Roma $425 total (28/04) — hace 27 días
+**Con Franco Roma $300 cobrado:** ~–$33 (casi equilibrado)
 
-**Semáforo actualizado a 🔴 Crítico — 7 días consecutivos sin sesión humana (11–17/05).**
+**Semáforo actualizado a 🔴 Crítico — 15 días consecutivos sin sesión humana (10–25/05).**
 
 ---
 
 ## Pipeline activo
-- Franco Roma: $300 USD restantes — entrega en ~10 días. Add-ons extra ($100) incluidos en ese total.
+- Franco Roma: $300 USD restantes — entrega hace ~27 días. Juan debe cobrar YA.
 - Luis Farias: PDF enviado — en viaje, vuelve julio. Follow-up retomar julio.
 - Ann: Pitch enviado — seguimiento pendiente
-- Comforti, Rivas, Gamma: leads fríos — INTEGRAR A OUTREACH AHORA (WA funcionando ✅)
+- Comforti, Rivas, Gamma: leads fríos — INTEGRAR A OUTREACH AHORA
 - Construvial: $225 USD cobrados (10/05) + $142 USD viáticos Catamarca (14/05) = $367 total Construvial
 - Ango: sin actividad
 
@@ -33,13 +33,14 @@
 - Top contactos: CISA (Neuquén), Sigma SA (SJ), Dumandzic (SJ/CAT), CASEMICA (CAT)
 - Solo investigación — sin outreach hasta activación explícita de Juan
 - Posicionamiento: subcontratista de subcontratistas (maquinaria + obra civil para empresas que ya sirven a petroleras/mineras)
-- PROPUESTA ENVIADA 19/05: Propuesta_Construvial_Wolfim_2026.pdf (17 páginas, branding Wolfim, dark/gold cinematic) — guardada en obsidian-vault/companies/construvial/propuesta_2026/
+- PROPUESTA ENVIADA 19/05: Propuesta_Construvial_Wolfim_2026.pdf (17 páginas, branding Wolfim, dark/gold cinematic)
 
 ---
 
 ## Racha cron-only
-⚠️ 14 días consecutivos (10–24/05) — última sesión humana: 2026-05-11-22-00
+⚠️ 15 días consecutivos (10–25/05) — última sesión humana: 2026-05-11-22-00
 **Contrato SOUL: 7+ días → Telegram alert enviado.**
+**15 días sin sesión = situación crítica. Juan debe abrir sesión.**
 
 ---
 
@@ -48,9 +49,6 @@
 - Fix: cambiado a `cron_mode: allow`
 - Token Telegram: `8632805727:AAEF34Y45...` (@hermestri3bot) — funcionando ✅
 - 5 crons cambiados de `deliver: local` → `deliver: origin`
-- Morning report cron明日 8AM — verificar receipt en sesión siguiente
-- Gateway con restart loop (systemd + PM2 compiten) — NO bloqueante para cron reports
-- Nota: mensajes del bot directos (no crons) pueden perderse si gateway está caído
 
 ---
 
@@ -75,7 +73,7 @@ Ejecución
 ---
 
 ## Días sin cierre comercial
-26 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
+27 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
 
 ---
 
@@ -85,19 +83,18 @@ Ejecución
 |-------|---------|---------|
 | 02/05 | $200 | Franco Roma — adelantados |
 | 10/05 | $225 USD | Construvial — cobrado |
-| 14/05 | $142 USD | Construvial — viáticos Catamarca (gestiones comerciales) |
-| 11/05-16/05 | $0 | Sin nuevos ingresos |
-| 17/05 | +$100 USD (pendiente) | Franco Roma — add-ons extra |
+| 14/05 | $142 USD | Construvial — viáticos Catamarca |
+| 11-25/05 | $0 | Sin nuevos ingresos |
 
 **Total mayo:** $425 + $142 = $567 ingresados / $900 gastos proyectados = Gap actual –$333
-**Con Franco Roma cobrado (~10 días):** $567 + $300 = $867 → Gap proyectado –$33
+**Con Franco Roma cobrado ($300):** $567 + $300 = $867 → Gap proyectado ~–$33
 
 ---
 
 ## Hito China — octubre 2026
 Meta: > $1.000 USD/mes con operación autónoma.
-**Días restantes:** ~142
-**Estado actual:** 🟠 Transición — WA outreach activo, Franco Roma cobra ~10 días, gap mayo casi equilibrado
+**Días restantes:** ~128
+**Estado actual:** 🔴 Crítico — 15 días sin sesión, Franco sin cobrar, gap –$333
 
 ---
 
@@ -107,8 +104,6 @@ Meta: > $1.000 USD/mes con operación autónoma.
 
 - patchright instalado para scraping browser automation
 - chromium-browser disponible en /usr/bin/chromium-browser para HTML→PDF
-- Configurar siempre: `PLAYWRIGHT_BROWSERS_PATH=/home/hermes/tmp/playwright TMPDIR=/home/hermes/tmp`
-- executable_path explícito: `/home/hermes/tmp/playwright/chromium_headless_shell-1217/chrome-headless-shell-linux64/chrome-headless-shell`
 - Informe concluido: Air Total = distribuidor minorista climatización, NO ingeniería civil pesada
 - Niederle: 2 causas penales activas (2022 fraude $2.1B + 2025 estafa)
 - Air Total: CERO contratos con mineras de Catamarca
@@ -121,5 +116,20 @@ CLI browser automation (npm install -g browse, v0.8.0). Requiere `TMPDIR=/home/h
 
 ---
 
-## Última actualización
-2026-05-23 21:30 | Sesión Air Total | Informe v2.0 guardado + PDF enviado Telegram
+## PM2 Status — 2026-05-25
+PM2 vacío — sin daemon de outreach corriendo.
+No hay procesos automatizados de venta activos.
+Esto explica por qué el piloto automático no genera ventas.
+
+---
+
+## Referencias
+- [[Wolfim/WebAgency]]
+- [[Construvial]]
+- [[Franco Roma]]
+- [[SOUL]]
+- [[Air Total SRL v2.0|Hermes/Intelligence/AirTotal_SRL_2026-05-23]]
+- [[2026-05-25-summary|Daily/2026-05-25-summary]]
+- [[2026-05-25-summary|hq/sessions/2026-05-25-summary]]
+
+---
