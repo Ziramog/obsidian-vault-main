@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-26 00:00 | Cron-only day #15 | Sin sesión humana — 15 días consecutivos (10–25/05) | Semáforo 🔴
+2026-05-26 00:00 | Cron-only day #16 | Sin sesión humana — 16 días consecutivos (10–26/05) | Semáforo 🔴
 
 ---
 
@@ -73,7 +73,7 @@ Ejecución
 ---
 
 ## Días sin cierre comercial
-28 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
+29 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
 
 ---
 
@@ -93,7 +93,7 @@ Ejecución
 
 ## Hito China — octubre 2026
 Meta: > $1.000 USD/mes con operación autónoma.
-**Días restantes:** ~127
+**Días restantes:** ~126
 **Estado actual:** 🔴 Crítico — 15 días sin sesión, Franco sin cobrar, gap –$333
 
 ---
@@ -132,3 +132,4 @@ Esto explica por qué el piloto automático no genera ventas.
 - [[2026-05-25-summary|Daily/2026-05-25-summary]]
 - [[2026-05-26-summary|Daily/2026-05-26-summary]]
 - [[2026-05-25|hq/sessions/2026-05-25]]
+- [[2026-05-26|hq/sessions/2026-05-26]]
