@@ -4,13 +4,13 @@
 ---
 
 ## Última actualización
-2026-05-25 23:59 | Cron-only day #15 | Sin sesión humana — 15 días consecutivos (10–25/05) | Semáforo 🔴
+2026-05-26 00:00 | Cron-only day #15 | Sin sesión humana — 15 días consecutivos (10–25/05) | Semáforo 🔴
 
 ---
 
 ## Semáforo
 🔴 Crítico — Gap mayo 2026: ~–$333 | $567 ingresados / $900 gastos
-**Último ingreso:** Franco Roma $425 total (28/04) — hace 27 días
+**Último ingreso:** Franco Roma $425 total (28/04) — hace 28 días
 **Con Franco Roma $300 cobrado:** ~–$33 (casi equilibrado)
 
 **Semáforo actualizado a 🔴 Crítico — 15 días consecutivos sin sesión humana (10–25/05).**
@@ -18,7 +18,7 @@
 ---
 
 ## Pipeline activo
-- Franco Roma: $300 USD restantes — entrega hace ~27 días. Juan debe cobrar YA.
+- Franco Roma: $300 USD restantes — entrega hace ~28 días. Juan debe cobrar YA.
 - Luis Farias: PDF enviado — en viaje, vuelve julio. Follow-up retomar julio.
 - Ann: Pitch enviado — seguimiento pendiente
 - Comforti, Rivas, Gamma: leads fríos — INTEGRAR A OUTREACH AHORA
@@ -73,7 +73,7 @@ Ejecución
 ---
 
 ## Días sin cierre comercial
-27 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
+28 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
 
 ---
 
@@ -84,7 +84,7 @@ Ejecución
 | 02/05 | $200 | Franco Roma — adelantados |
 | 10/05 | $225 USD | Construvial — cobrado |
 | 14/05 | $142 USD | Construvial — viáticos Catamarca |
-| 11-25/05 | $0 | Sin nuevos ingresos |
+| 11–25/05 | $0 | Sin nuevos ingresos |
 
 **Total mayo:** $425 + $142 = $567 ingresados / $900 gastos proyectados = Gap actual –$333
 **Con Franco Roma cobrado ($300):** $567 + $300 = $867 → Gap proyectado ~–$33
@@ -93,7 +93,7 @@ Ejecución
 
 ## Hito China — octubre 2026
 Meta: > $1.000 USD/mes con operación autónoma.
-**Días restantes:** ~128
+**Días restantes:** ~127
 **Estado actual:** 🔴 Crítico — 15 días sin sesión, Franco sin cobrar, gap –$333
 
 ---
@@ -116,7 +116,7 @@ CLI browser automation (npm install -g browse, v0.8.0). Requiere `TMPDIR=/home/h
 
 ---
 
-## PM2 Status — 2026-05-25
+## PM2 Status — 2026-05-26
 PM2 vacío — sin daemon de outreach corriendo.
 No hay procesos automatizados de venta activos.
 Esto explica por qué el piloto automático no genera ventas.
@@ -130,6 +130,5 @@ Esto explica por qué el piloto automático no genera ventas.
 - [[SOUL]]
 - [[Air Total SRL v2.0|Hermes/Intelligence/AirTotal_SRL_2026-05-23]]
 - [[2026-05-25-summary|Daily/2026-05-25-summary]]
-- [[2026-05-25-summary|hq/sessions/2026-05-25-summary]]
-
----
+- [[2026-05-26-summary|Daily/2026-05-26-summary]]
+- [[2026-05-25|hq/sessions/2026-05-25]]
