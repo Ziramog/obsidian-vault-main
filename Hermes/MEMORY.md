@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-26 00:00 | Cron-only day #16 | Sin sesión humana — 16 días consecutivos (10–26/05) | Semáforo 🔴
+2026-05-26 23:50 | Sesión abierta — Juan volvió después de 16 días cron-only | Tareas mañana grabadas en cron jobs
 
 ---
 
@@ -18,12 +18,12 @@
 ---
 
 ## Pipeline activo
-- Franco Roma: $300 USD restantes — entrega hace ~28 días. Juan debe cobrar YA.
+- Franco Roma: $300 USD — REUNION MAÑANA 27/05 para entrega y cobro ✅
 - Luis Farias: PDF enviado — en viaje, vuelve julio. Follow-up retomar julio.
 - Ann: Pitch enviado — seguimiento pendiente
 - Comforti, Rivas, Gamma: leads fríos — INTEGRAR A OUTREACH AHORA
 - Construvial: $225 USD cobrados (10/05) + $142 USD viáticos Catamarca (14/05) = $367 total Construvial
-- Ango: sin actividad
+- Ango: llamada Van Lacke mañana 27/05
 
 ---
 
