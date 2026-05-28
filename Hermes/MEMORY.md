@@ -4,7 +4,7 @@
 ---
 
 ## Última actualización
-2026-05-27 00:15 | Sesión abierta — Juan volvió después de 16 días cron-only | Tareas mañana grabadas en cron jobs | URGENCIA: Juan necesita clientes YA
+2026-05-27 01:30 | Nuevo cliente HOT: Cristina Welldone SRL — espera cerrar esta semana $200 + $29/mes (landing simple) | Franco Roma: sin llamada, avisa para dar cierre | URGENCIA: cliente nuevo = la oportunidad más cercana al cobro
 
 ---
 
@@ -18,12 +18,11 @@
 ---
 
 ## Pipeline activo
-- Franco Roma: $300 USD — REUNION MAÑANA 27/05 para entrega y cobro ✅
+- **Cristina Welldone SRL — HOT ✅**: Landing simple, espera cerrar esta semana. $200 + $29/mes. **PRIORIDAD ABSOLUTA.**
+- Franco Roma: NO llamó para reunión — avisa para dar cierre. $425 total (50%). Esperar contacto de Franco.
 - Luis Farias: PDF enviado — en viaje, vuelve julio. Follow-up retomar julio.
 - Ann: Pitch enviado — seguimiento pendiente
 - Comforti, Rivas, Gamma: leads fríos — INTEGRAR A OUTREACH AHORA
-- Construvial: $225 USD cobrados (10/05) + $142 USD viáticos Catamarca (14/05) = $367 total Construvial
-- Ango: llamada Van Lacke mañana 27/05
 
 ---
 
@@ -73,7 +72,7 @@ Ejecución
 ---
 
 ## Días sin cierre comercial
-29 (desde Franco Roma 28/04) — persiste patrón sin actividad comercial
+0 — Cristina Welldone SRL cierra esta semana. Franco Roma en espera de cierre.
 
 ---
 
@@ -84,17 +83,19 @@ Ejecución
 | 02/05 | $200 | Franco Roma — adelantados |
 | 10/05 | $225 USD | Construvial — cobrado |
 | 14/05 | $142 USD | Construvial — viáticos Catamarca |
-| 11–25/05 | $0 | Sin nuevos ingresos |
+| 27/05 (esperado) | $200 | Cristina Welldone SRL — cierre esperado |
+| 27/05 (esperado) | $29/mes | Cristina Welldone SRL — landing simple mensual |
 
-**Total mayo:** $425 + $142 = $567 ingresados / $900 gastos proyectados = Gap actual –$333
-**Con Franco Roma cobrado ($300):** $567 + $300 = $867 → Gap proyectado ~–$33
+**Total mayo estimado:** $425 + $142 + $200 = $767 ingresados / $900 gastos proyectados = Gap ~–$133
+**Con Franco Roma cobrado ($300):** ~–$33
+**Con Cristina Welldone cerrada:** ~+$67
 
 ---
 
 ## Hito China — octubre 2026
 Meta: > $1.000 USD/mes con operación autónoma.
 **Días restantes:** ~126
-**Estado actual:** 🔴 Crítico — 15 días sin sesión, Franco sin cobrar, gap –$333
+**Estado actual:** 🟡 Supervivencia — Cristina Welldone = oportunidad de cierre esta semana. Franco pendiente.
 
 ---
 
