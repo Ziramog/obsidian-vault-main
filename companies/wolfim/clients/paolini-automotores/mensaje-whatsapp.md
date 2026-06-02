@@ -35,9 +35,8 @@ OPCIÓN 2 — LANDING + SALÓN DE VENTAS
 • Todo lo de la Opción 1, más:
 • Salón virtual con cada unidad, fotos, ficha técnica,
   financiación simulada
-• Panel admin para cargar autos sin programar
-• Publicación en Tienda Oficial de MercadoLibre (add-on
-  de USD 15/mes si Paolini ya tiene cuenta)
+• Panel admin para cargar autos en un lugar y
+  publicarlos donde quieran
 • Setup: USD 450 (pago único)
 • Mantenimiento: USD 35/mes
 
