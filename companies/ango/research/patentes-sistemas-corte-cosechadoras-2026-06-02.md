@@ -1,7 +1,7 @@
 # Investigación de Patentes — Sistemas de Corte para Cosechadoras Agrícolas (Soja / Trigo)
 
 **Solicitante:** Ango (encargo de investigación)
-**Para:** [Padre de Juan]
+**Para:** ANTONIO GOMARIZ
 **Fecha:** 2 de junio de 2026
 **Autor del informe:** Hermes (asistente de investigación)
 **Estado:** Informe final listo para revisión
