@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Wolfim × Paolini Automotores — Propuesta Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+    --dark: #0a0a0f;
+    --gold: #f5c518;
+    --text: #ffffff;
+    --muted: #8a8a95;
+    --line: rgba(245, 197, 24, 0.15);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+.page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 24px auto;
+    background: var(--dark);
+    padding: 32mm 24mm;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+/* Background cinematic glow */
+.page::before {
+    content: "";
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(245,197,24,0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+.page::after {
+    content: "";
+    position: absolute;
+    bottom: -150px; left: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(245,197,24,0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+.content { position: relative; z-index: 1; }
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+}
+.brand {
+    font-size: 26pt;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, var(--gold) 0%, #ffd54a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.brand-sub {
+    font-size: 8pt;
+    color: var(--muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+.meta {
+    text-align: right;
+    font-size: 9pt;
+    color: var(--muted);
+}
+.meta strong { color: var(--gold); }
+
+/* Hero */
+.hero { margin-bottom: 28px; }
+.label {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(245, 197, 24, 0.12);
+    color: var(--gold);
+    border-radius: 20px;
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    border: 1px solid var(--line);
+}
+h1 {
+    font-size: 28pt;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+h1 .gold { color: var(--gold); }
+.subtitle {
+    font-size: 11pt;
+    color: var(--muted);
+    font-weight: 300;
+}
+
+/* Pain section */
+.pain {
+    background: linear-gradient(135deg, rgba(245,197,24,0.05) 0%, rgba(245,197,24,0.01) 100%);
+    border-left: 3px solid var(--gold);
+    padding: 18px 22px;
+    margin: 24px 0;
+    border-radius: 0 8px 8px 0;
+}
+.pain h3 {
+    color: var(--gold);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+.pain p {
+    font-size: 10.5pt;
+    color: var(--text);
+    line-height: 1.6;
+}
+.pain p strong { color: var(--gold); }
+
+/* Plans grid */
+.plans {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin: 22px 0;
+}
+.plan {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 18px 16px;
+    position: relative;
+    transition: all 0.3s;
+}
+.plan.featured {
+    background: linear-gradient(180deg, rgba(245,197,24,0.08) 0%, rgba(245,197,24,0.02) 100%);
+    border-color: var(--gold);
+    transform: scale(1.02);
+}
+.plan.featured::before {
+    content: "RECOMENDADO";
+    position: absolute;
+    top: -8px; right: 12px;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+.plan-name {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 4px;
+}
+.plan-tag {
+    font-size: 7.5pt;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+.plan ul {
+    list-style: none;
+    margin-top: 8px;
+}
+.plan li {
+    font-size: 8.5pt;
+    color: var(--text);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.45;
+}
+.plan li::before {
+    content: "▸";
+    color: var(--gold);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+}
+.plan-price {
+    font-size: 9pt;
+    color: var(--muted);
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-style: italic;
+}
+
+/* Add-ons strip */
+.addons {
+    background: rgba(255,255,255,0.02);
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 18px 0;
+}
+.addons h4 {
+    color: var(--gold);
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+.addons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    font-size: 8.5pt;
+}
+.addon strong { color: var(--text); display: block; margin-bottom: 2px; }
+.addon span { color: var(--muted); font-size: 7.5pt; }
+
+/* Next step */
+.next {
+    background: linear-gradient(135deg, var(--gold) 0%, #ffd54a 100%);
+    color: var(--dark);
+    border-radius: 10px;
+    padding: 18px 24px;
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.next-text strong {
+    font-size: 12pt;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 2px;
+}
+.next-text span {
+    font-size: 9pt;
+    font-weight: 500;
+    opacity: 0.85;
+}
+.next-cta {
+    background: var(--dark);
+    color: var(--gold);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+.footer {
+    margin-top: 26px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5pt;
+    color: var(--muted);
+}
+.footer .wolfim {
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="content">
+
+<div class="header">
+    <div>
+        <div class="brand">WOLFIM</div>
+        <div class="brand-sub">DIGITAL · WEBAGENCY</div>
+    </div>
+    <div class="meta">
+        <div>Propuesta <strong>#WLFM-2026-PAOLINI-01</strong></div>
+        <div>2 de junio de 2026</div>
+        <div>Validez: 30 días</div>
+    </div>
+</div>
+
+<div class="hero">
+    <span class="label">Concesionaria · 0km + Usados · La Falda, Córdoba</span>
+    <h1>De <span class="gold">GTM y MercadoLibre</span><br>a una web que <span class="gold">vende por vos.</span></h1>
+    <p class="subtitle">Sitio propio, SEO local en "concesionarias La Falda / Córdoba", y un panel donde cargar autos sin saber programar.</p>
+</div>
+
+<div class="pain">
+    <h3>El problema hoy</h3>
+    <p>
+        Tu catálogo está repartido entre <strong>GTM</strong>, <strong>Instagram</strong>, <strong>Facebook</strong> y grupos de WhatsApp. Cada vez que entra un usado nuevo tenés que subirlo a cuatro lugares.
+        Mientras tanto, alguien en Huerta Grande, Villa Giardino o Río Ceballos googlea <em>"concesionaria La Falda"</em> y te encuentra... después de tres avisos de MercadoLibre.
+        <strong>Eso es plata que se pierde en el clic.</strong>
+    </p>
+</div>
+
+<div class="plans">
+    <div class="plan">
+        <div class="plan-name">Esencial</div>
+        <div class="plan-tag">Presencia web</div>
+        <ul>
+            <li>Sitio web propio (1-3 páginas)</li>
+            <li>Dominio + hosting incluido</li>
+            <li>Catálogo de hasta 20 unidades</li>
+            <li>Botón WhatsApp directo</li>
+            <li>SEO básico local</li>
+            <li>Formulario de contacto</li>
+        </ul>
+        <div class="plan-price">Ideal para arrancar</div>
+    </div>
+
+    <div class="plan featured">
+        <div class="plan-name">Crecimiento</div>
+        <div class="plan-tag">El más elegido</div>
+        <ul>
+            <li>Todo lo de Esencial, más:</li>
+            <li>Catálogo ilimitado + panel admin</li>
+            <li>Carga de unidades sin programar</li>
+            <li>Galería de fotos por auto</li>
+            <li>Integración MercadoLibre</li>
+            <li>SEO local avanzado</li>
+            <li>Google Analytics + Tag Manager</li>
+        </ul>
+        <div class="plan-price">El que te saca de GTM</div>
+    </div>
+
+    <div class="plan">
+        <div class="plan-name">Premium</div>
+        <div class="plan-tag">Con Lubricentro</div>
+        <ul>
+            <li>Todo lo de Crecimiento, más:</li>
+            <li>Web separada / sección lubricentro</li>
+            <li>Reserva de turnos online</li>
+            <li>Recordatorios automáticos service</li>
+            <li>Google Ads setup + gestión</li>
+            <li>Scraping competencia mensual</li>
+            <li>Soporte prioritario</li>
+        </ul>
+        <div class="plan-price">Concesionaria + service</div>
+    </div>
+</div>
+
+<div class="addons">
+    <h4>Add-ons opcionales (sumables a cualquier plan)</h4>
+    <div class="addons-grid">
+        <div class="addon">
+            <strong>Análisis de competencia</strong>
+            <span>Informe mensual: qué hacen otras concesionarias de la zona, qué autos publican, dónde están.</span>
+        </div>
+        <div class="addon">
+            <strong>Presupuestos comparativos</strong>
+            <span>PDF automático para clientes que piden "qué me conviene": usado vs 0km, financiación vs contado.</span>
+        </div>
+        <div class="addon">
+            <strong>Descripciones IA</strong>
+            <span>Copywriting automático para cada unidad — publicás una foto y te generamos el texto del aviso.</span>
+        </div>
+    </div>
+</div>
+
+<div class="next">
+    <div class="next-text">
+        <strong>Próximo paso: llamada de 20 minutos</strong>
+        <span>Sin compromiso. Vemos juntos qué plan encaja con Paolini y cuánto tarda en estar online.</span>
+    </div>
+    <div class="next-cta">AGENAR LLAMADA</div>
+</div>
+
+<div class="footer">
+    <div>Propuesta preparada por <span class="wolfim">WOLFIM</span> · WebAgency para PYMES argentinas</div>
+    <div>wolfim.com · hola@wolfim.com</div>
+</div>
+
+</div>
+</div>
+</body>
+</html>
