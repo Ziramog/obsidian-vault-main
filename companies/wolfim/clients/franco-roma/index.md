@@ -1,16 +1,24 @@
+---
+tags: [cliente-activo, cliente-cerrado, wolfim, inmobiliaria, alta-gracia]
+---
+
 # Franco Roma — Roggero & Roma
 **Company:** Roggero & Roma
 **Location:** Alta Gracia, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 🔨 EN DESARROLLO — cambio radical de frontend
-**Deal:** $400 USD (pago único) + $25 USD/mes
+**Status:** ✅ EN PRODUCCIÓN — entrega validada 03/06/2026
+**Deal final:** **$500 USD** (pago único) + $25 USD/mes
+- $200 USD inicial (cobrado 29/04/2026)
+- **$300 USD finales por retrabajos de frontend** (cobra 04/06/2026 — Franco ya vio el sitio, paga mañana)
 
 ## Deal Terms
-- Setup fee: **$400 USD** (50% = $200 al inicio · 50% = $200 a la entrega)
+- Setup fee final: **$500 USD** (50% = $200 al inicio · 50% = $300 finales tras retrabajos)
 - Monthly: **$25 USD/mes** (sin permanencia, sin contrato)
-- Entrega: 2 semanas
+- Entrega: 2 semanas (incumplida — hubo retrabajo de frontend)
 - Servicio: Sitio web profesional + panel de propiedades + SEO local
+
+> **Nota 03/06/2026:** El deal original era $400. Hubo cambio radical de frontend (estilo senadaadzem.com — agencia de lujo en Miami) y se ajustó a $500 finales. Juan lo confirmó verbalmente.
 
 ## Proposal
 ![[roggero_roma_propuesta.pdf]]
@@ -22,20 +30,22 @@
 - [x] Proposal sent (PDF)
 - [x] **Deal closed — aceptado 28/04/2026**
 - [x] Contrato enviado / forma de pago acordada (Wise)
-- [x] Recibir 50% inicial ($200 USD) → RECIBIDO
+- [x] Recibir 50% inicial ($200 USD) → RECIBIDO 29/04/2026
 - [x] Recibir credenciales dominio + propiedades
 - [x] Kickoff / inicio del desarrollo
-- [ ] Cambio radical de frontend (ver Notes)
-- [ ] Segunda entrega / остаток del desarrollo
-- [ ] 50% final ($200 USD)
-- [ ] Lanzamiento / Go live
+- [x] Cambio radical de frontend (estilo senadaadzem.com)
+- [x] Segunda entrega / ajustes
+- [x] **Lanzamiento / Go live → EN PRODUCCIÓN** 03/06/2026 (http 200, Vercel)
+- [x] Validación cliente (Franco ya vio el sitio)
+- [ ] **Cobrar $300 USD finales** → 04/06/2026 (mañana)
 
 ## Cambio Radical de Frontend (29/04/2026)
 - Franco quiere un sitio REPLICA de uno que le gusta
 - Juan lo está haciendo en PC local con Claude Code
 - Frontend completamente nuevo — trabajo extra
 - Scope: solo frontend (estructura + diseño), misma lógica/backend
-- Precio cerrado: **$400 USD** + **$25 USD/mes** (sin cambios)
+- **Precio inicial acordado: $400 USD** (antes del retrabajo)
+- **Precio final tras retrabajo: $500 USD** (ver Deal Terms arriba)
 
 ## Sitio Actual — Diagnóstico
 - **URL:** roggeroyroma.com.ar
@@ -113,11 +123,15 @@ Los 3 primeros son idea de Juan para justificar/el valor del mantenimiento. Goog
 
 ## Notes
 - Franco es decision maker directo
-- Precio final acordado: $400 + $25/mes
+- **Precio final acordado: $500 + $25/mes** (ajustado 03/06 por retrabajos)
 - Dominio ya existe — no se cobra dominio adicional
-- Plazo acordado: 2 semanas
+- Plazo acordado: 2 semanas (incumplido)
 - Competencia: Argenprop ($200-400/mes atado), Zonaprop (ads pagos)
-- Primer cliente real de Wolfim —交付 con excelencia
-- **PAGO 50% RECIBIDO** (29/04/2026)
-- **Nuevo scope (29/04/2026):** cambio radical de frontend — replica de sitio que Franco likes. Juan trabaja en PC local con Claude Code. Scope extra cubierto en el precio original.
-- **URL sitio referencia (pendiente):** Juan va a compartirla cuando la tenga
+- Primer cliente real de Wolfim — entregado
+- **PAGO 50% RECIBIDO** (29/04/2026 — $200 USD)
+- **PAGO RESTANTE A COBRAR** (04/06/2026 — $300 USD)
+- **Nuevo scope (29/04/2026):** cambio radical de frontend — replica de sitio que Franco likes. Juan trabaja en PC local con Claude Code. Scope extra cubierto con ajuste a $500.
+- **URL sitio referencia (29/04/2026):** https://www.senadaadzem.com/ — agente de lujo Douglas Elliman Miami
+- **Sitio en producción 03/06/2026:** https://www.roggeroyroma.com — HTTP 200, Vercel/Next.js, cert Let's Encrypt válido, 6 reseñas Google en vivo (4.8★, 31 totales)
+- **Validado por Franco 03/06/2026** — paga mañana 04/06 $300 USD
+- **Lección (registrada):** venta con precio cerrado ANTES del retrabajo evita renegociación. La próxima, si hay cambio de scope, se cobra extra o se documenta ajuste de precio por escrito.

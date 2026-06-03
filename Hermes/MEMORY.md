@@ -3,19 +3,19 @@
 
 ---
 
-**Última actualización:** 2026-06-02 15:30 | Sesión humana reactivada tras 22 días | Model switch: minimax-2.7 → MiniMax-M3
+**Última actualización:** 2026-06-03 | Franco Roma validado · cobra $300 USD mañana 04/06 | Model: MiniMax-M3
 
 ---
 
 ## Semáforo
-🔴 Crítico — Gap mayo 2026: ~–$333 | $567 ingresados / $900 gastos
+🟡 Supervivencia (transición a 🟠) — Gap mayo: –$333. **Hoy 03/06: $300 USD confirmados para mañana 04/06** (Franco Roma). Si entra, gap baja a –$33.
 **Cristina Welldone SRL CAÍDA** — descartada por Juan (farsante, no cerró)
-**Franco Roma:** 50% inicial $200 cobrado (29/04). Pasa a producción HOY 02/06 → $200 finales al validar entrega.
+**Franco Roma — PRODUCCIÓN** — Sitio en producción 03/06 (roggeroyroma.com HTTP 200). $200 ya cobrados. **$300 USD finales a cobrar 04/06** por retrabajos de frontend. Total $500 (ajuste desde $400 original).
 
 ---
 
 ## Pipeline activo
-- **Franco Roma — Roggero & Roma** 🔥 HOY: Pasa a producción. Cobra $200 finales al validar. Pedido Franco (Google Reviews) + 3 add-ons (competencia, presupuestos, descripciones IA) para pronta implementación.
+- **Franco Roma — Roggero & Roma** ✅ VALIDADO 03/06: Sitio en producción. Franco ya lo vio. Cobra $300 USD mañana 04/06. Add-ons (Google Reviews + 3 ideas Juan) próximos a implementar.
 - **Comforti Propiedades** — Plantilla vacía. Sin datos de contacto. Necesita scavenging.
 - **RIVAS Inmuebles** — Propuesta PDF armada pero sin contexto de contacto.
 - **Gamma** — Sin contactar. Datos de contacto vacíos.
