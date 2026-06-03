@@ -3,25 +3,54 @@
 
 ---
 
-**Última actualización:** 2026-06-03 | Franco Roma validado · cobra $300 USD mañana 04/06 | Model: MiniMax-M3
+**Última actualización:** 2026-06-03 22:00 | Cierre sesión | Model: MiniMax-M3
 
 ---
 
 ## Semáforo
-🟡 Supervivencia (transición a 🟠) — Gap mayo: –$333. **Hoy 03/06: $300 USD confirmados para mañana 04/06** (Franco Roma). Si entra, gap baja a –$33.
+🟡 Supervivencia — Gap mayo: –$333. **Mañana 04/06: $300 USD a cobrar de Franco Roma** (ya validó el sitio). Si entra, gap baja a –$33.
 **Cristina Welldone SRL CAÍDA** — descartada por Juan (farsante, no cerró)
 **Franco Roma — PRODUCCIÓN** — Sitio en producción 03/06 (roggeroyroma.com HTTP 200). $200 ya cobrados. **$300 USD finales a cobrar 04/06** por retrabajos de frontend. Total $500 (ajuste desde $400 original).
 
 ---
 
 ## Pipeline activo
-- **Franco Roma — Roggero & Roma** ✅ VALIDADO 03/06: Sitio en producción. Franco ya lo vio. Cobra $300 USD mañana 04/06. Add-ons (Google Reviews + 3 ideas Juan) próximos a implementar.
+- **Franco Roma — Roggero & Roma** ✅ VALIDADO 03/06: Sitio en producción. Cobra $300 USD mañana 04/06. Add-ons (Google Reviews + 3 ideas Juan) próximos a implementar.
 - **Comforti Propiedades** — Plantilla vacía. Sin datos de contacto. Necesita scavenging.
 - **RIVAS Inmuebles** — Propuesta PDF armada pero sin contexto de contacto.
 - **Gamma** — Sin contactar. Datos de contacto vacíos.
 - Luis Farias: PDF enviado — en viaje, vuelve julio. Follow-up retomar julio.
 - Ann: Pitch enviado — seguimiento pendiente
 - Comforti/Rivas/Gamma: Juan pidió atacar — bloqueados por falta de datos (teléfono/email)
+
+---
+
+## Korantis — Producto propio de Juan (STANDBY)
+**Descubierto 03/06/2026.** Juan construyó Korantis.com en paralelo al sitio de Franco durante los 22 días de ausencia. "Pocas horas" según él — no evasión, fue gestión de ansiedad.
+
+**Producto:** motor de discovery de lugares de Buenos Aires filtrado por mood/vibe. Próximo paso soñado: "expandirse al mundo, no tiene techo."
+
+**Estado actual:** bug crítico confirmado — click en chip de mood (QUIET/WARM/etc.) vacía la pantalla. Filtro se aplica como texto libre en vez de tag. Sin auth, sin mapa, sin monetización, sin social proof.
+
+**DECISIÓN DE SESIÓN: STANDBY.** No se toca Korantis hasta que Wolfim esté en 🟠 Transición o superior. Si semáforo 🔴/🟡 → no se toca, se trabaja leads. Si 🟠 → 1 hora/semana mantenimiento, nada más. Si 🟢 → recién ahí Korantis puede recibir trabajo activo.
+
+**Auditoría completa:** [[companies/wolfim/research/korantis-audit-2026-06-03]]
+**Nota de proyecto:** [[companies/wolfim/projects/korantis/index]]
+
+---
+
+## wolfim.com — Auditoría 03/06 (8.5/10)
+Sitio premium real, no showcase. Pricing público ($200/$300/$450/$450+), WhatsApp pre-armado, 9 secciones numeradas, 4 proyectos en portfolio (incluye Korantis como case study), performance top (TTFB 8ms).
+
+**Gaps menores:** social proof, datos verificables en stats de IA, form de contacto, footer con links.
+
+**Top 3 esta semana (si queda tiempo):** testimonios con nombre+resultado, actualizar footer a 2026 con links reales, defender o cambiar stats de sección "Construido con Inteligencia".
+
+**Auditoría:** [[companies/wolfim/research/wolfim-com-audit-2026-06-03]]
+
+---
+
+**Insight crítico de la sesión:** wolfim.com está 8.5/10, premium, con pricing público. Si con este sitio tenés 1 cliente activo y 0 leads atacables con datos, **el sitio NO es el cuello de botella.** El gap está en otro lado: outreach, follow-up, datos de contacto, propuesta. No es algo que yo pueda arreglar con código.
 
 ---
 
@@ -104,6 +133,11 @@ Ejecución
 - Neuquén = Oil & Gas / San Juan + Catamarca = Mining
 - Los 49 leads de Posadas/San Vicente son de Wolfim (outreach manual del amigo de Juan)
 
+## Correcciones aprendidas (2026-06-03, vigentes)
+- Korantis es producto PROPIO de Juan, no un cliente ni un lead. Construido en hueco, no en evasión
+- Korantis NO se toca con semáforo 🔴 o 🟡. Standby. Juan debe confirmar OK antes de cualquier trabajo en Korantis
+- wolfim.com está 8.5/10 — el gap comercial NO es el sitio, es outreach/seguimiento/datos de contacto
+
 ---
 
 ## API Keys confirmadas
@@ -118,6 +152,11 @@ Ejecución
 - [[Wolfim/WebAgency]]
 - [[Construvial]]
 - [[Franco Roma]]
+- [[companies/wolfim/projects/korantis/index|Korantis proyecto]]
+- [[companies/wolfim/research/korantis-audit-2026-06-03|Korantis auditoría]]
+- [[companies/wolfim/research/korantis-benchmark|Korantis benchmark]]
+- [[companies/wolfim/research/wolfim-com-audit-2026-06-03|wolfim.com auditoría]]
 - [[SOUL]]
+- [[2026-06-03-summary|Daily/2026-06-03]]
 - [[2026-06-02-summary|Daily/2026-06-02]]
 - [[2026-06-02|hq/sessions/2026-06-02]]
