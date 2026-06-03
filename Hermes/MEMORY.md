@@ -3,54 +3,29 @@
 
 ---
 
-**Última actualización:** 2026-06-03 22:00 | Cierre sesión | Model: MiniMax-M3
+**Última actualización:** 2026-06-04 09:00 | Scavenging 3 leads completado · meta junio $600 · Franco cobra hoy a la tarde | Model: MiniMax-M3
 
 ---
 
 ## Semáforo
-🟡 Supervivencia — Gap mayo: –$333. **Mañana 04/06: $300 USD a cobrar de Franco Roma** (ya validó el sitio). Si entra, gap baja a –$33.
-**Cristina Welldone SRL CAÍDA** — descartada por Juan (farsante, no cerró)
-**Franco Roma — PRODUCCIÓN** — Sitio en producción 03/06 (roggeroyroma.com HTTP 200). $200 ya cobrados. **$300 USD finales a cobrar 04/06** por retrabajos de frontend. Total $500 (ajuste desde $400 original).
+🟡 Supervivencia — Gap mayo: –$333. **HOY 04/06 tarde: $300 USD a cobrar de Franco Roma.** Si entra → gap –$33, semáforo a 🟠. Meta junio: **$600 USD**. Faltan $300 después de Franco.
 
 ---
 
 ## Pipeline activo
-- **Franco Roma — Roggero & Roma** ✅ VALIDADO 03/06: Sitio en producción. Cobra $300 USD mañana 04/06. Add-ons (Google Reviews + 3 ideas Juan) próximos a implementar.
-- **Comforti Propiedades** — Plantilla vacía. Sin datos de contacto. Necesita scavenging.
-- **RIVAS Inmuebles** — Propuesta PDF armada pero sin contexto de contacto.
-- **Gamma** — Sin contactar. Datos de contacto vacíos.
-- Luis Farias: PDF enviado — en viaje, vuelve julio. Follow-up retomar julio.
+- **Franco Roma — Roggero & Roma** ✅ VALIDADO 03/06 · 💰 cobrar HOY $300 USD · Total $500
+- **GAMA Inmobiliaria** (Mar del Plata) 🆕 04/06 — 4.5⭐ (108 reseñas) · tel 0223 633-7766 · Lead prioritario
+- **Conforti Propiedades** (Villa Carlos Paz) 🆕 04/06 — 4.5⭐ (53 reseñas) · tel 03541 67-5105
+- **RIVAS Inmuebles** (CABA) 🆕 04/06 — 4.9⭐ (1 reseña) · tel 011 6827-4827
+- Luis Farias: PDF enviado — en viaje, vuelve julio
 - Ann: Pitch enviado — seguimiento pendiente
-- Comforti/Rivas/Gamma: Juan pidió atacar — bloqueados por falta de datos (teléfono/email)
+- ~~Comforti/Rivas/Gamma: bloqueados por falta de datos~~ ✅ RESUELTO 04/06 vía Serper
 
----
+## Korantis — STANDBY
+Regla activa: no se toca con semáforo 🔴/🟡. Hoy (🟡) Juan intentó reactivar trabajo en Korantis dos veces. Frenado. Solo se reactiva cuando Wolfim llegue a 🟠 o superior.
 
-## Korantis — Producto propio de Juan (STANDBY)
-**Descubierto 03/06/2026.** Juan construyó Korantis.com en paralelo al sitio de Franco durante los 22 días de ausencia. "Pocas horas" según él — no evasión, fue gestión de ansiedad.
-
-**Producto:** motor de discovery de lugares de Buenos Aires filtrado por mood/vibe. Próximo paso soñado: "expandirse al mundo, no tiene techo."
-
-**Estado actual:** bug crítico confirmado — click en chip de mood (QUIET/WARM/etc.) vacía la pantalla. Filtro se aplica como texto libre en vez de tag. Sin auth, sin mapa, sin monetización, sin social proof.
-
-**DECISIÓN DE SESIÓN: STANDBY.** No se toca Korantis hasta que Wolfim esté en 🟠 Transición o superior. Si semáforo 🔴/🟡 → no se toca, se trabaja leads. Si 🟠 → 1 hora/semana mantenimiento, nada más. Si 🟢 → recién ahí Korantis puede recibir trabajo activo.
-
-**Auditoría completa:** [[companies/wolfim/research/korantis-audit-2026-06-03]]
-**Nota de proyecto:** [[companies/wolfim/projects/korantis/index]]
-
----
-
-## wolfim.com — Auditoría 03/06 (8.5/10)
-Sitio premium real, no showcase. Pricing público ($200/$300/$450/$450+), WhatsApp pre-armado, 9 secciones numeradas, 4 proyectos en portfolio (incluye Korantis como case study), performance top (TTFB 8ms).
-
-**Gaps menores:** social proof, datos verificables en stats de IA, form de contacto, footer con links.
-
-**Top 3 esta semana (si queda tiempo):** testimonios con nombre+resultado, actualizar footer a 2026 con links reales, defender o cambiar stats de sección "Construido con Inteligencia".
-
-**Auditoría:** [[companies/wolfim/research/wolfim-com-audit-2026-06-03]]
-
----
-
-**Insight crítico de la sesión:** wolfim.com está 8.5/10, premium, con pricing público. Si con este sitio tenés 1 cliente activo y 0 leads atacables con datos, **el sitio NO es el cuello de botella.** El gap está en otro lado: outreach, follow-up, datos de contacto, propuesta. No es algo que yo pueda arreglar con código.
+## wolfim.com — 8.5/10
+Auditado 03/06. No se re-audita. Top 3 fixes anotados. NO es el cuello de botella del negocio.
 
 ---
 
