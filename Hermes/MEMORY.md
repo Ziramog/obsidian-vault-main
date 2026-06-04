@@ -22,7 +22,7 @@
 - ~~Comforti/Rivas/Gamma: bloqueados por falta de datos~~ ✅ RESUELTO 04/06 vía Serper
 
 ## Korantis — STANDBY
-Regla activa: no se toca con semáforo 🔴/🟡. Hoy (🟡) Juan intentó reactivar trabajo en Korantis dos veces. Frenado. Solo se reactiva cuando Wolfim llegue a 🟠 o superior.
+Regla activa: no se toca con semáforo 🔴/🟡. Hoy (🟡) Juan intentó reactivar trabajo en Korantis dos veces. Frenado. Solo se reactiva cuando Wolfim llegue a 🟠 o superior **Y Juan confirma explícitamente "OK, arranco Korantis"**. No se activa por inferencia ni por impulso.
 
 ## wolfim.com — 8.5/10
 Auditado 03/06. No se re-audita. Top 3 fixes anotados. NO es el cuello de botella del negocio.
@@ -64,11 +64,12 @@ Auditado 03/06. No se re-audita. Top 3 fixes anotados. NO es el cuello de botell
 
 ---
 
-## Construvial — Plan 3 fases activo (STANDBY por semáforo 🔴)
+## Construvial — Plan 3 fases activo (STANDBY por semáforo 🟡)
 - 21 empresas en DB: leads_oil_gas_mining.csv
 - Top contactos: CISA (Neuquén), Sigma SA (SJ), Dumandzic (SJ/CAT), CASEMICA (CAT)
 - Solo investigación — sin outreach hasta activación explícita de Juan
 - PROPUESTA ENVIADA 19/05: Propuesta_Construvial_Wolfim_2026.pdf
+- 🆕 **05/06: Viaje a AgroActiva con Construvial (viernes 06/06)** — oportunidad de networking oil&gas/mining en persona
 
 ---
 
