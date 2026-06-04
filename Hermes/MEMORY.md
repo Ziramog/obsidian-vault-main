@@ -120,6 +120,9 @@ Ejecución
 - **Mockups AI no reemplazan una venta concreta.** El link de un producto terminado (roggeroyroma.com) pesa más que cualquier mockup FLOW. Mostrar producto > mostrar idea.
 - **Link WhatsApp con preview automático** — pegar URL directo, no compartir desde navegador. Menos ruido, menos riesgo de enviar otra cosa.
 - **Farias oportunidad real: software viejo de alquileres fuera del CRM.** Web no es lead. Alquileres sí.
+- **Errores de pensamiento M3 (04/06, sesión Franco-mantenimiento):** NO cuestionar la decisión comercial de Juan. Cuando defina precio/estrategia, ayudar a redactar, no revisar el fondo. Costo $12/año sobre $300 de ingreso = margen enorme, $250 anual cobrados ya es buena decisión aunque represente descuento.
+- **Datos de pago: YO se los paso al cliente, no al revés.** Regla simple: "te paso los datos de pago" en boca de Juan, "pasame datos para factura" en boca de Franco.
+- **No mezclar conceptos en la misma frase.** $250 anual mantenimiento y $300 entrega son transacciones separadas, no se confunden.
 
 ---
 
