@@ -3,21 +3,21 @@
 
 ---
 
-**Última actualización:** 2026-06-04 09:00 | Scavenging 3 leads completado · meta junio $600 · Franco cobra hoy a la tarde | Model: MiniMax-M3
+**Última actualización:** 2026-06-04 11:00 | Farias llamado (CRM GVamax, software viejo alquileres = grieta) · Franco: entrega + cobro 05/06 · Semáforo 🟡 (mañana → 🟠) | Model: MiniMax-M3
 
 ---
 
 ## Semáforo
-🟡 Supervivencia — Gap mayo: –$333. **HOY 04/06 tarde: $300 USD a cobrar de Franco Roma.** Si entra → gap –$33, semáforo a 🟠. Meta junio: **$600 USD**. Faltan $300 después de Franco.
+🟡 Supervivencia — Gap mayo: –$333. **Mañana 05/06: $300 USD a cobrar de Franco Roma** (entrega producto + cobro). Si entra → gap –$33, semáforo a 🟠. Meta junio: **$600 USD**. Faltan $300 después de Franco.
 
 ---
 
 ## Pipeline activo
-- **Franco Roma — Roggero & Roma** ✅ VALIDADO 03/06 · 💰 cobrar HOY $300 USD · Total $500
-- **GAMA Inmobiliaria** (Mar del Plata) 🆕 04/06 — 4.5⭐ (108 reseñas) · tel 0223 633-7766 · Lead prioritario
+- **Franco Roma — Roggero & Roma** 🟢 04/06 → 05/06: credenciales admin en armado. **Entrega + cobro $300 USD mañana 05/06**. Total $500.
+- **Luis Farias — Farias & Asociados** 🆕 04/06: llamada WA desde personal. CRM = **GVamax** (https://landing.gvamax.com.ar). Web actual "tipo clásica". **Grieta detectada: alquileres con software viejo fuera del CRM.** Link roggeroyroma.com enviado, esperando reacción. NO perseguir.
+- **GAMA Inmobiliaria** (Mar del Plata) 🆕 04/06 — 4.5⭐ (108 reseñas) · tel 0223 633-7766 · Lead prioritario post-Franco
 - **Conforti Propiedades** (Villa Carlos Paz) 🆕 04/06 — 4.5⭐ (53 reseñas) · tel 03541 67-5105
 - **RIVAS Inmuebles** (CABA) 🆕 04/06 — 4.9⭐ (1 reseña) · tel 011 6827-4827
-- Luis Farias: PDF enviado — en viaje, vuelve julio
 - Ann: Pitch enviado — seguimiento pendiente
 - ~~Comforti/Rivas/Gamma: bloqueados por falta de datos~~ ✅ RESUELTO 04/06 vía Serper
 
@@ -50,9 +50,9 @@ Auditado 03/06. No se re-audita. Top 3 fixes anotados. NO es el cuello de botell
 ---
 
 ## Preguntas pendientes para próxima sesión
-1. Franco: ¿pasó a producción? ¿Tenés el link para validar?
-2. Comforti/Rivas/Gamma: ¿ciudad + nombre completo? ¿O los busco yo en Google Maps?
-3. ¿Ataco Ango o Construvial mientras no hay cierre? (regla SOUL: empresa secundaria solo con semáforo 🟠+, ahora 🔴)
+1. **Franco: ¿cobró los $300 el 05/06?** Si sí → semáforo a 🟠 → activar lead #1 (GAMA/Conforti/RIVAS).
+2. **Farias: ¿respondió al link de Roggero y Roma?** Si en 48h sin respuesta → soltar.
+3. ¿Ataco Ango o Construvial cuando llegue a 🟠? (regla SOUL: secundaria solo desde 🟠, ya permitido si se llega)
 
 ---
 
@@ -83,6 +83,12 @@ Auditado 03/06. No se re-audita. Top 3 fixes anotados. NO es el cuello de botell
 
 **Total mayo real:** $567 ingresados / $900 gastos = Gap **–$333**
 
+## Historial financiero junio 2026
+
+| Fecha | Ingreso | Detalle |
+|-------|---------|---------|
+| 05/06 (esperado) | $300 USD | Franco Roma — Roggero & Roma (entrega + cobro) |
+
 ---
 
 ## Hito China — octubre 2026
@@ -108,10 +114,11 @@ Ejecución
 - Neuquén = Oil & Gas / San Juan + Catamarca = Mining
 - Los 49 leads de Posadas/San Vicente son de Wolfim (outreach manual del amigo de Juan)
 
-## Correcciones aprendidas (2026-06-03, vigentes)
-- Korantis es producto PROPIO de Juan, no un cliente ni un lead. Construido en hueco, no en evasión
-- Korantis NO se toca con semáforo 🔴 o 🟡. Standby. Juan debe confirmar OK antes de cualquier trabajo en Korantis
-- wolfim.com está 8.5/10 — el gap comercial NO es el sitio, es outreach/seguimiento/datos de contacto
+## Correcciones aprendidas (2026-06-04, vigentes)
+- **Leads en pausa deben verificarse al inicio de sesión** — el vault puede tener datos desactualizados. Farias "volvía en julio" según 5 sesiones, en realidad volvió 30/05. Confiar pero verificar.
+- **Mockups AI no reemplazan una venta concreta.** El link de un producto terminado (roggeroyroma.com) pesa más que cualquier mockup FLOW. Mostrar producto > mostrar idea.
+- **Link WhatsApp con preview automático** — pegar URL directo, no compartir desde navegador. Menos ruido, menos riesgo de enviar otra cosa.
+- **Farias oportunidad real: software viejo de alquileres fuera del CRM.** Web no es lead. Alquileres sí.
 
 ---
 
