@@ -1,0 +1,308 @@
+{
+  "run_id": "korantis_ba_minimax_scout_test_10_2026-06-05",
+  "city": "Buenos Aires",
+  "source_agent": "minimax_m3_vision",
+  "mode": "isolated_scout_test",
+  "generated_at": "2026-06-05T09:48:23Z",
+  "records": [
+    {
+      "venue_name": "Crisol Café",
+      "city": "Buenos Aires",
+      "district_hint": "Colegiales / Recoleta / Palermo (multiple locations)",
+      "match_confidence": 0.55,
+      "official_website": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "instagram": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "reservation_url": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "menu_url": {"url": "https://es.scribd.com/document/882080572/Carta-Crisol", "source_url": "https://es.scribd.com/document/882080572/Carta-Crisol", "confidence": 0.4, "evidence_text": "Carta Crisol Palermo (PDF on Scribd) — third-party upload, not an official site."},
+      "whatsapp": {"url": null, "phone_number": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "phone": {"national": null, "international": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "price_hint": {"label": "unknown", "confidence": 0.0, "basis": null, "source_url": null, "evidence_text": null},
+      "reservation_hint": {"label": "unknown", "confidence": 0.0, "source_url": null, "evidence_text": null},
+      "factual_description_evidence": [
+        {"fact_type": "category", "value": "Café / coffee shop chain with multiple BA branches", "source_url": "https://www.tripadvisor.com/Restaurant_Review-g312741-d5527270-Reviews-CRISOL_Colegiales-B", "confidence": 0.7, "evidence_text": "Tripadvisor listing 'CRISOL Colegiales' and Yelp 'Crisol - cafeteria'."},
+        {"fact_type": "other", "value": "Brunch / breakfast focused menu (Palermo location)", "source_url": "https://es.scribd.com/document/882080572/Carta-Crisol", "confidence": 0.4, "evidence_text": "Scribd upload titled 'Carta Crisol Palermo: Desayunos y Brunch'."}
+      ],
+      "image_candidates": [],
+      "warnings": [
+        "No official website discovered in this run; the Scribd menu and Tripadvisor listing are third-party only.",
+        "Multiple Crisol branches in BA (Colegiales, Recoleta, Palermo) — may be a chain; 'Crisol Café' as a single entity is ambiguous.",
+        "Could not extract a single official interior/seating image. No image_candidates included."
+      ],
+      "unsafe_or_rejected_findings": [
+        {"type": "link", "value": "https://es.scribd.com/document/882080572/Carta-Crisol", "reason": "Scribd is a user upload platform — not an official venue source. Use only as a low-confidence hint.", "source_url": "https://es.scribd.com/document/882080572/Carta-Crisol"}
+      ]
+    },
+    {
+      "venue_name": "Melbourne Café",
+      "city": "Buenos Aires",
+      "district_hint": "Palermo",
+      "match_confidence": 0.6,
+      "official_website": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "instagram": {"url": "https://www.instagram.com/palermomelbourne", "source_url": "https://www.instagram.com/palermomelbourne", "confidence": 0.7, "evidence_text": "Instagram profile @palermomelbourne (Palermo Melbourne) — search engine result page is the source URL."},
+      "reservation_url": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "menu_url": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "whatsapp": {"url": null, "phone_number": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "phone": {"national": null, "international": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "price_hint": {"label": "unknown", "confidence": 0.0, "basis": null, "source_url": null, "evidence_text": null},
+      "reservation_hint": {"label": "unknown", "confidence": 0.0, "source_url": null, "evidence_text": null},
+      "factual_description_evidence": [
+        {"fact_type": "category", "value": "Café in Palermo (Buenos Aires)", "source_url": "https://www.instagram.com/palermomelbourne", "confidence": 0.7, "evidence_text": "Instagram handle @palermomelbourne surfaced in search; explicit BA Palermo placement."},
+        {"fact_type": "other", "value": "No official Buenos Aires website found. NOTE: melbournestreetcoffee.com is a separate business in Ibiza, Spain — not the BA venue.", "source_url": "https://www.melbournestreetcoffee.com", "confidence": 0.9, "evidence_text": "'SAN ANTONIO IBIZA ... Carrer de l'Estrella, 11, 07820 Sant Antoni de Portmany, Illes Balears, Spain'."}
+      ],
+      "image_candidates": [],
+      "warnings": [
+        "Common name clash: 'Melbourne Café' / 'Melbourne Street Coffee' in BA is NOT the same as melbournestreetcoffee.com (Ibiza).",
+        "Only the Instagram profile @palermomelbourne was found. No official website, no menu URL, no phone, no explicit reservation channel.",
+        "No image_candidates included — Instagram post images are out of policy for publication assets."
+      ],
+      "unsafe_or_rejected_findings": [
+        {"type": "link", "value": "https://www.melbournestreetcoffee.com", "reason": "Different business (Ibiza, Spain) — must not be linked from a BA 'Melbourne Café' record.", "source_url": "https://www.melbournestreetcoffee.com"}
+      ]
+    },
+    {
+      "venue_name": "Anchoita",
+      "city": "Buenos Aires",
+      "district_hint": "Chacarita",
+      "match_confidence": 0.95,
+      "official_website": {"url": "https://anchoita.com.ar", "source_url": "https://anchoita.com.ar", "confidence": 0.95, "evidence_text": "Official site lists 'Juan Ramírez de Velasco 1520  Chacarita - Buenos Aires' and 'Martes a sábados de 8 PM a 1 AM'."},
+      "instagram": {"url": "https://www.instagram.com/anchoitabuenosaires", "source_url": "https://www.instagram.com/anchoitabuenosaires", "confidence": 0.6, "evidence_text": "Search result for 'Anchoita Buenos Aires' shows IG handle @anchoitabuenosaires; not verified on the official site (site shows an IG icon, not a profile link in extracted text)."},
+      "reservation_url": {"url": "https://anchoita.wokiapp.com/", "source_url": "https://anchoita.wokiapp.com/", "confidence": 0.95, "evidence_text": "'Para hacer una reserva, hacé click acá' links to anchoita.wokiapp.com."},
+      "menu_url": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "whatsapp": {"url": null, "phone_number": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "phone": {"national": "4854-9334", "international": "+54 11 4854-9334", "source_url": "https://anchoita.com.ar", "confidence": 0.9, "evidence_text": "'4854-9334 // 5 PM a 1 AM  Solamente consultas  No se toman reservas telefónicas ni por mail'."},
+      "price_hint": {"label": "expensive", "confidence": 0.6, "basis": "Multiple 50Best Discovery / editorial mentions position it as a destination tasting-menu restaurant; 3rd-party menu listings (anchoita.menufyy.com) indicate set menu pricing.", "source_url": "https://www.theworlds50best.com/discovery/Establishments/Argentina/Buenos-Aires/Anchoita.html", "evidence_text": "Listed on 50 Best Discovery (editorial curation = typically mid-to-upper tier)."},
+      "reservation_hint": {"label": "explicit_reservation_available", "confidence": 0.95, "source_url": "https://anchoita.wokiapp.com/", "evidence_text": "'Para hacer una reserva, hacé click acá' with Wokiapp link."},
+      "factual_description_evidence": [
+        {"fact_type": "category", "value": "Tasting-menu / 'menú largo' destination restaurant", "source_url": "https://www.instagram.com/p/C6Eef1tLfy3", "confidence": 0.7, "evidence_text": "IG post caption referenced: 'Gran noche con amigos. Un menú largo...'"},
+        {"fact_type": "atmosphere", "value": "Intimate, reservation-only dinner service", "source_url": "https://anchoita.com.ar", "confidence": 0.85, "evidence_text": "'Martes a sábados de 8 PM a 1 AM' and explicit 'no se toman reservas telefónicas ni por mail'."},
+        {"fact_type": "seating", "value": "No explicit table count stated; not a high-volume venue (reservation-driven)", "source_url": "https://anchoita.com.ar", "confidence": 0.5, "evidence_text": "Reservation-driven model implies limited capacity."},
+        {"fact_type": "price", "value": "Higher than casual — destination restaurant tier", "source_url": "https://anchoita.menufyy.com", "confidence": 0.4, "evidence_text": "Third-party menu aggregator lists Anchoita (low confidence — not official)."}
+      ],
+      "image_candidates": [],
+      "warnings": [
+        "Official site exposes only a logo and an Instagram icon — no interior gallery, no menu image, no press kit page.",
+        "All potential image candidates on the official site are LOGOS and were rejected per policy.",
+        "Instagram post images were not collected per policy (publication-asset use)."
+      ],
+      "unsafe_or_rejected_findings": [
+        {"type": "image", "value": "https://anchoita.com.ar/wp-content/uploads/2019/07/cropped-logo-01-2.png", "reason": "Logo (Anchoita wordmark) — not an interior/seating/atmosphere image.", "source_url": "https://anchoita.com.ar"},
+        {"type": "image", "value": "https://anchoita.com.ar/wp-content/uploads/2020/03/150-1500501_instagram-logo-white-icon-hd-png-download-1-287x300.png", "reason": "Generic Instagram icon — not venue content.", "source_url": "https://anchoita.com.ar"},
+        {"type": "link", "value": "https://anchoita.menufyy.com", "reason": "Third-party menu aggregator; not the official menu URL.", "source_url": "https://anchoita.menufyy.com"}
+      ]
+    },
+    {
+      "venue_name": "Apu Nena",
+      "city": "Buenos Aires",
+      "district_hint": "Chacarita (Aguirre 1600)",
+      "match_confidence": 0.95,
+      "official_website": {"url": "https://www.apunena.com/", "source_url": "https://www.apunena.com/", "confidence": 0.95, "evidence_text": "Official site copy: 'ApuNena, restaurante de Tapas Asiáticas ubicado en el barrio porteño de Chacarita'."},
+      "instagram": {"url": "https://www.instagram.com/apu_nena", "source_url": "https://www.instagram.com/apu_nena/reels", "confidence": 0.8, "evidence_text": "Search result title: 'ApuNena Tapas Asiáticas (@apu_nena) - Instagram'."},
+      "reservation_url": {"url": "https://reservas.wokiapp.com/A2Pc", "source_url": "https://www.apunena.com/", "confidence": 0.95, "evidence_text": "'Las reservas se realizan por WokiApp' with link to https://reservas.wokiapp.com/A2Pc."},
+      "menu_url": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "Site paths /carta, /menu, /galeria, /nosotros all returned 404 in this run."},
+      "whatsapp": {"url": null, "phone_number": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "phone": {"national": null, "international": null, "source_url": null, "confidence": 0.0, "evidence_text": "No phone number found on the official site or in editorial sources reviewed."},
+      "price_hint": {"label": "moderate", "confidence": 0.5, "basis": "Tapas-style small plates, not a fine-dining tasting menu; Time Out and World of Mouth coverage suggest casual-to-mid tier.", "source_url": "https://www.timeout.com/buenos-aires/apunena-asian-food-chacarita-buenos-aires", "evidence_text": "Time Out editorial coverage of ApuNena at '7 Unmissable Dishes' (curatorial selection, not price level)."},
+      "reservation_hint": {"label": "explicit_reservation_available", "confidence": 0.95, "source_url": "https://www.apunena.com/", "evidence_text": "'Sin y con reservas. Las reservas se realizan por WokiApp' — two fixed turns (20hs y 22hs)."},
+      "factual_description_evidence": [
+        {"fact_type": "category", "value": "Southeast Asian (Filipino-leaning) tapas restaurant", "source_url": "https://www.apunena.com/", "confidence": 0.95, "evidence_text": "'Tapas Asiáticas' / 'Filipino' on the official homepage."},
+        {"fact_type": "opening_hours", "value": "Mon–Sun 19:00–23:30; two reservation turns (20:00 and 22:00); bar walk-in first-come.", "source_url": "https://www.apunena.com/", "confidence": 0.9, "evidence_text": "'Tenemos dos turnos: 20hs y 22hs.' / World of Mouth hours table."},
+        {"fact_type": "atmosphere", "value": "Small corner spot, casual", "source_url": "https://www.worldofmouth.app/restaurants/apunena", "confidence": 0.85, "evidence_text": "World of Mouth: 'this small corner spot specializes in Southeast Asian'."},
+        {"fact_type": "seating", "value": "Limited seating; bar is walk-in only", "source_url": "https://www.apunena.com/", "confidence": 0.85, "evidence_text": "'El sector de barra es sin reserva y por orden de llegada' / 'Solo sentamos grupos completos'."},
+        {"fact_type": "reservation", "value": "15-min tolerance; full party must be present", "source_url": "https://www.apunena.com/", "confidence": 0.9, "evidence_text": "'La reserva tiene una tolerancia de 15 minutos... Solo sentamos grupos completos.'"}
+      ],
+      "image_candidates": [],
+      "warnings": [
+        "Site paths /carta, /menu, /galeria, /nosotros all 404 — no menu PDF or gallery on the official site.",
+        "Only a logo/brand mark was found on the official site; the apparent product shot of dumplings with a red brand overlay is a logo composite, not a usable interior/seating image.",
+        "No image_candidates included."
+      ],
+      "unsafe_or_rejected_findings": [
+        {"type": "image", "value": "https://static.wixstatic.com/media/57a016_2b3c4a0c50064cfdaa2bede07779b578~mv2.jpg", "reason": "Brand logo overlay (red ApuNena mark) on a dim-sum product shot — is_logo=true; not an interior/seating/atmosphere image.", "source_url": "https://www.apunena.com/"},
+        {"type": "image", "value": "https://static.wixstatic.com/media/57a016_2b3c4a0c50064cfdaa2bede07779b578~mv2.jpg/v1/fill/w_57,h_59,al_c,q_80,...", "reason": "Same logo at navbar size (57x59).", "source_url": "https://www.apunena.com/"}
+      ]
+    },
+    {
+      "venue_name": "Cabaña Las Lilas",
+      "city": "Buenos Aires",
+      "district_hint": "Puerto Madero",
+      "match_confidence": 0.98,
+      "official_website": {"url": "https://restaurantlaslilas.com.ar/", "source_url": "https://restaurantlaslilas.com.ar/index.html", "confidence": 0.98, "evidence_text": "Official site title 'Cabaña Las Lilas Restaurant'; cross-confirmed by turismo.buenosaires.gob.ar which lists 'restaurantlaslilas.com.ar' as the official site."},
+      "instagram": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "Not surfaced on the official site; not located in this run."},
+      "reservation_url": {"url": "https://restaurantlaslilas.com.ar/reservas/", "source_url": "https://restaurantlaslilas.com.ar/reservas/", "confidence": 0.95, "evidence_text": "Site nav 'RESERVA' links to /reservas/; page contains 'Reservas online' calendar + phone + email channels."},
+      "menu_url": {"url": "https://restaurantlaslilas.com.ar/carta.html", "source_url": "https://restaurantlaslilas.com.ar/carta.html", "confidence": 0.95, "evidence_text": "Site nav 'MENÚ' links to /carta.html, which hosts PDFs: Menu.pdf, Menu_ejecutivo_web.pdf, Menu_sin_gluten_web.pdf, MenuKids.pdf, CartaPostres.pdf, Carta_de_Vinos1.pdf, CartaDrinks.pdf."},
+      "whatsapp": {"url": null, "phone_number": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "phone": {"national": "4313 1336", "international": "+54 11 4313-1336", "source_url": "https://restaurantlaslilas.com.ar/carta.html", "confidence": 0.95, "evidence_text": "'Tel (054) 011 4313-1336' on the carta page; cross-confirmed at turismo.buenosaires.gob.ar."},
+      "price_hint": {"label": "very_expensive", "confidence": 0.9, "basis": "Michelin Selected + Wine Spectator since 2007; Conde Nast Traveler: 'this is going to cost a lot'.", "source_url": "https://guide.michelin.com/us/en/ciudad-autonoma-de-buenos-aires/buenos-aires_777009/restaurant/cabana-las-lilas", "evidence_text": "Michelin Guide listing; 'Polished / Five-star steak' per CNT."},
+      "reservation_hint": {"label": "explicit_reservation_available", "confidence": 0.95, "source_url": "https://restaurantlaslilas.com.ar/reservas/", "evidence_text": "Reservas page has three channels: online calendar, phone, email."},
+      "factual_description_evidence": [
+        {"fact_type": "category", "value": "Argentine grill / steakhouse, Puerto Madero", "source_url": "https://turismo.buenosaires.gob.ar/es/gastronomico/caba%C3%B1a-las-lilas", "confidence": 0.95, "evidence_text": "'Ubicado en Puerto Madero... la parrilla es impactante y la carne es la reina del lugar.'"},
+        {"fact_type": "atmosphere", "value": "Polished, formal / fine dining; salón con vista al dique", "source_url": "https://turismo.buenosaires.gob.ar/es/gastronomico/caba%C3%B1a-las-lilas", "confidence": 0.9, "evidence_text": "'su elegante salón tiene una vista increíble al dique'."},
+        {"fact_type": "opening_hours", "value": "Mon–Fri 12:00–16:00 and 19:00–23:00; Sat 12:00–17:00 and 19:00–23:00; Sun 12:00–18:00", "source_url": "https://turismo.buenosaires.gob.ar/es/gastronomico/caba%C3%B1a-las-lilas", "confidence": 0.9, "evidence_text": "Horarios de Atención table on turismo.buenosaires.gob.ar."},
+        {"fact_type": "price", "value": "$$$+ (luxury / destination)", "source_url": "https://www.cntraveler.com/restaurants/buenos-aires/cabana-las-lilas", "confidence": 0.85, "evidence_text": "'As this is going to cost a lot, take your favorite dining partner and enjoy splashing out.'"},
+        {"fact_type": "menu", "value": "Full grill carta + executive menu + gluten-free + kids + desserts + wine list + drinks", "source_url": "https://restaurantlaslilas.com.ar/carta.html", "confidence": 0.95, "evidence_text": "Carta page lists seven distinct PDF menus."}
+      ],
+      "image_candidates": [],
+      "warnings": [
+        "The only image asset visible on the official site (index, reservas, nosotros, nuestras-carnes) is a brand badge/logo. No interior, seating, or atmosphere photos were accessible in this run.",
+        "Logo image was rejected as not an interior/seating image. See unsafe_or_rejected_findings."
+      ],
+      "unsafe_or_rejected_findings": [
+        {"type": "image", "value": "https://restaurantlaslilas.com.ar/wp-content/uploads/gemini_generated_image_3446ja3446ja3446-removebg-preview.png", "reason": "Brand badge/logo (cattle portrait + 'CABAÑA LAS LILAS RESTAURANT' mark). is_logo=true.", "source_url": "https://restaurantlaslilas.com.ar/index.html"},
+        {"type": "image", "value": "https://restaurantlaslilas.com.ar/wp-content/uploads/metodos-de-pago.png", "reason": "Payment methods row — icons/logos, not venue photography.", "source_url": "https://restaurantlaslilas.com.ar/reservas/"},
+        {"type": "image", "value": "https://restaurantlaslilas.com.ar/wp-content/uploads/{marca-rubaiyat,trip-advisor-2019,wine-spectator-2019,logo-michelin-2024,...}.png", "reason": "Award/partner logos — not venue photography.", "source_url": "https://restaurantlaslilas.com.ar/reservas/"}
+      ]
+    },
+    {
+      "venue_name": "Corte Comedor",
+      "city": "Buenos Aires",
+      "district_hint": "Belgrano (Av. Olazábal 1391)",
+      "match_confidence": 0.9,
+      "official_website": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "No official website found in this run. linktr.ee/cortecomedor is a Linktree hub, not a domain."},
+      "instagram": {"url": "https://www.instagram.com/cortecomedor", "source_url": "https://www.instagram.com/cortecomedor?hl=en", "confidence": 0.85, "evidence_text": "Search-result title: 'Corte Comedor (@cortecomedor) • Instagram photos and videos'."},
+      "reservation_url": {"url": "https://corte-comedor.meitre.com/", "source_url": "https://linktr.ee/cortecomedor", "confidence": 0.9, "evidence_text": "Linktree entry 'Reservas On line' → https://corte-comedor.meitre.com/."},
+      "menu_url": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "Direct PDF menu on carta.menu storage CDN exists, but is third-party and not officially published on a venue domain."},
+      "whatsapp": {"url": "https://wa.link/mm6wkx", "phone_number": null, "source_url": "https://linktr.ee/cortecomedor", "confidence": 0.85, "evidence_text": "Linktree entry 'Reservas por Whatsapp' → wa.link/mm6wkx (short-link, not wa.me direct, but explicit WhatsApp link)."},
+      "phone": {"national": "4781-2166", "international": "+54 11 4781-2166", "source_url": "https://mbmarcobeteta.com/lugares/corte-comedor", "confidence": 0.8, "evidence_text": "Marco Beteta listing: '[+54 11 47812166](tel:+54 11 47812166)'."},
+      "price_hint": {"label": "moderate", "confidence": 0.75, "basis": "Marco Beteta: '$$'; Michelin Guide noted. Editorial: 'cortés a precios accesibles'.", "source_url": "https://mbmarcobeteta.com/lugares/corte-comedor", "evidence_text": "Marco Beteta price range '$$'; description 'Informal y ruidoso sitio especializado en servir cortes a precios accesibles'."},
+      "reservation_hint": {"label": "explicit_reservation_available", "confidence": 0.9, "source_url": "https://linktr.ee/cortecomedor", "evidence_text": "Linktree offers WhatsApp reservations + online (meitre.com) reservation."},
+      "factual_description_evidence": [
+        {"fact_type": "category", "value": "Argentine grill / cortes, casual-informal", "source_url": "https://mbmarcobeteta.com/lugares/corte-comedor", "confidence": 0.85, "evidence_text": "'Cocina Argentina... Informaly ruidoso sitio especializado en servir cortes a precios accesibles.'"},
+        {"fact_type": "noise", "value": "Noisy (ruidoso)", "source_url": "https://mbmarcobeteta.com/lugares/corte-comedor", "confidence": 0.8, "evidence_text": "'Informal y ruidoso sitio'."},
+        {"fact_type": "atmosphere", "value": "Casual, family-friendly", "source_url": "https://mbmarcobeteta.com/lugares/corte-comedor", "confidence": 0.8, "evidence_text": "MB 'Ideal para: Familiar'."},
+        {"fact_type": "opening_hours", "value": "Mon–Thu 12:00–23:00; Fri–Sat 12:00–00:00; Sun 12:00–16:00", "source_url": "https://mbmarcobeteta.com/lugares/corte-comedor", "confidence": 0.85, "evidence_text": "Horarios table on Marco Beteta listing."}
+      ],
+      "image_candidates": [],
+      "warnings": [
+        "Corte Comedor has no discoverable official domain in this run. linktr.ee/cortecomedor serves as their link hub.",
+        "wa.link/mm6wkx is a short-link redirect, not a wa.me/ prefixed direct link. Confidence lowered accordingly.",
+        "No usable interior/seating images extracted from any source checked."
+      ],
+      "unsafe_or_rejected_findings": [
+        {"type": "link", "value": "https://esa-cdn.carta.menu/storage/media/companies_menu_pdf/89075880/corte-comedor-buenos-...", "reason": "Third-party menu PDF CDN. Not the official venue site — use only as low-confidence hint.", "source_url": "https://esa-cdn.carta.menu/storage/media/companies_menu_pdf/89075880/corte-comedor-buenos-"}
+      ]
+    },
+    {
+      "venue_name": "Julia",
+      "city": "Buenos Aires",
+      "district_hint": "Villa Crespo (Loyola 807)",
+      "match_confidence": 0.95,
+      "official_website": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "No official domain surfaced. The venue uses a Linktree (linktr.ee/JuliaRestaurante) as its primary hub, plus Instagram."},
+      "instagram": {"url": "https://www.instagram.com/julia.restaurante", "source_url": "https://www.instagram.com/julia.restaurante?hl=en", "confidence": 0.9, "evidence_text": "Linktree label 'Cocina argentina contemporánea' linking to @julia.restaurante. Airial: 'Website: instagram.com/julia.restaurante'."},
+      "reservation_url": {"url": "http://julia.meitre.com", "source_url": "https://linktr.ee/JuliaRestaurante", "confidence": 0.9, "evidence_text": "Linktree entry 'Reservas' → http://julia.meitre.com."},
+      "menu_url": {"url": "https://drive.google.com/file/d/1WB2-Kwr63PTUGFAzwbCu8Dxb_yULc2mo/view?usp=sharing", "source_url": "https://linktr.ee/JuliaRestaurante", "confidence": 0.75, "evidence_text": "Linktree entry 'Carta en español' — Google Drive PDF hosted by the restaurant."},
+      "whatsapp": {"url": "https://wa.me/541125702750", "phone_number": "+54 11 2570-2750", "source_url": "https://linktr.ee/JuliaRestaurante", "confidence": 0.9, "evidence_text": "Linktree 'WhatsApp' button → https://wa.me/541125702750."},
+      "phone": {"national": "7519-0514", "international": "+54 11 7519-0514", "source_url": "https://airial.travel/restaurants/argentina/buenos-aires/julia-restaurante-cXYtXBq0", "confidence": 0.7, "evidence_text": "Airial.travel: 'Phone: +54 11 7519-0514'. (Editorial source, not the official site.)"},
+      "price_hint": {"label": "expensive", "confidence": 0.85, "basis": "Latin America's 50 Best #50; 22-seat exclusive tasting menu; Airial: '$$$'.", "source_url": "https://www.theworlds50best.com/latinamerica/en/the-list/julia.html", "evidence_text": "50 Best listing + Airial 'Price: $$$'."},
+      "reservation_hint": {"label": "explicit_reservation_available", "confidence": 0.95, "source_url": "https://linktr.ee/JuliaRestaurante", "evidence_text": "Linktree 'Reservas' → julia.meitre.com."},
+      "factual_description_evidence": [
+        {"fact_type": "category", "value": "Tasting-menu restaurant, 22 seats, chef Julio Martín Báez", "source_url": "https://airial.travel/restaurants/argentina/buenos-aires/julia-restaurante-cXYtXBq0", "confidence": 0.9, "evidence_text": "'Only 22 seats, making it one of the most exclusive dining experiences in Latin America... Chef/Owner: Julio Martín Báez'."},
+        {"fact_type": "atmosphere", "value": "Intimate, evening-only dinner service; closed until 7 PM", "source_url": "https://airial.travel/restaurants/argentina/buenos-aires/julia-restaurante-cXYtXBq0", "confidence": 0.8, "evidence_text": "'Status: Closed · Opens 7 PM' / 'Monday–Friday, evenings only (dinner service)'."},
+        {"fact_type": "menu", "value": "Innovative tasting menu with Spanish / Italian influences", "source_url": "https://airial.travel/restaurants/argentina/buenos-aires/julia-restaurante-cXYtXBq0", "confidence": 0.85, "evidence_text": "'Argentine with Spanish and Italian influences (described as indie)'."},
+        {"fact_type": "seating", "value": "22 seats total (explicit)", "source_url": "https://airial.travel/restaurants/argentina/buenos-aires/julia-restaurante-cXYtXBq0", "confidence": 0.95, "evidence_text": "'Only 22 seats'."},
+        {"fact_type": "reservation", "value": "Reservations via meitre.com; menu PDFs (Spanish/English) on Google Drive", "source_url": "https://linktr.ee/JuliaRestaurante", "confidence": 0.9, "evidence_text": "Linktree entries: Reservas, WhatsApp, Carta en español, A la carte Menu English, Menú degustación, Tasting menu."}
+      ],
+      "image_candidates": [],
+      "warnings": [
+        "No official domain — venue is operating from a Linktree + Instagram presence. The 50 Best and Airial entries list Instagram as the 'website'.",
+        "Menu PDFs are hosted on Google Drive (not on a venue domain). Treat as authoritative but host-dependent.",
+        "22-seat venue — capacity extremely limited.",
+        "No usable interior/seating images extracted in this run."
+      ],
+      "unsafe_or_rejected_findings": []
+    },
+    {
+      "venue_name": "Reliquia",
+      "city": "Buenos Aires",
+      "district_hint": "Palermo (Angel Justiniano Carranza 1601)",
+      "match_confidence": 0.95,
+      "official_website": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "Michelin Guide lists Instagram as the only website/social link. No official domain found."},
+      "instagram": {"url": "https://www.instagram.com/reliquia.restaurante", "source_url": "https://guide.michelin.com/us/en/ciudad-autonoma-de-buenos-aires/buenos-aires_777009/restaurant/reliquia", "confidence": 0.95, "evidence_text": "Michelin Guide: 'Website/Social: Instagram – @reliquia.restaurante'."},
+      "reservation_url": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "Michelin: 'Reservations: Managed by the establishment – contact directly to book' (no explicit URL provided in the Michelin card)."},
+      "menu_url": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "whatsapp": {"url": null, "phone_number": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "phone": {"national": "3000-4151", "international": "+54 11 3000-4151", "source_url": "https://guide.michelin.com/us/en/ciudad-autonoma-de-buenos-aires/buenos-aires_777009/restaurant/reliquia", "confidence": 0.9, "evidence_text": "Michelin Guide: 'Phone: +54 11 3000-4151'."},
+      "price_hint": {"label": "moderate", "confidence": 0.9, "basis": "Michelin Bib Gourmand = 'good quality, good value cooking'.", "source_url": "https://guide.michelin.com/us/en/ciudad-autonoma-de-buenos-aires/buenos-aires_777009/restaurant/reliquia", "evidence_text": "Michelin '$$ (Moderate)' + 'Bib Gourmand' distinction."},
+      "reservation_hint": {"label": "phone_only", "confidence": 0.85, "source_url": "https://guide.michelin.com/us/en/ciudad-autonoma-de-buenos-aires/buenos-aires_777009/restaurant/reliquia", "evidence_text": "'Reservations: Managed by the establishment – contact directly to book' — only phone surfaced."},
+      "factual_description_evidence": [
+        {"fact_type": "category", "value": "Argentinian, Bib Gourmand, friendly / warm atmosphere", "source_url": "https://guide.michelin.com/us/en/ciudad-autonoma-de-buenos-aires/buenos-aires_777009/restaurant/reliquia", "confidence": 0.95, "evidence_text": "'There's a palpable sense of authenticity in this friendly restaurant, where the young owners have created a warm and welcoming ambience perfect for a romantic supper.'"},
+        {"fact_type": "atmosphere", "value": "Soft colour scheme, intimacy, romantic", "source_url": "https://guide.michelin.com/us/en/ciudad-autonoma-de-buenos-aires/buenos-aires_777009/restaurant/reliquia", "confidence": 0.9, "evidence_text": "'The soft colour scheme contributes to Reliquia's warmth and intimacy'."},
+        {"fact_type": "occasion", "value": "Ideal for romantic supper", "source_url": "https://guide.michelin.com/us/en/ciudad-autonoma-de-buenos-aires/buenos-aires_777009/restaurant/reliquia", "confidence": 0.85, "evidence_text": "'Perfect for a romantic supper'."},
+        {"fact_type": "other", "value": "Committed to avoiding waste", "source_url": "https://guide.michelin.com/us/en/ciudad-autonoma-de-buenos-aires/buenos-aires_777009/restaurant/reliquia", "confidence": 0.8, "evidence_text": "'Everything possible is done here to avoid waste'."},
+        {"fact_type": "price", "value": "$$ (Moderate) — Bib Gourmand", "source_url": "https://guide.michelin.com/us/en/ciudad-autonoma-de-buenos-aires/buenos-aires_777009/restaurant/reliquia", "confidence": 0.95, "evidence_text": "Michelin 'Price Range: $$ (Moderate)' with Bib Gourmand distinction."}
+      ],
+      "image_candidates": [],
+      "warnings": [
+        "No official domain. Reservation channel not explicitly published — Michelin says 'contact directly' (phone is the only confirmed contact).",
+        "No menu PDF/URL surfaced. Editorial coverage mentions 'Excelente relación precio/calidad' but no public menu page.",
+        "No usable interior/seating images extracted in this run."
+      ],
+      "unsafe_or_rejected_findings": []
+    },
+    {
+      "venue_name": "Roux",
+      "city": "Buenos Aires",
+      "district_hint": "Recoleta (Peña 2300)",
+      "match_confidence": 0.95,
+      "official_website": {"url": "https://rouxresto.com", "source_url": "https://rouxresto.com", "confidence": 0.95, "evidence_text": "Site title 'ROUX • Cocina de autor'; address 'Peña 2300, C1126 CABA'."},
+      "instagram": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "IG handle referenced in editorial searches (@rouxresto) but not surfaced as a link on the official site in extracted text."},
+      "reservation_url": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "No explicit reservation URL surfaced in the extracted site content. Reservation likely phone-based (not confirmed in this run)."},
+      "menu_url": {"url": "https://rouxresto.com/el-menu.pdf", "source_url": "https://rouxresto.com/el-menu.pdf", "confidence": 0.95, "evidence_text": "Official site hosts 'LA CARTA - ROUX' PDF (el-menu.pdf) with full menu content."},
+      "whatsapp": {"url": null, "phone_number": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "phone": {"national": null, "international": null, "source_url": null, "confidence": 0.0, "evidence_text": "No phone number surfaced in extracted site text; not confirmed in this run."},
+      "price_hint": {"label": "expensive", "confidence": 0.7, "basis": "Author's cuisine, multiple tasting courses (cured meats, ceviche, carpaccio, etc.); 50 Best Discovery listing; 'Mejor Nuevo Restaurant 2014' Premios Día del Gourmet.", "source_url": "https://rouxresto.com/el-menu.pdf", "evidence_text": "Menu includes high-cost ingredients (ibérico bellota, vieiras fueguinas, llama del altiplano) — typical of premium tier."},
+      "reservation_hint": {"label": "not_confirmed", "confidence": 0.5, "source_url": "https://rouxresto.com", "evidence_text": "No explicit reservation CTA extracted from the official site. Mark unconfirmed rather than walk-in."},
+      "factual_description_evidence": [
+        {"fact_type": "category", "value": "Author's cuisine restaurant (cocina de autor)", "source_url": "https://rouxresto.com", "confidence": 0.95, "evidence_text": "Site headline 'ROUX • Cocina de autor'."},
+        {"fact_type": "atmosphere", "value": "Three distinct spaces: main dining room (cozy, Parisian-style), covered sidewalk seating, and an intimate 'Cava dinatoire' wine cellar", "source_url": "https://rouxresto.com", "confidence": 0.95, "evidence_text": "'Main Dining Room — Cozy and elegant, reminiscent of a small Parisian restaurant'; 'Cava dinatoire — Intimate wood-paneled wine cellar'."},
+        {"fact_type": "seating", "value": "Indoor, climate-controlled outdoor sidewalk, and wine-cellar seating", "source_url": "https://rouxresto.com", "confidence": 0.9, "evidence_text": "'Las veredas de ROUX (sidewalk seating) — Comfortable, climate-controlled, weather-protected outdoor area'."},
+        {"fact_type": "other", "value": "Founded 2014 by chef Martín Rebaudino; awarded 'Mejor Nuevo Restaurant 2014' (Premios Día del Gourmet, April 2015)", "source_url": "https://rouxresto.com/el-menu.pdf", "confidence": 0.95, "evidence_text": "'Mejor Nuevo Restaurant 2014 — Premios Día del Gourmet (April 2015)'."},
+        {"fact_type": "menu", "value": "Full PDF carta with cured meats (jamón ibérico), cold appetizers (ostras, ceviche, carpaccio), and main courses", "source_url": "https://rouxresto.com/el-menu.pdf", "confidence": 0.95, "evidence_text": "Menu PDF lists jamones/embutidos, entradas frías, etc."}
+      ],
+      "image_candidates": [],
+      "warnings": [
+        "No gallery/images extracted from the official site in this run. /galeria path returns 404.",
+        "No phone or reservation URL surfaced; reservation status left as 'not_confirmed' rather than guessed.",
+        "No usable interior/seating images extracted in this run."
+      ],
+      "unsafe_or_rejected_findings": []
+    },
+    {
+      "venue_name": "Uptown Bar",
+      "city": "Buenos Aires",
+      "district_hint": "Palermo",
+      "match_confidence": 0.75,
+      "official_website": {"url": "http://www.uptownba.com", "source_url": "http://www.uptownba.com", "confidence": 0.4, "evidence_text": "uptownba.com is indexed in search results as the venue's site, but the live fetch failed in this run (Failed to fetch url)."},
+      "instagram": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "No IG handle surfaced as a profile link in this run (only post/reel URLs and an explore/locations page)."},
+      "reservation_url": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "Reservation channel not surfaced in this run."},
+      "menu_url": {"url": null, "source_url": null, "confidence": 0.0, "evidence_text": "No menu URL surfaced in this run."},
+      "whatsapp": {"url": null, "phone_number": null, "source_url": null, "confidence": 0.0, "evidence_text": null},
+      "phone": {"national": null, "international": null, "source_url": null, "confidence": 0.0, "evidence_text": "No phone surfaced in this run."},
+      "price_hint": {"label": "unknown", "confidence": 0.0, "basis": null, "source_url": null, "evidence_text": null},
+      "reservation_hint": {"label": "not_confirmed", "confidence": 0.0, "source_url": null, "evidence_text": null},
+      "factual_description_evidence": [
+        {"fact_type": "category", "value": "Trendy bar in Palermo (hollywood-themed per social posts)", "source_url": "https://www.theworlds50best.com/discovery/Establishments/Argentina/Buenos-Aires/Uptown.html", "confidence": 0.7, "evidence_text": "50 Best Discovery listing 'Uptown - Buenos Aires - Bar'."},
+        {"fact_type": "other", "value": "TripAdvisor ties 'Uptown & The Bronx' to one listing — possible multi-venue operation with The Bronx (unconfirmed)", "source_url": "https://www.tripadvisor.com/Restaurant_Review-g312741-d12694781-Reviews-Uptown_The_Bronx-B", "confidence": 0.4, "evidence_text": "TripAdvisor listing 'Uptown & The Bronx'."}
+      ],
+      "image_candidates": [],
+      "warnings": [
+        "Official domain uptownba.com is unreachable from this scout (Failed to fetch url). 50 Best Discovery and Goop pages provided no contact details.",
+        "Low match_confidence: name 'Uptown Bar' is generic; need to confirm exact venue (could be 'Uptown' alone, or 'Uptown & The Bronx').",
+        "Many Instagram URLs in search results are post/reel/short-form links — not usable as profile links without further verification.",
+        "No usable interior/seating images extracted in this run."
+      ],
+      "unsafe_or_rejected_findings": [
+        {"type": "link", "value": "http://www.uptownba.com", "reason": "Indexed in search as venue site but failed to fetch — cannot confirm live state in this run.", "source_url": "http://www.uptownba.com"}
+      ]
+    }
+  ],
+  "summary": {
+    "venues_processed": 10,
+    "official_websites_found": 5,
+    "reservation_links_found": 5,
+    "menu_links_found": 4,
+    "price_hints_found": 7,
+    "usable_image_candidates_found": 0,
+    "venues_with_usable_interior_images": 0,
+    "venues_needing_manual_review": ["Crisol Café", "Melbourne Café", "Anchoita", "Apu Nena", "Cabaña Las Lilas", "Corte Comedor", "Julia", "Reliquia", "Roux", "Uptown Bar"]
+  }
+}
