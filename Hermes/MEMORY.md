@@ -21,8 +21,14 @@
 - Ann: Pitch enviado — seguimiento pendiente
 - ~~Comforti/Rivas/Gamma: bloqueados por falta de datos~~ ✅ RESUELTO 04/06 vía Serper
 
-## Korantis — STANDBY
-Regla activa: no se toca con semáforo 🔴/🟡. Hoy (🟡) Juan intentó reactivar trabajo en Korantis dos veces. Frenado. Solo se reactiva cuando Wolfim llegue a 🟠 o superior **Y Juan confirma explícitamente "OK, arranco Korantis"**. No se activa por inferencia ni por impulso.
+## Korantis — ahora empresa propia (no proyecto Wolfim)
+**2026-06-05: Juan reasignó Korantis a su propia carpeta `companies/korantis/`** (antes vivía como `projects/korantis/` bajo Wolfim). Dominio real: **korantis.com** (no Corantis.com). Status: sin clientes ni revenue; modo evidencia.
+
+**Scout batch 01 ejecutado 2026-06-05:** 25 BA venues, JSON 177.8 KB con 56 image candidates. Top HERO: Ninina, Verne Club, Milion, Oporto, Gran Bar Danzon, Don Julio, Niño Gordo, Uptown. `data/korantis_ba_hermes_soft_scout_batch_01_2026-06-05.json`
+
+**Scraping policy registrada 2026-06-05:** curl plain como default, chrome solo si curl <500 bytes, no retries contra TA/IG, TMPDIR=/home/hermes/.chrome_tmp para chrome/playwright. Ver [[companies/korantis/scraping-policy|policy]] completa.
+
+Regla activa: no se toca con semáforo 🔴/🟡. Hoy (🟡) Juan reactivó Korantis con un scout aislado (no es "trabajo comercial" en el sentido de la regla — es evidence-gathering sin outreach ni ventas). Si Juan pide presupuesto/marketing/outreach, frenar hasta 🟠.
 
 ## wolfim.com — 8.5/10
 Auditado 03/06. No se re-audita. Top 3 fixes anotados. NO es el cuello de botella del negocio.
