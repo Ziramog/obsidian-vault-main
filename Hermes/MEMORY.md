@@ -3,12 +3,12 @@
 
 ---
 
-**Última actualización:** 2026-06-04 11:00 | Farias llamado (CRM GVamax, software viejo alquileres = grieta) · Franco: entrega + cobro 05/06 · Semáforo 🟡 (mañana → 🟠) | Model: MiniMax-M3
+**Última actualización:** 2026-06-05 20:00 | Franco cobro $300 NO confirmado (cierre cron) · Korantis: 3 sesiones evidencia (scout batch, model split M2.7/M3, 9 visual refs) · Semáforo 🟡 sin cambio | Model: MiniMax-M3
 
 ---
 
 ## Semáforo
-🟡 Supervivencia — Gap mayo: –$333. **Mañana 05/06: $300 USD a cobrar de Franco Roma** (entrega producto + cobro). Si entra → gap –$33, semáforo a 🟠. Meta junio: **$600 USD**. Faltan $300 después de Franco.
+🟡 Supervivencia — Gap mayo: –$333. **Cobro $300 USD Franco Roma PENDIENTE de confirmación al cierre 05/06.** Si entra → gap –$33, semáforo a 🟠. Meta junio: **$600 USD**. Faltan $300 después de Franco. **PRIORIDAD #1 mañana 06/06 a primera hora: confirmar cobro.**
 
 ---
 
@@ -27,6 +27,10 @@
 **Scout batch 01 ejecutado 2026-06-05:** 25 BA venues, JSON 177.8 KB con 56 image candidates. Top HERO: Ninina, Verne Club, Milion, Oporto, Gran Bar Danzon, Don Julio, Niño Gordo, Uptown. `data/korantis_ba_hermes_soft_scout_batch_01_2026-06-05.json`
 
 **Scraping policy registrada 2026-06-05:** curl plain como default, chrome solo si curl <500 bytes, no retries contra TA/IG, TMPDIR=/home/hermes/.chrome_tmp para chrome/playwright. Ver [[companies/korantis/scraping-policy|policy]] completa.
+
+**Model split test ejecutado 2026-06-05 16:09:** Phase A (M2.7 text scout, 5 venues premium) → 42 prevision candidates reducidos a 9 vision queue (78% ahorro). Phase B (M3 vision) → 9/7 passed gate → 1 hero, 4 product, 2 marketing collage. **Veredicto honesto:** ahorra 83% de vision calls pero el cuello de botella real es source quality, no costo de modelo. Editorial sourcing (Michelin/50Best) es el próximo paso.
+
+**Visual references 2026-06-05 16:11:** 9 imágenes de Ninina/Verne/Mishiguene descargadas a `companies/korantis/references/ba-venues/` (~2.7 MB, 767²–3063²). Material premium de sitios oficiales.
 
 Regla activa: no se toca con semáforo 🔴/🟡. Hoy (🟡) Juan reactivó Korantis con un scout aislado (no es "trabajo comercial" en el sentido de la regla — es evidence-gathering sin outreach ni ventas). Si Juan pide presupuesto/marketing/outreach, frenar hasta 🟠.
 
