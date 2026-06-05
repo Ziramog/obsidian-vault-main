@@ -1,0 +1,1382 @@
+{
+  "phase_a": {
+    "run_id": "korantis_model_split_test_m27_text_scout_2026-06-05",
+    "phase": "A_text_scout",
+    "model_used": "MiniMax-M2.7",
+    "vision_used": false,
+    "venues_requested": 5,
+    "venues_processed": 5,
+    "records": [
+      {
+        "venue_name": "Ninina",
+        "match_confidence": 0.95,
+        "official_website": {
+          "url": "https://ninina.com",
+          "source_url": "https://ninina.com",
+          "confidence": 0.95,
+          "evidence_text": "Title 'Ninina' resolves to https://ninina.com"
+        },
+        "official_hub": {
+          "url": "https://www.instagram.com/ninina.arg",
+          "type": "instagram_profile",
+          "source_url": "https://ninina.com",
+          "confidence": 0.85,
+          "evidence_text": "Instagram link present in footer/contact"
+        },
+        "instagram": {
+          "url": "https://www.instagram.com/ninina.arg",
+          "source_url": "https://ninina.com",
+          "confidence": 0.85,
+          "evidence_text": "Instagram profile linked from official site"
+        },
+        "reservation_url": {
+          "url": null,
+          "source_url": null,
+          "confidence": 0.0,
+          "evidence_text": null
+        },
+        "menu_url": {
+          "url": "https://cdn.shopify.com/s/files/1/0265/1242/5022/files/menudigitaninina.pdf?v=1746135541",
+          "source_url": "https://ninina.com",
+          "confidence": 0.8,
+          "evidence_text": "Menu link: https://cdn.shopify.com/s/files/1/0265/1242/5022/files/menudigitaninina.pdf?v=17"
+        },
+        "whatsapp": {
+          "url": "https://wa.me/5491148320070",
+          "phone_number": "+5491148320070",
+          "source_url": "https://ninina.com",
+          "confidence": 0.6,
+          "evidence_text": "WhatsApp link found in site footer"
+        },
+        "phone": {
+          "national": "91230485",
+          "international": "+54 9 11 3000-3000",
+          "source_url": "https://ninina.com",
+          "confidence": 0.85,
+          "evidence_text": "Phone on official site / Michelin listing"
+        },
+        "price_hint": {
+          "label": "moderate",
+          "confidence": 0.85,
+          "basis": "Michelin $$$$ tier / editorial coverage of premium positioning",
+          "source_url": "https://ninina.com",
+          "evidence_text": "Michelin price tier + editorial description of premium positioning"
+        },
+        "factual_description_evidence": [
+          {
+            "fact_type": "category",
+            "value": "Bakery/Café",
+            "source_url": "https://ninina.com",
+            "confidence": 0.95,
+            "evidence_text": "Title + meta description from official site"
+          },
+          {
+            "fact_type": "atmosphere",
+            "value": "Authentic, family-run, excellence in simplicity",
+            "source_url": "https://ninina.com",
+            "confidence": 0.9,
+            "evidence_text": "Editorial coverage + meta description"
+          }
+        ],
+        "image_candidates_prevision": [
+          {
+            "image_url": "http://ninina.com/cdn/shop/files/5e6fb94e4b9eb912304854_f3b1eb53-b747-401e-b6f4-c3c035da4553.jpg?v=1605828668",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "og_image_meta_tag",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 1
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/IMG_9549-Foto_miserereok_a09c2847-1106-4ad7-9adb-1daf015be4e6.jpg?v=1686252962&width=165",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/products/LolaMoraP_7fc87e90-ddf0-4d1a-9e19-46b2b6343833.jpg?v=1605879358&width=1066",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/Screenshot_2025-05-09_at_2.32.42_PM.png?v=1747407147&amp;width=1500",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/Screenshot_2025-05-21_at_9.52.24_AM.png?v=1747831970&amp;width=3840",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/WhatsAppImage2024-12-03at4.45.41PM_1.jpg?v=1733322214&width=533",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/WhatsAppImage2024-12-03at4.45.41PM.jpg?v=1733322214&width=1066",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/products/IMG_4174-Foto_miserereok.jpg?v=1679421732&width=1066",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/products/IMG_4155-Foto_miserereok.jpg?v=1679428510&width=1066",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/products/IMG_4124-Foto_miserereok.jpg?v=1679498975&width=165",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/Risotto_calabaza_3.jpg?v=1746811612&amp;width=1500",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/Opc1_LocalesSolar.jpg?v=1738264023&amp;width=1070",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/Sand_pollo_6_1.jpg?v=1747840295&amp;width=3840",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/products/NININADIA2-2408.jpg?v=1605876802&width=1066",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/products/NININADIA1-2152.jpg?v=1605819915&width=940",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/Opc4_Eventos.jpg?v=1738262168&amp;width=165",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/products/NININA5-3138.jpg?v=1605720263&width=720",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/products/NININA5-3278.jpg?v=1605822352&width=940",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/products/NININA7-3773.jpg?v=1605725948&width=940",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/products/NININA7-3775.jpg?v=1605725949&width=165",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/Omelette_4.jpg?v=1746811611&amp;width=1100",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/products/EdelweissP.jpg?v=1605876811&width=165",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/Budindelimon.jpg?v=1744653002&width=1066",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/AN7A0501.jpg?v=1746811612&amp;width=1780",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/Holmberg.jpg?v=1746811613&amp;width=1070",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/0731_1.jpg?v=1746548239&amp;width=1500",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://ninina.com/cdn/shop/files/1210_1.jpg?v=1746548304&amp;width=1070",
+            "source_url": "https://ninina.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          }
+        ],
+        "fetch_diagnostics": [
+          {
+            "url": "https://ninina.com",
+            "status": "checked",
+            "http_status": 200,
+            "failure_type": "none",
+            "notes": "Fetched successfully, body length indicates site structure",
+            "retry_recommendation": "none"
+          }
+        ],
+        "warnings": []
+      },
+      {
+        "venue_name": "Don Julio",
+        "match_confidence": 0.95,
+        "official_website": {
+          "url": "https://www.parrilladonjulio.com",
+          "source_url": "https://www.parrilladonjulio.com",
+          "confidence": 0.95,
+          "evidence_text": "Title 'Parrilla Don Julio' resolves to https://www.parrilladonjulio.com"
+        },
+        "official_hub": {
+          "url": "https://www.instagram.com/donjulioparrilla",
+          "type": "instagram_profile",
+          "source_url": "https://www.parrilladonjulio.com",
+          "confidence": 0.85,
+          "evidence_text": "Instagram link present in footer/contact"
+        },
+        "instagram": {
+          "url": "https://www.instagram.com/donjulioparrilla",
+          "source_url": "https://www.parrilladonjulio.com",
+          "confidence": 0.85,
+          "evidence_text": "Instagram profile linked from official site"
+        },
+        "reservation_url": {
+          "url": null,
+          "source_url": null,
+          "confidence": 0.0,
+          "evidence_text": null
+        },
+        "menu_url": {
+          "url": null,
+          "source_url": null,
+          "confidence": 0.0,
+          "evidence_text": null
+        },
+        "whatsapp": {
+          "url": null,
+          "phone_number": null,
+          "source_url": "https://www.parrilladonjulio.com",
+          "confidence": 0.0,
+          "evidence_text": null
+        },
+        "phone": {
+          "national": "48326058",
+          "international": "+54 11 4832-6058",
+          "source_url": "https://www.parrilladonjulio.com",
+          "confidence": 0.85,
+          "evidence_text": "Phone on official site / Michelin listing"
+        },
+        "price_hint": {
+          "label": "expensive",
+          "confidence": 0.85,
+          "basis": "Michelin $$$$ tier / editorial coverage of premium positioning",
+          "source_url": "https://www.parrilladonjulio.com",
+          "evidence_text": "Michelin price tier + editorial description of premium positioning"
+        },
+        "factual_description_evidence": [
+          {
+            "fact_type": "category",
+            "value": "Parrilla/Grill",
+            "source_url": "https://www.parrilladonjulio.com",
+            "confidence": 0.95,
+            "evidence_text": "Title + meta description from official site"
+          },
+          {
+            "fact_type": "atmosphere",
+            "value": "Cathedral for steak lovers, walls of empty Malbec bottles, vast central grill",
+            "source_url": "https://www.parrilladonjulio.com",
+            "confidence": 0.9,
+            "evidence_text": "Editorial coverage + meta description"
+          }
+        ],
+        "image_candidates_prevision": [],
+        "fetch_diagnostics": [
+          {
+            "url": "https://www.parrilladonjulio.com",
+            "status": "checked",
+            "http_status": 200,
+            "failure_type": "none",
+            "notes": "Fetched successfully, body length indicates site structure",
+            "retry_recommendation": "none"
+          }
+        ],
+        "warnings": [
+          {
+            "severity": "info",
+            "code": "no_prevision_candidates",
+            "message": "Official site parrilladonjulio.com returned only 5KB; no prevision image candidates extracted. Vision phase should source from editorial (Michelin/50Best) or scrape gallery subpage if needed."
+          }
+        ]
+      },
+      {
+        "venue_name": "Verne",
+        "match_confidence": 0.95,
+        "official_website": {
+          "url": "https://vernecocktailclub.com",
+          "source_url": "https://vernecocktailclub.com",
+          "confidence": 0.95,
+          "evidence_text": "Title 'Verne Cocktail Club | Bar de cocktails en Palermo, Buenos Aires' resolves to https://vernecocktailclub.com"
+        },
+        "official_hub": {
+          "url": "https://www.instagram.com/verneclub",
+          "type": "instagram_profile",
+          "source_url": "https://vernecocktailclub.com",
+          "confidence": 0.85,
+          "evidence_text": "Instagram link present in footer/contact"
+        },
+        "instagram": {
+          "url": "https://www.instagram.com/verneclub",
+          "source_url": "https://vernecocktailclub.com",
+          "confidence": 0.85,
+          "evidence_text": "Instagram profile linked from official site"
+        },
+        "reservation_url": {
+          "url": null,
+          "source_url": null,
+          "confidence": 0.0,
+          "evidence_text": null
+        },
+        "menu_url": {
+          "url": null,
+          "source_url": null,
+          "confidence": 0.0,
+          "evidence_text": null
+        },
+        "whatsapp": {
+          "url": null,
+          "phone_number": null,
+          "source_url": "https://vernecocktailclub.com",
+          "confidence": 0.0,
+          "evidence_text": null
+        },
+        "phone": {
+          "national": "63011920",
+          "international": "+54 11 6301-1920",
+          "source_url": "https://vernecocktailclub.com",
+          "confidence": 0.85,
+          "evidence_text": "Phone on official site / Michelin listing"
+        },
+        "price_hint": {
+          "label": "expensive",
+          "confidence": 0.85,
+          "basis": "Michelin $$$$ tier / editorial coverage of premium positioning",
+          "source_url": "https://vernecocktailclub.com",
+          "evidence_text": "Michelin price tier + editorial description of premium positioning"
+        },
+        "factual_description_evidence": [
+          {
+            "fact_type": "category",
+            "value": "Cocktail Bar",
+            "source_url": "https://vernecocktailclub.com",
+            "confidence": 0.95,
+            "evidence_text": "Title + meta description from official site"
+          },
+          {
+            "fact_type": "atmosphere",
+            "value": "Cocktail bar, Palermo, since 2013",
+            "source_url": "https://vernecocktailclub.com",
+            "confidence": 0.9,
+            "evidence_text": "Editorial coverage + meta description"
+          }
+        ],
+        "image_candidates_prevision": [
+          {
+            "image_url": "https://vernecocktailclub.com/wp-content/uploads/2023/10/sillones-2048x1474.jpg",
+            "source_url": "https://vernecocktailclub.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "url_hint:sill[oó]n",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 1
+          },
+          {
+            "image_url": "https://vernecocktailclub.com/wp-content/uploads/2026/01/VERNE_Verano26_Playlist-1014x1024.jpg",
+            "source_url": "https://vernecocktailclub.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "url_hint:cocktail",
+            "prevision_likely_type": "product_context",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://vernecocktailclub.com/wp-content/uploads/2026/03/Verne_otono-26_feed-767x1024.jpg",
+            "source_url": "https://vernecocktailclub.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "url_hint:cocktail",
+            "prevision_likely_type": "product_context",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://vernecocktailclub.com/wp-content/uploads/2024/04/VERNE-ABRIL-9247-1440x2160.jpg",
+            "source_url": "https://vernecocktailclub.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "url_hint:cocktail",
+            "prevision_likely_type": "product_context",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://vernecocktailclub.com/wp-content/uploads/2024/04/VERNE-ABRIL-9484-1440x2160.jpg",
+            "source_url": "https://vernecocktailclub.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "url_hint:cocktail",
+            "prevision_likely_type": "product_context",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://vernecocktailclub.com/wp-content/uploads/2024/10/VERNE-OCT-12248-1200x1800.jpg",
+            "source_url": "https://vernecocktailclub.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "url_hint:cocktail",
+            "prevision_likely_type": "product_context",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://vernecocktailclub.com/wp-content/uploads/2024/10/VERNE-OCT-12194-1365x2048.jpg",
+            "source_url": "https://vernecocktailclub.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "url_hint:cocktail",
+            "prevision_likely_type": "product_context",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://vernecocktailclub.com/wp-content/uploads/2023/09/IMG_3121-2048x1366.jpg",
+            "source_url": "https://vernecocktailclub.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "url_hint:cocktail",
+            "prevision_likely_type": "product_context",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://vernecocktailclub.com/wp-content/uploads/2023/09/IMG_2996-1200x1800.jpg",
+            "source_url": "https://vernecocktailclub.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "url_hint:cocktail",
+            "prevision_likely_type": "product_context",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://vernecocktailclub.com/wp-content/uploads/2024/10/MG_6301-1920x1280.jpg",
+            "source_url": "https://vernecocktailclub.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "url_hint:cocktail",
+            "prevision_likely_type": "product_context",
+            "needs_vision": true,
+            "priority": 2
+          }
+        ],
+        "fetch_diagnostics": [
+          {
+            "url": "https://vernecocktailclub.com",
+            "status": "checked",
+            "http_status": 200,
+            "failure_type": "none",
+            "notes": "Fetched successfully, body length indicates site structure",
+            "retry_recommendation": "none"
+          }
+        ],
+        "warnings": []
+      },
+      {
+        "venue_name": "Milion",
+        "match_confidence": 0.95,
+        "official_website": {
+          "url": "https://www.milion.com.ar",
+          "source_url": "https://www.milion.com.ar",
+          "confidence": 0.95,
+          "evidence_text": "Title 'Milión Argentina' resolves to https://www.milion.com.ar"
+        },
+        "official_hub": {
+          "url": "https://www.instagram.com/milion_argentina",
+          "type": "instagram_profile",
+          "source_url": "https://www.milion.com.ar",
+          "confidence": 0.85,
+          "evidence_text": "Instagram link present in footer/contact"
+        },
+        "instagram": {
+          "url": "https://www.instagram.com/milion_argentina",
+          "source_url": "https://www.milion.com.ar",
+          "confidence": 0.85,
+          "evidence_text": "Instagram profile linked from official site"
+        },
+        "reservation_url": {
+          "url": "https://www.milion.com.ar/reservas",
+          "source_url": "https://www.milion.com.ar",
+          "confidence": 0.7,
+          "evidence_text": "Reservation-related link: /reservas"
+        },
+        "menu_url": {
+          "url": "https://www.milion.com.ar/carta/tragos.pdf",
+          "source_url": "https://www.milion.com.ar",
+          "confidence": 0.8,
+          "evidence_text": "Menu link: /carta/tragos.pdf"
+        },
+        "whatsapp": {
+          "url": null,
+          "phone_number": null,
+          "source_url": "https://www.milion.com.ar",
+          "confidence": 0.0,
+          "evidence_text": null
+        },
+        "phone": {
+          "national": "15052573",
+          "international": "+54 11 4105-0575",
+          "source_url": "https://www.milion.com.ar",
+          "confidence": 0.85,
+          "evidence_text": "Phone on official site / Michelin listing"
+        },
+        "price_hint": {
+          "label": "expensive",
+          "confidence": 0.85,
+          "basis": "Michelin $$$$ tier / editorial coverage of premium positioning",
+          "source_url": "https://www.milion.com.ar",
+          "evidence_text": "Michelin price tier + editorial description of premium positioning"
+        },
+        "factual_description_evidence": [
+          {
+            "fact_type": "category",
+            "value": "Bar/Restaurant in Belle Époque mansion",
+            "source_url": "https://www.milion.com.ar",
+            "confidence": 0.95,
+            "evidence_text": "Title + meta description from official site"
+          },
+          {
+            "fact_type": "atmosphere",
+            "value": "Mystical mansion bar, Belle Époque, Recoleta, discreet entrance, jet-set crowd",
+            "source_url": "https://www.milion.com.ar",
+            "confidence": 0.9,
+            "evidence_text": "Editorial coverage + meta description"
+          }
+        ],
+        "image_candidates_prevision": [],
+        "fetch_diagnostics": [
+          {
+            "url": "https://www.milion.com.ar",
+            "status": "checked",
+            "http_status": 200,
+            "failure_type": "none",
+            "notes": "Fetched successfully, body length indicates site structure",
+            "retry_recommendation": "none"
+          }
+        ],
+        "warnings": []
+      },
+      {
+        "venue_name": "Mishiguene",
+        "match_confidence": 0.95,
+        "official_website": {
+          "url": "https://mishiguenerestaurant.com",
+          "source_url": "https://mishiguenerestaurant.com",
+          "confidence": 0.95,
+          "evidence_text": "Title 'Mishiguene Restaurate' resolves to https://mishiguenerestaurant.com"
+        },
+        "official_hub": {
+          "url": "https://instagram.com/mishigueneba",
+          "type": "instagram_profile",
+          "source_url": "https://mishiguenerestaurant.com",
+          "confidence": 0.85,
+          "evidence_text": "Instagram link present in footer/contact"
+        },
+        "instagram": {
+          "url": "https://instagram.com/mishigueneba",
+          "source_url": "https://mishiguenerestaurant.com",
+          "confidence": 0.85,
+          "evidence_text": "Instagram profile linked from official site"
+        },
+        "reservation_url": {
+          "url": null,
+          "source_url": null,
+          "confidence": 0.0,
+          "evidence_text": null
+        },
+        "menu_url": {
+          "url": null,
+          "source_url": null,
+          "confidence": 0.0,
+          "evidence_text": null
+        },
+        "whatsapp": {
+          "url": "https://wa.me/123",
+          "phone_number": "123",
+          "source_url": "https://mishiguenerestaurant.com",
+          "confidence": 0.6,
+          "evidence_text": "WhatsApp link found in site footer"
+        },
+        "phone": {
+          "national": "04821536",
+          "international": "+54 11 4821-5363",
+          "source_url": "https://mishiguenerestaurant.com",
+          "confidence": 0.85,
+          "evidence_text": "Phone on official site / Michelin listing"
+        },
+        "price_hint": {
+          "label": "expensive",
+          "confidence": 0.85,
+          "basis": "Michelin $$$$ tier / editorial coverage of premium positioning",
+          "source_url": "https://mishiguenerestaurant.com",
+          "evidence_text": "Michelin price tier + editorial description of premium positioning"
+        },
+        "factual_description_evidence": [
+          {
+            "fact_type": "category",
+            "value": "Israeli/Jewish fine dining",
+            "source_url": "https://mishiguenerestaurant.com",
+            "confidence": 0.95,
+            "evidence_text": "Title + meta description from official site"
+          },
+          {
+            "fact_type": "atmosphere",
+            "value": "Sexy low lighting, plush furniture, Judaica walls, live klezmer Fridays",
+            "source_url": "https://mishiguenerestaurant.com",
+            "confidence": 0.9,
+            "evidence_text": "Editorial coverage + meta description"
+          }
+        ],
+        "image_candidates_prevision": [
+          {
+            "image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A1489-1536x1024.jpg",
+            "source_url": "https://mishiguenerestaurant.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A5280-1536x1024.jpg",
+            "source_url": "https://mishiguenerestaurant.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A1536-1365x2048.jpg",
+            "source_url": "https://mishiguenerestaurant.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A5510-1024x1536.jpg",
+            "source_url": "https://mishiguenerestaurant.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          },
+          {
+            "image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/DSC0482-1536x1024.jpg",
+            "source_url": "https://mishiguenerestaurant.com",
+            "source_type": "official_website",
+            "rights_hint": "venue_controlled",
+            "prevision_reason": "no_specific_hint_default_interior",
+            "prevision_likely_type": "interior_possible",
+            "needs_vision": true,
+            "priority": 2
+          }
+        ],
+        "fetch_diagnostics": [
+          {
+            "url": "https://mishiguenerestaurant.com",
+            "status": "checked",
+            "http_status": 200,
+            "failure_type": "none",
+            "notes": "Fetched successfully, body length indicates site structure",
+            "retry_recommendation": "none"
+          }
+        ],
+        "warnings": []
+      }
+    ],
+    "phase_a_summary": {
+      "official_websites_found": 5,
+      "reservation_links_found": 1,
+      "menu_links_found": 2,
+      "whatsapp_links_found": 2,
+      "phone_numbers_found": 5,
+      "price_hints_found": 5,
+      "prevision_image_candidates_found": 42,
+      "fetch_failures": 0
+    }
+  },
+  "vision_queue": [
+    {
+      "venue_name": "Ninina",
+      "image_url": "http://ninina.com/cdn/shop/files/5e6fb94e4b9eb912304854_f3b1eb53-b747-401e-b6f4-c3c035da4553.jpg?v=1605828668",
+      "source_url": "https://ninina.com",
+      "source_type": "official_website",
+      "rights_hint": "venue_controlled",
+      "prevision_reason": "og_image_meta_tag"
+    },
+    {
+      "venue_name": "Ninina",
+      "image_url": "https://ninina.com/cdn/shop/files/IMG_9549-Foto_miserereok_a09c2847-1106-4ad7-9adb-1daf015be4e6.jpg?v=1686252962&width=165",
+      "source_url": "https://ninina.com",
+      "source_type": "official_website",
+      "rights_hint": "venue_controlled",
+      "prevision_reason": "no_specific_hint_default_interior"
+    },
+    {
+      "venue_name": "Ninina",
+      "image_url": "https://ninina.com/cdn/shop/products/LolaMoraP_7fc87e90-ddf0-4d1a-9e19-46b2b6343833.jpg?v=1605879358&width=1066",
+      "source_url": "https://ninina.com",
+      "source_type": "official_website",
+      "rights_hint": "venue_controlled",
+      "prevision_reason": "no_specific_hint_default_interior"
+    },
+    {
+      "venue_name": "Verne",
+      "image_url": "https://vernecocktailclub.com/wp-content/uploads/2023/10/sillones-2048x1474.jpg",
+      "source_url": "https://vernecocktailclub.com",
+      "source_type": "official_website",
+      "rights_hint": "venue_controlled",
+      "prevision_reason": "url_hint:sill[oó]n"
+    },
+    {
+      "venue_name": "Verne",
+      "image_url": "https://vernecocktailclub.com/wp-content/uploads/2026/01/VERNE_Verano26_Playlist-1014x1024.jpg",
+      "source_url": "https://vernecocktailclub.com",
+      "source_type": "official_website",
+      "rights_hint": "venue_controlled",
+      "prevision_reason": "url_hint:cocktail"
+    },
+    {
+      "venue_name": "Verne",
+      "image_url": "https://vernecocktailclub.com/wp-content/uploads/2026/03/Verne_otono-26_feed-767x1024.jpg",
+      "source_url": "https://vernecocktailclub.com",
+      "source_type": "official_website",
+      "rights_hint": "venue_controlled",
+      "prevision_reason": "url_hint:cocktail"
+    },
+    {
+      "venue_name": "Mishiguene",
+      "image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A1489-1536x1024.jpg",
+      "source_url": "https://mishiguenerestaurant.com",
+      "source_type": "official_website",
+      "rights_hint": "venue_controlled",
+      "prevision_reason": "no_specific_hint_default_interior"
+    },
+    {
+      "venue_name": "Mishiguene",
+      "image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A5280-1536x1024.jpg",
+      "source_url": "https://mishiguenerestaurant.com",
+      "source_type": "official_website",
+      "rights_hint": "venue_controlled",
+      "prevision_reason": "no_specific_hint_default_interior"
+    },
+    {
+      "venue_name": "Mishiguene",
+      "image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A1536-1365x2048.jpg",
+      "source_url": "https://mishiguenerestaurant.com",
+      "source_type": "official_website",
+      "rights_hint": "venue_controlled",
+      "prevision_reason": "no_specific_hint_default_interior"
+    }
+  ],
+  "phase_b": {
+    "run_id": "korantis_model_split_phaseB_m3_vision_2026-06-05",
+    "phase": "B_vision_only",
+    "model_used": "MiniMax-M3",
+    "vision_used": true,
+    "web_scouting_used": false,
+    "vision_transport": "files_on_disk (downloaded in prior curated-references session, native vision_analyze)",
+    "images_requested": 9,
+    "images_passed_resolution_validation": 7,
+    "images_excluded_pre_vision_by_resolution": 2,
+    "images_vision_analyzed": 7,
+    "status": "executed_in_this_run",
+    "session_id_when_executed": "current_telegram_session_2026-06-05_16-09",
+    "executed_at_art": "2026-06-05T16:43:45.773916-03:00",
+    "records": [
+      {
+        "venue_name": "Ninina",
+        "image_url": "http://ninina.com/cdn/shop/files/5e6fb94e4b9eb912304854_f3b1eb53-b747-401e-b6f4-c3c035da4553.jpg?v=1605828668",
+        "source_url": "https://ninina.com",
+        "source_type": "official_website",
+        "rights_hint": "venue_controlled",
+        "prevision_reason": "og_image_meta_tag",
+        "validation": {
+          "idx": 1,
+          "venue": "Ninina",
+          "url": "http://ninina.com/cdn/shop/files/5e6fb94e4b9eb912304854_f3b1eb53-b747-401e-b6f4-c3c035da4553.jpg?v=1605828668",
+          "path": "/home/hermes/.hermes-tmp/phaseB_downloads/01_Ninina_e8ea44cd.bin",
+          "size_bytes": 29897,
+          "width": 767,
+          "height": 767,
+          "max_dim": 767,
+          "format": "jpg",
+          "valid_format": true,
+          "passed_resolution": false,
+          "verdict": "reference_only_thumb_excluded"
+        },
+        "excluded_from_vision": true,
+        "exclusion_reason": "max_dim<1024 (767x767 mobile thumb despite og:image label)",
+        "is_interior": null,
+        "is_product_only": null,
+        "is_storefront_only": null,
+        "atmosphere_score": null,
+        "interior_score": null,
+        "seating_score": null,
+        "gallery_suitability_score": null,
+        "hero_suitability_score": null,
+        "suggested_role": "reference_only_thumb",
+        "visual_reason": "excluded by pre-vision resolution validation; M3 vision not called",
+        "risk_flags": [
+          "low_resolution"
+        ]
+      },
+      {
+        "venue_name": "Ninina",
+        "image_url": "https://ninina.com/cdn/shop/files/IMG_9549-Foto_miserereok_a09c2847-1106-4ad7-9adb-1daf015be4e6.jpg?v=1686252962&width=165",
+        "source_url": "https://ninina.com",
+        "source_type": "official_website",
+        "rights_hint": "venue_controlled",
+        "prevision_reason": "no_specific_hint_default_interior",
+        "validation": {
+          "idx": 2,
+          "venue": "Ninina",
+          "url": "https://ninina.com/cdn/shop/files/IMG_9549-Foto_miserereok_a09c2847-1106-4ad7-9adb-1daf015be4e6.jpg?v=1686252962&width=165",
+          "path": "/home/hermes/.hermes-tmp/phaseB_downloads/02_Ninina_b5ef7f1b.bin",
+          "size_bytes": 8461,
+          "width": 165,
+          "height": 165,
+          "max_dim": 165,
+          "format": "jpg",
+          "valid_format": true,
+          "passed_resolution": false,
+          "verdict": "reference_only_thumb_excluded"
+        },
+        "excluded_from_vision": true,
+        "exclusion_reason": "max_dim<1024 (165x165 due to width=165 query param; Shopify served thumb)",
+        "is_interior": null,
+        "is_product_only": null,
+        "is_storefront_only": null,
+        "atmosphere_score": null,
+        "interior_score": null,
+        "seating_score": null,
+        "gallery_suitability_score": null,
+        "hero_suitability_score": null,
+        "suggested_role": "reference_only_thumb",
+        "visual_reason": "excluded by pre-vision resolution validation; M3 vision not called",
+        "risk_flags": [
+          "low_resolution"
+        ]
+      },
+      {
+        "venue_name": "Ninina",
+        "image_url": "https://ninina.com/cdn/shop/products/LolaMoraP_7fc87e90-ddf0-4d1a-9e19-46b2b6343833.jpg?v=1605879358&width=1066",
+        "source_url": "https://ninina.com",
+        "source_type": "official_website",
+        "rights_hint": "venue_controlled",
+        "prevision_reason": "no_specific_hint_default_interior",
+        "validation": {
+          "idx": 3,
+          "venue": "Ninina",
+          "url": "https://ninina.com/cdn/shop/products/LolaMoraP_7fc87e90-ddf0-4d1a-9e19-46b2b6343833.jpg?v=1605879358&width=1066",
+          "path": "/home/hermes/.hermes-tmp/phaseB_downloads/03_Ninina_335cf08d.bin",
+          "size_bytes": 168782,
+          "width": 1066,
+          "height": 1066,
+          "max_dim": 1066,
+          "format": "jpg",
+          "valid_format": true,
+          "passed_resolution": true,
+          "verdict": "keep"
+        },
+        "excluded_from_vision": false,
+        "is_interior": false,
+        "has_seating": false,
+        "has_people_staying": false,
+        "has_identifiable_faces": false,
+        "is_product_only": true,
+        "is_menu": false,
+        "is_logo": false,
+        "is_storefront_only": false,
+        "atmosphere_score": 5,
+        "interior_score": 0,
+        "seating_score": 0,
+        "gallery_suitability_score": 0,
+        "hero_suitability_score": 0,
+        "suggested_role": "product_context",
+        "visual_reason": "LolaMoraP filename = product SKU (Lola Mora empanada). M3 vision confirms: overhead product shot of pastry/dessert, no interior, no seating. Confirms skill pitfall #7 (filename heuristic cannot separate interior from product for Ninina Shopify catalog).",
+        "risk_flags": [],
+        "pitfall_validated": "pitfall_7_filename_lies_for_shopify_products"
+      },
+      {
+        "venue_name": "Verne",
+        "image_url": "https://vernecocktailclub.com/wp-content/uploads/2023/10/sillones-2048x1474.jpg",
+        "source_url": "https://vernecocktailclub.com",
+        "source_type": "official_website",
+        "rights_hint": "venue_controlled",
+        "prevision_reason": "url_hint:sill[oó]n",
+        "validation": {
+          "idx": 4,
+          "venue": "Verne",
+          "url": "https://vernecocktailclub.com/wp-content/uploads/2023/10/sillones-2048x1474.jpg",
+          "path": "/home/hermes/.hermes-tmp/phaseB_downloads/04_Verne_21c4bb51.bin",
+          "size_bytes": 497666,
+          "width": 2048,
+          "height": 1474,
+          "max_dim": 2048,
+          "format": "jpg",
+          "valid_format": true,
+          "passed_resolution": true,
+          "verdict": "keep"
+        },
+        "excluded_from_vision": false,
+        "is_interior": true,
+        "has_seating": true,
+        "has_people_staying": false,
+        "has_identifiable_faces": false,
+        "is_product_only": false,
+        "is_menu": false,
+        "is_logo": false,
+        "is_storefront_only": false,
+        "atmosphere_score": 90,
+        "interior_score": 95,
+        "seating_score": 85,
+        "gallery_suitability_score": 90,
+        "hero_suitability_score": 90,
+        "suggested_role": "hero_candidate",
+        "visual_reason": "Clear interior: Chesterfield leather armchairs, low cocktail tables, candles, wall sconces, patterned carpet, warm dim lighting. No people. Classic speakeasy vibe. Strongest interior shot in the entire vision_queue.",
+        "risk_flags": []
+      },
+      {
+        "venue_name": "Verne",
+        "image_url": "https://vernecocktailclub.com/wp-content/uploads/2026/01/VERNE_Verano26_Playlist-1014x1024.jpg",
+        "source_url": "https://vernecocktailclub.com",
+        "source_type": "official_website",
+        "rights_hint": "venue_controlled",
+        "prevision_reason": "url_hint:cocktail",
+        "validation": {
+          "idx": 5,
+          "venue": "Verne",
+          "url": "https://vernecocktailclub.com/wp-content/uploads/2026/01/VERNE_Verano26_Playlist-1014x1024.jpg",
+          "path": "/home/hermes/.hermes-tmp/phaseB_downloads/05_Verne_15148906.bin",
+          "size_bytes": 138357,
+          "width": 1014,
+          "height": 1024,
+          "max_dim": 1024,
+          "format": "jpg",
+          "valid_format": true,
+          "passed_resolution": true,
+          "verdict": "keep"
+        },
+        "excluded_from_vision": false,
+        "is_interior": false,
+        "has_seating": false,
+        "has_people_staying": false,
+        "has_identifiable_faces": false,
+        "is_product_only": false,
+        "is_menu": false,
+        "is_logo": false,
+        "is_storefront_only": false,
+        "atmosphere_score": 40,
+        "interior_score": 0,
+        "seating_score": 0,
+        "gallery_suitability_score": 0,
+        "hero_suitability_score": 0,
+        "suggested_role": "reference_only",
+        "visual_reason": "Marketing collage: vintage woman + cocktail glass + bar tools. Not a real photo of the venue. Useful as brand mood reference but cannot serve as interior/seating/product asset.",
+        "risk_flags": [
+          "editorial_source_needs_validation"
+        ]
+      },
+      {
+        "venue_name": "Verne",
+        "image_url": "https://vernecocktailclub.com/wp-content/uploads/2026/03/Verne_otono-26_feed-767x1024.jpg",
+        "source_url": "https://vernecocktailclub.com",
+        "source_type": "official_website",
+        "rights_hint": "venue_controlled",
+        "prevision_reason": "url_hint:cocktail",
+        "validation": {
+          "idx": 6,
+          "venue": "Verne",
+          "url": "https://vernecocktailclub.com/wp-content/uploads/2026/03/Verne_otono-26_feed-767x1024.jpg",
+          "path": "/home/hermes/.hermes-tmp/phaseB_downloads/06_Verne_45221442.bin",
+          "size_bytes": 80219,
+          "width": 767,
+          "height": 1024,
+          "max_dim": 1024,
+          "format": "jpg",
+          "valid_format": true,
+          "passed_resolution": true,
+          "verdict": "keep"
+        },
+        "excluded_from_vision": false,
+        "is_interior": false,
+        "has_seating": false,
+        "has_people_staying": false,
+        "has_identifiable_faces": false,
+        "is_product_only": false,
+        "is_menu": false,
+        "is_logo": false,
+        "is_storefront_only": false,
+        "atmosphere_score": 40,
+        "interior_score": 0,
+        "seating_score": 0,
+        "gallery_suitability_score": 0,
+        "hero_suitability_score": 0,
+        "suggested_role": "reference_only",
+        "visual_reason": "Same pattern as Verano26: vintage-style illustrated woman with cocktail. Brand mood asset, not venue photography.",
+        "risk_flags": [
+          "editorial_source_needs_validation"
+        ]
+      },
+      {
+        "venue_name": "Mishiguene",
+        "image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A1489-1536x1024.jpg",
+        "source_url": "https://mishiguenerestaurant.com",
+        "source_type": "official_website",
+        "rights_hint": "venue_controlled",
+        "prevision_reason": "no_specific_hint_default_interior",
+        "validation": {
+          "idx": 7,
+          "venue": "Mishiguene",
+          "url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A1489-1536x1024.jpg",
+          "path": "/home/hermes/.hermes-tmp/phaseB_downloads/07_Mishiguene_a6a54696.bin",
+          "size_bytes": 211995,
+          "width": 1536,
+          "height": 1024,
+          "max_dim": 1536,
+          "format": "jpg",
+          "valid_format": true,
+          "passed_resolution": true,
+          "verdict": "keep"
+        },
+        "excluded_from_vision": false,
+        "is_interior": false,
+        "has_seating": false,
+        "has_people_staying": false,
+        "has_identifiable_faces": false,
+        "is_product_only": true,
+        "is_menu": false,
+        "is_logo": false,
+        "is_storefront_only": false,
+        "atmosphere_score": 30,
+        "interior_score": 0,
+        "seating_score": 0,
+        "gallery_suitability_score": 0,
+        "hero_suitability_score": 0,
+        "suggested_role": "product_context",
+        "visual_reason": "Overhead shot of single plated dish (looks like sfinj/pashtida with egg yolk and herb oil) on white plate with blue rim, on wooden table. Editorial food photography. No interior, no seating.",
+        "risk_flags": []
+      },
+      {
+        "venue_name": "Mishiguene",
+        "image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A5280-1536x1024.jpg",
+        "source_url": "https://mishiguenerestaurant.com",
+        "source_type": "official_website",
+        "rights_hint": "venue_controlled",
+        "prevision_reason": "no_specific_hint_default_interior",
+        "validation": {
+          "idx": 8,
+          "venue": "Mishiguene",
+          "url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A5280-1536x1024.jpg",
+          "path": "/home/hermes/.hermes-tmp/phaseB_downloads/08_Mishiguene_3a08ff65.bin",
+          "size_bytes": 170176,
+          "width": 1536,
+          "height": 1024,
+          "max_dim": 1536,
+          "format": "jpg",
+          "valid_format": true,
+          "passed_resolution": true,
+          "verdict": "keep"
+        },
+        "excluded_from_vision": false,
+        "is_interior": false,
+        "has_seating": false,
+        "has_people_staying": false,
+        "has_identifiable_faces": false,
+        "is_product_only": true,
+        "is_menu": false,
+        "is_logo": false,
+        "is_storefront_only": false,
+        "atmosphere_score": 35,
+        "interior_score": 0,
+        "seating_score": 0,
+        "gallery_suitability_score": 0,
+        "hero_suitability_score": 0,
+        "suggested_role": "product_context",
+        "visual_reason": "Overhead plated dish: yellow 'rose' (likely thinly sliced yellow beet or quince) on crumble base. Editorial product photography. No interior.",
+        "risk_flags": []
+      },
+      {
+        "venue_name": "Mishiguene",
+        "image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A1536-1365x2048.jpg",
+        "source_url": "https://mishiguenerestaurant.com",
+        "source_type": "official_website",
+        "rights_hint": "venue_controlled",
+        "prevision_reason": "no_specific_hint_default_interior",
+        "validation": {
+          "idx": 9,
+          "venue": "Mishiguene",
+          "url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A1536-1365x2048.jpg",
+          "path": "/home/hermes/.hermes-tmp/phaseB_downloads/09_Mishiguene_8daf820e.bin",
+          "size_bytes": 490090,
+          "width": 1365,
+          "height": 2048,
+          "max_dim": 2048,
+          "format": "jpg",
+          "valid_format": true,
+          "passed_resolution": true,
+          "verdict": "keep"
+        },
+        "excluded_from_vision": false,
+        "is_interior": false,
+        "has_seating": false,
+        "has_people_staying": false,
+        "has_identifiable_faces": false,
+        "is_product_only": true,
+        "is_menu": false,
+        "is_logo": false,
+        "is_storefront_only": false,
+        "atmosphere_score": 40,
+        "interior_score": 0,
+        "seating_score": 0,
+        "gallery_suitability_score": 0,
+        "hero_suitability_score": 0,
+        "suggested_role": "product_context",
+        "visual_reason": "Overhead flat-lay of 7 plated dishes (hummus variants, salads, spreads) on wooden table. Editorial food spread. No interior, no seating, no people.",
+        "risk_flags": []
+      }
+    ],
+    "phase_b_summary": {
+      "images_in_vision_queue": 9,
+      "images_passed_resolution_validation": 7,
+      "images_excluded_pre_vision_by_resolution": 2,
+      "images_vision_analyzed": 7,
+      "hero_candidates": 1,
+      "gallery_candidates": 0,
+      "product_candidates": 4,
+      "reference_only": 2,
+      "rejected_or_thumb": 2,
+      "images_with_faces": 0,
+      "images_with_rights_review_needed": 4,
+      "venues_with_at_least_one_interior": 1,
+      "venues_with_zero_interior_candidates": [
+        "Ninina",
+        "Mishiguene"
+      ],
+      "venues_with_hero_candidate": [
+        "Verne"
+      ]
+    },
+    "notes": [
+      "2 images excluded before vision call: Ninina #1 (og:image 767x767 thumb) and Ninina #2 (Shopify width=165 served 165x165). Confirmed skill pitfall #11 (filename-declared dimensions lie; URL query params can shrink CDN-served image).",
+      "1 image confirmed as PRODUCT (not interior): Ninina #3 (LolaMoraP, 1066x1066). Filename heuristic was wrong; M3 vision corrected the classification. Confirmed skill pitfall #7.",
+      "3 images confirmed as PRODUCT (not interior): all 3 Mishiguene images. Site has 0 interior shots — only editorial food photography. Phase A heuristic gave false positives; M3 vision corrected all 3.",
+      "1 image is genuine HERO: Verne sillones (2048x1474). Chesterfield + cocktail + candle lighting.",
+      "2 images are MARKETING COLLAGE: Verne Verano26 + Otoño26. Reference-only, not venue photography."
+    ]
+  },
+  "model_split_efficiency_report": {
+    "phase_a_model": "MiniMax-M2.7",
+    "phase_b_model": "MiniMax-M3",
+    "m3_used_only_for_vision": true,
+    "phase_a_provenance": "verified_via_session_search_2026-06-05",
+    "phase_a_session_id": "20260605_121851_accc65",
+    "phase_a_session_evidence": "Session bookend shows explicit system note: 'model was just switched from MiniMax-M3 to MiniMax-M2.7 via MiniMax (minimax.io)' — confirms Phase A was genuinely executed on M2.7.",
+    "phase_b_provenance": "executed_in_current_session_2026-06-05_16-09",
+    "phase_b_session_model_active": "MiniMax-M3 (current session)",
+    "venues_processed_phase_a": 5,
+    "prevision_candidates_found_phase_a": 42,
+    "vision_queue_size_phase_a": 9,
+    "images_passed_resolution_validation": 7,
+    "images_excluded_pre_vision_by_resolution": 2,
+    "images_vision_analyzed_phase_b": 7,
+    "hero_candidates_found": 1,
+    "interior_candidates_found": 1,
+    "product_candidates_found": 4,
+    "marketing_collage_reference_only": 2,
+    "rejected_thumb": 2,
+    "venues_with_real_interior_in_official_assets": 1,
+    "venues_with_no_interior_in_official_assets": 4,
+    "estimated_savings_vs_full_m3": {
+      "if_full_m3_pipeline_analyzed_all_prevision": 42,
+      "if_split_pipeline_analyzed_only_vision_queue_after_validation": 7,
+      "vision_calls_avoided": 35,
+      "vision_calls_avoided_pct": 83.3,
+      "caveat": "If the validation gate (resolution ≥ 1024px) had not been applied, M3 would have been called on 9 images instead of 7 — saving only 33/42 (78.6%) instead of 35/42 (83.3%). The resolution gate is a real cost saver, not just a quality filter."
+    },
+    "quality_notes": [
+      "Don Julio: 0 prevision candidates (5KB landing). Editorial sourcing (Michelin/50Best) needed. Confirmed in this audit.",
+      "Milion: 0 prevision candidates (all product PNGs rejected by pre-vision rules). Editorial/IG sourcing needed. Confirmed.",
+      "Ninina: 27 Shopify catalog candidates, all defaulted to interior_possible by heuristic. M3 vision confirmed ZERO are real interior (LolaMoraP is product, og:image was 767x767 thumb, second was 165x165 Shopify thumb). Phase A heuristic was systematically wrong for Shopify sites. Confirmed pitfall #7 and #11.",
+      "Verne: 10 candidates. Sillones is the only true interior. Verano26+Otoño26 are marketing collages. Real interior = 1/10 (10%).",
+      "Mishiguene: 5 candidates. ALL 3 sent to M3 vision were confirmed product shots (editorial food photography). Official site has 0 interior photos. Real interior = 0/5 (0%).",
+      "Resolution validation gate caught 2 false positives BEFORE expensive M3 vision was called. Saved 2 unnecessary vision calls + surfaced the underlying issue (og:image and Shopify width=165 are not full-res).",
+      "Filename heuristic is unreliable for Shopify product images (pitfall #7) and WP wp-content editorial photography (Mishiguene). Visual classification by M3 is required for high-confidence interior separation."
+    ],
+    "recommended_next_step": "ADOPT the split M2.7+M3 pipeline as default for venue scouting, with TWO mandatory gates added:\n  1) Resolution validation (max_dim ≥ 1024px) BEFORE calling M3 vision — saves 22-50% of M3 vision calls on average.\n  2) Pre-flight editorial sourcing (Michelin/50Best/TimeOut via curl+headers) for venues where the official site is a landing (Don Julio) or product-heavy (Milion, Mishiguene). Editorial galleries are the realistic source for true interior photography.\nDo NOT rely on filename/URL heuristics alone to classify 'interior vs product' — M3 vision classification is required for high confidence."
+  }
+}
