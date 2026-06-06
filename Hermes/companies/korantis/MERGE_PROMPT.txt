@@ -1,0 +1,100 @@
+================================================================================
+KORANTIS BA BATCH 02 — MERGE STEP
+================================================================================
+Run this AFTER all 3 chunks are complete and validated.
+
+PREREQUISITES (do not start merge unless all are true)
+  [ ] korantis_ba_batch_02_m3_vision_chunk_01.json exists and validates
+  [ ] korantis_ba_batch_02_m3_vision_chunk_02.json exists and validates
+  [ ] korantis_ba_batch_02_m3_vision_chunk_03.json exists and validates
+  [ ] Each chunk JSON has model_used="MiniMax-M3" on every vision entry
+  [ ] No chunk contains an item that was never attempted (no silent drops)
+
+INPUT FILES
+  korantis_ba_batch_02_m3_vision_chunk_01.json
+  korantis_ba_batch_02_m3_vision_chunk_02.json
+  korantis_ba_batch_02_m3_vision_chunk_03.json
+
+OUTPUT FILES
+  korantis_ba_batch_02_m3_vision_merged.json   (52 items, single queue)
+  korantis_ba_batch_02_m3_vision_merged.md     (consolidated report)
+
+MERGE PROMPT
+--------------------------------------------------------------------------------
+
+You are merging the results of 3 sequential M3 vision chunks into a single
+coherent dataset. No inference, no re-analysis. Pure structural merge plus
+sanity checks.
+
+Steps:
+
+  1. Load all 3 chunk JSONs in order (chunk_01, chunk_02, chunk_03).
+  2. Concatenate the "queue" arrays in chunk order. The result must contain
+     exactly 52 items (25 + 25 + 2) with no duplicates by dedupe_hash.
+  3. For every item, verify:
+       - venue_name is non-empty
+       - resolved_image_url is non-empty
+       - source_url is non-empty
+       - "vision" object exists
+       - vision.model_used == "MiniMax-M3"
+       - either vision.venue_observed is filled OR vision.skipped == true
+         with a valid skip_reason
+     If any check fails, do NOT silently drop the item. Put it in a
+     "validation_failures" list in the merged output with the reason.
+  4. Build aggregate counts:
+       - items_attempted = 52
+       - items_succeeded = count where vision.skipped is not true
+       - items_skipped = count where vision.skipped == true
+       - skipped_reasons_summary = Counter of skip_reason values
+       - per_venue_counts = Counter of venue_name
+       - per_venue_succeeded = Counter of venue_name for non-skipped only
+  5. Detect any item that appears in the sanitized queue but NOT in any
+     chunk output. Report them as "missing_from_chunks" with the URL and
+     venue. These are hard failures — flag, do not invent.
+  6. Detect any item that appears in MORE than one chunk (by dedupe_hash).
+     Report as "duplicates_across_chunks". Should be zero.
+
+Output JSON (korantis_ba_batch_02_m3_vision_merged.json):
+
+  {
+    "run_id": "korantis_ba_batch_02_m3_vision_merged",
+    "model_used": "MiniMax-M3",
+    "parent_sanitized_queue": "korantis_ba_batch_02_m27_final_vision_queue_sanitized.json",
+    "merged_from_chunks": [
+      "korantis_ba_batch_02_m3_vision_chunk_01.json",
+      "korantis_ba_batch_02_m3_vision_chunk_02.json",
+      "korantis_ba_batch_02_m3_vision_chunk_03.json"
+    ],
+    "items_attempted": 52,
+    "items_succeeded": <int>,
+    "items_skipped": <int>,
+    "skipped_reasons_summary": { "<reason>": <count>, ... },
+    "per_venue_counts": { "<venue>": <count>, ... },
+    "per_venue_succeeded": { "<venue>": <count>, ... },
+    "validation_failures": [ { "url": ..., "reason": ... }, ... ],
+    "missing_from_chunks": [ { "url": ..., "venue": ... }, ... ],
+    "duplicates_across_chunks": [ "<dedupe_hash>", ... ],
+    "queue": [ <52 items, in chunk order, with their vision objects> ]
+  }
+
+Output MD (korantis_ba_batch_02_m3_vision_merged.md):
+  - Header: run id, model, source queue, chunks merged.
+  - Counts table (attempted / succeeded / skipped + reasons).
+  - Per-venue summary table (succeeded / skipped / total).
+  - Per venue: short paragraph synthesizing the atmospheric and aesthetic
+    observations across all analyzed images for that venue. Do NOT add
+    details that are not in the vision objects.
+  - Skipped images section with URL, venue, reason.
+  - Failures section if any (validation_failures / missing_from_chunks).
+  - Footer: merged dataset is READ-ONLY here. Next stage (any downstream
+    consumer) is responsible for its own publish/DB/Cloudinary steps.
+    Do NOT publish, write to DB, or upload to Cloudinary from this merge.
+
+Hard rules:
+  - Vision only at the chunk stage. Merge is structural. No re-analysis.
+  - If something is missing or fails validation, surface it. Do not
+    fabricate values to fill gaps.
+  - Single model declared: MiniMax-M3. If any chunk shows a different
+    model_used, flag it as a validation failure.
+
+Begin.

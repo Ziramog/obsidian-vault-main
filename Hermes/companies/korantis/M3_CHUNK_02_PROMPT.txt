@@ -1,0 +1,90 @@
+================================================================================
+KORANTIS BA BATCH 02 — M3 VISION CHUNK 02
+================================================================================
+Run this prompt in your real MiniMax-M3 environment.
+
+INPUT FILE
+  korantis_ba_batch_02_m3_vision_chunk_02.json
+  (25 images, offsets 25–49 of the sanitized queue)
+
+OUTPUT FILES (MUST match exactly)
+  korantis_ba_batch_02_m3_vision_chunk_02.json   (results, same schema as input)
+  korantis_ba_batch_02_m3_vision_chunk_02.md     (human-readable report)
+
+PROMPT
+--------------------------------------------------------------------------------
+
+You are MiniMax-M3 running the vision analysis stage of the Korantis BA
+Batch 02 pipeline. This is chunk 02 of 03 (items 25–49, 25 of 52 sanitized
+images).
+
+Hard rules — read first:
+  1. Vision ONLY. No web scouting, no scraping, no queue expansion.
+  2. For every image in the input queue, perform vision analysis and produce
+     a structured description suitable for venue profiling (atmosphere,
+     interior style, dining format, lighting, signage, tableware, overall
+     aesthetic). Be specific and observable. No invented details.
+  3. Before sending any image to inference, verify the URL is reachable and
+     the content type is image/jpeg, image/jpg, image/png, or image/webp.
+     - If SVG: skip it, mark skip_reason="unsupported_content_type:svg"
+     - If any other unsupported type: skip it, mark
+       skip_reason="unsupported_content_type:<actual>"
+     - If file missing / 404 / unreachable: skip it, mark
+       skip_reason="fetch_failed"
+     - Do NOT abort the whole batch for a single bad image.
+  4. Use MiniMax M3 for every successful image. Do not mix models.
+  5. Do NOT write to any database. Do NOT upload to Cloudinary. Do NOT publish.
+     Output files only.
+  6. Preserve the original queue item fields and append a "vision" object
+     with your analysis, plus "model_used", "analyzed_at", and on failure
+     "skip_reason" / "error".
+
+Per-item analysis schema (write inside each queue item, field "vision"):
+
+  {
+    "model_used": "MiniMax-M3",
+    "analyzed_at": "<ISO 8601 timestamp>",
+    "venue_observed": {
+      "atmosphere": "<1-2 sentences>",
+      "interior_style": "<1-2 sentences>",
+      "lighting": "<1-2 sentences>",
+      "seating_density": "<empty|spacious|moderate|packed>",
+      "tableware": "<observed details or 'not visible'>",
+      "signage_branding": "<observed text/logos or 'none visible'>",
+      "dining_format": "<sit-down|bar|counter|buffet|cafe|mixed|unclear>",
+      "overall_aesthetic": "<1-2 sentence summary>"
+    },
+    "confidence": <float 0.0-1.0>,
+    "notes": "<optional short note>"
+  }
+
+On failure, replace "vision" with:
+
+  {
+    "model_used": "MiniMax-M3",
+    "skipped": true,
+    "skip_reason": "<see rule 3>",
+    "analyzed_at": "<ISO 8601 timestamp>"
+  }
+
+Output JSON (korantis_ba_batch_02_m3_vision_chunk_02.json):
+  {
+    "run_id": "korantis_ba_batch_02_m3_vision_chunk_02",
+    "model_used": "MiniMax-M3",
+    "chunk_index": 2,
+    "chunk_total": 3,
+    "items_attempted": 25,
+    "items_succeeded": <int>,
+    "items_skipped": <int>,
+    "skipped_reasons_summary": { "<reason>": <count>, ... },
+    "queue": [ <input items, each with appended vision object> ]
+  }
+
+Output MD (korantis_ba_batch_02_m3_vision_chunk_02.md):
+  - Header: run id, model, chunk, counts.
+  - Per venue: one section, one bullet per analyzed image with the
+    atmosphere + aesthetic summary.
+  - Skipped images section at the end with URL + reason.
+  - Footer: nothing published, nothing in DB, next chunk is chunk_03.
+
+Begin.
