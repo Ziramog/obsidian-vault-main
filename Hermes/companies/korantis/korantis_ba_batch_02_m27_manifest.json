@@ -1,0 +1,25 @@
+{
+  "batch_id": "ba_batch_02_m27_source_fullres_queue",
+  "city": "Buenos Aires",
+  "model_used": "MiniMax-M2.7",
+  "vision_used": false,
+  "m3_used": false,
+  "venues_requested": 25,
+  "venues_processed": 25,
+  "status": "final_vision_queue_ready",
+  "created_at": "2026-06-06T16:09:42Z",
+  "files": [
+    "korantis_ba_batch_02_m27_manifest.json",
+    "korantis_ba_batch_02_m27_source_fullres_queue.json",
+    "korantis_ba_batch_02_m27_final_vision_queue.json",
+    "korantis_ba_batch_02_m27_codex_handoff.md"
+  ],
+  "next_action": "run_m3_vision_only",
+  "notes": [
+    "75 final vision candidates from 19 venues.",
+    "VPS cannot reach most CDN image hosts (TripAdvisor, venue CDNs) — resolved on source quality trust.",
+    "6 venues with 0 image candidates need manual review: Don Julio, Milion, Ninina, Anchoita, Uptown Bar, Vini Bar.",
+    "All final candidates are venue_controlled source quality.",
+    "DO NOT publish, upload, or write to Supabase."
+  ]
+}
