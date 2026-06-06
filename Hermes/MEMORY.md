@@ -67,10 +67,11 @@ Auditado 03/06. No se re-audita. Top 3 fixes anotados. NO es el cuello de botell
 ---
 
 ## Model
-- **Activo:** MiniMax-M3
+- **Activo:** minimax-2.7 (cambio 06/06 pedido Juan, efectivo próximo /reset)
 - **Provider:** minimax
-- **Anterior:** minimax-2.7 (cambiado 02/06/2026 a pedido Juan)
-- **⚠️ Cambio aplica al próximo /reset** (no mid-session para preservar prompt cache)
+- **Anterior:** MiniMax-M3 (usado 02/06 → 06/06)
+- **Regla:** swap automático a M3 en sesión para: redacción comercial, código, visión de imágenes, auditoría, decisiones irreversibles. M2.7 default para: scout masivo, clasificación, generación de variantes, tareas en pipeline. Veredicto split test 05/06: M2.7 hace text scout, M3 hace vision gate.
+- ⚠️ Cambio aplica al próximo /reset (no mid-session para preservar prompt cache)
 
 ---
 
