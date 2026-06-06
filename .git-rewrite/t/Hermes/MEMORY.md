@@ -3,8 +3,7 @@
 
 ---
 
-## Última actualización
-2026-05-27 01:30 | Nuevo cliente HOT: Cristina Welldone SRL — espera cerrar esta semana $200 + $29/mes (landing simple) | Franco Roma: sin llamada, avisa para dar cierre | URGENCIA: cliente nuevo = la oportunidad más cercana al cobro
+**Última actualización:** 2026-05-28 | Cron-only day 17 | Cristina Welldone sin cierre confirmado | ⚠️ URGENCIA: 17 días sin sesión humana
 
 ---
 
@@ -37,9 +36,9 @@
 ---
 
 ## Racha cron-only
-⚠️ 15 días consecutivos (10–25/05) — última sesión humana: 2026-05-11-22-00
+⚠️ 17 días consecutivos (11–28/05) — última sesión humana: 2026-05-11
 **Contrato SOUL: 7+ días → Telegram alert enviado.**
-**15 días sin sesión = situación crítica. Juan debe abrir sesión.**
+**17 días sin sesión = situación CRÍTICA. Juan debe abrir sesión.**
 
 ---
 
@@ -134,3 +133,4 @@ Esto explica por qué el piloto automático no genera ventas.
 - [[2026-05-26-summary|Daily/2026-05-26-summary]]
 - [[2026-05-25|hq/sessions/2026-05-25]]
 - [[2026-05-26|hq/sessions/2026-05-26]]
+- [[2026-05-28|hq/sessions/2026-05-28]]
