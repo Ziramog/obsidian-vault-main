@@ -1,0 +1,552 @@
+{
+  "run_id": "korantis_ba_batch_02_m3_selected_candidates_run02",
+  "parent_run_id": "korantis_ba_batch_02_m3_vision_merged_run02",
+  "model_used": "MiniMax-M3",
+  "selection_strategy": "scene_type_role + dimension_preference + risk_flag_preservation",
+  "no_publication_approval": true,
+  "validation_status_universal": "imported_needs_validation",
+  "built_at": "2026-06-06T21:53:29+00:00",
+  "totals": {
+    "venues_with_candidates": 5,
+    "venues_without_candidates": 1
+  },
+  "decisions_per_venue": {
+    "Mishiguene": {
+      "venues": "Mishiguene",
+      "items_total": 7,
+      "items_ok_photo": 5,
+      "items_skipped": 2,
+      "best_hero_candidate": null,
+      "best_card_candidate": null,
+      "best_gallery_candidates": [],
+      "rejected_candidates": [
+        {
+          "venue_name": "Mishiguene",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": false,
+          "risk_flags": [
+            "face_release_needed"
+          ],
+          "max_dim": 2500,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A5280.jpg",
+          "source_url": "https://mishiguenerestaurant.com/",
+          "dedupe_hash": "2a0baec70d7c6f4e4c1e97e0cff803a40fe5db89e42e8fbb8e7cc74c41048e3b"
+        },
+        {
+          "venue_name": "Mishiguene",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": false,
+          "risk_flags": [
+            "face_release_needed"
+          ],
+          "max_dim": 1024,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A5510-682x1024.jpg",
+          "source_url": "https://mishiguenerestaurant.com/",
+          "dedupe_hash": "cdf832513d653afef63f153257137d87c15aedfdaa6feb8cce40aeda7dd628c9"
+        },
+        {
+          "venue_name": "Mishiguene",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": false,
+          "risk_flags": [
+            "face_release_needed"
+          ],
+          "max_dim": 1024,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A1536-683x1024.jpg",
+          "source_url": "https://mishiguenerestaurant.com/",
+          "dedupe_hash": "69445bba8102690ab11692c97eb2fecee196dafdd7dfa80684641836d868ec20"
+        },
+        {
+          "venue_name": "Mishiguene",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": false,
+          "risk_flags": [
+            "face_release_needed"
+          ],
+          "max_dim": 1024,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://mishiguenerestaurant.com/wp-content/uploads/2023/11/Copia-de-LA8A1489-1024x683.jpg",
+          "source_url": "https://mishiguenerestaurant.com/",
+          "dedupe_hash": "f29a8c2149a7903468cfcc1bd231385178d9067ba338621e11462bf05a849433"
+        }
+      ]
+    },
+    "Verne Club": {
+      "venues": "Verne Club",
+      "items_total": 8,
+      "items_ok_photo": 7,
+      "items_skipped": 1,
+      "best_hero_candidate": {
+        "venue_name": "Verne Club",
+        "scene_type": "hero_interior",
+        "decision_class": "candidate",
+        "role_allowed": "candidate_for_hero_or_card",
+        "max_dim": 920,
+        "real_width": 920,
+        "real_height": 600,
+        "pil_format": "JPEG",
+        "below_preferred_resolution": true,
+        "risk_flags": [
+          "below_preferred_resolution",
+          "face_release_needed"
+        ],
+        "validation_status": "imported_needs_validation",
+        "publication_status": "not_approved_for_publication",
+        "resolved_image_url": "https://www.theworlds50best.com/discovery/filestore/jpg/Verne Club-Buenos Aires-Argentina-2.jpg",
+        "source_url": "https://www.theworlds50best.com/discovery/Establishments/Argentina/Buenos-Aires/Verne-Club.html",
+        "dedupe_hash": "6d50178e4d93ac30ae352fd18940e1e73e0c9c9fd8d6c63816c5c071a130e40c",
+        "notes": "ok"
+      },
+      "best_card_candidate": {
+        "venue_name": "Verne Club",
+        "scene_type": "gallery_atmosphere",
+        "decision_class": "candidate",
+        "role_allowed": "candidate_for_gallery",
+        "max_dim": 920,
+        "real_width": 920,
+        "real_height": 600,
+        "pil_format": "JPEG",
+        "below_preferred_resolution": true,
+        "risk_flags": [
+          "below_preferred_resolution",
+          "face_release_needed",
+          "low_contrast_review_needed"
+        ],
+        "validation_status": "imported_needs_validation",
+        "publication_status": "not_approved_for_publication",
+        "resolved_image_url": "https://www.theworlds50best.com/discovery/filestore/jpg/Verne Club-Buenos Aires-Argentina-1.jpg",
+        "source_url": "https://www.theworlds50best.com/discovery/Establishments/Argentina/Buenos-Aires/Verne-Club.html",
+        "dedupe_hash": "c3ceb5d5871a6a5fb1d4099dd2dc41dee8321af2f77763eb9cf0cc899bc7b00e",
+        "notes": "M3 flagged dark_or_low_contrast"
+      },
+      "best_gallery_candidates": [],
+      "rejected_candidates": [
+        {
+          "venue_name": "Verne Club",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": false,
+          "risk_flags": [
+            "face_release_needed"
+          ],
+          "max_dim": 1591,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://www.theworlds50best.com/discovery/filestore/jpeg/GrandDabbang-BuenosAires-Argentina01.jpeg",
+          "source_url": "https://www.theworlds50best.com/discovery/Establishments/Argentina/Buenos-Aires/Verne-Club.html",
+          "dedupe_hash": "66e51c6ee80802abc40b7012bc11d9ac179b8f5a12a7e650783830a74a0b39b7"
+        },
+        {
+          "venue_name": "Verne Club",
+          "scene_type": "hero_interior",
+          "decision_class": "candidate",
+          "role_allowed": "candidate_for_hero_or_card",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 920,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://www.theworlds50best.com/discovery/filestore/jpg/Verne Club-Buenos Aires-Argentina-3.jpg",
+          "source_url": "https://www.theworlds50best.com/discovery/Establishments/Argentina/Buenos-Aires/Verne-Club.html",
+          "dedupe_hash": "01fcff1db3717d0b18ea55fde3379cda43740ac23b39118841e6dbebd3f717c0"
+        },
+        {
+          "venue_name": "Verne Club",
+          "scene_type": "hero_interior",
+          "decision_class": "candidate",
+          "role_allowed": "candidate_for_hero_or_card",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 920,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://www.theworlds50best.com/discovery/filestore/jpg/Nicky_Harrison_Bartender.jpg",
+          "source_url": "https://www.theworlds50best.com/discovery/Establishments/Argentina/Buenos-Aires/Verne-Club.html",
+          "dedupe_hash": "7ee00d551676383afc52fc49b701426b10a250469eaaa798a0ded9249b487451"
+        },
+        {
+          "venue_name": "Verne Club",
+          "scene_type": "hero_interior",
+          "decision_class": "candidate",
+          "role_allowed": "candidate_for_hero_or_card",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed",
+            "low_contrast_review_needed"
+          ],
+          "max_dim": 920,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://www.theworlds50best.com/discovery/filestore/jpg/restaurant-awaiting-1.jpg",
+          "source_url": "https://www.theworlds50best.com/discovery/Establishments/Argentina/Buenos-Aires/Verne-Club.html",
+          "dedupe_hash": "90dd50ad688c03428f348350a59108aacad4a128e0ceccc3af893a1be11a567b"
+        },
+        {
+          "venue_name": "Verne Club",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 920,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://www.theworlds50best.com/discovery/filestore/jpg/cochinchina-ba (2).jpg",
+          "source_url": "https://www.theworlds50best.com/discovery/Establishments/Argentina/Buenos-Aires/Verne-Club.html",
+          "dedupe_hash": "144b6821201b4ade5ea38c08d638daaea64b61fddd858caa96137e012970ff46"
+        }
+      ]
+    },
+    "Gran Bar Danzon": {
+      "venues": "Gran Bar Danzon",
+      "items_total": 3,
+      "items_ok_photo": 3,
+      "items_skipped": 0,
+      "best_hero_candidate": null,
+      "best_card_candidate": {
+        "venue_name": "Gran Bar Danzon",
+        "scene_type": "gallery_atmosphere",
+        "decision_class": "candidate",
+        "role_allowed": "candidate_for_gallery",
+        "max_dim": 950,
+        "real_width": 950,
+        "real_height": 950,
+        "pil_format": "JPEG",
+        "below_preferred_resolution": true,
+        "risk_flags": [
+          "below_preferred_resolution",
+          "face_release_needed",
+          "low_contrast_review_needed"
+        ],
+        "validation_status": "imported_needs_validation",
+        "publication_status": "not_approved_for_publication",
+        "resolved_image_url": "https://granbardanzon.com.ar/wp-content/uploads/2020/08/FEED-I-BASA-4.jpg",
+        "source_url": "https://granbardanzon.com.ar/",
+        "dedupe_hash": "0c119a462a06890ec51fe5cbaedc0aa4b67d26e6692305827201dbf40382c289",
+        "notes": "M3 flagged dark_or_low_contrast"
+      },
+      "best_gallery_candidates": [],
+      "rejected_candidates": [
+        {
+          "venue_name": "Gran Bar Danzon",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 996,
+          "pil_format": "PNG",
+          "resolved_image_url": "https://granbardanzon.com.ar/wp-content/uploads/2020/08/FEED-I-BASA-7.png",
+          "source_url": "https://granbardanzon.com.ar/",
+          "dedupe_hash": "2accda19b50180eb0c0bb2a366c9d1e35a984169c61466487e0d14496a859718"
+        }
+      ]
+    },
+    "Oporto Almacén": {
+      "venues": "Oporto Almacén",
+      "items_total": 3,
+      "items_ok_photo": 3,
+      "items_skipped": 0,
+      "best_hero_candidate": {
+        "venue_name": "Oporto Almacén",
+        "scene_type": "hero_interior",
+        "decision_class": "candidate",
+        "role_allowed": "candidate_for_hero_or_card",
+        "max_dim": 1500,
+        "real_width": 1500,
+        "real_height": 1000,
+        "pil_format": "JPEG",
+        "below_preferred_resolution": false,
+        "risk_flags": [
+          "face_release_needed"
+        ],
+        "validation_status": "imported_needs_validation",
+        "publication_status": "not_approved_for_publication",
+        "resolved_image_url": "https://www.oportoalmacen.com.ar/images/main-oporto.jpg",
+        "source_url": "https://www.oportoalmacen.com.ar/",
+        "dedupe_hash": "8b92b33463b432005d19aa4e3169ead0ff5a0adc1a4811d8fab3b310e3c78a28",
+        "notes": "ok"
+      },
+      "best_card_candidate": null,
+      "best_gallery_candidates": [],
+      "rejected_candidates": [
+        {
+          "venue_name": "Oporto Almacén",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 800,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://www.oportoalmacen.com.ar/images/main-calendario-00.jpg",
+          "source_url": "https://www.oportoalmacen.com.ar/",
+          "dedupe_hash": "5e98829145dbf67838d24c7c15caf09d9255ca0b33aad611a2ebf98f65816773"
+        },
+        {
+          "venue_name": "Oporto Almacén",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 800,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://www.oportoalmacen.com.ar/images/main-calendario-01.jpg",
+          "source_url": "https://www.oportoalmacen.com.ar/",
+          "dedupe_hash": "f96ad006c13594bbf43c3d28f34b0f935eadbe992697dc93b206c9b1f8f330ce"
+        }
+      ]
+    },
+    "La Biela": {
+      "venues": "La Biela",
+      "items_total": 2,
+      "items_ok_photo": 1,
+      "items_skipped": 1,
+      "best_hero_candidate": {
+        "venue_name": "La Biela",
+        "scene_type": "hero_exterior",
+        "decision_class": "candidate_review",
+        "role_allowed": "candidate_for_hero_with_venue_verification",
+        "max_dim": 1240,
+        "real_width": 1240,
+        "real_height": 619,
+        "pil_format": "WEBP",
+        "below_preferred_resolution": false,
+        "risk_flags": [
+          "face_release_needed"
+        ],
+        "validation_status": "imported_needs_validation",
+        "publication_status": "not_approved_for_publication",
+        "resolved_image_url": "https://img1.wsimg.com/isteam/ip/9d33b93b-c5c2-4a38-b843-6b534b3cf1de/La%20Biela-21abf06.png/:/cr=t:3.51%25,l:0%25,w:100%25,h:92.97%25/rs=w:1240,h:620,cg:true",
+        "source_url": "https://labiela.com/english",
+        "dedupe_hash": "1897c39ef94e71210cde178ac99418537f8b7860f0ed18a69e323d286336d7c9",
+        "notes": "hero_exterior: requires post-M3 venue identification check | M3 marked editorial_usable=False"
+      },
+      "best_card_candidate": null,
+      "best_gallery_candidates": [],
+      "rejected_candidates": []
+    },
+    "Florería Atlántico": {
+      "venues": "Florería Atlántico",
+      "items_total": 3,
+      "items_ok_photo": 3,
+      "items_skipped": 0,
+      "best_hero_candidate": {
+        "venue_name": "Florería Atlántico",
+        "scene_type": "hero_interior",
+        "decision_class": "candidate",
+        "role_allowed": "candidate_for_hero_or_card",
+        "max_dim": 620,
+        "real_width": 620,
+        "real_height": 400,
+        "pil_format": "JPEG",
+        "below_preferred_resolution": true,
+        "risk_flags": [
+          "below_preferred_resolution",
+          "face_release_needed",
+          "low_contrast_review_needed"
+        ],
+        "validation_status": "imported_needs_validation",
+        "publication_status": "not_approved_for_publication",
+        "resolved_image_url": "https://www.theworlds50best.com/bars/filestore/jpg/Floreria Atlantico-interior_W50BB24-PROFILE.jpg",
+        "source_url": "https://www.theworlds50best.com/bars/the-list/floreria-atlantico.html",
+        "dedupe_hash": "d83c005573cb9753a62a88ef21581cea22f6051d1548f553e2d3d5f2786a7006",
+        "notes": "M3 flagged dark_or_low_contrast"
+      },
+      "best_card_candidate": null,
+      "best_gallery_candidates": [],
+      "rejected_candidates": [
+        {
+          "venue_name": "Florería Atlántico",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 620,
+          "pil_format": "JPEG",
+          "resolved_image_url": "https://www.theworlds50best.com/bars/filestore/jpg/Floreria Atlantico-cocktail_W50BB24-PROFILE-hero.jpg",
+          "source_url": "https://www.theworlds50best.com/bars/the-list/floreria-atlantico.html",
+          "dedupe_hash": "61ba52cf0a9bbbd0572e0a67340b18416c5143da39bb41d6b178f2f8d16e69ea"
+        }
+      ]
+    },
+    "Apu Nena": {
+      "venues": "Apu Nena",
+      "items_total": 22,
+      "items_ok_photo": 8,
+      "items_skipped": 14,
+      "best_hero_candidate": null,
+      "best_card_candidate": null,
+      "best_gallery_candidates": [],
+      "rejected_candidates": [
+        {
+          "venue_name": "Apu Nena",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 853,
+          "pil_format": "WEBP",
+          "resolved_image_url": "https://static.wixstatic.com/media/57a016_aa17ba228ac741f9a27f5592da771522~mv2.jpg/v1/fit/w_480,h_1373,q_90,enc_avif,quality_auto/57a016_aa17ba228ac741f9a27f5592da771522~mv2.jpg",
+          "source_url": "https://www.apunena.com/",
+          "dedupe_hash": "31879b05e332b766e2d7578f3f950c154d5c615c311a754d17b22a523922640d"
+        },
+        {
+          "venue_name": "Apu Nena",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 720,
+          "pil_format": "WEBP",
+          "resolved_image_url": "https://static.wixstatic.com/media/57a016_bc3900de27c341f7874193d9e5a54e43~mv2.jpg/v1/fit/w_480,h_1373,q_90,enc_avif,quality_auto/57a016_bc3900de27c341f7874193d9e5a54e43~mv2.jpg",
+          "source_url": "https://www.apunena.com/",
+          "dedupe_hash": "ca0cef65bbbe36ecc57761e0e40b3cdf980773209a6c402682d09aee164bda35"
+        },
+        {
+          "venue_name": "Apu Nena",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 720,
+          "pil_format": "WEBP",
+          "resolved_image_url": "https://static.wixstatic.com/media/57a016_ba2dc6001ebc4dac96c2730f76823280~mv2.jpg/v1/fit/w_480,h_1373,q_90,enc_avif,quality_auto/57a016_ba2dc6001ebc4dac96c2730f76823280~mv2.jpg",
+          "source_url": "https://www.apunena.com/",
+          "dedupe_hash": "84e2406d7a0373ae44cb0c70bc0fd78f2972a3adc570b72f85fb80f3ef54afe8"
+        },
+        {
+          "venue_name": "Apu Nena",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 720,
+          "pil_format": "WEBP",
+          "resolved_image_url": "https://static.wixstatic.com/media/57a016_23c798acb2374ff8bbc95b65b88e1a39~mv2.jpg/v1/fit/w_480,h_1373,q_90,enc_avif,quality_auto/57a016_23c798acb2374ff8bbc95b65b88e1a39~mv2.jpg",
+          "source_url": "https://www.apunena.com/",
+          "dedupe_hash": "9f5b4dbdd71f33d2605a9da9d2255c3df6cf539dad77f27e6724f61606fea245"
+        },
+        {
+          "venue_name": "Apu Nena",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 720,
+          "pil_format": "WEBP",
+          "resolved_image_url": "https://static.wixstatic.com/media/57a016_68a0366f7f2147c7a0c63cd2c6d23a93~mv2.jpg/v1/fit/w_480,h_1373,q_90,enc_avif,quality_auto/57a016_68a0366f7f2147c7a0c63cd2c6d23a93~mv2.jpg",
+          "source_url": "https://www.apunena.com/",
+          "dedupe_hash": "704b1062fa1706085024dcefd272313ce95d3e31d52135f4f2669fd362092da6"
+        },
+        {
+          "venue_name": "Apu Nena",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 720,
+          "pil_format": "WEBP",
+          "resolved_image_url": "https://static.wixstatic.com/media/57a016_b195af11ac604ac9b9051d4295ff6cdd~mv2.jpg/v1/fit/w_480,h_1373,q_90,enc_avif,quality_auto/57a016_b195af11ac604ac9b9051d4295ff6cdd~mv2.jpg",
+          "source_url": "https://www.apunena.com/",
+          "dedupe_hash": "0490d5facb91dbf19c426269d061816bdce5a4ab96966a7e7eb7f0f32035e06b"
+        },
+        {
+          "venue_name": "Apu Nena",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 720,
+          "pil_format": "WEBP",
+          "resolved_image_url": "https://static.wixstatic.com/media/57a016_60095639af3d4ed5a7ed20a61c688dfa~mv2.jpg/v1/fit/w_480,h_1373,q_90,enc_avif,quality_auto/57a016_60095639af3d4ed5a7ed20a61c688dfa~mv2.jpg",
+          "source_url": "https://www.apunena.com/",
+          "dedupe_hash": "590520f56b76d83d79cc4c81b759ab247947697b8868094973a40188cee34481"
+        },
+        {
+          "venue_name": "Apu Nena",
+          "scene_type": "product_food",
+          "decision_class": "reference_only",
+          "role_allowed": "reference_only_no_hero",
+          "below_preferred_resolution": true,
+          "risk_flags": [
+            "below_preferred_resolution",
+            "face_release_needed"
+          ],
+          "max_dim": 718,
+          "pil_format": "WEBP",
+          "resolved_image_url": "https://static.wixstatic.com/media/57a016_56f984f58d65458d92f6b73ee02d1cb8~mv2.jpg/v1/fit/w_480,h_1373,q_90,enc_avif,quality_auto/57a016_56f984f58d65458d92f6b73ee02d1cb8~mv2.jpg",
+          "source_url": "https://www.apunena.com/",
+          "dedupe_hash": "58b87c0bb6e427427e4f5fe3ba294abc19bceaf7c2e2c9a9730952d825729ccf"
+        }
+      ]
+    }
+  },
+  "venues_without_usable_visual_candidate": [
+    {
+      "venue_name": "El Preferido de Palermo",
+      "reason": "all items skipped at dimension gate (<512px)",
+      "items_total": 4,
+      "items_skipped": 4
+    }
+  ]
+}
