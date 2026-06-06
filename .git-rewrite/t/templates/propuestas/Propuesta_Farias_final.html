@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propuesta Wolfim — Farias & Asociados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:     #111210;
+      --stone:   #1f1f1f;
+      --mist:    #d4d4d4;
+      --cream:   #b0b0b0;
+      --accent:  #ffffff;
+      --accent2: #e8dcc8;
+      --border:  #888888;
+      --dark:    #1a1a1a;
+      --dark2:   #2a2a2a;
+      --mid:     #6b6b6b;
+      --red:     #c0392b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── LOGO ─── */
+    .logo-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .logo-wrap img { height: 50px; width: auto; }
+    .logo-text { font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: .1em; text-transform: uppercase; }
+
+    /* ─── HEADER ─── */
+    .site-header {
+      background: #c4ff00;
+      padding: 14px 60px;
+      border-bottom: 4px solid #888;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .header-center {
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .logo-tagline {
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #333;
+      font-weight: 600;
+    }
+    @media(max-width:720px) {
+      .site-header { padding: 12px 28px; }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: #c4ff00;
+      padding: 80px 60px 100px;
+    }
+    .hero-content {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media(max-width:720px) {
+      .hero { padding: 48px 28px 60px; }
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .cover-badge {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      font-weight: 400;
+    }
+    .cover-label {
+      font-size: 13px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 28px;
+      font-weight: 800;
+    }
+    .cover-title {
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(48px, 8vw, 100px);
+      font-weight: 700;
+      line-height: 1;
+      color: #111;
+      margin-bottom: 28px;
+      letter-spacing: -0.02em;
+    }
+    .cover-title em {
+      font-style: italic;
+      color: #fff;
+    }
+    .cover-sub {
+      font-size: 26px;
+      color: #111;
+      max-width: 600px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+    .cover-meta {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 40px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      animation: fadeUp .9s .5s both;
+    }
+    .cover-meta-item { color: #333; font-size: 15px; font-weight: 600; }
+    .cover-meta-item strong { display: block; color: #000; font-weight: 800; margin-bottom: 4px; font-size: 17px; }
+    .scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      animation: fadeUp .9s .7s both;
+    }
+    .scroll-indicator span {
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    .scroll-indicator svg {
+      width: 24px;
+      height: 24px;
+      stroke: #444;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(8px); }
+      60% { transform: translateY(4px); }
+    }
+
+    /* ─── SECTION SHELL ─── */
+    section { padding: 100px 60px; max-width: 1100px; margin: 0 auto; }
+    @media(max-width:720px) { section { padding: 60px 28px; } .cover { padding: 36px 28px; } }
+
+    .section-tag {
+      font-size: 12px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .section-title {
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
+    .section-intro {
+      font-size: 17px;
+      color: #333;
+      max-width: 580px;
+      margin-bottom: 60px;
+      font-weight: 500;
+    }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0 60px; }
+
+    /* ─── DIAGNÓSTICO ─── */
+    .diag-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 2px;
+    }
+    @media(max-width:540px) { .diag-grid { grid-template-columns: 1fr 1fr; gap: 8px; } }
+    .diag-card {
+      background: var(--mist);
+      padding: 36px 32px;
+      border-left: 3px solid transparent;
+      transition: border-color .3s, transform .3s;
+    }
+    .diag-card:hover { border-color: #c0392b; transform: translateY(-2px); }
+    .diag-num {
+      font-family: 'Roboto', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: #c0392b;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .diag-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 10px; letter-spacing: .02em; }
+    .diag-desc { font-size: 14.5px; color: #444; line-height: 1.7; font-weight: 500; }
+    .diag-icon {
+      display: inline-block;
+      background: #fee2e2;
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+    .diag-highlight {
+      margin-top: 48px;
+      padding: 36px 40px;
+      background: #c4ff00;
+      color: #111;
+      border-left: 4px solid #111;
+    }
+    .diag-highlight p { font-size: 17px; color: #111; line-height: 1.7; }
+    .diag-highlight strong { color: #111; font-weight: 700; }
+
+    /* ─── SOLUCIÓN ─── */
+    .features-wrap {
+      display: block;
+    }
+    .features-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+    @media(max-width:860px) { .features-list { grid-template-columns: 1fr 1fr; gap: 8px; } }
+    .features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .features-list li:first-child { border-top: 1px solid var(--border); }
+    .feat-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      background: var(--dark);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      border-radius: 2px;
+      margin-top: 2px;
+    }
+    .feat-icon svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .feat-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 4px; }
+    .feat-desc  { font-size: 14px; color: #444; line-height: 1.65; font-weight: 500; }
+    .features-aside { position: sticky; top: 40px; }
+    .callout-box {
+      background: var(--dark);
+      color: #fff;
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .callout-box::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(245,197,24,.1);
+    }
+    .callout-num {
+      font-family: 'Roboto', sans-serif;
+      font-size: 88px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .callout-label { font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 28px; letter-spacing: .08em; }
+    .callout-text { font-size: 15px; color: rgba(255,255,255,.75); line-height: 1.75; }
+    .tech-badge {
+      background: var(--mist);
+      padding: 28px 32px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .tech-badge svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+    .tech-badge p { font-size: 13px; color: #888; line-height: 1.65; }
+    .tech-badge strong { color: var(--stone); font-weight: 500; }
+
+    /* ─── INVERSIÓN ─── */
+    .pricing-section { background: var(--mist); margin: 0; max-width: 100%; padding: 100px 60px; }
+    @media(max-width:720px) { .pricing-section { padding: 60px 28px; } }
+    .pricing-inner { max-width: 1100px; margin: 0 auto; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+    }
+    @media(max-width:860px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .pricing-grid {
+      justify-content: center;
+    }
+    .price-card {
+      background: #a5d6a7;
+      padding: 44px 36px;
+      position: relative;
+      transition: transform .3s;
+      max-width: 340px;
+      width: 100%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border: 2px solid #2e7d32;
+    }
+    .price-card:hover { transform: translateY(-4px); }
+    .price-card-optional {
+      background: #fff;
+      border: 2px dashed #888;
+    }
+    .price-card-optional .price-badge {
+      display: inline-block;
+    }
+    .price-label { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #111; margin-bottom: 20px; font-weight: 700; }
+    .price-title { font-family: 'Roboto', sans-serif; font-size: 24px; font-weight: 600; color: #111; margin-bottom: 8px; line-height: 1.25; }
+    .price-sub { font-size: 13px; color: #444; margin-bottom: 28px; line-height: 1.5; font-weight: 500; }
+    .price-amount { font-family: 'Roboto', sans-serif; font-size: 60px; font-weight: 700; color: #111; line-height: 1; margin-bottom: 6px; }
+    .price-note { font-size: 12px; color: #555; margin-bottom: 32px; font-weight: 500; }
+    .price-list { list-style: none; }
+    .price-list li { font-size: 13.5px; color: #333; padding: 9px 0; border-bottom: 1px solid #66bb6a; display: flex; align-items: center; gap: 10px; }
+    .price-list li::before {
+      content: '';
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%232e7d32' d='M16.7 5.3a1 1 0 0 0-1.4 0L8 12.6 4.7 9.3a1 1 0 0 0-1.4 1.4l4 4a1 1 0 0 0 1.4 0l8-8a1 1 0 0 0 0-1.4z'/%3E%3C/svg%3E") no-repeat center/contain;
+    }
+    .ads-note {
+      margin-top: 2px;
+      background: #fff;
+      padding: 32px 36px;
+      display: flex;
+      gap: 36px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .ads-chip { background: var(--mist); border: 1px solid var(--border); padding: 10px 20px; font-size: 13px; color: var(--stone); flex-shrink: 0; }
+    .ads-chip span { display: block; font-size: 11px; color: #aaa; margin-bottom: 2px; letter-spacing: .1em; text-transform: uppercase; }
+    .ads-note p { font-size: 13.5px; color: #888; line-height: 1.65; }
+
+    /* ─── ENTREGA ─── */
+    .delivery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    @media(max-width:720px) { .delivery-grid { grid-template-columns: 1fr 1fr; } }
+    .delivery-card { background: var(--mist); padding: 36px 28px; position: relative; overflow: hidden; border-left: 3px solid transparent; transition: border-color .3s; }
+    .delivery-card:hover { border-color: #2e7d32; }
+    .delivery-step { font-family: 'Roboto', sans-serif; font-size: 64px; font-weight: 700; color: #2e7d32; line-height: 1; margin-bottom: 16px; }
+    .delivery-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 8px; }
+    .delivery-desc  { font-size: 13px; color: #555; line-height: 1.6; font-weight: 500; }
+
+    /* ─── PRÓXIMOS PASOS ─── */
+    .steps-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    @media(max-width:720px) { .steps-row { grid-template-columns: 1fr 1fr; } }
+    .step-item { padding: 40px 32px; background: var(--mist); position: relative; overflow: hidden; }
+    .step-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 0;
+      background: #2e7d32;
+      transition: height .5s ease;
+    }
+    .step-item:hover::before { height: 100%; }
+    .step-num { font-family: 'Roboto', sans-serif; font-size: 52px; font-weight: 700; color: #2e7d32; line-height: 1; margin-bottom: 16px; }
+    .step-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 8px; }
+    .step-desc  { font-size: 13px; color: #555; line-height: 1.6; font-weight: 500; }
+
+    /* ─── CTA FINAL ─── */
+    .cta-section {
+      background: var(--dark);
+      padding: 100px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    @media(max-width:720px) { .cta-section { padding: 60px 28px; } }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 120%, rgba(245,197,24,.15) 0%, transparent 60%);
+    }
+    .cta-section .section-title { color: #fff; }
+    .cta-section .section-tag { font-size: 18px; letter-spacing: .25em; }
+    .cta-section .section-intro { color: rgba(255,255,255,.8); max-width: 600px; margin: 0 auto 24px; font-weight: 600; font-size: 22px; line-height: 1.5; }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      padding: 22px 56px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+      transition: background .3s, transform .3s, box-shadow .3s;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.3);
+    }
+    .cta-btn:hover { background: #1da851; transform: translateY(-3px); box-shadow: 0 8px 32px rgba(37,211,102,0.4); }
+    .cta-btn svg { width: 22px; height: 22px; fill: #fff; }
+    .cta-contact { margin-top: 24px; font-size: 14px; color: rgba(255,255,255,.6); position: relative; z-index: 1; }
+    .cta-contact a { color: rgba(255,255,255,.6); text-decoration: none; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #fff;
+      padding: 20px 60px;
+      border-top: 1px solid #ddd;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media(max-width:720px) { footer { padding: 16px 28px; } .footer-inner { flex-direction: column; gap: 12px; text-align: center; } }
+    footer .f-meta { font-size: 12px; color: #888; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ HEADER ════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner header-center">
+    <div class="cover-brand logo-wrap">
+      <img src="Gemini_Generated_Image_36i2ks36i2ks36i2-removebg-preview.png" alt="Wolfim" />
+      <div class="logo-tagline">Creamos depredadores</div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ HERO ════════════════════════════ -->
+<div class="hero">
+  <div class="hero-content">
+    <p class="cover-label">Propuesta Comercial · Mayo 2026</p>
+    <h1 class="cover-title">Tu sitio debería cerrar clientes.</h1>
+    <p class="cover-sub">Sin fricción. Sin excusas. Solo resultados.</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><strong>Cliente</strong>Farias &amp; Asociados</div>
+      <div class="cover-meta-item"><strong>Ubicación</strong>San Francisco</div>
+      <div class="cover-meta-item"><strong>Entrega</strong>2 semanas</div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- ═══════════════════════════ DIAGNÓSTICO ════════════════════════════ -->
+<section class="reveal">
+  <p class="section-tag">01 — Diagnóstico</p>
+  <h2 class="section-title">Lo que está<br>costando <em>clientes</em></h2>
+  <p class="section-intro">Cada día con el sitio actual es una consulta menos. Estos son los 5 problemas que no ves — pero tus competidores sí.</p>
+
+  <div class="diag-grid">
+    <div class="diag-card reveal">
+      <div class="diag-num">01</div>
+      <div class="diag-icon">Crítico</div>
+      <div class="diag-title">Template genérico</div>
+      <p class="diag-desc">El sitio no se diferencia de ningún otro. Los clientes lo olvidan antes de cerrar la pestaña.</p>
+    </div>
+    <div class="diag-card reveal">
+      <div class="diag-num">02</div>
+      <div class="diag-icon">Crítico</div>
+      <div class="diag-title">Cero adaptación móvil</div>
+      <p class="diag-desc">La zona se busca desde el celular. Si la experiencia falla, el cliente pasa al siguiente.</p>
+    </div>
+    <div class="diag-card reveal">
+      <div class="diag-num">03</div>
+      <div class="diag-icon">Crítico</div>
+      <div class="diag-title">Sin Street View</div>
+      <p class="diag-desc">No se puede tener una visión clara de la propiedad. Sin fotos de calidad, la confianza se desploma.</p>
+    </div>
+    <div class="diag-card reveal">
+      <div class="diag-num">04</div>
+      <div class="diag-icon">Crítico</div>
+      <div class="diag-title">Contactar es difícil</div>
+      <p class="diag-desc">WhatsApp y teléfono escondidos. Cada clic extra es un cliente que se va sin dejar datos.</p>
+    </div>
+    <div class="diag-card reveal">
+      <div class="diag-num">05</div>
+      <div class="diag-icon">Crítico</div>
+      <div class="diag-title">Filtros que confunden</div>
+      <p class="diag-desc">Más opciones no es mejor. El usuario se pierde y termina cerrando el navegador.</p>
+    </div>
+    <div class="diag-card reveal">
+      <div class="diag-num">06</div>
+      <div class="diag-icon">Crítico</div>
+      <div class="diag-title">Sin contenido de confianza</div>
+      <p class="diag-desc">Testimonios de clientes satisfechos ausentes. Sin reseñas ni prueba social, la credibilidad se desploma.</p>
+    </div>
+  </div>
+
+  <div class="diag-highlight">
+    <p><strong>El sitio actual es un directorio.</strong> Farias &amp; Asociados necesita una herramienta de ventas — que transmita autoridad, que guíe y que cierre consultas.</p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ═══════════════════════════ SOLUCIÓN ════════════════════════════ -->
+<section class="reveal">
+  <p class="section-tag">02 — Solución</p>
+  <h2 class="section-title">Wolfim.<br>Un sitio que <em>vende.</em></h2>
+  <p class="section-intro"><strong>12 funcionalidades construidas alrededor de un solo objetivo: que el visitante consulte.</strong></p>
+
+  <div class="features-wrap">
+    <ul class="features-list">
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Identidad visual a medida</div>
+          <p class="feat-desc">No más plantillas. Diseño creado para Farias &amp; Asociados, nadie más tiene este sitio.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Hero con video de fondo</div>
+          <p class="feat-desc">Primera impresión que impacta. Mostrá propiedades en contexto real.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Buscador con filtros inteligentes</div>
+          <p class="feat-desc">El cliente encuentra lo que busca en segundos. Sin fricción, sin frustración.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Galería de fotos por propiedad</div>
+          <p class="feat-desc">Recorrido visual completo. Cada propiedad se muestra como merece.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Formulario + registro de leads</div>
+          <p class="feat-desc">Capturamos tipo de propiedad, presupuesto e interés. Datos útiles, no ruido.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Tecnología Next.js</div>
+          <p class="feat-desc">Carga ultra-rápida. Mejor posicionamiento en Google. Más visitas orgánicas.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Mapa interactivo + Street View</div>
+          <p class="feat-desc">Google Street View en cada publicación. El comprador explora la zona sin salir del sitio.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Botón WhatsApp flotante</div>
+          <p class="feat-desc">Siempre visible. Consulta directa, sin fricción. Sin keluar de la página.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Panel admin de propiedades</div>
+          <p class="feat-desc">Alta, baja y actualización sin depender de nadie. Control total en minutos.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">SEO local optimizado</div>
+          <p class="feat-desc">Mejor visibilidad en búsquedas de San Francisco y zona. Más exposición sin pagar ads.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Efectos parallax en scroll</div>
+          <p class="feat-desc">Experiencia visual premium. Lo que diferencia un sitio profesional de uno amateur.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </div>
+        <div>
+          <div class="feat-title">Navegación personalizada</div>
+          <p class="feat-desc">Sidebar y menú adaptados al recorrido del usuario. Estructura que guía, no que confunde.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ═══════════════════════════ INVERSIÓN ════════════════════════════ -->
+<div class="pricing-section">
+  <div class="pricing-inner">
+    <p class="section-tag">03 — Inversión</p>
+    <h2 class="section-title">Precios claros.<br>Sin <em>letra chica.</em></h2>
+    <p class="section-intro" style="margin-bottom:48px;">Lo que ves es lo que pagás. Sin sorpresas, sin permanencia forzada.</p>
+
+    <div class="pricing-grid">
+
+      <!-- Sitio -->
+      <div class="price-card reveal">
+        <p class="price-label">Pago único</p>
+        <h3 class="price-title">Sitio web profesional</h3>
+        <p class="price-sub">Diseño + desarrollo + panel de administración</p>
+        <div class="price-amount">Desde USD 300</div>
+        <p class="price-note">Pago único · 50% adelantado</p>
+        <ul class="price-list">
+          <li>Diseño a medida</li>
+          <li>12 funcionalidades</li>
+          <li>Panel admin incluido</li>
+          <li>Entrega en 2 semanas</li>
+        </ul>
+      </div>
+
+      <!-- Mantenimiento -->
+      <div class="price-card reveal">
+        <p class="price-label">Recurrente</p>
+        <h3 class="price-title">Mantenimiento mensual</h3>
+        <p class="price-sub">Todo incluido. Vos te enfocás en vender.</p>
+        <div class="price-amount">USD 25<span style="font-size:20px;color:#555">/mes</span></div>
+        <p class="price-note">Sin permanencia · Cancelás cuando quieras</p>
+        <ul class="price-list">
+          <li>Hosting + SSL incluido</li>
+          <li>Soporte técnico &lt;24hs</li>
+          <li>Backups automáticos</li>
+          <li>Alta/baja de propiedades</li>
+          <li>Actualización de precios</li>
+          <li>Cambios menores de diseño</li>
+          <li>Dominio incluido</li>
+          <li>Reporte mensual de visitas</li>
+        </ul>
+      </div>
+
+      <!-- Google Ads -->
+      <div class="price-card price-card-optional reveal">
+        <div class="price-badge">Opcional</div>
+        <p class="price-label">Opcional</p>
+        <h3 class="price-title">Google Ads</h3>
+        <p class="price-sub">Tráfico calificado desde el día 1</p>
+        <div class="price-amount" style="font-size:28px;">Desde USD 80<span style="font-size:16px;color:#555">/mes</span></div>
+        <p class="price-note">Setup único: USD 150 · Presupuesto Google aparte</p>
+        <ul class="price-list">
+          <li>Keywords inmobiliarias zona San Francisco</li>
+          <li>Campañas optimizadas</li>
+          <li>Reportes + ajustes mensuales</li>
+          <li>Presupuesto google: USD 30–400</li>
+        </ul>
+        <p style="font-size:12px;color:#666;margin-top:16px;line-height:1.6;">El presupuesto de Google se paga directo a Google. Sin recargos.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- ═══════════════════════════ ENTREGA ════════════════════════════ -->
+<section class="reveal">
+  <p class="section-tag">04 — Logística</p>
+  <h2 class="section-title">Condiciones<br>de <em>entrega</em></h2>
+  <p class="section-intro">Simple, directo y sin compromisos innecesarios.</p>
+
+  <div class="delivery-grid">
+    <div class="delivery-card reveal">
+      <div class="delivery-step">2 Sem</div>
+      <div class="delivery-title">Plazo de entrega</div>
+      <p class="delivery-desc">Tres semanas desde confirmación y adelanto.</p>
+    </div>
+    <div class="delivery-card reveal">
+      <div class="delivery-step">50%</div>
+      <div class="delivery-title">Adelanto</div>
+      <p class="delivery-desc">La mitad para comenzar. El resto al entregar.</p>
+    </div>
+    <div class="delivery-card reveal">
+      <div class="delivery-step">∞</div>
+      <div class="delivery-title">Sin permanencia</div>
+      <p class="delivery-desc">El mantenimiento se cancela cuando quieras, sin penalidades.</p>
+    </div>
+    <div class="delivery-card reveal">
+      <div class="delivery-step">✓</div>
+      <div class="delivery-title">Contrato simple</div>
+      <p class="delivery-desc">Acuerdo claro y por escrito. Sin cláusulas ocultas.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ═══════════════════════════ PRÓXIMOS PASOS ════════════════════════════ -->
+<section class="reveal">
+  <p class="section-tag">05 — Acción</p>
+  <h2 class="section-title">Próximos<br><em>pasos</em></h2>
+  <p class="section-intro">Confirmás hoy, arrancamos mañana.</p>
+
+  <div class="steps-row">
+    <div class="step-item reveal">
+      <div class="step-num">01</div>
+      <div class="step-title">Confirmar interés</div>
+      <p class="step-desc">WhatsApp, llamada o mensaje. En menos de 24hs coordinamos.</p>
+    </div>
+    <div class="step-item reveal">
+      <div class="step-num">02</div>
+      <div class="step-title">Enviar accesos</div>
+      <p class="step-desc">Acceso al dominio actual para planificar la transición.</p>
+    </div>
+    <div class="step-item reveal">
+      <div class="step-num">03</div>
+      <div class="step-title">Compartir propiedades</div>
+      <p class="step-desc">Fotos y datos de cada inmueble. Nosotros cargamos todo.</p>
+    </div>
+    <div class="step-item reveal">
+      <div class="step-num">04</div>
+      <div class="step-title">50% + arrancamos</div>
+      <p class="step-desc">Adelanto confirmado y el proyecto comienza. En tres semanas está listo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CTA FINAL ════════════════════════════ -->
+<div class="cta-section reveal">
+  <div style="position:relative;z-index:1;">
+    <p class="section-tag" style="color:var(--accent);">¿Arrancamos?</p>
+    <h2 class="section-title" style="margin-bottom:16px;">El sitio que tenés hoy<br>no está generando resultados.</h2>
+    <p class="section-intro">Este está diseñado para hacerlo.</p>
+    <p class="section-intro">Cada día sin él es una oportunidad que se pierde.</p>
+    <a href="https://wa.me/543513157202" class="cta-btn">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Contactar por WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ FOOTER ════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="cover-brand logo-wrap">
+      <img src="Gemini_Generated_Image_36i2ks36i2ks36i2-removebg-preview.png" alt="Wolfim" />
+    </div>
+    <div class="f-meta">Propuesta preparada para Farias &amp; Asociados · Mayo 2026 · Confidencial</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

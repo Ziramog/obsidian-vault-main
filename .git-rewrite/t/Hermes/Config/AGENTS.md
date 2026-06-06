@@ -1,0 +1,230 @@
+# AGENTS.md — Contexto técnico y operativo del sistema
+# Ubicación master: ~/.hermes/AGENTS.md (VPS) + obsidian-vault/Hermes/Config/AGENTS.md (referencia)
+# Este archivo describe lo que no cambia semana a semana.
+# Estado del negocio, pipeline y objetivos con fecha → MEMORY.md
+# Principios, protocolos y criterios → SOUL.md
+
+---
+
+## Rol de este archivo
+
+Contexto técnico estable que Hermes necesita para operar:
+infraestructura, arquitectura, canales, estructura de sesiones.
+
+No contiene: pipeline, objetivos con fecha, reglas operativas, historial de proyectos.
+Eso vive en MEMORY.md.
+
+---
+
+## Infraestructura activa
+
+**VPS:** Contabo — activo y prepagado
+**Dominios:** Wolfim.com, Corantis.com
+**Stack:** Next.js, Supabase, Baileys (WA), Make.com, Resend, LemonSqueezy, MercadoPago
+**Claves de API configuradas:** MiniMax ✓, OpenRouter ✓, Tavily ✓
+**Supabase:** https://mrrieeeilameejhvbccu.supabase.co
+**Zona horaria VPS:** America/Argentina/Buenos_Aires (UTC-3)
+
+### Servicios en VPS
+
+| Servicio | Tipo | Puerto | Estado |
+|---|---|---|---|
+| wolfim-agent Docker | WhatsApp + API | 4011 | Running |
+| wolfim-client Docker | WhatsApp outreach | — | Running |
+| wolfim-cron-alerts Docker | Cron alerts | — | Running |
+| outreach-api | API PM2 | — | Running (pid 213055) |
+| autonomous-daemon | WhatsApp outreach runner | — | PM2 (pid 228261) |
+
+**Última verificación de arquitectura:** 2026-05-03
+Si un servicio falla: diagnóstico primero en PM2 logs antes de asumir problema de código.
+
+### Base de datos — Supabase
+
+| Vertical | Rows |
+|---|---|
+| inmobiliarias | ~1.482 |
+| concesionarias_autos | ~418 |
+| concesionarias | ~100 |
+
+Campo `company` a agregar cuando se active segunda empresa (Ango u otra) — sin duplicar infraestructura.
+
+---
+
+## Arquitectura de carpetas — VPS
+
+```
+/home/hermes/
+  data/                          ← estado persistente
+    baileysconnect/              ← sesiones WhatsApp (BaileysConnect)
+    wolfim/                      ← sesiones WhatsApp (wolfim-agent Docker)
+    outreach.db                  ← DB principal de outreach
+    wolfim.db
+
+  workspace/
+    hq/                          ← estrategia Juan + Hermes
+      research/                  ← investigaciones (API providers, modelos, proxies, WA anti-ban)
+      decisions/
+      hermes-learning/           ← agent patterns, experiments, prompting, workflows
+      propuestas/                ← propuestas generadas (VPS genera → Obsidian conserva)
+
+    companies/
+      wolfim/                    ← Wolfim — empresa
+        projects/
+
+    projects/
+      baileysconnect/            ← WhatsApp number connector
+        apps/
+          api/                   ← Express + Baileys service
+          web/                   ← Next.js frontend
+      outreach-connect/          ← API + outreach runner
+      outreach-connect-daemon/   ← PM2 daemon (daemon.js — main)
+      scraping/                  ← lead generation
+        data/                    ← CSVs scraped por ciudad y vertical
+      x2brain/                   ← Telegram bot + Twitter scraper
+
+  scripts/                       ← automatización del VPS
+    daily-skills-report.py
+    hermes-auto-solve.py
+    hermes-health-check.py
+    session-append.sh
+
+  Transfer-files/                ← outputs temporales para clientes (limpiar post-entrega)
+
+  .hermes/                       ← config de Hermes (NO TOCAR sin consultar)
+    SOUL.md
+    AGENTS.md
+    memories/
+```
+
+**Reglas de arquitectura:**
+- `workspace/projects/` = código de productos activos
+- `workspace/companies/` = empresas validadas con negocio real
+- `workspace/hq/` = estrategia, investigación y decisiones (no código)
+- `data/` = estado persistente: sesiones WA, DBs
+- `Transfer-files/` = temporal — limpiar después de cada entrega a cliente
+- Propuestas: VPS genera en `hq/propuestas/` → Obsidian conserva en `companies/wolfim/clients/{cliente}/`
+- Outreach: infraestructura única compartida, datos aislados por empresa vía campo `company` en DB
+- Código en PC (GitHub) → VPS solo recibe deploy
+
+---
+
+## Vault de Obsidian — arquitectura
+
+```
+/home/hermes/obsidian-vault/ (GitHub: Ziramog/obsidian-vault-main — VPS + PC + Android)
+  Hermes/
+    MEMORY.md              ← estado actual del negocio (Hermes escribe al cerrar sesión)
+    Config/
+      SOUL.md              ← copia de referencia
+      AGENTS.md            ← copia de referencia
+    Daily/
+      YYYY-MM-DD-summary.md
+    Sessions/              ← ÚNICA ubicación de sesiones (fuente de verdad)
+      YYYY-MM-DD-HH-mm.md
+
+  companies/               ← mapa de conocimiento por empresa
+    wolfim/                ← Wolfim — empresa de Juan
+      README.md            ← qué es, estado actual, modelo de negocio
+      brand/
+      clients/             ← clientes activos de Wolfim
+        franco-roma/
+        luis-farias/
+        rivas-inmuebles/
+      finances/
+      projects/            ← productos y servicios de Wolfim
+      research/
+    ango/                  ← crear solo cuando haya primer movimiento concreto
+
+  projects/                ← proyectos en desarrollo (cross-company)
+  references/              ← conocimiento de referencia permanente
+  templates/               ← plantillas reutilizables
+  hq/                      ← estrategia y decisiones de Juan
+    analyses/
+    finances/
+    inbox/
+    leads/
+    skill-reports/
+```
+
+**Regla de sesiones:** una sola ubicación → `Hermes/Sessions/`. Las carpetas `hq/sessions/` y `sessions/` raíz son legacy — migrar y eliminar.
+
+**Regla de propuestas:** viven en `companies/wolfim/clients/{cliente}/`. No en `Transfer-files/` del VPS.
+
+**Regla de empresas:** un solo vault, un solo perfil de Obsidian. Separar por perfil solo si hay equipo externo involucrado.
+
+**Regla de outreach:** infraestructura compartida entre empresas. Datos aislados por campo `company` en DB. No duplicar daemon ni scrapers por empresa.
+
+**Flujo de escritura:**
+1. Durante sesión → Hermes guarda snapshot cada 15 min en `Hermes/Sessions/`
+2. Al cerrar sesión → Hermes genera `Hermes/Daily/YYYY-MM-DD-summary.md` y actualiza `Hermes/MEMORY.md`
+3. `git push` desde VPS → GitHub sincroniza a PC y Android
+
+**Flujo de lectura al abrir sesión:**
+1. Hermes lee `Hermes/MEMORY.md` → estado actual
+2. Hermes lee `Hermes/Daily/` del día anterior → contexto narrativo
+3. Reporta estado de apertura sin esperar que Juan pregunte
+
+---
+
+## Canales de cobro
+
+| Canal | Cuándo usarlo |
+|---|---|
+| Wise (USD) | Primera opción siempre para clientes fuera de Argentina |
+| Transferencia internacional | Clientes corporativos con proceso de pago formal |
+| Cripto | Si el cliente no puede usar Wise y tiene wallet |
+| MercadoPago (ARS) | Último recurso — clientes locales sin otra opción. Cotizar en USD, aclarar que ARS es conversión del día |
+
+Regla: precio siempre en USD. El canal de cobro no cambia el precio.
+
+---
+
+## Estructura del briefing matutino
+
+*(Hermes lo genera al abrir sesión basándose en MEMORY.md y el Daily anterior)*
+
+1. Estado del semáforo actual
+2. Leads a mover hoy — nombre + acción específica (del pipeline en MEMORY.md)
+3. Deals activos — próximo paso concreto por cada uno
+4. Una sola prioridad del día para avanzar hacia el checkpoint activo
+5. Alerta si algo está bloqueado hace más de 3 días
+
+---
+
+## Estructura del resumen semanal
+
+*(Hermes lo genera los viernes y lo guarda en Daily/ con tag `#weekly`)*
+
+1. Pipeline: qué avanzó, qué está estancado, diagnóstico honesto
+2. USD cobrados en la semana vs checkpoint activo
+3. Estado del semáforo — ¿mejoró o empeoró vs semana anterior?
+4. Lección operativa de la semana
+5. 3 prioridades para la semana siguiente
+6. Actualización de MEMORY.md con los números reales
+
+---
+
+## Wiki operativa
+
+Conocimiento operativo permanente de Hermes — ubicado en `~/.hermes/wiki/`.
+
+Esta wiki no vive en el vault de Obsidian (para no contaminar el sync). Se actualiza cuando se descubre un patrón validado.
+
+Archivos clave:
+- `wiki/00_system/hermes-behavior.md` — identidad, tono, decisión
+- `wiki/00_system/decision-frameworks.md` — frameworks de decisión
+- `wiki/01_skills/outreach/wa-outreach-methodology.md` — metodología outreach WA
+- `wiki/01_skills/lead-generation/lead-enrichment-flow.md` — pipeline de leads
+- `wiki/04_commercial_intel/niches/inmobiliarias-vertical.md` — inteligencia comercial
+- `wiki/07_assets/templates/message-templates.md` — plantillas de mensajes
+
+Juan puede acceder a esta wiki via Obsidian si se agrega como vault secundario, o directamente en el filesystem.
+
+---
+
+## Viaje China — contexto operativo
+
+- Octubre 2026 — todo pago, inversión de socio
+- Exploración activa de categorías de importación con margen
+- Hermes construye brief de preparación a partir de agosto 2026
+- Checkpoints y estado actual → MEMORY.md
