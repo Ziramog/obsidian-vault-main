@@ -8,12 +8,12 @@
 ---
 
 ## Semáforo
-🟡 Supervivencia — Gap mayo: –$333. **Cobro $300 USD Franco Roma PENDIENTE de confirmación al cierre 05/06.** Si entra → gap –$33, semáforo a 🟠. Meta junio: **$600 USD**. Faltan $300 después de Franco. **PRIORIDAD #1 mañana 06/06 a primera hora: confirmar cobro.**
+🟠 **TRANSICIÓN** — Gap mayo: –$333 (cerrado). **Cobro $300 USD Franco Roma CONFIRMADO 06/06** ✅. Gap junio parcial: +$300. **Meta junio: $600 USD → faltan $300.** Empresa prioritaria: Wolfim. **Secundarias desbloqueadas** (Ango/Construvial) con asignación de tiempo explícita. Korantis: evidence-gathering sigue permitido.
 
 ---
 
 ## Pipeline activo
-- **Franco Roma — Roggero & Roma** 🟢 04/06 → 05/06: credenciales admin en armado. **Entrega + cobro $300 USD mañana 05/06**. Total $500.
+- **Franco Roma — Roggero & Roma** ✅ **COBRADO 06/06** — $300 USD. Total operación: $500 ($200 adelantados + $300 cierre). Cerrado.
 - **Luis Farias — Farias & Asociados** 🆕 04/06: llamada WA desde personal. CRM = **GVamax** (https://landing.gvamax.com.ar). Web actual "tipo clásica". **Grieta detectada: alquileres con software viejo fuera del CRM.** Link roggeroyroma.com enviado, esperando reacción. NO perseguir.
 - **GAMA Inmobiliaria** (Mar del Plata) 🆕 04/06 — 4.5⭐ (108 reseñas) · tel 0223 633-7766 · Lead prioritario post-Franco
 - **Conforti Propiedades** (Villa Carlos Paz) 🆕 04/06 — 4.5⭐ (53 reseñas) · tel 03541 67-5105
@@ -60,9 +60,9 @@ Auditado 03/06. No se re-audita. Top 3 fixes anotados. NO es el cuello de botell
 ---
 
 ## Preguntas pendientes para próxima sesión
-1. **Franco: ¿cobró los $300 el 05/06?** Si sí → semáforo a 🟠 → activar lead #1 (GAMA/Conforti/RIVAS).
-2. **Farias: ¿respondió al link de Roggero y Roma?** Si en 48h sin respuesta → soltar.
-3. ¿Ataco Ango o Construvial cuando llegue a 🟠? (regla SOUL: secundaria solo desde 🟠, ya permitido si se llega)
+1. ✅ Franco cobró $300 → semáforo 🟠. **Atacar lead #1 ahora: GAMA / Conforti / RIVAS — decisión de Juan.**
+2. **Farias: ventana 48h vence HOY 06/06.** ¿Respondió al link? Si no → soltar, pasar a siguiente.
+3. Korantis en sesión HOY: definir tarea concreta.
 
 ---
 
@@ -98,7 +98,7 @@ Auditado 03/06. No se re-audita. Top 3 fixes anotados. NO es el cuello de botell
 
 | Fecha | Ingreso | Detalle |
 |-------|---------|---------|
-| 05/06 (esperado) | $300 USD | Franco Roma — Roggero & Roma (entrega + cobro) |
+| 06/06 ✅ | $300 USD | Franco Roma — Roggero & Roma (cobro final) |
 
 ---
 
