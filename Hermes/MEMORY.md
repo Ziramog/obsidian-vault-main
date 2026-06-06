@@ -3,7 +3,7 @@
 
 ---
 
-**Última actualización:** 2026-06-05 20:00 | Franco cobro $300 NO confirmado (cierre cron) · Korantis: 3 sesiones evidencia (scout batch, model split M2.7/M3, 9 visual refs) · Semáforo 🟡 sin cambio | Model: MiniMax-M3
+**Última actualización:** 2026-06-06 12:13 | **🟡 → 🟠 TRANSICIÓN: Franco cobró $300 USD ✅** · Gap junio parcial +$300 / meta $600 · Korantis: sesión en curso (evidence, permitido en 🟡/🟠) | Model: MiniMax-M3
 
 ---
 
