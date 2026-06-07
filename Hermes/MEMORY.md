@@ -7,6 +7,29 @@
 
 ---
 
+## Sesión 07/06 — Investigación Ango v2 (patentes rotativas)
+
+**Trigger:** Juan pidió ampliar el informe de patentes de sistemas de corte para cosechadoras soja/trigo del 02/06 — específicamente enfocado en **disco rotativo / cuchilla rotativa** (no sickle bar). Objetivo: "tener información detallada para saber si existen antecedentes".
+
+**Acción ejecutada:**
+- Búsqueda en 5 bases (USPTO, CIPO, EPO, CNIPA, INPI AR).
+- Identificadas 20+ patentes nuevas NO cubiertas en v1.
+- **Hallazgo crítico:** familia MacDon US 7,340,876 → US 11,160,206 (13+ patentes vigentes, 2007-2021). Cubre disco + impeller/auger/rock-guard/drive. Barrera dominante en EE.UU./Canadá.
+- INPI Argentina: **no hay patentes locales** en este dominio. Ventana abierta para Ango.
+- Descarga PDFs USPTO: **bloqueada** desde VPS (403 Forbidden). Documentadas URLs para descarga local.
+
+**Informe entregado:** `companies/ango/research/patentes-rotativas-global-2026-06-07.md` (29.8 KB, 10 secciones, links a 20+ patentes nuevas).
+
+**Veredicto FTO incluido en §5 del informe:**
+- Argentina: ✅ libertad razonable si Ango evita impellers + auger integrado.
+- EE.UU./Canadá: ❌ barrera alta — 3-4 patentes MacDon activas simultáneas en cualquier diseño con disco+impeller.
+
+**Pendiente próximo (si Juan confirma):**
+- FTO análisis con agente INPI registrado (no se puede hacer con búsquedas web).
+- Investigación del "diseño argentino" del Instagram 2019 ("Reducir pérdidas en soja es posible").
+
+---
+
 ## Semáforo
 🟠 **TRANSICIÓN** — Gap mayo: –$333 (cerrado). **Cobro $300 USD Franco Roma CONFIRMADO 06/06** ✅. Gap junio parcial: +$300. **Meta junio: $600 USD → faltan $300.** Empresa prioritaria: Wolfim. **Secundarias desbloqueadas** (Ango/Construvial) con asignación de tiempo explícita. Korantis: evidence-gathering sigue permitido.
 
