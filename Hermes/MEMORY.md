@@ -3,7 +3,7 @@
 
 ---
 
-**Última actualización:** 2026-06-06 12:13 | **🟡 → 🟠 TRANSICIÓN: Franco cobró $300 USD ✅** · Gap junio parcial +$300 / meta $600 · Korantis: sesión en curso (evidence, permitido en 🟡/🟠) | Model: MiniMax-M3
+**Última actualización:** 2026-06-09 (mañana) | **🟠 TRANSICIÓN mantenido** · Gap junio parcial **+$550** (Franco $300 cierre 06/06 + Franco $250 mantenimiento 08/06) · Meta $600 casi cerrada · **Víctor catálogo $300 + mensual $150**: acuerdos verbales, sin fecha | Model: MiniMax-M3
 
 ---
 
@@ -36,7 +36,8 @@
 ---
 
 ## Pipeline activo
-- **Franco Roma — Roggero & Roma** ✅ **COBRADO 06/06** — $300 USD. Total operación: $500 ($200 adelantados + $300 cierre). Cerrado.
+- **Franco Roma — Roggero & Roma** ✅✅ **OPERACIÓN COMPLETA** — Total $750 USD cobrados: $200 adelantados page + $300 cierre page (06/06) + $250 mantenimiento anual (08/06). Cerrado.
+- **Víctor Abrile** 🆕 09/06 — Acuerdo verbal: catálogo de venta de terrenos $300 USD + servicio mensual publicar/publicidad $150 USD/mes. **SIN fecha de inicio ni cobro.** Requiere: definir kickoff + factura upfront antes de empezar trabajo.
 - **Luis Farias — Farias & Asociados** 🆕 04/06: llamada WA desde personal. CRM = **GVamax** (https://landing.gvamax.com.ar). Web actual "tipo clásica". **Grieta detectada: alquileres con software viejo fuera del CRM.** Link roggeroyroma.com enviado, esperando reacción. NO perseguir.
 - **GAMA Inmobiliaria** (Mar del Plata) 🆕 04/06 — 4.5⭐ (108 reseñas) · tel 0223 633-7766 · Lead prioritario post-Franco
 - **Conforti Propiedades** (Villa Carlos Paz) 🆕 04/06 — 4.5⭐ (53 reseñas) · tel 03541 67-5105
@@ -122,7 +123,10 @@ Auditado 03/06. No se re-audita. Top 3 fixes anotados. NO es el cuello de botell
 
 | Fecha | Ingreso | Detalle |
 |-------|---------|---------|
-| 06/06 ✅ | $300 USD | Franco Roma — Roggero & Roma (cobro final) |
+| 06/06 ✅ | $300 USD | Franco Roma — Roggero & Roma (cobro final page-job) |
+| 08/06 ✅ | $250 USD | Franco Roma — mantenimiento anual (nuevo cobro, separado del page-job) |
+
+**Total junio parcial: +$550** (meta $600 → faltan $50, casi cerrada). **Franco total acumulado operación: $750 USD** ($200 adelantados page + $300 cierre page + $250 mantenimiento anual).
 
 ---
 
