@@ -1,0 +1,347 @@
+{
+  "empresa": {
+    "nombre": "CONSTRUVIAL S.A.",
+    "division": "RENTAL",
+    "experiencia": "45+ años",
+    "eslogan": "Brindamos servicios de alquiler de equipamiento vial y logístico",
+    "direccion": "Av. 60 e/ 9 y 10, N° 690",
+    "ciudad": "Villa Elisabeth, San Luis",
+    "marcas": [
+      "Caterpillar",
+      "Hyundai",
+      "Doosan",
+      "John Deere",
+      "New Holland",
+      "LiuGong",
+      "SDLG",
+      "Komatsu",
+      "Bomawei",
+      "Bomag",
+      "Bobcat",
+      "Generac",
+      "Stamford"
+    ]
+  },
+  "categorias": [
+    {
+      "nombre": "HORMIGÓN",
+      "icono": "H",
+      "equipos": [
+        {
+          "id": "CONST-HOR-001",
+          "marca": "Betonmac",
+          "modelo": "60 m³/h",
+          "tipo": "Planta Hormigonera",
+          "specs": "Capacidad 60 m³/h · Planta móvil semirremol",
+          "sub": "Sistema dosificador preciso"
+        },
+        {
+          "id": "CONST-HOR-002",
+          "marca": "Indumix",
+          "modelo": "9 m³",
+          "tipo": "Planta Hormigonera",
+          "specs": "Capacidad 9 m³ · Sistema mezclado eficiente",
+          "sub": "Alta movilidad en obra"
+        }
+      ]
+    },
+    {
+      "nombre": "EXCAVACIÓN",
+      "icono": "E",
+      "equipos": [
+        {
+          "id": "CONST-EXC-001",
+          "marca": "Hyundai",
+          "modelo": "Robex 220 LC9",
+          "tipo": "Excavadora",
+          "specs": "Peso 22.000 kg · Potencia 125 kW (168 hp)",
+          "sub": "Profundidad 6,7 m"
+        },
+        {
+          "id": "CONST-EXC-002",
+          "marca": "Hyundai",
+          "modelo": "HX300L",
+          "tipo": "Excavadora",
+          "specs": "Peso 30.000 kg · Potencia 196 kW (263 hp)",
+          "sub": "Excavación profunda pesada"
+        },
+        {
+          "id": "CONST-EXC-003",
+          "marca": "Doosan",
+          "modelo": "DX225",
+          "tipo": "Excavadora",
+          "specs": "Peso 22.500 kg · Potencia 123 kW (165 hp)",
+          "sub": "Equilibrio óptimo rendimiento"
+        },
+        {
+          "id": "CONST-EXC-004",
+          "marca": "Hyundai",
+          "modelo": "HX235LCR",
+          "tipo": "Excavadora",
+          "specs": "Compacta y ágil · Ideal espacios reducidos",
+          "sub": "Alta precisión excavación"
+        },
+        {
+          "id": "CONST-EXC-005",
+          "marca": "Caterpillar",
+          "modelo": "4×4",
+          "tipo": "Cargador frontal + retro",
+          "specs": "Tracción 4×4 · Cargador frontal + retro",
+          "sub": "Versatilidad en obra"
+        }
+      ]
+    },
+    {
+      "nombre": "NIVELACIÓN",
+      "icono": "N",
+      "equipos": [
+        {
+          "id": "CONST-NIV-001",
+          "marca": "Caterpillar",
+          "modelo": "140K",
+          "tipo": "Motoniveladora",
+          "specs": "Peso 18.000 kg · Potencia 163 kW (217 hp)",
+          "sub": "Ancho hoja 4,270 mm"
+        },
+        {
+          "id": "CONST-NIV-002",
+          "marca": "LiuGong",
+          "modelo": "4215D",
+          "tipo": "Motoniveladora",
+          "specs": "Alta precisión nivelación · Motor eficiente",
+          "sub": "Hoja ancha para acabados"
+        },
+        {
+          "id": "CONST-NIV-003",
+          "marca": "SDLG",
+          "modelo": "G9190F",
+          "tipo": "Motoniveladora",
+          "specs": "Control preciso de altura · Bajo consumo combustible",
+          "sub": "Rendimiento óptimo"
+        },
+        {
+          "id": "CONST-NIV-004",
+          "marca": "Komatsu",
+          "modelo": "D65EX",
+          "tipo": "Topadora",
+          "specs": "Alta fuerza empuje · Hoja ancha",
+          "sub": "Productividad movimientos tierra"
+        }
+      ]
+    },
+    {
+      "nombre": "COMPACTACIÓN",
+      "icono": "C",
+      "equipos": [
+        {
+          "id": "CONST-COM-001",
+          "marca": "DinaPac",
+          "modelo": "CA250",
+          "tipo": "Rodillo compactador autopropulsado",
+          "specs": "Alta fuerza compactación · Autopropulsado",
+          "sub": "Rendimiento grandes áreas"
+        },
+        {
+          "id": "CONST-COM-002",
+          "marca": "Bomag",
+          "modelo": "BW211PD",
+          "tipo": "Rodillo compactador liso",
+          "specs": "Peso operativo alto · Compactación profunda",
+          "sub": "Tambor lisogrip"
+        },
+        {
+          "id": "CONST-COM-003",
+          "marca": "DinaPac",
+          "modelo": "Liso",
+          "tipo": "Rodillo compactador liso",
+          "specs": "Tambor liso · Acabados superficiales",
+          "sub": "Compactación asfáltica"
+        },
+        {
+          "id": "CONST-COM-004",
+          "marca": "Caterpillar",
+          "modelo": "CB22",
+          "tipo": "Compactador tandem",
+          "specs": "Compactador tandem · Acabado liso uniforme",
+          "sub": "Ideal carreteras"
+        }
+      ]
+    },
+    {
+      "nombre": "CARGA",
+      "icono": "L",
+      "equipos": [
+        {
+          "id": "CONST-CAR-001",
+          "marca": "LiuGong",
+          "modelo": "CLG 855",
+          "tipo": "Pala cargadora 3 m³",
+          "specs": "Capacidad 3 m³ · Alta productividad",
+          "sub": "Bajo consumo"
+        },
+        {
+          "id": "CONST-CAR-002",
+          "marca": "LiuGong",
+          "modelo": "CLG 835",
+          "tipo": "Pala cargadora 1,5 m³",
+          "specs": "Capacidad 1,5 m³ · Alta productividad",
+          "sub": "Bajo consumo"
+        },
+        {
+          "id": "CONST-CAR-003",
+          "marca": "Caterpillar",
+          "modelo": "326/330",
+          "tipo": "Pala cargadora c/accesorios",
+          "specs": "Con accesorios múltiples · Compacta y potente",
+          "sub": "Fácil operación"
+        },
+        {
+          "id": "CONST-CAR-004",
+          "marca": "Bobcat",
+          "modelo": "S-185",
+          "tipo": "Minicargadora",
+          "specs": "Amplio gama accesorios · Órbita rígida en espacios",
+          "sub": "Alta versatilidad"
+        }
+      ]
+    },
+    {
+      "nombre": "TRANSPORTE",
+      "icono": "T",
+      "equipos": [
+        {
+          "id": "CONST-TRA-001",
+          "marca": "Tatu",
+          "modelo": "MB 2423",
+          "tipo": "Camión batea 4×2 y 4×4",
+          "specs": "Tracción 4×2 y 4×4 · Caja volquete 16 m³",
+          "sub": "Volteo traccional"
+        },
+        {
+          "id": "CONST-TRA-002",
+          "marca": "Otros",
+          "modelo": "Tractores Batea 20-25m³",
+          "tipo": "Tractor 20-25m³",
+          "specs": "Capacidad 20-25 m³ · Vuelco trasero y lateral",
+          "sub": "4 unidades disponibles"
+        },
+        {
+          "id": "CONST-TRA-003",
+          "marca": "Otros",
+          "modelo": "Carreton Viales 30 Tn",
+          "tipo": "Transporte pesado carreton",
+          "specs": "Capacidad 30 toneladas",
+          "sub": "Transporte equipos pesados · Baja bocha clearance"
+        },
+        {
+          "id": "CONST-TRA-004",
+          "marca": "Otros",
+          "modelo": "Tractores Viales 4×4 y 4×2",
+          "tipo": "Tractor vial",
+          "specs": "Tracción 4×4 y 4×2 · Alta movilidad terreno",
+          "sub": "Versatilidad transporte"
+        },
+        {
+          "id": "CONST-TRA-005",
+          "marca": "Otros",
+          "modelo": "Tanques Regadores 5-10 Tn",
+          "tipo": "4×4 Control pis polvos",
+          "specs": "Capacidad 5.000–10.000 L · Tracción 4×4",
+          "sub": "Control polvo obras"
+        },
+        {
+          "id": "CONST-TRA-006",
+          "marca": "Otros",
+          "modelo": "Camión Regador 6×4",
+          "tipo": "Camión regador",
+          "specs": "Tracción 6×4 · Tanque Regador 15.000 lts",
+          "sub": "Capacidad regador"
+        },
+        {
+          "id": "CONST-TRA-007",
+          "marca": "Tatu",
+          "modelo": "4×4 c/ Cisterna",
+          "tipo": "Camión cisterna",
+          "specs": "Tracción 4×4 · Capacidad 15.000 litros",
+          "sub": ""
+        }
+      ]
+    },
+    {
+      "nombre": "LOGÍSTICA E INGENIERÍA",
+      "icono": "I",
+      "equipos": [
+        {
+          "id": "CONST-LOG-001",
+          "marca": "Otros",
+          "modelo": "Vehículos Móviles",
+          "tipo": "Móvil de apoyo",
+          "specs": "Soporte y logística · Movimientos en obra",
+          "sub": "Soporte técnico móvil"
+        },
+        {
+          "id": "CONST-LOG-002",
+          "marca": "Otros",
+          "modelo": "Pick-up 4×2 / 4×4",
+          "tipo": "Transporte ligero",
+          "specs": "Tracción 4×2 y 4×4 · Transporte ligero",
+          "sub": "Alta movilidad"
+        },
+        {
+          "id": "CONST-LOG-003",
+          "marca": "Otros",
+          "modelo": "Minibus",
+          "tipo": "Transporte personal",
+          "specs": "15+ Asientos personal · Comfort traslado",
+          "sub": "Seguridad personal"
+        }
+      ]
+    },
+    {
+      "nombre": "OTRAS HERRAMIENTAS MENORES",
+      "icono": "M",
+      "equipos": [
+        {
+          "id": "CONST-HER-001",
+          "marca": "Otros",
+          "modelo": "Hidrogrúas",
+          "tipo": "Para manipulación postes",
+          "specs": "Apertura rayos postes · Precisión profundidad",
+          "sub": "Alta eficiencia"
+        },
+        {
+          "id": "CONST-HER-002",
+          "marca": "Otros",
+          "modelo": "Generador / Motocompresor",
+          "tipo": "Generador + Compresor",
+          "specs": "Energía portátil · Compresor aire",
+          "sub": "Martillo neumático incluido"
+        },
+        {
+          "id": "CONST-HER-003",
+          "marca": "Otros",
+          "modelo": "Bombas de Extracción",
+          "tipo": "Sumergibles o explosión",
+          "specs": "Bombeo en obra · Tipo explosión",
+          "sub": "Alta capacidad"
+        },
+        {
+          "id": "CONST-HER-004",
+          "marca": "Otros",
+          "modelo": "Pisones Compactadores",
+          "tipo": "Compactador manual",
+          "specs": "Compactación manual · Zanja y espacios tight",
+          "sub": "Alta fuerza impacto"
+        },
+        {
+          "id": "CONST-HER-005",
+          "marca": "Otros",
+          "modelo": "Motocompresor c/ Martillos",
+          "tipo": "Compresor portátil",
+          "specs": "Compresor portátil · Múltiples martillos",
+          "sub": "Demolición controlada"
+        }
+      ]
+    }
+  ]
+}
