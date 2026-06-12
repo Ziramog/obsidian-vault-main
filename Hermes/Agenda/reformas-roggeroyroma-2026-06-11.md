@@ -26,6 +26,11 @@ sitio: roggeroyroma.com
 - [ ] Definir: ¿"xxxxx" literal? ¿Etiqueta vacía? ¿Otro placeholder? (confirmar con Juan)
 - [ ] Job/cron para el reemplazo automático o ¿se evalúa en cada render?
 
+## 4. Recordatorio mods — Revver sup. cubierta exterior e interior + ícono
+- [ ] Agregar recordatorio en mods para **Revver** (recordatorio al usuario/admin)
+- [ ] Cubre **sup. cubierta exterior e interior**
+- [ ] Mostrar con **ícono** (definir cuál)
+
 ---
 
 ## 🧠 Notas
