@@ -3,7 +3,7 @@
 
 ---
 
-**Última actualización:** 2026-06-10 | **🟠 TRANSICIÓN** · Gap junio parcial **+$550** (Franco $300 06/06 + $250 08/06) · Meta $600 faltan $50 · **Víctor catálogo $300 + mensual $150** acuerdos verbales (sin fecha, sin upfront, pago contra entrega) · **Agenda persistente** activa 2026-06-10 con 6 tareas · **ROGGERO BACKUP SUSPENDIDO** (10/06) — todo armado en /home/hermes/roggero_backup/ pero SIN cron, retomar a fin de mes | Model: MiniMax-M3
+**Última actualización:** 2026-06-13 | **🟠 TRANSICIÓN** · Gap junio parcial **+$550** (Franco $300 06/06 + $250 08/06) · Meta $600 faltan $50 · **Víctor catálogo $300 + mensual $150** acuerdos verbales (sin fecha, sin upfront, pago contra entrega) · **Agenda persistente** activa 2026-06-10 con 6 tareas · **ROGGERO BACKP SUSPENDIDO** (10/06) — todo armado en /home/hermes/roggero_backup/ pero SIN cron, retomar a fin de mes · ⚠️ **13/06 11:00 UTC: morning-report.py falló al enviar Telegram — HTTP 401. Token en `~/.hermes/config.yaml` está truncado (`8644817415:AAFHwgOg` — solo 9 chars post-colon, debería ser ~46).** | Model: MiniMax-M3
 
 ---
 
