@@ -6,4 +6,4 @@ vps_key
 *.pem
 *.key
 *.env
-**/outreach-connect/**
+**/outreach-connect/**Hermes/*.bak.*
