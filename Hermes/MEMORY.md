@@ -169,6 +169,9 @@ Ejecución
 - Por seguridad, este archivo nunca lista valores de keys.
 
 
+## Correcciones aprendidas (2026-06-14, vigentes)
+- **No decir "listo" sin verificar.** En esta sesión Juan reportó un cierre (carpeta Remote-Access con 4 archivos, commit 3bb5e2d, limpieza de /private/) que no había ocurrido. Al chequear: la nota estaba como archivo único `Remote-Access.md` (no carpeta), no había commit con ese hash, y los archivos seguían en `/private/`. La verificación tiene que ser **antes** de confirmar un cierre de sesión, no después. Regla nueva: si Juan dice "listo" o "cerramos", yo corro `ls` + `git log` + `diff` antes de aceptar y le devuelvo el estado real. Si hay discrepancia, la nombro directo.
+
 ## Referencias
 - [[Wolfim/WebAgency]]
 - [[Construvial]]
