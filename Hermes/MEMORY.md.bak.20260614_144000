@@ -163,11 +163,15 @@ Ejecución
 - **Datos de pago: YO se los paso al cliente, no al revés.** Regla simple: "te paso los datos de pago" en boca de Juan, "pasame datos para factura" en boca de Franco.
 - **No mezclar conceptos en la misma frase.** $250 anual mantenimiento y $300 entrega son transacciones separadas, no se confunden.
 
-## Credenciales y API keys
-- Estado operativo: `~/.hermes/private/keys-status.md` (modo 600, NO inyectado en system prompt).
-- Valores reales: `~/.hermes/.env` (modo 600).
-- Por seguridad, este archivo nunca lista valores de keys.
+---
 
+## API Keys confirmadas
+- Serper: `7f4c661b596a1110ec64d8ea4f137588c2176a5c`
+- Firecrawl: `fc-43a...1eef`
+- DataImpulse: SIN CRÉDITO (port 823 bloqueado desde VPS)
+- MiniMax API: configurada en `~/.hermes/.env`
+
+---
 
 ## Referencias
 - [[Wolfim/WebAgency]]
