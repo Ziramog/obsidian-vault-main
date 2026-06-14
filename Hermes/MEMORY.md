@@ -3,7 +3,7 @@
 
 ---
 
-**Última actualización:** 2026-06-13 | **🟠 TRANSICIÓN** · Gap junio parcial **+$550** (Franco $300 06/06 + $250 08/06) · Meta $600 faltan $50 · **Víctor catálogo $300 + mensual $150** acuerdos verbales (sin fecha, sin upfront, pago contra entrega) · **Agenda persistente** activa 2026-06-10 con 6 tareas · **ROGGERO BACKP SUSPENDIDO** (10/06) — todo armado en /home/hermes/roggero_backup/ pero SIN cron, retomar a fin de mes · ⚠️ **13/06 11:00 UTC: morning-report.py falló al enviar Telegram — HTTP 401. Token en `~/.hermes/config.yaml` está truncado (`8644817415:AAFHwgOg` — solo 9 chars post-colon, debería ser ~46).** | Model: MiniMax-M3
+**Última actualización:** 2026-06-14 | **🟢 ESCALA** · Gap junio parcial **+$750** (Franco $300 06/06 + $250 08/06 + **Víctor $200 10/06**) · Meta $600 SUPERADA por $150 · **Víctor Abrile EN EJECUCIÓN desde 10/06** (adelanto $200 · catálogo $300 total · $150/mes mantenimiento) · **Agenda persistente** activa 2026-06-10 con 6 tareas · **ROGGERO BACKP SUSPENDIDO** (10/06) — todo armado en /home/hermes/roggero_backup/ pero SIN cron, retomar a fin de mes · ⚠️ **13/06 11:00 UTC: morning-report.py falló al enviar Telegram — HTTP 401. Token en `~/.hermes/config.yaml` está truncado (`8644817415:AAFHwgOg` — solo 9 chars post-colon, debería ser ~46).** | Model: MiniMax-M3
 
 ---
 
@@ -31,13 +31,13 @@
 ---
 
 ## Semáforo
-🟠 **TRANSICIÓN** — Gap mayo: –$333 (cerrado). **Cobro $300 USD Franco Roma CONFIRMADO 06/06** ✅. Gap junio parcial: +$300. **Meta junio: $600 USD → faltan $300.** Empresa prioritaria: Wolfim. **Secundarias desbloqueadas** (Ango/Construvial) con asignación de tiempo explícita. Korantis: evidence-gathering sigue permitido.
+🟢 **ESCALA** — Gap mayo: –$333 (cerrado). **Junio parcial: +$750** (meta $600 superada por $150, día 14/30). Empresa prioritaria: Wolfim. **Las tres empresas habilitadas en paralelo con asignación de tiempo explícita.** Korantis: habilitar fase de marketing/outreach. Activar Exploración.
 
 ---
 
 ## Pipeline activo
 - **Franco Roma — Roggero & Roma** ✅✅ **OPERACIÓN COMPLETA** — Total $750 USD cobrados: $200 adelantados page + $300 cierre page (06/06) + $250 mantenimiento anual (08/06). Cerrado.
-- **Víctor Abrile** 🆕 09/06 — Acuerdo verbal: catálogo de venta de terrenos $300 USD + servicio mensual publicar/publicidad $150 USD/mes. **SIN fecha de inicio ni cobro.** Requiere: definir kickoff + factura upfront antes de empezar trabajo.
+- **Víctor Abrile** 🟢 **EN EJECUCIÓN desde 10/06** (confirmado 14/06 vía chat) — Adelanto $200 USD cobrado. Catálogo de venta de terrenos ($300 USD total · resta $100 contra entrega) + servicio mensual publicar/publicidad $150 USD/mes. Inicio 10/06, en proceso de ejecución.
 - **Luis Farias — Farias & Asociados** 🆕 04/06: llamada WA desde personal. CRM = **GVamax** (https://landing.gvamax.com.ar). Web actual "tipo clásica". **Grieta detectada: alquileres con software viejo fuera del CRM.** Link roggeroyroma.com enviado, esperando reacción. NO perseguir.
 - **GAMA Inmobiliaria** (Mar del Plata) 🆕 04/06 — 4.5⭐ (108 reseñas) · tel 0223 633-7766 · Lead prioritario post-Franco
 - **Conforti Propiedades** (Villa Carlos Paz) 🆕 04/06 — 4.5⭐ (53 reseñas) · tel 03541 67-5105
@@ -125,8 +125,9 @@ Auditado 03/06. No se re-audita. Top 3 fixes anotados. NO es el cuello de botell
 |-------|---------|---------|
 | 06/06 ✅ | $300 USD | Franco Roma — Roggero & Roma (cobro final page-job) |
 | 08/06 ✅ | $250 USD | Franco Roma — mantenimiento anual (nuevo cobro, separado del page-job) |
+| 10/06 ✅ | $200 USD | Víctor Abrile — adelanto catálogo terrenos (inicio ejecución) |
 
-**Total junio parcial: +$550** (meta $600 → faltan $50, casi cerrada). **Franco total acumulado operación: $750 USD** ($200 adelantados page + $300 cierre page + $250 mantenimiento anual).
+**Total junio parcial: +$750** ✅ **META $600 SUPERADA por $150** (hito 14/06 = día 14 de 30). **Franco total acumulado operación: $750 USD** ($200 adelantados page + $300 cierre page + $250 mantenimiento anual). **Víctor acumulado parcial: $200 USD** (de $300 catálogo + $150/mes mantenimiento).
 
 ---
 
