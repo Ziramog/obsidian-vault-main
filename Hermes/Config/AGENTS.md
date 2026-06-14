@@ -34,9 +34,27 @@ Eso vive en MEMORY.md.
 | wolfim-cron-alerts Docker | Cron alerts | — | Running |
 | outreach-api | API PM2 | — | Running (pid 213055) |
 | autonomous-daemon | WhatsApp outreach runner | — | PM2 (pid 228261) |
+| tailscaled | Tailscale daemon (systemd) | — | Running (100.124.132.48) |
+| hermes-dashboard | Hermes Agent Dashboard (systemd) | 100.124.132.48:9119 | Running (Tailscale-only) |
+| hermes-gateway | Hermes Gateway Telegram (user systemd, linger) | — | Running (PID 33236) |
 
-**Última verificación de arquitectura:** 2026-05-03
+**Última verificación de arquitectura:** 2026-06-14
 Si un servicio falla: diagnóstico primero en PM2 logs antes de asumir problema de código.
+
+### Acceso remoto — Hermes Desktop ↔ VPS via Tailscale
+
+**Estado:** funcionando (desde 14/06/2026)
+
+- **Windows corre Hermes Desktop (Electron)** → habla HTTP contra `hermes dashboard` en el VPS, bound a la IP de Tailscale.
+- **Tráfico 100% dentro de la tailnet** — sin puertos públicos abiertos.
+- **Auth:** basic-auth (username `juang`, password en `~/.hermes/.env`, secret de sesión estable).
+- **3 nodos en la tailnet** (`ingjuangomariz@`):
+  - `vmi3131751` (VPS, 100.124.132.48)
+  - `desktop-qu8nhdi` (Windows de Juan, 100.96.176.100)
+  - `juans-s22-ultra` (Android, 100.67.21.94 — offline hace 40d)
+- **Documentación completa:** [[Remote-Access/README|Config/Remote-Access/README.md]] (setup, troubleshooting, files-changed)
+
+Si Tailscale se cae: el dashboard NO responde, pero el VPS sigue accesible por SSH con la IP pública `194.163.161.99` (no abrir el dashboard a 0.0.0.0 — usar siempre el bind a la IP de Tailscale).
 
 ### Base de datos — Supabase
 

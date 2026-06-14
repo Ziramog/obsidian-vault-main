@@ -32,7 +32,8 @@ Windows corre el cliente Hermes Desktop Electron. El Desktop habla HTTP contra u
 - [x] `keys-status.md` creado en `/home/hermes/.hermes/private/` (modo 600, NO inyectado al system prompt)
 - [x] `~/.hermes/memories/MEMORY.md` ahora es symlink al del vault (single source of truth)
 - [x] Script `~/bin/hermes-tui` para abrir TUI con un comando (vía SSH desde Windows)
-- [x] Vault sincronizado a GitHub (commits `7f1ec67` y `f78e37f`)
+- [x] Vault sincronizado a GitHub (commits `7f1ec67`, `f78e37f`, `aad1cf0`)
+- [x] Carpeta completa en repo (verificado con `git ls-files`): 4 archivos, 40KB total
 
 ## Documentos en esta carpeta
 
