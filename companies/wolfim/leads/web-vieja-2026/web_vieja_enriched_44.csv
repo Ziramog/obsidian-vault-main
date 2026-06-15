@@ -1,0 +1,45 @@
+web_score,nombre,website,primary_phone,phones_found,instagram,wa_links,ciudad,vertical,has_ssl,html_size_kb,has_mobile,has_sitemap,whois_year,score_details,enrich_status,fuente
+70,Listado de Abogados de Mar del Plata,https://inmobiliariasmardelplata.com/2009/12/26/listado-de-abogados-de-mar-del-plata/,2231568948,2231568948|1143731439|2231540028|111530707|111544749,media,,Mar del Plata,abogado,True,146.5,True,True,2009,old_domain_17y,success,serper
+70,Inmobiliaria en Villa Carlos Paz - MMLUISA,https://mmluisa.com/,3541528601,3541528601,supports,,Córdoba,inmobiliaria,True,80.1,True,True,2013,old_domain_13y,success,serper
+70,"BRICK - Inmobiliaria en CABA, Zona Norte y Zona Sur",https://brick.com.ar/,156547654640,156547654640|1152639191|1154448888,context,,CABA,inmobiliaria,True,135.7,True,True,2013,old_domain_13y,success,serper
+70,"Medical Aesthetics Clinics in Buenos Aires, Argentina - WhatClinic",https://www.whatclinic.com/beauty-clinics/argentina/buenos-aires,,,WhatClinic,,CABA,clinica,True,103.6,True,True,2009,old_domain_17y,no_phone,serper
+70,Centro Medico Buenos Aires Medellin | Consulta médica General ...,http://centromedicobuenosairesmedellin.com/,,,media,,CABA,clinica,True,121.0,True,True,2009,old_domain_17y,no_phone,serper
+70,Servicios Médicos Buenos Aires – Servicios Pre y POST Hospitalarios,https://www.cmbuenosaires.com/,,,media,,CABA,clinica,True,108.2,True,True,2012,old_domain_14y,no_phone,serper
+70,Grupo Proaco - Desarrollos Inmobiliarios en Córdoba.,https://grupoproaco.com/,6210084622,6210084622|+543514911000|+5435115666677,GrupoProaco,,Unknown,constructora,True,146.5,True,True,2011,old_domain_15y,success,serper
+70,Sanatorio de la Providencia - Tu Centro Médico de Confianza,https://sanatoriodelaprovidencia.com/,1152999000,1152999000|1163005284,context,,CABA,clinica,True,115.1,True,True,2010,old_domain_16y,success,serper
+70,Asociación de Abogadas y Abogados de Buenos Aires – Asociación ...,https://aaba.org.ar/,541143718869,541143718869,param,,CABA,abogado,True,146.5,True,True,2014,old_domain_12y,success,serper
+70,"Official website - Best price - Hotel Iruña, Mar del Plata",https://www.hoteliruna.com/en/,,,context,,Mar del Plata,hotel,True,146.5,True,True,2003,old_domain_23y,no_phone,serper
+70,Estudio Moltedo Abogados – Estudio Moltedo: 100 años de ...,https://moltedo.com.ar/,,,media,,CABA,abogado,True,101.7,True,True,2014,old_domain_12y,no_phone,serper
+70,Cámara Inmobiliaria Argentina – La institución más federal del sector.,https://cia.org.ar/,,,media,,CABA,inmobiliaria,True,146.5,True,True,2013,old_domain_13y,no_phone,serper
+70,Estudio del AMO: Estudio Contable en Belgrano Capital Federal,https://estudiodelamo.com/,+5491150615387,+5491150615387,estudiodelamo,,CABA,contador,True,146.5,True,True,2007,old_domain_19y,success,serper
+70,MILHOUSE HOSTEL Buenos Aires - Sitio Oficial,https://milhousehostel.com/,,,context,,CABA,hotel,True,146.5,True,True,2000,old_domain_26y,no_phone,serper
+70,Córdoba Luxury and 5 Star Hotels and Resorts,https://luxuryescapes.com/us/hotels/location/c%C3%B3rdoba/c%C3%B3rdoba/argentina?srsltid=AfmBOoqWNd2bSuabAD-xN0_rWT04_svplSo_l686P3BlJBfdov_IOeGc,,,media,,Unknown,hotel,True,146.5,True,True,2003,old_domain_23y,no_phone,serper
+70,Constructora en CABA | Proyectos Inmobiliarios de Calidad,https://estudiokohon.com/constructora-caba/,+5491124648507,+5491124648507,font,,CABA,constructora,True,146.5,True,True,2011,old_domain_15y,success,serper
+70,Maure Inmobiliaria Propiedades en Venta y Alquiler Buenos Aires ...,https://maureinmobiliaria.com/,,,context,,CABA,inmobiliaria,True,64.3,True,True,2000,old_domain_26y,no_phone,serper
+60,Grupo Legal: Estudio de Abogados | Estudio Jurídico,https://grupolegal.com.ar/,+5491178419797,+5491178419797,context,,CABA,abogado,True,146.5,True,True,2019,,success,serper
+60,Estudio Jurídico Mogliani y Asociados - Córdoba,https://www.estudiojuridicomogliani.com.ar/,3511559438,3511559438|+5493515943881,1.8.1,,Unknown,abogado,True,91.9,True,True,,,success,serper
+60,Potente Propiedades – Tu inmobiliaria en Mar del Plata,https://www.potentepropiedades.com.ar/,,,media,,CABA,inmobiliaria,True,146.5,True,True,2020,,no_phone,serper
+60,Barreiro | Abogados,https://www.bodlegal.com/en/home-english/,,,media,,CABA,abogado,True,146.5,True,True,2018,,no_phone,serper
+60,CCA Estudio Contable | Servicios Contables y Tributarios ...,https://www.ccaestudiocontable.com.ar/,+5491168930541,+5491168930541,context,,CABA,contador,True,80.8,True,True,,,success,serper
+60,Abogados y Consejeros,https://muabogados.com.ar/institucional/abogados-y-consejeros/,,,font,,Unknown,abogado,True,146.5,True,True,,,no_phone,serper
+60,"K&S Contadores Públicos | Estudio Contable | Córdoba, Argentina",https://www.ksyasoc.com.ar/,+5403514811298,+5403514811298|+5493512106672,formatjs,,Unknown,contador,True,146.5,True,True,,,success,serper
+60,Consejo: Home,https://www.consejo.org.ar/,,,cpcecaba,,CABA,contador,True,103.1,True,True,,,no_phone,serper
+60,Compará dónde estudiar contador público en Córdoba (21),https://www.buscouniversidad.com.ar/contador-publico-cordoba-CZ-290-6,,,media,,Unknown,contador,True,146.5,True,True,,,no_phone,serper
+60,IZA Inmobiliaria - Mar del Plata,https://izainmobiliaria.inmo.co/,2235776000,,1.14.0,,CABA,inmobiliaria,True,141.8,True,True,,,from_phase1,serper
+60,Sanatorio Mater Dei | Buenos Aires,https://www.sanatoriomaterdei.com.ar/,,,formatjs,,CABA,clinica,True,146.5,True,True,,,no_phone,serper
+60,Abogado Penalista en Córdoba | Dr. Perez Lloveras,https://perezlloveras.com.ar/,+543517024268,+543517024268,context,,Unknown,abogado,True,146.5,True,True,,,success,serper
+60,FACPCE - Federación Argentina de Consejos Profesionales de ...,https://www.facpce.org.ar/,+541148131758,+541148131758,splidejs,,CABA,contador,True,89.0,True,True,,,success,serper
+60,"clinica y maternidad del sol | salud | Chacabuco 705, Córdoba ...",https://www.clinicadelsol.com.ar/,3517555444,3517555444,formatjs,,Unknown,clinica,True,146.5,True,True,,,success,serper
+60,RYM GROUP: Abogados en Mar del Plata,https://rymestudio.com.ar/?srsltid=AfmBOopOEBmFqzAOwzSFQWUyizwDXBQ_iXgCnSbYYEdT5DAAZ98cd8OJ,wa.me/5492236125533,wa.me/5492236125533,context,wa.me/5492236125533,Mar del Plata,abogado,True,146.5,True,True,,,success,serper
+60,Establecimientos - Hospitales y Centros de Salud | Buenos Aires ...,https://buenosaires.gob.ar/gcaba_historico/salud/establecimientos-hospitales-y-centros-de-salud,,,2.1.1,,CABA,clinica,True,51.4,True,True,,,no_phone,serper
+60,Centro Médico Buenos Aires – Centro integral de salud,https://cemeba.com.ar/,000000000,000000000,media,,CABA,clinica,True,146.5,True,True,,,success,serper
+60,Sanatorio Güemes: Inicio,https://sitio.sg.com.ar/,,,6..12,,CABA,clinica,True,110.8,True,True,,,no_phone,serper
+60,Estudio Contable en Buenos Aires - Estudio Lorenzo y Asoc,https://estudiolorenzoasoc.com/,+5401160485050,+5401160485050,context,,CABA,contador,True,146.5,True,True,2019,,success,serper
+60,Hostales en Buenos Aires desde $ 20.235/noche - KAYAK,https://www.kayak.com.ar/Hoteles-en-Buenos-Aires_Albergue.Thostel.19264.hotel.ksp,+541143005525,+541143005525|+541148233848|+5491162518486|+541149625553|+5491154953764,KAYAK,,CABA,hotel,True,146.5,True,True,,,success,serper
+60,Hospital Italiano de Córdoba – Te cuidamos siempre.,http://www.hospital-italiano.org.ar/,+543514106500,+543514106500,media,,Unknown,clinica,True,132.3,True,True,,,success,serper
+60,GOMERIAS - Provincia de Buenos Aires |,https://www.gba.gob.ar/content/gomerias,,,media,,CABA,taller,True,145.5,True,True,,,no_phone,serper
+60,Taller Mecánico en Avellaneda | MDO Garage,https://mdogarage.com/,1521760897,1521760897,context,,CABA,taller,True,146.5,True,True,,,success,serper
+60,Contador - Económicas UBA,https://economicas.uba.ar/alumnos/contador/,,,ubaeconomicas,,CABA,contador,True,146.5,True,True,,,no_phone,serper
+60,Taller Mecánico Bertani – Más de 50 años de experiencia en ...,https://tallerbertani.com.ar/,,,media,,CABA,taller,True,145.3,True,True,,,no_phone,serper
+60,RIVA – Empresa constructora,https://riva.com.ar/en/,,,font,,CABA,constructora,True,146.5,True,True,,,no_phone,serper
+60,Sanatorio Otamendi,https://www.otamendi.com.ar/,+541128382351,+541128382351,media,,CABA,clinica,True,97.5,True,True,,,success,serper
