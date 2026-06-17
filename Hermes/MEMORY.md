@@ -3,7 +3,7 @@
 
 ---
 
-**Última actualización:** 2026-06-14 | **🟢 ESCALA** · Junio parcial **+$750** (Franco $300+$250, Víctor $200) · Meta $600 SUPERADA · Víctor EN EJECUCIÓN (catálogo terrenos $300 + $150/mes) · Agenda persistente activa · Model: MiniMax-M3
+**Última actualización:** 2026-06-17 | **🟢 ESCALA** · Junio parcial **+$750** (Franco $300+$250, Víctor $200) · Meta $600 SUPERADA · Víctor EN EJECUCIÓN (catálogo terrenos $300 + $150/mes) · Agenda persistente activa · Model: MiniMax-M3
 
 ---
 
