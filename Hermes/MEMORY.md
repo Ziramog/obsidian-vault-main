@@ -3,18 +3,18 @@
 
 ---
 
-**Última actualización:** 2026-06-17 | **🟢 ESCALA** · Junio parcial **+$750** (Franco $300+$250, Víctor $200) · Meta $600 SUPERADA · Víctor EN EJECUCIÓN (catálogo terrenos $300 + $150/mes) · Agenda persistente activa · Model: MiniMax-M3
+**Última actualización:** 2026-06-19 | **🟢 ESCALA** · Wolfim Junio cobrado **$750** / proyectado **$1.000** · Ango entrada **$333** (19/06) · Meta $600 Wolfim SUPERADA · Agenda persistente activa
 
 ---
 
 ## Semáforo
-🟢 **ESCALA** — Mayo cerrado: –$333. **Junio parcial: +$750** (meta $600 superada, día 14/30). Wolfim prioritaria. Tres empresas habilitadas en paralelo. Korantis: fase marketing/outreach habilitada. Exploración activa.
+🟢 **ESCALA** — Mayo cerrado: –$333. **Junio cobrado: $750, proyectado $1.000** (lunes 23/06). Wolfim prioritaria. Tres empresas habilitadas en paralelo.
 
 ---
 
 ## Pipeline activo
 - **Franco Roma — Roggero & Roma** ✅ CERRADO — Total $750 USD cobrados. Operación completa.
-- **Víctor Abrile** 🟢 EN EJECUCIÓN (10/06) — Adelanto $200 cobrado. Catálogo terrenos $300 total (resta $100). Mantenimiento $150/mes. En proceso.
+- **Víctor Abrile** ⏳ PENDIENTE — $250 USD cobra lunes (23/06). Adelanto $200 cobrado (10/06).
 - **Luis Farias — Farias & Asociados** ⏸️ Grieta: alquileres con software viejo fuera del CRM. Link roggeroyroma.com enviado. NO perseguir.
 - **GAMA Inmobiliaria** (MdP) 🆕 — 4.5⭐ 108 reseñas · tel 0223 633-7766
 - **Conforti Propiedades** (Villa Carlos Paz) 🆕 — 4.5⭐ 53 reseñas · tel 03541 67-5105
@@ -27,18 +27,30 @@
 
 | Fecha | Ingreso | Detalle |
 |-------|---------|---------|
-| 06/06 ✅ | $300 | Franco Roma — cierre page |
+| 06/06 ✅ | $300 | Franco Roma — cierre página |
 | 08/06 ✅ | $250 | Franco Roma — mantenimiento anual |
-| 10/06 ✅ | $200 | Víctor Abrile — adelanto catálogo |
+| 10/06 ✅ | $200 | Víctor Abrile — Adelanto catálogo |
+| 23/06 ⏳ | $250 | Víctor Abrile — Saldo catálogo (pendiente) |
 
-**Total junio: +$750** · Meta $600 superada por $150.
+**Cobrado a hoy (19/06):** **$750 Wolfim + $333 Ango = $1.083**
+**Proyectado lunes 23/06 (Wolfim):** **$1.000**
+
+---
+
+## Ango — Metalúrgica (Padre de Juan)
+
+| Fecha | Ingreso | Detalle |
+|---|---|---|
+| 19/06 ✅ | $333 | Primera entrada — operación padre |
+
+**Nota:** Ango activada con semáforo 🟢. Sin pipeline de clientes propios aún.
 
 ---
 
 ## Hito China — octubre 2026
 - Meta: > $1.000 USD/mes con operación autónoma
 - **Días restantes:** ~109
-- **Estado:** 🟠 En progreso. Junio positivo confirma tendencia. Falta recurrencia.
+- **Estado:** 🟢 En curso. Wolfim $1.000 proyectado jun. Ango primera entrada $333. Tendencia confirmada.
 
 ---
 
