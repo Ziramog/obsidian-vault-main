@@ -3,7 +3,7 @@
 
 ---
 
-**Última actualización:** 2026-06-19 | **🟢 ESCALA** · Wolfim Junio cobrado **$750** / proyectado **$1.000** · Ango entrada **$333** (19/06) · Meta $600 Wolfim SUPERADA · Agenda persistente activa
+**Última actualización:** 2026-06-20 | **🟢 ESCALA** · Wolfim Junio cobrado **$750** / proyectado **$1.000** · Ango entrada **$333** (19/06) · Roggero & Roma — backup completo operativo · Meta $600 Wolfim SUPERADA
 
 ---
 
@@ -13,7 +13,7 @@
 ---
 
 ## Pipeline activo
-- **Franco Roma — Roggero & Roma** ✅ CERRADO — Total $750 USD cobrados. Operación completa.
+- **Franco Roma — Roggero & Roma** ✅ CERRADO — Total $750 USD cobrados. Operación completa. Backup VPS operativo (cron semanal sábados 10 AM).
 - **Víctor Abrile** ⏳ PENDIENTE — $250 USD cobra lunes (23/06). Adelanto $200 cobrado (10/06).
 - **Luis Farias — Farias & Asociados** ⏸️ Grieta: alquileres con software viejo fuera del CRM. Link roggeroyroma.com enviado. NO perseguir.
 - **GAMA Inmobiliaria** (MdP) 🆕 — 4.5⭐ 108 reseñas · tel 0223 633-7766
