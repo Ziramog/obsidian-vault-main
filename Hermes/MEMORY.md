@@ -3,7 +3,7 @@
 
 ---
 
-**Última actualización:** 2026-06-20 | **🟢 ESCALA** · Wolfim Junio cobrado **$750** / proyectado **$1.250** · Ango **$333** (19/06) · Roggero backup cron activo · Víctor Abrile día 10 sin seguimiento · GAMA/Conforti/RIVAS día 16 sin outreach
+**Última actualización:** 2026-06-20 (sábado) | **🟢 ESCALA** · Wolfim Junio cobrado **$750** / proyectado **$1.250** · Ango **$333** (19/06) · Roggero backup ✅ completado + cron semanal · Wolfim: migrando a Astro + analytics · Víctor Abrile día 10 sin seguimiento · GAMA/Conforti/RIVAS día 16 sin outreach
 
 ---
 
