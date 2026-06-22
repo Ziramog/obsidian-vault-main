@@ -3,7 +3,7 @@
 
 ---
 
-**Última actualización:** 2026-06-22 (lunes) | **🟢 ESCALA** · Campaña Web Viejas activa ✅ · 20 leads enviados día 1 · Pipeline automático corriendo · Reply-to juan@wolfim.com → ingjuangomariz@gmail.com
+**Última actualización:** 2026-06-22 (lunes) | **🟢 ESCALA** · Campaña Web Viejas: 30 entregados, 10 rebotes · Tracking de aperturas activo ✅ · Próximo envío 24/06 10am (5/día) · Drive actualizado automáticamente
 
 ---
 
