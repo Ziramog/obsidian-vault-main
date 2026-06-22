@@ -3,7 +3,35 @@
 
 ---
 
-**Última actualización:** 2026-06-21 (domingo) | **🟢 ESCALA** · Junio cobrado **$1.083** ($750 Wolfim + $333 Ango) · Víctor **$250 pendiente mañana 23/06** · Roggero backup cron ✅ · **⚠️ 13 días sin outreach** · GAMA/Conforti/RIVAS día 17 sin contacto
+**Última actualización:** 2026-06-22 (lunes) | **🟢 ESCALA** · Campaña Web Viejas activa ✅ · 20 leads enviados día 1 · Pipeline automático corriendo · Reply-to juan@wolfim.com → ingjuangomariz@gmail.com
+
+---
+
+## Proyecto: Web Viejas — Lead Generation + Email Outreach
+
+**Estado:** ✅ En producción — 20 leads enviados día 1, pipeline automático diario
+
+### Pipeline
+
+```
+dork_scout → wa_checker → enrich_leads → campaign.py → cron 10/día
+```
+
+### Resultados 21/06
+- Tanda 1: 10 enviados, 9 entregados, 1 bounce
+- Tanda 2: 10 enviados, 10 entregados
+- Quedan ~28 leads para próximas tandas
+
+### Configuración
+- Remitente: `Juan Gomariz <juan@wolfim.com>`
+- Reply-to: `juan@wolfim.com` → Cloudflare → ingjuangomariz@gmail.com
+- API: Resend (key: wolfim-outreach)
+- Logo: assets.wolfim.com/v2.svg
+- SPF/DKIM/DMARC/BIMI: ✅ configurado
+- Cron: `wolfim-campaign` diario 10am + `check-replies` lun-vie 10/14/18
+
+### Documentación completa
+→ `Hermes/Projects/web-viejas-pipeline.md`
 
 ---
 
