@@ -1,9 +1,10 @@
 ---
 company: ANGO
 owner: ango-commercial
-status: pending-first-write
-version: 0
+status: active
+version: 1
 last-reviewed: 2026-06-25
+entries: 1
 ---
 
 # Patterns — ANGO
@@ -12,7 +13,7 @@ last-reviewed: 2026-06-25
 
 ## Clientes
 
-- **Perfil del que compra:** [completar]
+- **Perfil del que compra:** Fabricantes de plataformas cosechadoras y talleres de maquinaria agrícola que buscan innovación en sistemas de corte.
 - **Perfil del que NO compra:** [completar]
 - **Objeciones más comunes:** [completar]
 
@@ -20,7 +21,8 @@ last-reviewed: 2026-06-25
 
 | Canal | Evidencia | Conversión |
 |---|---|---|
-| [completar] | | |
+| Investigación de patentes (USPTO, Espacenet, Google Patents) | Informe v1, v2, v3 generados con hallazgos accionables | Investigación → decisión |
+| INPI Argentina | Pendiente de usar para solicitud | — |
 
 ## Canales que NO Funcionan
 
@@ -30,11 +32,11 @@ last-reviewed: 2026-06-25
 
 ## Errores que No Repetir
 
-1. [completar]
+1. Dos investigaciones previas (02/06 y 07/06) no filtraron correctamente "discos con cuchillas montadas" vs "discos con filo perimetral" — se gastó tiempo en patentes MacDon irrelevantes.
 2. [completar]
 
 ## Insights por sesión
 
 | Fecha | Insight | Origen |
 |---|---|---|
-| [completar] | | |
+| 2026-06-25 | Campo libre para patentar discos rotativos con filo en soja/trigo. 10 patentes más cercanas están vencidas. Oportunidad de IP fundacional. | ango-commercial (brain-vps) |
