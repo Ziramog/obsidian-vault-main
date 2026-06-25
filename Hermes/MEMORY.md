@@ -1,3 +1,11 @@
+---
+owner: brain-vps
+last-reviewed: 2026-06-24
+confidence: high
+status: active
+source: consolidation
+---
+
 # MEMORY.md — Estado de negocio
 # Master: obsidian-vault/Hermes/MEMORY.md (GitHub synced → PC + Android)
 

@@ -23,3 +23,9 @@
 ---
 
 *Última actualización: 2026-06-24*
+
+## Migrado desde gpt/ (2026-06-24)
+| Ruta | Autor | Fecha | Estado |
+|---|---|---|---|
+| Hermes/Quarantine/LOOP-outreach.md | gpt/ (legacy) | 2026-06-24 | pending |
+| Hermes/Quarantine/WHATSAPP-BRIDGE-PLAN.md | gpt/ (legacy) | 2026-06-24 | pending |
