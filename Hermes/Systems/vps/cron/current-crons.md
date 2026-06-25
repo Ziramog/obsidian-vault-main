@@ -3,16 +3,20 @@
 > **Zona horaria:** America/Argentina/Buenos_Aires (UTC-3, ART)
 > **Última verificación:** 2026-06-25
 > **Host:** Contabo VPS (194.163.161.99)
+> **Fase 4:** Scripts de alertas, archivo y validación agregados
 
 ---
 
 ## User crontab (`crontab -l` — usuario hermes)
 
-| Schedule | Hora (ART) | Comando | Descripción |
-|---|---|---|---|
-| `0 7 * * *` | 07:00 diario | `/home/hermes/scripts/hermes-health-check.py` | Health check del sistema Hermes |
-| `*/15 * * * *` | Cada 15 min | `cd /home/hermes/obsidian-vault && git pull --rebase --autostash origin main && git add -A && git diff --cached --quiet \|\| (git commit -m "auto-sync [vps]" && git push)` | Sync del vault a GitHub |
-| `0 10 * * 6` | 10:00 sábados | `cd /home/hermes/roggero_backup && source .env_roggero && bash scripts/backup.sh` | Backup Roggero & Roma |
+| Schedule | Hora (ART) | Comando | Descripción | Fase |
+|---|---|---|---|---|
+| `0 7 * * *` | 07:00 diario | `/home/hermes/scripts/hermes-health-check.py` | Health check del sistema Hermes | Pre-V5 |
+| `*/15 * * * *` | Cada 15 min | `cd /home/hermes/obsidian-vault && git pull --rebase --autostash origin main && git add -A && git diff --cached --quiet \|\| (git commit -m "auto-sync [vps]" && git push)` | Sync del vault a GitHub | Pre-V5 |
+| `0 10 * * 6` | 10:00 sábados | `cd /home/hermes/roggero_backup && source .env_roggero && bash scripts/backup.sh` | Backup Roggero & Roma | Pre-V5 |
+| `*/30 * * * *` | Cada 30 min (+5s) | `python3 /home/hermes/scripts/telegram-alert.py` | **NUEVO F4:** Handoffs vencidos + conflictos git → Telegram | Fase 4 |
+| `15 4 * * *` | 04:15 diario | `python3 /home/hermes/scripts/handoff-archive.py` | **NUEVO F4:** Archiva handoffs done/cancelled > 7 días | Fase 4 |
+| `*/15 * * * *` | Cada 15 min (+120s) | `cd /home/hermes/obsidian-vault && python3 Hermes/Systems/vps/scripts/ownership-validate.py --last-commit` | **NUEVO F4:** Valida escrituras dentro de zonas de ownership | Fase 4 |
 
 ---
 
@@ -41,6 +45,22 @@
 - **Función:** Backup semanal del sitio Roggero & Roma.
 - **Log:** `/home/hermes/roggero_backup/logs/backup_cron.log`
 
+### Telegram alerts (`*/30` — Fase 4)
+- **Función:** Detecta handoffs `priority:high` con `escalate-after` vencido y envía Telegram a Juan. También detecta conflictos git (`<<<<<<<`) en archivos críticos.
+- **Log:** `/var/log/hermes-alerts.log`
+- **Script:** `/home/hermes/scripts/telegram-alert.py`
+- **Chat:** Juanchi777 (1479438002)
+
+### Handoff archive (`15 4` — Fase 4)
+- **Función:** Archiva handoffs con `status: done` o `cancelled` con más de 7 días de antigüedad. Los mueve a `Hermes/Handoffs/archive/`.
+- **Log:** `/var/log/hermes-handoff-archive.log`
+- **Script:** `/home/hermes/scripts/handoff-archive.py`
+
+### Ownership validate (`*/15` — Fase 4)
+- **Función:** Compara archivos modificados en el último commit contra el mapa de ownership (Sección 11 de ARCHITECTURE.md V5). Detecta escrituras fuera de zona.
+- **Log:** `/var/log/hermes-ownership.log`
+- **Script:** `/home/hermes/obsidian-vault/Hermes/Systems/vps/scripts/ownership-validate.py`
+
 ### Wolfim crawler (`0 11`)
 - **Función:** Dispara el scan diario de crawling de Wolfim.
 - **Script:** `/wolfim/crawler/trigger-scan.sh`
@@ -55,6 +75,17 @@
 - **Log:** `/var/log/session-recording.log`
 - **Script:** `/home/hermes/scripts/session-append.sh`
 - **Nota:** Este cron escribe en `hq/sessions/`, no en `Hermes/Sessions/`. Las sesiones narrativas de Hermes van en `Hermes/Sessions/` por separado.
+
+---
+
+## Scripts de Fase 4 — Resumen
+
+| Script | Ruta vault | Ruta producción | Cron |
+|---|---|---|---|
+| `telegram-alert.py` | `Hermes/Systems/vps/scripts/` | `/home/hermes/scripts/` | `*/30 * * * *` |
+| `handoff-check.py` | `Hermes/Systems/vps/scripts/` | `/home/hermes/scripts/` | Manual / bajo demanda |
+| `handoff-archive.py` | `Hermes/Systems/vps/scripts/` | `/home/hermes/scripts/` | `15 4 * * *` |
+| `ownership-validate.py` | `Hermes/Systems/vps/scripts/` | `/home/hermes/scripts/` | `*/15 * * * *` |
 
 ---
 
