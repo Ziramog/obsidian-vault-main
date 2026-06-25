@@ -2,8 +2,10 @@
 owner: Juan
 status: active
 version: 1
-last-reviewed: 2026-06-24
-valid-for-hours: 8
+last-reviewed: 2026-06-25T11:00:00-03:00
+valid-for-hours: 24
+urgency: normal
+reality-check-required-by: 2026-06-28
 applies-to:
   - brain-vps
   - brain-local
@@ -11,40 +13,36 @@ applies-to:
   - web-builder
 ---
 
-# Briefing vigente — 2026-06-24
+# Briefing Vigente
 
 ## Prioridades activas
-1. Ejecutar Fase 1 de arquitectura V4 (creación de estructura multiagente en el vault)
-2. Mantener pipeline de outreach web-viejas activo (cron diario 10am)
-3. No hay cambios en prioridades comerciales hasta nuevo briefing
+
+| # | Prioridad | Detalle | Origen |
+|---|---|---|---|
+| 1 | Implementar sistema multiagente | Fase 1 ✅ | Fase 2 pendiente | Fase 3 pendiente | Sesión activa |
+| 2 | Verificar cobro Víctor Abrile | $250 USD — vencía lunes 23/06. **Confirmado: cobrado.** | Juan |
+| 3 | Dar seguimiento a leads nuevos | GAMA, Conforti, RIVAS, Ann — sin acción registrada desde captura | MEMORY.md |
+| 4 | Mantener campaña Web Viejas | Email outreach automático (cron 10am, 5/día). ~28 leads restantes | MEMORY.md |
 
 ## Foco financiero
-- Junio cobrado: $750 USD. Proyectado: $1.000 USD.
-- Semáforo: 🟢 ESCALA
-- Sin nuevos gastos no aprobados
 
-## Límites
-- No publicar Ads sin aprobación
-- No ejecutar scraping autónomo nuevo
-- No gastar API fuera de presupuesto
-
-## Proyectos activos
-| Proyecto | Estado | Quién |
+| Concepto | Monto | Estado |
 |---|---|---|
-| Arquitectura V4 — Fase 1 | En ejecución | brain-vps |
-| Outreach web-viejas | Automático (cron) | wolfim-campaign |
-| Seguimiento clientes Wolfim | Pausado hasta nuevo briefing | wolfim-growth |
+| Cobrado Wolfim junio | $1.000 USD | ✅ Completo |
+| Cobrado Ango junio | $333 USD | ✅ |
+| **Total cobrado junio** | **$1.333 USD** | |
+
+**Semáforo:** 🟢 **ESCALA** — Wolfim prioritaria, Ango secundaria, Construvial en standby, Korantis modo evidencia.
 
 ## Restricciones
-- No tocar companies/wolfim/pipeline/ sin handoff
-- No escribir en Hermes/Config/ sin instrucción explícita
-- hq/ sin escritura nueva
 
-## Decisiones recientes
-- Sync: Git puro, cron en cada host, agente nunca toca git
-- Hermes cron "Memory Backup" eliminado por redundante
-- gpt/ migrado a Quarantine
-- Korantis arranca como skill, no profile hasta tener presupuesto
+- No activar Construvial sin aprobación explícita
+- No publicar Ads sin aprobación (modo propuesta únicamente)
+- No gastar dinero sin aprobación
+- No tocar `Hermes/Config/` (solo Juan)
+- No tocar estructura existente de `companies/`
+- No tocar cron del VPS
 
 ## Ante contradicciones
-Escalar a Juan. Ningún agente resuelve por su cuenta.
+
+Escalar a Juan. Ningún agente resuelve solo.

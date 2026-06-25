@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-06-24
+last-reviewed: 2026-06-25
 confidence: high
 status: active
 source: consolidation
@@ -11,7 +11,7 @@ source: consolidation
 
 ---
 
-**Última actualización:** 2026-06-22 (lunes) | **🟢 ESCALA** · Campaña Web Viejas: 30 entregados, 10 rebotes · Tracking de aperturas activo ✅ · Próximo envío 24/06 10am (5/día) · Drive actualizado automáticamente
+**Última actualización:** 2026-06-25 (jueves) | **🟢 ESCALA** · Campaña Web Viejas: 30 entregados, 10 rebotes · Tracking de aperturas activo ✅ · Drive actualizado automáticamente · Junio Wolfim: $1.000 USD completo ✅
 
 ---
 
@@ -44,13 +44,13 @@ dork_scout → wa_checker → enrich_leads → campaign.py → cron 10/día
 ---
 
 ## Semáforo
-🟢 **ESCALA** — Mayo cerrado: –$333. **Junio cobrado: $750, proyectado $1.000** (lunes 23/06). Wolfim prioritaria. Tres empresas habilitadas en paralelo.
+🟢 **ESCALA** — Junio Wolfim cerrado: $1.000. Total junio: $1.333 (Wolfim $1.000 + Ango $333). Wolfim prioritaria. Tres empresas habilitadas en paralelo.
 
 ---
 
 ## Pipeline activo
 - **Franco Roma — Roggero & Roma** ✅ CERRADO — Total $750 USD cobrados. Operación completa. Backup VPS operativo (cron semanal sábados 10 AM).
-- **Víctor Abrile** ⏳ PENDIENTE — $250 USD cobra lunes (23/06). Adelanto $200 cobrado (10/06).
+- **Víctor Abrile** ✅ COBRADO — $250 USD cobrado (23/06). Adelanto $200 (10/06). Total $450 USD. Catálogo completo.
 - **Luis Farias — Farias & Asociados** ⏸️ Grieta: alquileres con software viejo fuera del CRM. Link roggeroyroma.com enviado. NO perseguir.
 - **GAMA Inmobiliaria** (MdP) 🆕 — 4.5⭐ 108 reseñas · tel 0223 633-7766
 - **Conforti Propiedades** (Villa Carlos Paz) 🆕 — 4.5⭐ 53 reseñas · tel 03541 67-5105
@@ -66,10 +66,10 @@ dork_scout → wa_checker → enrich_leads → campaign.py → cron 10/día
 | 06/06 ✅ | $300 | Franco Roma — cierre página |
 | 08/06 ✅ | $250 | Franco Roma — mantenimiento anual |
 | 10/06 ✅ | $200 | Víctor Abrile — Adelanto catálogo |
-| 23/06 ⏳ | $250 | Víctor Abrile — Saldo catálogo (pendiente) |
+| 23/06 ✅ | $250 | Víctor Abrile — Saldo catálogo |
 
-**Cobrado a hoy (19/06):** **$750 Wolfim + $333 Ango = $1.083**
-**Proyectado lunes 23/06 (Wolfim):** **$1.000**
+**Cobrado a hoy (25/06):** **$1.000 Wolfim + $333 Ango = $1.333**
+**Junio Wolfim cerrado: $1.000 USD.**
 
 ---
 
@@ -86,7 +86,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py → cron 10/día
 ## Hito China — octubre 2026
 - Meta: > $1.000 USD/mes con operación autónoma
 - **Días restantes:** ~109
-- **Estado:** 🟢 En curso. Wolfim $1.000 proyectado jun. Ango primera entrada $333. Tendencia confirmada.
+- **Estado:** 🟢 En curso. **Wolfim $1.000 USD junio ALCANZADO ✅.** Ango primera entrada $333. Meta $1.000/mes cumplida.
 
 ---
 
