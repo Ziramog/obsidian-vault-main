@@ -1,0 +1,1 @@
+Test de activación. Respondé brevemente: ¿qué perfil sos y qué empresa manejas? No ejecutes ninguna tarea compleja. Solo confirmá identidad.
