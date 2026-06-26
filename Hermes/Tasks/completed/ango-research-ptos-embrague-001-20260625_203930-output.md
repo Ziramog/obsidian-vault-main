@@ -90,3 +90,79 @@ a//home/hermes/companies/ango/intelligence/patterns.md → b//home/hermes/compan
  
  ---
  
+  ┊ review diff
+a//home/hermes/companies/ango/intelligence/patterns.md → b//home/hermes/companies/ango/intelligence/patterns.md
+@@ -128,3 +128,41 @@
+ - Geringhoff Rota Disc patent family (Espacenet)
+ - Krone XDisc patent family
+ - INPI Argentina: búsqueda de patentabilidad para disco rotativo con filo perimetral
++
++---
++
++## Research Empresas Consumidoras PTO Embrague — 2026-06-25
++# Informe completo: companies/ango/research/empresas-consumidoras-pto-embrague-2026-06-25.md
++#
++# ## Prioridades de contacto identificadas
++# Prioridad 1 (contactar YA):
++#   - CPA Bombas (bombascpa.com.ar) — NFPA20, motobombas diesel. WhatsApp disponible.
++#   - TURBOM (turbom.com.ar) — Cabezales a engranajes, riego pesado. Santa Fe. 50+ años.
++#   - All Pumps Argentina (allpumps.com.ar) — Minería/Oil&Gas. Alianza FPT. Puerto Vaca Muerta.
++# Prioridad 2 (investigar y contactar):
++#   - ZENSITEC (zensitec.com.ar) — NFPA20, bombas diesel certificadas UL.
++#   - FPT Industrial (Córdoba) — Clientes: Himoinsa, Elektrogen, Powgen, Casa Fenk (grupos electrógenos).
++#   - Mainero (mainero.com) — Implementos agrícolas, embragues PTO.
++#   - Alfil Argentina (embraguesalfil.ar) — Posible aliado discos embrague.
++# Prioridad 3 (monitorear competencia):
++#   - TEKMATIC TF-4/TF-6 — Competencia directa, web profesional + e-commerce.
++#   - Gummi Argentina (WPT Power) — Premium importado.
++#   - Embremaq (BR) — 8 líneas PTO, competencia regional.
++#   - Ortlinghaus (BR/DE) — PTO hidráulico alta gama.
++#
++# ## Hallazgos clave
++# - Segmento motobombas NFPA20 (contra incendio) es el más maduro y accesible.
++# - TURBOM en Santa Fe es el contacto más natural (geográfico y de producto).
++# - Vaca Muerta requiere enfoque indirecto vía All Pumps Argentina.
++# - No hay distribuidor Twin Disc en Argentina — espacio para ANGO en segmento medio.
++# - Grupos electrógenos (Himoinsa, Elektrogen, Powgen) son mercado no explorado.
++# - Transmidiesel es distribuidor Twin Disc en Colombia — no en Argentina (corrección respecto a research previo).
++# - Alfil Argentina (Córdoba) posible canal de distribución de discos de embrague.
++#
++# ## Empresas nuevas identificadas en esta sesión
++# - QM Equipment (Mar del Plata) — bombas fractura 3000HP, NO usan PTO tradicional.
++# - FPT Industrial (Córdoba) — motores, NO cliente directo pero sus clientes sí.
++# - Himoinsa, Elektrogen, Powgen, Casa Fenk — grupos electrógenos.
++# - CNH Industrial, CASE Construction — maquinaria global, difícil acceso directo.
++# - NACD (North American Clutch) — PTO similar a ANGO para USA.
++# - Transfluid (Italia) — PTO PF para volante SAE, certificación ATEX.
+
+session_id: 20260625_203939_def695
+---
+
+## Resumen de la sesión
+
+**Informe completo:** `companies/ango/research/empresas-consumidoras-pto-embrague-2026-06-25.md`
+**Patterns actualizado:** `companies/ango/intelligence/patterns.md`
+**Memoria actualizada:** corrección Transmidiesel + prioridades de contacto
+
+### Lo que hice
+
+1. **Research de 35+ empresas** en 4 categorías — motobombas, agrícola, industrial, distribuidores
+2. **Priorización de leads** con 3 niveles de prioridad
+3. **Análisis de cada empresa** con rubro, tipo de PTO, web, relevancia (1-5 estrellas)
+4. **Identificación de competidores** argentinos, brasileños y globales
+
+### Prioridades de contacto para Juan
+
+| Orden | Empresa | Rubro | Canal |
+|-------|---------|-------|-------|
+| 1 | CPA Bombas | Motobombas NFPA20 | bombascpa.com.ar / WhatsApp |
+| 2 | TURBOM | Cabezales a engranajes riego | turbom.com.ar |
+| 3 | All Pumps Argentina | Bombas minería/oil&gas | allpumps.com.ar |
+
+### Corrección importante
+
+En el benchmarking previo (context.md) figuraba "Transmidiesel (Twin Disc USA)" como importador en Argentina. **Transmidiesel es distribuidor Twin Disc en Colombia, no en Argentina.** No hay distribuidor Twin Disc en Argentina actualmente. Eso deja espacio para ANGO en el segmento medio.
+
+### Dato relevante
+
+TURBOM (Santa Fe, 50+ años) fabrica cabezales a engranajes para bombas de riego. Es el contacto más natural para ANGO: misma región, producto complementario, mercado maduro.
