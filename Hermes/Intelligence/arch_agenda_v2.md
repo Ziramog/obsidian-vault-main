@@ -334,16 +334,59 @@ Sirve para editar tareas sin depender del texto exacto.
 - La apertura de sesión muestra foco y próximo recordatorio.
 - No se mezcla agenda con MEMORY ni pipeline comercial.
 
-## 14. Próxima acción propuesta
+## 14. Implementación inicial — 2026-06-27
 
-Implementar Fase 2: script de agenda CLI/parser en `Hermes/Systems/vps/scripts/agenda.py`, con operaciones mínimas:
+### Archivos implementados
 
-```bash
-agenda.py today
-agenda.py tomorrow
-agenda.py add --date 2026-06-28 --priority red --title "Cancelar prueba ChatGPT" --reminder "2026-06-28 09:00"
-agenda.py done ag-20260628-001
-agenda.py focus
+```txt
+Hermes/Systems/vps/scripts/agenda.py
+Hermes/Systems/vps/scripts/agenda-reminder-scan.py
+Hermes/Systems/vps/scripts/agenda
 ```
 
-Después implementar scanner de reminders.
+### Comandos disponibles
+
+```bash
+# Ver agenda de hoy / mañana
+Hermes/Systems/vps/scripts/agenda hoy
+Hermes/Systems/vps/scripts/agenda mañana
+
+# Equivalente Python explícito
+python3 Hermes/Systems/vps/scripts/agenda.py today
+python3 Hermes/Systems/vps/scripts/agenda.py tomorrow
+
+# Crear archivo Agenda V2 si no existe
+python3 Hermes/Systems/vps/scripts/agenda.py ensure --date 2026-06-28
+
+# Listar día específico
+python3 Hermes/Systems/vps/scripts/agenda.py list --date 2026-06-28
+
+# Agregar tarea
+python3 Hermes/Systems/vps/scripts/agenda.py add --date 2026-06-28 --priority red --title "Cancelar prueba ChatGPT" --reminder "09:00"
+
+# Marcar tarea como hecha
+python3 Hermes/Systems/vps/scripts/agenda.py done ag-20260628-001 --date 2026-06-28
+
+# Posponer recordatorio
+python3 Hermes/Systems/vps/scripts/agenda.py snooze ag-20260628-001 11:00 --date 2026-06-28
+
+# Ver foco único
+python3 Hermes/Systems/vps/scripts/agenda.py focus --date 2026-06-28
+
+# Ver recordatorios
+python3 Hermes/Systems/vps/scripts/agenda.py reminders --date 2026-06-28
+
+# Scanner de recordatorios en modo prueba
+python3 Hermes/Systems/vps/scripts/agenda-reminder-scan.py --date hoy --dry-run
+```
+
+### Estado de activación
+
+- Parser/CLI: implementado y probado en vault temporal.
+- Scanner de recordatorios: implementado y probado en `--dry-run`.
+- Cron recurrente cada 5 minutos: **activado por orden explícita de Juan el 2026-06-27 09:26 ART**. Job Hermes `acafddde60b4` — `Agenda V2 reminder scanner` — schedule `every 5m` — `no_agent: true` — script `agenda-reminder-scan.sh`.
+- Agenda real `2026-06-28.md`: migrada a formato V2 para la tarea de cancelar ChatGPT. Tiene `status: scheduled` porque ya existe cron Hermes externo `9f6b80cff249` para el aviso del 28/06 09:00 ART.
+
+### Próxima acción propuesta
+
+Validar con Juan si activamos el scanner automático cada 5 minutos mediante Hermes cron `no_agent` o crontab del sistema. Recomendación: Hermes cron `no_agent` al inicio para poder pausarlo/listarlo desde Hermes.
