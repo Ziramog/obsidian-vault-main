@@ -203,6 +203,47 @@ Motivo:
 
 TTS solo se habilita si Juan lo pide explícitamente.
 
+### 6.4 Bot dedicado `Agenda`
+
+Decisión agregada por Juan el 2026-06-27:
+
+> Crear un bot especial de Telegram llamado **Agenda** para separar la carga/consulta diaria de tareas del canal general de Hermes.
+
+Objetivo:
+- Hacer más práctico el uso móvil.
+- Evitar mezclar agenda con conversaciones largas de estrategia, ventas o implementación.
+- Permitir que Juan mande texto/audio directamente al bot Agenda y reciba confirmación textual corta.
+- Mantener el bot principal de Hermes para conversación general y orquestación.
+
+Comportamiento esperado del bot Agenda:
+
+| Entrada al bot Agenda | Acción |
+|---|---|
+| texto libre: `mañana 9 cancelar ChatGPT` | parsear fecha/hora/tarea, escribir en `Hermes/Agenda/YYYY-MM-DD.md` |
+| audio Telegram | transcribir, interpretar tareas, escribir agenda, responder solo texto |
+| `/hoy` o `hoy` | listar agenda de hoy |
+| `/mañana` o `mañana` | listar agenda de mañana |
+| `/foco` o `foco` | devolver una sola tarea prioritaria |
+| `/hecho ag-YYYYMMDD-NNN` | marcar tarea como `done` |
+| `/posponer ag-YYYYMMDD-NNN 2h` | cambiar reminder y estado `snoozed` |
+
+Reglas técnicas:
+- El bot Agenda debe usar el mismo source of truth: `Hermes/Agenda/YYYY-MM-DD.md`.
+- No crear una base de datos separada para el bot.
+- No duplicar lógica: reutilizar `Hermes/Systems/vps/scripts/agenda.py` y `agenda-reminder-scan.py`.
+- Respuesta por defecto: texto corto, no audio.
+- Credenciales del bot Agenda deben vivir fuera del vault, en `.env` o secret store, referenciadas como `[credencial: TELEGRAM_AGENDA_BOT_TOKEN]` si hay que documentarlas.
+- Si conviven varios bots, cada bot debe tener token/chat routing separado y explícito para no romper el gateway principal.
+
+Fase de implementación nueva:
+1. Crear bot en BotFather con nombre operativo `Agenda`.
+2. Guardar token como variable de entorno fuera del vault.
+3. Crear handler dedicado o routing en gateway para mensajes recibidos por ese bot.
+4. Conectar handler a `agenda.py`.
+5. Probar texto primero.
+6. Probar audio → transcripción → respuesta texto.
+7. Documentar cómo pausar/desactivar el bot sin tocar agenda ni cron.
+
 ## 7. CLI común para PC/VPS
 
 Comando futuro sugerido:
