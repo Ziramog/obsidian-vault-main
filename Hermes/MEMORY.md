@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-06-25
+last-reviewed: 2026-06-27
 confidence: high
 status: active
 source: consolidation
@@ -11,7 +11,7 @@ source: consolidation
 
 ---
 
-**Última actualización:** 2026-06-25 (jueves) | **🟢 ESCALA** · Campaña Web Viejas: 30 entregados, 10 rebotes · Tracking de aperturas activo ✅ · Drive actualizado automáticamente · Junio Wolfim: $1.000 USD completo ✅
+**Última actualización:** 2026-06-27 (sábado) | **🟢 ESCALA** · Campaña Web Viejas: tanda cron ejecutada 10:00, 5 enviados, 0 fallaron · Quedan ~57 leads · Drive actualizado ✅ · Junio Wolfim: $1.000 USD completo ✅
 
 ---
 
@@ -29,6 +29,12 @@ dork_scout → wa_checker → enrich_leads → campaign.py → cron 10/día
 - Tanda 1: 10 enviados, 9 entregados, 1 bounce
 - Tanda 2: 10 enviados, 10 entregados
 - Quedan ~28 leads para próximas tandas
+
+### Resultados 27/06 — cron_campaign.py
+- Tanda cron 10:00 ART: 5 enviados, 0 fallaron
+- Enviados: minervinosa.com.ar, dmya.com.ar, cacec.com.ar, ghgestudio.com.ar, tufrocar.com.ar
+- Quedan ~57 leads pendientes
+- Drive actualizado: https://drive.google.com/file/d/1BoekbRSXeAp2ljgnwTeH84yYix-AUxml/view?usp=drivesdk
 
 ### Configuración
 - Remitente: `Juan Gomariz <juan@wolfim.com>`
