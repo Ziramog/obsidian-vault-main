@@ -243,6 +243,7 @@ Gramática de fechas soportada (2026-06-27 ajuste fino):
 - `en 3 días`
 - `viernes`, `lun`, `mie`, `jue`, etc. → próximo día futuro
 - `martes o miércoles` → toma el primer día futuro posible
+- prioridad explícita al inicio: `rojo mañana 9 llamar a GAMA`, `verde cuando pueda probar idea`
 - `miércoles que viene`, `viernes que viene`, `prox lunes`, `el otro miércoles` → siguiente semana
 - `la semana que viene` → próximo lunes de la semana siguiente
 - `fin de mes`
@@ -266,6 +267,8 @@ Heurística importante:
 - Frases de reminder soportadas: `recordámelo a las 10 pagar monotributo`, `pagar seguro después de las 15`, `pagar seguro a la tarde`, `mandar presupuesto antes de las 12`.
 - Reprogramación natural simple soportada: `mandar mail si no responde recordámelo mañana` y `seguir propuesta si no llego el viernes pasalo al lunes`.
 - Transcripción corrida soportada cuando mantiene conectores simples: `mañana llamar a GAMA y después ver ANGO y también pasar presupuesto`.
+- Comandos de producto nuevos: `/pendientes`, `/editar ag-... nuevo texto`, `/cancelar`, `/mover`, `/revisar`, `/esta-semana`, `/detalle`, `/prioridad`, `/limpiar`.
+- Deduplicación simple: si una tarea abierta igual entra dos veces, la segunda se salta con `SKIP duplicate`.
 
 Fase de implementación nueva:
 1. Crear bot en BotFather con nombre operativo `Agenda`.
