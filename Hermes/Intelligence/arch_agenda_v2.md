@@ -297,8 +297,10 @@ Diseño del cron:
 Estado real al 2026-06-27:
 - Código implementado y probado en modo local/simulado.
 - Cron creado y verificado (`last_status: ok`).
-- **Bloqueante pendiente:** todavía no existe `TELEGRAM_AGENDA_BOT_TOKEN` en el entorno, por lo que no se pudo hacer prueba end-to-end real contra Telegram.
-- Próximo paso operativo: crear bot `Agenda` en BotFather y guardar token en `.env`.
+- Token del bot Agenda ya fue cargado fuera del vault en `~/.hermes/.env` como `[credencial: TELEGRAM_AGENDA_BOT_TOKEN]`.
+- Username validado por `getMe`: `@Agenda_Hbot`.
+- **Bloqueante pendiente:** el bot todavía no recibió ningún mensaje (`getUpdates` = 0), por lo que no se pudo hacer prueba end-to-end real contra Telegram. Hasta que Juan no abra el chat e inicie `/start`, Telegram no deja enviarle mensajes desde ese bot.
+- Próximo paso operativo: Juan debe abrir `@Agenda_Hbot`, tocar `Start` y mandar `/hoy` o `mañana 9 llamar a GAMA`.
 
 ## 7. CLI común para PC/VPS
 
