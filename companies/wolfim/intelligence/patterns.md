@@ -28,7 +28,8 @@ last-reviewed: 2026-06-25
 
 | Canal | Evidencia | Conversión |
 |---|---|---|
-| [completar] | | |
+| Venta cara a cara / vínculo directo | Históricamente las ventas de Wolfim llegaron por relación directa, referencia o presencia de Juan. | Alta intención / mejor calidad de cierre |
+| Meta Ads hacia web con CTA | Primer hito validado en campaña real con visitas a landing/web y costo por resultado visible. | Aún temprana, pero validada como capability real |
 
 ## Canales que NO Funcionan
 
@@ -38,8 +39,8 @@ last-reviewed: 2026-06-25
 
 ## Errores que No Repetir
 
-1. [completar]
-2. [completar]
+1. Vender Wolfim como “hacemos webs” en vez de vender activo comercial + CTA + canal.
+2. Mandar tráfico pago a un destino sin CTA claro ni medición mínima.
 
 ## Insights por sesión
 
@@ -48,3 +49,4 @@ last-reviewed: 2026-06-25
 | 2026-06-27 | Wolfim ya no debe pensarse solo como agencia para inmobiliarias; la oferta real se abre a portales inmobiliarios, loteos, autos, landings, CMS, DB y ecommerce. | fetch sitio Wolfim + casos de producto |
 | 2026-06-27 | Real estate se divide en dos subproductos distintos: portal inmobiliario con catálogo vs landing premium para loteo/desarrollo. | fetch Roggero & Roma + La Montaña |
 | 2026-06-27 | Ecommerce existe como capacidad real por template Medusa, aunque todavía no como caso público validado. | input directo de Juan |
+| 2026-06-27 | Primer hito Meta Ads validado: ya existe circuito anuncio → web/landing → CTA con costo por visita visible. | captura Meta Ads Manager |
