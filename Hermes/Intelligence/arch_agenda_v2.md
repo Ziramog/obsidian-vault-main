@@ -244,6 +244,62 @@ Fase de implementación nueva:
 6. Probar audio → transcripción → respuesta texto.
 7. Documentar cómo pausar/desactivar el bot sin tocar agenda ni cron.
 
+### Implementación inicial del bot Agenda — 2026-06-27
+
+Archivos creados:
+
+```txt
+Hermes/Systems/vps/scripts/agenda-telegram-bot.py
+Hermes/Systems/vps/scripts/agenda-telegram-bot.sh
+~/.hermes/scripts/agenda-telegram-bot.sh
+Hermes/Systems/vps/state/agenda-bot-state.json   (se crea al primer poll real)
+Hermes/Systems/vps/cache/agenda-bot-audio/       (se crea al primer audio)
+```
+
+Qué hace `agenda-telegram-bot.py`:
+- Usa un bot dedicado con token `TELEGRAM_AGENDA_BOT_TOKEN`.
+- Si no encuentra la variable en entorno, la busca en `~/.hermes/.env`.
+- Hace polling one-shot de Telegram (`getUpdates`) para poder correr por cron cada 1 minuto.
+- Guarda `offset` en `Hermes/Systems/vps/state/agenda-bot-state.json`.
+- Reutiliza `agenda.py` para `/hoy`, `/mañana`, `/foco`, `/hecho`, `/posponer` y alta por texto libre.
+- Descarga audio/voice, transcribe con el stack STT de Hermes y responde en texto.
+- No usa DB separada.
+
+Comandos soportados en el bot:
+
+```txt
+/start
+/help
+/hoy
+/mañana
+/foco
+/hecho ag-YYYYMMDD-NNN
+/posponer ag-YYYYMMDD-NNN 11:00
+mañana 9 llamar a GAMA
+hoy 14 enviar presupuesto
+```
+
+Cron creado:
+
+```txt
+job_id: 3d8783e0f40f
+name: Agenda Telegram bot poller
+schedule: every 1m
+script: agenda-telegram-bot.sh
+mode: no_agent
+```
+
+Diseño del cron:
+- Si todavía no existe `TELEGRAM_AGENDA_BOT_TOKEN`, el wrapper sale silencioso.
+- Eso permite dejar el poller activo sin romper nada mientras Juan crea el bot en BotFather.
+- Apenas el token exista en `~/.hermes/.env`, el bot queda operativo sin reescribir código.
+
+Estado real al 2026-06-27:
+- Código implementado y probado en modo local/simulado.
+- Cron creado y verificado (`last_status: ok`).
+- **Bloqueante pendiente:** todavía no existe `TELEGRAM_AGENDA_BOT_TOKEN` en el entorno, por lo que no se pudo hacer prueba end-to-end real contra Telegram.
+- Próximo paso operativo: crear bot `Agenda` en BotFather y guardar token en `.env`.
+
 ## 7. CLI común para PC/VPS
 
 Comando futuro sugerido:
