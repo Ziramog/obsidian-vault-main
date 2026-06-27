@@ -234,6 +234,22 @@ Reglas técnicas:
 - Respuesta por defecto: texto corto, no audio.
 - Credenciales del bot Agenda deben vivir fuera del vault, en `.env` o secret store, referenciadas como `[credencial: TELEGRAM_AGENDA_BOT_TOKEN]` si hay que documentarlas.
 - Si conviven varios bots, cada bot debe tener token/chat routing separado y explícito para no romper el gateway principal.
+- Parser de fechas preferido: gramática propia simple en español antes que sumar librerías externas. Más mantenible y suficiente para los casos operativos de Juan.
+
+Gramática de fechas soportada (2026-06-27 ajuste fino):
+- `hoy`
+- `mañana`
+- `pasado mañana`
+- `en 3 días`
+- `viernes`, `lun`, `mie`, `jue`, etc. → próximo día futuro
+- `miércoles que viene`, `viernes que viene`, `prox lunes` → siguiente semana
+- `mie 26`, `mierc 26`, `viernes 8` → día de mes próximo futuro
+- `26/7`, `26-7`, `2026-07-26`
+- `vie 4 de julio`
+
+Heurística importante:
+- En frases como `miércoles que viene 14 pasar a ver ANGO`, el `14` se interpreta como **hora**, no como día del mes.
+- En frases como `mie 26 reunión`, el `26` se interpreta como **día del mes**.
 
 Fase de implementación nueva:
 1. Crear bot en BotFather con nombre operativo `Agenda`.
