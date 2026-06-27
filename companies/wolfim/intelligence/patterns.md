@@ -12,9 +12,17 @@ last-reviewed: 2026-06-25
 
 ## Clientes
 
-- **Perfil del que compra:** [completar]
-- **Perfil del que NO compra:** [completar]
-- **Objeciones más comunes:** [completar]
+- **Perfil del que compra:** negocios con producto/propuesta clara que necesitan verse mejor, ordenar consultas o mostrar catálogo.
+- **Perfil del que NO compra:** quien busca solo precio bajo o una web genérica sin intención comercial.
+- **Objeciones más comunes:** presupuesto, tiempos, mantenimiento, y necesidad de justificar por qué pasar de una web básica a una solución comercial más seria.
+
+## Verticales validados hasta ahora
+
+| Vertical | Tipo de solución validada | Caso |
+|---|---|---|
+| Inmobiliarias | portal con catálogo / CMS | Roggero & Roma |
+| Loteos / desarrollos | landing premium orientada a visita | La Montaña |
+| Automotriz | catálogo / presentación comercial | S&P Cars |
 
 ## Canales que Funcionan
 
@@ -37,4 +45,6 @@ last-reviewed: 2026-06-25
 
 | Fecha | Insight | Origen |
 |---|---|---|
-| [completar] | | |
+| 2026-06-27 | Wolfim ya no debe pensarse solo como agencia para inmobiliarias; la oferta real se abre a portales inmobiliarios, loteos, autos, landings, CMS, DB y ecommerce. | fetch sitio Wolfim + casos de producto |
+| 2026-06-27 | Real estate se divide en dos subproductos distintos: portal inmobiliario con catálogo vs landing premium para loteo/desarrollo. | fetch Roggero & Roma + La Montaña |
+| 2026-06-27 | Ecommerce existe como capacidad real por template Medusa, aunque todavía no como caso público validado. | input directo de Juan |

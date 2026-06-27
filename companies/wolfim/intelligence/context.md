@@ -39,6 +39,11 @@ source-of-truth: https://www.wolfim.com
 - Repuestos
 - Marcas personales y profesionales
 
+### Verticales ya validados con producto real
+- **Inmobiliarias** → caso validado: Roggero & Roma
+- **Loteos / desarrollos de tierra** → caso validado: La Montaña
+- **Automotriz / catálogos de vehículos** → caso visible en portfolio: S&P Cars
+
 ### Geografía / cobertura
 - **Posicionamiento público del sitio:** Buenos Aires + servicio remoto para clientes de todo el mundo.
 - **Realidad comercial conocida internamente:** Juan también vende de forma directa y presencial en Argentina cuando conviene.
@@ -82,6 +87,11 @@ Wolfim vende una combinación de:
 - SEO técnico
 - Google Ads
 - Optimización de conversión y medición
+- Landings simples orientadas a captación
+- Sitios con CMS actualizable
+- Sitios con base de datos
+- Portales de catálogo por vertical
+- Ecommerce implementable con template en Medusa (capacidad disponible, todavía sin caso público publicado)
 
 ## Casos mostrados públicamente
 
