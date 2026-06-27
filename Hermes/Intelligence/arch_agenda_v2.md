@@ -242,6 +242,7 @@ Gramática de fechas soportada (2026-06-27 ajuste fino):
 - `pasado mañana`
 - `en 3 días`
 - `viernes`, `lun`, `mie`, `jue`, etc. → próximo día futuro
+- `martes o miércoles` → toma el primer día futuro posible
 - `miércoles que viene`, `viernes que viene`, `prox lunes`, `el otro miércoles` → siguiente semana
 - `la semana que viene` → próximo lunes de la semana siguiente
 - `fin de mes`
@@ -255,6 +256,16 @@ Heurística importante:
 - En frases como `mie 26 reunión`, el `26` se interpreta como **día del mes**.
 - Prioridad implícita: `urgente`, `ya`, `sin falta` → 🔴 ; `cuando pueda`, `probamos`, `sondear` → 🟢 ; fechas futuras no urgentes → 🟡.
 - Carga múltiple soportada: `mañana: llamar a GAMA, ver ANGO, pasar presupuesto`.
+- Carga multilinea soportada: 
+  ```txt
+  mañana
+  - llamar a GAMA
+  - ver ANGO
+  - pasar presupuesto
+  ```
+- Frases de reminder soportadas: `recordámelo a las 10 pagar monotributo`, `pagar seguro después de las 15`, `pagar seguro a la tarde`, `mandar presupuesto antes de las 12`.
+- Reprogramación natural simple soportada: `mandar mail si no responde recordámelo mañana` y `seguir propuesta si no llego el viernes pasalo al lunes`.
+- Transcripción corrida soportada cuando mantiene conectores simples: `mañana llamar a GAMA y después ver ANGO y también pasar presupuesto`.
 
 Fase de implementación nueva:
 1. Crear bot en BotFather con nombre operativo `Agenda`.
