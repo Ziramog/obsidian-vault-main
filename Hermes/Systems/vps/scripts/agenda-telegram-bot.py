@@ -12,11 +12,13 @@ from __future__ import annotations
 import argparse
 import contextlib
 import datetime as dt
+import fcntl
 import importlib.util
 import json
 import os
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -136,8 +138,8 @@ def telegram_api(token: str, method: str, data: Optional[Dict[str, Any]] = None)
         return json.loads(resp.read().decode())
 
 
-def get_updates(token: str, offset: int) -> List[Dict[str, Any]]:
-    resp = telegram_api(token, "getUpdates", {"offset": offset, "timeout": 0})
+def get_updates(token: str, offset: int, timeout: int = 0) -> List[Dict[str, Any]]:
+    resp = telegram_api(token, "getUpdates", {"offset": offset, "timeout": timeout})
     if not resp.get("ok"):
         raise RuntimeError(f"getUpdates failed: {resp}")
     return resp.get("result", [])
@@ -471,20 +473,22 @@ def process_update(vault: Path, token: str, update: Dict[str, Any], dry_run: boo
     return f"chat_id={chat_id} sent={ok} text={response_text.splitlines()[0][:120]}"
 
 
-def poll_once(vault: Path, token_env: str, dry_run: bool = False) -> str:
+def poll_once(vault: Path, token_env: str, dry_run: bool = False, poll_timeout: int = 0) -> str:
     token = load_token(token_env)
     state = load_state()
     offset = int(state.get("offset", 0) or 0)
-    updates = get_updates(token, offset)
+    updates = get_updates(token, offset, timeout=poll_timeout)
     outputs: List[str] = []
     next_offset = offset
     for upd in updates:
         upd_id = int(upd.get("update_id", 0) or 0)
         next_offset = max(next_offset, upd_id + 1)
-        with contextlib.suppress(Exception):
+        try:
             result = process_update(vault, token, upd, dry_run=dry_run)
             if result:
                 outputs.append(result)
+        except Exception as exc:
+            outputs.append(f"ERROR update_id={upd_id}: {type(exc).__name__}: {exc}")
         if not dry_run:
             state["offset"] = next_offset
             save_state(state)
@@ -492,6 +496,34 @@ def poll_once(vault: Path, token_env: str, dry_run: bool = False) -> str:
         state["offset"] = next_offset
         save_state(state)
     return "\n".join(outputs)
+
+
+def poll_loop(vault: Path, token_env: str, dry_run: bool = False, poll_timeout: int = 25, sleep_on_error: int = 5) -> int:
+    """Run Agenda bot as a resident long-polling process.
+
+    This avoids cron latency. A lock prevents a second resident process from
+    colliding with Telegram getUpdates and creating Conflict errors.
+    """
+    ensure_dirs()
+    lock_path = STATE_DIR / "agenda-bot-loop.lock"
+    with lock_path.open("w") as lock_file:
+        try:
+            fcntl.flock(lock_file.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            print("Agenda bot loop already running; exiting.", flush=True)
+            return 0
+        print(f"{now_art().isoformat()} Agenda bot loop started poll_timeout={poll_timeout}s", flush=True)
+        while True:
+            try:
+                output = poll_once(vault, token_env=token_env, dry_run=dry_run, poll_timeout=poll_timeout)
+                if output:
+                    print(f"{now_art().isoformat()} {output}", flush=True)
+            except KeyboardInterrupt:
+                print(f"{now_art().isoformat()} Agenda bot loop stopped", flush=True)
+                return 0
+            except Exception as exc:
+                print(f"{now_art().isoformat()} LOOP ERROR {type(exc).__name__}: {exc}", flush=True)
+                time.sleep(sleep_on_error)
 
 
 def selftest(vault: Path) -> str:
@@ -513,6 +545,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--vault", default=str(DEFAULT_VAULT))
     p.add_argument("--token-env", default=DEFAULT_TOKEN_ENV)
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--loop", action="store_true", help="Run resident long-polling loop instead of one-shot poll")
+    p.add_argument("--poll-timeout", type=int, default=25, help="Telegram long-poll timeout for --loop; use 0 for one-shot")
     p.add_argument("--selftest", action="store_true")
     p.add_argument("--simulate-text", help="Procesa un texto como si viniera del bot, sin Telegram")
     return p
@@ -527,7 +561,9 @@ def main(argv: Optional[List[str]] = None) -> int:
     if args.simulate_text:
         print(handle_text(vault, args.simulate_text, source="simulate-text"))
         return 0
-    output = poll_once(vault, token_env=args.token_env, dry_run=args.dry_run)
+    if args.loop:
+        return poll_loop(vault, token_env=args.token_env, dry_run=args.dry_run, poll_timeout=args.poll_timeout)
+    output = poll_once(vault, token_env=args.token_env, dry_run=args.dry_run, poll_timeout=0)
     if output:
         print(output)
     return 0
