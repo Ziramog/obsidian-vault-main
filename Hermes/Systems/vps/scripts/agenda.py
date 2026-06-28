@@ -63,6 +63,7 @@ WEEKDAY_NAME_TO_INDEX = {
 TASK_RE = re.compile(r"^- \[(?P<check>[ xX])\] \*\*(?P<title>.*?)\*\*(?: — (?P<detail>.*))?$")
 META_RE = re.compile(r"^  - (?P<key>[a-zA-Z0-9_-]+): ?(?P<value>.*)$")
 TIME_PREFIX_RE = re.compile(r"^(?P<time>\d{1,2}(?::\d{2})?)\b")
+MERIDIEM_PREFIX_RE = re.compile(r"^(?P<meridiem>(?:a|p)\.?\s*m\.?|am|pm)\s*", re.IGNORECASE)
 DATE_PREFIX_PATTERNS = [
     re.compile(r"^(?P<date>la\s+semana\s+que\s+viene)\b", re.IGNORECASE),
     re.compile(r"^(?P<date>fin\s+de\s+mes)\b", re.IGNORECASE),
@@ -238,6 +239,53 @@ def parse_date(value: Optional[str]) -> dt.date:
     )
 
 
+def apply_meridiem(reminder: Optional[str], text_after_time: str) -> Tuple[Optional[str], str]:
+    """Convert a leading AM/PM marker after a numeric time and strip it from title.
+
+    Examples: `2 p.m. llamar` -> (`14:00`, `llamar`),
+    `8 am pagar` -> (`08:00`, `pagar`).
+    """
+    if not reminder:
+        return reminder, text_after_time.strip(" ,-:")
+    text = text_after_time.strip(" ,-:")
+    match = MERIDIEM_PREFIX_RE.match(text)
+    if not match:
+        return reminder, text
+    meridiem = normalize_date_text(match.group("meridiem"))
+    hh_s, mm_s = (reminder.split(":", 1) + ["00"])[:2] if ":" in reminder else (reminder, "00")
+    hour = int(hh_s)
+    minute = int(mm_s)
+    if meridiem.startswith("p") and hour < 12:
+        hour += 12
+    elif meridiem.startswith("a") and hour == 12:
+        hour = 0
+    return f"{hour:02d}:{minute:02d}", text[match.end():].strip(" ,-:")
+
+
+def parse_date_time_header(text: str) -> Optional[Tuple[str, Optional[str]]]:
+    """Parse list headers like `mañana 8 am` with no task title."""
+    s = re.sub(r"\s+", " ", (text or "").strip())
+    for pattern in DATE_PREFIX_PATTERNS:
+        match = pattern.match(s)
+        if not match:
+            continue
+        date_text = match.group("date").strip()
+        remainder = s[match.end():].strip(" ,-:")
+        if not remainder:
+            parse_date(date_text)
+            return date_text, None
+        time_match = TIME_PREFIX_RE.match(remainder)
+        if not time_match:
+            continue
+        reminder = time_match.group("time")
+        tail = remainder[time_match.end():].strip(" ,-:")
+        reminder, tail = apply_meridiem(reminder, tail)
+        if not tail:
+            parse_date(date_text)
+            return date_text, reminder
+    return None
+
+
 def extract_date_time_and_title(text: str) -> Tuple[str, Optional[str], str]:
     s = re.sub(r"\s+", " ", (text or "").strip())
     for cond_pattern in CONDITIONAL_REMINDER_PATTERNS:
@@ -290,7 +338,7 @@ def extract_date_time_and_title(text: str) -> Tuple[str, Optional[str], str]:
         if time_match:
             reminder = time_match.group("time")
             remainder = remainder[time_match.end():].strip(" ,-:")
-        remainder = re.sub(r"^(?:a\.?m\.?|p\.?m\.?)\s*", "", remainder, flags=re.IGNORECASE).strip()
+            reminder, remainder = apply_meridiem(reminder, remainder)
         if not remainder:
             raise ValueError("Falta el título de la tarea.")
         return date_text, reminder, remainder
@@ -298,7 +346,7 @@ def extract_date_time_and_title(text: str) -> Tuple[str, Optional[str], str]:
     if time_match:
         reminder = time_match.group("time")
         title = s[time_match.end():].strip(" ,-:")
-        title = re.sub(r"^(?:a\.?m\.?|p\.?m\.?)\s*", "", title, flags=re.IGNORECASE).strip()
+        reminder, title = apply_meridiem(reminder, title)
         if not title:
             raise ValueError("Falta el título de la tarea.")
         return "hoy", reminder, title
@@ -374,14 +422,21 @@ def parse_task_batch(text: str) -> List[Tuple[str, Optional[str], str, Optional[
     if len(lines) > 1:
         tasks: List[Tuple[str, Optional[str], str, Optional[str]]] = []
         inherited_date: Optional[str] = None
+        inherited_reminder: Optional[str] = None
         inherited_priority: Optional[str] = None
         for line in lines:
             line = re.sub(r"^\d+[\)\.-]\s*", "", line).strip()
+            line = re.sub(r"^\d{1,2}(?=[A-Za-zÁÉÍÓÚÜÑáéíóúüñ])", "", line).strip()
             if not line:
+                continue
+            header = parse_date_time_header(line)
+            if header:
+                inherited_date, inherited_reminder = header
                 continue
             try:
                 parse_date(line)
                 inherited_date = line
+                inherited_reminder = None
                 continue
             except SystemExit:
                 pass
@@ -391,7 +446,10 @@ def parse_task_batch(text: str) -> List[Tuple[str, Optional[str], str, Optional[
                 tasks.append((inherited_date, reminder, title, inherited_priority))
                 continue
             if inherited_date and not explicit_date:
-                tasks.append(_parsed_with_priority(f"{inherited_date} {line}", inherited_priority))
+                parsed = _parsed_with_priority(f"{inherited_date} {line}", inherited_priority)
+                if inherited_reminder and not parsed[1]:
+                    parsed = (parsed[0], inherited_reminder, parsed[2], parsed[3])
+                tasks.append(parsed)
                 continue
             try:
                 parsed = _parsed_with_priority(line, inherited_priority)
@@ -637,7 +695,9 @@ def format_task(task: Dict[str, str]) -> str:
 
 
 def list_agenda(vault: Path, day: dt.date) -> str:
-    path = ensure_agenda(vault, day)
+    path = agenda_path(vault, day)
+    if not path.exists():
+        return f"Agenda {day.isoformat()}: sin tareas.\nArchivo: {path}"
     tasks = [t for t in iter_tasks(read_lines(path)) if t.get("status") not in {"cancelled"}]
     if not tasks:
         return f"Agenda {day.isoformat()}: sin tareas.\nArchivo: {path}"
@@ -779,7 +839,9 @@ def review(vault: Path, start_day: dt.date, days: int = 7) -> str:
     rows: List[str] = []
     for offset in range(days):
         day = start_day + dt.timedelta(days=offset)
-        path = ensure_agenda(vault, day)
+        path = agenda_path(vault, day)
+        if not path.exists():
+            continue
         tasks = [t for t in iter_tasks(read_lines(path)) if t.get("status") not in {"done", "cancelled"}]
         for task in tasks:
             if task.get("reminder"):
@@ -793,7 +855,10 @@ def week_summary(vault: Path, start_day: dt.date) -> str:
     rows: List[str] = [f"Agenda semana desde {start_day.isoformat()}:"]
     for offset in range(7):
         day = start_day + dt.timedelta(days=offset)
-        path = ensure_agenda(vault, day)
+        path = agenda_path(vault, day)
+        if not path.exists():
+            rows.append(f"- {day.isoformat()} · 0 abiertas · sin archivo")
+            continue
         tasks = [t for t in iter_tasks(read_lines(path)) if t.get("status") not in {"done", "cancelled"}]
         count = len(tasks)
         top = tasks[0].get("title") if tasks else "sin tareas"
@@ -817,7 +882,9 @@ def pending_tasks(vault: Path, start_day: dt.date, days: int = 30) -> str:
     rows: List[str] = []
     for offset in range(days):
         day = start_day + dt.timedelta(days=offset)
-        path = ensure_agenda(vault, day)
+        path = agenda_path(vault, day)
+        if not path.exists():
+            continue
         tasks = [t for t in iter_tasks(read_lines(path)) if t.get("status") not in {"done", "cancelled"} and t.get("check", " ").lower() != "x"]
         for task in tasks:
             reminder = f" · {task.get('reminder')}" if task.get("reminder") else ""

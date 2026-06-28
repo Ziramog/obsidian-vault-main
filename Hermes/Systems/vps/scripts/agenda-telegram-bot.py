@@ -319,6 +319,13 @@ def handle_text(vault: Path, text: str, source: str) -> str:
     raw = text.strip()
     if not raw:
         return "Mandame una tarea o un comando: /hoy, /mañana, /foco, /hecho, /posponer"
+    # Telegram group/private commands may arrive as /comando@BotName.
+    # Normalize the first token before dispatching; otherwise commands fall
+    # through to cmd_add() and pollute the agenda as tasks.
+    if raw.startswith("/"):
+        parts = raw.split(maxsplit=1)
+        cmd = parts[0].split("@", 1)[0]
+        raw = f"{cmd} {parts[1]}".strip() if len(parts) > 1 else cmd
     low = raw.lower()
     if low in {"/start", "/help", "help", "ayuda"}:
         return (
@@ -360,7 +367,9 @@ def handle_text(vault: Path, text: str, source: str) -> str:
         return cmd_list(vault, "mañana")
     if low in {"/esta-semana", "/semana", "esta semana", "semana"}:
         return cmd_week(vault, "hoy")
-    if low in {"/pendientes", "pendientes"}:
+    if low in {"/pendientes", "/pendiente", "pendientes", "pendiente", "dame todo lo pendiente", "dame lo pendiente", "todo lo pendiente", "qué tengo pendiente", "que tengo pendiente"}:
+        return cmd_pending(vault, "hoy")
+    if low in {"/tareas", "tareas", "mis tareas", "qué tengo", "que tengo"}:
         return cmd_pending(vault, "hoy")
     if low in {"/revisar", "revisar"}:
         return cmd_review(vault, "hoy")
@@ -409,6 +418,15 @@ def handle_text(vault: Path, text: str, source: str) -> str:
         if len(parts) < 3:
             return "Uso: /posponer ag-YYYYMMDD-NNN 11:00"
         return cmd_snooze(vault, parts[1], parts[2])
+    if low.startswith("/agendar ") or low.startswith("/add "):
+        return cmd_add(vault, raw, source=source)
+    if low.startswith("/"):
+        return "Comando no reconocido. No guardé nada. Usá /help para ver comandos válidos."
+    if low.startswith("agendar ") or low.startswith("agendá ") or low.startswith("agenda "):
+        payload = raw.split(maxsplit=1)[1].strip() if len(raw.split(maxsplit=1)) > 1 else ""
+        if not payload:
+            return "Uso: agendar mañana 9 llamar a GAMA"
+        return cmd_add(vault, payload, source=source)
     return cmd_add(vault, raw, source=source)
 
 
