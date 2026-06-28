@@ -329,8 +329,8 @@ def parse_task_batch(text: str) -> List[Tuple[str, Optional[str], str, Optional[
     raw = (text or "").strip()
     if not raw:
         return []
-    # Normalize A.M./P.M. spaced variants before sentence splitting
-    raw = re.sub(r"\b([ap])\s*\.\s*\s*m\s*\.", r"\1.m.", raw, flags=re.IGNORECASE)
+    # Normalize A.M./P.M. spaced variants
+    raw = re.sub(r"\b([ap])\s*\.\s+\s*m\s*\.", r"\1.m.", raw, flags=re.IGNORECASE)
     compact = re.sub(r"\s+", " ", raw)
 
     def _parsed_with_priority(chunk: str, inherited_priority: Optional[str] = None):
@@ -347,9 +347,9 @@ def parse_task_batch(text: str) -> List[Tuple[str, Optional[str], str, Optional[
     if prefix_match:
         prefix = prefix_match.group("prefix").strip()
         rest = prefix_match.group("rest").strip()
-        with contextlib.suppress(Exception):
+        with contextlib.suppress(BaseException):
             parse_date(prefix)
-            parts = [p.strip(" -") for p in re.split(r"\s*(?:,|;|\n|(?<![ap]\.?m\.?|etc|dr|ing|sr|sra|prof)\. )\s*", rest) if p.strip(" -")]
+            parts = [p.strip(" -") for p in re.split(r"\s*(?:,|;|\n)\s*", rest) if p.strip(" -")]
             if len(parts) > 1:
                 return [_parsed_with_priority(f"{prefix} {part}") for part in parts]
     speech_chunks = [p.strip(" -") for p in re.split(r"\s+y\s+(?:tambien|también)\s+|\s+y\s+despues\s+|\s+y\s+después\s+", compact, flags=re.IGNORECASE) if p.strip(" -")]
@@ -403,7 +403,7 @@ def parse_task_batch(text: str) -> List[Tuple[str, Optional[str], str, Optional[
                 pass
             tasks.append(_parsed_with_priority(line, inherited_priority))
         return tasks
-    sentence_split = [p.strip(" -") for p in re.split(r"\s*(?:;|(?<![ap]\.?m\.?|etc|dr|ing|sr|sra|prof)\. )\s*", compact) if p.strip(" -")]
+    sentence_split = [p.strip(" -") for p in re.split(r"\s*;\s*", compact) if p.strip(" -")]
     if len(sentence_split) > 1:
         return [_parsed_with_priority(part) for part in sentence_split]
     return [_parsed_with_priority(raw)]
