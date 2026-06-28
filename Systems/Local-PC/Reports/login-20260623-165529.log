@@ -1,0 +1,35 @@
+﻿16:55:29 === PC Brain - Monitor de Login ===
+16:55:30 Inicio: 06/23/2026 16:55:29
+16:55:30 --- 1. Espacio libre ---
+16:55:30   C:: 362.9 GB libre de 476.9 GB (76.1%)
+16:55:30   D:: 276 GB libre de 495.8 GB (55.7%)
+16:55:30   E:: 0 GB libre de 0 GB (38.7%)
+16:55:30   F:: 0.3 GB libre de 146 GB (0.2%)
+16:55:30   ALERTA: F: por debajo del 10%
+16:55:30   G:: 29.4 GB libre de 86.4 GB (34.1%)
+16:55:30   H:: 48.4 GB libre de 488.3 GB (9.9%)
+16:55:30   ALERTA: H: por debajo del 10%
+16:55:30   I:: 202.2 GB libre de 878.9 GB (23%)
+16:55:30 --- 2. Estado de discos ---
+16:55:32   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+16:55:32   WDC WDS250G1B0A-00H9H0: Healthy / OK
+16:55:32   Kingston DataTraveler 3.0: Healthy / OK
+16:55:32   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+16:55:32 --- 3. Ultimo backup ---
+16:55:32   No se detecto sistema de backup automatico
+16:55:32 --- 4. Errores criticos (24h) ---
+16:55:32   20:33 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
+16:55:32   20:28 [Critical] Microsoft-Windows-Kernel-Power: 41 - The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding
+16:55:32   20:28 [Error] EventLog: 6008 - The previous system shutdown at 6:46:31 PM on ‎6/‎23/‎2026 was unexpected.
+16:55:32   20:28 [Error] Microsoft-Windows-Kernel-Boot: 29 - Windows failed fast startup with error status 0xC00000D4.
+16:55:32   18:33 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
+16:55:32   11:59 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
+16:55:32   11:56 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
+16:55:32   11:36 [Error] Microsoft-Windows-DistributedCOM: 10005 - DCOM got error "1115" attempting to start the service SecurityHealthService with arguments "Unavailable" in order to run
+16:55:32   04:46 [Error] Microsoft-Windows-Kernel-Boot: 29 - Windows failed fast startup with error status 0xC00000D4.
+16:55:32   18:00 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
+16:55:32 --- 5. Boot NVMe ---
+16:55:33   NVMe autonomo: Disco 2/C: OK
+16:55:33 --- Actualizando STATUS.md ---
+16:55:33 STATUS.md actualizado
+16:55:33 === Completado en 3.2 segundos ===

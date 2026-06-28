@@ -1,0 +1,35 @@
+﻿08:24:16 === PC Brain - Monitor de Login ===
+08:24:16 Inicio: 06/27/2026 08:24:16
+08:24:16 --- 1. Espacio libre ---
+08:24:17   C:: 367.2 GB libre de 476.9 GB (77%)
+08:24:17   D:: 276 GB libre de 495.8 GB (55.7%)
+08:24:17   E:: 0 GB libre de 0 GB (38.7%)
+08:24:17   F:: 0.4 GB libre de 146 GB (0.3%)
+08:24:17   ALERTA: F: por debajo del 10%
+08:24:17   G:: 29.4 GB libre de 86.4 GB (34.1%)
+08:24:17   H:: 48.4 GB libre de 488.3 GB (9.9%)
+08:24:17   ALERTA: H: por debajo del 10%
+08:24:17   I:: 214.1 GB libre de 878.9 GB (24.4%)
+08:24:17 --- 2. Estado de discos ---
+08:24:24   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+08:24:24   VendorCo ProductCode: Healthy / OK
+08:24:24   WDC WDS250G1B0A-00H9H0: Healthy / OK
+08:24:24   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+08:24:24 --- 3. Ultimo backup ---
+08:24:25   No se detecto sistema de backup automatico
+08:24:25 --- 4. Errores criticos (24h) ---
+08:24:25   00:08 [Error] Microsoft-Windows-DNS-Client: 1012 - There was an error while attempting to read the local hosts file.
+08:24:25   00:08 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
+08:24:25   00:08 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
+08:24:25   00:03 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {888F6C3E-A4E4-4CB5-AE11-9BE92A13F34C} did not register with DCOM within the required timeout.
+08:24:25   23:10 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {8018F647-BF07-55BB-82BE-A2D7049F7CE4} did not register with DCOM within the required timeout.
+08:24:25   22:14 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {888F6C3E-A4E4-4CB5-AE11-9BE92A13F34C} did not register with DCOM within the required timeout.
+08:24:25   22:12 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {8018F647-BF07-55BB-82BE-A2D7049F7CE4} did not register with DCOM within the required timeout.
+08:24:25   21:34 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {888F6C3E-A4E4-4CB5-AE11-9BE92A13F34C} did not register with DCOM within the required timeout.
+08:24:25   21:00 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {8018F647-BF07-55BB-82BE-A2D7049F7CE4} did not register with DCOM within the required timeout.
+08:24:25   18:09 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {8018F647-BF07-55BB-82BE-A2D7049F7CE4} did not register with DCOM within the required timeout.
+08:24:25 --- 5. Boot NVMe ---
+08:24:25   NVMe autonomo: Disco 2/C: OK
+08:24:25 --- Actualizando STATUS.md ---
+08:24:25 STATUS.md actualizado
+08:24:25 === Completado en 8.8 segundos ===

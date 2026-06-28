@@ -1,0 +1,86 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260624153051
+Username: DESKTOP-3V091DM\ingju
+RunAs User: DESKTOP-3V091DM\ingju
+Configuration Name: 
+Machine: DESKTOP-3V091DM (Microsoft Windows NT 10.0.19045.0)
+Host Application: powershell -ExecutionPolicy Bypass -File C:\Users\ingju\AppData\Local\hermes\profiles\pcbrain\workspace\scripts\setup-desktops.ps1
+Process ID: 9916
+PSVersion: 5.1.19041.6456
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.6456
+BuildVersion: 10.0.19041.6456
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Log: C:\Projects\Obsidian\obsidian-vault-main\Systems\Local-PC\Reports\setup-desktops-20260624-153051.log
+Mon1 (izq): 1920x1040 en (0,0)
+Mon2 (der): 1920x1040 en (1920,0)
+[+0.4s] === PC Brain - Setup de Escritorios ===
+[+0.4s] Limpiando escritorios...
+  VD -count -> Count of desktops: 3
+  Escritorios actuales: 3
+  VD -remove:1 -> Removing virtual desktop number 1 (desktop 'Desktop 2')
+Removing virtual desktop number 1 (desktop 'Desktop 2')
+  VD -count -> Count of desktops: 2
+  VD -remove:1 -> Removing virtual desktop number 1 (desktop 'Desktop 2')
+Removing virtual desktop number 1 (desktop 'Desktop 2')
+  VD -count -> Count of desktops: 1
+[+1.3s] Creando escritorios...
+  VD -new -> Creating virtual desktop number 1
+Creating virtual desktop number 1
+  VD -new -> Creating virtual desktop number 2
+Creating virtual desktop number 2
+  VD -count -> Count of desktops: 3
+  Total: 3
+[+1.7s] === Escritorio 0 ===
+  VD -switch:0 -> Switching to virtual desktop number 0 (desktop 'Desktop 1')
+Switching to virtual desktop number 0 (desktop 'Desktop 1')
+  Abriendo: C:\Users\ingju\AppData\Local\hermes\hermes-agent\apps\desktop\release\win-unpacked\Hermes.exe
+  Ventana detectada: Hermes (hwnd=66740, title='Hermes')
+  Posicionada: hwnd=66740 -> (0,0 960x1040) OK=True
+  Abriendo: shell:AppsFolder\44576milosp.OneCommander_p0rg76fmnrgsm!App
+  Ventana detectada: OneCommander (hwnd=2818456, title='OneCommander')
+  Posicionada: hwnd=2818456 -> (960,0 960x1040) OK=True
+  Abriendo: C:\Program Files\Google\Chrome\Application\chrome.exe
+  Ventana detectada: chrome (hwnd=66852, title='Untitled - Google Chrome')
+True
+True
+  Maximizada (hwnd=66852)
+[+11.8s] === Escritorio 1 ===
+  VD -switch:1 -> Switching to virtual desktop number 1 (desktop 'Desktop 2')
+Switching to virtual desktop number 1 (desktop 'Desktop 2')
+  Abriendo: C:\Program Files\Google\Chrome\Application\chrome.exe
+  Ventana detectada: chrome (hwnd=132312, title='New Tab - Google Chrome')
+True
+True
+  Maximizada (hwnd=132312)
+  Abriendo: C:\Users\ingju\AppData\Local\Programs\antigravity\Antigravity.exe
+  Ventana detectada: Antigravity (hwnd=131784, title='Antigravity')
+  Posicionada: hwnd=131784 -> (1920,0 960x1040) OK=True
+  Abriendo: explorer.exe
+  TIMEOUT: No se encontro nueva ventana para explorer en 20000ms
+[+38.8s] === Escritorio 2 ===
+  VD -switch:2 -> Switching to virtual desktop number 2 (desktop 'Desktop 3')
+Switching to virtual desktop number 2 (desktop 'Desktop 3')
+  Abriendo: C:\Program Files\Google\Chrome\Application\chrome.exe
+  Ventana detectada: chrome (hwnd=1443474, title='New Tab - Google Chrome')
+True
+True
+  Maximizada (hwnd=1443474)
+  Abriendo: shell:AppsFolder\OpenAI.Codex_2p2nqsd0c76g0!App
+  Ventana detectada: Codex (hwnd=328316, title='Codex')
+  Posicionada: hwnd=328316 -> (1920,0 960x1040) OK=True
+  Abriendo: explorer.exe
+  TIMEOUT: No se encontro nueva ventana para explorer en 20000ms
+[+69.9s] Volviendo al Escritorio 0...
+  VD -switch:0 -> Switching to virtual desktop number 0 (desktop 'Desktop 1')
+Switching to virtual desktop number 0 (desktop 'Desktop 1')
+[+70.1s] === Completado en 70.1 segundos ===
+**********************
+Windows PowerShell transcript end
+End time: 20260624153201
+**********************

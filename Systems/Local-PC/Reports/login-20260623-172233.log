@@ -1,0 +1,34 @@
+﻿17:22:33 === PC Brain - Monitor de Login ===
+17:22:33 Inicio: 06/23/2026 17:22:33
+17:22:33 --- 1. Espacio libre ---
+17:22:33   C:: 363 GB libre de 476.9 GB (76.1%)
+17:22:33   D:: 276 GB libre de 495.8 GB (55.7%)
+17:22:33   E:: 0 GB libre de 0 GB (38.7%)
+17:22:33   F:: 0.4 GB libre de 146 GB (0.2%)
+17:22:33   ALERTA: F: por debajo del 10%
+17:22:33   G:: 29.4 GB libre de 86.4 GB (34.1%)
+17:22:33   H:: 48.4 GB libre de 488.3 GB (9.9%)
+17:22:33   ALERTA: H: por debajo del 10%
+17:22:33   I:: 202.2 GB libre de 878.9 GB (23%)
+17:22:33 --- 2. Estado de discos ---
+17:22:36   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+17:22:36   WDC WDS250G1B0A-00H9H0: Healthy / OK
+17:22:36   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+17:22:36 --- 3. Ultimo backup ---
+17:22:37   No se detecto sistema de backup automatico
+17:22:37 --- 4. Errores criticos (24h) ---
+17:22:37   17:02 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {A463FCB9-6B1C-4E0D-A80B-A2CA7999E25D} did not register with DCOM within the required timeout.
+17:22:37   17:02 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {A463FCB9-6B1C-4E0D-A80B-A2CA7999E25D} did not register with DCOM within the required timeout.
+17:22:37   17:02 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {A463FCB9-6B1C-4E0D-A80B-A2CA7999E25D} did not register with DCOM within the required timeout.
+17:22:37   17:02 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {A463FCB9-6B1C-4E0D-A80B-A2CA7999E25D} did not register with DCOM within the required timeout.
+17:22:37   17:02 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {A463FCB9-6B1C-4E0D-A80B-A2CA7999E25D} did not register with DCOM within the required timeout.
+17:22:37   17:02 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {A463FCB9-6B1C-4E0D-A80B-A2CA7999E25D} did not register with DCOM within the required timeout.
+17:22:37   17:01 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server Microsoft.Windows.ContentDeliveryManager_10.0.19041.4239_neutral_neutral_cw5n1h2txyewy!App.AppXwdz8g2fxr36xz0
+17:22:37   20:33 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
+17:22:37   20:28 [Critical] Microsoft-Windows-Kernel-Power: 41 - The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding
+17:22:37   20:28 [Error] EventLog: 6008 - The previous system shutdown at 6:46:31 PM on ‎6/‎23/‎2026 was unexpected.
+17:22:37 --- 5. Boot NVMe ---
+17:22:37   NVMe autonomo: Disco 2/C: OK
+17:22:37 --- Actualizando STATUS.md ---
+17:22:37 STATUS.md actualizado
+17:22:37 === Completado en 4.2 segundos ===
