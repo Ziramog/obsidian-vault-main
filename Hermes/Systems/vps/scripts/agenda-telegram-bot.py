@@ -437,13 +437,16 @@ def process_update(vault: Path, token: str, update: Dict[str, Any], dry_run: boo
         if not file_id:
             response_text = "No pude leer el audio."
         else:
-            file_path = get_file_path(token, file_id)
-            local_path = download_file(token, file_path, ".ogg")
-            transcript = transcribe_voice_file(local_path)
-            response_text = (
-                f"Transcripción: {transcript}\n\n" +
-                handle_text(vault, transcript, source="telegram-audio")
-            )
+            try:
+                file_path = get_file_path(token, file_id)
+                local_path = download_file(token, file_path, ".ogg")
+                transcript = transcribe_voice_file(local_path)
+                response_text = (
+                    f"Transcripción: {transcript}\n\n" +
+                    handle_text(vault, transcript, source="telegram-audio")
+                )
+            except Exception as exc:
+                response_text = f"Error al procesar audio: {exc}\nProbá mandarlo como texto."
     elif message.get("audio"):
         file_id = message["audio"].get("file_id")
         if not file_id:
