@@ -361,11 +361,11 @@ def handle_text(vault: Path, text: str, source: str) -> str:
             "- /hecho ag-YYYYMMDD-NNN\n"
             "- /posponer ag-YYYYMMDD-NNN 11:00"
         )
-    if low in {"/hoy", "hoy"}:
+    if low in {"/hoy", "hoy", "agenda hoy", "ver hoy", "mostrar hoy", "mostrame hoy", "listar hoy", "qué tengo hoy", "que tengo hoy"}:
         return cmd_list(vault, "hoy")
-    if low in {"/mañana", "/manana", "mañana", "manana"}:
+    if low in {"/mañana", "/manana", "mañana", "manana", "agenda mañana", "agenda manana", "ver mañana", "ver manana", "mostrar mañana", "mostrar manana", "mostrame mañana", "mostrame manana", "listar mañana", "listar manana", "qué tengo mañana", "que tengo mañana", "qué tengo manana", "que tengo manana"}:
         return cmd_list(vault, "mañana")
-    if low in {"/esta-semana", "/semana", "esta semana", "semana"}:
+    if low in {"/esta-semana", "/semana", "esta semana", "semana", "agenda semana", "ver semana", "mostrar semana", "mostrame semana", "qué tengo esta semana", "que tengo esta semana"}:
         return cmd_week(vault, "hoy")
     if low in {"/pendientes", "/pendiente", "pendientes", "pendiente", "dame todo lo pendiente", "dame lo pendiente", "todo lo pendiente", "qué tengo pendiente", "que tengo pendiente"}:
         return cmd_pending(vault, "hoy")

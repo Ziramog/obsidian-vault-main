@@ -2,7 +2,7 @@
 type: manual
 product: Agenda Telegram Bot
 owner: brain-vps
-updated-at: 2026-06-27T19:35:00-03:00
+updated-at: 2026-06-28T20:35:00-03:00
 status: active
 ---
 
@@ -104,7 +104,16 @@ Ejemplo:
 Muestra agenda de hoy.
 
 ### `/mañana`
-Muestra agenda de mañana.
+Muestra agenda de mañana. También funcionan:
+
+```txt
+/mañana@Agenda_Hbot
+agenda mañana
+ver mañana
+qué tengo mañana
+```
+
+Regla crítica: estas frases son consulta, no alta. No deben crear tareas ni archivos vacíos.
 
 ### `/esta-semana`
 Resumen simple de próximos 7 días.
@@ -224,6 +233,36 @@ Hermes/Agenda/YYYY-MM-DD.md
 ```
 
 No hay base de datos separada.
+
+### Guardrail anti-basura
+Los comandos o consultas nunca deben caer al fallback de alta de tarea.
+
+No se guarda nada para:
+
+```txt
+/model
+/pendiente
+Dame todo lo pendiente
+Tareas
+agenda mañana
+ver mañana
+qué tengo mañana
+```
+
+Si llega un comando `/algo` desconocido, la respuesta correcta es:
+
+```txt
+Comando no reconocido. No guardé nada. Usá /help para ver comandos válidos.
+```
+
+### Runtime actual
+El bot corre como un único proceso permanente en PM2:
+
+```bash
+pm2 list | grep agenda-telegram-bot
+```
+
+No deben existir crons activos de polling de agenda. El modo viejo de 4 crons escalonados quedó deprecado.
 
 ### Botón Start
 Si el bot parece no responder, primero verificar que el chat con `@Agenda_Hbot` esté abierto y que ya se haya hecho `/start`.
