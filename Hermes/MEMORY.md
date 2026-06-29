@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-06-27
+last-reviewed: 2026-06-29
 confidence: high
 status: active
 source: consolidation
@@ -58,7 +58,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py → cron 10/día
 - **Franco Roma — Roggero & Roma** ✅ CERRADO — Total $750 USD cobrados. Operación completa. Backup VPS operativo (cron semanal sábados 10 AM).
 - **Víctor Abrile** ✅ COBRADO — $250 USD cobrado (23/06). Adelanto $200 (10/06). Total $450 USD. Catálogo completo.
 - **Luis Farias — Farias & Asociados** ⏸️ Grieta: alquileres con software viejo fuera del CRM. Link roggeroyroma.com enviado. NO perseguir.
-- **GAMA Inmobiliaria** (MdP) 🆕 — 4.5⭐ 108 reseñas · tel 0223 633-7766
+- **GAMA Inmobiliaria** (MdP) ❌ LEAD CAÍDO — 4.5⭐ 108 reseñas. Sin respuesta.
 - **Conforti Propiedades** (Villa Carlos Paz) 🆕 — 4.5⭐ 53 reseñas · tel 03541 67-5105
 - **RIVAS Inmuebles** (CABA) 🆕 — 4.9⭐ · tel 011 6827-4827
 - **Ann** — Pitch enviado, seguimiento pendiente
@@ -127,8 +127,8 @@ Ejecución
 ---
 
 ## Referencias
-- [[companies/wolfim/clients/franco-roma|Franco Roma]]
-- [[companies/wolfim/clients/luis-farias|Luis Farias]]
+- [[companies/wolfim/Clientes/franco-roma|Franco Roma]]
+- [[companies/wolfim/Clientes/luis-farias|Luis Farias]]
 - [[companies/korantis|Korantis]]
 - [[companies/construvial|Construvial]]
 - [[companies/ango|Ango]]
