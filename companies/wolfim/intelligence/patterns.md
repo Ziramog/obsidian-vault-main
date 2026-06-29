@@ -50,3 +50,6 @@ last-reviewed: 2026-06-25
 | 2026-06-27 | Real estate se divide en dos subproductos distintos: portal inmobiliario con catálogo vs landing premium para loteo/desarrollo. | fetch Roggero & Roma + La Montaña |
 | 2026-06-27 | Ecommerce existe como capacidad real por template Medusa, aunque todavía no como caso público validado. | input directo de Juan |
 | 2026-06-27 | Primer hito Meta Ads validado: ya existe circuito anuncio → web/landing → CTA con costo por visita visible. | captura Meta Ads Manager |
+| 2026-06-29 | Diagnóstico gratuito como lead magnet para Meta Ads validado conceptualmente (3 campañas propuestas: loteos, PyMEs, inmobiliarias). Presupuesto piloto $5-10/día por campaña. | brain-vps → wolfim-growth task |
+| 2026-06-29 | Loteos muestra mejor eficiencia en Ads ($64/visita) vs autos ($81/visita). Recomendación: arrancar Fase 1 con loteos + PyMEs como prioridad. | campañas reales Meta Ads Manager |
+| 2026-06-29 | Estrategia SEO debe empezar por páginas de vertical (inmobiliarias, loteos, autos, diseño web Córdoba) + blog semanal. Sinergia Ads→leads→contenido SEO validada. | plan-ads-seo generado |
