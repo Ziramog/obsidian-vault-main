@@ -2,82 +2,95 @@
 task: plan-ads-seo
 from: wolfim-growth
 to: Juan
-status: propuesta
+status: propuesta-v2
 created: 2026-06-29
+updated: 2026-06-29
 source: tareas/plan-ads-seo.md
 priority: high
 ---
 
-# Plan Ads + SEO — Wolfim 2026
+# Cómo vender servicios Wolfim — Plan Ads + SEO
 
-> **Modo propuesta.** Nada se publica ni se gasta sin aprobación de Juan.
-
----
-
-## Resumen ejecutivo
-
-Wolfim ya validó dos cosas que habilitan este plan:
-
-1. **Circuito Meta Ads funcionando** — 2 campañas reales con tráfico a landing propia + CTA medible (Lotes Río Tercero: $64/visita, Ranger 2015: $81/visita, 30 visitas totales, $2.374 gastados).
-2. **Ofertas paquetizadas por vertical** — 5 productos con precios, CTA y caso base: Loteo Activo, AutoLead, InmoPortal, Presencia Comercial, Tienda Wolfim.
-
-El plan combina Ads como acelerador de demanda + SEO como construcción de activo permanente.
+> **Esto es un plan de marketing de Wolfim. Objetivo: clientes que paguen.**
+> Presupuesto lo pone Wolfim. Retorno lo mide Wolfim.
 
 ---
 
-## 1. Estrategia Meta Ads
+## Punto de partida — qué sabemos
 
-### 1.1 Objetivo
+### Canales que ya vendieron
 
-Validar qué vertical convierte de **visita → consulta real** con el menor costo posible, gastando **$5-10/día por campaña piloto**. No escalar hasta tener 3+ consultas recibidas por vertical.
+| Canal | Ventas | Ticket |
+|-------|:------:|:------:|
+| WhatsApp outreach (relación directa) | 1 — Franco Roma | $750 |
+| Referencia personal | 2 — Víctor Abrile ($450), José Landoni | $450+ |
+| Email frío | **0** — 61 enviados, 0 respuestas | — |
+| WA frío masivo | **0** — ~1.800 leads | — |
 
-### 1.2 Campañas propuestas (Fase 1)
+**Lectura:** Lo que vende es vínculo directo o referencia. El desafío es generar ese vínculo sin depender de que alguien nos recomiende.
 
-#### Campaña A — Loteo Activo (Diagnóstico gratuito)
+### Lo que ya está funcionando técnicamente
+- Circuito Meta Ads → landing → CTA validado (Lotes Río Tercero, Ranger 2015)
+- Página wolfim.com viva con oferta clara y 4 productos
+- 3 casos reales para mostrar (Roggero & Roma, S&P Cars, La Montaña)
+- WhatsApp como canal de cierre
+
+### El gap
+No tenemos un canal que genere leads calientes de forma predecible sin intervención directa de Juan. Ads + SEO pueden ser ese canal.
+
+---
+
+## 1. Meta Ads — cómo traer leads que quieran comprar
+
+### 1.1 Inversión
+
+**$5-10 USD/día = $150-300 USD/mes.** Esto es lo que Wolfim invierte para conseguir clientes. Con 1 sola venta de Landing ($200) se paga el mes. Con 1 Catálogo ($450) se pagan 2-3 meses.
+
+### 1.2 A quién le hablamos
+
+Dueños de PyMEs y negocios que:
+- Ya venden algo (no están arrancando de cero)
+- Tienen web vieja, genérica o sin WhatsApp claro
+- Están en Córdoba o interior (donde Juan puede visitar)
+- Toman decisiones (no empleados)
+
+### 1.3 Qué ofrecemos — una sola propuesta clara
+
+> **"Diagnóstico gratuito de tu web en 24h"**
+
+Por qué esto y no otra cosa:
+- Baja fricción — no pedimos plata, pedimos permiso para revisar
+- Demuestra capacidad — Juan revisa de verdad y devuelve 3 hallazgos concretos
+- Abre conversación — el diagnóstico es la excusa para hablar, la venta viene después
+- Ya está validado en outreach: lo que abre puertas es mostrar que viste algo que el dueño no
+
+### 1.4 Campaña única para arrancar
+
+**No 3 campañas. Una. La que tiene más chances de vender rápido.**
 
 | Elemento | Detalle |
 |----------|---------|
-| **Público** | Dueños de loteos/ddesarrollos, Córdoba y provincias vecinas |
-| **Oferta** | "Diagnóstico gratis de tu landing — revisamos cómo estás mostrando tu loteo" |
-| **Destino** | Landing wolfim.com/loteos con formulario + WA |
-| **CTA** | "Quiero el diagnóstico" → formulario de 3 campos (nombre, proyecto, WhatsApp) |
-| **Presupuesto** | $5/día (ARS ~$3.000) |
-| **Costo por clic esperado** | ~$80 ARS (en línea con campaña anterior) |
-| **Duración piloto** | 10 días (~$50 USD) |
-| **Éxito mínimo** | 3 formularios completados o WhatsApps recibidos |
-
-**Copy del anuncio:**
-```
-📌 ¿Vendés lotes y no sabés por qué no te consultan?
-
-Muchos desarrollos se pierden en una publicación genérica de redes.
-Te reviso gratis cómo estás mostrando tu proyecto y te digo qué mejorar.
-
-🔗 Diagnóstico sin cargo — 3 minutos
-```
-
-#### Campaña B — Presencia Comercial (PyMEs)
-
-| Elemento | Detalle |
-|----------|---------|
-| **Público** | Dueños de PyMEs, comercios, profesionales, Córdoba/interior |
-| **Oferta** | "Diagnóstico de tu web — encontrá qué está frenando consultas" |
-| **Destino** | Landing wolfim.com/diagnostico |
-| **CTA** | "Revisar mi web" |
+| **Nombre** | Diagnóstico Web PyME |
+| **Público** | Hombres/mujeres 35-60, dueños de PyMEs, comercios, constructoras, estudios profesionales, Córdoba + 200km |
+| **Oferta** | "Te reviso tu web y te digo qué mejorar. Sin cargo." |
+| **Destino** | Landing en wolfim.com con formulario (nombre, web, WhatsApp) |
 | **Presupuesto** | $5/día |
-| **Duración piloto** | 10 días |
-| **Éxito mínimo** | 3 consultas recibidas |
+| **Formato** | Imagen estática — simple, directa, sin diseño cargado |
 
-**Copy del anuncio:**
+### 1.5 Copy del anuncio
+
+Opción A (problema → solución):
 ```
-⚠️ Tu web podría estar perdiendo clientes y no lo sabés.
+¿Tu web tiene más de 3 años y no te trae consultas?
 
-Te regalo 10 minutos: reviso tu sitio, te digo los 3 problemas principales
-y cómo resolverlos. Sin compromiso.
+Te hago un diagnóstico gratis en 24h.
+Te digo exactamente qué mejorar y cómo.
+Sin compromiso.
 
-👉 Pedí tu diagnóstico gratis
+👉 Pedilo acá
 ```
 
+<<<<<<< Updated upstream
 #### Campaña C — InmoPortal (Inmobiliarias)
 
 | Elemento            | Detalle                                                           |
@@ -90,25 +103,30 @@ y cómo resolverlos. Sin compromiso.
 | **Duración piloto** | 10 días                                                           |
 
 **Copy del anuncio:**
+=======
+Opción B (autoridad):
+>>>>>>> Stashed changes
 ```
-🏡 Una inmobiliaria de Río Tercero duplicó consultas con su portal nuevo.
+Revisé +60 webs de PyMEs en Córdoba.
+La mayoría pierde clientes por 3 errores básicos.
 
-Sin depender de MercadoLibre o portales externos. 
-¿Querés ver cómo quedó?
+Te digo cuáles tiene la tuya. Sin cargo.
 
-🔗 Ver caso real
+👉 Diagnóstico gratuito
 ```
 
-### 1.3 Creatividades
+### 1.6 Qué medimos
 
-**Formato:** 1 imagen estática + 1 video corto (15s) por campaña.
+| Métrica | Qué queremos ver |
+|---------|------------------|
+| Diagnósticos pedidos | ≥ 3 por semana |
+| Conversaciones iniciadas | ≥ 2 por semana |
+| Ventas cerradas | ≥ 1 por mes |
+| **ROI** | **1 venta de $200 cubre el mes de Ads** |
 
-**Estilo visual:**
-- Fondo oscuro Wolfim (#0a0a0a) con acento dorado (#f5c518) o blanco
-- Texto grande, una sola idea por anuncio
-- Logo Wolfim en esquina inferior
-- Antes/después cuando sea posible
+### 1.7 Reglas
 
+<<<<<<< Updated upstream
 **Lo que NO hacer en los Ads:**
 - No vender tecnología (Next.js, CMS, Medusa)
 - No poner rangos de precio en el anuncio
@@ -137,154 +155,85 @@ Este presupuesto lo pone el cliente en cada caso, NO Wolfim. Wolfim cobra fee de
 | Tasa de conversión visita→lead | Cálculo manual semanal |
 
 **Criterio para escalar:** Cuando una campaña genera ≥3 consultas reales con CPL ≤ $15 USD, se escala a $10-15/día.
+=======
+- Juan revisa CADA diagnóstico personalmente. No se automatiza.
+- El diagnóstico no vende — dice "tenés estos 3 problemas, si querés te cuento cómo se resuelven"
+- El follow-up lo hace Juan por WhatsApp después de entregar el diagnóstico
+- Si en 2 semanas no hay 3 diagnósticos pedidos, se ajusta copy o público
+>>>>>>> Stashed changes
 
 ---
 
-## 2. Estrategia SEO
+## 2. SEO — cómo aparecer cuando alguien busca
 
-### 2.1 Objetivo
+### 2.1 Por qué SEO
 
-Posicionar wolfim.com en búsquedas de **servicio + ciudad** (ej: "diseño web Córdoba", "página web para inmobiliarias", "catálogo digital para lotes") y captar tráfico orgánico constante.
+Los Ads traen leads rápido pero cuestan por clic. El SEO es el activo que queda: una vez posicionado, trae tráfico sin costo marginal. A Wolfim le sirve estar cuando alguien googlea "página web para inmobiliaria" o "diseño web Córdoba".
 
-### 2.2 Keywords objetivo
+### 2.2 Keywords que atacar primero
 
-| Keyword | Intención | Volumen estimado | Prioridad |
-|---------|-----------|:----------------:|:---------:|
-| página web para inmobiliarias | Comercial | Medio | 🥇 |
-| diseño web Córdoba | Comercial | Alto | 🥇 |
-| crear catálogo digital para autos | Comercial | Medio | 🥇 |
-| landing page para loteos | Comercial | Bajo | 🥇 |
-| agencia de diseño web Argentina | Comercial | Alto | 🥈 |
-| rediseño de sitio web | Comercial | Medio | 🥈 |
-| tienda online para PyME | Comercial | Medio | 🥈 |
-| SEO para páginas web | Informativo | Alto | 🥉 |
+| Keyword | Por qué |
+|---------|---------|
+| `diseño web Córdoba` | Búsqueda local directa, intención comercial |
+| `página web para inmobiliarias` | Vertical más validado (Roggero & Roma) |
+| `catálogo digital para autos` | Caso S&P Cars ya armado |
 
-### 2.3 Páginas a crear/optimizar en wolfim.com
+### 2.3 Páginas a crear en wolfim.com
 
-Basado en la oferta por vertical. Cada página = landing SEO independiente:
+Cada página = una landing para una keyword + un vertical.
 
-| Página | Keyword target | Contenido principal | Status |
-|--------|---------------|---------------------|--------|
-| `/inmobiliarias` | página web para inmobiliarias | Caso Roggero & Roma + oferta InmoPortal | 🆕 A crear |
-| `/loteos` | landing page para loteos | Caso La Montaña + oferta Loteo Activo | 🆕 A crear |
-| `/autos` | catálogo digital para autos | Caso S&P Cars + oferta AutoLead | 🆕 A crear |
-| `/diseno-web-cordoba` | diseño web Córdoba | Servicios + portfolio + CTA local | 🆕 A crear |
-| `/diagnostico-gratuito` | diagnóstico web gratis | Lead magnet → formulario de captura | 🆕 A crear |
-| `/casos` | wolfim portfolio | Galería de casos reales con resultados | ⏳ Mejorar |
-| `/blog` | — | Artículos SEO por vertical | 🆕 A crear |
+| Página | Para keyword | Contenido |
+|--------|-------------|-----------|
+| `/inmobiliarias` | página web para inmobiliarias | Caso Roggero & Roma, qué incluye, precio, CTA |
+| `/autos` | catálogo digital para autos | Caso S&P Cars, qué incluye, precio, CTA |
+| `/loteos` | landing para desarrollos | Caso La Montaña, qué incluye, precio, CTA |
 
-### 2.4 Checklist técnico
+### 2.4 Checklist técnico inmediato
 
-- [ ] **Meta tags por página** — title único + meta description con keyword + CTA
-- [ ] **Open Graph** — imagen, título, descripción para compartir en redes/Meta
-- [ ] **Schema markup** — LocalBusiness + Service por página de servicio
-- [ ] **Sitemap.xml** actualizado con nuevas URLs
-- [ ] **Velocidad móvil** — Google PageSpeed ≥ 85 en mobile
-- [ ] **Enlaces internos** — cada página de servicio linkea al caso correspondiente
-- [ ] **Google Search Console** — verificar cobertura, indexar nuevas páginas manualmente
-- [ ] **Google Analytics 4** — evento por CTA (formulario, clic WA, llamada)
+- [ ] Meta title + description en cada página nueva
+- [ ] Alt text en imágenes de casos
+- [ ] Velocidad mobile ≥ 85 (PageSpeed)
+- [ ] Sitemap actualizado
+- [ ] Google Search Console — indexar URLs nuevas
 
-### 2.5 Cronograma SEO
+### 2.5 Blog
 
-| Semana | Acción |
-|:------:|--------|
-| 1 | Crear `/inmobiliarias` + `/loteos` + meta tags + sitemap |
-| 2 | Crear `/autos` + `/diseno-web-cordoba` + schema markup |
-| 3 | Crear `/diagnostico-gratuito` + `/casos` mejorado |
-| 4 | Primer artículo blog + Search Console + medir tráfico |
-| Semanal | 1 artículo blog por vertical (rotando) |
-| Mensual | Revisar posiciones en GSC, ajustar keywords |
+1 artículo por semana, rotando vertical. El blog alimenta SEO y da contenido para compartir en WhatsApp/redes.
 
-### 2.6 Contenido blog (calendario inicial)
-
-| Artículo | Keyword | Para qué vertical |
-|----------|---------|:-----------------:|
-| "Cómo elegir la página web ideal para tu inmobiliaria" | página web inmobiliaria | Inmobiliarias |
-| "Por qué tu loteo necesita una landing y no una publicación de Facebook" | landing para loteos | Loteos |
-| "Catálogo digital vs. publicación suelta: qué vende más" | catálogo digital autos | Automotor |
-| "¿Cada cuánto hay que actualizar la web de tu negocio?" | rediseño sitio web | PyMEs |
-| "SEO para PyMEs: lo que funciona en 2026" | SEO para páginas web | PyMEs |
+| Semana | Artículo |
+|:------:|----------|
+| 1 | "¿Cuánto sale una página web para una inmobiliaria en 2026?" |
+| 2 | "Por qué tu loteo necesita una landing y no solo un flyer" |
+| 3 | "Catálogo digital de autos: vendé sin depender de Marketplace" |
+| 4 | "5 señales de que tu web está perdiendo clientes" |
 
 ---
 
-## 3. Sinergia Ads + SEO
+## 3. Cómo medimos si esto funciona
 
-### 3.1 Cómo se complementan
+**Meta del trimestre:** 2 clientes nuevos por Ads/SEO.
 
-| Canal | Timing | Rol |
-|-------|--------|-----|
-| **Meta Ads** | Corto plazo (días) | Traer tráfico calificado YA, validar oferta, generar leads |
-| **SEO** | Mediano-largo (semanas/meses) | Captar búsqueda orgánica constante, construir autoridad |
+| Mes | Inversión Ads | Clientes esperados | Ingreso mínimo |
+|:---:|:-------------:|:------------------:|:--------------:|
+| Julio | $150 USD | 1 (validación) | $200+ |
+| Agosto | $150 USD | 1-2 | $400+ |
+| Septiembre | $200 USD | 2 | $600+ |
 
-### 3.2 Embudo combinado
-
-```
-Meta Ads → Landing de oferta (diagnóstico/caso) → Lead (form/WA)
-                                                  ↓
-                              Lead caliente → Juan contacta → Propuesta
-                                                      ↑
-SEO → Búsqueda orgánica → Página de servicio → Blog → (arriba)
-```
-
-### 3.3 Regla de operación
-
-1. **Ads corre primero** — genera leads en días, paga el costo de la operación
-2. **SEO corre en paralelo** — sin pausar Ads, construye el activo permanente
-3. **Los casos que cierren por Ads se convierten en contenido SEO** — "Cliente X, que llegó por un diagnóstico, hoy tiene su portal funcionando"
-4. **Cada landing de Ads se optimiza para SEO** — no son páginas descartables
-
-### 3.4 Presupuesto recomendado (Wolfim)
-
-| Concepto | Inversión Wolfim | Nota |
-|----------|:----------------:|------|
-| Meta Ads (prueba propia) | **$0** — lo paga el cliente | Wolfim solo cobra gestión |
-| SEO técnico (1 vez) | Horas de desarrollo web | Ya está en el stack de producto |
-| Contenido blog | Horas de wolfim-growth | Redacción semanal |
-| Hosting/SSL | Ya incluido en mantenimiento | ✅ |
-| **Total inversión Wolfim** | **$0 + horas** | Sin riesgo financiero |
+Si en julio no cierra 1 venta, revisamos juntos antes de gastar agosto.
 
 ---
 
-## 4. Decisiones pendientes de Juan
+## 4. Lo que necesito de Juan ahora
 
-- [ ] **Campañas A, B y C — ¿aprobás lanzar las 3 o preferís priorizar 1?**
-- [ ] **¿Querés modificar el copy, la oferta o el CTA de alguna?**
-- [ ] **Diagnóstico gratuito como lead magnet — ¿te cierra o preferís otra oferta?**
-- [ ] **Landings de captura — ¿las hacemos en wolfim.com o subdominio aparte?**
-- [ ] **SEO — ¿arrancamos con las 4 páginas de vertical la semana que viene?**
-
----
-
-## 5. Próximos pasos concretos
-
-### Inmediatos (apenas Juan apruebe)
-
-- [ ] Preparar las 3 landings de captura para las campañas Meta
-- [ ] Configurar Meta Pixel + GA4 en wolfim.com
-- [ ] Escribir el copy final de los 3 anuncios para aprobación
-- [ ] Crear las 2 primeras páginas SEO: `/inmobiliarias` y `/loteos`
-
-### Semana 1 post-aprobación
-
-- [ ] Lanzar Campaña A (Loteo Activo) a $5/día
-- [ ] Lanzar Campaña B (PyMEs) a $5/día
-- [ ] Publicar `/inmobiliarias` y `/loteos` en wolfim.com
-- [ ] Primer artículo blog: "Cómo elegir la página web ideal para tu inmobiliaria"
-
-### Semana 2
-
-- [ ] Evaluar resultados de Campaña A y B (CPL, consultas)
-- [ ] Lanzar Campaña C (InmoPortal) si las otras van bien
-- [ ] Crear `/autos` + `/diseno-web-cordoba`
-- [ 】Schema markup + sitemap actualizado
-
-### Semana 3-4
-
-- [ ] Decidir si escalar alguna campaña a $10-15/día
-- [ ] Crear `/diagnostico-gratuito` + mejorar `/casos`
-- [ ] Segundo artículo blog
-- [ ] Reporte de resultados de Fase 1 Ads
+- [ ] **¿Arrancamos con UNA campaña (Diagnóstico PyME, $5/día) o preferís otro approach?**
+- [ ] **Copy del anuncio — ¿Opción A (problema→solución) u Opción B (autoridad), o escribís vos el que quieras?**
+- [ ] **¿Creo la landing de diagnóstico en wolfim.com/diagnostico?**
+- [ ] **SEO — ¿avanzo con la página de `/inmobiliarias` como primera?**
 
 ---
 
-*Propuesta generada por wolfim-growth. Pendiente de revisión y aprobación de Juan.*
+## 5. Próximo paso concreto
+
+> **Crear la landing de diagnóstico en wolfim.com y preparar el anuncio para que Juan lo revise y publique.**
+
+Si Juan dice "dale", en 48h podemos tener la campaña corriendo.
