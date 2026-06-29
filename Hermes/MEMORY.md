@@ -55,7 +55,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py → cron 10/día
 ---
 
 ## Pipeline activo
-- **Franco Roma — Roggero & Roma** ✅ CERRADO — Total $750 USD cobrados. Operación completa. Backup VPS operativo (cron semanal sábados 10 AM).
+- **Franco Roma — Roggero & Roma** ✅ CERRADO — Total $750 USD cobrados. Operación completa. Backup VPS operativo (cron semanal sábados 10 AM). Origen: outreach WhatsApp.
 - **Víctor Abrile** ✅ COBRADO — $250 USD cobrado (23/06). Adelanto $200 (10/06). Total $450 USD. Catálogo completo.
 - **Luis Farias — Farias & Asociados** ⏸️ Grieta: alquileres con software viejo fuera del CRM. Link roggeroyroma.com enviado. NO perseguir.
 - **GAMA Inmobiliaria** (MdP) ❌ LEAD CAÍDO — 4.5⭐ 108 reseñas. Sin respuesta.
