@@ -80,14 +80,14 @@ y cómo resolverlos. Sin compromiso.
 
 #### Campaña C — InmoPortal (Inmobiliarias)
 
-| Elemento | Detalle |
-|----------|---------|
-| **Público** | Inmobiliarias de Córdoba y provincias |
-| **Oferta** | "Vení a ver cómo quedó el portal de Roggero & Roma (mismo rubro)" |
-| **Destino** | Caso de éxito Roggero & Roma + CTA a consulta |
-| **CTA** | "Quiero ver el caso" |
-| **Presupuesto** | $5/día |
-| **Duración piloto** | 10 días |
+| Elemento            | Detalle                                                           |
+| ------------------- | ----------------------------------------------------------------- |
+| **Público**         | Inmobiliarias de Córdoba y provincias                             |
+| **Oferta**          | "Vení a ver cómo quedó el portal de Roggero & Roma (mismo rubro)" |
+| **Destino**         | Caso de éxito Roggero & Roma + CTA a consulta                     |
+| **CTA**             | "Quiero ver el caso"                                              |
+| **Presupuesto**     | $5/día                                                            |
+| **Duración piloto** | 10 días                                                           |
 
 **Copy del anuncio:**
 ```
@@ -117,12 +117,12 @@ Sin depender de MercadoLibre o portales externos.
 
 ### 1.4 Presupuesto total Fase 1
 
-| Campaña | Días | $/día ARS | Total ARS | ≈ USD |
-|---------|:----:|:---------:|:---------:|:----:|
-| A — Loteo Activo | 10 | $3.000 | $30.000 | ~$25 |
-| B — PyMEs | 10 | $3.000 | $30.000 | ~$25 |
-| C — InmoPortal | 10 | $3.000 | $30.000 | ~$25 |
-| **Total Fase 1** | | | **$90.000** | **~$75 USD** |
+| Campaña          | Días | $/día ARS |  Total ARS  |    ≈ USD     |
+| ---------------- | :--: | :-------: | :---------: | :----------: |
+| A — Loteo Activo |  10  |  $3.000   |   $30.000   |     ~$25     |
+| B — PyMEs        |  10  |  $3.000   |   $30.000   |     ~$25     |
+| C — InmoPortal   |  10  |  $3.000   |   $30.000   |     ~$25     |
+| **Total Fase 1** |      |           | **$90.000** | **~$75 USD** |
 
 Este presupuesto lo pone el cliente en cada caso, NO Wolfim. Wolfim cobra fee de gestión de campaña aparte (USD 30-50/mes, o incluido en piloto).
 
