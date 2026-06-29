@@ -67,6 +67,6 @@
 
 ## Referencias
 
-- [[index]] — carpeta principal del cliente
+- [[companies/wolfim/clients/franco-roma/index]] — carpeta principal del cliente
 - [[../services/mantenimiento-base|Mantenimiento base Wolfim]] — plantilla estándar
 - [[2026-06-04-summary|Daily 2026-06-04]] — sesión donde se definió

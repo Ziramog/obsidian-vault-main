@@ -17,12 +17,12 @@ applies-to:
 
 ## Prioridades activas
 
-| # | Prioridad | Detalle | Origen |
-|---|---|---|---|
-| 1 | Implementar sistema multiagente | Fase 1 ✅ | Fase 2 pendiente | Fase 3 pendiente | Sesión activa |
-| 2 | Verificar cobro Víctor Abrile | $250 USD — vencía lunes 23/06. **Confirmado: cobrado.** | Juan |
-| 3 | Dar seguimiento a leads nuevos | GAMA, Conforti, RIVAS, Ann — sin acción registrada desde captura | MEMORY.md |
-| 4 | Mantener campaña Web Viejas | Email outreach automático (cron 10am, 5/día). ~28 leads restantes | MEMORY.md |
+| #   | Prioridad                       | Detalle                                                           | Origen           |                  |               |
+| --- | ------------------------------- | ----------------------------------------------------------------- | ---------------- | ---------------- | ------------- |
+| 1   | Implementar sistema multiagente | Fase 1 ✅                                                          | Fase 2 pendiente | Fase 3 pendiente | Sesión activa |
+| 2   | Verificar cobro Víctor Abrile   | $250 USD — vencía lunes 23/06. **Confirmado: cobrado.**           | Juan             |                  |               |
+| 3   | Dar seguimiento a leads nuevos  | GAMA, Conforti, RIVAS, Ann — sin acción registrada desde captura  | MEMORY.md        |                  |               |
+| 4   | Mantener campaña Web Viejas     | Email outreach automático (cron 10am, 5/día). ~28 leads restantes | MEMORY.md        |                  |               |
 
 ## Foco financiero
 
