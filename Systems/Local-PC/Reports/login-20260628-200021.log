@@ -1,0 +1,26 @@
+﻿20:00:21 === PC Brain - Monitor de Login ===
+20:00:21 Inicio: 06/28/2026 20:00:21
+20:00:21 --- 1. Espacio libre ---
+20:00:22   C:: 368.8 GB libre de 476.9 GB (77.3%)
+20:00:22   D:: 276 GB libre de 495.8 GB (55.7%)
+20:00:22   E:: 0 GB libre de 0 GB (38.7%)
+20:00:22   F:: 0.4 GB libre de 146 GB (0.3%)
+20:00:22   ALERTA: F: por debajo del 10%
+20:00:22   G:: 29.4 GB libre de 86.4 GB (34.1%)
+20:00:22   H:: 48.4 GB libre de 488.3 GB (9.9%)
+20:00:22   ALERTA: H: por debajo del 10%
+20:00:22   I:: 214.1 GB libre de 878.9 GB (24.4%)
+20:00:22 --- 2. Estado de discos ---
+20:00:25   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+20:00:25   VendorCo ProductCode: Healthy / OK
+20:00:25   WDC WDS250G1B0A-00H9H0: Healthy / OK
+20:00:25   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+20:00:25 --- 3. Ultimo backup ---
+20:00:25   No se detecto sistema de backup automatico
+20:00:25 --- 4. Errores criticos (24h) ---
+20:00:26   20:00 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
+20:00:26 --- 5. Boot NVMe ---
+20:00:26   NVMe autonomo: Disco 2/C: OK
+20:00:26 --- Actualizando STATUS.md ---
+20:00:26 STATUS.md actualizado
+20:00:26 === Completado en 4.8 segundos ===

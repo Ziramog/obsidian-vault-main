@@ -1,13 +1,13 @@
 ﻿# STATUS - DESKTOP-3V091DM
 
-> Ultima actualizacion: 2026-06-27 08:24:25
+> Ultima actualizacion: 2026-06-28 20:00:26
 > Script: workspace/scripts/monitor-login.ps1
 
 ## Discos
 
 | Unidad | Capacidad | Libre | Porcentaje | Estado |
 |--------|-----------|-------|------------|--------|
-| C: | 476.9 GB | 367.1 GB | 77% | OK |
+| C: | 476.9 GB | 368.8 GB | 77.3% | OK |
 | D: | 495.8 GB | 276 GB | 55.7% | OK |
 | E: | 0 GB | 0 GB | 38.7% | OK |
 | F: | 146 GB | 0.4 GB | 0.3% | OK |
@@ -27,16 +27,7 @@
 ## Errores recientes (24h)
 
 `
-00:08 [Error] Microsoft-Windows-DNS-Client: 1012 - There was an error while attempting to read the local hosts file.
-00:08 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
-00:08 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
-00:03 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {888F6C3E-A4E4-4CB5-AE11-9BE92A13F34C} did not register with DCOM within the required timeout.
-23:10 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {8018F647-BF07-55BB-82BE-A2D7049F7CE4} did not register with DCOM within the required timeout.
-22:14 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {888F6C3E-A4E4-4CB5-AE11-9BE92A13F34C} did not register with DCOM within the required timeout.
-22:12 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {8018F647-BF07-55BB-82BE-A2D7049F7CE4} did not register with DCOM within the required timeout.
-21:34 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {888F6C3E-A4E4-4CB5-AE11-9BE92A13F34C} did not register with DCOM within the required timeout.
-21:00 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {8018F647-BF07-55BB-82BE-A2D7049F7CE4} did not register with DCOM within the required timeout.
-18:09 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {8018F647-BF07-55BB-82BE-A2D7049F7CE4} did not register with DCOM within the required timeout.
+20:00 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
 `
 
 ## Tareas programadas
