@@ -11,7 +11,7 @@ source: consolidation
 
 ---
 
-**Última actualización:** 2026-06-27 (sábado) | **🟢 ESCALA** · Campaña Web Viejas: tanda cron ejecutada 10:00, 5 enviados, 0 fallaron · Quedan ~57 leads · Drive actualizado ✅ · Junio Wolfim: $1.000 USD completo ✅
+**Última actualización:** 2026-06-29 (lunes) | **🟢 ESCALA** · Campaña Web Viejas: 61/122 enviados (50%), 0 respuestas · GAMA descartado ❌ · Plan Ads+SEO derivado a wolfim-growth · Carpetas Clientes/Leads creadas en 4 empresas
 
 ---
 
