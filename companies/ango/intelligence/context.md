@@ -3,45 +3,52 @@ company: ANGO
 owner: ango-commercial
 status: active
 version: 1
-last-reviewed: 2026-06-25
+last-reviewed: 2026-06-29
+source-of-truth: Juan → Antonio Gomariz (padre)
 ---
 
-# Context — ANGO Metalúrgica
+# Context — ANGO
 
-> **Propósito:** Información que no cambia con cada campaña. Lo que cualquier profile nuevo necesita saber antes de actuar.
+> **Propósito:** Información estable para cualquier profile que necesite entender qué es ANGO, qué vende y cómo opera comercialmente.
 
 ## Identidad
 
-- **Qué hace:** Fabricación de tomas de fuerza con embrague (Power Take-Off / PTO) para motores de combustión interna (Diésel, gasolina). Tamaños desde Ø165mm (6.5") hasta Ø457mm (18"), con 1, 2 o 3 discos de embrague. Carcazas según normas SAE (N° 6 al N° 00). Montadas sobre rodamientos a rodillos cónicos.
-- **A quién sirve:** Empresas con motores industriales a explosión. Sector agrícola (equipos de riego), minero, petrolero. Distribuidores de repuestos industriales.
-- **Propuesta de valor:** Fabricante regional de referencia con 60+ años de experiencia. Marca RG registrada. Producto de ingeniería de precisión, no commodity.
-- **URL:** angometalurgica.com.ar
-- **Ubicación:** Río Tercero, Córdoba, Argentina
+- **Qué es:** Metalúrgica familiar dedicada a la fabricación de plataformas para cosechadoras y sistemas de corte para maquinaria agrícola.
+- **Dueño:** Antonio Gomariz (padre de Juan).
+- **Rol de Juan:** Soporte comercial y técnico (no dueño). Juan gestiona cotizaciones, documentos, investigación de patentes y presencia digital.
+- **Ubicación:** Río Tercero, Córdoba, Argentina.
+- **Mercado:** B2B industrial — fabricantes de maquinaria agrícola, talleres de reparación y mantenimiento.
 
-## Tono
+## Producto principal
 
-- **Voz de marca:** Industrial, técnico, B2B serio. Respaldo de 6 décadas de trayectoria. Confianza por calidad, no por marketing.
-- **Lo que SÍ decimos:** Especificaciones técnicas, normas SAE, garantía de 1 año, envíos nacionales e internacionales.
-- **Lo que NO decimos:** Lenguaje informal, promesas de entrega sin consultar producción, precios sin cotización formal.
+- **Discos rotativos con filo perimetral** para plataformas cosechadoras de soja y trigo.
+- Diferenciador clave: filo en el perímetro del disco (no cuchillas montadas como la competencia MacDon).
+- Potencial de patente: investigaciones recientes muestran campo libre para IP fundacional.
+
+## Modelo de negocio
+
+- Fabricación bajo pedido.
+- Relación directa con clientes industriales.
+- Sin presencia digital activa aún (website pendiente).
+- Ingresos por operación del padre. Primera entrada a través de Juan: $333 USD (junio 2026).
+
+## Estado actual
+
+- **Tecnología:** Discos con filo perimetral desarrollados y probados.
+- **Propiedad intelectual:** Investigación de patentes completada (v1, v2, v3). 10 patentes más cercanas están vencidas. Oportunidad de patentamiento en Argentina (INPI).
+- **Website:** Pendiente de cierre/definición con Antonio.
+- **Pipeline comercial:** Sin pipeline formal aún.
 
 ## Restricciones
 
-- **No hacer:** Juan es colaborador externo, NO dueño. Las decisiones finales (precios, condiciones, aceptación de pedidos) son del padre de Juan. Juan prepara documentos y cotizaciones — no cierra operaciones unilateralmente.
-- **No prometer:** Plazos de entrega sin validar con producción. Disponibilidad de stock sin confirmar.
-- **Límites de presupuesto:** Sin pipeline de prospección propio aún. Sin presupuesto asignado para campañas. Cotizaciones bajo demanda.
+- No tomar decisiones comerciales sin consultar a Juan → Antonio.
+- No publicar información técnica de los discos sin aprobación.
+- No comprometer plazos ni precios sin validación de Antonio.
+- El scope de ango-commercial es soporte comercial y técnico, no producción.
 
 ## Contactos
 
 | Nombre | Rol | Canal | Notas |
 |---|---|---|---|
-| Padre de Juan | Dueño, operador principal | Tel: 3513157202 | Contacto directo de la empresa. Decisiones finales. |
-| Juan Gomariz | Colaborador externo (comercial/técnico) | [pendiente - Juan completa] | Prepara cotizaciones y documentos. No cierra solo. |
-| Empresa | Canal oficial | contacto@angometalurgica.com.ar | Consultas comerciales |
-
-## Estado Actual
-
-- **Semáforo:** Colaboración activa (no aplica semáforo Wolfim — es proyecto familiar).
-- **Ingresos:** $333 USD en junio 2026 (primera entrada registrada en el sistema).
-- **Pipeline:** Sin pipeline de prospección activo. Zonas de crecimiento identificadas: San Juan (minería/agricultura), Catamarca (minería), Vaca Muerta/Neuquén (oil & gas).
-- **Último hito:** Primera entrada de revenue registrada en el sistema Hermes ($333, junio 2026).
-- **Próximo paso:** [pendiente - Juan completa] Definir si se activa prospección comercial para ANGO.
+| Antonio Gomariz | Dueño | Vía Juan | Metalúrgica |
+| Juan Gomariz | Soporte comercial/técnico | juan@wolfim.com · WhatsApp | Interfaz principal |

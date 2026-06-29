@@ -1,9 +1,10 @@
 ---
 company: Construvial
 owner: construvial-growth
-status: pending-first-write
-version: 0
-last-reviewed: 2026-06-25
+status: active
+version: 1
+last-reviewed: 2026-06-29
+entries: 0
 ---
 
 # Patterns — Construvial
@@ -12,7 +13,7 @@ last-reviewed: 2026-06-25
 
 ## Clientes
 
-- **Perfil del que compra:** [completar]
+- **Perfil del que compra:** [completar cuando haya datos de ventas]
 - **Perfil del que NO compra:** [completar]
 - **Objeciones más comunes:** [completar]
 
@@ -31,10 +32,9 @@ last-reviewed: 2026-06-25
 ## Errores que No Repetir
 
 1. [completar]
-2. [completar]
 
 ## Insights por sesión
 
 | Fecha | Insight | Origen |
 |---|---|---|
-| [completar] | | |
+| 2026-06-29 | 21 empresas en DB (oil & gas, minería). Propuesta enviada 19/05. Sin respuesta aún. | MEMORY.md |

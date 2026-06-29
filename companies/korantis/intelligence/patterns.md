@@ -1,40 +1,34 @@
 ---
 company: Korantis
 owner: korantis-ops
-status: pending-first-write
-version: 0
-last-reviewed: 2026-06-25
+status: active
+version: 1
+last-reviewed: 2026-06-29
+entries: 1
 ---
 
 # Patterns — Korantis
 
 > **Propósito:** Lo que aprendimos haciendo. Se actualiza con insights de sesiones y resultados reales.
 
-## Clientes
+## Producto
 
-- **Perfil del que compra:** [completar]
-- **Perfil del que NO compra:** [completar]
-- **Objeciones más comunes:** [completar]
+- **Lo que sí funciona:** Búsqueda conversacional con IA como diferenciador. Model split M2.7 (texto) → M3 (visión) validado técnicamente.
+- **Lo que no funciona:** [completar cuando haya datos de usuarios]
+- **Fricciones detectadas:** [completar]
 
-## Canales que Funcionan
+## Datos
 
-| Canal | Evidencia | Conversión |
-|---|---|---|
-| [completar] | | |
-
-## Canales que NO Funcionan
-
-| Canal | Evidencia | Por qué |
-|---|---|---|
-| [completar] | | |
+- **Calidad del scout:** 25 venues de BA procesados en batch 01. Curación manual necesaria post-AI.
+- **Fuentes que rinden:** [completar]
+- **Fuentes que no rinden:** [completar]
 
 ## Errores que No Repetir
 
 1. [completar]
-2. [completar]
 
 ## Insights por sesión
 
 | Fecha | Insight | Origen |
 |---|---|---|
-| [completar] | | |
+| 2026-06-29 | Model split M2.7 → M3 validado. Scout batch 01 (25 BA venues) ejecutado. Sin revenue aún — modo evidencia. | MEMORY.md |
