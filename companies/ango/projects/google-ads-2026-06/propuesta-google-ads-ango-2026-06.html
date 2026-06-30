@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANGO — Propuesta Google Ads</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #f5c518;
+    --gold-dark: #c9920a;
+    --dark: #1a1a1a;
+    --darker: #111111;
+    --gray-100: #f7f6f3;
+    --gray-200: #e8e8e5;
+    --gray-400: #888;
+    --white: #ffffff;
+    --red: #c62828;
+    --green: #2e7d32;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 1.65;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 0;
+    page-break-after: always;
+    position: relative;
+  }
+
+  .page:last-child { page-break-after: avoid; }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: linear-gradient(180deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding: 32px 40px 24px;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .wolfim-logo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .header-date {
+    font-size: 10px;
+    color: #888;
+    font-weight: 400;
+  }
+
+  .header-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .header-subtitle {
+    font-size: 11px;
+    color: #aaa;
+    font-weight: 400;
+  }
+
+  /* ===== SECTIONS ===== */
+  .section {
+    padding: 24px 40px;
+  }
+
+  .section-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 14px;
+    padding-left: 14px;
+    border-left: 3px solid var(--gold);
+    letter-spacing: 0.3px;
+  }
+
+  .section-title-lg {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-left: 14px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .section p {
+    margin-bottom: 10px;
+    font-size: 11px;
+    color: #444;
+  }
+
+  .section-bg {
+    background: var(--gray-100);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    padding: 36px 40px;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  .hero p {
+    font-size: 12px;
+    color: #ccc;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* ===== CARDS ===== */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .card-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+
+  .card-icon {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .card-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .card-desc {
+    font-size: 10.5px;
+    color: #555;
+  }
+
+  .card-gold {
+    border: 2px solid var(--gold);
+    background: linear-gradient(135deg, #fffef5 0%, #fff9e0 100%);
+  }
+
+  .card-dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: none;
+  }
+
+  .card-dark .card-title {
+    color: var(--gold);
+  }
+
+  .card-dark .card-desc {
+    color: #bbb;
+  }
+
+  /* ===== COMPARISON TABLE ===== */
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 10.5px;
+  }
+
+  .comparison-table th {
+    background: var(--dark);
+    color: var(--gold);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .comparison-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .comparison-table tr:nth-child(even) {
+    background: var(--gray-100);
+  }
+
+  .winner-row td {
+    background: #fffbeb !important;
+    border-left: 3px solid var(--gold);
+  }
+
+  .check { color: var(--green); font-weight: 700; }
+  .cross { color: var(--red); font-weight: 700; }
+
+  /* ===== CAMPAIGN CARDS ===== */
+  .campaign-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--gold);
+  }
+
+  .campaign-card h3 {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .campaign-card .campaign-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .campaign-card p {
+    font-size: 10.5px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+
+  /* ===== INVESTMENT TABLE ===== */
+  .investment-box {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-top: 14px;
+  }
+
+  .investment-box h3 {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .inv-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+  }
+
+  .inv-row:last-child { border-bottom: none; }
+
+  .inv-label {
+    color: #ccc;
+    font-size: 11px;
+  }
+
+  .inv-value {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  .inv-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0 0;
+    margin-top: 8px;
+    border-top: 2px solid var(--gold);
+  }
+
+  .inv-total .inv-label {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  .inv-total .inv-value {
+    color: var(--gold);
+    font-weight: 900;
+    font-size: 16px;
+  }
+
+  /* ===== STEPS ===== */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .step-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-radius: 4px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 900;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+
+  .step-content p {
+    font-size: 10px;
+    color: #aaa;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .footer-brand {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .footer-contact {
+    font-size: 9.5px;
+    color: #888;
+    text-align: right;
+  }
+
+  /* ===== EXPLAIN CARDS ===== */
+  .explain-flow {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 14px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .explain-step {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    padding: 10px 14px;
+    text-align: center;
+    min-width: 110px;
+    flex: 1;
+  }
+
+  .explain-step .step-icon {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+
+  .explain-step .step-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .explain-step .step-detail {
+    font-size: 9px;
+    color: #777;
+  }
+
+  .explain-arrow {
+    font-size: 18px;
+    color: var(--gold);
+    font-weight: 900;
+  }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: #fffbeb;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+
+  .highlight-box p {
+    font-size: 11px;
+    color: #555;
+  }
+
+  .highlight-box strong {
+    color: var(--dark);
+  }
+
+  /* ===== URVIG BOX ===== */
+  .urgency-box {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%);
+    border: 1px solid #ffcdd2;
+    border-left: 4px solid var(--red);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+
+  .urgency-box h4 {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--red);
+    margin-bottom: 4px;
+  }
+
+  .urgency-box p {
+    font-size: 10.5px;
+    color: #666;
+  }
+
+  /* ===== BULLET LIST ===== */
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+  }
+
+  .bullet-list li {
+    font-size: 10.5px;
+    color: #444;
+    padding: 3px 0 3px 18px;
+    position: relative;
+  }
+
+  .bullet-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ===== VS BOX ===== */
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 12px;
+    align-items: center;
+    margin: 14px 0;
+  }
+
+  .vs-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+
+  .vs-card h4 {
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .vs-card.winner {
+    border: 2px solid var(--gold);
+    background: #fffef5;
+  }
+
+  .vs-card.winner h4 { color: var(--gold-dark); }
+  .vs-card.loser h4 { color: var(--gray-400); }
+
+  .vs-badge {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--gold);
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1 ==================== -->
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="wolfim-logo">WOLFIM</div>
+      <div class="header-date">Junio 2026 · Río Tercero, Córdoba</div>
+    </div>
+    <div class="header-title">Propuesta de Publicidad Digital — Google Ads</div>
+    <div class="header-subtitle">ANGO Metalúrgica · Tomas de Fuerza con Embrague</div>
+  </div>
+
+  <!-- QUÉ ES GOOGLE ADS -->
+  <div class="section">
+    <div class="section-title-lg">¿Qué es Google Ads y cómo funciona?</div>
+
+    <p>Cuando alguien busca en Google <strong>"toma de fuerza para motor industrial"</strong>, los primeros 3-4 resultados que aparecen son <strong>anuncios pagos</strong>. Esos anuncios son de empresas que pagan a Google para aparecer primero cuando alguien busca exactamente lo que ellas venden.</p>
+
+    <p><strong>Usted no paga por aparecer. Paga solo cuando alguien hace clic en el anuncio y entra a su sitio.</strong></p>
+
+    <!-- FLOW DIAGRAM -->
+    <div class="explain-flow">
+      <div class="explain-step">
+        <div class="step-icon">🔍</div>
+        <div class="step-label">Cliente busca</div>
+        <div class="step-detail">"toma de fuerza motor diesel"</div>
+      </div>
+      <div class="explain-arrow">→</div>
+      <div class="explain-step">
+        <div class="step-icon">📢</div>
+        <div class="step-label">Su anuncio aparece</div>
+        <div class="step-detail">Arriba de todo en Google</div>
+      </div>
+      <div class="explain-arrow">→</div>
+      <div class="explain-step">
+        <div class="step-icon">👆</div>
+        <div class="step-label">Cliente hace clic</div>
+        <div class="step-detail">Entra a ango.com.ar</div>
+      </div>
+      <div class="explain-arrow">→</div>
+      <div class="explain-step">
+        <div class="step-icon">📞</div>
+        <div class="step-label">Contacta a ANGO</div>
+        <div class="step-detail">WhatsApp o formulario</div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>Ejemplo real:</strong> Si alguien en Neuquén busca <em>"repuestos toma de fuerza Urvig"</em> y la empresa de usted aparece primero con un mensaje claro, esa persona va a hacer clic, va a ver los productos, y va a contactarlos. <strong>Eso es un cliente potencial que ya sabe lo que necesita.</strong></p>
+    </div>
+  </div>
+
+  <!-- POR QUÉ GOOGLE Y NO OTROS -->
+  <div class="section section-bg">
+    <div class="section-title">¿Por qué Google Ads y no Instagram, Facebook o WhatsApp?</div>
+
+    <p>Cada plataforma sirve para algo distinto. Para el producto de ANGO — tomas de fuerza industriales de $2.500 USD — <strong>Google es la opción correcta</strong>. Acá explicamos por qué:</p>
+
+    <table class="comparison-table">
+      <tr>
+        <th>Plataforma</th>
+        <th>¿Para qué sirve?</th>
+        <th>¿Sirve para ANGO?</th>
+      </tr>
+      <tr class="winner-row">
+        <td><strong>Google Ads</strong></td>
+        <td>La persona <strong>ya sabe lo que busca</strong>. Escribe "toma de fuerza industrial" y quiere comprar.</td>
+        <td><span class="check">✔ IDEAL</span> — Alta intención de compra, cliente calificado</td>
+      </tr>
+      <tr>
+        <td><strong>Instagram / Facebook</strong></td>
+        <td>La persona está mirando fotos, no pensando en comprar repuestos industriales. Sirve para marca, no para venta directa.</td>
+        <td><span class="cross">✘ NO</span> — El público industrial no compra por Instagram</td>
+      </tr>
+      <tr>
+        <td><strong>WhatsApp</strong></td>
+        <td>Canal de comunicación, no de captación. WhatsApp no trae clientes nuevos por sí solo.</td>
+        <td><span class="cross">✘ NO</span> — Sirve como canal de contacto DESPUÉS del ad, no como plataforma de publicidad</td>
+      </tr>
+      <tr>
+        <td><strong>Marketplace (ML)</strong></td>
+        <td>Productos genéricos a precio. Los compradores buscan lo más barato.</td>
+        <td><span class="cross">✘ NO</span> — ANGO vende productos técnicos con asesoramiento, no commodities</td>
+      </tr>
+    </table>
+
+    <div class="highlight-box">
+      <p><strong>En resumen:</strong> Google Ads conecta a ANGO con personas que <strong>ya están buscando</strong> lo que usted fabrica. No es interrumpir — es aparecer en el momento exacto en que alguien necesita su producto.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">Wolfim</div>
+    <div class="footer-contact">wolfim.com · Consultas: wolfimhq@gmail.com</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 2 ==================== -->
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="wolfim-logo">WOLFIM</div>
+      <div class="header-date">ANGO — Campañas Planificadas</div>
+    </div>
+    <div class="header-title">Las dos campañas para ANGO</div>
+    <div class="header-subtitle">Estrategia focalizada en tomas de fuerza industriales y repuestos Urvig</div>
+  </div>
+
+  <!-- CAMPAIGN B — URVIG -->
+  <div class="section">
+    <div class="section-title-lg">Campaña 1 — Repuestos para equipos Urvig</div>
+
+    <div class="campaign-card">
+      <span class="campaign-tag">⚡ Prioridad Alta — Conversión Rápida</span>
+      <h3>Captar clientes de Urvig que buscan repuestos</h3>
+      <p>Urvig tiene una gran cantidad de equipos instalados en toda Argentina. Sus clientes necesitan repuestos periódicamente y muchos están <strong>disconformes con la postventa de Urvig</strong>: demoras, precios altos, falta de stock.</p>
+      <p><strong>ANGO ofrece repuestos compatibles a mejor precio</strong>, directo de fábrica. El cliente que busca "repuesto Urvig" ya tiene el equipo, ya sabe qué necesita, y quiere una alternativa.</p>
+    </div>
+
+    <ul class="bullet-list">
+      <li><strong>Palabras clave:</strong> "repuestos Urvig", "repuesto embrague Urvig", "alternativa repuestos Urvig", "Urvig postventa"</li>
+      <li><strong>Audiencia:</strong> Técnicos, talleres industriales, empresas con equipos Urvig instalados en todo el país</li>
+      <li><strong>Mensaje clave:</strong> "¿Cansado de esperar repuestos Urvig? En ANGO fabricamos compatibles. Stock permanente y mejor precio."</li>
+      <li><strong>Objetivo:</strong> Que el cliente contacte por WhatsApp para consultar por su modelo específico</li>
+    </ul>
+  </div>
+
+  <!-- CAMPAIGN A — ANGO NEW -->
+  <div class="section section-bg">
+    <div class="section-title">Campaña 2 — Tomas de fuerza ANGO nuevas</div>
+
+    <div class="campaign-card">
+      <span class="campaign-tag">Venta de alto valor</span>
+      <h3>Posicionar ANGO como fabricante de referencia</h3>
+      <p>Las tomas de fuerza de ANGO se usan en <strong>motores industriales estacionarios</strong>: motobombas, generadores, compresores, equipos de bombeo petrolero, minería. Son productos de <strong>$2.500 USD</strong> con un ciclo de venta consultivo.</p>
+    </div>
+
+    <ul class="bullet-list">
+      <li><strong>Palabras clave:</strong> "toma de fuerza motor industrial", "toma de fuerza motobomba", "toma de fuerza fabricante Argentina", "PTO motor diesel"</li>
+      <li><strong>Audiencia:</strong> Empresas de petróleo, minería, riego industrial, generadores, servicio técnico de motores</li>
+      <li><strong>Geografía:</strong> Neuquén (Vaca Muerta), Catamarca, San Juan (minería), Córdoba, Santa Fe (riego/industria)</li>
+      <li><strong>Mensaje clave:</strong> "60 años fabricando tomas de fuerza para motores industriales. Asesoramiento técnico directo."</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">Wolfim</div>
+    <div class="footer-contact">wolfim.com · Consultas: wolfimhq@gmail.com</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 3 ==================== -->
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="wolfim-logo">WOLFIM</div>
+      <div class="header-date">ANGO — Inversión y Resultados</div>
+    </div>
+    <div class="header-title">Inversión, resultados esperados y próximos pasos</div>
+  </div>
+
+  <!-- INVESTMENT -->
+  <div class="section">
+    <div class="section-title-lg">Inversión mensual</div>
+
+    <p>La inversión tiene dos componentes: el <strong>honorario de gestión</strong> (lo que cobra Wolfim por armar, optimizar y reportar las campañas) y el <strong>presupuesto de Google</strong> (lo que se paga directamente a Google por los clics).</p>
+
+    <div class="investment-box">
+      <h3>Desglose de Inversión</h3>
+      <div class="inv-row">
+        <span class="inv-label">Gestión de campañas (Wolfim)</span>
+        <span class="inv-value">USD 100 / mes</span>
+      </div>
+      <div class="inv-row">
+        <span class="inv-label">Presupuesto Google Ads (se paga a Google)</span>
+        <span class="inv-value">USD 200 / mes</span>
+      </div>
+      <div class="inv-row">
+        <span class="inv-label">Setup inicial (configuración, keywords, anuncios)</span>
+        <span class="inv-value">USD 100 (único)</span>
+      </div>
+      <div class="inv-total">
+        <span class="inv-label">Total primer mes</span>
+        <span class="inv-value">USD 400</span>
+      </div>
+      <div class="inv-total" style="border-top: 1px solid #444; margin-top: 4px;">
+        <span class="inv-label" style="font-size: 11px;">Meses siguientes</span>
+        <span class="inv-value" style="font-size: 13px;">USD 300 / mes</span>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 14px;">
+      <p><strong>Retorno esperado:</strong> Con un ticket promedio de $2.500 USD por toma de fuerza, <strong>una sola venta cada 2 meses cubre toda la inversión publicitaria</strong>. Los repuestos Urvig, al ser de menor valor pero mayor frecuencia, generan consultas constantes que complementan el flujo de leads.</p>
+    </div>
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <div class="section section-bg">
+    <div class="section-title">¿Qué incluye la gestión mensual?</div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">Configuración inicial</div>
+        <div class="card-desc">Investigación de palabras clave, creación de anuncios, configuración de campañas, segmentación geográfica</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <div class="card-title">Optimización continua</div>
+        <div class="card-desc">Ajuste de pujas, pruebas de anuncios, mejora de palabras clave, eliminación de clics no deseados</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <div class="card-title">Reporte mensual</div>
+        <div class="card-desc">Cantidad de clics, consultas recibidas, costo por consulta, recomendaciones de mejora</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔧</div>
+        <div class="card-title">Mantenimiento de anuncios</div>
+        <div class="card-desc">Actualización de textos, nuevas keywords según demanda, ajuste de presupuesto según resultados</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEXT STEPS -->
+  <div class="section">
+    <div class="section-title">Próximos pasos</div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Confirmar interés</h4>
+          <p>Responda este documento o consulte por WhatsApp</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Acceso a Google Ads</h4>
+          <p>Crear o dar acceso a la cuenta publicitaria</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Configuración</h4>
+          <p>Armamos las campañas, anuncios y keywords (5-7 días)</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Lanzamiento</h4>
+          <p>Las campañas arrancan y los leads empiezan a llegar</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">Wolfim</div>
+    <div class="footer-contact">wolfim.com · Consultas: wolfimhq@gmail.com</div>
+  </div>
+</div>
+
+</body>
+</html>
