@@ -89,7 +89,7 @@ film-grain global (heredado)
 
 **Headline:**
 ```
-¿Tu web está perdiendo clientes?
+Tu web tiene 3 errores que frenan consultas
 ```
 
 **Subtítulo:**

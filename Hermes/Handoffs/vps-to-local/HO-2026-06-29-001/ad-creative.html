@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta Ad — Wolfim Diagnóstico</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* === FEED 1080×1080 === */
+  .feed {
+    width: 1080px;
+    height: 1080px;
+    background: #fafaf8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* film grain */
+  .feed::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .feed .logo {
+    width: 140px;
+    margin-bottom: 48px;
+    opacity: 0.9;
+  }
+
+  .feed .headline {
+    font-size: 64px;
+    font-weight: 700;
+    color: #0A0A0A;
+    text-align: center;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+
+  .feed .sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #707068;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 40px;
+  }
+
+  .feed .cta {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0A0A0A;
+    border: 1.5px solid #0A0A0A;
+    padding: 16px 40px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: transparent;
+  }
+
+  /* === STORIES 1080×1920 === */
+  .stories {
+    width: 1080px;
+    height: 1920px;
+    background: #fafaf8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 80px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .stories::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .stories .logo {
+    width: 120px;
+    margin-bottom: 60px;
+    opacity: 0.9;
+  }
+
+  .stories .headline {
+    font-size: 72px;
+    font-weight: 700;
+    color: #0A0A0A;
+    text-align: center;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 36px;
+  }
+
+  .stories .sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #707068;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 60px;
+  }
+
+  .stories .cta {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0A0A0A;
+    border: 1.5px solid #0A0A0A;
+    padding: 20px 48px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: transparent;
+  }
+</style>
+</head>
+<body>
+
+<!-- FEED — 1080×1080 -->
+<div class="feed">
+  <img class="logo" src="../companies/wolfim/brand/WOLFIM_logo.svg" alt="Wolfim">
+  <div class="headline">Tu web tiene 3 errores<br>que frenan consultas</div>
+  <div class="sub">La mayoría de las PyMEs pierde consultas por errores básicos<br>en su sitio web. Te digo cuáles tiene la tuya.</div>
+  <div class="cta">Diagnóstico gratuito</div>
+</div>
+
+<!-- STORIES — 1080×1920 -->
+<div class="stories">
+  <img class="logo" src="../companies/wolfim/brand/WOLFIM_logo.svg" alt="Wolfim">
+  <div class="headline">Tu web tiene<br>3 errores que<br>frenan consultas</div>
+  <div class="sub">Te lo digo en 24 horas.<br>Sin cargo.</div>
+  <div class="cta">Pedí tu diagnóstico</div>
+</div>
+
+</body>
+</html>
