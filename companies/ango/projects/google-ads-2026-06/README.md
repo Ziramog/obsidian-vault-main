@@ -33,9 +33,9 @@
 |---|---|
 | Setup inicial | USD 100 (único) |
 | Gestión mensual (Wolfim) | USD 100/mes |
-| Presupuesto Google Ads | USD 200/mes |
-| **Total primer mes** | **USD 400** |
-| **Meses siguientes** | **USD 300/mes** |
+| Presupuesto Google Ads | USD 100/mes |
+| **Total primer mes** | **USD 300** |
+| **Meses siguientes** | **USD 200/mes** |
 
 ### Por qué Google y no Meta/Instagram/WhatsApp
 - Google: intención de compra directa (la persona ya sabe lo que busca)
