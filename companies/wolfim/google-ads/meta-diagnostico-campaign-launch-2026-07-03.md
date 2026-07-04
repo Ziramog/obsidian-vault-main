@@ -2,7 +2,7 @@
 title: Meta Ads Launch — Wolfim Diagnóstico
 company: wolfim
 date: 2026-07-03
-status: ready-to-create
+status: active-soft-launch
 landing: https://www.wolfim.com/diagnostico
 budget: 5 USD/day
 owner: Juan
