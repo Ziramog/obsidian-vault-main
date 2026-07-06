@@ -1,0 +1,45 @@
+
+2026/07/05 23:02:18 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Music\
+Access is denied.
+Waiting 5 seconds... Retrying...
+2026/07/05 23:02:23 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Music\
+Access is denied.
+Waiting 5 seconds... Retrying...
+2026/07/05 23:02:28 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Music\
+Access is denied.
+Waiting 5 seconds... Retrying...
+2026/07/05 23:02:33 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Music\
+Access is denied.
+
+ERROR: RETRY LIMIT EXCEEDED.
+
+2026/07/05 23:02:33 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Pictures\
+Access is denied.
+Waiting 5 seconds... Retrying...
+2026/07/05 23:02:38 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Pictures\
+Access is denied.
+Waiting 5 seconds... Retrying...
+2026/07/05 23:02:43 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Pictures\
+Access is denied.
+Waiting 5 seconds... Retrying...
+2026/07/05 23:02:48 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Pictures\
+Access is denied.
+
+ERROR: RETRY LIMIT EXCEEDED.
+
+2026/07/05 23:02:48 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Videos\
+Access is denied.
+Waiting 5 seconds... Retrying...
+2026/07/05 23:02:53 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Videos\
+Access is denied.
+Waiting 5 seconds... Retrying...
+2026/07/05 23:02:58 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Videos\
+Access is denied.
+Waiting 5 seconds... Retrying...
+2026/07/05 23:03:03 ERROR 5 (0x00000005) Time-Stamping Destination Directory D:\Backups\Documents\My Videos\
+Access is denied.
+
+ERROR: RETRY LIMIT EXCEEDED.
+
+
+

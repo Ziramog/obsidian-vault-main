@@ -1,0 +1,12 @@
+﻿23:02:17 === PC Brain - Backup Documents ===
+23:02:17 Inicio: 07/05/2026 23:02:17
+23:02:17 Origen: C:\Users\ingju\Documents
+23:02:17 Destino creado: D:\Backups\Documents
+23:02:17 Destino: D:\Backups\Documents
+23:02:18 Espacio libre en D:: 274.7 GB
+23:02:18 Origen: 43 archivos, 0.06 GB
+23:02:18 Iniciando robocopy...
+23:03:03 ERROR: robocopy fallo con codigo 9
+23:03:03 Duracion: 45.8 segundos
+23:03:03 Log: C:\Projects\Obsidian\obsidian-vault-main\Systems\Local-PC\Reports\robocopy-backup-documents.log
+23:03:03 === Backup Documents completado ===

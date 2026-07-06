@@ -1,0 +1,22 @@
+﻿14:54:54 === PC Brain - Monitor de Login ===
+14:54:54 Inicio: 07/05/2026 14:54:54
+14:54:54 --- 1. Espacio libre ---
+14:54:55   C:: 333.3 GB libre de 476.9 GB (69.9%)
+14:54:55   D:: 274.7 GB libre de 495.8 GB (55.4%)
+14:54:55   H:: 48.4 GB libre de 488.3 GB (9.9%)
+14:54:55   ALERTA: H: por debajo del 10%
+14:54:55   I:: 214.1 GB libre de 878.9 GB (24.4%)
+14:54:55 --- 2. Estado de discos ---
+14:54:58   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+14:54:58   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+14:54:58 --- 3. Ultimo backup ---
+14:54:58   No se detecto sistema de backup automatico
+14:54:58 --- 4. Errores criticos (24h) ---
+14:54:58   14:54 [Critical] Microsoft-Windows-Kernel-Power: 41 - The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding
+14:54:58   14:54 [Error] EventLog: 6008 - The previous system shutdown at 1:53:41 PM on ‎7/‎5/‎2026 was unexpected.
+14:54:58   14:54 [Error] Microsoft-Windows-Kernel-Boot: 29 - Windows failed fast startup with error status 0xC00000D4.
+14:54:58 --- 5. Boot NVMe ---
+14:54:58   Error verificando NVMe
+14:54:58 --- Actualizando STATUS.md ---
+14:54:58 STATUS.md actualizado
+14:54:58 === Completado en 3.9 segundos ===
