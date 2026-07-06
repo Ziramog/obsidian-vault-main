@@ -279,24 +279,148 @@ Se puede crear un cron en Hermes que revise el consumo:
 
 ### Korantis
 - [x] Separado en su propio Project
-- [ ] Verificar quotas configuradas (Places API New: 300/día)
-- [ ] Budget alert de $1 USD
+- [x] Quotas duras configuradas en Places API (New): 300/día
+- [x] Budget alert creado: `korantis-api-safety` ($1 USD, thresholds 50% y 100%)
+- [x] Service account operativo desde VPS: `hermes-vps-operator@korantis.iam.gserviceaccount.com`
+- [x] APIs habilitadas para administración vía CLI: `places.googleapis.com`, `cloudbilling.googleapis.com`, `billingbudgets.googleapis.com`, `iam.googleapis.com`, `cloudresourcemanager.googleapis.com`
 - [ ] Código: verificar cache y rate limiting en pipeline de venues
 
+**Verificación real (2026-07-05):**
+- Quotas aplicadas por CLI con `effectiveLimit: 300` en:
+  - `SearchTextRequest`
+  - `SearchNearbyRequest`
+  - `GetPlaceRequest`
+  - `AutocompletePlacesRequest`
+  - `GetPhotoMediaRequest`
+- Budget verificado por CLI:
+  - `displayName: korantis-api-safety`
+  - `amount: 1 USD`
+  - `project: projects/1082900249846`
+  - `thresholds: 0.5 y 1.0`
+- Key expuesta en chat: rotada y revocada la original.
+- Key activa actual en VPS: `/home/hermes/.gcp/korantis-sa-rotated.json`
+
 ### Roggero & Roma
-- [ ] Crear Project `roggero-y-roma-prod`
-- [ ] Habilitar Maps JavaScript API
-- [ ] Crear API key restringida a roggeroyroma.com
-- [ ] Quota: 300 loads/día
-- [ ] Budget alert: $1 USD
-- [ ] Actualizar key en el código
+- [x] Identificado project actual/default: `gen-lang-client-0389985898` (project number `943127807938`)
+- [x] Credencial cargada en VPS: `/home/hermes/.gcp/roggero-y-roma-prod.json` (chmod 600)
+- [x] APIs base habilitadas para administración vía Console/CLI: `serviceusage.googleapis.com`, `cloudresourcemanager.googleapis.com`, `cloudbilling.googleapis.com`, `billingbudgets.googleapis.com`, `iam.googleapis.com`
+- [x] Quotas duras aplicadas por CLI: **300/día**
+  - `maps-backend.googleapis.com/billable_default` (Map loads)
+  - `maps-backend.googleapis.com/3d_billable_default`
+  - `maps-backend.googleapis.com/MapsGroundingWidget`
+  - `places-backend.googleapis.com/billable_default` (Places API clásico)
+  - `places-backend.googleapis.com/billable_reviewswidget`
+  - `places.googleapis.com/AutocompletePlacesRequest`
+  - `places.googleapis.com/GetPhotoMediaRequest`
+  - `places.googleapis.com/GetPlaceRequest`
+  - `places.googleapis.com/SearchMediaRequest`
+  - `places.googleapis.com/SearchNearbyRequest`
+  - `places.googleapis.com/SearchReviewPostsRequest`
+  - `places.googleapis.com/SearchTextRequest`
+- [x] Budget alert creado por CLI: `roggero-y-roma-api-safety` ($1 USD, thresholds 50% y 100%)
+  - `billingAccount: 018756-3F9C58-E5FEC3`
+  - `project: projects/943127807938`
+  - `budget resource: billingAccounts/018756-3F9C58-E5FEC3/budgets/516d79e2-0a84-4b11-9b6d-deb26f7c3fe9`
+- [ ] Auditar keys de Roggero antes de modificarlas (`RoggeroRoma Map`, `RoggeroRoma`, `places RyR`)
+- [ ] Actualizar key en el código solo después de la auditoría fina
 - [ ] Testear sitio
+- [ ] Si sigue siendo project grupal/default, evaluar migración posterior a un project dedicado con nombre limpio (`roggero-y-roma-prod`)
+- [ ] Rotar la service account key expuesta en chat cuando termine la configuración
 - [ ] Eliminar key vieja del Project grupal
 
 ### La Montaña
-- [ ] Documentar qué APIs usa
-- [ ] Verificar quotas configuradas
-- [ ] Budget alert: $1 USD
+- [x] Service account propio creado y operativo desde VPS: `hermes-vps-operator@lamontana.iam.gserviceaccount.com`
+- [x] Billing account conectado: `billingAccounts/018756-3F9C58-E5FEC3`
+- [x] Quotas duras configuradas en Places API (New): 300/día
+- [x] Budget alert creado: `la-montana-api-safety` ($1 USD, thresholds 50% y 100%)
+- [x] APIs base habilitadas para administración vía CLI: `cloudresourcemanager.googleapis.com`, `cloudbilling.googleapis.com`, `billingbudgets.googleapis.com`, `iam.googleapis.com`
+- [ ] Revisar código: cache + rate limiting
+- [~] Auditar exceso de APIs habilitadas en el proyecto y apagar lo que no use
+- [x] Recortar restricciones de la browser key a las APIs realmente usadas
+- [ ] Eliminar dependencias fantasma de Leaflet del proyecto local
+
+**Verificación real (2026-07-05):**
+- Proyecto accesible por CLI:
+  - `projectId: lamontana`
+  - `projectNumber: 1048986474659`
+- Quotas aplicadas por CLI con `effectiveLimit: 300` en:
+  - `SearchTextRequest`
+  - `SearchNearbyRequest`
+  - `GetPlaceRequest`
+  - `AutocompletePlacesRequest`
+  - `GetPhotoMediaRequest`
+- Budget verificado por CLI:
+  - `displayName: la-montana-api-safety`
+  - `amount: 1 USD`
+  - `project: projects/1048986474659`
+  - `thresholds: 0.5 y 1.0`
+- Key expuesta en chat: rotada y revocada la original.
+- Key activa actual en VPS: `/home/hermes/.gcp/la-montana-sa-rotated.json`
+- Browser key endurecida por CLI (2026-07-05):
+  - `maps-backend.googleapis.com`
+  - `places.googleapis.com`
+  - `places-backend.googleapis.com`
+  - `geocoding-backend.googleapis.com`
+- Referrers permitidos en browser key:
+  - `https://www.xn--lamontaa-j3a.lat/*`
+  - `https://xn--lamontaa-j3a.lat/*`
+  - `https://lamontana-two.vercel.app/*`
+  - `http://www.xn--lamontaa-j3a.lat/*`
+  - `http://xn--lamontaa-j3a.lat/*`
+- Limpieza parcial de APIs del proyecto ejecutada por CLI:
+  - Deshabilitadas APIs de rutas, geolocalización secundaria, mobile SDKs, datasets, widgets, weather/solar/pollen, tile/static maps, streetview publish, etc.
+- APIs todavía habilitadas tras la limpieza:
+  - `apikeys.googleapis.com`
+  - `bigquery.googleapis.com`
+  - `bigqueryconnection.googleapis.com`
+  - `bigquerydatapolicy.googleapis.com`
+  - `bigquerydatatransfer.googleapis.com`
+  - `bigquerymigration.googleapis.com`
+  - `bigqueryreservation.googleapis.com`
+  - `bigquerystorage.googleapis.com`
+  - `billingbudgets.googleapis.com`
+  - `cloudapis.googleapis.com`
+  - `cloudbilling.googleapis.com`
+  - `cloudresourcemanager.googleapis.com`
+  - `cloudtrace.googleapis.com`
+  - `datastore.googleapis.com`
+  - `geocoding-backend.googleapis.com`
+  - `iam.googleapis.com`
+  - `iamcredentials.googleapis.com`
+  - `logging.googleapis.com`
+  - `maps-backend.googleapis.com`
+  - `monitoring.googleapis.com`
+  - `places-backend.googleapis.com`
+  - `places.googleapis.com`
+  - `servicemanagement.googleapis.com`
+  - `serviceusage.googleapis.com`
+  - `sql-component.googleapis.com`
+  - `storage-api.googleapis.com`
+  - `storage-component.googleapis.com`
+  - `storage.googleapis.com`
+- APIs pendientes de segunda pasada por dependencias internas de `cloudapis.googleapis.com` o anclas similares:
+  - `bigquery*`
+  - `cloudtrace.googleapis.com`
+  - `datastore.googleapis.com`
+  - `sql-component.googleapis.com`
+  - `storage*`
+
+**Auditoría local de código (Juan, 2026-07-05):**
+- La Montaña usa **2 proveedores de mapas/geolocalización** en el proyecto:
+  - **Mapbox API** (`mapbox-gl`, `react-map-gl`) como motor principal de mapas de propiedades.
+    - Componentes reportados: `PropertyMap.jsx`, `CategoryMap.jsx`, `MapView.jsx`, `LocationPickerMap.jsx`.
+  - **Google Maps Platform** (`@vis.gl/react-google-maps`) en módulos específicos.
+    - Componentes reportados: `InteractiveMasterplan.jsx`, `GoogleMapPilot.jsx`.
+    - Integración adicional con **Places / Geocoding** vía `lib/google/places-client.js` para autocompletados.
+- Dependencias fantasma detectadas en `package.json` sin uso real en código fuente:
+  - `leaflet`
+  - `react-leaflet`
+  - `leaflet.markercluster`
+
+**Corrección del diagnóstico anterior:**
+- Para **La Montaña**, no corresponde asumir que `places.googleapis.com` o `geocoding-backend.googleapis.com` sobran: la auditoría local reporta uso real de Places/Geocoding en el código.
+- Lo que sí sigue confirmado como problema es que la **browser key** está demasiado abierta y el proyecto tiene muchas APIs habilitadas sin evidencia de uso actual.
+- Antes de apagar APIs en bloque, conviene recortar la key a un set mínimo coherente con el código auditado y recién después probar.
 
 ### Otros sitios en Project grupal
 - [ ] Listar todos los sitios
