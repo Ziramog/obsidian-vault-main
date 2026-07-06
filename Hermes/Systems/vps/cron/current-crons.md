@@ -1,7 +1,7 @@
 # Cron Jobs Activos — VPS
 
 > **Zona horaria:** America/Argentina/Buenos_Aires (UTC-3, ART)
-> **Última verificación:** 2026-06-25
+> **Última verificación:** 2026-07-06
 > **Host:** Contabo VPS (194.163.161.99)
 > **Fase 4:** Scripts de alertas, archivo y validación agregados
 
@@ -13,8 +13,8 @@
 |---|---|---|---|---|
 | `0 7 * * *` | 07:00 diario | `/home/hermes/scripts/hermes-health-check.py` | Health check del sistema Hermes | Pre-V5 |
 | `*/15 * * * *` | Cada 15 min | `cd /home/hermes/obsidian-vault && git pull --rebase --autostash origin main && git add -A && git diff --cached --quiet \|\| (git commit -m "auto-sync [vps]" && git push)` | Sync del vault a GitHub | Pre-V5 |
-| `0 10 * * 6` | 10:00 sábados | `cd /home/hermes/roggero_backup && source .env_roggero && bash scripts/backup.sh` | Backup Roggero & Roma | Pre-V5 |
-| `*/30 * * * *` | Cada 30 min (+5s) | `python3 /home/hermes/scripts/telegram-alert.py` | **NUEVO F4:** Handoffs vencidos + conflictos git → Telegram | Fase 4 |
+| `0 10 * * 6` | 10:00 sábados | `cd /home/hermes/roggero_backup && . ./.env_roggero && bash scripts/backup.sh` | Backup Roggero & Roma | Pre-V5 |
+| `*/30 * * * *` | Cada 30 min (+300s) | `sleep 300 && python3 /home/hermes/scripts/telegram-alert.py` | **NUEVO F4:** Handoffs vencidos + conflictos git → Telegram | Fase 4 |
 | `15 4 * * *` | 04:15 diario | `python3 /home/hermes/scripts/handoff-archive.py` | **NUEVO F4:** Archiva handoffs done/cancelled > 7 días | Fase 4 |
 | `*/15 * * * *` | Cada 15 min (+120s) | `cd /home/hermes/obsidian-vault && python3 Hermes/Systems/vps/scripts/ownership-validate.py --last-commit` | **NUEVO F4:** Valida escrituras dentro de zonas de ownership | Fase 4 |
 
@@ -24,9 +24,9 @@
 
 | Schedule | Hora (ART) | Comando | Descripción |
 |---|---|---|---|
-| `0 11 * * *` | 11:00 diario | `/wolfim/crawler/trigger-scan.sh` | Wolfim daily crawl scan |
-| `0 12 * * 0` | 12:00 domingos | `SUPABASE_SERVICE_KEY=... python3 /wolfim/link_validator.py` | Link validation (solo `link_status=none`) |
-| `*/30 * * * *` | Cada 30 min | `/home/hermes/scripts/session-append.sh` | Session recording (mecánico, 0 LLM) |
+| `#DISABLED_F4 0 11 * * *` | desactivado | `/wolfim/crawler/trigger-scan.sh` | Wolfim daily crawl scan |
+| `#DISABLED_F4 0 12 * * 0` | desactivado | `SUPABASE_SERVICE_KEY=... python3 /wolfim/link_validator.py` | Link validation (solo `link_status=none`) |
+| `#DISABLED_F4 */30 * * * *` | desactivado | `/home/hermes/scripts/session-append.sh` | Session recording (mecánico, 0 LLM) |
 
 ---
 
