@@ -114,6 +114,8 @@ Los números de esta vista quedan activos para cerrar rápido. Ejemplo:
 
 ```txt
 /todo
+cerrar la 1
+1
 ok 1
 5,7 ok
 ```

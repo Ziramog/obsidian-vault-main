@@ -572,12 +572,12 @@ def handle_text(vault: Path, text: str, source: str, chat_id: Optional[str] = No
         return cmd_focus(vault, "hoy")
     if low in {"ok", "listo", "hecho", "done", "cerrado", "cerrar", "cerra", "cerrá", "x", "✅"}:
         return "Decime qué número cierro. Ej: /todo y después cerrar la 1, ok 1, o 5,7 ok."
-    bare_number_match = re.match(r"^(?:la\s+)?(\d+(?:[\s,]+\d+)*)$", raw, flags=re.IGNORECASE)
+    bare_number_match = re.match(r"^(?:la\s+)?(\d+(?:[\s,.;]+\d+)*)$", raw, flags=re.IGNORECASE)
     done_match = re.match(r"^(?:/hecho|hecho|ok|listo|cerrado|cerrar|cerra|cerrá|done|x|✅)\s*(?:la\s+|tarea\s+)?(.+)$", raw, flags=re.IGNORECASE)
-    reverse_done_match = re.match(r"^((?:ag-\d{8}-\d{3}|#?\d+)(?:[\s,]+(?:ag-\d{8}-\d{3}|#?\d+))*)\s*(?:ok|hecho|listo|cerrado|cerrar|done|x|✅)$", raw, flags=re.IGNORECASE)
+    reverse_done_match = re.match(r"^((?:ag-\d{8}-\d{3}|#?\d+)(?:[\s,.;]+(?:ag-\d{8}-\d{3}|#?\d+))*)\s*(?:ok|hecho|listo|cerrado|cerrar|cerra|cerrá|done|x|✅)$", raw, flags=re.IGNORECASE)
     natural_done_match = re.match(r"^(?:ya\s+)?(?:hice|termin[eé]|cerr[eé])\s+(.+)$", raw, flags=re.IGNORECASE)
     suffix_done_match = re.match(r"^(.+?)\s+(?:est[áa]\s+)?(?:hecho|listo|cerrado|terminado)$", raw, flags=re.IGNORECASE)
-    compact_done_match = re.match(r"^x\s*(\d+(?:[\s,]+\d+)*)$", raw, flags=re.IGNORECASE)
+    compact_done_match = re.match(r"^x\s*(\d+(?:[\s,.;]+\d+)*)$", raw, flags=re.IGNORECASE)
     done_command_match = bare_number_match or reverse_done_match or done_match or natural_done_match or suffix_done_match or compact_done_match
     if done_command_match:
         payload = done_command_match.group(1).strip()

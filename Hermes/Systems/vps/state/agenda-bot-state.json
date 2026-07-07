@@ -1,3 +1,101 @@
 {
-  "offset": 606884259
+  "offset": 606884263,
+  "last_views": {
+    "1479438002": {
+      "label": "todo",
+      "at": "2026-07-07T12:08:44.716535-03:00",
+      "refs": [
+        {
+          "id": "",
+          "date": "2026-06-09",
+          "title": "Ver saldo AFIP"
+        },
+        {
+          "id": "",
+          "date": "2026-06-09",
+          "title": "Ver gas y luz"
+        },
+        {
+          "id": "",
+          "date": "2026-06-10",
+          "title": "Realizar el logo WOLFIM en calcos"
+        },
+        {
+          "id": "",
+          "date": "2026-06-10",
+          "title": "Contactar chinos por tema afilador"
+        },
+        {
+          "id": "",
+          "date": "2026-06-10",
+          "title": "Llamar a Galán Grupos Electrógenos — ¿probamos?"
+        },
+        {
+          "id": "",
+          "date": "2026-06-26",
+          "title": "Cancelar prueba gratis ChatGPT"
+        },
+        {
+          "id": "ag-20260628-008",
+          "date": "2026-06-28",
+          "title": "① Ango: cerrar tema página"
+        },
+        {
+          "id": "ag-20260628-009",
+          "date": "2026-06-28",
+          "title": "② Víctor: mostrar resultados campaña + entregar recibo"
+        },
+        {
+          "id": "ag-20260628-005",
+          "date": "2026-06-28",
+          "title": "Google Analytics Roggero & Roma + publicar Víctor en Argenprop"
+        },
+        {
+          "id": "ag-20260628-010",
+          "date": "2026-06-28",
+          "title": "Revisar Contabo"
+        },
+        {
+          "id": "ag-20260628-007",
+          "date": "2026-06-28",
+          "title": "Agendar para mañana 8 am"
+        },
+        {
+          "id": "ag-20260706-003",
+          "date": "2026-07-06",
+          "title": "Tema Víctor — publicar El Durazno en MercadoLibre"
+        },
+        {
+          "id": "ag-20260706-004",
+          "date": "2026-07-06",
+          "title": "Hacer lo de Landoni"
+        },
+        {
+          "id": "ag-20260706-005",
+          "date": "2026-07-06",
+          "title": "Construvial — scraper de tareas"
+        },
+        {
+          "id": "ag-20260706-006",
+          "date": "2026-07-06",
+          "title": ".- coordinar montecor pago 40 %"
+        },
+        {
+          "id": "ag-20260706-007",
+          "date": "2026-07-06",
+          "title": "Victor publicar esta hecho"
+        },
+        {
+          "id": "ag-20260706-008",
+          "date": "2026-07-06",
+          "title": "Esta semana urgente ir a municipalidad"
+        },
+        {
+          "id": "ag-20260706-009",
+          "date": "2026-07-06",
+          "title": "Ver listado de mañana"
+        }
+      ]
+    }
+  }
 }
