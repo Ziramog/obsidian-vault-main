@@ -101,7 +101,14 @@ Ejemplo:
 ## Consulta rápida
 
 ### `/hoy`
-Muestra agenda de hoy.
+Muestra agenda de hoy con números cortos para cerrar rápido.
+
+Ejemplo de salida:
+
+```txt
+1) Responder China por arandelas · ag-20260706-001
+2) Generar planes de pago · ag-20260706-002
+```
 
 ### `/mañana`
 Muestra agenda de mañana. También funcionan:
@@ -168,8 +175,26 @@ Alta explícita con o sin prioridad.
 
 ## Mantenimiento de tareas
 
+### `ok 1` / `hecho 1` / `listo 1` / `x 1`
+Marca como hecha una tarea de hoy usando el número corto que muestra `/hoy`.
+
+Ejemplos:
+
+```txt
+ok 1
+hecho 2
+listo 3
+x 4
+```
+
+También se pueden cerrar varias juntas:
+
+```txt
+ok 1 3 5
+```
+
 ### `/hecho ag-YYYYMMDD-NNN`
-Marca tarea como hecha.
+Marca tarea como hecha por ID completo. Sigue funcionando para tareas de otros días.
 
 ### `/cancelar ag-YYYYMMDD-NNN`
 Marca tarea como cancelada.
@@ -294,7 +319,9 @@ hoy 14 enviar presupuesto
 - marcar hechos:
 
 ```txt
-/hecho ag-...
+/hoy
+ok 1
+ok 1 3 5
 ```
 
 - mover o posponer:
@@ -380,6 +407,10 @@ Eso hoy se aproxima como follow-up simple, no como motor de reglas.
 /foco
 /detalle ag-YYYYMMDD-NNN
 /agendar rojo|amarillo|verde ...
+ok 1
+ok 1 3 5
+hecho 1
+x 1
 /hecho ag-YYYYMMDD-NNN
 /cancelar ag-YYYYMMDD-NNN
 /editar ag-YYYYMMDD-NNN nuevo texto

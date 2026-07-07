@@ -185,6 +185,36 @@ def summarize_agenda_output(output: str) -> str:
     return "\n".join(lines[:12])
 
 
+def is_open_task(task: Dict[str, str]) -> bool:
+    status = task.get("status", "pending")
+    checked = task.get("check", " ").lower() == "x"
+    return status not in {"done", "cancelled"} and not checked
+
+
+def open_tasks_for_day(vault: Path, day: dt.date) -> List[Dict[str, str]]:
+    path = agenda.agenda_path(vault, day)
+    if not path.exists():
+        return []
+    return [task for task in agenda.iter_tasks(agenda.read_lines(path)) if is_open_task(task)]
+
+
+def compact_task_line(number: int, task: Dict[str, str]) -> str:
+    detail = f" — {task['detail']}" if task.get("detail") else ""
+    reminder = f" · 🔔 {task['reminder']}" if task.get("reminder") else ""
+    return f"{number}) {task.get('title', 'Tarea')}{detail} · {task.get('id', 'sin-id')}{reminder}"
+
+
+def resolve_short_task_ref(vault: Path, day: dt.date, task_ref: str, tasks: Optional[List[Dict[str, str]]] = None) -> str:
+    ref = task_ref.strip().lstrip("#")
+    if ID_RE.search(ref) or not re.fullmatch(r"\d+", ref):
+        return task_ref.strip()
+    open_tasks = tasks if tasks is not None else open_tasks_for_day(vault, day)
+    number = int(ref)
+    if number < 1 or number > len(open_tasks):
+        return f"__INVALID_SHORT_REF__:{number}:{len(open_tasks)}"
+    return open_tasks[number - 1].get("id") or task_ref.strip()
+
+
 def parse_add_text(text: str) -> Tuple[str, Optional[str], str, Optional[str]]:
     s = text.strip()
     s = re.sub(r"^/agendar\s+", "", s, flags=re.IGNORECASE)
@@ -245,7 +275,21 @@ def cmd_add(vault: Path, text: str, source: str) -> str:
 
 def cmd_list(vault: Path, which: str) -> str:
     day = agenda.parse_date(which)
-    return summarize_agenda_output(agenda.list_agenda(vault, day))
+    path = agenda.agenda_path(vault, day)
+    tasks = open_tasks_for_day(vault, day)
+    if not tasks:
+        return f"Agenda {day.isoformat()}: sin tareas abiertas.\nArchivo: {path}"
+    grouped: Dict[str, List[str]] = {section: [] for section in agenda.SECTIONS}
+    for number, task in enumerate(tasks, start=1):
+        section = task.get("section", "")
+        if section in grouped:
+            grouped[section].append(compact_task_line(number, task))
+    out = [f"Agenda {day.isoformat()}", "Cerrar rápido: ok 1 · ok 1 3 5"]
+    for section in agenda.SECTIONS:
+        out.append(f"\n{section}")
+        out.extend(grouped[section] or ["(vacío)"])
+    out.append(f"\nArchivo: {path}")
+    return "\n".join(out)
 
 
 def cmd_focus(vault: Path, which: str = "hoy") -> str:
@@ -256,7 +300,29 @@ def cmd_focus(vault: Path, which: str = "hoy") -> str:
 def cmd_done(vault: Path, task_ref: str) -> str:
     date_str = date_from_task_id(task_ref) or agenda.now_art().date().isoformat()
     day = agenda.parse_date(date_str)
-    return agenda.done_task(vault, day, task_ref)
+    resolved_ref = resolve_short_task_ref(vault, day, task_ref)
+    if resolved_ref.startswith("__INVALID_SHORT_REF__:"):
+        _, number, count = resolved_ref.split(":")
+        return f"No hay tarea {number}. Hoy hay {count} tareas abiertas. Mandá /hoy para ver números."
+    return agenda.done_task(vault, day, resolved_ref)
+
+
+def cmd_done_many(vault: Path, payload: str) -> str:
+    day = agenda.now_art().date()
+    tasks = open_tasks_for_day(vault, day)
+    refs = re.findall(r"ag-\d{8}-\d{3}|#?\d+", payload, flags=re.IGNORECASE)
+    if not refs:
+        refs = [payload.strip()]
+    resolved_refs: List[str] = []
+    for ref in refs:
+        resolved_ref = resolve_short_task_ref(vault, day, ref, tasks=tasks)
+        if resolved_ref.startswith("__INVALID_SHORT_REF__:"):
+            _, number, count = resolved_ref.split(":")
+            return f"No hay tarea {number}. Hoy hay {count} tareas abiertas. Mandá /hoy para ver números."
+        if resolved_ref not in resolved_refs:
+            resolved_refs.append(resolved_ref)
+    outputs = [agenda.done_task(vault, agenda.parse_date(date_from_task_id(ref) or day.isoformat()), ref).splitlines()[0] for ref in resolved_refs]
+    return "Listo ✅ Cerré:\n" + "\n".join(f"- {line.replace('OK done: ', '')}" for line in outputs)
 
 
 def cmd_snooze(vault: Path, task_ref: str, reminder: str) -> str:
@@ -358,6 +424,8 @@ def handle_text(vault: Path, text: str, source: str) -> str:
             "- /mover ag-YYYYMMDD-NNN mañana 11:00\n"
             "- /agendar rojo mañana 9 llamar a GAMA\n"
             "- /foco\n"
+            "- ok 1  (cerrar por número de /hoy)\n"
+            "- ok 1 3 5  (cerrar varias)\n"
             "- /hecho ag-YYYYMMDD-NNN\n"
             "- /posponer ag-YYYYMMDD-NNN 11:00"
         )
@@ -377,9 +445,13 @@ def handle_text(vault: Path, text: str, source: str) -> str:
         return cmd_cleanup(vault, "hoy")
     if low in {"/foco", "foco"}:
         return cmd_focus(vault, "hoy")
-    if low.startswith("/hecho ") or low.startswith("hecho "):
-        task_ref = raw.split(maxsplit=1)[1].strip()
-        return cmd_done(vault, task_ref)
+    done_match = re.match(r"^(?:/hecho|hecho|ok|listo|cerrado|cerrar|done|x|✅)\s+(.+)$", raw, flags=re.IGNORECASE)
+    natural_done_match = re.match(r"^(?:ya\s+)?(?:hice|termin[eé]|cerr[eé])\s+(.+)$", raw, flags=re.IGNORECASE)
+    compact_done_match = re.match(r"^x\s*(\d+(?:[\s,]+\d+)*)$", raw, flags=re.IGNORECASE)
+    done_command_match = done_match or natural_done_match or compact_done_match
+    if done_command_match:
+        payload = done_command_match.group(1).strip()
+        return cmd_done_many(vault, payload)
     if low.startswith("/detalle ") or low.startswith("detalle "):
         task_ref = raw.split(maxsplit=1)[1].strip()
         return cmd_detail(vault, task_ref)
