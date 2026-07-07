@@ -215,11 +215,12 @@ También se pueden cerrar varias juntas, en cualquiera de estos formatos:
 ok 1 3 5
 1 3 5 ok
 5,7 ok
+2,4,5,6,7.8.9.10.11.12 ok
 ok1
 x1
 ```
 
-Si mandás solo `ok`, el bot ya no crea una tarea basura: responde pidiendo el número.
+También acepta punto como separador entre números. Si mandás solo `ok`, el bot ya no crea una tarea basura: responde pidiendo el número.
 
 ### `/hecho ag-YYYYMMDD-NNN`
 Marca tarea como hecha por ID completo. Sigue funcionando para tareas de otros días.
