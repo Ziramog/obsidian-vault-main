@@ -1,52 +1,56 @@
-# ANGO — Propuesta Google Ads (Junio 2026)
+# ANGO — Google Ads operativo
 
-**Estado:** Borrador — pendiente revisión de Juan
-**Fecha:** 2026-06-30
-**Cliente:** ANGO Metalúrgica (padre de Juan)
-**Servicio:** Google Ads para tomas de fuerza con embrague
-
----
-
-## Archivos
-
-- [[propuesta-google-ads-ango-2026-06.pdf|📄 Propuesta PDF]]
-- [[propuesta-google-ads-ango-2026-06.html|🔧 HTML editable]]
+**Estado:** Trabajo interno operativo  
+**Fecha:** 2026-07-07  
+**Objetivo:** llevar adelante una campaña de Google Ads para ANGO, no vender una propuesta.
 
 ---
 
-## Resumen de la propuesta
+## Documento principal
 
-### Campaña 1 — Repuestos Urvig (Prioridad Alta)
-- Mercado cautivo: Urvig tiene muchos equipos instalados
-- Clientes frustrados con postventa mala + repuestos caros
-- ANGO ofrece repuestos compatibles a mejor precio
-- Keywords: "repuestos Urvig", "repuesto embrague Urvig", etc.
+- [[paso-a-paso-campaña-google-ads-ango-2026-07-07|✅ Paso a paso para ejecutar la campaña]]
 
-### Campaña 2 — Tomas de fuerza ANGO nuevas
-- Motores industriales estacionarios (NO camiones, NO tractores)
-- Aplicaciones: motobombas, petróleo, minería, generadores
-- Ticket: $2.500 USD por unidad
-- Geografía: Neuquén, Catamarca, San Juan, Córdoba, Santa Fe
-
-### Inversión
-| Concepto | Monto |
-|---|---|
-| Setup inicial | USD 100 (único) |
-| Gestión mensual (Wolfim) | USD 100/mes |
-| Presupuesto Google Ads | USD 100/mes |
-| **Total primer mes** | **USD 300** |
-| **Meses siguientes** | **USD 200/mes** |
-
-### Por qué Google y no Meta/Instagram/WhatsApp
-- Google: intención de compra directa (la persona ya sabe lo que busca)
-- Instagram/Facebook: no sirve para productos industriales técnicos
-- WhatsApp: canal de contacto, no de captación
-- Marketplace: busca precio bajo, no asesoramiento técnico
+Este es el documento correcto para trabajar.
 
 ---
 
-## Nota de contexto
-- ANGO NO vende para camiones ni tractores
-- Son tomas de fuerza para motores industriales estacionarios
-- También producen repuestos para embragues Urvig (competencia directa)
-- Urvig tiene problemas de postventa y repuestos caros
+## Archivos de apoyo
+
+- [[instructivo-operativo-google-ads-ango-2026-07-07|🧭 Instructivo operativo anterior]]
+- [[propuesta-google-ads-ango-2026-06|📝 Propuesta Markdown — NO usar como documento principal]]
+- [[propuesta-google-ads-ango-2026-06.pdf|📄 PDF de propuesta — archivado / no usar para este objetivo]]
+- [[propuesta-google-ads-ango-2026-06.html|🔧 HTML de propuesta — archivado]]
+
+> [!warning]
+> La propuesta comercial no es el foco. Juan aclaró que no quiere venderle esto a ANGO como propuesta, sino tener un paso a paso para implementar la campaña.
+
+---
+
+## Resumen operativo
+
+Con presupuesto inicial de **USD 100/mes para Google Ads**, la estrategia recomendada es:
+
+```text
+1 campaña Search
+2 grupos de anuncios
+- Repuestos Urvig
+- Tomas de Fuerza Industriales
+Sin Display
+Sin Performance Max
+Keywords exactas/frase
+Revisión semanal
+Decisión después de 30 días
+```
+
+---
+
+## Pendientes antes de lanzar
+
+- [ ] Confirmar URL definitiva de ANGO.
+- [ ] Confirmar si existe landing para repuestos Urvig.
+- [ ] Confirmar WhatsApp/teléfono/email de consulta.
+- [ ] Confirmar modelos Urvig disponibles.
+- [ ] Confirmar quién responde los leads.
+- [ ] Verificar GA4 / tracking o definir seguimiento manual.
+- [ ] Crear/acceder a Google Ads.
+- [ ] No publicar sin aprobación de Juan/Antonio.

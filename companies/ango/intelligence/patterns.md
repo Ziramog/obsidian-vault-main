@@ -23,6 +23,7 @@ entries: 1
 |---|---|---|
 | Investigación de patentes (USPTO, Espacenet, Google Patents) | Informe v1, v2, v3 generados con hallazgos accionables | Investigación → decisión |
 | INPI Argentina | Pendiente de usar para solicitud | — |
+| Google Ads Search nicho industrial | Propuesta e instructivo 2026-07-07 para repuestos Urvig + tomas de fuerza industriales. Recomendación: 1 campaña Search, 2 grupos, USD 100/mes Google inicial, no Performance Max ni Display al inicio. | Pendiente de lanzamiento |
 
 ## Canales que NO Funcionan
 

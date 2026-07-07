@@ -25,6 +25,14 @@ source-of-truth: Juan → Antonio Gomariz (padre)
 - Diferenciador clave: filo en el perímetro del disco (no cuchillas montadas como la competencia MacDon).
 - Potencial de patente: investigaciones recientes muestran campo libre para IP fundacional.
 
+## Líneas industriales / campaña digital
+
+- ANGO también trabaja con **tomas de fuerza con embrague para motores industriales estacionarios**.
+- No confundir con tomas de fuerza para camiones, tractores, mixers, bateas, volcadores o grúas.
+- Aplicaciones relevantes: motobombas, motores diésel grandes, bombas de pozo, riego industrial, compresores, generadores, petróleo/minería.
+- Oportunidad comercial detectada: **repuestos compatibles para embragues Urvig**. Urvig tiene muchos equipos instalados; dolor principal informado por Juan: postventa débil y repuestos caros.
+- Campaña Google Ads propuesta: una campaña Search inicial con dos grupos de anuncios: `Repuestos Urvig` y `Tomas de Fuerza Industriales`.
+
 ## Modelo de negocio
 
 - Fabricación bajo pedido.
