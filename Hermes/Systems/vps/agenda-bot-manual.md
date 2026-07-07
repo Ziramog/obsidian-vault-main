@@ -100,6 +100,26 @@ Ejemplo:
 
 ## Consulta rápida
 
+### `/todo` / `/panorama`
+Muestra el tablero completo operativo:
+
+```txt
+⚠️ Atrasadas
+🔴 Hoy
+🟡 Mañana
+📅 Esta semana
+```
+
+Los números de esta vista quedan activos para cerrar rápido. Ejemplo:
+
+```txt
+/todo
+ok 1
+5,7 ok
+```
+
+Si el `1` era una tarea atrasada de otro día, se cierra en su archivo original.
+
 ### `/hoy`
 Muestra agenda de hoy con números cortos para cerrar rápido.
 
@@ -187,11 +207,17 @@ listo 3
 x 4
 ```
 
-También se pueden cerrar varias juntas:
+También se pueden cerrar varias juntas, en cualquiera de estos formatos:
 
 ```txt
 ok 1 3 5
+1 3 5 ok
+5,7 ok
+ok1
+x1
 ```
+
+Si mandás solo `ok`, el bot ya no crea una tarea basura: responde pidiendo el número.
 
 ### `/hecho ag-YYYYMMDD-NNN`
 Marca tarea como hecha por ID completo. Sigue funcionando para tareas de otros días.
@@ -303,6 +329,7 @@ Si el bot parece no responder, primero verificar que el chat con `@Agenda_Hbot` 
 
 ```txt
 /hoy
+/todo
 /pendientes
 /foco
 ```
@@ -401,6 +428,8 @@ Eso hoy se aproxima como follow-up simple, no como motor de reglas.
 ```txt
 /hoy
 /mañana
+/todo
+/panorama
 /esta-semana
 /pendientes
 /revisar

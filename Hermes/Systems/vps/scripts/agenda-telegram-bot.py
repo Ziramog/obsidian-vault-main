@@ -21,6 +21,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+import unicodedata
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -195,7 +196,10 @@ def open_tasks_for_day(vault: Path, day: dt.date) -> List[Dict[str, str]]:
     path = agenda.agenda_path(vault, day)
     if not path.exists():
         return []
-    return [task for task in agenda.iter_tasks(agenda.read_lines(path)) if is_open_task(task)]
+    tasks = [task for task in agenda.iter_tasks(agenda.read_lines(path)) if is_open_task(task)]
+    for task in tasks:
+        task["date"] = day.isoformat()
+    return tasks
 
 
 def compact_task_line(number: int, task: Dict[str, str]) -> str:
@@ -204,9 +208,68 @@ def compact_task_line(number: int, task: Dict[str, str]) -> str:
     return f"{number}) {task.get('title', 'Tarea')}{detail} · {task.get('id', 'sin-id')}{reminder}"
 
 
+def agenda_dates(vault: Path) -> List[dt.date]:
+    root = vault / "Hermes" / "Agenda"
+    dates: List[dt.date] = []
+    if not root.exists():
+        return dates
+    for path in root.glob("*.md"):
+        try:
+            dates.append(dt.date.fromisoformat(path.stem))
+        except ValueError:
+            continue
+    return sorted(dates)
+
+
+def save_last_view(chat_id: Optional[str], label: str, tasks: List[Dict[str, str]]) -> None:
+    if not chat_id:
+        return
+    state = load_state()
+    views = state.setdefault("last_views", {})
+    views[str(chat_id)] = {
+        "label": label,
+        "at": now_art().isoformat(),
+        "refs": [
+            {
+                "id": task.get("id", ""),
+                "date": task.get("date", ""),
+                "title": task.get("title", ""),
+            }
+            for task in tasks
+        ],
+    }
+    save_state(state)
+
+
+def last_view_tasks(chat_id: Optional[str]) -> List[Dict[str, str]]:
+    if not chat_id:
+        return []
+    state = load_state()
+    view = state.get("last_views", {}).get(str(chat_id), {})
+    refs = view.get("refs", []) if isinstance(view, dict) else []
+    if not isinstance(refs, list):
+        return []
+    return [ref for ref in refs if isinstance(ref, dict) and (ref.get("id") or ref.get("title"))]
+
+
+def normalize_match_text(text: str) -> str:
+    without_accents = "".join(
+        ch for ch in unicodedata.normalize("NFKD", text.lower())
+        if not unicodedata.combining(ch)
+    )
+    return re.sub(r"[^a-z0-9]+", " ", without_accents).strip()
+
+
 def resolve_short_task_ref(vault: Path, day: dt.date, task_ref: str, tasks: Optional[List[Dict[str, str]]] = None) -> str:
     ref = task_ref.strip().lstrip("#")
     if ID_RE.search(ref) or not re.fullmatch(r"\d+", ref):
+        open_tasks = tasks if tasks is not None else open_tasks_for_day(vault, day)
+        ref_tokens = normalize_match_text(task_ref).split()
+        if ref_tokens:
+            for task in open_tasks:
+                haystack = normalize_match_text(" ".join([task.get("title", ""), task.get("detail", "")]))
+                if all(token in haystack for token in ref_tokens):
+                    return task.get("id") or task_ref.strip()
         return task_ref.strip()
     open_tasks = tasks if tasks is not None else open_tasks_for_day(vault, day)
     number = int(ref)
@@ -273,10 +336,11 @@ def cmd_add(vault: Path, text: str, source: str) -> str:
     return cmd_add_batch(vault, text, source)
 
 
-def cmd_list(vault: Path, which: str) -> str:
+def cmd_list(vault: Path, which: str, chat_id: Optional[str] = None) -> str:
     day = agenda.parse_date(which)
     path = agenda.agenda_path(vault, day)
     tasks = open_tasks_for_day(vault, day)
+    save_last_view(chat_id, which, tasks)
     if not tasks:
         return f"Agenda {day.isoformat()}: sin tareas abiertas.\nArchivo: {path}"
     grouped: Dict[str, List[str]] = {section: [] for section in agenda.SECTIONS}
@@ -289,6 +353,50 @@ def cmd_list(vault: Path, which: str) -> str:
         out.append(f"\n{section}")
         out.extend(grouped[section] or ["(vacío)"])
     out.append(f"\nArchivo: {path}")
+    return "\n".join(out)
+
+
+def cmd_overview(vault: Path, chat_id: Optional[str] = None) -> str:
+    today = agenda.now_art().date()
+    tomorrow = today + dt.timedelta(days=1)
+    week_end = today + dt.timedelta(days=6)
+
+    overdue: List[Dict[str, str]] = []
+    for day in agenda_dates(vault):
+        if day < today:
+            overdue.extend(open_tasks_for_day(vault, day))
+
+    today_tasks = open_tasks_for_day(vault, today)
+    tomorrow_tasks = open_tasks_for_day(vault, tomorrow)
+    week_tasks: List[Dict[str, str]] = []
+    for offset in range(2, 7):
+        week_tasks.extend(open_tasks_for_day(vault, today + dt.timedelta(days=offset)))
+
+    ordered = overdue + today_tasks + tomorrow_tasks + week_tasks
+    save_last_view(chat_id, "todo", ordered)
+
+    out = [f"Agenda completa desde {today.isoformat()}", "Cerrar rápido: ok 1 · 5,7 ok"]
+    number = 1
+
+    def add_section(title: str, tasks: List[Dict[str, str]], show_date: bool) -> None:
+        nonlocal number
+        out.append(f"\n{title}")
+        if not tasks:
+            out.append("(vacío)")
+            return
+        for task in tasks:
+            prefix = f"{task.get('date')} · " if show_date else ""
+            line = compact_task_line(number, task)
+            out.append(f"{number}) {prefix}{line.split(') ', 1)[1]}")
+            number += 1
+
+    add_section("⚠️ Atrasadas", overdue, show_date=True)
+    add_section("🔴 Hoy", today_tasks, show_date=False)
+    add_section("🟡 Mañana", tomorrow_tasks, show_date=False)
+    add_section(f"📅 Esta semana ({(today + dt.timedelta(days=2)).isoformat()} a {week_end.isoformat()})", week_tasks, show_date=True)
+
+    if not ordered:
+        out.append("\nSin tareas abiertas en atrasadas, hoy, mañana ni esta semana.")
     return "\n".join(out)
 
 
@@ -307,21 +415,35 @@ def cmd_done(vault: Path, task_ref: str) -> str:
     return agenda.done_task(vault, day, resolved_ref)
 
 
-def cmd_done_many(vault: Path, payload: str) -> str:
+def cmd_done_many(vault: Path, payload: str, chat_id: Optional[str] = None) -> str:
     day = agenda.now_art().date()
     tasks = open_tasks_for_day(vault, day)
     refs = re.findall(r"ag-\d{8}-\d{3}|#?\d+", payload, flags=re.IGNORECASE)
     if not refs:
         refs = [payload.strip()]
-    resolved_refs: List[str] = []
+    resolved_items: List[Tuple[str, str]] = []
+    last_refs = last_view_tasks(chat_id)
     for ref in refs:
-        resolved_ref = resolve_short_task_ref(vault, day, ref, tasks=tasks)
+        clean_ref = ref.strip().lstrip("#")
+        resolved_ref = ""
+        resolved_date = day.isoformat()
+        if last_refs and re.fullmatch(r"\d+", clean_ref):
+            number = int(clean_ref)
+            if number < 1 or number > len(last_refs):
+                return f"No hay tarea {number} en la última lista. Mandá /todo o /hoy para refrescar números."
+            target = last_refs[number - 1]
+            resolved_ref = str(target.get("id") or target.get("title") or "")
+            resolved_date = str(target.get("date") or day.isoformat())
+        if not resolved_ref:
+            resolved_ref = resolve_short_task_ref(vault, day, ref, tasks=tasks)
+            resolved_date = date_from_task_id(resolved_ref) or day.isoformat()
         if resolved_ref.startswith("__INVALID_SHORT_REF__:"):
             _, number, count = resolved_ref.split(":")
             return f"No hay tarea {number}. Hoy hay {count} tareas abiertas. Mandá /hoy para ver números."
-        if resolved_ref not in resolved_refs:
-            resolved_refs.append(resolved_ref)
-    outputs = [agenda.done_task(vault, agenda.parse_date(date_from_task_id(ref) or day.isoformat()), ref).splitlines()[0] for ref in resolved_refs]
+        item = (resolved_date, resolved_ref)
+        if item not in resolved_items:
+            resolved_items.append(item)
+    outputs = [agenda.done_task(vault, agenda.parse_date(item_date), ref).splitlines()[0] for item_date, ref in resolved_items]
     return "Listo ✅ Cerré:\n" + "\n".join(f"- {line.replace('OK done: ', '')}" for line in outputs)
 
 
@@ -381,7 +503,7 @@ def cmd_edit(vault: Path, task_ref: str, new_title: str, which: str = "hoy") -> 
     return agenda.edit_task(vault, day, task_ref, new_title)
 
 
-def handle_text(vault: Path, text: str, source: str) -> str:
+def handle_text(vault: Path, text: str, source: str, chat_id: Optional[str] = None) -> str:
     raw = text.strip()
     if not raw:
         return "Mandame una tarea o un comando: /hoy, /mañana, /foco, /hecho, /posponer"
@@ -411,6 +533,7 @@ def handle_text(vault: Path, text: str, source: str) -> str:
             "- mañana: llamar a GAMA, ver ANGO, pasar presupuesto\n"
             "- mañana\\n- llamar a GAMA\\n- ver ANGO\\n- pasar presupuesto\n"
             "- mañana llamar a GAMA y después ver ANGO y también pasar presupuesto\n"
+            "- /todo  (atrasadas + hoy + mañana + semana)\n"
             "- /hoy\n"
             "- /mañana\n"
             "- /esta-semana\n"
@@ -429,29 +552,35 @@ def handle_text(vault: Path, text: str, source: str) -> str:
             "- /hecho ag-YYYYMMDD-NNN\n"
             "- /posponer ag-YYYYMMDD-NNN 11:00"
         )
+    if low in {"/todo", "todo", "/panorama", "panorama", "ver todo", "listar todo", "agenda completa", "todo agenda", "todo lo de agenda"}:
+        return cmd_overview(vault, chat_id=chat_id)
     if low in {"/hoy", "hoy", "agenda hoy", "ver hoy", "mostrar hoy", "mostrame hoy", "listar hoy", "qué tengo hoy", "que tengo hoy"}:
-        return cmd_list(vault, "hoy")
+        return cmd_list(vault, "hoy", chat_id=chat_id)
     if low in {"/mañana", "/manana", "mañana", "manana", "agenda mañana", "agenda manana", "ver mañana", "ver manana", "mostrar mañana", "mostrar manana", "mostrame mañana", "mostrame manana", "listar mañana", "listar manana", "qué tengo mañana", "que tengo mañana", "qué tengo manana", "que tengo manana"}:
-        return cmd_list(vault, "mañana")
+        return cmd_list(vault, "mañana", chat_id=chat_id)
     if low in {"/esta-semana", "/semana", "esta semana", "semana", "agenda semana", "ver semana", "mostrar semana", "mostrame semana", "qué tengo esta semana", "que tengo esta semana"}:
         return cmd_week(vault, "hoy")
     if low in {"/pendientes", "/pendiente", "pendientes", "pendiente", "dame todo lo pendiente", "dame lo pendiente", "todo lo pendiente", "qué tengo pendiente", "que tengo pendiente"}:
-        return cmd_pending(vault, "hoy")
+        return cmd_overview(vault, chat_id=chat_id)
     if low in {"/tareas", "tareas", "mis tareas", "qué tengo", "que tengo"}:
-        return cmd_pending(vault, "hoy")
+        return cmd_overview(vault, chat_id=chat_id)
     if low in {"/revisar", "revisar"}:
         return cmd_review(vault, "hoy")
     if low in {"/limpiar", "limpiar"}:
         return cmd_cleanup(vault, "hoy")
     if low in {"/foco", "foco"}:
         return cmd_focus(vault, "hoy")
-    done_match = re.match(r"^(?:/hecho|hecho|ok|listo|cerrado|cerrar|done|x|✅)\s+(.+)$", raw, flags=re.IGNORECASE)
+    if low in {"ok", "listo", "hecho", "done", "cerrado", "cerrar", "x", "✅"}:
+        return "Decime qué número cierro. Ej: /hoy y después ok 1, o 5,7 ok."
+    done_match = re.match(r"^(?:/hecho|hecho|ok|listo|cerrado|cerrar|done|x|✅)\s*(.+)$", raw, flags=re.IGNORECASE)
+    reverse_done_match = re.match(r"^((?:ag-\d{8}-\d{3}|#?\d+)(?:[\s,]+(?:ag-\d{8}-\d{3}|#?\d+))*)\s*(?:ok|hecho|listo|cerrado|cerrar|done|x|✅)$", raw, flags=re.IGNORECASE)
     natural_done_match = re.match(r"^(?:ya\s+)?(?:hice|termin[eé]|cerr[eé])\s+(.+)$", raw, flags=re.IGNORECASE)
+    suffix_done_match = re.match(r"^(.+?)\s+(?:est[áa]\s+)?(?:hecho|listo|cerrado|terminado)$", raw, flags=re.IGNORECASE)
     compact_done_match = re.match(r"^x\s*(\d+(?:[\s,]+\d+)*)$", raw, flags=re.IGNORECASE)
-    done_command_match = done_match or natural_done_match or compact_done_match
+    done_command_match = reverse_done_match or done_match or natural_done_match or suffix_done_match or compact_done_match
     if done_command_match:
         payload = done_command_match.group(1).strip()
-        return cmd_done_many(vault, payload)
+        return cmd_done_many(vault, payload, chat_id=chat_id)
     if low.startswith("/detalle ") or low.startswith("detalle "):
         task_ref = raw.split(maxsplit=1)[1].strip()
         return cmd_detail(vault, task_ref)
@@ -523,7 +652,7 @@ def process_update(vault: Path, token: str, update: Dict[str, Any], dry_run: boo
     source = "telegram-bot-agenda"
     response_text: Optional[str] = None
     if message.get("text"):
-        response_text = handle_text(vault, str(message["text"]), source=source)
+        response_text = handle_text(vault, str(message["text"]), source=source, chat_id=chat_id)
     elif message.get("voice"):
         file_id = message["voice"].get("file_id")
         if not file_id:
@@ -535,7 +664,7 @@ def process_update(vault: Path, token: str, update: Dict[str, Any], dry_run: boo
                 transcript = transcribe_voice_file(local_path)
                 response_text = (
                     f"Transcripción: {transcript}\n\n" +
-                    handle_text(vault, transcript, source="telegram-audio")
+                    handle_text(vault, transcript, source="telegram-audio", chat_id=chat_id)
                 )
             except Exception as exc:
                 response_text = f"Error al procesar audio: {exc}\nProbá mandarlo como texto."
@@ -549,7 +678,7 @@ def process_update(vault: Path, token: str, update: Dict[str, Any], dry_run: boo
             transcript = transcribe_voice_file(local_path)
             response_text = (
                 f"Transcripción: {transcript}\n\n" +
-                handle_text(vault, transcript, source="telegram-audio")
+                handle_text(vault, transcript, source="telegram-audio", chat_id=chat_id)
             )
     else:
         response_text = "Mandame texto o audio."
@@ -639,6 +768,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--poll-timeout", type=int, default=25, help="Telegram long-poll timeout for --loop; use 0 for one-shot")
     p.add_argument("--selftest", action="store_true")
     p.add_argument("--simulate-text", help="Procesa un texto como si viniera del bot, sin Telegram")
+    p.add_argument("--simulate-chat-id", default="simulate", help="Chat ID usado para guardar última lista en simulación")
     return p
 
 
@@ -649,7 +779,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(selftest(vault))
         return 0
     if args.simulate_text:
-        print(handle_text(vault, args.simulate_text, source="simulate-text"))
+        print(handle_text(vault, args.simulate_text, source="simulate-text", chat_id=args.simulate_chat_id))
         return 0
     if args.loop:
         return poll_loop(vault, token_env=args.token_env, dry_run=args.dry_run, poll_timeout=args.poll_timeout)
