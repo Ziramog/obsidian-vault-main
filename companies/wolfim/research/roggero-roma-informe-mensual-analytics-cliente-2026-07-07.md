@@ -70,7 +70,7 @@ El sitio ya tiene una base mensual medible. En los últimos 30 días se registr�
 - Hay navegación real del catálogo.
 - Google orgánico ya aporta visitas relevantes.
 - Casa aparece como categoría fuerte.
-- Ya hay señales de formulario iniciado y clicks.
+- Ya hay interacciones de formulario y clicks de enlaces registradas por GA4, pero todavía falta separarlas como consultas comerciales limpias.
 - El siguiente paso es medir mejor qué propiedad genera cada contacto por WhatsApp o formulario.
 
 ## Próximo paso recomendado
