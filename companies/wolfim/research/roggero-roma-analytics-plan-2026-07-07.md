@@ -19,6 +19,8 @@ status: draft
 - Vertical: inmobiliaria, Alta Gracia / Córdoba.
 - Caso Wolfim: sitio en producción, catálogo inmobiliario, panel de propiedades, Google Reviews, mapa/CTA.
 - Analytics: el sitio en vivo tiene tag GA4 detectado el **2026-07-07**: `G-PW4FH9WHQB`.
+- GA4 Property ID confirmado por captura de Juan el **2026-07-07**: `539918073`.
+- Acceso visible en captura: rol **Viewer**.
 - Agenda indica **Google Analytics Roggero & Roma implementado el 2026-06-28**.
 - Primer corte de 30 días: **2026-07-28**.
 
