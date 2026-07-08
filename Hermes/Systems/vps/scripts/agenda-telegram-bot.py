@@ -260,6 +260,32 @@ def normalize_match_text(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", without_accents).strip()
 
 
+def normalize_add_text(text: str) -> str:
+    """Normalize Juan's natural add phrasing before agenda.py parses it."""
+    s = re.sub(r"\s+", " ", text.strip())
+    m = re.match(
+        r"^(?P<prio>urgente|alta|rojo|roja|importante|amarillo|amarilla|verde|backlog|baja)\s+para\s+(?P<date>[^:]{1,80})\s*:\s*(?P<title>.+)$",
+        s,
+        flags=re.IGNORECASE,
+    )
+    if not m:
+        return text
+    prio_raw = agenda.normalize_date_text(m.group("prio"))
+    prio = {
+        "urgente": "rojo",
+        "alta": "rojo",
+        "rojo": "rojo",
+        "roja": "rojo",
+        "importante": "amarillo",
+        "amarillo": "amarillo",
+        "amarilla": "amarillo",
+        "verde": "verde",
+        "backlog": "verde",
+        "baja": "verde",
+    }.get(prio_raw, m.group("prio"))
+    return f"{prio} {m.group('date').strip()} {m.group('title').strip()}"
+
+
 def resolve_short_task_ref(vault: Path, day: dt.date, task_ref: str, tasks: Optional[List[Dict[str, str]]] = None) -> str:
     ref = task_ref.strip().lstrip("#")
     if ID_RE.search(ref) or not re.fullmatch(r"\d+", ref):
@@ -278,10 +304,43 @@ def resolve_short_task_ref(vault: Path, day: dt.date, task_ref: str, tasks: Opti
     return open_tasks[number - 1].get("id") or task_ref.strip()
 
 
+def resolve_action_refs(vault: Path, payload: str, chat_id: Optional[str] = None) -> List[Tuple[str, str]]:
+    """Resolve numeric/ID refs using the last visible list first, then today."""
+    day = agenda.now_art().date()
+    today_tasks = open_tasks_for_day(vault, day)
+    refs = re.findall(r"ag-\d{8}-\d{3}|#?\d+", payload, flags=re.IGNORECASE)
+    if not refs:
+        refs = [payload.strip()]
+    resolved_items: List[Tuple[str, str]] = []
+    last_refs = last_view_tasks(chat_id)
+    for ref in refs:
+        clean_ref = ref.strip().lstrip("#")
+        resolved_ref = ""
+        resolved_date = day.isoformat()
+        if last_refs and re.fullmatch(r"\d+", clean_ref):
+            number = int(clean_ref)
+            if number < 1 or number > len(last_refs):
+                raise ValueError(f"No hay tarea {number} en la última lista. Mandá /todo o /hoy para refrescar números.")
+            target = last_refs[number - 1]
+            resolved_ref = str(target.get("id") or target.get("title") or "")
+            resolved_date = str(target.get("date") or day.isoformat())
+        if not resolved_ref:
+            resolved_ref = resolve_short_task_ref(vault, day, ref, tasks=today_tasks)
+            resolved_date = date_from_task_id(resolved_ref) or day.isoformat()
+        if resolved_ref.startswith("__INVALID_SHORT_REF__:"):
+            _, number, count = resolved_ref.split(":")
+            raise ValueError(f"No hay tarea {number}. Hoy hay {count} tareas abiertas. Mandá /hoy para ver números.")
+        item = (resolved_date, resolved_ref)
+        if item not in resolved_items:
+            resolved_items.append(item)
+    return resolved_items
+
+
 def parse_add_text(text: str) -> Tuple[str, Optional[str], str, Optional[str]]:
     s = text.strip()
     s = re.sub(r"^/agendar\s+", "", s, flags=re.IGNORECASE)
     s = re.sub(r"^/add\s+", "", s, flags=re.IGNORECASE)
+    s = normalize_add_text(s)
     try:
         batch = agenda.parse_task_batch(s)
     except ValueError as exc:
@@ -300,6 +359,7 @@ def cmd_add_batch(vault: Path, text: str, source: str) -> str:
     s = text.strip()
     s = re.sub(r"^/agendar\s+", "", s, flags=re.IGNORECASE)
     s = re.sub(r"^/add\s+", "", s, flags=re.IGNORECASE)
+    s = normalize_add_text(s)
     try:
         batch = agenda.parse_task_batch(s)
     except ValueError as exc:
@@ -416,35 +476,21 @@ def cmd_done(vault: Path, task_ref: str) -> str:
 
 
 def cmd_done_many(vault: Path, payload: str, chat_id: Optional[str] = None) -> str:
-    day = agenda.now_art().date()
-    tasks = open_tasks_for_day(vault, day)
-    refs = re.findall(r"ag-\d{8}-\d{3}|#?\d+", payload, flags=re.IGNORECASE)
-    if not refs:
-        refs = [payload.strip()]
-    resolved_items: List[Tuple[str, str]] = []
-    last_refs = last_view_tasks(chat_id)
-    for ref in refs:
-        clean_ref = ref.strip().lstrip("#")
-        resolved_ref = ""
-        resolved_date = day.isoformat()
-        if last_refs and re.fullmatch(r"\d+", clean_ref):
-            number = int(clean_ref)
-            if number < 1 or number > len(last_refs):
-                return f"No hay tarea {number} en la última lista. Mandá /todo o /hoy para refrescar números."
-            target = last_refs[number - 1]
-            resolved_ref = str(target.get("id") or target.get("title") or "")
-            resolved_date = str(target.get("date") or day.isoformat())
-        if not resolved_ref:
-            resolved_ref = resolve_short_task_ref(vault, day, ref, tasks=tasks)
-            resolved_date = date_from_task_id(resolved_ref) or day.isoformat()
-        if resolved_ref.startswith("__INVALID_SHORT_REF__:"):
-            _, number, count = resolved_ref.split(":")
-            return f"No hay tarea {number}. Hoy hay {count} tareas abiertas. Mandá /hoy para ver números."
-        item = (resolved_date, resolved_ref)
-        if item not in resolved_items:
-            resolved_items.append(item)
+    try:
+        resolved_items = resolve_action_refs(vault, payload, chat_id=chat_id)
+    except ValueError as exc:
+        return str(exc)
     outputs = [agenda.done_task(vault, agenda.parse_date(item_date), ref).splitlines()[0] for item_date, ref in resolved_items]
     return "Listo ✅ Cerré:\n" + "\n".join(f"- {line.replace('OK done: ', '')}" for line in outputs)
+
+
+def cmd_move_many(vault: Path, payload: str, target_date: str, chat_id: Optional[str] = None) -> str:
+    try:
+        resolved_items = resolve_action_refs(vault, payload, chat_id=chat_id)
+    except ValueError as exc:
+        return str(exc)
+    outputs = [agenda.move_task(vault, agenda.parse_date(item_date), ref, target_date).splitlines()[0] for item_date, ref in resolved_items]
+    return "Listo ↪️ Moví:\n" + "\n".join(f"- {line.replace('OK move: ', '')}" for line in outputs)
 
 
 def cmd_snooze(vault: Path, task_ref: str, reminder: str) -> str:
@@ -572,6 +618,19 @@ def handle_text(vault: Path, text: str, source: str, chat_id: Optional[str] = No
         return cmd_focus(vault, "hoy")
     if low in {"ok", "listo", "hecho", "done", "cerrado", "cerrar", "cerra", "cerrá", "x", "✅"}:
         return "Decime qué número cierro. Ej: /todo y después cerrar la 1, ok 1, o 5,7 ok."
+    move_suffix_match = re.match(
+        r"^(?P<refs>(?:ag-\d{8}-\d{3}|#?\d+)(?:[\s,.;]+(?:ag-\d{8}-\d{3}|#?\d+))*)\s+(?:es\s+)?(?:para|a|al)\s+(?P<date>.+)$",
+        raw,
+        flags=re.IGNORECASE,
+    )
+    move_prefix_match = re.match(
+        r"^(?:mover|mov[eé]|pasar|pas[aá]lo|pas[aá])\s+(?P<refs>(?:ag-\d{8}-\d{3}|#?\d+)(?:[\s,.;]+(?:ag-\d{8}-\d{3}|#?\d+))*)\s+(?:a|para|al)\s+(?P<date>.+)$",
+        raw,
+        flags=re.IGNORECASE,
+    )
+    move_match = move_suffix_match or move_prefix_match
+    if move_match:
+        return cmd_move_many(vault, move_match.group("refs"), move_match.group("date"), chat_id=chat_id)
     bare_number_match = re.match(r"^(?:la\s+)?(\d+(?:[\s,.;]+\d+)*)$", raw, flags=re.IGNORECASE)
     done_match = re.match(r"^(?:/hecho|hecho|ok|listo|cerrado|cerrar|cerra|cerrá|done|x|✅)\s*(?:la\s+|tarea\s+)?(.+)$", raw, flags=re.IGNORECASE)
     reverse_done_match = re.match(r"^((?:ag-\d{8}-\d{3}|#?\d+)(?:[\s,.;]+(?:ag-\d{8}-\d{3}|#?\d+))*)\s*(?:ok|hecho|listo|cerrado|cerrar|cerra|cerrá|done|x|✅)$", raw, flags=re.IGNORECASE)

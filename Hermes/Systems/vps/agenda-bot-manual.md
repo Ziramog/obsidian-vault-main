@@ -243,12 +243,29 @@ Mueve reminder dentro del mismo día.
 ### `/mover ag-YYYYMMDD-NNN mañana 11:00`
 Mueve tarea a otra fecha y opcionalmente cambia hora.
 
+También podés mover por número de la última lista (`/todo` o `/hoy`):
+
+```txt
+14 es para mañana
+14 para mañana
+mover 14 a mañana
+```
+
 Ejemplos:
 
 ```txt
 /mover ag-20260628-002 fin de mes 15:00
 /mover ag-20260628-002 miércoles que viene
 ```
+
+### Frases de fecha al agregar
+El bot entiende:
+
+```txt
+urgente para mañana: ANGO, MONTECOR avisar de pagar importacion
+```
+
+Eso crea una tarea 🔴 para mañana; no una tarea de hoy con el texto `para mañana`.
 
 ### `/prioridad ag-YYYYMMDD-NNN rojo|amarillo|verde`
 Reubica tarea en la sección correspondiente.
