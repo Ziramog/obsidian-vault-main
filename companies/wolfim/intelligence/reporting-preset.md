@@ -58,22 +58,30 @@ El preset prefiere PNG transparente para compatibilidad con `fpdf2` y conserva S
 
 | Token | Valor | Uso |
 |---|---|---|
-| Ink | `#0A0A0F` | Títulos, headers de tabla, cierre |
-| Red | `#E61E1E` | Línea de acento, barras laterales, alertas |
-| Soft | `#F7F8FA` | Cards y fondos suaves |
-| Line | `#DEE2EA` | Separadores |
-| Text | `#24272E` | Texto principal |
-| Muted | `#5D6574` | Notas, subtítulos, captions |
+| Paper | `#FAFAF8` | Fondo general, como `wolfim.com` |
+| Off-white | `#F5F5F0` | Cards y superficies suaves |
+| Black | `#0A0A0A` | Títulos, headers de tabla, cierre |
+| Green | `#10B981` | Acento comercial / bullets / dots |
+| WhatsApp green | `#25D366` | CTA si aplica |
+| Gray 200 | `#D0D0CB` | Separadores y bordes |
+| Gray 400 | `#707068` | Meta, microcopy, captions |
 
-Tipografía operativa: DejaVu Sans como fallback estable en VPS. Visualmente cumple rol de sans limpia tipo Inter y soporta acentos.
+Tipografías embebidas desde el estilo de `www.wolfim.com`:
+
+| Uso | Fuente | Archivo |
+|---|---|---|
+| Display / títulos | Space Grotesk | `companies/wolfim/brand/fonts/SpaceGrotesk-*.ttf` |
+| Body / lectura | Inter | `companies/wolfim/brand/fonts/Inter-*.ttf` |
+| Labels / microcopy | JetBrains Mono | `companies/wolfim/brand/fonts/JetBrainsMono-*.ttf` |
 
 ## Estructura estándar del informe
 
 1. **Portada**
    - Logo Wolfim arriba izquierda.
-   - Pill “INFORME WOLFIM” arriba derecha.
-   - Título grande.
+   - Pill outline “INFORME WOLFIM” arriba derecha.
+   - Título grande en Space Grotesk.
    - Subtítulo explicativo.
+   - Strip monoespaciado: `WEB · CATÁLOGO · MEDICIÓN · SEO`.
    - Card con cliente, período, destinatario y fecha.
    - Frase de intención: “convertir datos en decisiones comerciales”.
 
@@ -152,4 +160,4 @@ copy_to_transfer(out)
 
 ## Validación visual
 
-El PDF de Roggero & Roma fue generado y renderizado a imágenes para revisar portada y páginas internas. Versión actual validada con el pack transparente 2026-07-08: logo negro en portada/header, isologo negro en footer y portada, isologo blanco en el panel de cierre.
+El PDF de Roggero & Roma fue generado y renderizado a imágenes para revisar portada y páginas internas. Versión actual validada con pack transparente + estilo `www.wolfim.com` 2026-07-08: fondo off-white, Space Grotesk/Inter/JetBrains Mono embebidas, acento verde, logo negro en portada/header, isologo negro en footer y isologo blanco en panel de cierre.

@@ -26,11 +26,24 @@
 
 ## Paleta de Referencia — informes Wolfim
 - Primary dark: `#0A0A0F`
-- Accent red: `#E61E1E`
+- Page background: `#FAFAF8`
+- Off-white: `#F5F5F0`
+- Accent green: `#10B981`
+- WhatsApp green: `#25D366`
+- Logo red: `#E61E1E`
 - Text: `#24272E`
 - Muted: `#5D6574`
 - Soft background: `#F7F8FA`
-- Font operativo PDF: DejaVu Sans como fallback estable tipo Inter
+
+## Tipografías — wolfim.com
+
+| Uso | Fuente | Archivos |
+|---|---|---|
+| Display / títulos | Space Grotesk | `brand/fonts/SpaceGrotesk-*.ttf` |
+| Body / lectura | Inter | `brand/fonts/Inter-*.ttf` |
+| Labels / microcopy | JetBrains Mono | `brand/fonts/JetBrainsMono-*.ttf` |
+
+Estas fuentes quedan embebidas en los PDFs Wolfim para mantener consistencia con `www.wolfim.com`.
 
 ## Próximos pasos branding
 - Evaluar evolución del logo actual vs propuesta visual
