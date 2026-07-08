@@ -31,21 +31,30 @@ BRAND_DIR = VAULT / 'companies/wolfim/brand'
 CACHE_DIR = Path('/home/hermes/.cache/wolfim-report-assets')
 TRANSFER_DIR = Path('/home/hermes/Transfer-files')
 
-LOGO_CANDIDATES = [
-    BRAND_DIR / 'WOLFIM_logo.svg',
-    BRAND_DIR / 'logo-wolfim-reference.jpg',
-    BRAND_DIR / 'wolfim studio white.png',
-]
-
-# Juan mentioned `wolfim_isologo (png)`. It is not present on this VPS yet, so the
-# preset checks for it first and falls back to favicom.svg, which is the current
-# square Wolfim mark available in the vault.
-ISOLOGO_CANDIDATES = [
-    BRAND_DIR / 'wolfim_isologo (png).png',
-    BRAND_DIR / 'wolfim_isologo (png)',
-    BRAND_DIR / 'wolfim_isologo.png',
-    BRAND_DIR / 'favicom.svg',
-]
+BRAND_ASSET_CANDIDATES = {
+    # Prefer Juan's transparent PNGs for fpdf2 compatibility; keep SVGs in the
+    # vault as scalable source assets and fall back to older files if needed.
+    'logo_black': [
+        BRAND_DIR / 'wolfim_logo_black.png',
+        BRAND_DIR / 'wolfim_logo_black.svg',
+        BRAND_DIR / 'WOLFIM_logo.svg',
+        BRAND_DIR / 'logo-wolfim-reference.jpg',
+    ],
+    'logo_white': [
+        BRAND_DIR / 'wolfim_logo_white.png',
+        BRAND_DIR / 'wolfim_logo_white.svg',
+        BRAND_DIR / 'wolfim studio white.png',
+    ],
+    'isologo_black': [
+        BRAND_DIR / 'wolfim_isologo_black.png',
+        BRAND_DIR / 'wolfim_isologo_black.svg',
+        BRAND_DIR / 'favicom.svg',
+    ],
+    'isologo_white': [
+        BRAND_DIR / 'wolfim_isologo_white.png',
+        BRAND_DIR / 'wolfim_isologo_white.svg',
+    ],
+}
 
 COLORS = {
     'ink': (10, 10, 15),
@@ -85,7 +94,7 @@ def _convert_svg_to_png(src: Path, dst: Path, width: int | None = None) -> Path:
 
         doc = fitz.open(str(src))
         page = doc.load_page(0)
-        pix = page.get_pixmap(matrix=fitz.Matrix(1, 1), alpha=False)
+        pix = page.get_pixmap(matrix=fitz.Matrix(1, 1), alpha=True)
         tmp = dst.with_suffix('.tmp.png')
         pix.save(str(tmp))
         if width:
@@ -119,21 +128,30 @@ def _ensure_png(src: Path, out_name: str, width: int | None = None) -> Path:
     return src
 
 
-def get_brand_assets() -> dict[str, Path | str]:
-    logo_src = _first_existing(LOGO_CANDIDATES)
-    iso_src = _first_existing(ISOLOGO_CANDIDATES)
-    if not logo_src:
-        raise FileNotFoundError(f'No Wolfim logo found in {BRAND_DIR}')
-    if not iso_src:
-        raise FileNotFoundError(f'No Wolfim isologo/favicom found in {BRAND_DIR}')
+def _load_asset(key: str, cache_name: str, width: int) -> tuple[Path, str]:
+    src = _first_existing(BRAND_ASSET_CANDIDATES[key])
+    if not src:
+        raise FileNotFoundError(f'No Wolfim brand asset found for {key} in {BRAND_DIR}')
+    return _ensure_png(src, cache_name, width=width), str(src)
 
-    logo = _ensure_png(logo_src, 'wolfim-logo-cache.png', width=1400)
-    isologo = _ensure_png(iso_src, 'wolfim-isologo-cache.png', width=320)
+
+def get_brand_assets() -> dict[str, Path | str]:
+    logo_black, logo_black_src = _load_asset('logo_black', 'wolfim-logo-black-cache.png', 1400)
+    logo_white, logo_white_src = _load_asset('logo_white', 'wolfim-logo-white-cache.png', 1400)
+    isologo_black, isologo_black_src = _load_asset('isologo_black', 'wolfim-isologo-black-cache.png', 420)
+    isologo_white, isologo_white_src = _load_asset('isologo_white', 'wolfim-isologo-white-cache.png', 420)
     return {
-        'logo': logo,
-        'isologo': isologo,
-        'logo_source': str(logo_src),
-        'isologo_source': str(iso_src),
+        'logo_black': logo_black,
+        'logo_white': logo_white,
+        'isologo_black': isologo_black,
+        'isologo_white': isologo_white,
+        'logo_black_source': logo_black_src,
+        'logo_white_source': logo_white_src,
+        'isologo_black_source': isologo_black_src,
+        'isologo_white_source': isologo_white_src,
+        # Backward-compatible aliases for older report scripts.
+        'logo': logo_black,
+        'isologo': isologo_black,
     }
 
 
@@ -186,7 +204,7 @@ class WolfimReport(FPDF):
             return
         # subtle top rule + small logo
         self.set_y(9)
-        self.image(str(self.assets['logo']), x=16, y=7.5, w=31)
+        self.image(str(self.assets['logo_black']), x=16, y=7.5, w=31)
         self.set_xy(55, 8.5)
         self.set_font('WOLF', '', 7.2)
         self.set_text_color(*self.color('muted'))
@@ -204,7 +222,7 @@ class WolfimReport(FPDF):
         self.line(16, self.get_y(), 194, self.get_y())
         y = self.get_y() + 2.4
         try:
-            self.image(str(self.assets['isologo']), x=16, y=y - 1.5, w=5.5)
+            self.image(str(self.assets['isologo_black']), x=16, y=y - 1.5, w=5.5)
         except Exception:
             pass
         self.set_xy(24, y)
@@ -218,7 +236,7 @@ class WolfimReport(FPDF):
     def add_cover(self, title: str, subtitle: str, client: str, period: str, prepared_for: str | None = None, date_label: str | None = None):
         self.add_page()
         # top logo
-        self.image(str(self.assets['logo']), x=16, y=16, w=54)
+        self.image(str(self.assets['logo_black']), x=16, y=16, w=54)
 
         # right brand pill
         self.set_xy(142, 18)
@@ -263,7 +281,7 @@ class WolfimReport(FPDF):
         self.set_font('WOLF', '', 8)
         self.set_text_color(*self.color('muted'))
         self.multi_cell(150, 5, 'Reporte preparado para convertir datos en decisiones comerciales concretas.')
-        self.image(str(self.assets['isologo']), x=180, y=250, w=13)
+        self.image(str(self.assets['isologo_black']), x=180, y=250, w=13)
 
     def meta_line(self, label: str, value: str):
         self.set_font('WOLF', 'B', 8)
@@ -405,7 +423,7 @@ class WolfimReport(FPDF):
         y = self.get_y()
         self.set_fill_color(*self.color('ink'))
         self.rect(16, y, 178, 34, 'F')
-        self.image(str(self.assets['isologo']), x=176, y=y + 8, w=12)
+        self.image(str(self.assets['isologo_white']), x=176, y=y + 8, w=12)
         self.set_xy(22, y + 7)
         self.set_font('WOLF', 'B', 10)
         self.set_text_color(255, 255, 255)

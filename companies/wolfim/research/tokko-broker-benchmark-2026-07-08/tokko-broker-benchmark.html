@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Benchmarking competitivo Tokko Broker — Wolfim</title>
+<style>
+  @page { size: A4; margin: 16mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; color:#1b2430; line-height:1.42; font-size: 11.5px; margin:0; }
+  .cover { min-height: 940px; display:flex; flex-direction:column; justify-content:center; background: linear-gradient(135deg,#07111f,#123c69); color:white; padding:56px; margin:-16mm -14mm 0 -14mm; }
+  .cover h1 { font-size:38px; line-height:1.05; margin:0 0 18px; letter-spacing:-1px; color:#ffffff; }
+  .cover h2 { font-size:18px; font-weight:400; opacity:.92; margin:0 0 40px; max-width:720px; color:#ffffff; }
+  .badge { display:inline-block; border:1px solid rgba(255,255,255,.35); padding:8px 12px; border-radius:999px; font-size:12px; margin-bottom:22px; }
+  .meta { margin-top:80px; font-size:13px; opacity:.9; }
+  h1, h2, h3 { color:#10233f; }
+  h1 { font-size:28px; margin:0 0 14px; }
+  h2 { font-size:20px; margin:26px 0 10px; border-bottom:2px solid #e8eef6; padding-bottom:6px; }
+  h3 { font-size:15px; margin:18px 0 8px; }
+  p { margin: 6px 0 10px; }
+  .page { page-break-before: always; }
+  .note { background:#f2f7ff; border-left:4px solid #2f6fed; padding:10px 12px; margin:12px 0; }
+  .warning { background:#fff7e6; border-left:4px solid #e59b23; padding:10px 12px; margin:12px 0; }
+  .danger { background:#fff1f0; border-left:4px solid #e74c3c; padding:10px 12px; margin:12px 0; }
+  .ok { background:#effaf2; border-left:4px solid #25a85a; padding:10px 12px; margin:12px 0; }
+  table { width:100%; border-collapse:collapse; margin:10px 0 16px; page-break-inside:auto; }
+  th { background:#10233f; color:white; text-align:left; padding:7px 8px; font-size:10.5px; }
+  td { border:1px solid #d8e0ea; padding:6px 8px; vertical-align:top; }
+  tr:nth-child(even) td { background:#fbfcfe; }
+  .small { font-size:10px; color:#4d5b6c; }
+  .score { font-weight:bold; color:#10233f; }
+  .pill { display:inline-block; background:#eaf1ff; color:#123c69; padding:2px 7px; border-radius:999px; margin:1px 2px 1px 0; font-size:10px; }
+  .green { background:#e8f7ee; color:#136b35; }
+  .orange { background:#fff0d6; color:#915a00; }
+  .red { background:#ffe5e2; color:#9d241b; }
+  .grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+  .card { border:1px solid #d8e0ea; border-radius:12px; padding:12px; background:#fff; }
+  .card h3 { margin-top:0; }
+  ul { margin-top:6px; padding-left:18px; }
+  li { margin:4px 0; }
+  .quote { font-family: Arial, sans-serif; background:#f8fafc; border:1px solid #d8e0ea; border-radius:10px; padding:10px; margin:8px 0; }
+  .footer-note { color:#5e6b7a; font-size:9.5px; margin-top:20px; }
+  .source-list li { font-size:10px; word-break:break-word; }
+</style>
+</head>
+<body>
+<section class="cover">
+  <div class="badge">Wolfim — Inteligencia comercial inmobiliarias</div>
+  <h1>Benchmarking competitivo:<br>Tokko Broker</h1>
+  <h2>Análisis detallado para vender servicios Wolfim a inmobiliarias de Río Tercero y zona que ya usan —o evalúan usar— CRM inmobiliario / web con Tokko.</h2>
+  <div class="meta">
+    <strong>Fecha:</strong> 2026-07-08<br>
+    <strong>Uso:</strong> interno Wolfim / Juan. No enviar como propuesta formal sin revisión.<br>
+    <strong>Foco comercial:</strong> WhatsApp manual, auditoría previa y oferta de capa web/SEO/conversión encima del CRM existente.
+  </div>
+</section>
+
+<section class="page">
+<h1>1. Resumen ejecutivo</h1>
+<div class="ok">
+  <strong>Conclusión comercial:</strong> si una inmobiliaria ya usa Tokko Broker, no conviene atacarla con “te hago una web” como reemplazo. La entrada correcta es: <strong>“no te cambio Tokko; te hago que Tokko venda mejor hacia afuera”</strong>.
+</div>
+
+<p>Tokko Broker no es solo un proveedor de páginas web. Es un CRM inmobiliario vertical con gestión de propiedades, contactos, oportunidades/leads, difusión a portales, red colaborativa, app móvil, soporte/capacitaciones y opciones de sitio web. Para una inmobiliaria local, contratar Tokko suele significar que ya reconoce el valor de digitalizar su operación.</p>
+
+<p>Eso crea una oportunidad para Wolfim: vender una <strong>capa externa de captación y conversión</strong>, no competir contra el CRM. La propuesta debe enfocarse en sitio propio, fichas más persuasivas, WhatsApp directo, SEO local, Google Business, velocidad móvil, tracking y landings de tasación/propiedades destacadas.</p>
+
+<table>
+<thead><tr><th>Hallazgo</th><th>Implicación para Wolfim</th><th>Acción comercial</th></tr></thead>
+<tbody>
+<tr><td>Tokko resuelve inventario + CRM + publicación.</td><td>No vender “sistema completo” salvo que el lead no tenga nada.</td><td>Posicionar “capa pública premium” integrada o complementaria.</td></tr>
+<tr><td>La web de Tokko puede ser básica/plantilla según plan.</td><td>Hay espacio para mejorar marca, SEO local, UX móvil y conversión.</td><td>Auditoría con capturas: home, ficha, botón WhatsApp, buscador, SEO.</td></tr>
+<tr><td>En Argentina los precios visibles aparecen como “Actualizando../mes”.</td><td>El prospecto no necesariamente tiene claridad de costo total.</td><td>No discutir precio de Tokko; sí hablar de inversión fija Wolfim.</td></tr>
+<tr><td>Portales pagos no están incluidos en ningún plan Tokko.</td><td>La difusión depende de contratos externos y puede encarecerse.</td><td>Ofrecer activos propios: web, SEO local, landings y Google Business.</td></tr>
+<tr><td>WhatsApp aparece condicionado/consultar precio o vía integraciones.</td><td>WhatsApp manual sigue siendo canal clave local.</td><td>Vender fichas con CTA WhatsApp claro + respuestas rápidas + tracking.</td></tr>
+<tr><td>API externa aparece en planes altos / integración vía API.</td><td>Integrar con Tokko puede requerir plan adecuado o API key.</td><td>Ofrecer dos caminos: sin API barato; con API premium.</td></tr>
+</tbody>
+</table>
+
+<h2>Recomendación inmediata para Juan</h2>
+<ol>
+<li>Separar los leads inmobiliarios en dos grupos: <strong>con CRM/web tipo Tokko</strong> y <strong>sin infraestructura clara</strong>.</li>
+<li>A los que tienen Tokko: mensaje de respeto + mejora puntual. No vender reemplazo.</li>
+<li>A los que tienen web vieja o catálogo pobre: vender paquete Wolfim básico <strong>USD 200 instalación + USD 25/mes</strong>.</li>
+<li>Para lead caliente con Tokko: ofrecer diagnóstico gratis de 3 capturas y una propuesta de “web/landing premium integrada o complementaria”.</li>
+</ol>
+</section>
+
+<section class="page">
+<h1>2. Qué es Tokko Broker</h1>
+<p>Según su sitio oficial, Tokko Broker se posiciona como software inmobiliario para “hacer la gestión más simple”: automatiza trabajo diario, mejora comunicación con prospectos, seguimiento de clientes y difusión de propiedades en portales. La propuesta central es operar desde una plataforma única.</p>
+
+<div class="grid">
+<div class="card">
+<h3>Módulos principales detectados</h3>
+<ul>
+<li>Gestión de propiedades y carga de fichas.</li>
+<li>Módulo de oportunidades/leads para seguimiento comercial.</li>
+<li>Módulo de difusión para publicación masiva.</li>
+<li>Sitio web básico o premium según plan.</li>
+<li>Red Tokko Broker para colaboración entre inmobiliarias.</li>
+<li>Aplicación móvil Android/iOS.</li>
+<li>Reportes/métricas en planes medios/altos.</li>
+<li>Automatizaciones configurables en planes Equipo+.</li>
+<li>API para integrar sitios externos, especialmente en planes superiores.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Promesa de valor</h3>
+<ul>
+<li>“Cargar una vez y publicar en varios canales”.</li>
+<li>Centralizar consultas generadas por web/portales.</li>
+<li>Controlar tiempos de atención y clasificar leads.</li>
+<li>Reducir doble carga de propiedades.</li>
+<li>Dar acceso a una red interinmobiliaria.</li>
+<li>Capacitación, academia y soporte.</li>
+</ul>
+</div>
+</div>
+
+<h2>Lectura comercial</h2>
+<p>Tokko vende operación interna y difusión. Wolfim debe vender <strong>presentación pública local + captación propia + conversión por WhatsApp</strong>. La diferencia es sutil pero clave: Tokko organiza y publica; Wolfim hace que el sitio/landing sea más confiable, más local y más persuasivo para el comprador/vendedor de Río Tercero.</p>
+
+<div class="warning">
+<strong>No usar este argumento:</strong> “Tokko no sirve”. Es falso y te pone en contra de una herramienta que el cliente ya paga. Usar: “Tokko está bueno para gestionar; nosotros mejoramos la parte visible que convierte consultas”.
+</div>
+</section>
+
+<section class="page">
+<h1>3. Planes, límites y puntos comerciales</h1>
+<p>La página de planes Argentina mostró importes como “$ Actualizando../mes”, por lo que no se deben citar precios exactos locales sin validación comercial directa. Sí se pudo observar la estructura de planes y límites.</p>
+
+<table>
+<thead><tr><th>Plan Tokko</th><th>Usuarios / propiedades</th><th>Incluye visible</th><th>Lectura para Wolfim</th></tr></thead>
+<tbody>
+<tr><td><strong>Personal</strong></td><td>1 usuario / 15 propiedades</td><td>Sitio Web Básico, Red Tokko, migración, academia, soporte, difusión en Zonaprop*; WhatsApp en plan Full consultar precio.</td><td>Ideal para agente solo. Si el sitio se ve básico, ofrecer landing/branding/WhatsApp sin tocar CRM.</td></tr>
+<tr><td><strong>Inicial</strong></td><td>2 usuarios / 40 propiedades</td><td>Sitio Web Básico, portales gratuitos, Zonaprop/MercadoLibre/Argenprop*.</td><td>Probable oficina chica: necesita más confianza visual y medición local.</td></tr>
+<tr><td><strong>Equipo</strong></td><td>4 usuarios / 90 propiedades / 2 emprendimientos</td><td>Automatizaciones, reportes/métricas, Red/privadas, portales.</td><td>Puede pagar ticket medio. Pitch: reporte mensual + landings por captación.</td></tr>
+<tr><td><strong>Profesional</strong></td><td>10 usuarios / 200 propiedades / 10 emprendimientos</td><td>Sitio Web Premium, API, redes privadas, reportes, automatizaciones.</td><td>Pitch premium: integración API + SEO + web diferenciada. Ticket mayor.</td></tr>
+<tr><td><strong>Corporativo</strong></td><td>15 usuarios / 300 propiedades</td><td>Sitio Web Premium, API, redes privadas, soporte/KAM.</td><td>Menos probable en Río Tercero zona, pero ideal para desarrolladora/red.</td></tr>
+</tbody>
+</table>
+<p class="small">*Tokko aclara que los portales pagos requieren contratación externa y que los costos de esos portales no están incluidos.</p>
+
+<h2>Costos ocultos / fricciones a observar</h2>
+<ul>
+<li><strong>Portales pagos externos:</strong> Zonaprop, MercadoLibre, Argenprop u otros pueden requerir contratos separados.</li>
+<li><strong>WhatsApp:</strong> aparece como “consultar precio” o vía integraciones/partners, no como promesa base igual en todos los planes.</li>
+<li><strong>API:</strong> para integrar web externa, la propia página indica que se puede hacer vía API; en la grilla aparece explícita desde Profesional/Corporativo.</li>
+<li><strong>Sitio básico:</strong> puede resolver presencia, pero no necesariamente competir por SEO local o diferenciación de marca.</li>
+<li><strong>Lock-in operativo:</strong> si toda la web depende de la plantilla o microsite del CRM, cambiar de CRM puede afectar dominio/SEO si no se diseñó bien.</li>
+</ul>
+</section>
+
+<section class="page">
+<h1>4. Matriz competitiva funcional</h1>
+<p>Benchmark cualitativo basado en documentación pública consultada. Escala: 1 bajo / 5 alto. No reemplaza demo comercial ni pricing validado.</p>
+
+<table>
+<thead><tr><th>Proveedor</th><th>Mejor para</th><th>CRM/leads</th><th>Difusión</th><th>WhatsApp</th><th>Web/SEO</th><th>IA/automatización</th><th>Debilidad explotable</th></tr></thead>
+<tbody>
+<tr><td><strong>Tokko Broker</strong></td><td>Inmobiliaria que quiere CRM vertical + Red Tokko + portales.</td><td class="score">5</td><td class="score">4</td><td class="score">2-3</td><td class="score">3</td><td class="score">3</td><td>Web básica/plantilla, precio no transparente AR, WhatsApp/add-ons, SEO local no necesariamente diferencial.</td></tr>
+<tr><td><strong>KiteProp</strong></td><td>Operación más moderna con 30+ portales, WhatsApp nativo e IA.</td><td class="score">5</td><td class="score">5</td><td class="score">5</td><td class="score">4</td><td class="score">5</td><td>Más herramienta que servicio personalizado; oportunidad Wolfim como implementación local/branding.</td></tr>
+<tr><td><strong>2clics</strong></td><td>Oficina chica que prioriza simplicidad y arranque rápido.</td><td class="score">4</td><td class="score">3</td><td class="score">4</td><td class="score">3</td><td class="score">3</td><td>Puede quedarse corto en SEO local, diseño propio y estrategia de captación.</td></tr>
+<tr><td><strong>Xintel</strong></td><td>Empresa con administración, alquileres, módulos y trayectoria.</td><td class="score">4</td><td class="score">4</td><td class="score">4</td><td class="score">3-4</td><td class="score">3-4</td><td>Puede sentirse pesado/corporativo para inmobiliaria chica; pitch de agilidad y diseño.</td></tr>
+<tr><td><strong>Wasi</strong></td><td>Profesional/asesor que busca web+CRM simple, red LatAm y bajo costo.</td><td class="score">3</td><td class="score">3</td><td class="score">3</td><td class="score">3</td><td class="score">2-3</td><td>Menor especialización Argentina local; webs tipo plantilla.</td></tr>
+<tr><td><strong>Pixel Inmobiliario</strong></td><td>Inmobiliaria sensible a precio: web+CRM+IA económico.</td><td class="score">3</td><td class="score">3-4</td><td class="score">3</td><td class="score">3</td><td class="score">3-4</td><td>Compite por precio; Wolfim debe competir por atención local, estética y resultados.</td></tr>
+<tr><td><strong>Wolfim capa comercial</strong></td><td>Web/landing/fichas/WhatsApp/SEO encima del CRM existente.</td><td class="score">1-2</td><td class="score">1-2</td><td class="score">4</td><td class="score">5</td><td class="score">2-3</td><td>No reemplaza CRM; debe venderse como complemento específico y medible.</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<strong>Punto de posicionamiento:</strong> Wolfim no gana diciendo “tenemos más módulos”. Gana diciendo: “hoy tu CRM carga propiedades; nosotros hacemos que tu cliente local confíe, pregunte por WhatsApp y te deje datos”.
+</div>
+</section>
+
+<section class="page">
+<h1>5. Benchmark por dimensión</h1>
+<h2>A. Captación y web pública</h2>
+<p>Tokko incluye sitio básico/premium y opciones responsive/SEO. Sin embargo, el mercado alrededor de Tokko ya muestra una categoría específica: proveedores que venden webs propias integradas a Tokko porque el microsite o ficha pública estándar no siempre alcanza para marca, velocidad, SEO técnico o experiencia de búsqueda avanzada.</p>
+<table>
+<thead><tr><th>Qué mirar en un lead con Tokko</th><th>Problema típico</th><th>Oferta Wolfim</th></tr></thead>
+<tbody>
+<tr><td>Home genérica, poca identidad o estructura repetida.</td><td>El sitio parece “catálogo”, no marca local confiable.</td><td>Home profesional + secciones de confianza + CTA por tipo de cliente.</td></tr>
+<tr><td>Ficha de propiedad sin WhatsApp visible o sin propuesta clara.</td><td>El interesado mira y se va sin consultar.</td><td>Ficha con CTA WhatsApp, botón sticky, copy y microconversión.</td></tr>
+<tr><td>Poco contenido local: barrios, zonas, loteos, tasaciones.</td><td>No captura búsquedas de Río Tercero / Almafuerte / Embalse.</td><td>Landing “tasaciones en Río Tercero”, “casas en Almafuerte”, etc.</td></tr>
+<tr><td>Sin medición clara.</td><td>No sabe qué propiedad genera más consultas.</td><td>GA4/Search Console + reporte mensual simple.</td></tr>
+</tbody>
+</table>
+
+<h2>B. CRM y seguimiento</h2>
+<p>Tokko es fuerte en CRM, oportunidades y seguimiento. No conviene venderle al cliente una “base de datos” paralela. El pitch correcto es que todo lead captado por la web/landing debe ir a su flujo actual, idealmente con integración o al menos WhatsApp/email claro.</p>
+
+<h2>C. Difusión en portales</h2>
+<p>Tokko es fuerte en difusión y app-exchange. Pero los portales pagos no están incluidos; el cliente paga aparte. Esto abre un argumento: construir activos propios que no dependan 100% de portales pagos. No se trata de dejar portales, sino de no depender de ellos.</p>
+
+<h2>D. WhatsApp</h2>
+<p>En zonas como Río Tercero, el cierre empieza por WhatsApp. Tokko tiene integraciones/posibilidades, pero en la página Argentina se ve condicionado a plan Full/consultar precio. Wolfim puede vender conversión WhatsApp en la capa pública aunque el CRM interno siga igual.</p>
+
+<h2>E. Integraciones y API</h2>
+<p>Tokko expone documentación de integración y API. Hay plugins WordPress/Houzez y proveedores externos que sincronizan propiedades desde Tokko. Para Wolfim, esto habilita dos caminos:</p>
+<ol>
+<li><strong>Sin API:</strong> landing o web comercial simple, con propiedad destacada manual, formularios y WhatsApp. Más barato, rápido y vendible.</li>
+<li><strong>Con API:</strong> portal propio sincronizado con Tokko. Más potente, mayor ticket, requiere acceso/API y validar plan.</li>
+</ol>
+</section>
+
+<section class="page">
+<h1>6. Gaps explotables contra Tokko sin atacar a Tokko</h1>
+<table>
+<thead><tr><th>Gap</th><th>Cómo decirlo por WhatsApp</th><th>Qué vender</th></tr></thead>
+<tbody>
+<tr><td>Plantilla / poca diferenciación</td><td>“Vi que ya tienen sistema para propiedades. Lo que noto es que la parte pública podría mostrar mejor la marca y dar más confianza desde celular.”</td><td>Rediseño de home/fichas o landing premium.</td></tr>
+<tr><td>SEO local débil</td><td>“Busqué inmobiliarias/propiedades en la zona y hay espacio para posicionar búsquedas concretas de Río Tercero y alrededores.”</td><td>Pack SEO local + páginas de zona.</td></tr>
+<tr><td>WhatsApp no dominante</td><td>“Desde el celular, el paso a WhatsApp debería ser instantáneo por propiedad.”</td><td>CTA WhatsApp por ficha, textos prearmados, tracking.</td></tr>
+<tr><td>Sin medición accionable visible</td><td>“Podemos dejarles un reporte mensual simple: propiedades más vistas, consultas y oportunidades para publicar mejor.”</td><td>Mantenimiento + Analytics + reporte.</td></tr>
+<tr><td>Dependencia de portales</td><td>“Los portales ayudan, pero conviene que también capten desde su propio dominio.”</td><td>Landing de tasaciones/captación de propietarios.</td></tr>
+<tr><td>Falta de propuesta para propietarios</td><td>“La mayoría de webs habla al comprador; pocos captan propietarios que quieren vender/tasar.”</td><td>Landing “tasá tu propiedad” + formulario + WhatsApp.</td></tr>
+</tbody>
+</table>
+
+<div class="danger">
+<strong>Riesgo:</strong> si el lead siente que se le está diciendo “compraste mal”, se cierra. El mensaje debe validar su decisión: “Tokko te resuelve gestión; Wolfim te resuelve presencia local y conversión”.
+</div>
+</section>
+
+<section class="page">
+<h1>7. Oferta Wolfim recomendada</h1>
+<div class="grid">
+<div class="card">
+<h3>Oferta 1 — Auditoría express</h3>
+<p><strong>Precio:</strong> gratis / gancho comercial.</p>
+<ul>
+<li>3 capturas con observaciones.</li>
+<li>Checklist móvil, WhatsApp, SEO local y confianza.</li>
+<li>1 recomendación de mejora concreta.</li>
+<li>Objetivo: abrir conversación, no vender de entrada.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Oferta 2 — Upgrade simple sin API</h3>
+<p><strong>Precio orientativo:</strong> USD 200 instalación + USD 25/mes.</p>
+<ul>
+<li>Landing local profesional.</li>
+<li>WhatsApp directo con mensajes prearmados.</li>
+<li>Formulario de tasación/consulta.</li>
+<li>Google Analytics + Search Console.</li>
+<li>1 reporte mensual corto.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Oferta 3 — Web premium integrada</h3>
+<p><strong>Precio orientativo:</strong> USD 450-800 + USD 40-75/mes.</p>
+<ul>
+<li>Diseño propio con marca.</li>
+<li>Sincronización con Tokko vía API si el plan lo permite.</li>
+<li>Fichas optimizadas, mapas/filtros, CTA WhatsApp.</li>
+<li>SEO técnico y schema inmobiliario.</li>
+<li>Reporte mensual y mantenimiento.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Oferta 4 — Portal local completo</h3>
+<p><strong>Precio orientativo:</strong> USD 900-1500+ según alcance.</p>
+<ul>
+<li>Portal inmobiliario propio.</li>
+<li>Integración CRM/API.</li>
+<li>Landings por ciudad/zona/tipo de propiedad.</li>
+<li>Captación de propietarios + campañas.</li>
+<li>Ideal para inmobiliaria con inventario grande.</li>
+</ul>
+</div>
+</div>
+
+<h2>Regla de pricing</h2>
+<p>Para outreach inicial, usar precio fijo y simple. No abrir con un rango grande. El gancho recomendado sigue siendo:</p>
+<div class="quote"><strong>“Para algo chico y medible, arrancamos en USD 200 de instalación + USD 25/mes. Si quieren integración con Tokko o web a medida, lo vemos aparte.”</strong></div>
+</section>
+
+<section class="page">
+<h1>8. Guiones de WhatsApp para leads que usan Tokko</h1>
+<h2>Primer mensaje — suave y específico</h2>
+<div class="quote">
+Hola [Nombre], soy Juan de Wolfim. Vi que ya trabajan con Tokko para cargar/mostrar propiedades, eso está bueno porque evita doble carga.<br><br>
+Justamente por eso no te escribo para cambiarte el sistema, sino por la parte pública: cómo se ve la web/ficha desde el celular, qué tan rápido lleva a WhatsApp y si está captando búsquedas locales de Río Tercero/zona.<br><br>
+Vi [hallazgo concreto]. Si querés, te mando 3 capturas con mejoras puntuales sin compromiso.
+</div>
+
+<h2>Si responde “ya tenemos Tokko”</h2>
+<div class="quote">
+Perfecto, Tokko resuelve bien la gestión interna. Lo que hacemos nosotros es complementarlo: mejor presentación de marca, fichas que conviertan mejor, WhatsApp más directo y SEO local para captar por su propio dominio. No sería cambiar Tokko ni cargar propiedades dos veces.
+</div>
+
+<h2>Si pide precio</h2>
+<div class="quote">
+Depende del alcance. Para algo chico, tipo landing/local + WhatsApp + medición, arranca en USD 200 de instalación y USD 25/mes de mantenimiento. Si quieren una web integrada con Tokko/API, ahí primero reviso si su plan lo permite y cotizo cerrado.
+</div>
+
+<h2>Si pide “qué mejorarías”</h2>
+<div class="quote">
+Te marco 3 cosas rápidas: 1) [CTA WhatsApp/ficha], 2) [SEO/localidad], 3) [confianza/velocidad/diseño]. Son mejoras para que el sistema que ya usan genere más consultas, no para reemplazarlo.
+</div>
+
+<h2>Cierre de micro-compromiso</h2>
+<div class="quote">
+¿Te sirve que te mande un mini diagnóstico con capturas mañana? Si después te cierra, armamos una mejora chica con precio fijo y listo.
+</div>
+</section>
+
+<section class="page">
+<h1>9. Checklist de auditoría para un lead Tokko</h1>
+<p>Antes de escribir, revisar el sitio público y completar esto. El mensaje debe mencionar un hallazgo real.</p>
+<table>
+<thead><tr><th>Área</th><th>Qué revisar</th><th>Señal de oportunidad</th></tr></thead>
+<tbody>
+<tr><td>Mobile</td><td>¿El botón WhatsApp aparece sin scrollear? ¿El formulario es usable?</td><td>Si hay que buscar el contacto, oportunidad alta.</td></tr>
+<tr><td>Ficha</td><td>Fotos, precio, dirección/zona, CTA, agente asignado.</td><td>Ficha fría o sin copy comercial.</td></tr>
+<tr><td>Home</td><td>¿Explica por qué elegir esa inmobiliaria?</td><td>Si solo muestra buscador, falta confianza.</td></tr>
+<tr><td>SEO</td><td>Title/meta, URLs, páginas por ciudad/barrio, indexación.</td><td>Si no hay páginas locales, vender SEO local.</td></tr>
+<tr><td>Velocidad</td><td>Percepción móvil; carga de fotos.</td><td>Si tarda, argumento de pérdida de consultas.</td></tr>
+<tr><td>Captación propietarios</td><td>¿Tiene “tasá tu propiedad” visible?</td><td>Si solo apunta a compradores, oportunidad fuerte.</td></tr>
+<tr><td>Tracking</td><td>¿Hay señales de medición/GA? ¿Reporta propiedades vistas?</td><td>Ofrecer mantenimiento + reporte mensual.</td></tr>
+<tr><td>Marca local</td><td>Fotos del equipo, oficina, matrícula, zonas cubiertas.</td><td>Si no hay rostro/confianza, vender presentación.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="page">
+<h1>10. Priorización para los leads de Río Tercero y zona</h1>
+<table>
+<thead><tr><th>Tipo de lead</th><th>Prioridad</th><th>Mensaje</th><th>Oferta</th></tr></thead>
+<tbody>
+<tr><td>Ya usa Tokko / CRM similar y tiene inventario activo</td><td>Alta</td><td>“No te cambio el sistema; mejoro la parte que ve el cliente.”</td><td>Auditoría + upgrade web/WhatsApp/SEO.</td></tr>
+<tr><td>Web vieja pero con propiedades activas</td><td>Muy alta</td><td>“Tu inventario merece una presentación más profesional desde celular.”</td><td>USD 200 + 25/mes.</td></tr>
+<tr><td>Solo redes sociales o portal externo</td><td>Alta</td><td>“Hoy dependés de terceros; conviene tener dominio propio y WhatsApp medido.”</td><td>Landing local + Google Business.</td></tr>
+<tr><td>Agente individual con pocas propiedades</td><td>Media</td><td>“Te dejo una presencia simple para que no parezca improvisado.”</td><td>Landing económica.</td></tr>
+<tr><td>Inmobiliaria grande / varias sucursales</td><td>Media-alta</td><td>“Podemos integrar o mejorar la capa pública sin romper operación.”</td><td>Web integrada/API + mantenimiento.</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<strong>Para mañana:</strong> elegir 5 leads, abrir su web desde celular, sacar 2 capturas por lead y mandar WhatsApp con un hallazgo específico. Prioridad: el que ya usa Tokko, más Lugares, Mitre, Alas & Raíces, Ressa/Habitad si muestran inventario activo.
+</div>
+</section>
+
+<section class="page">
+<h1>11. Fuentes consultadas</h1>
+<p class="small">Fuentes públicas extraídas/buscadas el 2026-07-08. Algunas comparativas son de proveedores competidores; se usaron como señales de posicionamiento, no como verdad neutral absoluta.</p>
+<ul class="source-list">
+<li>Tokko Broker — sitio oficial: https://www.tokkobroker.com</li>
+<li>Tokko Broker — funcionalidades: https://www.tokkobroker.com/es-ar/funcionalidades</li>
+<li>Tokko Broker — planes Argentina: https://www.tokkobroker.com/es-ar/planes-y-precios</li>
+<li>Tokko Broker — integraciones y portales: https://www.tokkobroker.com/es-ar/app-exchange</li>
+<li>Tokko Blog — “7 funcionalidades de Tokko Broker”: https://blog.tokkobroker.com/7-funcionalidades-de-tokko-broker</li>
+<li>Tokko Blog — Red Tokko Broker: https://blog.tokkobroker.com/tokko-broker</li>
+<li>Tokko Developers Hub: https://developers.tokkobroker.com</li>
+<li>Tokko Plugins docs: https://docs.tokkoplugins.com/introduccion</li>
+<li>ComparaSoftware AR — Tokko Broker: https://www.comparasoftware.com.ar/tokko-broker</li>
+<li>Glassprop — web inmobiliaria integrada con Tokko: https://www.glassprop.com/web-inmobiliaria-tokko</li>
+<li>KiteProp — sitio oficial: https://www.kiteprop.com</li>
+<li>2clics — sitio oficial: https://2clics.app</li>
+<li>Xintel — sitio oficial: https://xintel.com.ar</li>
+<li>Wasi — sitio oficial: https://wasi.co</li>
+<li>Pixel Inmobiliario — planes / cómo funciona: https://pixelinmobiliario.com/planes.html y https://pixelinmobiliario.com/como_funciona.html</li>
+<li>Red Tu Inmobiliaria — comparativa CRM 2026: https://www.redtuinmobiliaria.com/blog/mejores-crm-inmobiliarios-argentina</li>
+</ul>
+<p class="footer-note">Documento generado para uso comercial interno de Wolfim. Revisar antes de enviar a terceros. No contiene credenciales ni datos sensibles.</p>
+</section>
+</body>
+</html>

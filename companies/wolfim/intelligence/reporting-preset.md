@@ -6,9 +6,10 @@ created: 2026-07-07
 status: active
 script: /home/hermes/scripts/wolfim_report_preset.py
 brand-assets:
-  logo: companies/wolfim/brand/WOLFIM_logo.svg
-  isologo-preferred: companies/wolfim/brand/wolfim_isologo (png)
-  isologo-fallback: companies/wolfim/brand/favicom.svg
+  logo-black: companies/wolfim/brand/wolfim_logo_black.svg
+  logo-white: companies/wolfim/brand/wolfim_logo_white.svg
+  isologo-black: companies/wolfim/brand/wolfim_isologo_black.svg
+  isologo-white: companies/wolfim/brand/wolfim_isologo_white.svg
 ---
 
 # Wolfim — Preset profesional para informes PDF
@@ -46,11 +47,12 @@ PDF generado:
 
 | Uso | Asset | Estado |
 |---|---|---|
-| Logo principal | `companies/wolfim/brand/WOLFIM_logo.svg` | Activo |
-| Isologo preferido | `companies/wolfim/brand/wolfim_isologo (png)` | No encontrado en VPS al 2026-07-07 |
-| Isologo fallback | `companies/wolfim/brand/favicom.svg` | Activo |
+| Logo horizontal negro | `companies/wolfim/brand/wolfim_logo_black.svg` + `.png` | Activo / transparente |
+| Logo horizontal blanco | `companies/wolfim/brand/wolfim_logo_white.svg` + `.png` | Activo / transparente |
+| Isologo negro | `companies/wolfim/brand/wolfim_isologo_black.svg` + `.png` | Activo / transparente |
+| Isologo blanco | `companies/wolfim/brand/wolfim_isologo_white.svg` + `.png` | Activo / transparente |
 
-El preset busca primero el isologo preferido. Si aparece sincronizado más adelante, lo toma automáticamente. Mientras tanto usa `favicom.svg` como marca cuadrada.
+El preset prefiere PNG transparente para compatibilidad con `fpdf2` y conserva SVG como fuente escalable. En fondos claros usa logo/isologo negro; en cierre oscuro usa isologo blanco.
 
 ## Sistema visual
 
@@ -150,4 +152,4 @@ copy_to_transfer(out)
 
 ## Validación visual
 
-El PDF de Roggero & Roma fue generado y renderizado a imágenes para revisar portada y páginas internas. Se corrigió el render del isologo porque ImageMagick generaba un PNG vacío; el preset ahora renderiza SVG con PyMuPDF y solo cae a ImageMagick como fallback.
+El PDF de Roggero & Roma fue generado y renderizado a imágenes para revisar portada y páginas internas. Versión actual validada con el pack transparente 2026-07-08: logo negro en portada/header, isologo negro en footer y portada, isologo blanco en el panel de cierre.

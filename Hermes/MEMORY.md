@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-07-07
+last-reviewed: 2026-07-08
 confidence: medium
 status: active
 source: cron_campaign_run
@@ -8,15 +8,15 @@ source: cron_campaign_run
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-07 | **🟢 ESCALA según memoria previa / KPIs formales incompletos** · Campaña Web Viejas: +5 emails enviados hoy, 0 fallos · Drive NO actualizado por `invalid_grant` (token expirado/revocado) · Prioridad comercial: vender Wolfim.
+**Última actualización:** 2026-07-08 | **🟢 ESCALA según memoria previa / KPIs formales incompletos** · Campaña Web Viejas: +5 emails enviados hoy, 0 fallos · Drive NO actualizado por `invalid_grant` (token expirado/revocado) · Prioridad comercial: vender Wolfim.
 
 ---
 
 ## Semáforo financiero
 
 - **Estado operativo previo:** 🟢 ESCALA — junio cerró con Wolfim $1.000 USD + Ango $333 USD = $1.333 USD.
-- **Advertencia:** `Hermes/Intelligence/kpis.md` sigue sin números formales de Juan (ingresos/gastos/gap). Confianza media hasta que Juan actualice KPIs.
-- **Regla activa:** Wolfim sigue siendo empresa prioritaria. Ango secundaria habilitada por semáforo previo; Construvial permanece en standby salvo aprobación explícita.
+- **Advertencia:** `Hermes/Intelligence/kpis.md` sigue sin números formales de Juan (ingresos/gastos/gap) y está vencido desde 2026-06-25. Confianza media hasta actualización.
+- **Regla activa:** Wolfim sigue siendo empresa prioritaria. Ango secundaria habilitada por semáforo previo; Construvial en standby salvo aprobación explícita.
 
 ---
 
@@ -29,20 +29,21 @@ source: cron_campaign_run
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-07
+### Resultado latest — 2026-07-08
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Emails enviados: **5**
 - Fallos de envío: **0**
 - Leads enviados:
-  - `gft.com.ar` → `9969garcia.fernandez@gft.com.ar`
-  - `acgra.com.ar` → `cvittor@cgp.gba.gov.ar`
-  - `funes.com.ar` → `airesargentinaestudio@bruchoufunes.com`
-  - `clinicapergamino.com.ar` → `info@clinicapergamino.com.ar`
-  - `croma-adi.com.ar` → `info@croma-adi.com.ar`
-- Pendientes estimados: **~22 leads**
-- Incidente: Drive no actualizado por token Google expirado/revocado: `invalid_grant: Token has been expired or revoked.`
+  - `amenabar.com.ar` → `info@amenabar.com.ar`
+  - `nlcconsultores.com.ar` → `info@nlcconsultores.com.ar`
+  - `estudiodafonseca.com.ar` → `info@estudiodafonseca.com.ar`
+  - `dnb.com.ar` → `2000bnc@estudiobnc.com.ar`
+  - `jorgearojas.com.ar` → `estudio@jorgearojas.com.ar`
+- Pendientes estimados: **~17 leads**
+- Incidente persistente: Drive no actualizado por token Google expirado/revocado: `invalid_grant: Token has been expired or revoked.`
 
 ### Resultados anteriores registrados
+- 07/07: 5 enviados, 0 fallaron; quedaban ~22 leads; Drive `invalid_grant`.
 - 21/06: 20 enviados, 19 entregados, 1 bounce.
 - 27/06: 5 enviados, 0 fallaron; quedaban ~57 leads.
 - 29/06: campaña registrada en 61/122 enviados, 0 respuestas.
@@ -76,6 +77,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 ### Ango
 - Junio: $333 cobrados en operación padre.
+- Agenda 2026-07-08 tiene pendiente 🔴: **ANGO, MONTECOR avisar de pagar importacion**.
 - Activa como secundaria solo mientras Wolfim sostenga ingreso.
 
 ### Korantis
@@ -90,7 +92,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 - `local-to-vps`: existe `HO-2026-06-26-001` para revisar.
 - `vps-to-local` activos detectados: `HO-2026-06-25-001`, `HO-2026-06-27-001`, `HO-2026-06-30-001`, `HO-2026-07-06-001`.
-- `Memory/pending`: vacío al abrir 2026-07-07.
+- `Memory/pending`: vacío al abrir 2026-07-08.
 
 ---
 
