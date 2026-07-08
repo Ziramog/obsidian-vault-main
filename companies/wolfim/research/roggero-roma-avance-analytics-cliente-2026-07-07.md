@@ -37,6 +37,19 @@ Ya dejamos Analytics funcionando y el sitio empezó a generar una línea base me
 - Ya se detectaron primeras interacciones con WhatsApp.
 - El sitio empieza a funcionar como base medible para tomar decisiones.
 
+## Procedencia estimada de visitas
+
+> Nota: Analytics estima país de conexión por IP. No es nacionalidad real de la persona.
+
+| País | Usuarios | Sesiones | Vistas | Lectura |
+|---|---:|---:|---:|---|
+| Argentina | 26 | 60 | 328 | Mayor tráfico útil y navegación real |
+| Estados Unidos | 12 | 12 | 11 | Baja navegación; posible tráfico técnico/exploratorio |
+| Singapur | 15 | 15 | 15 | Baja navegación; no tomar como demanda local |
+| Francia | 3 | 3 | 3 | Baja navegación |
+
+**Lectura:** Estados Unidos no representa casi la mitad de la actividad útil. Son 12 usuarios, 13% de sesiones y apenas 3% de las vistas. Argentina concentra alrededor del 92% de las vistas.
+
 ## Secciones / propiedades con más interés inicial
 
 | Interés detectado | Lectura |
