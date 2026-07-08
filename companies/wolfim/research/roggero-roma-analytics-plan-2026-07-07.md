@@ -23,6 +23,26 @@ status: draft
 - Acceso visible en captura: rol **Viewer**.
 - Agenda indica **Google Analytics Roggero & Roma implementado el 2026-06-28**.
 - Primer corte de 30 días: **2026-07-28**.
+- Auditoría real vía API generada el **2026-07-07**: `roggero-roma-ga4-audit-2026-07-07.md`.
+
+## Estado real detectado al 2026-07-07
+
+| Área | Resultado |
+|---|---|
+| GA4 conectado | ✅ Sí |
+| Data Stream correcto | ✅ `www.roggeroyroma.com.ar` / `G-PW4FH9WHQB` |
+| Usuarios activos 28/06–07/07 | 56 |
+| Sesiones | 89 |
+| Vistas de página | 355 brutas |
+| Vistas públicas estimadas | 272 |
+| Vistas admin/internas estimadas | 83 |
+| Google orgánico | 14 sesiones |
+| WhatsApp detectado | 1 click saliente + 1 evento `click_whatsapp` parcial |
+| Formulario | `form_start` existe, `form_submit` no aparece |
+| Conversiones/key events | 0 |
+| Problema principal | GA4 mezcla público + admin/testing y no mide conversiones comerciales completas |
+
+**Diagnóstico:** antes del informe mensual a Franco hay que limpiar/segmentar tráfico interno y dejar bien medidos WhatsApp + formularios. Hoy GA4 sirve para tráfico y páginas vistas; todavía es débil para demostrar consultas.
 
 ## Objetivo comercial del reporte
 

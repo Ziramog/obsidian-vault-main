@@ -1,0 +1,1077 @@
+{
+  "property_id": "539918073",
+  "date_range": {
+    "start": "2026-06-28",
+    "end": "2026-07-07"
+  },
+  "generated_at": "2026-07-07T22:47:54.357737",
+  "reports": {
+    "property": {
+      "name": "properties/539918073",
+      "parent": "accounts/396534504",
+      "createTime": "2026-06-02T00:50:49.640Z",
+      "updateTime": "2026-06-02T00:50:49.640Z",
+      "displayName": "roggeroyroma.com.ar",
+      "industryCategory": "REAL_ESTATE",
+      "timeZone": "America/Buenos_Aires",
+      "currencyCode": "USD",
+      "serviceLevel": "GOOGLE_ANALYTICS_STANDARD",
+      "account": "accounts/396534504",
+      "propertyType": "PROPERTY_TYPE_ORDINARY"
+    },
+    "data_streams": {
+      "dataStreams": [
+        {
+          "name": "properties/539918073/dataStreams/14985747413",
+          "type": "WEB_DATA_STREAM",
+          "displayName": "www.roggeroyroma.com.ar",
+          "createTime": "2026-06-02T00:51:10.605Z",
+          "updateTime": "2026-06-02T00:51:10.605Z",
+          "webStreamData": {
+            "measurementId": "G-PW4FH9WHQB",
+            "defaultUri": "https://www.roggeroyroma.com.ar"
+          }
+        }
+      ]
+    },
+    "conversion_events": {
+      "conversionEvents": [
+        {
+          "name": "properties/539918073/conversionEvents/14985625909",
+          "eventName": "close_convert_lead",
+          "createTime": "2026-06-02T00:50:50.163470Z",
+          "deletable": true,
+          "custom": true,
+          "countingMethod": "ONCE_PER_EVENT"
+        },
+        {
+          "name": "properties/539918073/conversionEvents/14985625910",
+          "eventName": "qualify_lead",
+          "createTime": "2026-06-02T00:50:50.163470Z",
+          "deletable": true,
+          "custom": true,
+          "countingMethod": "ONCE_PER_EVENT"
+        },
+        {
+          "name": "properties/539918073/conversionEvents/14985747412",
+          "eventName": "purchase",
+          "createTime": "2026-06-02T00:51:10.605131Z",
+          "countingMethod": "ONCE_PER_EVENT"
+        }
+      ]
+    },
+    "key_events_beta": {
+      "keyEvents": [
+        {
+          "name": "properties/539918073/keyEvents/14985625909",
+          "eventName": "close_convert_lead",
+          "createTime": "2026-06-02T00:50:50.163470Z",
+          "deletable": true,
+          "custom": true,
+          "countingMethod": "ONCE_PER_EVENT"
+        },
+        {
+          "name": "properties/539918073/keyEvents/14985625910",
+          "eventName": "qualify_lead",
+          "createTime": "2026-06-02T00:50:50.163470Z",
+          "deletable": true,
+          "custom": true,
+          "countingMethod": "ONCE_PER_EVENT"
+        },
+        {
+          "name": "properties/539918073/keyEvents/14985747412",
+          "eventName": "purchase",
+          "createTime": "2026-06-02T00:51:10.605131Z",
+          "countingMethod": "ONCE_PER_EVENT"
+        }
+      ]
+    },
+    "google_ads_links": {},
+    "overview": {
+      "headers": [
+        "totalUsers",
+        "activeUsers",
+        "newUsers",
+        "sessions",
+        "engagedSessions",
+        "screenPageViews",
+        "screenPageViewsPerSession",
+        "eventCount",
+        "eventsPerSession",
+        "userEngagementDuration"
+      ],
+      "rows": [
+        {
+          "totalUsers": "57",
+          "activeUsers": "56",
+          "newUsers": "46",
+          "sessions": "89",
+          "engagedSessions": "35",
+          "screenPageViews": "355",
+          "screenPageViewsPerSession": "3.9887640449438204",
+          "eventCount": "600",
+          "eventsPerSession": "6.7415730337078648",
+          "userEngagementDuration": "9045"
+        }
+      ],
+      "rowCount": 1,
+      "metadata": {
+        "currencyCode": "USD",
+        "timeZone": "America/Buenos_Aires"
+      },
+      "warning": "Retried without some metrics. Original error: Requests are limited to 10 metrics within a nested request.\n  This request is for 15 metrics."
+    },
+    "daily": {
+      "headers": [
+        "date",
+        "activeUsers",
+        "sessions",
+        "screenPageViews",
+        "eventCount",
+        "keyEvents"
+      ],
+      "rows": [
+        {
+          "date": "20260628",
+          "activeUsers": "1",
+          "sessions": "2",
+          "screenPageViews": "3",
+          "eventCount": "8",
+          "keyEvents": "0"
+        },
+        {
+          "date": "20260629",
+          "activeUsers": "10",
+          "sessions": "15",
+          "screenPageViews": "64",
+          "eventCount": "114",
+          "keyEvents": "0"
+        },
+        {
+          "date": "20260630",
+          "activeUsers": "9",
+          "sessions": "14",
+          "screenPageViews": "66",
+          "eventCount": "115",
+          "keyEvents": "0"
+        },
+        {
+          "date": "20260701",
+          "activeUsers": "7",
+          "sessions": "9",
+          "screenPageViews": "63",
+          "eventCount": "95",
+          "keyEvents": "0"
+        },
+        {
+          "date": "20260702",
+          "activeUsers": "12",
+          "sessions": "12",
+          "screenPageViews": "36",
+          "eventCount": "68",
+          "keyEvents": "0"
+        },
+        {
+          "date": "20260703",
+          "activeUsers": "3",
+          "sessions": "4",
+          "screenPageViews": "15",
+          "eventCount": "29",
+          "keyEvents": "0"
+        },
+        {
+          "date": "20260704",
+          "activeUsers": "5",
+          "sessions": "6",
+          "screenPageViews": "19",
+          "eventCount": "34",
+          "keyEvents": "0"
+        },
+        {
+          "date": "20260705",
+          "activeUsers": "8",
+          "sessions": "9",
+          "screenPageViews": "9",
+          "eventCount": "26",
+          "keyEvents": "0"
+        },
+        {
+          "date": "20260706",
+          "activeUsers": "7",
+          "sessions": "13",
+          "screenPageViews": "60",
+          "eventCount": "86",
+          "keyEvents": "0"
+        },
+        {
+          "date": "20260707",
+          "activeUsers": "3",
+          "sessions": "5",
+          "screenPageViews": "20",
+          "eventCount": "25",
+          "keyEvents": "0"
+        }
+      ],
+      "rowCount": 10,
+      "metadata": {
+        "currencyCode": "USD",
+        "timeZone": "America/Buenos_Aires"
+      },
+      "warning": null
+    },
+    "traffic_source": {
+      "headers": [
+        "sessionDefaultChannelGroup",
+        "sessionSourceMedium",
+        "sessions",
+        "activeUsers",
+        "screenPageViews",
+        "engagedSessions",
+        "keyEvents"
+      ],
+      "rows": [
+        {
+          "sessionDefaultChannelGroup": "Direct",
+          "sessionSourceMedium": "(direct) / (none)",
+          "sessions": "40",
+          "activeUsers": "33",
+          "screenPageViews": "56",
+          "engagedSessions": "4",
+          "keyEvents": "0"
+        },
+        {
+          "sessionDefaultChannelGroup": "Referral",
+          "sessionSourceMedium": "accounts.google.com / referral",
+          "sessions": "21",
+          "activeUsers": "6",
+          "screenPageViews": "111",
+          "engagedSessions": "12",
+          "keyEvents": "0"
+        },
+        {
+          "sessionDefaultChannelGroup": "Organic Search",
+          "sessionSourceMedium": "google / organic",
+          "sessions": "14",
+          "activeUsers": "12",
+          "screenPageViews": "75",
+          "engagedSessions": "12",
+          "keyEvents": "0"
+        },
+        {
+          "sessionDefaultChannelGroup": "Referral",
+          "sessionSourceMedium": "vercel.com / referral",
+          "sessions": "5",
+          "activeUsers": "1",
+          "screenPageViews": "39",
+          "engagedSessions": "2",
+          "keyEvents": "0"
+        },
+        {
+          "sessionDefaultChannelGroup": "Organic Search",
+          "sessionSourceMedium": "ar.search.yahoo.com / referral",
+          "sessions": "4",
+          "activeUsers": "2",
+          "screenPageViews": "57",
+          "engagedSessions": "4",
+          "keyEvents": "0"
+        },
+        {
+          "sessionDefaultChannelGroup": "Unassigned",
+          "sessionSourceMedium": "(not set)",
+          "sessions": "4",
+          "activeUsers": "4",
+          "screenPageViews": "14",
+          "engagedSessions": "0",
+          "keyEvents": "0"
+        },
+        {
+          "sessionDefaultChannelGroup": "Organic Search",
+          "sessionSourceMedium": "bing / organic",
+          "sessions": "1",
+          "activeUsers": "1",
+          "screenPageViews": "2",
+          "engagedSessions": "1",
+          "keyEvents": "0"
+        },
+        {
+          "sessionDefaultChannelGroup": "Organic Social",
+          "sessionSourceMedium": "facebook.com / referral",
+          "sessions": "1",
+          "activeUsers": "1",
+          "screenPageViews": "1",
+          "engagedSessions": "0",
+          "keyEvents": "0"
+        }
+      ],
+      "rowCount": 8,
+      "metadata": {
+        "currencyCode": "USD",
+        "timeZone": "America/Buenos_Aires"
+      },
+      "warning": null
+    },
+    "device": {
+      "headers": [
+        "deviceCategory",
+        "activeUsers",
+        "sessions",
+        "screenPageViews",
+        "eventCount",
+        "keyEvents"
+      ],
+      "rows": [
+        {
+          "deviceCategory": "desktop",
+          "activeUsers": "41",
+          "sessions": "58",
+          "screenPageViews": "250",
+          "eventCount": "412",
+          "keyEvents": "0"
+        },
+        {
+          "deviceCategory": "mobile",
+          "activeUsers": "16",
+          "sessions": "32",
+          "screenPageViews": "105",
+          "eventCount": "188",
+          "keyEvents": "0"
+        }
+      ],
+      "rowCount": 2,
+      "metadata": {
+        "currencyCode": "USD",
+        "timeZone": "America/Buenos_Aires"
+      },
+      "warning": null
+    },
+    "pages": {
+      "headers": [
+        "pagePathPlusQueryString",
+        "pageTitle",
+        "screenPageViews",
+        "activeUsers",
+        "eventCount",
+        "keyEvents"
+      ],
+      "rows": [
+        {
+          "pagePathPlusQueryString": "/",
+          "pageTitle": "Inicio",
+          "screenPageViews": "72",
+          "activeUsers": "37",
+          "eventCount": "178",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/",
+          "pageTitle": "Panel de Control · Roggero & Roma",
+          "screenPageViews": "17",
+          "activeUsers": "5",
+          "eventCount": "18",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/?type=Casa",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "17",
+          "activeUsers": "11",
+          "eventCount": "21",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/",
+          "pageTitle": "Admin — Propiedades · Roggero & Roma",
+          "screenPageViews": "13",
+          "activeUsers": "3",
+          "eventCount": "13",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/",
+          "pageTitle": "Editar Propiedad · Roggero & Roma",
+          "screenPageViews": "10",
+          "activeUsers": "3",
+          "eventCount": "13",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/admin",
+          "pageTitle": "Admin — Propiedades · Roggero & Roma",
+          "screenPageViews": "10",
+          "activeUsers": "1",
+          "eventCount": "13",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/properties",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "10",
+          "activeUsers": "5",
+          "eventCount": "15",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/?type=Casa&page=2",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "8",
+          "activeUsers": "6",
+          "eventCount": "14",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/?type=Terreno",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "8",
+          "activeUsers": "2",
+          "eventCount": "8",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/admin",
+          "pageTitle": "Editar Propiedad · Roggero & Roma",
+          "screenPageViews": "8",
+          "activeUsers": "1",
+          "eventCount": "12",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "7",
+          "activeUsers": "4",
+          "eventCount": "14",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/properties/6a1e1efc09dc76e1323c940b",
+          "pageTitle": "Fernando Ferrari 86, B° Pellegrini · Córdoba · Roggero & Roma",
+          "screenPageViews": "5",
+          "activeUsers": "2",
+          "eventCount": "11",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/?type=Campo",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "4",
+          "activeUsers": "1",
+          "eventCount": "5",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/?type=Casa&page=3",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "4",
+          "activeUsers": "4",
+          "eventCount": "7",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/admin",
+          "pageTitle": "Panel de Control · Roggero & Roma",
+          "screenPageViews": "4",
+          "activeUsers": "1",
+          "eventCount": "4",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/admin/properties/6a3e8921aebf85d118b0a6d0/edit",
+          "pageTitle": "Editar Propiedad · Roggero & Roma",
+          "screenPageViews": "4",
+          "activeUsers": "2",
+          "eventCount": "5",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/properties?page=5",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "4",
+          "activeUsers": "2",
+          "eventCount": "4",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/properties?page=6",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "4",
+          "activeUsers": "2",
+          "eventCount": "5",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/properties?type=Casa",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "4",
+          "activeUsers": "2",
+          "eventCount": "7",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/",
+          "pageTitle": "Mitre 481, B° Pellegrini · Alta Gracia · Roggero & Roma",
+          "screenPageViews": "3",
+          "activeUsers": "2",
+          "eventCount": "4",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/",
+          "pageTitle": "Nicolas Avellaneda 760, B° El Golf · Alta Gracia · Roggero & Roma",
+          "screenPageViews": "3",
+          "activeUsers": "2",
+          "eventCount": "3",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/",
+          "pageTitle": "Ruta Provincial S495, B° Morada de las Aves · Potrero de Garay · Roggero & Roma",
+          "screenPageViews": "3",
+          "activeUsers": "2",
+          "eventCount": "3",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/?operation=venta",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "3",
+          "activeUsers": "2",
+          "eventCount": "4",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/?type=Departamento",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "3",
+          "activeUsers": "2",
+          "eventCount": "4",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/?type=Terreno&page=2",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "3",
+          "activeUsers": "2",
+          "eventCount": "5",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/properties?page=2",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "3",
+          "activeUsers": "3",
+          "eventCount": "7",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/properties?page=4",
+          "pageTitle": "Propiedades · Roggero & Roma",
+          "screenPageViews": "3",
+          "activeUsers": "2",
+          "eventCount": "3",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/",
+          "pageTitle": "1250 Hectáreas, Ambul · Los Gigantes · Roggero & Roma",
+          "screenPageViews": "2",
+          "activeUsers": "1",
+          "eventCount": "2",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/",
+          "pageTitle": "Admin — Perfil · Roggero & Roma",
+          "screenPageViews": "2",
+          "activeUsers": "1",
+          "eventCount": "2",
+          "keyEvents": "0"
+        },
+        {
+          "pagePathPlusQueryString": "/",
+          "pageTitle": "Admin — Propuestas · Roggero & Roma",
+          "screenPageViews": "2",
+          "activeUsers": "1",
+          "eventCount": "2",
+          "keyEvents": "0"
+        }
+      ],
+      "rowCount": 120,
+      "metadata": {
+        "currencyCode": "USD",
+        "timeZone": "America/Buenos_Aires"
+      },
+      "warning": null
+    },
+    "landing_pages": {
+      "headers": [
+        "landingPagePlusQueryString",
+        "sessions",
+        "activeUsers",
+        "engagedSessions",
+        "engagementRate",
+        "keyEvents"
+      ],
+      "rows": [
+        {
+          "landingPagePlusQueryString": "/",
+          "sessions": "52",
+          "activeUsers": "36",
+          "engagedSessions": "30",
+          "engagementRate": "0.57692307692307687",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "(not set)",
+          "sessions": "8",
+          "activeUsers": "5",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/properties/6a1e1efc09dc76e1323c940b",
+          "sessions": "4",
+          "activeUsers": "1",
+          "engagedSessions": "1",
+          "engagementRate": "0.25",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/properties",
+          "sessions": "2",
+          "activeUsers": "1",
+          "engagedSessions": "1",
+          "engagementRate": "0.5",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/properties?type=Casa",
+          "sessions": "2",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/2015/12/05",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/2017/10/05",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/2020/03/17",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/2021/03/04",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/2021/05/28",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/2022/01/27",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/?fbclid=IwVERFWAS2ELBwZG9mA2ZkaWQWUJ58Xmr8ipt-tA6GoCgtfc6JYcxrbWV4dG4DYWVtAjEwAHNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR77BgoAJuUucyXgqkYiJTfJq6kmwr426Ys6gB9PeaKwSfpYEZORTpfgTSd3fQ_aem_4VPfRwN8di6stv602Y1mUg",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "1",
+          "engagementRate": "1",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/?p=891",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/?term=dpto&operation=venta",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "1",
+          "engagementRate": "1",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/admin/properties/add",
+          "sessions": "1",
+          "activeUsers": "0",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/photo_gallery/living-room",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/properties?type=Campo",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/property/alta-gracia-cordoba-amplio-departamento-de-1-dormitorio-centrico",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/property/alta-gracia-cordoba-barrio-poluyan-departamento-de-2-dormitorios",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/property/alta-gracia-cordoba-importante-casona-sobre-bvd-pellegrini",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/property/cordoba-alta-gracia-2-hectareas-sobre-autovia-ruta-5-zona-industrial",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/property/cordoba-los-aromos-casa-de-2-dorm-con-piscina-y-vista-a-la-sierras",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/property/cordoba-los-gigantes-campo-de-1250-hectareas",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "1",
+          "engagementRate": "1",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/property_status/apto-credito",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        },
+        {
+          "landingPagePlusQueryString": "/property_status/vendido-consulte-por-alternativos",
+          "sessions": "1",
+          "activeUsers": "1",
+          "engagedSessions": "0",
+          "engagementRate": "0",
+          "keyEvents": "0"
+        }
+      ],
+      "rowCount": 26,
+      "metadata": {
+        "currencyCode": "USD",
+        "timeZone": "America/Buenos_Aires"
+      },
+      "warning": null
+    },
+    "events": {
+      "headers": [
+        "eventName",
+        "isKeyEvent",
+        "eventCount",
+        "totalUsers",
+        "keyEvents"
+      ],
+      "rows": [
+        {
+          "eventName": "page_view",
+          "isKeyEvent": "(not set)",
+          "eventCount": "335",
+          "totalUsers": "56",
+          "keyEvents": "0"
+        },
+        {
+          "eventName": "session_start",
+          "isKeyEvent": "(not set)",
+          "eventCount": "83",
+          "totalUsers": "55",
+          "keyEvents": "0"
+        },
+        {
+          "eventName": "user_engagement",
+          "isKeyEvent": "(not set)",
+          "eventCount": "70",
+          "totalUsers": "21",
+          "keyEvents": "0"
+        },
+        {
+          "eventName": "first_visit",
+          "isKeyEvent": "(not set)",
+          "eventCount": "46",
+          "totalUsers": "46",
+          "keyEvents": "0"
+        },
+        {
+          "eventName": "scroll",
+          "isKeyEvent": "(not set)",
+          "eventCount": "31",
+          "totalUsers": "17",
+          "keyEvents": "0"
+        },
+        {
+          "eventName": "page_view",
+          "isKeyEvent": "",
+          "eventCount": "20",
+          "totalUsers": "3",
+          "keyEvents": "0"
+        },
+        {
+          "eventName": "form_start",
+          "isKeyEvent": "(not set)",
+          "eventCount": "7",
+          "totalUsers": "6",
+          "keyEvents": "0"
+        },
+        {
+          "eventName": "session_start",
+          "isKeyEvent": "",
+          "eventCount": "3",
+          "totalUsers": "3",
+          "keyEvents": "0"
+        },
+        {
+          "eventName": "click",
+          "isKeyEvent": "(not set)",
+          "eventCount": "2",
+          "totalUsers": "2",
+          "keyEvents": "0"
+        },
+        {
+          "eventName": "click_whatsapp",
+          "isKeyEvent": "(not set)",
+          "eventCount": "1",
+          "totalUsers": "1",
+          "keyEvents": "0"
+        },
+        {
+          "eventName": "form_start",
+          "isKeyEvent": "",
+          "eventCount": "1",
+          "totalUsers": "1",
+          "keyEvents": "0"
+        },
+        {
+          "eventName": "user_engagement",
+          "isKeyEvent": "",
+          "eventCount": "1",
+          "totalUsers": "1",
+          "keyEvents": "0"
+        }
+      ],
+      "rowCount": 12,
+      "metadata": {
+        "currencyCode": "USD",
+        "timeZone": "America/Buenos_Aires"
+      },
+      "warning": null
+    },
+    "geo_city": {
+      "headers": [
+        "country",
+        "city",
+        "activeUsers",
+        "sessions",
+        "screenPageViews"
+      ],
+      "rows": [
+        {
+          "country": "Singapore",
+          "city": "Singapore",
+          "activeUsers": "15",
+          "sessions": "15",
+          "screenPageViews": "15"
+        },
+        {
+          "country": "Argentina",
+          "city": "(not set)",
+          "activeUsers": "13",
+          "sessions": "28",
+          "screenPageViews": "200"
+        },
+        {
+          "country": "Argentina",
+          "city": "Cordoba",
+          "activeUsers": "5",
+          "sessions": "6",
+          "screenPageViews": "17"
+        },
+        {
+          "country": "United States",
+          "city": "Council Bluffs",
+          "activeUsers": "5",
+          "sessions": "5",
+          "screenPageViews": "5"
+        },
+        {
+          "country": "Argentina",
+          "city": "Buenos Aires",
+          "activeUsers": "4",
+          "sessions": "5",
+          "screenPageViews": "14"
+        },
+        {
+          "country": "Argentina",
+          "city": "Rio Tercero",
+          "activeUsers": "3",
+          "sessions": "16",
+          "screenPageViews": "79"
+        },
+        {
+          "country": "France",
+          "city": "Paris",
+          "activeUsers": "3",
+          "sessions": "3",
+          "screenPageViews": "3"
+        },
+        {
+          "country": "United States",
+          "city": "Ashburn",
+          "activeUsers": "2",
+          "sessions": "2",
+          "screenPageViews": "2"
+        },
+        {
+          "country": "Argentina",
+          "city": "",
+          "activeUsers": "1",
+          "sessions": "2",
+          "screenPageViews": "8"
+        },
+        {
+          "country": "Argentina",
+          "city": "Salta",
+          "activeUsers": "1",
+          "sessions": "1",
+          "screenPageViews": "6"
+        },
+        {
+          "country": "Argentina",
+          "city": "Villa Allende",
+          "activeUsers": "1",
+          "sessions": "1",
+          "screenPageViews": "2"
+        },
+        {
+          "country": "United States",
+          "city": "(not set)",
+          "activeUsers": "1",
+          "sessions": "1",
+          "screenPageViews": "1"
+        },
+        {
+          "country": "United States",
+          "city": "Aspen",
+          "activeUsers": "1",
+          "sessions": "1",
+          "screenPageViews": "1"
+        },
+        {
+          "country": "United States",
+          "city": "Glenview",
+          "activeUsers": "1",
+          "sessions": "1",
+          "screenPageViews": "1"
+        },
+        {
+          "country": "United States",
+          "city": "Lake Murray of Richland",
+          "activeUsers": "1",
+          "sessions": "1",
+          "screenPageViews": "1"
+        },
+        {
+          "country": "United States",
+          "city": "Reston",
+          "activeUsers": "1",
+          "sessions": "1",
+          "screenPageViews": "0"
+        }
+      ],
+      "rowCount": 16,
+      "metadata": {
+        "currencyCode": "USD",
+        "timeZone": "America/Buenos_Aires"
+      },
+      "warning": null
+    },
+    "realtime_device": {
+      "headers": [
+        "deviceCategory",
+        "activeUsers"
+      ],
+      "rows": [
+        {
+          "deviceCategory": "desktop",
+          "activeUsers": "1"
+        }
+      ],
+      "rowCount": 1,
+      "metadata": {},
+      "warning": null
+    }
+  }
+}
