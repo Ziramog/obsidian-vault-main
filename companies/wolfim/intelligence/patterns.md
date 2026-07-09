@@ -2,8 +2,8 @@
 company: Wolfim
 owner: wolfim-growth
 status: pending-first-write
-version: 0
-last-reviewed: 2026-06-25
+version: 1
+last-reviewed: 2026-07-09
 ---
 
 # Patterns — Wolfim
@@ -58,3 +58,5 @@ last-reviewed: 2026-06-25
 | 2026-07-07 | Para clientes inmobiliarios con mantenimiento, un reporte mensual corto de Analytics sirve como activo de retención y upsell: no vender “métricas”, sino mostrar visitas, propiedades con interés, contactos y 2-3 acciones concretas del próximo mes. | plan Roggero & Roma analytics primer mes |
 | 2026-07-08 | Prospección inmobiliarias Río Tercero/zona: mejores leads para Juan son negocios con web propia + inventario activo + WhatsApp/email visibles; Tancacha/Corralito tienen pocos operadores locales directos y conviene abordarlos vía inmobiliarias de Río Tercero/Almafuerte que publican en esas zonas. | leads rio-tercero-inmobiliarias-2026-07-08 |
 | 2026-07-08 | Si un prospecto inmobiliario ya usa Tokko Broker/CRM similar, no vender reemplazo: vender capa pública encima del CRM (web/landing/fichas/WhatsApp/SEO local/Analytics). Mensaje: “no te cambio Tokko; hago que Tokko venda mejor hacia afuera”. | benchmarking Tokko Broker |
+
+| 2026-07-09 | Outreach Web Viejas ya funciona como operación diaria (5 emails/día, 0 fallos), pero el enriquecimiento mostró direcciones dudosas; antes de escalar volumen hay que sanitizar emails y priorizar follow-up humano con precio. | cron_campaign_run |
