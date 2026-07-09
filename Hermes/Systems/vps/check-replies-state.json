@@ -1,0 +1,15 @@
+{
+  "owner": "brain-vps",
+  "job": "check-replies",
+  "account_checked": "ingjuangomariz@gmail.com",
+  "campaign": "Noté algo en la web de...",
+  "last_checked_at": "2026-07-09T18:01:45-03:00",
+  "last_top_inbox_id": 66851,
+  "result": "Sin novedades",
+  "verification": {
+    "manual_command": "himalaya envelope list -s 10",
+    "expanded_command": "himalaya envelope list -s 50",
+    "script": "python3 /home/hermes/.hermes/skills/wolfim-email-outreach/scripts/check_replies.py",
+    "script_summary": "Loaded 85 recipients, 72 business domains from tracker; Retrieved 200 inbox emails; Sin novedades"
+  }
+}
