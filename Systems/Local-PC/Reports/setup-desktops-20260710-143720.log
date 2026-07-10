@@ -1,0 +1,95 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260710143720
+Username: DESKTOP-3V091DM\ingju
+RunAs User: DESKTOP-3V091DM\ingju
+Configuration Name: 
+Machine: DESKTOP-3V091DM (Microsoft Windows NT 10.0.19045.0)
+Host Application: powershell -ExecutionPolicy Bypass -File C:\Users\ingju\AppData\Local\hermes\profiles\pcbrain\workspace\scripts\setup-desktops.ps1
+Process ID: 15776
+PSVersion: 5.1.19041.6456
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.6456
+BuildVersion: 10.0.19041.6456
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Log: C:\Projects\Obsidian\obsidian-vault-main\Systems\Local-PC\Reports\setup-desktops-20260710-143720.log
+Mon1 (izq): 1920x1040 en (0,0)
+Mon2 (der): 1920x1040 en (1920,0)
+[+0.4s] === PC Brain - Setup de Escritorios ===
+[+0.4s] Limpiando escritorios...
+  VD -count -> Count of desktops: 3
+  Escritorios actuales: 3
+  VD -remove:1 -> Removing virtual desktop number 1 (desktop 'Desktop 2')
+Removing virtual desktop number 1 (desktop 'Desktop 2')
+  VD -count -> Count of desktops: 2
+  VD -remove:1 -> Removing virtual desktop number 1 (desktop 'Desktop 2')
+Removing virtual desktop number 1 (desktop 'Desktop 2')
+  VD -count -> Count of desktops: 1
+[+1.1s] Creando escritorios...
+  VD -new -> Creating virtual desktop number 1
+Creating virtual desktop number 1
+  VD -new -> Creating virtual desktop number 2
+Creating virtual desktop number 2
+  VD -count -> Count of desktops: 3
+  Total: 3
+[+1.4s] === Escritorio 0 ===
+  VD -switch:0 -> Switching to virtual desktop number 0 (desktop 'HEADQUARTES')
+Switching to virtual desktop number 0 (desktop 'HEADQUARTES')
+  Abriendo: C:\Users\ingju\AppData\Local\hermes\hermes-agent\apps\desktop\release\win-unpacked\Hermes.exe
+  Ventana detectada: Hermes (hwnd=262352, title='Hermes')
+  Posicionada: hwnd=262352 -> (0,0 960x1040) OK=True
+  Abriendo: shell:AppsFolder\44576milosp.OneCommander_p0rg76fmnrgsm!App
+  Ventana detectada: OneCommander (hwnd=67006, title='OneCommander')
+  Posicionada: hwnd=67006 -> (960,0 960x1040) OK=True
+  Abriendo: C:\Program Files\Google\Chrome\Application\chrome.exe
+  Ventana detectada: chrome (hwnd=67074, title='Google Chrome')
+True
+True
+  Maximizada (hwnd=67074)
+[+12.1s] === Escritorio 1 ===
+  VD -switch:1 -> Switching to virtual desktop number 1 (desktop 'Desktop 2')
+Switching to virtual desktop number 1 (desktop 'Desktop 2')
+  Abriendo: C:\Program Files\Google\Chrome\Application\chrome.exe
+  TIMEOUT: No se encontro nueva ventana para chrome en 15000ms
+  Abriendo: C:\Users\ingju\AppData\Local\Programs\antigravity\Antigravity.exe
+  Ventana detectada: Antigravity (hwnd=67144, title='Antigravity')
+  Posicionada: hwnd=67144 -> (1920,0 960x1040) OK=True
+  Abriendo: explorer.exe
+  Ventana detectada: explorer (hwnd=67210, title='File Explorer')
+  Posicionada: hwnd=67210 -> (2880,0 960x1040) OK=True
+[+30.9s] === Escritorio 2 ===
+  VD -switch:2 -> Switching to virtual desktop number 2 (desktop 'Desktop 3')
+Switching to virtual desktop number 2 (desktop 'Desktop 3')
+  Abriendo: C:\Program Files\Google\Chrome\Application\chrome.exe
+  TIMEOUT: No se encontro nueva ventana para chrome en 15000ms
+  Abriendo: shell:AppsFolder\OpenAI.Codex_2p2nqsd0c76g0!App
+PS>TerminatingError(Start-Process): "This command cannot be run due to the error: The system cannot find the file specified."
+Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
+At C:\Users\ingju\AppData\Local\hermes\profiles\pcbrain\workspace\scripts\setup-desktops.ps1:161 char:5
++     Start-Process $appFolder
++     ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
+    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
+At C:\Users\ingju\AppData\Local\hermes\profiles\pcbrain\workspace\scripts\setup-desktops.ps1:161 char:5
++     Start-Process $appFolder
++     ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
+    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
+
+  TIMEOUT: No se encontro nueva ventana para Codex en 20000ms
+  Abriendo: explorer.exe
+  Ventana detectada: explorer (hwnd=67484, title='File Explorer')
+  Posicionada: hwnd=67484 -> (2880,0 960x1040) OK=True
+[+68.4s] Volviendo al Escritorio 0...
+  VD -switch:0 -> Switching to virtual desktop number 0 (desktop 'HEADQUARTES')
+Switching to virtual desktop number 0 (desktop 'HEADQUARTES')
+[+68.6s] === Completado en 68.6 segundos ===
+**********************
+Windows PowerShell transcript end
+End time: 20260710143828
+**********************

@@ -1,0 +1,21 @@
+﻿11:25:31 === PC Brain - Monitor de Login ===
+11:25:31 Inicio: 07/10/2026 11:25:31
+11:25:31 --- 1. Espacio libre ---
+11:25:31   C:: 268.4 GB libre de 476.9 GB (56.3%)
+11:25:31   D:: 274.6 GB libre de 495.8 GB (55.4%)
+11:25:31   H:: 48.4 GB libre de 488.3 GB (9.9%)
+11:25:31   ALERTA: H: por debajo del 10%
+11:25:31   I:: 214.1 GB libre de 878.9 GB (24.4%)
+11:25:31 --- 2. Estado de discos ---
+11:25:34   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+11:25:34   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+11:25:34 --- 3. Ultimo backup ---
+11:25:34   No se detecto sistema de backup automatico
+11:25:34 --- 4. Errores criticos (24h) ---
+11:25:35   11:25 [Error] Microsoft-Windows-DNS-Client: 1012 - There was an error while attempting to read the local hosts file.
+11:25:35   10:22 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
+11:25:35 --- 5. Boot NVMe ---
+11:25:35   Error verificando NVMe
+11:25:35 --- Actualizando STATUS.md ---
+11:25:35 STATUS.md actualizado
+11:25:35 === Completado en 3.7 segundos ===

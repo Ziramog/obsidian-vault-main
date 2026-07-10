@@ -1,0 +1,29 @@
+﻿15:29:55 === PC Brain - Monitor de Login ===
+15:29:55 Inicio: 07/10/2026 15:29:55
+15:29:55 --- 1. Espacio libre ---
+15:29:55   C:: 288.9 GB libre de 476.9 GB (60.6%)
+15:29:55   D:: 274.6 GB libre de 495.8 GB (55.4%)
+15:29:55   H:: 48.4 GB libre de 488.3 GB (9.9%)
+15:29:55   ALERTA: H: por debajo del 10%
+15:29:55   I:: 214.1 GB libre de 878.9 GB (24.4%)
+15:29:55 --- 2. Estado de discos ---
+15:29:58   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+15:29:58   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+15:29:58 --- 3. Ultimo backup ---
+15:29:58   No se detecto sistema de backup automatico
+15:29:58 --- 4. Errores criticos (24h) ---
+15:29:58   15:29 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+15:29:58   15:29 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+15:29:58   15:29 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+15:29:58   15:29 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+15:29:58   15:29 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+15:29:58   15:28 [Error] Microsoft-Windows-DNS-Client: 1012 - There was an error while attempting to read the local hosts file.
+15:29:58   15:12 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
+15:29:58   15:07 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+15:29:58   15:07 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+15:29:58   15:07 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+15:29:58 --- 5. Boot NVMe ---
+15:29:58   Error verificando NVMe
+15:29:58 --- Actualizando STATUS.md ---
+15:29:58 STATUS.md actualizado
+15:29:58 === Completado en 3.7 segundos ===

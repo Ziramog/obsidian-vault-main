@@ -1,0 +1,26 @@
+﻿14:02:50 === PC Brain - Monitor de Login ===
+14:02:50 Inicio: 07/10/2026 14:02:50
+14:02:50 --- 1. Espacio libre ---
+14:02:50   C:: 270.2 GB libre de 476.9 GB (56.7%)
+14:02:50   D:: 274.6 GB libre de 495.8 GB (55.4%)
+14:02:50   H:: 48.4 GB libre de 488.3 GB (9.9%)
+14:02:50   ALERTA: H: por debajo del 10%
+14:02:50   I:: 214.1 GB libre de 878.9 GB (24.4%)
+14:02:50 --- 2. Estado de discos ---
+14:02:53   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+14:02:53   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+14:02:53 --- 3. Ultimo backup ---
+14:02:53   No se detecto sistema de backup automatico
+14:02:53 --- 4. Errores criticos (24h) ---
+14:02:53   14:02 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+14:02:53   14:02 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+14:02:53   14:02 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+14:02:53   14:02 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+14:02:53   14:01 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {9BA05972-F6A8-11CF-A442-00A0C90A8F39} did not register with DCOM within the required timeout.
+14:02:53   14:01 [Error] Microsoft-Windows-DNS-Client: 1012 - There was an error while attempting to read the local hosts file.
+14:02:53   No se pudieron leer eventos sin admin
+14:02:53 --- 5. Boot NVMe ---
+14:02:53   Error verificando NVMe
+14:02:53 --- Actualizando STATUS.md ---
+14:02:53 STATUS.md actualizado
+14:02:53 === Completado en 3.6 segundos ===
