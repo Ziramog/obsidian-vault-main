@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-07-09
+last-reviewed: 2026-07-10
 confidence: medium
 status: active
 source: cron_campaign_run
@@ -8,7 +8,7 @@ source: cron_campaign_run
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-09 10:03 ART | **🟢 ESCALA según memoria previa / KPIs formales incompletos** · Campaña Web Viejas: +5 emails enviados hoy, 0 fallos · Drive NO actualizado por `invalid_grant` (token expirado/revocado) · Prioridad comercial: vender Wolfim.
+**Última actualización:** 2026-07-10 10:02 ART | **🟢 ESCALA según memoria previa / KPIs formales incompletos** · Campaña Web Viejas: +5 emails enviados hoy, 0 fallos · Drive NO actualizado por `invalid_grant` (token expirado/revocado) · Prioridad comercial: vender Wolfim.
 
 ---
 
@@ -29,21 +29,21 @@ source: cron_campaign_run
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-09
+### Resultado latest — 2026-07-10
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Emails enviados: **5**
 - Fallos de envío: **0**
 - Leads enviados:
-  - `dejesusconstructora.com.ar` → `admin@dejesusconstructora.com.ar`
-  - `spmcba.com.ar` → `sociedadpatologiamamaria@gmail.com`
-  - `fejeproc.com.ar` → `adm.fejeproc@gmail.com`
-  - `omer.com.ar` → `contact@goodlayers.com`
-  - `atmzavaleta.com.ar` → `4963-86662emailatmzavaleta@gmail.com`
-- Pendientes estimados: **~12 leads**
+  - `telefoniadelplata.com.ar` → `info@telefoniadelplata.com.ar`
+  - `troccoli.com.ar` → `info@troccoli.com.ar`
+  - `salvochea.com.ar` → `info@salvochea.com.ar`
+  - `studiov.com.ar` → `info@studiov.com.ar`
+  - `instjuanpabloii.com.ar` → `instjuanpabloii@arnet.com.ar`
+- Pendientes estimados: **~7 leads**
 - Incidente persistente: Drive no actualizado por token Google expirado/revocado: `invalid_grant: Token has been expired or revoked.`
-- Alerta calidad: dos destinos parecen dudosos (`contact@goodlayers.com` y email malformado de atmzavaleta). Antes de escalar volumen, auditar/sanitizar enriquecimiento.
 
 ### Resultados anteriores registrados
+- 07/09: 5 enviados, 0 fallaron; quedaban ~12 leads; Drive `invalid_grant`.
 - 07/08: 5 enviados, 0 fallaron; quedaban ~17 leads; Drive `invalid_grant`.
 - 07/07: 5 enviados, 0 fallaron; quedaban ~22 leads; Drive `invalid_grant`.
 - 29/06: campaña registrada en 61/122 enviados, 0 respuestas.
@@ -81,9 +81,9 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 ## Handoffs / coordinación
 
-- `local-to-vps`: `HO-2026-06-26-001` pendiente de revisar.
-- `vps-to-local`: `HO-2026-06-25-001`, `HO-2026-06-27-001`, `HO-2026-06-30-001`, `HO-2026-07-06-001` activos.
-- `Memory/pending`: vacío al abrir 2026-07-09.
+- `local-to-vps`: `HO-2026-06-26-001` ya tiene `response.md` acknowledged; revisar si debe archivarse.
+- `vps-to-local`: `HO-2026-06-25-001`, `HO-2026-06-27-001`, `HO-2026-06-30-001`, `HO-2026-07-06-001` visibles; varios vencidos según metadata.
+- `Memory/pending`: vacío al abrir 2026-07-10.
 
 ---
 
