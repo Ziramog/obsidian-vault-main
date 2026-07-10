@@ -60,3 +60,4 @@ last-reviewed: 2026-07-09
 | 2026-07-08 | Si un prospecto inmobiliario ya usa Tokko Broker/CRM similar, no vender reemplazo: vender capa pública encima del CRM (web/landing/fichas/WhatsApp/SEO local/Analytics). Mensaje: “no te cambio Tokko; hago que Tokko venda mejor hacia afuera”. | benchmarking Tokko Broker |
 
 | 2026-07-09 | Outreach Web Viejas ya funciona como operación diaria (5 emails/día, 0 fallos), pero el enriquecimiento mostró direcciones dudosas; antes de escalar volumen hay que sanitizar emails y priorizar follow-up humano con precio. | cron_campaign_run |
+| 2026-07-09 | GA4 de Wolfim ya mide tráfico real (249 usuarios, 353 sesiones, 1.618 eventos en 30 días), pero no sirve como tablero comercial hasta corregir key events: los eventos reales (`click_whatsapp`, `form_submit_diagnostico`, `view_pricing`) no coinciden con las conversiones configuradas. | wolfim-ga4-audit-2026-07-09 |
