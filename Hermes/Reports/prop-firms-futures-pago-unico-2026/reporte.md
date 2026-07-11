@@ -13,7 +13,7 @@ valid-for-hours: 168
 **Fecha de corte:** 11 de julio de 2026  
 **Objetivo:** encontrar una evaluación de futuros que pueda completarse sin presión de una renovación mensual, sin una segunda barrera económica al aprobar y con una vía de cobro viable desde Argentina.
 
-> **Conclusión ejecutiva:** La mejor relación actual entre costo inicial, elegibilidad internacional y reglas verificables es **FundedNext Futures Flex 50K** a precio promocional oficial de **USD 69,99**. La alternativa más equilibrada para quien prioriza reglas de evaluación simples y un profit split de 90% es **LucidPro 25K (USD 81 promocional)** o **LucidPro 50K (USD 111 promocional)**. **Phidias 25K** cuesta menos (USD 55), pero su drawdown estático de solo USD 500 hace que el precio bajo no equivalga a una evaluación fácil.
+> **Conclusión ejecutiva corregida:** La opción mejor documentada para un presupuesto pequeño es **LucidPro 25K (USD 81 promocional)**: pago único, sin vencimiento, activación cero, Argentina habilitada y relación target/drawdown de 1,25x. **FundedNext Futures Flex 50K (USD 69,99 promocional)** cuesta menos y es la segunda opción, pero exige 40% de consistencia y ofrece solo USD 1.500 de MLL. **Tradeify Growth 25K** queda tercero: USD 99 de lista o USD 69,30 si aplica el descuento prudente del 30%. **Phidias 25K se retira de las recomendaciones** por una contradicción entre su marketing de pago único y Condiciones Generales que mencionan renovación cada 30 días.
 
 ---
 
@@ -41,17 +41,18 @@ Una “cuenta de USD 50.000” no significa que el trader controle USD 50.000 de
 
 | Puesto | Firma y plan | Precio observado | Renovación | Activación | Target / MLL | Veredicto |
 |---|---|---:|---|---:|---:|---|
-| 1 | **FundedNext Futures Flex 50K** | **USD 69,99 promo**; lista USD 133,99 | No | USD 0 | 2.500 / 1.500 = 1,67x | Mejor costo total verificable y Argentina habilitada |
-| 2 | **LucidPro 25K** | **USD 81 promo**; lista USD 135 | No | USD 0 | 1.250 / 1.000 = 1,25x | Mejor entrada pequeña por relación target/drawdown |
-| 3 | **LucidPro 50K** | **USD 111 promo**; lista USD 185 | No | USD 0 | 3.000 / 2.000 = 1,50x | Buen equilibrio, 90% split; funded más exigente |
-| 4 | **Tradeify Growth 50K** | aprox. USD 97–103 según página/promoción | Documentación nueva: No | USD 0 | 3.000 / 2.000 = 1,50x | Interesante, pero confirmar contradicciones en checkout |
-| 5 | **Phidias Express-to-Live 25K** | USD 55 | No | USD 0 | 1.500 / 500 = 3,00x | El más barato, pero el más apretado |
+| 1 | **LucidPro 25K** | **USD 81 promo**; lista USD 135 | No | USD 0 | 1.250 / 1.000 = 1,25x | Mejor documentada y mejor relación target/MLL |
+| 2 | **FundedNext Futures Flex 50K** | **USD 69,99 promo**; lista USD 133,99 | No | USD 0 | 2.500 / 1.500 = 1,67x | Menor precio verificado; reglas más exigentes |
+| 3 | **Tradeify Growth 25K** | USD 99 lista; USD 69,30 con 30% si aplica | No | USD 0 | 1.500 / 1.000 = 1,50x | Muy buena; confirmar promo y KYC en checkout |
+| 4 | **LucidPro 50K** | **USD 111 promo**; lista USD 185 | No | USD 0 | 3.000 / 2.000 = 1,50x | 90% split; funded exige buffer/consistencia |
+| 5 | **Topstep Labs 25K Static** | USD 75 | No | USD 0 | 2.000 / 1.000 = 2,00x | Limitado; vence en 90 días y no admite reset |
+| Condicional | **Phidias E2L 25K** | USD 55 promo | **Contrato contradictorio** | Marketing: USD 0 | 1.500 / 500 = 3,00x | No comprar sin aclaración escrita |
 
 **No incluidos como “pago único confirmado”:** MyFundedFutures y Take Profit Trader. Ambos tienen material promocional atractivo y activación cero en ciertos planes/códigos, pero se hallaron referencias oficiales a renovación, suscripción o rebilling. Topstep también se excluye porque su ruta conocida cobra mensualmente, aunque ofrezca una variante sin activation fee.
 
 ---
 
-## 3. Recomendación principal: FundedNext Futures Flex 50K
+## 3. Opción de menor precio 50K: FundedNext Futures Flex 50K
 
 ### Datos verificados
 
@@ -94,7 +95,7 @@ Para un trader que quiere comprometer **menos de USD 100**, operar despacio y ac
 
 ---
 
-## 4. Alternativa sólida: LucidPro 25K y 50K
+## 4. Recomendación principal: LucidPro 25K y alternativa 50K
 
 ### Precios observados
 
@@ -137,7 +138,16 @@ Argentina no aparece en la lista oficial de países restringidos. La firma admit
 
 ---
 
-## 5. Tradeify: atractivo, pero exige verificación de checkout
+## 5. Tradeify: pago único confirmado, pero verificar promoción y checkout
+
+### Precios oficiales de lista
+
+| Plan | 25K | 50K | Reset 25K / 50K |
+|---|---:|---:|---:|
+| Growth | USD 99 | USD 145 | USD 60 / 95 |
+| Select | USD 109 | USD 165 | USD 60 / 95 |
+
+La promoción JULY declara 40% para usos limitados y luego 30%. Como escenario prudente, Growth 25K quedaría en **USD 69,30** y Growth 50K en **USD 101,50** si el 30% aparece en checkout.
 
 ### Lo favorable
 
@@ -188,13 +198,29 @@ El target equivale a **tres veces el drawdown permitido**. Es la peor relación 
 
 El precio de USD 55 es psicológicamente atractivo, pero puede inducir a comprar repetidamente. Dos intentos cuestan USD 110; tres, USD 165. El verdadero riesgo es convertir una evaluación barata en una cadena de reintentos.
 
-### Transparencia
+### Contradicción contractual material
 
-La mayoría de las afirmaciones comparativas y de payout encontradas provienen de contenido comercial propio de Phidias. La entidad declara incorporación en Gibraltar, pero no se obtuvo una política pública de países restringidos suficientemente clara para confirmar Argentina al mismo nivel que FundedNext o Lucid.
+Las reglas y el marketing E2L/OTP dicen “sin suscripción”, pero las Condiciones Generales vigentes del portal de alta establecen renovación automática cada 30 días salvo cancelación. No se pudo determinar qué cláusula prevalece para ese SKU. Tampoco se verificó Argentina en una lista oficial legible. La mayoría de las afirmaciones de payout provienen de contenido comercial propio.
 
 ### Veredicto
 
-Solo para una estrategia ya validada con una pérdida máxima diaria muy baja. **No es la recomendación inicial para un trader todavía en desarrollo.**
+**No comprar** hasta recibir por escrito que el SKU exacto no rebilla, no vence, admite Argentina y especifica qué contrato rige. Aun resuelto eso, su target equivale a 3x el drawdown y sigue siendo la evaluación más apretada del grupo.
+
+---
+
+## 7. Topstep Labs 25K Static: pago único con reloj de 90 días
+
+- Precio publicado: USD 75 one-time.
+- Activation fee: USD 0.
+- Target: USD 2.000.
+- Drawdown estático: USD 1.000.
+- DLL: USD 500.
+- Máximo: 2 minis o 20 micros.
+- Consistencia: 50%.
+- Argentina elegible según política oficial.
+- Limitaciones: producto limitado, expira en 90 días, no admite resets y puede agotarse.
+
+Es razonable si sigue disponible, pero no ofrece tiempo ilimitado.
 
 ---
 
@@ -279,9 +305,10 @@ Comparar en checkout **LucidPro 50K** contra **Tradeify Growth/Select 50K**. Ele
 
 ### Recomendación concreta
 
-> **Primera opción:** FundedNext Futures Flex 50K, una sola cuenta, un MES, sin add-ons.  
-> **Opción más conservadora en reglas:** LucidPro 25K.  
-> **No elegir:** Phidias 25K solo por ser USD 55.
+> **Primera opción:** LucidPro 25K, una sola cuenta, un MES.  
+> **Menor precio:** FundedNext Futures Flex 50K si conserva USD 69,99.  
+> **Tercera opción:** Tradeify Growth 25K si checkout confirma descuento, pago único y Argentina.  
+> **No comprar todavía:** Phidias E2L 25K por contradicción contractual.
 
 ---
 
@@ -331,7 +358,9 @@ Comparar en checkout **LucidPro 50K** contra **Tradeify Growth/Select 50K**. Ele
 ### Phidias
 
 17. Cheapest account: https://phidiaspropfirm.com/cheapest  
-18. No activation fee: https://phidiaspropfirm.com/education/prop-firm-no-activation-fee
+18. No activation fee: https://phidiaspropfirm.com/education/prop-firm-no-activation-fee  
+19. General Terms: https://member.phidiaspropfirm.com/signup  
+20. Topstep Labs 25K Static: https://help.topstep.com/en/articles/15520357-topstep-labs
 
 ### Exclusiones
 
