@@ -68,6 +68,10 @@ Empresa constructora con **35+ años de trayectoria** en el mercado nacional. Es
 
 **Ingresos recibidos:** $225 USD (mayo 2026, vía viaje San Juan Mining Expo)
 
+### Archivo comercial relevante
+
+- [[propuesta_2026/2026-07-10-presupuesto-modular/README|Presupuesto modular Construvial — 2026-07-10]]
+
 ---
 
 ## Para hacer
