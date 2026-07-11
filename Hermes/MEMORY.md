@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-07-10
+last-reviewed: 2026-07-11
 confidence: medium
 status: active
 source: cron_campaign_run
@@ -8,7 +8,7 @@ source: cron_campaign_run
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-10 10:02 ART | **🟢 ESCALA según memoria previa / KPIs formales incompletos** · Campaña Web Viejas: +5 emails enviados hoy, 0 fallos · Drive NO actualizado por `invalid_grant` (token expirado/revocado) · Prioridad comercial: vender Wolfim.
+**Última actualización:** 2026-07-11 10:01 ART | **Semáforo no confirmable: KPIs formales incompletos** · Campaña Web Viejas: +5 emails enviados hoy, 0 fallos · Quedan ~2 leads · Drive NO actualizado por `invalid_grant` · Prioridad comercial: vender Wolfim.
 
 ---
 
@@ -29,20 +29,22 @@ source: cron_campaign_run
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-10
+### Resultado latest — 2026-07-11
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Emails enviados: **5**
 - Fallos de envío: **0**
 - Leads enviados:
-  - `telefoniadelplata.com.ar` → `info@telefoniadelplata.com.ar`
-  - `troccoli.com.ar` → `info@troccoli.com.ar`
-  - `salvochea.com.ar` → `info@salvochea.com.ar`
-  - `studiov.com.ar` → `info@studiov.com.ar`
-  - `instjuanpabloii.com.ar` → `instjuanpabloii@arnet.com.ar`
-- Pendientes estimados: **~7 leads**
-- Incidente persistente: Drive no actualizado por token Google expirado/revocado: `invalid_grant: Token has been expired or revoked.`
+  - `acopiarsa.com.ar` → `admin@acopiarsa.com`
+  - `abogargroup.com.ar` → `info@abogargroup.com.ar`
+  - `mcabogados.com.ar` → `consultas@mcabogados.com.ar`
+  - `sritour.com.ar` → `contacto@siviajo.com`
+  - `intermarketresearch.com.ar` → `info@intermarketresearch.com.ar`
+- Pendientes estimados: **~2 leads**
+- Incidente persistente: Drive no actualizado por token Google inválido/revocado: `invalid_grant: Bad Request`.
+- Riesgo inmediato: la cola está casi agotada; reabastecer leads antes de sostener el ritmo diario.
 
 ### Resultados anteriores registrados
+- 07/10: 5 enviados, 0 fallaron; quedaban ~7 leads; Drive `invalid_grant`.
 - 07/09: 5 enviados, 0 fallaron; quedaban ~12 leads; Drive `invalid_grant`.
 - 07/08: 5 enviados, 0 fallaron; quedaban ~17 leads; Drive `invalid_grant`.
 - 07/07: 5 enviados, 0 fallaron; quedaban ~22 leads; Drive `invalid_grant`.
