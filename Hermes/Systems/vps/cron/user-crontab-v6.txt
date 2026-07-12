@@ -1,0 +1,20 @@
+SHELL=/bin/bash
+PATH=/home/hermes/.local/bin:/usr/local/bin:/usr/bin:/bin
+
+# Sync V6 — vault GitHub cada 2 min, con lock/retry/verificación y logs propios
+*/2 * * * * /home/hermes/obsidian-vault/Hermes/Systems/vps/scripts/vault-sync.sh --sync >/dev/null 2>&1
+
+# Health check 7 AM ART
+0 7 * * * /home/hermes/scripts/hermes-health-check.py >> /home/hermes/.hermes/logs/health.log 2>&1
+
+# Roggero & Roma backup — Saturdays 10 AM
+0 10 * * 6 cd /home/hermes/roggero_backup && set -a && . ./.env_roggero && set +a && bash scripts/backup.sh >> /home/hermes/roggero_backup/logs/backup_cron.log 2>&1
+
+# Telegram alerts: handoffs priority:high vencidos + conflictos git (cada 30 min, offset +300s)
+*/30 * * * * sleep 300 && python3 /home/hermes/scripts/telegram-alert.py >> /home/hermes/.hermes/logs/handoff-alerts.log 2>&1
+
+# Handoff archive: archiva done/cancelled >7 días (4:15 AM diario)
+15 4 * * * python3 /home/hermes/scripts/handoff-archive.py >> /home/hermes/.hermes/logs/handoff-archive.log 2>&1
+
+# Ownership validate: revisa último commit cada 15 min, offset +120s
+*/15 * * * * sleep 120 && cd /home/hermes/obsidian-vault && python3 Hermes/Systems/vps/scripts/ownership-validate.py --last-commit >> /home/hermes/.hermes/logs/vault-ownership.log 2>&1

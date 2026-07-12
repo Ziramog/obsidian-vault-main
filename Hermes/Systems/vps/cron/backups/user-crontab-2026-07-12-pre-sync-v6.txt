@@ -1,0 +1,20 @@
+# Backup de user crontab — 2026-07-12 20:32 ART
+# Estado anterior a Sync V6
+
+# Vault sync a GitHub cada 15 min (pull antes del push)
+*/15 * * * * cd /home/hermes/obsidian-vault && git pull --rebase --autostash origin main && git add -A && git diff --cached --quiet || (git commit -m "auto-sync [vps]" && git push) >> /var/log/vault-sync.log 2>&1
+
+# Health check 7 AM ART
+0 7 * * * /home/hermes/scripts/hermes-health-check.py >> /home/hermes/.hermes/logs/health.log 2>&1
+
+# Roggero & Roma backup — Saturdays 10 AM
+0 10 * * 6 cd /home/hermes/roggero_backup && set -a && . ./.env_roggero && set +a && bash scripts/backup.sh >> /home/hermes/roggero_backup/logs/backup_cron.log 2>&1
+
+# FASE 4 — Telegram alerts: handoffs priority:high vencidos + conflictos git (cada 30 min)
+*/30 * * * * sleep 300 && python3 /home/hermes/scripts/telegram-alert.py >> /var/log/hermes-alerts.log 2>&1
+
+# FASE 4 — Handoff archive: archiva done/cancelled >7 días (4:15 AM diario)
+15 4 * * * python3 /home/hermes/scripts/handoff-archive.py >> /var/log/hermes-handoff-archive.log 2>&1
+
+# FASE 4 — Ownership validate: detecta escrituras fuera de zona post-commit (cada 15 min, offset +120s del sync)
+*/15 * * * * sleep 120 && cd /home/hermes/obsidian-vault && python3 Hermes/Systems/vps/scripts/ownership-validate.py --last-commit >> /var/log/hermes-ownership.log 2>&1
