@@ -3,12 +3,12 @@ owner: brain-vps
 last-reviewed: 2026-07-12
 confidence: medium
 status: active
-source: cron_campaign_run
+source: mixed
 ---
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-12 10:02 ART | **Semáforo no confirmable: KPIs formales incompletos** · Campaña Web Viejas: +2 emails enviados hoy, 0 fallos · Cola agotada (~0 leads) · Drive NO actualizado por `invalid_grant` · Prioridad comercial: reabastecer y vender Wolfim.
+**Última actualización:** 2026-07-12 20:49 ART | **Semáforo no confirmable: KPIs formales incompletos** · Sync V6 VPS operativo cada 2 minutos · PC local pendiente de automatización por handoff high · Prioridad comercial: reabastecer y vender Wolfim.
 
 ---
 
@@ -83,6 +83,9 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 - `local-to-vps`: `HO-2026-06-26-001` ya tiene `response.md` acknowledged; revisar si debe archivarse.
 - `vps-to-local`: `HO-2026-06-25-001`, `HO-2026-06-27-001`, `HO-2026-06-30-001`, `HO-2026-07-06-001` visibles; varios vencidos según metadata.
+- `HO-2026-07-12-001` ready: brain-local debe crear profile local `trading-performance`, sin ejecución automática ni credenciales financieras.
+- `HO-2026-07-12-002` high/ready: brain-local → pc-ops debe implementar Sync V6 local, Task Scheduler y freshness gate antes de leer handoffs.
+- Sync V6 VPS operativo: proceso independiente cada 2 minutos, lock, retry, segundo pull, logs en `~/.hermes/logs/`; ver `Hermes/Systems/vps/sync-v6.md`.
 - `Memory/pending`: vacío al abrir 2026-07-10.
 
 ---

@@ -1,9 +1,9 @@
 # Cron Jobs Activos — VPS
 
 > **Zona horaria:** America/Argentina/Buenos_Aires (UTC-3, ART)
-> **Última verificación:** 2026-07-06
+> **Última verificación:** 2026-07-12 20:48 ART
 > **Host:** Contabo VPS (194.163.161.99)
-> **Fase 4:** Scripts de alertas, archivo y validación agregados
+> **Sync V6:** sincronización robusta cada 2 minutos, con lock, retry, segundo pull y estado verificable
 
 ---
 
@@ -12,7 +12,7 @@
 | Schedule | Hora (ART) | Comando | Descripción | Fase |
 |---|---|---|---|---|
 | `0 7 * * *` | 07:00 diario | `/home/hermes/scripts/hermes-health-check.py` | Health check del sistema Hermes | Pre-V5 |
-| `*/15 * * * *` | Cada 15 min | `cd /home/hermes/obsidian-vault && git pull --rebase --autostash origin main && git add -A && git diff --cached --quiet \|\| (git commit -m "auto-sync [vps]" && git push)` | Sync del vault a GitHub | Pre-V5 |
+| `*/2 * * * *` | Cada 2 min | `Hermes/Systems/vps/scripts/vault-sync.sh --sync` | Sync V6 del vault a GitHub con lock, retry y verificación | V6 |
 | `0 10 * * 6` | 10:00 sábados | `cd /home/hermes/roggero_backup && . ./.env_roggero && bash scripts/backup.sh` | Backup Roggero & Roma | Pre-V5 |
 | `*/30 * * * *` | Cada 30 min (+300s) | `sleep 300 && python3 /home/hermes/scripts/telegram-alert.py` | **NUEVO F4:** Handoffs vencidos + conflictos git → Telegram | Fase 4 |
 | `15 4 * * *` | 04:15 diario | `python3 /home/hermes/scripts/handoff-archive.py` | **NUEVO F4:** Archiva handoffs done/cancelled > 7 días | Fase 4 |
@@ -32,10 +32,15 @@
 
 ## Detalles por cron
 
-### Vault sync (`*/15`)
+### Vault sync (`*/2` — Sync V6)
 - **Función:** Mantiene el vault sincronizado con GitHub como medio de coordinación VPS ↔ PC local.
-- **Log:** `/var/log/vault-sync.log`
-- **Mecanismo:** Pull con rebase → add all → commit si hay cambios → push.
+- **Script:** `/home/hermes/obsidian-vault/Hermes/Systems/vps/scripts/vault-sync.sh`
+- **Log:** `/home/hermes/.hermes/logs/vault-sync-vps.log`
+- **Mecanismo:** lock → pull con rebase/autostash → add → commit condicional → segundo pull → push con retry → verificación `dirty=0 ahead=0 behind=0`.
+- **Modos:** `--sync`, `--pull-only`, `--status`, `--dry-run`.
+- **Conflictos:** se detiene y exige revisión manual; no hace reset, clean ni force push.
+- **Backup del cron anterior:** `Hermes/Systems/vps/cron/backups/user-crontab-2026-07-12-pre-sync-v6.txt`.
+- **Primera ejecución automática verificada:** 2026-07-12 20:46 ART; commit y push correctos.
 
 ### Health check (`0 7`)
 - **Función:** Diagnóstico matutino del sistema Hermes.
@@ -47,18 +52,18 @@
 
 ### Telegram alerts (`*/30` — Fase 4)
 - **Función:** Detecta handoffs `priority:high` con `escalate-after` vencido y envía Telegram a Juan. También detecta conflictos git (`<<<<<<<`) en archivos críticos.
-- **Log:** `/var/log/hermes-alerts.log`
+- **Log:** `/home/hermes/.hermes/logs/handoff-alerts.log`
 - **Script:** `/home/hermes/scripts/telegram-alert.py`
 - **Chat:** Juanchi777 (1479438002)
 
 ### Handoff archive (`15 4` — Fase 4)
 - **Función:** Archiva handoffs con `status: done` o `cancelled` con más de 7 días de antigüedad. Los mueve a `Hermes/Handoffs/archive/`.
-- **Log:** `/var/log/hermes-handoff-archive.log`
+- **Log:** `/home/hermes/.hermes/logs/handoff-archive.log`
 - **Script:** `/home/hermes/scripts/handoff-archive.py`
 
 ### Ownership validate (`*/15` — Fase 4)
 - **Función:** Compara archivos modificados en el último commit contra el mapa de ownership (Sección 11 de ARCHITECTURE.md V5). Detecta escrituras fuera de zona.
-- **Log:** `/var/log/hermes-ownership.log`
+- **Log:** `/home/hermes/.hermes/logs/vault-ownership.log`
 - **Script:** `/home/hermes/obsidian-vault/Hermes/Systems/vps/scripts/ownership-validate.py`
 
 ### Wolfim crawler (`0 11`)
@@ -82,6 +87,7 @@
 
 | Script | Ruta vault | Ruta producción | Cron |
 |---|---|---|---|
+| `vault-sync.sh` | `Hermes/Systems/vps/scripts/` | Se ejecuta desde el vault | `*/2 * * * *` |
 | `telegram-alert.py` | `Hermes/Systems/vps/scripts/` | `/home/hermes/scripts/` | `*/30 * * * *` |
 | `handoff-check.py` | `Hermes/Systems/vps/scripts/` | `/home/hermes/scripts/` | Manual / bajo demanda |
 | `handoff-archive.py` | `Hermes/Systems/vps/scripts/` | `/home/hermes/scripts/` | `15 4 * * *` |
