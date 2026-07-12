@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-07-11
+last-reviewed: 2026-07-12
 confidence: medium
 status: active
 source: cron_campaign_run
@@ -8,7 +8,7 @@ source: cron_campaign_run
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-11 10:01 ART | **Semáforo no confirmable: KPIs formales incompletos** · Campaña Web Viejas: +5 emails enviados hoy, 0 fallos · Quedan ~2 leads · Drive NO actualizado por `invalid_grant` · Prioridad comercial: vender Wolfim.
+**Última actualización:** 2026-07-12 10:02 ART | **Semáforo no confirmable: KPIs formales incompletos** · Campaña Web Viejas: +2 emails enviados hoy, 0 fallos · Cola agotada (~0 leads) · Drive NO actualizado por `invalid_grant` · Prioridad comercial: reabastecer y vender Wolfim.
 
 ---
 
@@ -29,21 +29,19 @@ source: cron_campaign_run
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-11
+### Resultado latest — 2026-07-12
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
-- Emails enviados: **5**
+- Emails enviados: **2**
 - Fallos de envío: **0**
 - Leads enviados:
-  - `acopiarsa.com.ar` → `admin@acopiarsa.com`
-  - `abogargroup.com.ar` → `info@abogargroup.com.ar`
-  - `mcabogados.com.ar` → `consultas@mcabogados.com.ar`
-  - `sritour.com.ar` → `contacto@siviajo.com`
-  - `intermarketresearch.com.ar` → `info@intermarketresearch.com.ar`
-- Pendientes estimados: **~2 leads**
+  - `condiser.com.ar` → `info@condiser.com.ar`
+  - `conc.com.ar` → `428428circulodelnorte@gmail.com`
+- Pendientes estimados: **~0 leads**
 - Incidente persistente: Drive no actualizado por token Google inválido/revocado: `invalid_grant: Bad Request`.
-- Riesgo inmediato: la cola está casi agotada; reabastecer leads antes de sostener el ritmo diario.
+- Riesgo inmediato: la cola quedó agotada; el cron no podrá sostener nuevas tandas sin reabastecimiento y sanitización.
 
 ### Resultados anteriores registrados
+- 07/11: 5 enviados, 0 fallaron; quedaban ~2 leads; Drive `invalid_grant`.
 - 07/10: 5 enviados, 0 fallaron; quedaban ~7 leads; Drive `invalid_grant`.
 - 07/09: 5 enviados, 0 fallaron; quedaban ~12 leads; Drive `invalid_grant`.
 - 07/08: 5 enviados, 0 fallaron; quedaban ~17 leads; Drive `invalid_grant`.
