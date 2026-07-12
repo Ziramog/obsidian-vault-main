@@ -86,7 +86,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - `HO-2026-07-12-001` ready: brain-local debe crear profile local `trading-performance`, sin ejecución automática ni credenciales financieras.
 - `HO-2026-07-12-002` high/ready: brain-local → pc-ops debe implementar Sync V6 local, Task Scheduler y freshness gate antes de leer handoffs.
 - Sync V6 VPS operativo: proceso independiente cada 2 minutos, lock, retry, segundo pull, logs en `~/.hermes/logs/`; ver `Hermes/Systems/vps/sync-v6.md`.
-- `Memory/pending`: vacío al abrir 2026-07-10.
+- `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` espera consolidación de Juan porque `ARCHITECTURE.md` es zona exclusiva de Config.
 
 ---
 
