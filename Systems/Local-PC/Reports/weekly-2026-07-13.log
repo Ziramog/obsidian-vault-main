@@ -4,3 +4,17 @@
 09:00:04   Kingston DataTraveler 3.0 | Unspecified | 57.7 GB | Healthy | OK
 09:00:04   WDC WD20EZRZ-00Z5HB0 | HDD | 1863 GB | Healthy | OK
 09:00:04 --- 2. Espacio ---
+09:00:04   C:: 476.9 GB total, 290.8 GB libre (61%) []
+09:00:04   D:: 495.8 GB total, 274.5 GB libre (55.4%) [Programas]
+09:00:04   H:: 488.3 GB total, 48.4 GB libre (9.9%) [TRUzT]
+09:00:04   I:: 878.9 GB total, 209.9 GB libre (23.9%) [Downloads]
+09:00:04 --- 3. Defender ---
+09:00:05   Defender OK
+09:00:05 --- 4. Updates ---
+09:00:45   Updates: 10 pendientes
+09:00:45 --- 5. Git ---
+09:00:46   Repos con problemas: 1
+09:00:46 --- 6. .env ---
+09:00:47   .env files: 10
+09:00:47 === Completado en 46.8 segundos ===
+09:00:47 Informe guardado: C:\Projects\Obsidian\obsidian-vault-main\Systems\Local-PC\Reports\weekly-2026-07-13.md
