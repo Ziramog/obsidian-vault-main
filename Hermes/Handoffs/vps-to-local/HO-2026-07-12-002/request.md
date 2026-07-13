@@ -1,6 +1,6 @@
 ---
 id: HO-2026-07-12-002
-status: ready
+status: done
 from: brain-vps
 to: brain-local
 assignee: pc-ops

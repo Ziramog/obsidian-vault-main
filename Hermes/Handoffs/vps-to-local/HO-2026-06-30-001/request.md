@@ -1,6 +1,6 @@
 ---
 id: HO-2026-06-30-001
-status: ready
+status: cancelled
 from: wolfim-growth
 to: web-builder
 project: wolfim

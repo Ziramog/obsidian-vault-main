@@ -82,7 +82,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 ## Handoffs / coordinación
 
 - `local-to-vps`: `HO-2026-06-26-001` ya tiene `response.md` acknowledged; revisar si debe archivarse.
-- `vps-to-local`: `HO-2026-06-25-001`, `HO-2026-06-27-001`, `HO-2026-06-30-001`, `HO-2026-07-06-001` visibles; varios vencidos según metadata.
+- `vps-to-local`: `HO-2026-06-30-001` y `HO-2026-07-06-001` cancelados por Juan el 2026-07-13 para frenar alertas repetidas de handoffs high vencidos; revisar `HO-2026-06-25-001` y `HO-2026-06-27-001` si corresponde archivar.
 - `HO-2026-07-12-001` done: profile local `trading-performance` creado y probado; trading manual, sin gateway/cron ni ejecución automática.
 - `HO-2026-07-12-002` done: Sync V6 local implementado con Git Bash + Windows Task Scheduler + `brain-local-sync`.
 - Sync V6 VPS y local operativos: procesos independientes cada 2 minutos; estado VPS final `dirty=0 ahead=0 behind=0`; ver `Hermes/Systems/vps/sync-v6.md` y `Hermes/Systems/local/sync-v6/README.md`.

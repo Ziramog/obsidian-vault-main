@@ -1,6 +1,6 @@
 ---
 id: HO-2026-07-12-001
-status: ready
+status: done
 from: brain-vps
 to: brain-local
 project: personal-trading
