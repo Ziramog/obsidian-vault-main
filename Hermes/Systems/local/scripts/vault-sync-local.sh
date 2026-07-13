@@ -250,7 +250,8 @@ mode_pull_only() {
 $(ahead_behind)
 EOF_COUNTS
   log_line "OK" "$dirty" "${ahead:-0}" "${behind:-0}"
-  mode_status
+  mode_status || true
+  return 0
 }
 
 mode_sync() {
