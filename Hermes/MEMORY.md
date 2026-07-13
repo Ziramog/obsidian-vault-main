@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-12 20:49 ART | **Semáforo no confirmable: KPIs formales incompletos** · Sync V6 VPS operativo cada 2 minutos · PC local pendiente de automatización por handoff high · Prioridad comercial: reabastecer y vender Wolfim.
+**Última actualización:** 2026-07-12 23:59 ART | **Semáforo no confirmable: KPIs formales incompletos** · Sync V6 VPS y local operativos · Web Viejas agotó cola (~0 leads) · Prioridad comercial: follow-up humano con precio + reabastecer Wolfim.
 
 ---
 
@@ -83,9 +83,9 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 - `local-to-vps`: `HO-2026-06-26-001` ya tiene `response.md` acknowledged; revisar si debe archivarse.
 - `vps-to-local`: `HO-2026-06-25-001`, `HO-2026-06-27-001`, `HO-2026-06-30-001`, `HO-2026-07-06-001` visibles; varios vencidos según metadata.
-- `HO-2026-07-12-001` ready: brain-local debe crear profile local `trading-performance`, sin ejecución automática ni credenciales financieras.
-- `HO-2026-07-12-002` high/ready: brain-local → pc-ops debe implementar Sync V6 local, Task Scheduler y freshness gate antes de leer handoffs.
-- Sync V6 VPS operativo: proceso independiente cada 2 minutos, lock, retry, segundo pull, logs en `~/.hermes/logs/`; ver `Hermes/Systems/vps/sync-v6.md`.
+- `HO-2026-07-12-001` done: profile local `trading-performance` creado y probado; trading manual, sin gateway/cron ni ejecución automática.
+- `HO-2026-07-12-002` done: Sync V6 local implementado con Git Bash + Windows Task Scheduler + `brain-local-sync`.
+- Sync V6 VPS y local operativos: procesos independientes cada 2 minutos; estado VPS final `dirty=0 ahead=0 behind=0`; ver `Hermes/Systems/vps/sync-v6.md` y `Hermes/Systems/local/sync-v6/README.md`.
 - `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` espera consolidación de Juan porque `ARCHITECTURE.md` es zona exclusiva de Config.
 
 ---

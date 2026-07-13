@@ -4,7 +4,7 @@ status: active
 version: 6.0
 implemented-at: 2026-07-12T20:46:00-03:00
 director-approval: Juan explicit 2026-07-12
-local-rollout: pending HO-2026-07-12-002
+local-rollout: completed HO-2026-07-12-002
 ---
 
 # Sync V6 — Obsidian vault
@@ -26,8 +26,8 @@ Eliminar la dependencia de `git pull` / `git push` manual para el bus de coordin
 | Retry de red | ✅ Hasta 3 intentos |
 | Verificación final | ✅ `dirty=0 ahead=0 behind=0` |
 | Logs user-writable | ✅ `~/.hermes/logs/` |
-| PC local auto-sync | 🟡 Pendiente `HO-2026-07-12-002` |
-| Freshness gate brain-local | 🟡 Pendiente `HO-2026-07-12-002` |
+| PC local auto-sync | ✅ Operativo vía Git Bash + Task Scheduler (`HO-2026-07-12-002`) |
+| Freshness gate brain-local | ✅ CLI `brain-local-sync`; Desktop/TUI cubierto por sync cada 2 minutos |
 
 ## Archivos
 
@@ -169,15 +169,17 @@ crontab /home/hermes/obsidian-vault/Hermes/Systems/vps/cron/backups/user-crontab
 crontab -l
 ```
 
-## Trabajo local pendiente
+## Trabajo local completado
 
-`HO-2026-07-12-002` pide a `brain-local → pc-ops`:
+`HO-2026-07-12-002` fue completado por `brain-local → pc-ops`.
 
-- script equivalente local;
-- Windows Task Scheduler cada 2 minutos y al iniciar sesión;
-- freshness gate antes de leer handoffs;
-- comandos humanos `hermes-sync` y `hermes-sync-status`;
-- `close-hermes` como fallback;
-- prueba real PC → GitHub → VPS sin push manual final.
+Resultado:
 
-Hasta que ese handoff esté completado, VPS → GitHub es automático, pero la PC todavía puede necesitar un pull inicial para recibir por primera vez el propio handoff de automatización.
+- script local equivalente versionado;
+- Windows Task Scheduler cada 2 minutos, al iniciar sesión y al desbloquear;
+- fallback Git Bash porque no hay distro WSL configurada;
+- comandos humanos `hermes-sync`, `hermes-sync-status`, `close-hermes` y `brain-local-sync`;
+- freshness gate estricto por CLI con `brain-local-sync`;
+- prueba local → GitHub publicada con `dirty=0 ahead=0 behind=0`.
+
+Limitación: Hermes Desktop/TUI puede abrir brain-local sin pasar por wrapper; la tarea cada 2 minutos reduce la ventana de stale reads.
