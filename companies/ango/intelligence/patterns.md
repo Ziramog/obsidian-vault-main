@@ -41,3 +41,4 @@ entries: 1
 | Fecha | Insight | Origen |
 |---|---|---|
 | 2026-06-25 | Campo libre para patentar discos rotativos con filo en soja/trigo. 10 patentes más cercanas están vencidas. Oportunidad de IP fundacional. | ango-commercial (brain-vps) |
+| 2026-07-14 | Amarillas Gas tiene referencia comparativa de tomas de fuerza: OC 2025 vs cotización 700 de 2026. En ARS sube 10,40%; en USD oficial BNA vendedor baja 9,81%. Detalle en `companies/ango/Clients/Amarillas Gas/comparativa-tomas-fuerza-amarillas-gas-2026-07-14.md`. | vault Amarillas Gas |
