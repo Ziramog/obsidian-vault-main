@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-12 23:59 ART | **Semáforo no confirmable: KPIs formales incompletos** · Sync V6 VPS y local operativos · Web Viejas agotó cola (~0 leads) · Prioridad comercial: follow-up humano con precio + reabastecer Wolfim.
+**Última actualización:** 2026-07-13 23:56 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas sin respuestas y cola agotada (~0 leads) · Luis Farias reactivado con propuesta portal premium USD 450 lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + reabastecer Wolfim.
 
 ---
 
@@ -61,7 +61,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 - **Franco Roma — Roggero & Roma** ✅ Cerrado/cobrado. Backup VPS operativo.
 - **Víctor Abrile** ✅ Cobrado: $450 USD total.
-- **Luis Farias — Farias & Asociados** ⏸️ No perseguir por grieta operativa.
+- **Luis Farias — Farias & Asociados** 🔴 Reactivado: propuesta portal inmobiliario premium USD 450 + USD 25/mes posterior lista para revisión/envío; si avanza, 50% inicial = USD 225.
 - **GAMA Inmobiliaria** ❌ Caído: sin respuesta.
 - **Conforti Propiedades** 🆕 Seguimiento pendiente.
 - **RIVAS Inmuebles** 🆕 Seguimiento pendiente.
