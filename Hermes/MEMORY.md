@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-13 23:56 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas sin respuestas y cola agotada (~0 leads) · Luis Farias reactivado con propuesta portal premium USD 450 lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + reabastecer Wolfim.
+**Última actualización:** 2026-07-14 10:02 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas ejecutado sin envíos: cola agotada (0 leads pendientes) · Luis Farias sigue como propuesta premium USD 450 lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + reabastecer Wolfim si la campaña continúa.
 
 ---
 
@@ -29,18 +29,17 @@ source: mixed
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-12
+### Resultado latest — 2026-07-14
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
-- Emails enviados: **2**
+- Resultado: **Todos los leads han sido enviados. No hay más pendientes.**
+- Emails enviados: **0**
 - Fallos de envío: **0**
-- Leads enviados:
-  - `condiser.com.ar` → `info@condiser.com.ar`
-  - `conc.com.ar` → `428428circulodelnorte@gmail.com`
-- Pendientes estimados: **~0 leads**
-- Incidente persistente: Drive no actualizado por token Google inválido/revocado: `invalid_grant: Bad Request`.
-- Riesgo inmediato: la cola quedó agotada; el cron no podrá sostener nuevas tandas sin reabastecimiento y sanitización.
+- Pendientes estimados: **0 leads**
+- Incidente persistente conocido: Drive no actualizado por token Google inválido/revocado: `invalid_grant: Bad Request`.
+- Riesgo inmediato: la cola está agotada; el cron no sostendrá nuevas tandas sin reabastecimiento y sanitización.
 
 ### Resultados anteriores registrados
+- 07/12: 2 enviados, 0 fallaron; cola quedó ~0 leads; Drive `invalid_grant`.
 - 07/11: 5 enviados, 0 fallaron; quedaban ~2 leads; Drive `invalid_grant`.
 - 07/10: 5 enviados, 0 fallaron; quedaban ~7 leads; Drive `invalid_grant`.
 - 07/09: 5 enviados, 0 fallaron; quedaban ~12 leads; Drive `invalid_grant`.
