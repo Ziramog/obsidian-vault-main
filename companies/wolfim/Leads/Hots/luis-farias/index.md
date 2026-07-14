@@ -4,23 +4,35 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 🔥 Propuesta enviada — SILENCIO (1 Mayo 2026)
+**Status:** 🔴 Reactivado — pidió presupuesto para amigo / Loteo La Montaña (13 Jul 2026)
 
-## Offer
+## Offer original Farias
 - Setup fee: $300 USD (pago único)
 - Monthly: $25 USD/mes (sin permanencia)
 - Service: Sitio web profesional + panel de propiedades
 
+## Nueva oportunidad — Portal Farias basado en Roggero & Roma
+- Contexto: Juan le mostró a Luis Farias la web `lamontaña.lat` hecha para Víctor como demo visual/calidad Wolfim.
+- Aclaración: la propuesta real NO es para La Montaña; es para **Farias & Asociados**.
+- Base correcta: modelo **Roggero & Roma** — portal inmobiliario propio con catálogo, filtros, fichas individuales, mapa, WhatsApp/contacto y administración.
+- Documento de alcance: [[alcance-farias-basado-roggero-roma-2026-07-13]]
+- Borrador anterior para La Montaña queda superseded por error de contexto: [[presupuesto-loteo-la-montana-2026-07-13]]
+- Acción: convertir el alcance en presupuesto comercial para Luis/Farias.
+
 ## Proposal
 ![[farias_propuesta_v2.pdf]]
+![[alcance-farias-basado-roggero-roma-2026-07-13.md]]
 
 ## Pipeline
 - [x] First contact
 - [x] Proposal sent v1 (mar 2026)
 - [x] Proposal enviada final HTML (1 Mayo 2026) — por WA
-- [ ] Seguimiento — SILENCIO, reintentar en 2-3 días
+- [x] Reactivación por referencia / video La Montaña (13 Jul 2026)
+- [x] Presupuesto La Montaña armado internamente (13 Jul 2026)
+- [ ] Enviar presupuesto La Montaña por WhatsApp
+- [ ] Charla con Luis + amigo al regreso del viaje
 - [ ] Contract signed
-- [ ] Payment received (50% = $150 USD)
+- [ ] Payment received (50% = $225 USD si avanza La Montaña)
 
 ## Sitio Actual — Diagnóstico Profundo
 
