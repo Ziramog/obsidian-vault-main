@@ -4,7 +4,7 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 🔴 Reactivado — pidió presupuesto para amigo / Loteo La Montaña (13 Jul 2026)
+**Status:** 🔴 Reactivado — propuesta portal premium Farias lista para revisión/envío (13 Jul 2026)
 
 ## Offer original Farias
 - Setup fee: $300 USD (pago único)
@@ -16,23 +16,29 @@
 - Aclaración: la propuesta real NO es para La Montaña; es para **Farias & Asociados**.
 - Base correcta: modelo **Roggero & Roma** — portal inmobiliario propio con catálogo, filtros, fichas individuales, mapa, WhatsApp/contacto y administración.
 - Documento de alcance: [[alcance-farias-basado-roggero-roma-2026-07-13]]
+- Relevamiento técnico web-builder: [[companies/wolfim/projects/farias-admin-panel-relevamiento-roggero-2026-07-13]]
+- Propuesta comercial nueva: [[propuesta-farias-asociados-portal-premium-2026-07-13]]
 - Borrador anterior para La Montaña queda superseded por error de contexto: [[presupuesto-loteo-la-montana-2026-07-13]]
-- Acción: convertir el alcance en presupuesto comercial para Luis/Farias.
+- Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
 
 ## Proposal
 ![[farias_propuesta_v2.pdf]]
 ![[alcance-farias-basado-roggero-roma-2026-07-13.md]]
+![[propuesta-farias-asociados-portal-premium-2026-07-13.md]]
 
 ## Pipeline
 - [x] First contact
 - [x] Proposal sent v1 (mar 2026)
 - [x] Proposal enviada final HTML (1 Mayo 2026) — por WA
-- [x] Reactivación por referencia / video La Montaña (13 Jul 2026)
-- [x] Presupuesto La Montaña armado internamente (13 Jul 2026)
-- [ ] Enviar presupuesto La Montaña por WhatsApp
+- [x] Reactivación por referencia / demo La Montaña (13 Jul 2026)
+- [x] Aclarar enfoque correcto: Farias & Asociados basado en Roggero & Roma
+- [x] Handoff web-builder recibido con detalle admin panel
+- [x] Propuesta portal premium Farias armada (13 Jul 2026)
+- [ ] Juan revisa texto final
+- [ ] Enviar propuesta por WhatsApp a Luis
 - [ ] Charla con Luis + amigo al regreso del viaje
 - [ ] Contract signed
-- [ ] Payment received (50% = $225 USD si avanza La Montaña)
+- [ ] Payment received (50% = $225 USD si avanza propuesta USD 450)
 
 ## Sitio Actual — Diagnóstico Profundo
 
