@@ -157,8 +157,10 @@ committed=0
 "$GIT_BIN" -C "$VAULT" diff --cached --quiet
 staged_rc=$?
 if (( staged_rc == 1 )); then
-  if ! "$GIT_BIN" -C "$VAULT" diff --cached --check >/dev/null; then
-    log ERROR "operation=precommit_check result=failed action=manual_review"
+  check_output="$($GIT_BIN -C "$VAULT" diff --cached --check 2>&1)"
+  check_rc=$?
+  if (( check_rc != 0 )); then
+    log ERROR "operation=precommit_check rc=$check_rc output=$(printf '%s' "$check_output" | compact) action=manual_review"
     exit 32
   fi
   commit_output="$($GIT_BIN -C "$VAULT" commit -m "auto-sync [$HOST_TAG]" 2>&1)"
