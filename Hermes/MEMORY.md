@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-14 10:02 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas ejecutado sin envíos: cola agotada (0 leads pendientes) · Luis Farias sigue como propuesta premium USD 450 lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + reabastecer Wolfim si la campaña continúa.
+**Última actualización:** 2026-07-15 10:00 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas ejecutado sin envíos: cola agotada (0 leads pendientes) · Luis Farias sigue como propuesta premium USD 450 lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + reabastecer Wolfim si la campaña continúa.
 
 ---
 
@@ -29,16 +29,17 @@ source: mixed
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-14
+### Resultado latest — 2026-07-15
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Resultado: **Todos los leads han sido enviados. No hay más pendientes.**
 - Emails enviados: **0**
-- Fallos de envío: **0**
+- Fallos de envío observados en stdout: **0**
 - Pendientes estimados: **0 leads**
-- Incidente persistente conocido: Drive no actualizado por token Google inválido/revocado: `invalid_grant: Bad Request`.
+- Incidente persistente conocido desde ejecuciones previas: Drive no actualizado por token Google inválido/revocado: `invalid_grant: Bad Request`.
 - Riesgo inmediato: la cola está agotada; el cron no sostendrá nuevas tandas sin reabastecimiento y sanitización.
 
 ### Resultados anteriores registrados
+- 07/14: 0 enviados, 0 fallaron; cola agotada; Drive `invalid_grant` conocido.
 - 07/12: 2 enviados, 0 fallaron; cola quedó ~0 leads; Drive `invalid_grant`.
 - 07/11: 5 enviados, 0 fallaron; quedaban ~2 leads; Drive `invalid_grant`.
 - 07/10: 5 enviados, 0 fallaron; quedaban ~7 leads; Drive `invalid_grant`.

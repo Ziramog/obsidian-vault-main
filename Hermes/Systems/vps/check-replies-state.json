@@ -1,23 +1,13 @@
 {
-  "owner": "brain-vps",
   "job": "check-replies",
-  "account_checked": "ingjuangomariz@gmail.com",
-  "campaign": "Noté algo en la web de...",
-  "last_checked_at": "2026-07-14T10:03:25-03:00",
-  "last_top_inbox_id": 67068,
-  "result": "Sin novedades",
-  "verification": {
-    "manual_command": "himalaya envelope list -s 10",
-    "manual_top_10_checked": true,
-    "expanded_command": "himalaya envelope list --output json --page-size 200",
-    "script": "python3 /home/hermes/.hermes/skills/wolfim-email-outreach/scripts/check_replies.py",
-    "script_summary": "Loaded 97 recipients, 83 business domains from tracker; Retrieved 200 inbox emails; Sin novedades",
-    "previous_top_inbox_id": 67025,
-    "new_since_previous_top_id": 43,
-    "today_campaign_recipients": 0,
-    "latest_campaign_sent_at": "2026-07-12T10:01",
-    "new_matches_campaign_recipients": 0,
-    "new_subject_hits_note_web": 0,
-    "candidate_ids": []
-  }
+  "account": "ingjuangomariz@gmail.com",
+  "campaign_subject_prefix": "Noté algo en la web de",
+  "last_checked_at": "2026-07-15T14:02:00-03:00",
+  "last_top_envelope_id": 67156,
+  "last_result": "Sin novedades",
+  "verification": [
+    "himalaya envelope list -s 10",
+    "python3 /home/hermes/.hermes/skills/wolfim-email-outreach/scripts/check_replies.py",
+    "himalaya envelope list --page-size 120 --output json filtered locally"
+  ]
 }
