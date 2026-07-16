@@ -96,7 +96,7 @@ Confirmar estos datos:
 
 - [ ] URL exacta del sitio de ANGO.
 - [ ] Página destino para repuestos Urvig.
-- [ ] Página destino para tomas de fuerza industriales.
+- [x] Página destino para tomas de fuerza industriales.
 - [ ] WhatsApp o teléfono correcto para consultas.
 - [ ] Email correcto para consultas: `juan@wolfim.com` si se usa Juan como contacto.
 - [ ] Modelos Urvig para los que ANGO tiene repuestos.
