@@ -3,7 +3,7 @@ company: ANGO
 owner: ango-commercial
 status: active
 version: 1
-last-reviewed: 2026-06-29
+last-reviewed: 2026-07-16
 source-of-truth: Juan → Antonio Gomariz (padre)
 ---
 
@@ -30,8 +30,9 @@ source-of-truth: Juan → Antonio Gomariz (padre)
 - ANGO también trabaja con **tomas de fuerza con embrague para motores industriales estacionarios**.
 - No confundir con tomas de fuerza para camiones, tractores, mixers, bateas, volcadores o grúas.
 - Aplicaciones relevantes: motobombas, motores diésel grandes, bombas de pozo, riego industrial, compresores, generadores, petróleo/minería.
-- Oportunidad comercial detectada: **repuestos compatibles para embragues Urvig**. Urvig tiene muchos equipos instalados; dolor principal informado por Juan: postventa débil y repuestos caros.
-- Campaña Google Ads propuesta: una campaña Search inicial con dos grupos de anuncios: `Repuestos Urvig` y `Tomas de Fuerza Industriales`.
+- Oportunidad comercial detectada: **repuestos compatibles para marcas Urvig/Micron**. Urvig tiene equipos instalados; dolor principal informado por Juan: postventa débil y repuestos caros. Micron fue agregado por Juan como segunda marca objetivo para compatibles; no había contexto previo en vault al 2026-07-16.
+- Línea propia a destacar: **productos RG**. El README de ANGO define `RG` como marca registrada de sus tomas de fuerza con embrague; histórico Google Ads 2022 mostró buen rendimiento del asset `RG - Marca Registrada`.
+- Campaña Google Ads propuesta: una campaña Search inicial enfocada en `Repuestos compatibles Urvig`, `Repuestos compatibles Micron` y `Productos RG / Tomas de Fuerza Industriales`.
 
 ## Modelo de negocio
 
