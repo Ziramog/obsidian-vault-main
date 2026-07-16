@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-07-12
+last-reviewed: 2026-07-16
 confidence: medium
 status: active
 source: mixed
@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-15 10:00 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas ejecutado sin envíos: cola agotada (0 leads pendientes) · Luis Farias sigue como propuesta premium USD 450 lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + reabastecer Wolfim si la campaña continúa.
+**Última actualización:** 2026-07-16 10:00 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas ejecutado sin envíos: cola agotada (0 leads pendientes) · Luis Farias sigue como propuesta premium USD 450 lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + reabastecer Wolfim si la campaña continúa.
 
 ---
 
@@ -22,14 +22,14 @@ source: mixed
 
 ## Wolfim — Web Viejas / Email Outreach
 
-**Estado:** ✅ En producción con cron diario.
+**Estado:** ✅ En producción con cron diario, pero **sin inventario pendiente**.
 
 ### Pipeline
 ```text
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-15
+### Resultado latest — 2026-07-16
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Resultado: **Todos los leads han sido enviados. No hay más pendientes.**
 - Emails enviados: **0**
@@ -39,7 +39,8 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - Riesgo inmediato: la cola está agotada; el cron no sostendrá nuevas tandas sin reabastecimiento y sanitización.
 
 ### Resultados anteriores registrados
-- 07/14: 0 enviados, 0 fallaron; cola agotada; Drive `invalid_grant` conocido.
+- 07/15: 0 enviados, 0 fallaron; cola agotada.
+- 07/14: 0 enviados, 0 fallaron; cola agotada.
 - 07/12: 2 enviados, 0 fallaron; cola quedó ~0 leads; Drive `invalid_grant`.
 - 07/11: 5 enviados, 0 fallaron; quedaban ~2 leads; Drive `invalid_grant`.
 - 07/10: 5 enviados, 0 fallaron; quedaban ~7 leads; Drive `invalid_grant`.
