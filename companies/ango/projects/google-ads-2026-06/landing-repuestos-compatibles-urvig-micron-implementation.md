@@ -4,7 +4,7 @@ project: Google Ads 2026
 handoff: HO-2026-07-16-001
 status: published
 published_at: 2026-07-16
-commit: 901ebe76a81dd0bc9ff7ede13b55598ffbe2673f
+commit: d049d432c725f2d7d702926f23baebae446be46d
 ---
 
 # Landing ANGO — repuestos compatibles Urvig / Micron
@@ -28,6 +28,11 @@ La landing incluye:
 - IDs y atributos `data-event` para futura medición de `whatsapp_clicked`, `phone_clicked`, `email_clicked` y `lead_form_submitted`.
 - CTA sticky de WhatsApp en mobile.
 - Aclaración legal de compatibilidad.
+- Catálogo técnico responsive con 14 referencias Urvig y sus equivalencias Micron.
+- CTA individual por repuesto con WhatsApp precargado.
+- Campo opcional de código Urvig/Micron en el formulario.
+- Hook `part_consulted` con descripción y ambos códigos.
+- Supresión del CTA sticky mobile dentro del catálogo y formulario para evitar superposiciones.
 
 También se corrigió la home para diferenciar claramente:
 
@@ -48,7 +53,8 @@ También se corrigió la home para diferenciar claramente:
 
 - Repo: `https://github.com/Ziramog/angoweb.git`
 - Rama: `main`
-- Commit: `901ebe76a81dd0bc9ff7ede13b55598ffbe2673f`
+- Commit inicial: `901ebe76a81dd0bc9ff7ede13b55598ffbe2673f`
+- Commit catálogo: `d049d432c725f2d7d702926f23baebae446be46d`
 - Deploy automático confirmado con HTTP 200.
 
 ## Verificación
@@ -58,13 +64,17 @@ También se corrigió la home para diferenciar claramente:
 - Producción desktop: aprobada.
 - Producción mobile real 390 × 844 px: aprobada.
 - Sin overflow horizontal: `scrollWidth = viewport = 390`.
-- CSS de producción cargado: 83 reglas de la landing.
+- CSS de producción cargado: 100 reglas de la landing.
 - CTA mobile visible y FAB global oculto en la landing.
 - Formulario probado con datos ficticios; construye URL de WhatsApp correcta.
 - `utm_source` y `utm_campaign` preservados en el mensaje.
 - Un solo H1.
 - Sin errores JavaScript en consola.
 - Home validada con wording RG / compatibles corregido.
+- 14 filas verificadas en producción, sin precios.
+- Todos los códigos aparecen una vez en la fuente de datos.
+- `TAE44A / 98342044506` y `TAA10A / 103934011` verificados.
+- Tracking `part_consulted` probado con datos de repuesto, códigos y UTM.
 
 ## Nota operativa
 
