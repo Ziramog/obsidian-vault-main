@@ -4,7 +4,7 @@ project: Google Ads 2026
 handoff: HO-2026-07-16-001
 status: published
 published_at: 2026-07-16
-commit: d049d432c725f2d7d702926f23baebae446be46d
+commit: 26b2188ef781e0a76fcf9bed4d6b6915f02b4948
 ---
 
 # Landing ANGO — repuestos compatibles Urvig / Micron
@@ -33,6 +33,10 @@ La landing incluye:
 - Campo opcional de código Urvig/Micron en el formulario.
 - Hook `part_consulted` con descripción y ambos códigos.
 - Supresión del CTA sticky mobile dentro del catálogo y formulario para evitar superposiciones.
+- Hero mobile-first con imagen técnica visible en el primer viewport de 390 × 844 px.
+- Copy y CTAs del hero orientados a cotización de repuestos para tomas de fuerza industriales.
+- Catálogo mobile compactado: descripción, códigos Urvig/Micron en paralelo y CTA full width.
+- Sticky de WhatsApp visible solo después del hero y oculto dentro del catálogo/formulario.
 
 También se corrigió la home para diferenciar claramente:
 
@@ -55,6 +59,7 @@ También se corrigió la home para diferenciar claramente:
 - Rama: `main`
 - Commit inicial: `901ebe76a81dd0bc9ff7ede13b55598ffbe2673f`
 - Commit catálogo: `d049d432c725f2d7d702926f23baebae446be46d`
+- Commit mobile-first: `26b2188ef781e0a76fcf9bed4d6b6915f02b4948`
 - Deploy automático confirmado con HTTP 200.
 
 ## Verificación
@@ -75,6 +80,9 @@ También se corrigió la home para diferenciar claramente:
 - Todos los códigos aparecen una vez en la fuente de datos.
 - `TAE44A / 98342044506` y `TAA10A / 103934011` verificados.
 - Tracking `part_consulted` probado con datos de repuesto, códigos y UTM.
+- Producción 390 × 844: 174 px de imagen técnica visibles dentro del primer viewport.
+- Sticky verificado oculto en hero, visible después del hero y oculto en catálogo.
+- Código Micron `98342044506` visible completo en mobile.
 
 ## Nota operativa
 
