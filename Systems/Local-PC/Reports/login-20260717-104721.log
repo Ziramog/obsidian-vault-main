@@ -1,0 +1,28 @@
+﻿10:47:21 === PC Brain - Monitor de Login ===
+10:47:21 Inicio: 07/17/2026 10:47:21
+10:47:21 --- 1. Espacio libre ---
+10:47:22   C:: 287.9 GB libre de 476.9 GB (60.4%)
+10:47:22   D:: 274.5 GB libre de 495.8 GB (55.4%)
+10:47:22   H:: 48.4 GB libre de 488.3 GB (9.9%)
+10:47:22   ALERTA: H: por debajo del 10%
+10:47:22   I:: 209.9 GB libre de 878.9 GB (23.9%)
+10:47:22 --- 2. Estado de discos ---
+10:47:26   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+10:47:26   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+10:47:26 --- 3. Ultimo backup ---
+10:47:26   No se detecto sistema de backup automatico
+10:47:27 --- 4. Errores criticos (24h) ---
+10:47:27   10:47 [Error] Microsoft-Windows-DNS-Client: 1012 - There was an error while attempting to read the local hosts file.
+10:47:27   10:47 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+10:47:27   10:47 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+10:47:27   10:46 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+10:47:27   10:46 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+10:47:27   10:46 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+10:47:27   10:46 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+10:47:27   10:44 [Error] Microsoft-Windows-DNS-Client: 1012 - There was an error while attempting to read the local hosts file.
+10:47:27   19:08 [Error] Schannel: 36884 - The certificate received from the remote server does not contain the expected name. It is therefore not possible to dete
+10:47:27 --- 5. Boot NVMe ---
+10:47:27   Error verificando NVMe
+10:47:27 --- Actualizando STATUS.md ---
+10:47:27 STATUS.md actualizado
+10:47:27 === Completado en 6.5 segundos ===
