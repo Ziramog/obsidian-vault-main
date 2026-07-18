@@ -76,6 +76,7 @@ A partir del séptimo mes, el mantenimiento cuesta **solo USD 29 por mes**, sin 
 - **Backup automático semanal:** una copia de seguridad para poder restaurar el sitio si ocurre un problema.
 - **Retoques sobre la estructura existente:** cambiar un título, modificar un texto, actualizar un teléfono o ajustar una descripción.
 - **Soporte por WhatsApp en horario comercial:** si aparece una falla real del sitio, la respuesta llega el mismo día hábil.
+- **Reportes mensuales avanzados de Analytics:** seguimiento claro de visitas, consultas y comportamiento relevante para tomar decisiones comerciales.
 
 ### Se cotiza aparte
 
