@@ -36,21 +36,25 @@ El interesado puede buscar por tipo de propiedad, operación, zona, precio, dorm
 
 Eso evita mensajes genéricos y permite responder más rápido desde el primer contacto.
 
-### Farias controla su propio inventario
+### Inventario vivo
 
-El panel privado permite cargar, editar, publicar, despublicar o destacar propiedades, además de gestionar fotos y categorías.
+Las propiedades entran, cambian y se comparten todos los días. Una alta, una modificación de precio o una oportunidad para destacar se actualizan sin frenar el ritmo de la inmobiliaria.
 
-El catálogo se mantiene actualizado sin depender de terceros para cada cambio.
+Lo que el cliente ve refleja lo que Farias puede ofrecer hoy.
 
-### Las opciones se convierten en una propuesta clara
+### Cada consulta llega con contexto
 
-Cuando un interesado pide alternativas, Farias puede seleccionar propiedades, sumar condiciones y enviar un PDF profesional desde el celular.
+La ficha concentra fotos, ubicación, precio y características. Cuando alguien escribe por WhatsApp, Farias sabe exactamente qué propiedad le interesa.
+
+### Alternativas listas para enviar
+
+Si un interesado pide alternativas, Farias puede seleccionar propiedades y enviar una propuesta PDF profesional desde el celular.
 
 La conversación deja de ser un chat desordenado y se transforma en una propuesta con marca propia, lista para revisar y seguir.
 
-### La confianza aparece antes del primer mensaje
+### La confianza empieza antes del mensaje
 
-Las reseñas reales ayudan a mostrar cómo trabaja Farias. Se pueden cargar, elegir las mejores y destacarlas en el portal.
+Farias puede elegir, ordenar y destacar reseñas reales para que compradores, vendedores e inversores conozcan cómo trabaja antes de escribir.
 
 ## Inversión
 
