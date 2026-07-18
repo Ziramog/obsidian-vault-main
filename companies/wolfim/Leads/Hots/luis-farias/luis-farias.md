@@ -17,7 +17,7 @@
 ## Mockups generados (Stitch)
 Los 3 mockups PNG están en `mockups/`:
 - `farias-mockup-a.png` / `.html` — Variante A
-- `farias-mockup-b.png` / `.html` — Variante B  
+- `farias-mockup-b.png` / `.html` — Variante B
 - `farias-mockup-c.png` / `.html` — Variante C
 
 > Feedback Juan: prefiere los HTML propios sobre los de Stitch. Quiere incorporar elementos específicos de los mockups de Stitch en la versión final con el logo real de Farias.
