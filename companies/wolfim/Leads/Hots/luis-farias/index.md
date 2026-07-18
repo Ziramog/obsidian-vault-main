@@ -4,12 +4,12 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 🔴 Reactivado — propuesta portal premium Farias lista para revisión/envío (13 Jul 2026)
+**Status:** 🔴 Reactivado — propuesta portal premium lista para revisión/envío (17 Jul 2026)
 
-## Offer original Farias
-- Setup fee: $300 USD (pago único)
-- Monthly: $25 USD/mes (sin permanencia)
-- Service: Sitio web profesional + panel de propiedades
+## Oferta vigente Farias
+- Desarrollo: **USD 450** (50% al iniciar / 50% contra entrega)
+- Mantenimiento: **6 meses bonificados** y luego **USD 29/mes** sin permanencia
+- Servicio: portal inmobiliario profesional + panel de propiedades + soporte y Analytics mensual
 
 ## Nueva oportunidad — Portal Farias basado en Roggero & Roma
 - Contexto: Juan le mostró a Luis Farias la web `lamontaña.lat` hecha para Víctor como demo visual/calidad Wolfim.
@@ -17,7 +17,7 @@
 - Base correcta: modelo **Roggero & Roma** — portal inmobiliario propio con catálogo, filtros, fichas individuales, mapa, WhatsApp/contacto y administración.
 - Documento de alcance: [[alcance-farias-basado-roggero-roma-2026-07-13]]
 - Relevamiento técnico web-builder: [[companies/wolfim/projects/farias-admin-panel-relevamiento-roggero-2026-07-13]]
-- Propuesta comercial vigente (copy comercial v2): [[propuesta-farias-asociados-portal-premium-comercial-v2-2026-07-14]]
+- Propuesta comercial vigente (A4 + móvil, v5): [[propuesta-farias-asociados-portal-premium-comercial-v3-2026-07-14]]
 - Borrador anterior para La Montaña queda superseded por error de contexto: [[presupuesto-loteo-la-montana-2026-07-13]]
 - Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
 
