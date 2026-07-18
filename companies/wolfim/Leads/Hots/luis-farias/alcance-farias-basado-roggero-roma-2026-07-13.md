@@ -307,7 +307,7 @@ Estas capacidades están documentadas como parte del producto inmobiliario Wolfi
 | WhatsApp por propiedad | Producto/ángulo comercial documentado | “Cada ficha puede llevar a consulta directa por esa propiedad.” |
 | Administración simple desde celular | Producto/ángulo comercial documentado | “Podés operar el catálogo desde el teléfono.” |
 | Medición con Analytics | Capacidad Wolfim validada | “Podemos medir visitas, propiedades vistas y consultas.” |
-| Reporte mensual simple | Patrón validado con Roggero | “Después vemos qué propiedades generan más interés.” |
+| Reportes mensuales avanzados de Analytics | Servicio de mantenimiento mensual | “Cada mes revisamos visitas, consultas y comportamiento relevante para detectar qué mejorar.” |
 
 **Importante:** para propuesta formal, conviene separar:
 
@@ -342,10 +342,13 @@ Estas capacidades están documentadas como parte del producto inmobiliario Wolfi
 2. Propiedades destacadas controlables.
 3. Estados comerciales: nueva, precio mejorado, última unidad, oportunidad, amoblada.
 4. Newsletter o aviso de nuevos ingresos.
-5. Reporte mensual de visitas/propiedades más vistas.
-6. WhatsApp con mensaje prellenado por propiedad.
-7. **Módulo de presupuestos PDF desde mobile:** seleccionar propiedades, cargar datos del interesado y generar un PDF compartible por WhatsApp.
-8. **Módulo de reseñas de Google administrables:** mostrar reseñas, elegir cuáles se publican, ordenarlas y usarlas como prueba social.
+5. WhatsApp con mensaje prellenado por propiedad.
+6. **Módulo de presupuestos PDF desde mobile:** seleccionar propiedades, cargar datos del interesado y generar un PDF compartible por WhatsApp.
+7. **Módulo de reseñas de Google administrables:** mostrar reseñas, elegir cuáles se publican, ordenarlas y usarlas como prueba social.
+
+### Mantenimiento mensual
+
+- **Reportes mensuales avanzados de Analytics:** revisión de visitas, consultas y comportamiento relevante para detectar mejoras comerciales. Es parte del mantenimiento mensual, no de la implementación inicial.
 
 ---
 

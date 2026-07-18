@@ -22,7 +22,8 @@
 - Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
 
 ## Proposal
-![[propuesta-farias-asociados-portal-premium-comercial-v4-2026-07-14.pdf]]
+![[propuesta-farias-asociados-portal-premium-a4-v5-2026-07-17.pdf]]
+![[propuesta-farias-asociados-portal-premium-mobile-v5-2026-07-17.pdf]]
 ![[alcance-farias-basado-roggero-roma-2026-07-13.md]]
 ![[propuesta-farias-asociados-portal-premium-comercial-v3-2026-07-14.md]]
 
@@ -78,7 +79,7 @@
 | | Hoy (2clics) | Con Wolfim |
 |---|---|---|
 | WhatsApp | ❌ $37/mes extra | ✅ Incluido |
-| Costo mensual | $50 USD | $25 USD |
+| Costo mensual | $50 USD | $29 USD (desde el 7º mes; 6 meses bonificados) |
 | Lead capture | ❌ Email/teléfono | ✅ Formulario completo |
 | Panel propio | ❌ Dependen de 2clics | ✅ Totalmente suyo |
 | Entrega propiedades | Listado básico | Filtros + galería |
