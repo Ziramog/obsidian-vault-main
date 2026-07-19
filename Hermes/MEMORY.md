@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-07-16
+last-reviewed: 2026-07-19
 confidence: medium
 status: active
 source: mixed
@@ -8,47 +8,43 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-16 10:00 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas ejecutado sin envíos: cola agotada (0 leads pendientes) · Luis Farias sigue como propuesta premium USD 450 lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + reabastecer Wolfim si la campaña continúa.
+**Última actualización:** 2026-07-19 10:02 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` volvió a correr sin inventario (0 leads pendientes, 0 envíos) · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + decidir si Web Viejas se reabastece o se pausa.
 
 ---
 
 ## Semáforo financiero
 
-- **Estado operativo previo:** 🟢 ESCALA — junio cerró con Wolfim $1.000 USD + Ango $333 USD = $1.333 USD.
-- **Advertencia:** `Hermes/Intelligence/kpis.md` sigue sin números formales de Juan y está vencido desde 2026-06-25. Confianza media hasta actualización.
-- **Regla activa:** Wolfim prioritaria. Ango secundaria habilitada por semáforo previo; Construvial en standby salvo aprobación explícita.
+- **Estado operativo previo registrado:** 🟢 ESCALA — junio cerró con Wolfim $1.000 USD + Ango $333 USD = $1.333 USD.
+- **Advertencia activa:** `Hermes/Intelligence/kpis.md` sigue vencido desde 2026-06-25 y sin números formales de Juan. No se puede confirmar el semáforo real.
+- **Regla activa mientras no haya update formal:** Wolfim prioritaria. Ango secundaria habilitada solo por el estado previo. Construvial sigue en standby.
 
 ---
 
 ## Wolfim — Web Viejas / Email Outreach
 
-**Estado:** ✅ En producción con cron diario, pero **sin inventario pendiente**.
+**Estado:** ✅ El cron funciona, pero **la cola sigue agotada**.
 
 ### Pipeline
 ```text
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-16
+### Resultado latest — 2026-07-19
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
-- Resultado: **Todos los leads han sido enviados. No hay más pendientes.**
-- Emails enviados: **0**
-- Fallos de envío observados en stdout: **0**
+- Resultado real: **Todos los leads han sido enviados. No hay más pendientes.**
+- Emails enviados hoy: **0**
+- Fallos de envío observados: **0**
 - Pendientes estimados: **0 leads**
-- Incidente persistente conocido desde ejecuciones previas: Drive no actualizado por token Google inválido/revocado: `invalid_grant: Bad Request`.
-- Riesgo inmediato: la cola está agotada; el cron no sostendrá nuevas tandas sin reabastecimiento y sanitización.
+- Incidente persistente: sincronización con Google Drive bloqueada por token inválido/revocado (`invalid_grant: Bad Request`).
+- Riesgo inmediato: cuarto día consecutivo con cola vacía; si no hay reabastecimiento o pausa explícita, el cron da sensación de actividad sin generar nueva oportunidad comercial.
 
-### Resultados anteriores registrados
-- 07/15: 0 enviados, 0 fallaron; cola agotada.
-- 07/14: 0 enviados, 0 fallaron; cola agotada.
-- 07/12: 2 enviados, 0 fallaron; cola quedó ~0 leads; Drive `invalid_grant`.
-- 07/11: 5 enviados, 0 fallaron; quedaban ~2 leads; Drive `invalid_grant`.
-- 07/10: 5 enviados, 0 fallaron; quedaban ~7 leads; Drive `invalid_grant`.
-- 07/09: 5 enviados, 0 fallaron; quedaban ~12 leads; Drive `invalid_grant`.
-- 07/08: 5 enviados, 0 fallaron; quedaban ~17 leads; Drive `invalid_grant`.
-- 07/07: 5 enviados, 0 fallaron; quedaban ~22 leads; Drive `invalid_grant`.
-- 29/06: campaña registrada en 61/122 enviados, 0 respuestas.
-- 21/06: 20 enviados, 19 entregados, 1 bounce.
+### Corrida histórica breve
+- 07/19: 0 enviados, 0 fallos; cola agotada.
+- 07/16: 0 enviados, 0 fallos; cola agotada.
+- 07/15: 0 enviados, 0 fallos; cola agotada.
+- 07/14: 0 enviados, 0 fallos; cola agotada.
+- 07/12: 2 enviados, 0 fallos; cola quedó en ~0; Drive `invalid_grant`.
+- 07/11 a 07/07: tandas consecutivas de 5/día, 0 fallos; la limitación pasó a ser inventario + follow-up humano.
 
 ### Configuración conocida
 - Remitente: `Juan Gomariz <juan@wolfim.com>`; reply-to `juan@wolfim.com` → Cloudflare → `ingjuangomariz@gmail.com`.
@@ -60,9 +56,9 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 ## Pipeline comercial activo
 
-- **Franco Roma — Roggero & Roma** ✅ Cerrado/cobrado. Backup VPS operativo.
+- **Franco Roma — Roggero & Roma** ✅ Cerrado/cobrado. Backup VPS operativo. Publicación/DNS siguen dependiendo de Juan/NIC.
 - **Víctor Abrile** ✅ Cobrado: $450 USD total.
-- **Luis Farias — Farias & Asociados** 🔴 Reactivado: propuesta portal inmobiliario premium USD 450 + USD 25/mes posterior lista para revisión/envío; si avanza, 50% inicial = USD 225.
+- **Luis Farias — Farias & Asociados** 🔴 Reactivado: propuesta portal inmobiliario premium USD 450 + USD 25/mes lista para revisión/envío. Si avanza, 50% inicial = USD 225.
 - **GAMA Inmobiliaria** ❌ Caído: sin respuesta.
 - **Conforti Propiedades** 🆕 Seguimiento pendiente.
 - **RIVAS Inmuebles** 🆕 Seguimiento pendiente.
@@ -74,7 +70,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 ## Empresas
 
-- **Ango:** junio $333 cobrados. Pendiente vencido 2026-07-08: MONTECOR pagar importación.
+- **Ango:** junio $333 cobrados. Sigue pendiente de fondo: MONTECOR pagar importación. Handoff local `HO-2026-07-16-001` sigue sin ack visible y ya está vencido.
 - **Korantis:** sin revenue; modo evidencia + scout. No desplazar a Wolfim.
 - **Construvial:** standby. No activar sin aprobación explícita de Juan.
 
@@ -82,18 +78,20 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 ## Handoffs / coordinación
 
-- `local-to-vps`: `HO-2026-06-26-001` ya tiene `response.md` acknowledged; revisar si debe archivarse.
-- `vps-to-local`: `HO-2026-06-30-001` y `HO-2026-07-06-001` cancelados por Juan el 2026-07-13 para frenar alertas repetidas de handoffs high vencidos; revisar `HO-2026-06-25-001` y `HO-2026-06-27-001` si corresponde archivar.
-- `HO-2026-07-12-001` done: profile local `trading-performance` creado y probado; trading manual, sin gateway/cron ni ejecución automática.
-- `HO-2026-07-12-002` done: Sync V6 local implementado con Git Bash + Windows Task Scheduler + `brain-local-sync`.
-- Sync V6 VPS y local operativos: procesos independientes cada 2 minutos; estado VPS final `dirty=0 ahead=0 behind=0`; ver `Hermes/Systems/vps/sync-v6.md` y `Hermes/Systems/local/sync-v6/README.md`.
-- `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` espera consolidación de Juan porque `ARCHITECTURE.md` es zona exclusiva de Config.
+- `local-to-vps`: `HO-2026-06-26-001` acknowledged; administrativamente archivable.
+- `vps-to-local` activos/vencidos:
+  - `HO-2026-06-27-001` — ready, normal, sin cierre visible.
+  - `HO-2026-07-13-001` — high, vencido, sin ack visible.
+  - `HO-2026-07-16-001` — high, vencido, sin ack visible.
+- `HO-2026-06-30-001` y `HO-2026-07-06-001` siguen cancelados por Juan.
+- `HO-2026-07-12-001` y `HO-2026-07-12-002` done.
+- `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` espera consolidación de Juan porque `ARCHITECTURE.md` es zona Config.
 
 ---
 
 ## Correcciones aprendidas vigentes
 
-- Leads en pausa: verificar al inicio de sesión; vault puede estar desactualizado.
+- Leads en pausa: verificar inventario real al inicio; el vault puede quedar más optimista que la cola real.
 - Mockups AI no reemplazan venta concreta. Mostrar producto > mostrar idea.
 - Datos de pago: Juan los pasa al cliente, no al revés.
 - No escribir secrets, tokens ni API keys en el vault.
