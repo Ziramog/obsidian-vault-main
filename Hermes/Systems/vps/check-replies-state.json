@@ -2,8 +2,8 @@
   "job": "check-replies",
   "account": "ingjuangomariz@gmail.com",
   "campaign_subject_prefix": "Noté algo en la web de",
-  "last_checked_at": "2026-07-17T18:04:27-03:00",
-  "last_top_envelope_id": 67298,
+  "last_checked_at": "2026-07-20T10:05:40-03:00",
+  "last_top_envelope_id": 67414,
   "last_result": "Sin novedades",
   "verification": [
     "himalaya envelope list -a gmail -s 10 --output json",
@@ -13,14 +13,13 @@
     "himalaya envelope list -a gmail -s 30 body Wolfim"
   ],
   "last_check_summary": {
-    "previous_top_envelope_id": 67286,
-    "new_since_previous_top_id": 12,
+    "previous_top_envelope_id": 67298,
+    "new_since_previous_top_id": 114,
     "campaign_recipient_matches": 0,
     "campaign_domain_matches": 0,
     "campaign_subject_hits": 0,
     "non_campaign_re_subject_hits": 0,
-    "false_positive_domain_matches": 1,
     "recipient_count": 107,
-    "business_domain_count": 107
+    "business_domain_count": 126
   }
 }
