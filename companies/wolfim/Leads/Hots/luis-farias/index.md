@@ -22,8 +22,8 @@
 - Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
 
 ## Proposal
-![[propuesta-farias-asociados-portal-premium-a4-v7-2026-07-18.pdf]]
-![[propuesta-farias-asociados-portal-premium-mobile-v7-2026-07-18.pdf]]
+![[propuesta-farias-asociados-portal-premium-a4-v8-2026-07-18.pdf]]
+![[propuesta-farias-asociados-portal-premium-mobile-v8-2026-07-18.pdf]]
 ![[propuesta-farias-asociados-portal-premium-a4-v6-2026-07-17.pdf]]
 ![[propuesta-farias-asociados-portal-premium-mobile-v6-2026-07-17.pdf]]
 ![[alcance-farias-basado-roggero-roma-2026-07-13.md]]
