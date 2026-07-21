@@ -125,4 +125,4 @@ Farias revisa la primera versión en un entorno privado. Ajustamos contenidos y 
 
 ### 6. Publicación
 
-Con la aprobación, conectamos el portal a `fariasyasociados.com.ar`, vinculamos el nuevo `.com`, realizamos la verificación final y se abona el saldo de USD 225.
+Con la aprobación, conectamos el portal a `fariasyasociados.com.ar`, vinculamos el nuevo `.com`, realizamos la verificación final y se abona el saldo de USD 199.
