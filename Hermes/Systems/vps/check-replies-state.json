@@ -2,39 +2,48 @@
   "job": "check-replies",
   "account": "ingjuangomariz@gmail.com",
   "campaign_subject_prefix": "Noté algo en la web de",
-  "last_checked_at": "2026-07-21T14:02:55-03:00",
-  "last_top_envelope_id": 67488,
+  "last_checked_at": "2026-07-21T18:03:43-03:00",
+  "last_top_envelope_id": 67506,
   "last_result": "Sin novedades",
   "verification": [
-    "himalaya envelope list -s 10",
-    "himalaya envelope list -a gmail -s 200 --output json filtered locally from previous top ID and campaign tracker"
+    "himalaya envelope list -a gmail -s 10 --output json",
+    "himalaya envelope list -a gmail -s 200 --output json filtered locally from previous top ID and campaign tracker",
+    "himalaya envelope list -a gmail -s 30 --output json subject Re:",
+    "himalaya envelope list -a gmail -s 30 --output json subject algo",
+    "himalaya envelope list -a gmail -s 30 --output json body Wolfim"
   ],
   "last_check_summary": {
-    "previous_top_envelope_id": 67472,
-    "new_since_previous_top_id": 16,
+    "previous_top_envelope_id": 67488,
+    "new_since_previous_top_id": 18,
     "campaign_recipient_matches": 0,
     "campaign_domain_matches": 0,
     "campaign_subject_hits": 0,
-    "non_campaign_re_subject_hits": 0,
+    "non_campaign_re_subject_hits": 3,
     "recipient_count": 107,
     "business_domain_count": 126,
     "new_top10_ids": [
-      "67488",
-      "67487",
-      "67486",
-      "67485",
-      "67484",
-      "67483",
-      "67481",
-      "67482",
-      "67480",
-      "67479"
+      "67506",
+      "67504",
+      "67505",
+      "67503",
+      "67502",
+      "67500",
+      "67501",
+      "67499",
+      "67498",
+      "67497"
     ],
     "search_hits_new_ids": {
-      "subject_re": [],
+      "subject_re": [
+        "67499",
+        "67495",
+        "67493"
+      ],
       "subject_algo": [],
       "body_wolfim": []
     },
-    "false_positive_notes": []
+    "false_positive_notes": [
+      "Los únicos asuntos Re: nuevos corresponden a tickets TrainAI/RWS, no a replies de campaña."
+    ]
   }
 }
