@@ -17,11 +17,13 @@
 - Base correcta: modelo **Roggero & Roma** — portal inmobiliario propio con catálogo, filtros, fichas individuales, mapa, WhatsApp/contacto y administración.
 - Documento de alcance: [[alcance-farias-basado-roggero-roma-2026-07-13]]
 - Relevamiento técnico web-builder: [[companies/wolfim/projects/farias-admin-panel-relevamiento-roggero-2026-07-13]]
-- Propuesta comercial vigente (mobile v10, 3 páginas): [[propuesta-farias-asociados-portal-premium-mobile-v10-3-paginas-2026-07-21.pdf]]
+- Propuesta comercial vigente (mobile v11, marco Wolfim con espacios de imagen): [[propuesta-farias-portal-comercial-mobile-v11-marco-2026-07-21.pdf]]
 - Borrador anterior para La Montaña queda superseded por error de contexto: [[presupuesto-loteo-la-montana-2026-07-13]]
 - Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
 
 ## Proposal
+![[propuesta-farias-portal-comercial-mobile-v11-marco-2026-07-21.pdf]]
+![[propuesta-farias-portal-comercial-mobile-v11-marco-2026-07-21.md]]
 ![[propuesta-farias-asociados-portal-premium-mobile-v10-3-paginas-2026-07-21.pdf]]
 ![[propuesta-farias-asociados-portal-premium-mobile-v10-2026-07-21.md]]
 ![[propuesta-farias-asociados-portal-premium-a4-v9-2026-07-18.pdf]]
