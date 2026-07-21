@@ -4,12 +4,12 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 🔴 Reactivado — propuesta v15 con fotos y oferta USD 399, mobile + A4/desktop, lista para revisión/envío (21 Jul 2026)
+**Status:** 🔴 Reactivado — propuesta v16 con plazo de 2 semanas y mantenimiento detallado, lista para revisión/envío (21 Jul 2026)
 
 ## Oferta vigente Farias
 - Desarrollo: ~~USD 450~~ **USD 399** (USD 200 al iniciar / USD 199 contra entrega)
-- Mantenimiento: **6 meses bonificados** y luego **USD 29/mes** sin permanencia
-- Servicio: portal responsive + panel + migración inicial + dominios `.com.ar`/`.com` + soporte y Analytics mensual
+- Mantenimiento: **6 meses incluidos** y luego **USD 29/mes** sin permanencia; hosting, SSL, `.com`, backup semanal/restauración, soporte técnico/WhatsApp y Analytics mensual
+- Servicio: portal responsive + panel + migración inicial + dominios `.com.ar`/`.com`; implementación estimada en **2 semanas** desde la recepción del material
 
 ## Nueva oportunidad — Portal Farias basado en Roggero & Roma
 - Contexto: Juan le mostró a Luis Farias la web `lamontaña.lat` hecha para Víctor como demo visual/calidad Wolfim.
@@ -17,11 +17,14 @@
 - Base correcta: modelo **Roggero & Roma** — portal inmobiliario propio con catálogo, filtros, fichas individuales, mapa, WhatsApp/contacto y administración.
 - Documento de alcance: [[alcance-farias-basado-roggero-roma-2026-07-13]]
 - Relevamiento técnico web-builder: [[companies/wolfim/projects/farias-admin-panel-relevamiento-roggero-2026-07-13]]
-- Propuesta comercial vigente v15 con evidencia visual y oferta USD 399: [[propuesta-farias-portal-v15-mobile-oferta-399-2026-07-21.pdf]] y [[propuesta-farias-portal-v15-a4-desktop-oferta-399-2026-07-21.pdf]]
+- Propuesta comercial vigente v16 con plazo y mantenimiento detallado: [[propuesta-farias-portal-v16-mobile-plazo-mantenimiento-2026-07-21.pdf]] y [[propuesta-farias-portal-v16-a4-desktop-plazo-mantenimiento-2026-07-21.pdf]]
 - Borrador anterior para La Montaña queda superseded por error de contexto: [[presupuesto-loteo-la-montana-2026-07-13]]
 - Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
 
 ## Proposal
+![[propuesta-farias-portal-v16-mobile-plazo-mantenimiento-2026-07-21.pdf]]
+![[propuesta-farias-portal-v16-a4-desktop-plazo-mantenimiento-2026-07-21.pdf]]
+![[propuesta-farias-portal-comercial-v16-plazo-mantenimiento-2026-07-21.md]]
 ![[propuesta-farias-portal-v15-mobile-oferta-399-2026-07-21.pdf]]
 ![[propuesta-farias-portal-v15-a4-desktop-oferta-399-2026-07-21.pdf]]
 ![[propuesta-farias-portal-comercial-v15-oferta-399-2026-07-21.md]]
@@ -52,7 +55,7 @@
 - [x] Aclarar enfoque correcto: Farias & Asociados basado en Roggero & Roma
 - [x] Handoff web-builder recibido con detalle admin panel
 - [x] Propuesta portal premium Farias armada (13 Jul 2026)
-- [ ] Juan revisa v15 mobile y A4/desktop con fotos y oferta USD 399
+- [ ] Juan revisa v16 mobile y A4/desktop con plazo y mantenimiento detallado
 - [ ] Enviar propuesta por WhatsApp a Luis
 - [ ] Charla con Luis + amigo al regreso del viaje
 - [ ] Contract signed
@@ -60,7 +63,7 @@
 
 ## Sitio Actual — Diagnóstico histórico superseded
 
-> No reutilizar este bloque como diagnóstico vigente: contiene hallazgos de una propuesta anterior que requieren una auditoría actual antes de cualquier comunicación. La propuesta v15 no depende de estas afirmaciones.
+> No reutilizar este bloque como diagnóstico vigente: contiene hallazgos de una propuesta anterior que requieren una auditoría actual antes de cualquier comunicación. La propuesta v16 no depende de estas afirmaciones.
 
 **URL:** fariasyasociados.com.ar
 **Plataforma:** 2clics CRM (theme Houzez WordPress)
@@ -104,7 +107,7 @@
 | Entrega propiedades | Listado básico | Filtros + galería |
 
 ## Next Steps
-1. Juan revisa las versiones v15 con fotos y oferta USD 399, mobile y A4/desktop.
+1. Juan revisa las versiones v16 con plazo de 2 semanas y mantenimiento detallado, mobile y A4/desktop.
 2. Envío a Luis Farias y confirmación de interés.
 3. Pago inicial de USD 200 y registro de `fariasyasociados.com`.
 4. Coordinación segura de acceso técnico y fuente de propiedades.
