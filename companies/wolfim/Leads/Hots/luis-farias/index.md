@@ -4,7 +4,7 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 🔴 Reactivado — propuesta portal premium lista para revisión/envío (17 Jul 2026)
+**Status:** 🔴 Reactivado — propuesta mobile premium de 3 páginas lista para revisión/envío (21 Jul 2026)
 
 ## Oferta vigente Farias
 - Desarrollo: **USD 450** (50% al iniciar / 50% contra entrega)
@@ -17,11 +17,13 @@
 - Base correcta: modelo **Roggero & Roma** — portal inmobiliario propio con catálogo, filtros, fichas individuales, mapa, WhatsApp/contacto y administración.
 - Documento de alcance: [[alcance-farias-basado-roggero-roma-2026-07-13]]
 - Relevamiento técnico web-builder: [[companies/wolfim/projects/farias-admin-panel-relevamiento-roggero-2026-07-13]]
-- Propuesta comercial vigente (basada en última propuesta v6, actualizada v9 con mosaicos): [[propuesta-farias-asociados-portal-premium-a4-v9-2026-07-18.pdf]]
+- Propuesta comercial vigente (mobile v10, 3 páginas): [[propuesta-farias-asociados-portal-premium-mobile-v10-3-paginas-2026-07-21.pdf]]
 - Borrador anterior para La Montaña queda superseded por error de contexto: [[presupuesto-loteo-la-montana-2026-07-13]]
 - Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
 
 ## Proposal
+![[propuesta-farias-asociados-portal-premium-mobile-v10-3-paginas-2026-07-21.pdf]]
+![[propuesta-farias-asociados-portal-premium-mobile-v10-2026-07-21.md]]
 ![[propuesta-farias-asociados-portal-premium-a4-v9-2026-07-18.pdf]]
 ![[propuesta-farias-asociados-portal-premium-mobile-v9-2026-07-18.pdf]]
 ![[propuesta-farias-asociados-portal-premium-a4-v6-2026-07-17.pdf]]
