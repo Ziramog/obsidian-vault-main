@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-07-19
+last-reviewed: 2026-07-21
 confidence: medium
 status: active
 source: mixed
@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-19 10:02 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` volvió a correr sin inventario (0 leads pendientes, 0 envíos) · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + decidir si Web Viejas se reabastece o se pausa.
+**Última actualización:** 2026-07-21 10:01 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` volvió a correr con cola agotada (`✅ Todos los leads han sido enviados. No hay más pendientes.`) · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + decidir si Web Viejas se reabastece o se pausa.
 
 ---
 
@@ -29,16 +29,14 @@ source: mixed
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-19
+### Resultado latest — 2026-07-21
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
-- Resultado real: **Todos los leads han sido enviados. No hay más pendientes.**
-- Emails enviados hoy: **0**
-- Fallos de envío observados: **0**
-- Pendientes estimados: **0 leads**
-- Incidente persistente: sincronización con Google Drive bloqueada por token inválido/revocado (`invalid_grant: Bad Request`).
-- Riesgo inmediato: cuarto día consecutivo con cola vacía; si no hay reabastecimiento o pausa explícita, el cron da sensación de actividad sin generar nueva oportunidad comercial.
+- Salida real: `✅ Todos los leads han sido enviados. No hay más pendientes.`
+- No apareció ningún error nuevo en stdout durante esta corrida.
+- Riesgo inmediato: seguir corriendo sin inventario no genera oportunidad comercial nueva.
 
 ### Corrida histórica breve
+- 07/21: cola agotada; sin error nuevo visible en stdout.
 - 07/19: 0 enviados, 0 fallos; cola agotada.
 - 07/16: 0 enviados, 0 fallos; cola agotada.
 - 07/15: 0 enviados, 0 fallos; cola agotada.
