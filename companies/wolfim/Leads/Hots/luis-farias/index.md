@@ -4,7 +4,7 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 🔴 Reactivado — propuesta v13 mobile + A4/desktop lista para revisión/envío (21 Jul 2026)
+**Status:** 🔴 Reactivado — propuesta v14 con fotos, mobile + A4/desktop, lista para revisión/envío (21 Jul 2026)
 
 ## Oferta vigente Farias
 - Desarrollo: **USD 450** (50% al iniciar / 50% contra entrega)
@@ -17,11 +17,14 @@
 - Base correcta: modelo **Roggero & Roma** — portal inmobiliario propio con catálogo, filtros, fichas individuales, mapa, WhatsApp/contacto y administración.
 - Documento de alcance: [[alcance-farias-basado-roggero-roma-2026-07-13]]
 - Relevamiento técnico web-builder: [[companies/wolfim/projects/farias-admin-panel-relevamiento-roggero-2026-07-13]]
-- Propuesta comercial vigente v13: [[propuesta-farias-portal-v13-mobile-2026-07-21.pdf]] y [[propuesta-farias-portal-v13-a4-desktop-2026-07-21.pdf]]
+- Propuesta comercial vigente v14 con evidencia visual: [[propuesta-farias-portal-v14-mobile-con-fotos-2026-07-21.pdf]] y [[propuesta-farias-portal-v14-a4-desktop-con-fotos-2026-07-21.pdf]]
 - Borrador anterior para La Montaña queda superseded por error de contexto: [[presupuesto-loteo-la-montana-2026-07-13]]
 - Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
 
 ## Proposal
+![[propuesta-farias-portal-v14-mobile-con-fotos-2026-07-21.pdf]]
+![[propuesta-farias-portal-v14-a4-desktop-con-fotos-2026-07-21.pdf]]
+![[propuesta-farias-portal-comercial-v14-con-fotos-2026-07-21.md]]
 ![[propuesta-farias-portal-v13-mobile-2026-07-21.pdf]]
 ![[propuesta-farias-portal-v13-a4-desktop-2026-07-21.pdf]]
 ![[propuesta-farias-portal-comercial-v13-mobile-desktop-2026-07-21.md]]
@@ -46,7 +49,7 @@
 - [x] Aclarar enfoque correcto: Farias & Asociados basado en Roggero & Roma
 - [x] Handoff web-builder recibido con detalle admin panel
 - [x] Propuesta portal premium Farias armada (13 Jul 2026)
-- [ ] Juan revisa texto final
+- [ ] Juan revisa v14 mobile y A4/desktop con fotos
 - [ ] Enviar propuesta por WhatsApp a Luis
 - [ ] Charla con Luis + amigo al regreso del viaje
 - [ ] Contract signed
@@ -54,7 +57,7 @@
 
 ## Sitio Actual — Diagnóstico histórico superseded
 
-> No reutilizar este bloque como diagnóstico vigente: contiene hallazgos de una propuesta anterior que requieren una auditoría actual antes de cualquier comunicación. La propuesta v13 no depende de estas afirmaciones.
+> No reutilizar este bloque como diagnóstico vigente: contiene hallazgos de una propuesta anterior que requieren una auditoría actual antes de cualquier comunicación. La propuesta v14 no depende de estas afirmaciones.
 
 **URL:** fariasyasociados.com.ar
 **Plataforma:** 2clics CRM (theme Houzez WordPress)
@@ -98,7 +101,7 @@
 | Entrega propiedades | Listado básico | Filtros + galería |
 
 ## Next Steps
-1. Juan revisa las versiones v13 mobile y A4/desktop.
+1. Juan revisa las versiones v14 con fotos, mobile y A4/desktop.
 2. Envío a Luis Farias y confirmación de interés.
 3. Pago inicial de USD 225 y registro de `fariasyasociados.com`.
 4. Coordinación segura de acceso técnico y fuente de propiedades.
