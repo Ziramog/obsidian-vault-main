@@ -4,12 +4,12 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 🔴 Reactivado — propuesta mobile premium de 3 páginas lista para revisión/envío (21 Jul 2026)
+**Status:** 🔴 Reactivado — propuesta v13 mobile + A4/desktop lista para revisión/envío (21 Jul 2026)
 
 ## Oferta vigente Farias
 - Desarrollo: **USD 450** (50% al iniciar / 50% contra entrega)
 - Mantenimiento: **6 meses bonificados** y luego **USD 29/mes** sin permanencia
-- Servicio: portal inmobiliario profesional + panel de propiedades + soporte y Analytics mensual
+- Servicio: portal responsive + panel + migración inicial + dominios `.com.ar`/`.com` + soporte y Analytics mensual
 
 ## Nueva oportunidad — Portal Farias basado en Roggero & Roma
 - Contexto: Juan le mostró a Luis Farias la web `lamontaña.lat` hecha para Víctor como demo visual/calidad Wolfim.
@@ -17,11 +17,14 @@
 - Base correcta: modelo **Roggero & Roma** — portal inmobiliario propio con catálogo, filtros, fichas individuales, mapa, WhatsApp/contacto y administración.
 - Documento de alcance: [[alcance-farias-basado-roggero-roma-2026-07-13]]
 - Relevamiento técnico web-builder: [[companies/wolfim/projects/farias-admin-panel-relevamiento-roggero-2026-07-13]]
-- Propuesta comercial vigente (mobile v12, copy de conversión y marco Wolfim): [[propuesta-farias-portal-comercial-mobile-v12-conversion-2026-07-21.pdf]]
+- Propuesta comercial vigente v13: [[propuesta-farias-portal-v13-mobile-2026-07-21.pdf]] y [[propuesta-farias-portal-v13-a4-desktop-2026-07-21.pdf]]
 - Borrador anterior para La Montaña queda superseded por error de contexto: [[presupuesto-loteo-la-montana-2026-07-13]]
 - Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
 
 ## Proposal
+![[propuesta-farias-portal-v13-mobile-2026-07-21.pdf]]
+![[propuesta-farias-portal-v13-a4-desktop-2026-07-21.pdf]]
+![[propuesta-farias-portal-comercial-v13-mobile-desktop-2026-07-21.md]]
 ![[propuesta-farias-portal-comercial-mobile-v12-conversion-2026-07-21.pdf]]
 ![[propuesta-farias-portal-comercial-mobile-v12-conversion-2026-07-21.md]]
 ![[propuesta-farias-portal-comercial-mobile-v11-marco-2026-07-21.pdf]]
@@ -49,7 +52,9 @@
 - [ ] Contract signed
 - [ ] Payment received (50% = $225 USD si avanza propuesta USD 450)
 
-## Sitio Actual — Diagnóstico Profundo
+## Sitio Actual — Diagnóstico histórico superseded
+
+> No reutilizar este bloque como diagnóstico vigente: contiene hallazgos de una propuesta anterior que requieren una auditoría actual antes de cualquier comunicación. La propuesta v13 no depende de estas afirmaciones.
 
 **URL:** fariasyasociados.com.ar
 **Plataforma:** 2clics CRM (theme Houzez WordPress)
@@ -93,6 +98,9 @@
 | Entrega propiedades | Listado básico | Filtros + galería |
 
 ## Next Steps
-1. Socio retorna feedback (expected Friday post Apr 26)
-2. Follow up si no hay respuesta
-3. Si confirman → credenciales dominio + propiedades → 50% inicial → 3 semanas entrega
+1. Juan revisa las versiones v13 mobile y A4/desktop.
+2. Envío a Luis Farias y confirmación de interés.
+3. Pago inicial de USD 225 y registro de `fariasyasociados.com`.
+4. Coordinación segura de acceso técnico y fuente de propiedades.
+5. Migración inicial, diseño y revisión mobile/desktop.
+6. Publicación en `fariasyasociados.com.ar`, vinculación del `.com` y pago final de USD 225.
