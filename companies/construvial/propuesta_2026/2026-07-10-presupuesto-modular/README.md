@@ -40,6 +40,7 @@ Contiene:
 ### 3. Propuesta ampliada por módulos
 
 - [[propuesta-ampliada-servicios-construvial-2026-07-10]]
+- PDF: `propuesta-ampliada-servicios-construvial-2026-07-10.pdf`
 
 Contiene:
 - alcance detallado de Web Premium B2B
