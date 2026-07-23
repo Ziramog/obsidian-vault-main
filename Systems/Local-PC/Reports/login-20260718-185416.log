@@ -1,0 +1,20 @@
+﻿18:54:16 === PC Brain - Monitor de Login ===
+18:54:16 Inicio: 07/18/2026 18:54:16
+18:54:16 --- 1. Espacio libre ---
+18:54:17   C:: 293.6 GB libre de 476.9 GB (61.5%)
+18:54:17   D:: 274.5 GB libre de 495.8 GB (55.4%)
+18:54:17   H:: 48.4 GB libre de 488.3 GB (9.9%)
+18:54:17   ALERTA: H: por debajo del 10%
+18:54:17   I:: 209.9 GB libre de 878.9 GB (23.9%)
+18:54:17 --- 2. Estado de discos ---
+18:54:21   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+18:54:21   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+18:54:21 --- 3. Ultimo backup ---
+18:54:21   No se detecto sistema de backup automatico
+18:54:21 --- 4. Errores criticos (24h) ---
+18:54:21   No se pudieron leer eventos sin admin
+18:54:21 --- 5. Boot NVMe ---
+18:54:22   Error verificando NVMe
+18:54:22 --- Actualizando STATUS.md ---
+18:54:22 STATUS.md actualizado
+18:54:22 === Completado en 5.6 segundos ===
