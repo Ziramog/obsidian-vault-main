@@ -17,7 +17,7 @@
 ## Mockups generados (Stitch)
 Los 3 mockups PNG están en `mockups/`:
 - `farias-mockup-a.png` / `.html` — Variante A
-- `farias-mockup-b.png` / `.html` — Variante B  
+- `farias-mockup-b.png` / `.html` — Variante B
 - `farias-mockup-c.png` / `.html` — Variante C
 
 > Feedback Juan: prefiere los HTML propios sobre los de Stitch. Quiere incorporar elementos específicos de los mockups de Stitch en la versión final con el logo real de Farias.
@@ -67,7 +67,7 @@ Los 3 mockups PNG están en `mockups/`:
 | | Hoy (2clics) | Con Wolfim |
 |---|---|---|
 | WhatsApp | ❌ $37/mes extra | ✅ Incluido |
-| Costo mensual | $50 USD | $25 USD |
+| Costo mensual | $50 USD | $29 USD (desde el 7º mes; 6 meses bonificados) |
 | Lead capture | ❌ Email/teléfono | ✅ Formulario completo |
 | Panel propio | ❌ Dependen de 2clics | ✅ Totalmente suyo |
 | Entrega propiedades | Listado básico | Filtros + galería |

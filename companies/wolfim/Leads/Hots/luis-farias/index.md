@@ -4,12 +4,12 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 🔴 Reactivado — propuesta portal premium Farias lista para revisión/envío (13 Jul 2026)
+**Status:** 🔴 Reactivado — propuesta v16 con plazo de 2 semanas y mantenimiento detallado, lista para revisión/envío (21 Jul 2026)
 
-## Offer original Farias
-- Setup fee: $300 USD (pago único)
-- Monthly: $25 USD/mes (sin permanencia)
-- Service: Sitio web profesional + panel de propiedades
+## Oferta vigente Farias
+- Desarrollo: ~~USD 450~~ **USD 399** (USD 200 al iniciar / USD 199 contra entrega)
+- Mantenimiento: **6 meses incluidos** y luego **USD 29/mes** sin permanencia; hosting, SSL, `.com`, backup semanal/restauración, soporte técnico/WhatsApp y Analytics mensual
+- Servicio: portal responsive + panel + migración inicial + dominios `.com.ar`/`.com`; implementación estimada en **2 semanas** desde la recepción del material
 
 ## Nueva oportunidad — Portal Farias basado en Roggero & Roma
 - Contexto: Juan le mostró a Luis Farias la web `lamontaña.lat` hecha para Víctor como demo visual/calidad Wolfim.
@@ -17,14 +17,35 @@
 - Base correcta: modelo **Roggero & Roma** — portal inmobiliario propio con catálogo, filtros, fichas individuales, mapa, WhatsApp/contacto y administración.
 - Documento de alcance: [[alcance-farias-basado-roggero-roma-2026-07-13]]
 - Relevamiento técnico web-builder: [[companies/wolfim/projects/farias-admin-panel-relevamiento-roggero-2026-07-13]]
-- Propuesta comercial vigente (copy comercial v2): [[propuesta-farias-asociados-portal-premium-comercial-v2-2026-07-14]]
+- Propuesta comercial vigente v16 con plazo y mantenimiento detallado: [[propuesta-farias-portal-v16-mobile-plazo-mantenimiento-2026-07-21.pdf]] y [[propuesta-farias-portal-v16-a4-desktop-plazo-mantenimiento-2026-07-21.pdf]]
 - Borrador anterior para La Montaña queda superseded por error de contexto: [[presupuesto-loteo-la-montana-2026-07-13]]
 - Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
 
 ## Proposal
-![[propuesta-farias-asociados-portal-premium-comercial-v3-2026-07-14.pdf]]
+![[propuesta-farias-portal-v16-mobile-plazo-mantenimiento-2026-07-21.pdf]]
+![[propuesta-farias-portal-v16-a4-desktop-plazo-mantenimiento-2026-07-21.pdf]]
+![[propuesta-farias-portal-comercial-v16-plazo-mantenimiento-2026-07-21.md]]
+![[propuesta-farias-portal-v15-mobile-oferta-399-2026-07-21.pdf]]
+![[propuesta-farias-portal-v15-a4-desktop-oferta-399-2026-07-21.pdf]]
+![[propuesta-farias-portal-comercial-v15-oferta-399-2026-07-21.md]]
+![[propuesta-farias-portal-v14-mobile-con-fotos-2026-07-21.pdf]]
+![[propuesta-farias-portal-v14-a4-desktop-con-fotos-2026-07-21.pdf]]
+![[propuesta-farias-portal-comercial-v14-con-fotos-2026-07-21.md]]
+![[propuesta-farias-portal-v13-mobile-2026-07-21.pdf]]
+![[propuesta-farias-portal-v13-a4-desktop-2026-07-21.pdf]]
+![[propuesta-farias-portal-comercial-v13-mobile-desktop-2026-07-21.md]]
+![[propuesta-farias-portal-comercial-mobile-v12-conversion-2026-07-21.pdf]]
+![[propuesta-farias-portal-comercial-mobile-v12-conversion-2026-07-21.md]]
+![[propuesta-farias-portal-comercial-mobile-v11-marco-2026-07-21.pdf]]
+![[propuesta-farias-portal-comercial-mobile-v11-marco-2026-07-21.md]]
+![[propuesta-farias-asociados-portal-premium-mobile-v10-3-paginas-2026-07-21.pdf]]
+![[propuesta-farias-asociados-portal-premium-mobile-v10-2026-07-21.md]]
+![[propuesta-farias-asociados-portal-premium-a4-v9-2026-07-18.pdf]]
+![[propuesta-farias-asociados-portal-premium-mobile-v9-2026-07-18.pdf]]
+![[propuesta-farias-asociados-portal-premium-a4-v6-2026-07-17.pdf]]
+![[propuesta-farias-asociados-portal-premium-mobile-v6-2026-07-17.pdf]]
 ![[alcance-farias-basado-roggero-roma-2026-07-13.md]]
-![[propuesta-farias-asociados-portal-premium-comercial-v2-2026-07-14.md]]
+![[propuesta-farias-asociados-portal-premium-comercial-v3-2026-07-14.md]]
 
 ## Pipeline
 - [x] First contact
@@ -34,13 +55,15 @@
 - [x] Aclarar enfoque correcto: Farias & Asociados basado en Roggero & Roma
 - [x] Handoff web-builder recibido con detalle admin panel
 - [x] Propuesta portal premium Farias armada (13 Jul 2026)
-- [ ] Juan revisa texto final
+- [ ] Juan revisa v16 mobile y A4/desktop con plazo y mantenimiento detallado
 - [ ] Enviar propuesta por WhatsApp a Luis
 - [ ] Charla con Luis + amigo al regreso del viaje
 - [ ] Contract signed
-- [ ] Payment received (50% = $225 USD si avanza propuesta USD 450)
+- [ ] Payment received (USD 200 iniciales si avanza propuesta USD 399)
 
-## Sitio Actual — Diagnóstico Profundo
+## Sitio Actual — Diagnóstico histórico superseded
+
+> No reutilizar este bloque como diagnóstico vigente: contiene hallazgos de una propuesta anterior que requieren una auditoría actual antes de cualquier comunicación. La propuesta v16 no depende de estas afirmaciones.
 
 **URL:** fariasyasociados.com.ar
 **Plataforma:** 2clics CRM (theme Houzez WordPress)
@@ -78,12 +101,15 @@
 | | Hoy (2clics) | Con Wolfim |
 |---|---|---|
 | WhatsApp | ❌ $37/mes extra | ✅ Incluido |
-| Costo mensual | $50 USD | $25 USD |
+| Costo mensual | $50 USD | $29 USD (desde el 7º mes; 6 meses bonificados) |
 | Lead capture | ❌ Email/teléfono | ✅ Formulario completo |
 | Panel propio | ❌ Dependen de 2clics | ✅ Totalmente suyo |
 | Entrega propiedades | Listado básico | Filtros + galería |
 
 ## Next Steps
-1. Socio retorna feedback (expected Friday post Apr 26)
-2. Follow up si no hay respuesta
-3. Si confirman → credenciales dominio + propiedades → 50% inicial → 3 semanas entrega
+1. Juan revisa las versiones v16 con plazo de 2 semanas y mantenimiento detallado, mobile y A4/desktop.
+2. Envío a Luis Farias y confirmación de interés.
+3. Pago inicial de USD 200 y registro de `fariasyasociados.com`.
+4. Coordinación segura de acceso técnico y fuente de propiedades.
+5. Migración inicial, diseño y revisión mobile/desktop.
+6. Publicación en `fariasyasociados.com.ar`, vinculación del `.com` y pago final de USD 199.

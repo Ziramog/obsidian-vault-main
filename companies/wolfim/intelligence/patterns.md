@@ -1,9 +1,9 @@
 ---
 company: Wolfim
 owner: wolfim-growth
-status: pending-first-write
-version: 1
-last-reviewed: 2026-07-12
+status: active
+version: 2
+last-reviewed: 2026-07-19
 ---
 
 # Patterns — Wolfim
@@ -63,3 +63,4 @@ last-reviewed: 2026-07-12
 | 2026-07-09 | GA4 de Wolfim ya mide tráfico real (249 usuarios, 353 sesiones, 1.618 eventos en 30 días), pero no sirve como tablero comercial hasta corregir key events: los eventos reales (`click_whatsapp`, `form_submit_diagnostico`, `view_pricing`) no coinciden con las conversiones configuradas. | wolfim-ga4-audit-2026-07-09 |
 | 2026-07-11 | La cola enriquecida de Web Viejas bajó a ~2 leads tras cuatro tandas consecutivas de 5 envíos sin fallos; el límite operativo inmediato ya no es el envío sino reabastecer/sanitizar leads y convertir los contactos enviados con follow-up humano y precio. Google Drive sigue sin sincronizar por `invalid_grant`. | cron_campaign_run |
 | 2026-07-12 | La cola de Web Viejas se agotó después de la tanda final de 2 envíos (0 fallos). El sistema de envío funciona, pero sin reabastecimiento/sanitización no hay continuidad; el siguiente cuello de botella es generar nuevos leads y hacer follow-up humano con precio. Drive continúa bloqueado por `invalid_grant`. | cron_campaign_run |
+| 2026-07-19 | Cuando `cron_campaign.py` corre con cola vacía durante varios días seguidos, la automatización deja de ser growth y pasa a ser ruido operativo. Si no hay reabastecimiento de leads ni follow-up humano con precio, el sistema solo da una falsa sensación de avance. | cron_campaign_run |
