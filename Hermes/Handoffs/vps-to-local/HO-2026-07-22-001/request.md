@@ -157,6 +157,75 @@ Juan/Wolfim: acceso administrador operativo
 
 No crear propiedades bajo Gmail personal de Juan si se puede evitar. Si falta acceso, dejar pasos exactos para que Juan/Antonio creen u otorguen permisos.
 
+## Pasos concretos para web-builder
+
+Ejecutar en este orden, sin saltear verificación:
+
+1. **Revisar páginas reales a medir**
+   - Confirmar cuál es la URL final de la home / sección RG-PTO.
+   - Confirmar cuál es la URL final de la landing Urvig/Micron.
+   - Si la landing del handoff `HO-2026-07-16-001` no está publicada todavía, dejarlo explícito en `response.md` como bloqueo.
+
+2. **Confirmar acceso a cuentas**
+   - Ver si ya existe propiedad GA4 de ANGO.
+   - Ver si existe cuenta Google Ads de ANGO o acceso operativo de Juan.
+   - Si falta acceso, no improvisar cuentas personales: documentar exactamente qué acceso falta y a qué Gmail hay que invitar.
+
+3. **Definir implementación técnica**
+   - Elegir entre:
+     - **GTM + GA4** si el stack actual lo permite sin fricción, o
+     - **GA4 directo** si es más simple y rápido.
+   - Documentar qué camino se eligió y por qué.
+
+4. **Instalar medición base**
+   - Insertar GA4 o GTM en el sitio sin romper performance mobile.
+   - Verificar que la propiedad empiece a recibir `page_view`.
+   - Si se usa GTM, nombrar tags/triggers con convención clara orientada a ANGO.
+
+5. **Implementar eventos principales**
+   - `whatsapp_clicked`
+   - `phone_clicked`
+   - `lead_form_submitted`
+   - `email_clicked`
+   - Para cada uno, asegurar que dispare sobre interacción real y no por simple render de página.
+
+6. **Diferenciar línea de producto**
+   - Enviar en eventos un valor que permita separar:
+     - `urvig_micron`
+     - `rg_pto`
+     - `unknown`
+   - Si no se puede con parámetro, resolverlo con IDs/selectores o por page path y dejarlo documentado.
+
+7. **Preparar CTAs y formularios**
+   - Dejar IDs/classes estables en botones de WhatsApp, teléfono, email y formularios.
+   - Verificar que `tel:` funcione bien en mobile.
+   - Verificar que el submit de formulario se mida solo cuando el envío fue exitoso.
+
+8. **Preparar URLs con UTM**
+   - Definir la URL final de cada grupo de anuncios.
+   - Probar una navegación real con UTM para validar que los parámetros no se rompen ni se pierden.
+
+9. **Configurar conversiones para Ads**
+   - Dejar marcadas o documentadas para importación como principales:
+     - `lead_form_submitted`
+     - `whatsapp_clicked`
+     - `phone_clicked`
+   - Dejar como secundarias/observación:
+     - `email_clicked`
+     - `catalog_downloaded`
+     - `calculator_submitted`
+
+10. **Probar con evidencia real**
+    - Hacer click real de WhatsApp.
+    - Hacer click real de teléfono.
+    - Hacer submit real o test verificable de formulario.
+    - Verificar cada evento en GA4 DebugView o Realtime.
+
+11. **Responder este handoff**
+    - Crear `response.md` en esta carpeta.
+    - Incluir URLs, propiedad GA4, si hubo GTM, eventos, conversiones, archivos tocados y bloqueos.
+    - Si algo quedó pendiente por acceso o por falta de landing publicada, dejar el siguiente paso exacto, no una frase genérica.
+
 ## Chequeo obligatorio antes de entregar
 
 `web-builder` debe verificar con evidencia real:
