@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-07-25
+last-reviewed: 2026-07-26
 confidence: medium
 status: active
 source: mixed
@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-25 10:01 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` volvió a correr con cola agotada (`✅ Todos los leads han sido enviados. No hay más pendientes.`) · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + decidir si Web Viejas se reabastece o se pausa.
+**Última actualización:** 2026-07-26 10:01 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` volvió a correr con cola agotada (`✅ Todos los leads han sido enviados. No hay más pendientes.`) · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + decidir si Web Viejas se reabastece o se pausa.
 
 ---
 
@@ -30,13 +30,14 @@ source: mixed
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-25
+### Resultado latest — 2026-07-26
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Salida real: `✅ Todos los leads han sido enviados. No hay más pendientes.`
 - No apareció ningún error nuevo en stdout durante esta corrida.
 - Riesgo inmediato: seguir corriendo sin inventario no genera oportunidad comercial nueva.
 
 ### Corrida histórica breve
+- 07/26: cola agotada; sin error nuevo visible en stdout.
 - 07/25: cola agotada; sin error nuevo visible en stdout.
 - 07/21: cola agotada; sin error nuevo visible en stdout.
 - 07/19: 0 enviados, 0 fallos; cola agotada.
