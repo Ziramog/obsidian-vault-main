@@ -2,7 +2,7 @@
 company: ANGO
 type: technical-close
 source: web-builder
-status: site-ready-payment-blocked
+status: site-ready-new-ads-account
 created-at: 2026-07-24T16:09:46-03:00
 owner: ango-commercial
 project: google-ads-2026-06
@@ -101,3 +101,41 @@ Juan informó que la forma de pago quedó bloqueada en prepago y que necesitará
 Si la cuenta nueva entrega otro `AW`, web-builder deberá reemplazar o agregar correctamente el nuevo tag y no dejar medición apuntando solo a la cuenta vieja.
 
 Si la cuenta nueva solo importa conversiones desde GA4, igual se recomienda vincular GA4 con la cuenta nueva, activar auto-tagging y validar eventos antes de publicar.
+
+## Actualización cuenta nueva — 2026-07-27
+
+Web-builder confirmó migración real a la cuenta nueva de Google Ads.
+
+- Método: `gtag` directo.
+- Google Ads tag nuevo: `AW-18353350898` confirmado.
+- Google Ads tag viejo: `AW-18347194194` removido.
+- GA4: `G-JX8JKF9ELH` confirmado.
+- Riesgo de duplicación: no.
+- Commit desplegado: `5200c58 fix: migrate ANGO Google Ads tag`.
+- Build: `npm run build`, 3 páginas construidas.
+- Consola producción: 0 errores JS.
+
+Producción verificada:
+
+- Home `/`:
+  - `dataLayer` configs: `G-JX8JKF9ELH`, `AW-18353350898`.
+  - `hasGA4=true`, `hasNew=true`, `hasOld=false`.
+- Landing `/repuestos-compatibles-urvig-micron/`:
+  - `dataLayer` configs: `G-JX8JKF9ELH`, `AW-18353350898`.
+  - `hasGA4=true`, `hasNew=true`, `hasOld=false`.
+
+Eventos probados OK en home:
+
+- `whatsapp_clicked` con `product_line=rg_pto`, `cta_location=home_hero`.
+- `phone_clicked` con `product_line=rg_pto`, `cta_location=footer_contact`.
+- `email_clicked` con `product_line=rg_pto`, `cta_location=footer_contact`.
+- `lead_form_submitted` con `product_line=rg_pto`, `cta_location=home_rg_quote_form`.
+
+Eventos probados OK en landing Urvig/Micron:
+
+- `whatsapp_clicked` con `product_line=urvig_micron`, `cta_location=hero`.
+- `phone_clicked` con `product_line=urvig_micron`, `cta_location=final_phone`.
+- `email_clicked` con `product_line=urvig_micron`, `cta_location=final_email`.
+- `lead_form_submitted` con `product_line=urvig_micron`, `cta_location=compatibility_form`.
+
+Decisión técnica final: campaña nueva puede activarse desde el punto de vista del sitio. Pendientes técnicos del sitio: ninguno.
