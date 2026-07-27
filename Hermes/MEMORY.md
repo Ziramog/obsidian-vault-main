@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-07-21
+last-reviewed: 2026-07-26
 confidence: medium
 status: active
 source: mixed
@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-21 10:01 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` volvió a correr con cola agotada (`✅ Todos los leads han sido enviados. No hay más pendientes.`) · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + decidir si Web Viejas se reabastece o se pausa.
+**Última actualización:** 2026-07-26 10:01 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` volvió a correr con cola agotada (`✅ Todos los leads han sido enviados. No hay más pendientes.`) · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + decidir si Web Viejas se reabastece o se pausa.
 
 ---
 
@@ -17,6 +17,7 @@ source: mixed
 - **Estado operativo previo registrado:** 🟢 ESCALA — junio cerró con Wolfim $1.000 USD + Ango $333 USD = $1.333 USD.
 - **Advertencia activa:** `Hermes/Intelligence/kpis.md` sigue vencido desde 2026-06-25 y sin números formales de Juan. No se puede confirmar el semáforo real.
 - **Regla activa mientras no haya update formal:** Wolfim prioritaria. Ango secundaria habilitada solo por el estado previo. Construvial sigue en standby.
+- **Briefing vigente:** también está vencido; no hay autorización fresca para cambiar prioridades, así que se mantiene criterio prudente de revenue primero.
 
 ---
 
@@ -29,13 +30,15 @@ source: mixed
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-21
+### Resultado latest — 2026-07-26
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Salida real: `✅ Todos los leads han sido enviados. No hay más pendientes.`
 - No apareció ningún error nuevo en stdout durante esta corrida.
 - Riesgo inmediato: seguir corriendo sin inventario no genera oportunidad comercial nueva.
 
 ### Corrida histórica breve
+- 07/26: cola agotada; sin error nuevo visible en stdout.
+- 07/25: cola agotada; sin error nuevo visible en stdout.
 - 07/21: cola agotada; sin error nuevo visible en stdout.
 - 07/19: 0 enviados, 0 fallos; cola agotada.
 - 07/16: 0 enviados, 0 fallos; cola agotada.
@@ -81,9 +84,11 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
   - `HO-2026-06-27-001` — ready, normal, sin cierre visible.
   - `HO-2026-07-13-001` — high, vencido, sin ack visible.
   - `HO-2026-07-16-001` — high, vencido, sin ack visible.
+  - `HO-2026-07-22-001` — sin cierre formal visible.
+  - `HO-2026-07-24-001` — high (Ango Ads), pendiente de response formal.
 - `HO-2026-06-30-001` y `HO-2026-07-06-001` siguen cancelados por Juan.
 - `HO-2026-07-12-001` y `HO-2026-07-12-002` done.
-- `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` espera consolidación de Juan porque `ARCHITECTURE.md` es zona Config.
+- `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` y `2026-07-24-jobseeker-profile.md` esperan consolidación / decisión de Juan.
 
 ---
 
