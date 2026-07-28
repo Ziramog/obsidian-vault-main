@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-26 10:01 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` volvió a correr con cola agotada (`✅ Todos los leads han sido enviados. No hay más pendientes.`) · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial: enviar propuesta Farias + decidir si Web Viejas se reabastece o se pausa.
+**Última actualización:** 2026-07-28 15:58 ART | **Semáforo no confirmable: KPIs formales incompletos** · `almas-libres` profile creado para Fundación Almas Libres (SOUL + workspace + alias + smoke test OK) · `cron_campaign.py` sigue con cola agotada · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial Wolfim: enviar propuesta Farias + decidir si Web Viejas se reabastece o se pausa.
 
 ---
 
@@ -71,9 +71,11 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 ## Empresas
 
+- **Wolfim:** foco principal mientras KPIs formales sigan vencidos. Web Viejas sin inventario; prioridad real es seguimiento/cierre.
 - **Ango:** junio $333 cobrados. Sigue pendiente de fondo: MONTECOR pagar importación. Handoff local `HO-2026-07-16-001` sigue sin ack visible y ya está vencido.
 - **Korantis:** sin revenue; modo evidencia + scout. No desplazar a Wolfim.
 - **Construvial:** standby. No activar sin aprobación explícita de Juan.
+- **Almas Libres:** nuevo profile Hermes `almas-libres` creado 2026-07-28 para Fundación Almas Libres (santuario equino, 50 caballos asilvestrados, personería jurídica reciente). Juan implementa digital; Anne presidenta; Magalí vicepresidenta. Rutas: `~/.hermes/profiles/almas-libres/SOUL.md` y workspace `/home/hermes/almas-libres/`. Modelo operativo verificado: `gpt-5.4` vía `openai-codex`; intento low-cost `opencode-go/deepseek-v4-flash` falló por 401 insufficient balance.
 
 ---
 
