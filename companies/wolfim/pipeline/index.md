@@ -8,6 +8,7 @@ Directorio de leads con conversación abierta o en proceso de cierre.
 |------|---------|-------|--------|-------------|
 | Ann | Documental de cine | No cotizado | 🟡 WA agendado | — |
 | Luis Farias | Farias & Asociados | $300 + $50/mes | PDF enviado, evaluando | 60% |
+| — | Suelo Argentino Negocios Inmobiliarios | USD 399 + USD 29/mes desde mes 7 | Propuesta v2 con logo, pendiente de revisión/envío | — |
 
 ## Checkpoints
 - Julio 2026: $400/mes
@@ -17,3 +18,4 @@ Directorio de leads con conversación abierta o en proceso de cierre.
 ## Acciones
 - [ ] Follow-up Luis Farias esta semana
 - [ ] Completar datos Ann
+- [ ] Revisar y definir envío a Suelo Argentino — 2026-07-31
