@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Construvial · Catálogo de Equipos</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  :root { --charcoal:#505053; --black:#222225; --yellow:#F6B328; --light:#F5F5F5; --line:#828286; --ink:#353538; --muted:#717176; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#e7e7e7; font-family:Arial, Helvetica, sans-serif; color:var(--ink); -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page { width:210mm; height:297mm; overflow:hidden; background:white; position:relative; page-break-after:always; break-after:page; }
+  .cover-page { background:var(--charcoal); color:white; display:flex; align-items:center; justify-content:center; }
+  .cover-page::after { content:""; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.02),rgba(0,0,0,.14)); }
+  .cover-content { position:relative; z-index:2; width:77%; text-align:center; transform:translateY(-4mm); }
+  .cover-logo { width:95%; height:auto; object-fit:contain; }
+  .cover-rule { height:3px; width:100%; margin:12mm auto 6mm; background:linear-gradient(90deg, transparent, var(--yellow) 16%, var(--yellow) 84%, transparent); }
+  .cover-kicker { color:var(--yellow); letter-spacing:4.5px; font-weight:800; font-size:14px; }
+  .cover-page h1 { margin:6mm 0 2mm; font-size:30px; letter-spacing:1.2px; font-weight:800; }
+  .cover-page p { margin:0; font-size:10px; letter-spacing:3.2px; font-weight:700; color:#efefef; }
+  .cover-footer { position:absolute; z-index:2; left:12mm; right:12mm; bottom:12mm; display:flex; justify-content:space-between; color:#d7d7d9; font-size:7.2px; letter-spacing:.7px; font-weight:700; }
+  .cover-pattern { position:absolute; border:1.3px solid rgba(255,255,255,.14); border-radius:28mm; transform:rotate(-42deg); }
+  .pattern-a { width:190mm; height:24mm; top:24mm; left:-20mm; }
+  .pattern-b { width:174mm; height:25mm; top:126mm; left:26mm; transform:rotate(42deg); }
+  .pattern-c { width:190mm; height:24mm; bottom:34mm; right:-38mm; }
+  .content-page { padding:9mm 9mm 10mm; display:flex; flex-direction:column; }
+  .topbar { flex:0 0 16mm; height:16mm; padding:3mm 4mm; display:flex; align-items:center; justify-content:space-between; background:var(--charcoal); border-bottom:2.4px solid var(--yellow); }
+  .topbar img { width:52mm; max-height:10mm; object-fit:contain; object-position:left center; }
+  .header-label { color:var(--yellow); font-size:7.5px; letter-spacing:1.7px; font-weight:800; }
+  .page-body { flex:1; min-height:0; padding-top:5mm; }
+  .page-heading { display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid var(--line); padding-bottom:2mm; margin-bottom:3mm; }
+  .page-heading h1 { margin:0; color:#737377; font-size:16px; line-height:1; letter-spacing:-.4px; font-weight:800; }
+  .page-heading p { margin:1.3mm 0 0; color:#929296; font-size:6.7px; font-weight:700; letter-spacing:1.35px; }
+  .section-number { color:var(--yellow); font-size:23px; line-height:.8; font-weight:900; letter-spacing:-1px; }
+  .equipment-block { break-inside:avoid; page-break-inside:avoid; margin-bottom:4.2mm; }
+  .block-title { display:flex; align-items:center; gap:3mm; margin-bottom:1.4mm; color:#77777b; font-size:8.5px; font-weight:800; }
+  .block-title span { width:46mm; text-transform:uppercase; line-height:1.08; }
+  .block-title i { display:block; height:1.1px; flex:1; background:#85858a; }
+  .block-content { display:flex; align-items:stretch; gap:3mm; }
+  .photo-slot { width:46mm; flex:0 0 46mm; min-height:35mm; padding:4mm 2.5mm; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; border:1.2px dashed #a1a1a5; background:#f6f6f7; color:#747478; }
+  .photo-icon { width:10mm; height:7mm; border:1.1px solid #a3a3a6; position:relative; margin-bottom:1.5mm; }
+  .photo-icon::before { content:""; width:2.2mm; height:2.2mm; border-radius:50%; background:#a3a3a6; position:absolute; top:1.1mm; right:1.1mm; }
+  .photo-icon::after { content:""; position:absolute; left:1mm; right:1mm; bottom:1mm; height:3mm; background:linear-gradient(135deg, transparent 47%, #a3a3a6 48% 53%, transparent 54%), linear-gradient(45deg, transparent 47%, #a3a3a6 48% 53%, transparent 54%); }
+  .photo-slot strong { font-size:6px; letter-spacing:.6px; color:#68686b; }
+  .photo-slot span { margin-top:.8mm; color:var(--yellow); font-size:6.5px; font-weight:800; }
+  .photo-slot small { margin-top:1.1mm; font-size:5px; letter-spacing:.5px; color:#97979b; }
+  .table-wrap { flex:1; min-width:0; }
+  table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:6.8px; line-height:1.15; }
+  col.col-model { width:26%; } col.col-power { width:11%; } col.col-weight { width:15%; } col.col-traction { width:17%; } col.col-details { width:31%; }
+  thead th { background:var(--yellow); color:white; padding:1.72mm 1.25mm 1.52mm; text-align:left; vertical-align:middle; font-size:5.65px; line-height:1.02; letter-spacing:.12px; font-weight:800; }
+  tbody tr:nth-child(odd) { background:#f5f5f5; }
+  tbody tr:nth-child(even) { background:#fbfbfb; }
+  tbody td { padding:1.42mm 1.25mm; vertical-align:top; border-bottom:.45px solid #ededed; overflow-wrap:anywhere; }
+  tbody td.model { font-weight:800; color:#343438; font-size:6.55px; text-transform:uppercase; }
+  tbody td.details { color:#5e5e63; }
+  footer { flex:0 0 6mm; height:6mm; border-top:1px solid #a2a2a5; padding-top:1.7mm; display:grid; grid-template-columns:1.35fr 2fr 8mm; gap:2mm; color:#858589; font-size:4.8px; line-height:1.05; letter-spacing:.25px; font-weight:700; }
+  footer span:last-child { text-align:right; color:var(--yellow); font-size:7px; line-height:.75; font-weight:900; }
+  @media print { body { background:#fff; } .page:last-child { page-break-after:auto; break-after:auto; } }
+
+  .photo-slot { border:1px solid #e6e6e7; background:#fff; overflow:hidden; padding:1mm; }
+  .photo-slot img { display:block; width:100%; height:100%; object-fit:contain; }
+</style>
+</head>
+<body>
+<section class="page cover-page">
+<div class="cover-pattern pattern-a"></div><div class="cover-pattern pattern-b"></div><div class="cover-pattern pattern-c"></div>
+<div class="cover-content">
+<img alt="Construvial S.A." class="cover-logo" src="logo-construvial.png"/>
+<div class="cover-rule"></div>
+<div class="cover-kicker">RENTAL &amp; SERVICIOS</div>
+<h1>CATÁLOGO DE EQUIPOS</h1>
+<p>CONSTRUCCIÓN · MINERÍA · OIL &amp; GAS</p>
+</div>
+<div class="cover-footer"><span>VERSIÓN DE TRABAJO</span><span>IMÁGENES REPRESENTATIVAS POR CATEGORÍA</span></div>
+</section>
+<section class="page content-page">
+<header class="topbar">
+<img alt="Construvial S.A." src="logo-construvial.png"/>
+<div class="header-label">RENTAL &amp; SERVICIOS</div>
+</header>
+<main class="page-body">
+<div class="page-heading">
+<div><h1>MOVIMIENTO DE SUELO</h1><p>EXCAVACIÓN · PERFILADO · EMPUJE</p></div>
+<div class="section-number">01</div>
+</div>
+<section class="equipment-block">
+<div class="block-title"><span>EXCAVADORAS</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Excavadoras" src="assets/category_photos/excavadoras.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Doosan DX 350 LC</td>
+<td>271</td>
+<td>35.200</td>
+<td>Orugas</td>
+<td class="details">Balde ref. 1,53 m³ (rango 1,30-1,83 m³) · Prof. exc. 6,93 m; alcance 10,38 m; boom 6,50 m / brazo 2,60 m</td>
+</tr><tr>
+<td class="model">Hyunday 330 LC-9S</td>
+<td>263 HP bruta (neta no…</td>
+<td>32.700 kg</td>
+<td>Orugas / LC</td>
+<td class="details">Balde 1,38-1,44 m³ · Prof. exc. máx. 7,37 m; alcance exc. máx. 11,16 m; altura descarga máx. 7,09 m; fuerza balde…</td>
+</tr><tr>
+<td class="model">komatsu PC 200 LC</td>
+<td>131</td>
+<td>22.390</td>
+<td>Orugas</td>
+<td class="details">Balde 1,20 m³; ancho 1.350 mm · Prof. exc. 6,66 m; pluma 5,70 m; brazo 2,90 m</td>
+</tr><tr>
+<td class="model">Hyindai 220 LC-9S</td>
+<td>150 HP (112 kW)</td>
+<td>21.900</td>
+<td>Orugas / LC; zapata 600 mm</td>
+<td class="details">Balde 0,92 m³; ancho 1,27 m · Transp. 9,53×2,80×3,00 m; prof. exc. 6,73 m; alcance 9,82 m</td>
+</tr><tr>
+<td class="model">Doosan DX 225 LC</td>
+<td>148</td>
+<td>21.500</td>
+<td>Orugas</td>
+<td class="details">Balde ref. 0,99 m³ (rango 0,54-1,30 m³) · Prof. exc. 6,11 m; alcance 9,30 m; boom 5,70 m / brazo 2,40 m</td>
+</tr><tr>
+<td class="model">Jonh Deere 160G LC</td>
+<td>122</td>
+<td>18.017 kg</td>
+<td>Orugas</td>
+<td class="details">Cucharón 0,60 m³ · Prof. exc. máx. 6,46 m; alcance a nivel suelo 9,68 m; altura descarga 6,81 m</td>
+</tr><tr>
+<td class="model">Accesorios de Excavadora: Martillo hidraulico de demolision para alguno de los modelos</td>
+<td>No aplica (accesorio…</td>
+<td>Peso según modelo de martillo: no…</td>
+<td>No aplica (se monta en excavadora)</td>
+<td class="details">Accesorio: martillo hidráulico según compatibilidad de excavadora · Caudal/presión/frecuencia dependen del…</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section><section class="equipment-block">
+<div class="block-title"><span>MOTONIVELADORAS</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Motoniveladoras" src="assets/category_photos/motoniveladoras.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Cat 140k</td>
+<td>180</td>
+<td>14.768</td>
+<td>Transmisión powershift; tracción…</td>
+<td class="details">Cuchilla 4,26×0,61×0,02 m · Largo 10,00 m; alto 3,35 m; ancho 2,48 m</td>
+</tr><tr>
+<td class="model">John Deere 670 G</td>
+<td>195</td>
+<td>15.970</td>
+<td>Transmisión powershift; tracción…</td>
+<td class="details">Cuchilla 4,26×0,61×0,02 m · Largo 10,59 m; alto 3,40 m; ancho 2,64 m</td>
+</tr><tr>
+<td class="model">Volvo G940</td>
+<td>225</td>
+<td>16.397</td>
+<td>Tándem trasero; AWD no disponible…</td>
+<td class="details">Moldboard 3,66 m × 0,64 m × 0,02 m · Largo 9,14 m; ancho 2,51 m; alto cabina 3,23 m</td>
+</tr><tr>
+<td class="model">Liugong 4215D</td>
+<td>217</td>
+<td>18.000</td>
+<td>Tándem trasero; AWD no disponible…</td>
+<td class="details">Cuchilla 4.270 mm; tiro barra 93 kN · Largo 9,09 m</td>
+</tr><tr>
+<td class="model">SDLG G9190 F</td>
+<td>196</td>
+<td>15.800</td>
+<td>Tándem trasero; AWD no disponible…</td>
+<td class="details">Cuchilla 3.966×635×22 mm; corte máx. 787 mm · Largo transp. 8,98 m</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section><section class="equipment-block">
+<div class="block-title"><span>TOPADORAS</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Topadoras" src="assets/category_photos/topadoras.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Cat D8 T</td>
+<td>310</td>
+<td>39.800</td>
+<td>Orugas</td>
+<td class="details">Hoja 11,70 m³ · Largo 7,87 m; alto 2,70 m; ancho 3,59 m</td>
+</tr><tr>
+<td class="model">Komatsu D65</td>
+<td>190</td>
+<td>18.600</td>
+<td>Orugas</td>
+<td class="details">Hoja 5,61 m³ · Largo 4,37 m; alto 2,97 m; ancho 3,19 m</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<footer><span>CONSTRUVIAL S.A. · CATÁLOGO DE EQUIPOS</span><span>ESPECIFICACIONES REFERENCIALES · SUJETAS A CONFIGURACIÓN</span><span>02</span></footer>
+</section><section class="page content-page">
+<header class="topbar">
+<img alt="Construvial S.A." src="logo-construvial.png"/>
+<div class="header-label">RENTAL &amp; SERVICIOS</div>
+</header>
+<main class="page-body">
+<div class="page-heading">
+<div><h1>MOVIMIENTO DE SUELO</h1><p>CARGA · RETROEXCAVACIÓN</p></div>
+<div class="section-number">02</div>
+</div>
+<section class="equipment-block">
+<div class="block-title"><span>CARGADORAS FRONTALES</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Cargadoras Frontales" src="assets/category_photos/cargadoras.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Komatsu WA500-6</td>
+<td>333</td>
+<td>35.000</td>
+<td>4x4 articulada</td>
+<td class="details">Balde 4,3-5,6 m³ · Largo 9,82 m; ancho 3,19 m; alto 3,79 m</td>
+</tr><tr>
+<td class="model">Doosan DL300</td>
+<td>217</td>
+<td>17.300</td>
+<td>4x4 articulada</td>
+<td class="details">Balde 3,00 m³ (3,93 yd³) · Largo 8,15 m; ancho 2,76 m; alto cabina 3,44 m; descarga 2,78 m</td>
+</tr><tr>
+<td class="model">John Deere 644 G-Tier/K</td>
+<td>232</td>
+<td>18.160</td>
+<td>4x4 articulada</td>
+<td class="details">Balde 3,20 m³; ancho 3.040 mm · Largo 8,14 m; alto 3,43 m; ancho 2,88 m</td>
+</tr><tr>
+<td class="model">Liugong 855H</td>
+<td>204</td>
+<td>16.540</td>
+<td>4x4 articulada</td>
+<td class="details">Balde 3,0 m³; carga 5.000-6.000 kg · Largo 8,20 m aprox.; descarga máx. no disponible</td>
+</tr><tr>
+<td class="model">Liugong 835H</td>
+<td>119</td>
+<td>11.798</td>
+<td>4x4 articulada</td>
+<td class="details">Balde 1,9 m³; carga 3.000 kg · Largo 7,12 m; descarga 2,80 m</td>
+</tr><tr>
+<td class="model">XCMG LW180K</td>
+<td>78</td>
+<td>6.200</td>
+<td>4x4 articulada</td>
+<td class="details">Balde 0,9-1,1 m³; carga 1.800 kg · Largo 5,98 m; descarga 2,65-2,97 m</td>
+</tr><tr>
+<td class="model">Minicargadora Cat 246b</td>
+<td>78</td>
+<td>3.240</td>
+<td>Ruedas / skid steer</td>
+<td class="details">Carga operativa 907 kg; balde según accesorio · Largo con balde 3,52 m; ancho 1,68 m; alto cabina 2,09 m</td>
+</tr><tr>
+<td class="model">Minicargadora Cat 226b (consultar accesorios)</td>
+<td>58</td>
+<td>2.646</td>
+<td>Ruedas / skid steer</td>
+<td class="details">Carga operativa 680 kg; balde según accesorio · Largo con balde 3,23 m; ancho 1,53 m; alto cabina 1,95 m</td>
+</tr><tr>
+<td class="model">Minicargadora Bobcat S530 (consultar accesorios)</td>
+<td>49</td>
+<td>2.815</td>
+<td>Ruedas / skid steer</td>
+<td class="details">Carga 840 kg · Largo 3,38 m; alto 1,97 m; ancho 1,64 m</td>
+</tr><tr>
+<td class="model">Minicargadora Bobcat S150</td>
+<td>46</td>
+<td>2.692</td>
+<td>Ruedas / skid steer</td>
+<td class="details">Carga operativa 680 kg; balde 0,38 m³ · Largo con balde 3,31 m; ancho 1,68 m; alto cabina 1,94 m</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section><section class="equipment-block">
+<div class="block-title"><span>RETROPALAS</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Retropalas" src="assets/category_photos/retropalas.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">John Deere 310K 4x2</td>
+<td>72</td>
+<td>6.300</td>
+<td>4x2</td>
+<td class="details">Pala 0,96 m³; balde retro 0,76 m³ · Largo 7,09 m; alto 2,74 m; ancho 2,18 m</td>
+</tr><tr>
+<td class="model">John Deere 310K 4x4</td>
+<td>88</td>
+<td>7.600</td>
+<td>4x4</td>
+<td class="details">Pala 0,96 m³; balde retro 0,76 m³ · Largo 7,09 m; alto 2,74 m; ancho 2,18 m</td>
+</tr><tr>
+<td class="model">Jcb 3CX 4x4</td>
+<td>74</td>
+<td>7.344</td>
+<td>4x4</td>
+<td class="details">Pala 6-en-1 / cap. según configuración; retro 7,1 ft³ · Prof. retro 4,45 m retraída / 5,64 m extendida;…</td>
+</tr><tr>
+<td class="model">Cat 416E 4x4</td>
+<td>74</td>
+<td>6.792</td>
+<td>4x4</td>
+<td class="details">Pala 1,0 m³; balde retro 24 in según config. · Prof. retro 4,36 m estándar / 5,46 m extendida; peso máx. 10.200 kg</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<footer><span>CONSTRUVIAL S.A. · CATÁLOGO DE EQUIPOS</span><span>ESPECIFICACIONES REFERENCIALES · SUJETAS A CONFIGURACIÓN</span><span>03</span></footer>
+</section><section class="page content-page">
+<header class="topbar">
+<img alt="Construvial S.A." src="logo-construvial.png"/>
+<div class="header-label">RENTAL &amp; SERVICIOS</div>
+</header>
+<main class="page-body">
+<div class="page-heading">
+<div><h1>COMPACTACIÓN Y TRACCIÓN</h1><p>SUELOS · ASFALTO · APOYO AGRÍCOLA</p></div>
+<div class="section-number">03</div>
+</div>
+<section class="equipment-block">
+<div class="block-title"><span>COMPACTADORES</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Compactadores" src="assets/category_photos/compactadores.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Cat 815 F (doble PD) (suelo)</td>
+<td>232</td>
+<td>21.713</td>
+<td>Autopropulsado; tracción a ruedas</td>
+<td class="details">Compactador de suelos doble pata de cabra; hoja/ruedas compactadoras según configuración · Largo aprox. 6,85 m;…</td>
+</tr><tr>
+<td class="model">Cat CB44 B (Asfalto)</td>
+<td>100</td>
+<td>8.300</td>
+<td>Autopropulsado; doble tambor…</td>
+<td class="details">Doble tambor vibratorio; ancho compactación 1.500 mm · Largo 4,57 m; ancho 1,67 m; alto 2,98 m</td>
+</tr><tr>
+<td class="model">Ammann ARS 110 HX (suelo)</td>
+<td>134</td>
+<td>10.860</td>
+<td>Autopropulsado; rodillo simple…</td>
+<td class="details">Tambor liso HX; ancho 2.130 mm · Largo 5,90 m; ancho 2,26 m; alto 2,97 m</td>
+</tr><tr>
+<td class="model">Ammann ARS 110 PD (suelo)</td>
+<td>134</td>
+<td>11.575</td>
+<td>Autopropulsado; rodillo simple…</td>
+<td class="details">Tambor pata de cabra PD; ancho 2.130 mm · Largo 5,90 m; ancho 2,26 m; alto 2,97 m</td>
+</tr><tr>
+<td class="model">Cat Cw 16 (Asfalto + suelo)</td>
+<td>100,5 HP bruta</td>
+<td>5.200-15.000</td>
+<td>Autopropulsado; neumático</td>
+<td class="details">Neumático 9 ruedas; ancho compactación 1,75 m · Peso operativo variable 5.200-15.000 kg</td>
+</tr><tr>
+<td class="model">Cat Cw 34 (Asfalto + suelo)</td>
+<td>131</td>
+<td>10.000-27.000</td>
+<td>Autopropulsado; neumático</td>
+<td class="details">Neumático 8 ruedas; ancho compactación 2,09 m · Largo 5,35 m; ancho 2,16 m; alto ROPS 3,00 m</td>
+</tr><tr>
+<td class="model">Bomag BW 211 liso (suelo)</td>
+<td>132</td>
+<td>10.400</td>
+<td>Autopropulsado; rodillo simple…</td>
+<td class="details">Tambor liso / ancho trabajo 2.130 mm · Largo 5,84 m; alto 2,97 m; ancho 2,25 m</td>
+</tr><tr>
+<td class="model">Bomag BW 211 PD  (suelo)</td>
+<td>128</td>
+<td>10.600</td>
+<td>Autopropulsado; rodillo simple…</td>
+<td class="details">Tambor pata de cabra; ancho 2.130 mm · Peso operativo 10.600 kg; ancho operativo 2,13 m</td>
+</tr><tr>
+<td class="model">Dynapac CA25 Liso  (suelo)</td>
+<td>102 HP (76 kW)</td>
+<td>10.400</td>
+<td>Autopropulsado; rodillo simple…</td>
+<td class="details">Tambor liso; ancho 2.130 mm · Largo 5,56 m; ancho 2,26 m; alto 2,89 m</td>
+</tr><tr>
+<td class="model">Dynapac CA25 PD  (suelo)</td>
+<td>102 HP (76 kW)</td>
+<td>10.600-11.200</td>
+<td>Autopropulsado; rodillo simple…</td>
+<td class="details">Tambor pata de cabra; ancho 2.130 mm · Largo 5,56 m; ancho 2,26 m; alto 2,89 m</td>
+</tr><tr>
+<td class="model">Cat CB34 B (Asfalto + suelo)</td>
+<td>49</td>
+<td>3.700</td>
+<td>Autopropulsado; doble tambor…</td>
+<td class="details">Doble tambor; ancho 1.400 mm · Largo 2,86 m; ancho 1,40 m</td>
+</tr><tr>
+<td class="model">Cat CB22 B (Asfalto + suelo)</td>
+<td>36,2 HP bruta (27 kW)</td>
+<td>2.553 kg</td>
+<td>Autopropulsado; doble tambor…</td>
+<td class="details">Ancho tambor 0,99 m; fuerza centrífuga máx. 28,8 kN · Largo 2,57 m; ancho 1,12 m; alto aprox. 1,80 m; vel. máx.…</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section><section class="equipment-block">
+<div class="block-title"><span>TRACTORES</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Tractores" src="assets/category_photos/tractores.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Pauny 280 EVO (180 hp)</td>
+<td>180</td>
+<td>6.230 kg sin lastre</td>
+<td>4x4</td>
+<td class="details">Implementos: rastras y accesorios según configuración · Largo 4,572 m; ancho simple/dual 2,39/3,41 m; alto máx.…</td>
+</tr><tr>
+<td class="model">Pauny 500 EVO (200 hp articulado)</td>
+<td>200</td>
+<td>7.244 kg sin lastre; 10.165 kg…</td>
+<td>Articulado 4x4</td>
+<td class="details">Implementos: rastras y accesorios según configuración · Largo 5,685 m; ancho simple/dual 2,27/3,06 m; alto 3,620…</td>
+</tr><tr>
+<td class="model">John Deere 6170J (170 hp 4x4)</td>
+<td>170 HP</td>
+<td>Peso operativo no disponible</td>
+<td>4x4 / rodado simple o dual…</td>
+<td class="details">Implementos: rastras y accesorios según configuración · Motor 6,8 L 6 cil.; transmisión PowrQuad 16+16; chasis…</td>
+</tr><tr>
+<td class="model">Valtra AR 190 (190 hp 4x4)</td>
+<td>190 CV</td>
+<td>Peso operativo no disponible</td>
+<td>4x4</td>
+<td class="details">Implementos: rastras y accesorios según configuración · Motor 6,6 L; 670 Nm @ 1.400 rpm; hidráulico 130 L/min;…</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<footer><span>CONSTRUVIAL S.A. · CATÁLOGO DE EQUIPOS</span><span>ESPECIFICACIONES REFERENCIALES · SUJETAS A CONFIGURACIÓN</span><span>04</span></footer>
+</section><section class="page content-page">
+<header class="topbar">
+<img alt="Construvial S.A." src="logo-construvial.png"/>
+<div class="header-label">RENTAL &amp; SERVICIOS</div>
+</header>
+<main class="page-body">
+<div class="page-heading">
+<div><h1>TRANSPORTE EN OBRA</h1><p>VOLCADORES · RIEGO · HORMIGÓN</p></div>
+<div class="section-number">04</div>
+</div>
+<section class="equipment-block">
+<div class="block-title"><span>CAMIONES VOLCADORES</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Camiones Volcadores" src="assets/category_photos/volcadores.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Iveco Trakker 380 6x4 - 20 m3</td>
+<td>380</td>
+<td>16.000</td>
+<td>6x4</td>
+<td class="details">Caja 20 m³; carga ref. Milicic 30 tn · Tanque combustible 280 l; caja manual</td>
+</tr><tr>
+<td class="model">Volvo VM 330 6x4 - 20 m3</td>
+<td>330</td>
+<td>16.000</td>
+<td>6x4</td>
+<td class="details">Caja 20 m³; carga ref. Milicic 30 tn · Tanque combustible 280 l; caja automática</td>
+</tr><tr>
+<td class="model">Renault Kerax 440 6x4 - 20 m3</td>
+<td>440 CV</td>
+<td>Peso/PBT no disponible</td>
+<td>6x4</td>
+<td class="details">Caja volcadora/batea 20 m³ · Datos exactos de PBT/dimensiones no disponibles en fuente consultada</td>
+</tr><tr>
+<td class="model">Scania 360 con tractor con eje neumatico con Batea vuelco trasero (35 m3)</td>
+<td>360 CV</td>
+<td>PBT técnico 26.100 kg; CMT 52.000…</td>
+<td>6x2</td>
+<td class="details">Batea vuelco trasero 35 m³ · Motor DC13 12,7 L; torque 1.850 Nm; chasis aprox. 7.830 kg; batea 35 m³ según Excel</td>
+</tr><tr>
+<td class="model">Iveco Cursor 330 con tractor con eje neumatico con Batea vuelco trasero (30 m3)</td>
+<td>330 CV (243 kW)</td>
+<td>Peso/PBT no disponible</td>
+<td>Tractor con eje neumático;…</td>
+<td class="details">Batea vuelco trasero 30 m³ · Motor Cursor 9 8,71 L; torque 1.300 Nm; batea 30 m³ según Excel</td>
+</tr><tr>
+<td class="model">Scania 340 con tractor con eje neumatico con Batea vuelco trasero (28 m3)</td>
+<td>340</td>
+<td>Peso/PBT no disponible</td>
+<td>Tractor con eje neumático;…</td>
+<td class="details">Batea vuelco trasero 28 m³ · Tractor con eje neumático</td>
+</tr><tr>
+<td class="model">Mercedes Benz 24230 6x4 - 18 m3</td>
+<td>231 HP aprox. (modelo…</td>
+<td>Peso/PBT no disponible</td>
+<td>6x4</td>
+<td class="details">Caja volcadora/mixer 18 m³ según Excel · Aplicación construcción/minería; toma de fuerza para volcadora/mixer</td>
+</tr><tr>
+<td class="model">Mercedes Benz Atego 250 4x2 - 7 m3</td>
+<td>245 CV</td>
+<td>PBT 17.100 kg; CMT 37.000 kg</td>
+<td>4x2</td>
+<td class="details">Caja 7 m³ · Motor 6,374 L; torque 900 Nm; caja 7 m³ según Excel</td>
+</tr><tr>
+<td class="model">VW 17290 4x2 - 10 m3</td>
+<td>277 CV netos (204 kW)</td>
+<td>Capacidad técnica 26.300 kg; PBT…</td>
+<td>6x2/6x4 según versión; Excel…</td>
+<td class="details">Caja 10 m³ · Motor MAN D08 6,871 L; torque 1.050 Nm; caja 10 m³ según Excel</td>
+</tr><tr>
+<td class="model">Ford 14000 4x2 - 6 m3</td>
+<td>162 CV</td>
+<td>Tara aprox. 4.712–4.774 kg; CMT…</td>
+<td>4x2</td>
+<td class="details">Caja 6 m³ · Motor Cummins 6BTA 5.9; torque 569 Nm; neumáticos 275/80 R22.5; tanque 150 L; caja 6 m³ según Excel</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section><section class="equipment-block">
+<div class="block-title"><span>CAMIONES REGADORES</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Camiones Regadores" src="assets/category_photos/regadores.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Mercedes Benz Atego 17-290 4x2 con tanque 10mil + sistema de riego</td>
+<td>286 CV</td>
+<td>PBT 17.100 kg; PBTC 40.000 kg</td>
+<td>4x2</td>
+<td class="details">Tanque 10.000 l + sistema de riego · Largo 5,985/7,130 m según versión; motor 7,2 L; torque 1.250 Nm; tanque riego…</td>
+</tr><tr>
+<td class="model">Mercedes Benz Atego 17-250 4x2 con tanque 8mil + sistema de riego</td>
+<td>245 CV</td>
+<td>PBT 17.100 kg; CMT 37.000 kg</td>
+<td>4x2</td>
+<td class="details">Tanque 8.000 l + sistema de riego · Motor 6,374 L; torque 900 Nm; tanque riego 8.000 l según Excel</td>
+</tr><tr>
+<td class="model">Iveco Tector 260E30  6x4 con tanque 18mil + sistema de riego</td>
+<td>300 CV (220 kW)</td>
+<td>PBT 26.200 kg; PBTC/CMT 42.000 kg</td>
+<td>6x4</td>
+<td class="details">Tanque 18.000 l + sistema de riego · Largo 7,491/9,821 m; ancho 2,50 m; tara 7.651–7.791 kg; motor NEF 6 6,728 L;…</td>
+</tr><tr>
+<td class="model">Volkswagen 26-280  6x2 con tanque 18mil + sistema de riego</td>
+<td>260 CV</td>
+<td>Capacidad técnica 25.600 kg; PBT…</td>
+<td>6x2</td>
+<td class="details">Tanque 18.000 l + sistema de riego · Motor MAN 6,870 L; tanque riego 18.000 l según Excel</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section><section class="equipment-block">
+<div class="block-title"><span>CAMIONES HORMIGONEROS</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Camiones Hormigoneros" src="assets/category_photos/hormigoneros.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Iveco Tector 34-320 8x4 con mixer Indumix MTI 12 AP (12 m3)</td>
+<td>320 CV (235 kW)</td>
+<td>PBT 34.000 kg; PBTC/CMT 44.000 kg</td>
+<td>8x4</td>
+<td class="details">Mixer 12 m³ · Largo 8,578 m; ancho 2,400 m; tara 8.990–9.100 kg; motor FPT NEF 67; torque 1.100 Nm; mixer 12 m³…</td>
+</tr><tr>
+<td class="model">Iveco Eurotronic 480 6x4 con mixer Indumix MTI 10 AP (10 m3)</td>
+<td>480 CV</td>
+<td>Peso/PBT no disponible</td>
+<td>6x4</td>
+<td class="details">Mixer 10 m³ · Mixer 10 m³ según Excel; peso/dimensiones exactos no disponibles</td>
+</tr><tr>
+<td class="model">Scania 360 eje neumatico con semi Mixer Indumix MTS 10 (10 m3)</td>
+<td>360 CV</td>
+<td>PBT técnico 26.100 kg; CMT 52.000…</td>
+<td>6x2 / eje neumático</td>
+<td class="details">Semi mixer 10 m³ · Motor DC13 12,7 L; torque 1.850 Nm; mixer/semi 10 m³ según Excel</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<footer><span>CONSTRUVIAL S.A. · CATÁLOGO DE EQUIPOS</span><span>ESPECIFICACIONES REFERENCIALES · SUJETAS A CONFIGURACIÓN</span><span>05</span></footer>
+</section><section class="page content-page">
+<header class="topbar">
+<img alt="Construvial S.A." src="logo-construvial.png"/>
+<div class="header-label">RENTAL &amp; SERVICIOS</div>
+</header>
+<main class="page-body">
+<div class="page-heading">
+<div><h1>SERVICIOS ESPECIALES</h1><p>IZAJES · COMBUSTIBLE · HORMIGÓN</p></div>
+<div class="section-number">05</div>
+</div>
+<section class="equipment-block">
+<div class="block-title"><span>CAMIONES HIDROGRÚA</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Camiones Hidrogrúa" src="assets/category_photos/hidrogruas.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Volkswagen 26-260 4x2 con hidrogrua Hidrogrubert 17,5 + caja playa</td>
+<td>260 CV</td>
+<td>Capacidad técnica 25.600 kg; PBT…</td>
+<td>4x2 según Excel; ficha exacta no…</td>
+<td class="details">Hidrogrúa Hidrogrubert 17,5 + caja playa · Hidrogrúa Hidrogrubert 17,5 + caja playa; capacidad/alcance exacto no…</td>
+</tr><tr>
+<td class="model">Mercedes Bens Atego 17-290 6x2 con hidrogrua Hidrogrubert 17.5 + camilla rebatible de 8 mts largo</td>
+<td>286 CV</td>
+<td>PBT 17.100 kg; PBTC 40.000 kg</td>
+<td>6x2</td>
+<td class="details">Hidrogrúa Hidrogrubert 17,5; camilla 8 m · Camilla rebatible 8 m; hidrogrúa Hidrogrubert 17.5; alcance grúa exacto…</td>
+</tr><tr>
+<td class="model">Mercedes Bens Atego 17-290 6x2 con hidrogrua Palfinger PK 24001 + camilla rebatible de 8 mts largo</td>
+<td>286 CV</td>
+<td>PBT 17.100 kg; PBTC 40.000 kg</td>
+<td>6x2</td>
+<td class="details">Hidrogrúa Palfinger PK 24001; camilla 8 m · Hidrogrúa Palfinger PK 24001 + camilla 8 m; alcance/capacidad dependen…</td>
+</tr><tr>
+<td class="model">Iveco Tector 260E30  6x4 con hidrogrua Palfinger PK 35000 + semi carga generales</td>
+<td>300 CV (220 kW)</td>
+<td>PBT 26.200 kg; PBTC/CMT 42.000 kg</td>
+<td>6x4</td>
+<td class="details">Hidrogrúa Palfinger PK 35000 + semi carga generales · Hidrogrúa Palfinger PK 35000 + semi; alcance/capacidad…</td>
+</tr><tr>
+<td class="model">Iveco Eurotronic 480 6x4 con hidrogrua Palfinger PK 580 TEC</td>
+<td>480 CV</td>
+<td>Peso/PBT no disponible</td>
+<td>6x4</td>
+<td class="details">Hidrogrúa Palfinger PK 580 TEC · Hidrogrúa Palfinger PK 580 TEC; alcance/capacidad exactos no disponibles sin…</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section><section class="equipment-block">
+<div class="block-title"><span>CISTERNA DE COMBUSTIBLE</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Cisterna De Combustible" src="assets/category_photos/cisternas.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Volkswagen 26-260 6x2 con tanque cisterna 20mil lts</td>
+<td>260</td>
+<td>11.960</td>
+<td>6x2</td>
+<td class="details">Cisterna combustible 20.000 l · Milicic ref. VW26-260 cisterna: tanque combustible 275 l</td>
+</tr><tr>
+<td class="model">Iveco Tector 260E30  6x4 con tanque cisterna de 25mil lts</td>
+<td>300 CV (220 kW)</td>
+<td>PBT 26.200 kg; PBTC/CMT 42.000 kg</td>
+<td>6x4</td>
+<td class="details">Cisterna combustible 25.000 l · Cisterna combustible 25.000 l; largo chasis 7,491/9,821 m según versión</td>
+</tr><tr>
+<td class="model">Mercedes Bens Atego 17-290 6x2 con tanque cisterna 15mil lts</td>
+<td>286 CV</td>
+<td>PBT 17.100 kg; PBTC 40.000 kg</td>
+<td>6x2</td>
+<td class="details">Cisterna combustible 15.000 l · Cisterna combustible 15.000 l; largo 5,985/7,130 m según versión</td>
+</tr><tr>
+<td class="model">Cisternas de Arrastre de 5000 lts</td>
+<td>No aplica (sin motor)</td>
+<td>Peso no disponible</td>
+<td>Arrastre / remolque</td>
+<td class="details">Cisterna arrastre 5.000 l · Capacidad 5.000 l; peso/dimensiones no disponibles</td>
+</tr><tr>
+<td class="model">Cisternas de Arrastre de 3,5 lts</td>
+<td>No aplica (sin motor)</td>
+<td>Peso no disponible</td>
+<td>Arrastre / remolque</td>
+<td class="details">Cisterna arrastre 3,5 lts (revisar dato fuente) · Capacidad 3,5 lts en Excel — revisar: posible 3.500 l;…</td>
+</tr><tr>
+<td class="model">Cisternas de Arrastre de 1500 lts</td>
+<td>No aplica (sin motor)</td>
+<td>Peso no disponible</td>
+<td>Arrastre / remolque</td>
+<td class="details">Cisterna arrastre 1.500 l · Capacidad 1.500 l; peso/dimensiones no disponibles</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section><section class="equipment-block">
+<div class="block-title"><span>BOMBEO Y PLANTAS DE HORMIGÓN</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Bombeo Y Plantas De Hormigón" src="assets/category_photos/hormigon_bombeo.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Iveco Tector 260E30  6x4 con bomba pluma PUTZMEISTER BSF 36-4/M36 (35 mts Altura, 120m3/h)</td>
+<td>300 CV (220 kW)</td>
+<td>PBT 26.200 kg; PBTC/CMT 42.000 kg</td>
+<td>6x4</td>
+<td class="details">Bomba pluma Putzmeister BSF 36-4/M36; hasta 170 m³/h · Pluma 35,6 m; alcance horizontal neto 28,5 m; alcance bruto…</td>
+</tr><tr>
+<td class="model">Bomba de hormigon estacionaria (de arrastre) SCHWING SP 500</td>
+<td>74,5 HP (55,6 kW)</td>
+<td>3.311 kg</td>
+<td>Remolcable / bomba estacionaria</td>
+<td class="details">Salida hormigón 35 m³/h; presión 76 bar · Bombeo horizontal máx. 354 m; vertical máx. 100 m; agregado máx. 38 mm</td>
+</tr><tr>
+<td class="model">Bomba de hormigon estacionaria (de arrastre) SCHWING SP 750-15</td>
+<td>100 HP (75 kW)</td>
+<td>3.969 kg</td>
+<td>Remolcable / bomba estacionaria</td>
+<td class="details">Salida hormigón 38 m³/h; presión 76 bar · Bombeo horizontal máx. 354 m; vertical máx. 100 m; agregado máx. 38 mm</td>
+</tr><tr>
+<td class="model">Planta Indumix PD 60 CP de 60 m3/hora con 2 Silos verticales</td>
+<td>Eléctrica; potencia…</td>
+<td>Peso de planta no disponible</td>
+<td>Fija/transportable; operación…</td>
+<td class="details">Producción 60 m³/h; hasta 2 m³/ciclo; 4 áridos estándar · Capacidad de pesada 2.100 / 3.100 / 4.500 kg según…</td>
+</tr><tr>
+<td class="model">Planta Betonmax Compact 40 de 40 m3/hora con silo vertical o Horizontal</td>
+<td>Eléctrica; potencia…</td>
+<td>Peso de planta no disponible</td>
+<td>Móvil/transportable a…</td>
+<td class="details">Producción 40 m³/h; 4 áridos; silo vertical u horizontal · Planta dosificadora móvil para carga de motohormigoneras</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<footer><span>CONSTRUVIAL S.A. · CATÁLOGO DE EQUIPOS</span><span>ESPECIFICACIONES REFERENCIALES · SUJETAS A CONFIGURACIÓN</span><span>06</span></footer>
+</section><section class="page content-page">
+<header class="topbar">
+<img alt="Construvial S.A." src="logo-construvial.png"/>
+<div class="header-label">RENTAL &amp; SERVICIOS</div>
+</header>
+<main class="page-body">
+<div class="page-heading">
+<div><h1>ELEVACIÓN Y MANIPULACIÓN</h1><p>TELEHANDLERS · AUTOELEVADORES · GRÚAS</p></div>
+<div class="section-number">06</div>
+</div>
+<section class="equipment-block">
+<div class="block-title"><span>MANIPULADORES Y AUTOELEVADORES</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Manipuladores Y Autoelevadores" src="assets/category_photos/manipuladores.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Manitou MTX 1840</td>
+<td>101</td>
+<td>11.700-12.400</td>
+<td>4x4 / 3 modos dirección</td>
+<td class="details">Carga máx. 4.000 kg · Altura 17,55 m; alcance 13,08 m; largo a portahorquillas 6,27 m; ancho 2,42 m; alto 2,45 m</td>
+</tr><tr>
+<td class="model">Manitou MT 732</td>
+<td>101</td>
+<td>7.585</td>
+<td>4x4 / 3 modos dirección</td>
+<td class="details">Carga máx. 3.200 kg; 2.800 kg a altura máx.; 1.250 kg a alcance máx. · Altura 6,90 m; alcance 4,16 m; largo 4,74…</td>
+</tr><tr>
+<td class="model">JCB  508</td>
+<td>74 HP (55 kW)</td>
+<td>Peso operativo no disponible</td>
+<td>4x4 / telescópico</td>
+<td class="details">Capacidad máx. 3.856 kg (8.500 lb); altura 20,1 m (66 ft) · Alcance/altura pluma 66 ft; pluma 5 secciones; peso…</td>
+</tr><tr>
+<td class="model">Haulotte HTL 4017</td>
+<td>102</td>
+<td>12.000</td>
+<td>4x4</td>
+<td class="details">Carga máx. 4.000 kg · Altura carga 17,00 m; alcance 12,85 m; transp. 6,70×2,43×2,67 m</td>
+</tr><tr>
+<td class="model">Autoelevador Heli CPCD 25</td>
+<td>46,3 HP</td>
+<td>3.700 kg aprox.</td>
+<td>Diesel; neumáticos; 4x2</td>
+<td class="details">Capacidad 2.500 kg; centro de carga 500 mm · Altura estándar de izaje 3,0 m; horquillas 1.070 mm</td>
+</tr><tr>
+<td class="model">Autoelevador Liugong CPCD 25</td>
+<td>Potencia no disponible</td>
+<td>3.355 kg</td>
+<td>Diesel; neumáticos</td>
+<td class="details">Capacidad 2.500 kg; centro de carga 500 mm · Altura estándar de izaje 3,0 m</td>
+</tr><tr>
+<td class="model">Autoelevador Liugong CPCD 35</td>
+<td>36,6–40 kW según ficha</td>
+<td>4.630 kg</td>
+<td>Diesel; neumáticos</td>
+<td class="details">Capacidad 3.500 kg; centro de carga 500 mm · Altura de izaje estándar 3,0 m; opcional 4,5 m; horquillas 1.070 mm</td>
+</tr><tr>
+<td class="model">Autoelevador Heli CPCD 100 G</td>
+<td>Potencia no disponible</td>
+<td>12.510 kg</td>
+<td>Diesel; neumáticos</td>
+<td class="details">Capacidad 10.000 kg; centro de carga 600 mm · Dimensiones aprox. 5,43 x 2,245 x 4,33 m según ficha técnica…</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section><section class="equipment-block">
+<div class="block-title"><span>GRÚAS</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Grúas" src="assets/category_photos/gruas.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Tadano RT 25 (25 tn)</td>
+<td>217 HP bruta</td>
+<td>26.495 kg</td>
+<td>4x4 / rough terrain</td>
+<td class="details">25 tn · Pluma 16,5–30,5 m; jib opcional; vel. máx. 49 km/h</td>
+</tr><tr>
+<td class="model">Terex RT35 (35 tn)</td>
+<td>160</td>
+<td>24.600</td>
+<td>4x4 / rough terrain</td>
+<td class="details">35.000 kg · Altura máxima 38,10 m</td>
+</tr><tr>
+<td class="model">Grove GMK 3050 (50 tn)</td>
+<td>349 HP (260 kW)</td>
+<td>36.000 kg</td>
+<td>All-terrain; 6x6</td>
+<td class="details">50 tn · Pluma principal 9,7–43 m; extensión 8,7–15 m; contrapeso máx. 11.600 kg</td>
+</tr><tr>
+<td class="model">Terex T775 (75 tn)</td>
+<td>430-500</td>
+<td>45.949-48.081</td>
+<td>Camión grúa</td>
+<td class="details">75 tn · Pluma principal 126 ft / 38,4 m</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section><section class="equipment-block">
+<div class="block-title"><span>ILUMINACIÓN Y ELEVACIÓN</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Iluminación Y Elevación" src="assets/category_photos/iluminacion.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">WackerNeuson LTN6</td>
+<td>13,1 HP aprox.</td>
+<td>745</td>
+<td>Remolcable</td>
+<td class="details">Alcance lumínico 30 m; mástil 9 m; depósito 123 l · Transporte 3,92×1,27×1,79 m; consumo 1,71 l/h; rotación 360°…</td>
+</tr><tr>
+<td class="model">WackerNeuson LTT4</td>
+<td>8 HP @ 1.800 rpm</td>
+<td>705 kg</td>
+<td>Remolcable</td>
+<td class="details">4 x 320 W LED; 192.000 lm; generador 4 kW · Mástil 7 m/23 ft; tanque 52,4 gal; cobertura 32.600 ft²</td>
+</tr><tr>
+<td class="model">WackerNeuson LTV6k</td>
+<td>12,2 HP @ 1.800 rpm</td>
+<td>820 kg</td>
+<td>Remolcable</td>
+<td class="details">Lámparas haluro/LED; generador 6 kW · Mástil 7 m/23 ft; 2,56 x 1,46 x 2,51 m; tanque 45,8 gal</td>
+</tr><tr>
+<td class="model">Haulotte Compact 120X</td>
+<td>Motor térmico;…</td>
+<td>3.965–4.060 kg</td>
+<td>4x4 / todo terreno</td>
+<td class="details">Capacidad plataforma 450 kg; extensión 150 kg · Altura trabajo 12,05–12,15 m; plataforma 10,0 m; ancho 1,80 m;…</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<footer><span>CONSTRUVIAL S.A. · CATÁLOGO DE EQUIPOS</span><span>ESPECIFICACIONES REFERENCIALES · SUJETAS A CONFIGURACIÓN</span><span>07</span></footer>
+</section><section class="page content-page">
+<header class="topbar">
+<img alt="Construvial S.A." src="logo-construvial.png"/>
+<div class="header-label">RENTAL &amp; SERVICIOS</div>
+</header>
+<main class="page-body">
+<div class="page-heading">
+<div><h1>APOYO OPERATIVO</h1><p>VEHÍCULOS · MÓDULOS · CONTENEDORES</p></div>
+<div class="section-number">07</div>
+</div>
+<section class="equipment-block">
+<div class="block-title"><span>VEHÍCULOS Y CAMIONETAS</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Vehículos Y Camionetas" src="assets/category_photos/vehiculos.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Hilux D/C 4x4 (equipada según la region y alcance de servicio)</td>
+<td>204 CV según versión…</td>
+<td>PBT 2.910–3.140 kg según versión;…</td>
+<td>4x4</td>
+<td class="details">Doble cabina; capacidad 5 personas aprox. · Largo 5,325 m; ancho 1,855 m; alto 1,800–1,815 m; tanque 80 l</td>
+</tr><tr>
+<td class="model">Ranger D/C 4x4 (equipada según la region y alcance de servicio)</td>
+<td>210 CV según versión…</td>
+<td>PBT 3.230 kg; peso marcha 2.310 kg</td>
+<td>4x4</td>
+<td class="details">Doble cabina; capacidad 5 personas aprox. · Capacidad carga aprox. 1.071 kg; remolque con freno hasta 3.500 kg…</td>
+</tr><tr>
+<td class="model">Iveco Daili (Transporte de Personal 20 pers)</td>
+<td>170 HP según Daily…</td>
+<td>PBV 5.050 kg; tara aprox. 2.070 kg</td>
+<td>4x2</td>
+<td class="details">Transporte personal 20 personas · Minibus 20+1; motor 2.998 cm³; torque 400 Nm; largo aprox. 7,253 m</td>
+</tr><tr>
+<td class="model">Renault Master (transporte personal 15 pers)</td>
+<td>136 HP</td>
+<td>PBT 3.750 kg; peso marcha según…</td>
+<td>4x2 delantera</td>
+<td class="details">Transporte personal 15 personas · Minibus 15+1; largo 6,198 m aprox.; ancho 2,070 m; alto 2,470 m</td>
+</tr><tr>
+<td class="model">Automoviles Gerenciales (Toyota corolla, Chevrolet Cruze, VW Ventos)</td>
+<td>Potencia según…</td>
+<td>Peso según modelo/versiones…</td>
+<td>4x2 / tracción delantera…</td>
+<td class="details">Automóvil gerencial 5 plazas · 5 plazas; dimensiones/potencia exactas dependen del modelo elegido</td>
+</tr><tr>
+<td class="model">Automotores Intermedios (VW Taos, Fiat Cronos, Ford Focus)</td>
+<td>Potencia según…</td>
+<td>Peso según modelo/versiones…</td>
+<td>4x2; tracción según modelo</td>
+<td class="details">Automotor intermedio 5 plazas · 5 plazas; dimensiones/capacidades exactas dependen del modelo elegido</td>
+</tr><tr>
+<td class="model">Automotores Pequeños (fiat cronos, VW gol Trend, Renault Clio)</td>
+<td>Potencia según…</td>
+<td>Peso según modelo/versiones…</td>
+<td>4x2 / tracción delantera</td>
+<td class="details">Automotor pequeño 5 plazas aprox. · 5 plazas aprox.; dimensiones exactas dependen del modelo elegido</td>
+</tr><tr>
+<td class="model">Utilitarios SUV (Honda CRV, Toyota Corolla Cross)</td>
+<td>Potencia según…</td>
+<td>Peso según modelo/versiones…</td>
+<td>4x2/4x4 según versión</td>
+<td class="details">SUV 5 plazas aprox. · 5 plazas; Corolla Cross ref. 4,460 x 1,825 x 1,620 m; otros según modelo</td>
+</tr><tr>
+<td class="model">Utilitarios medianos (fiat toro 4x4, Honda HRV)</td>
+<td>Potencia según…</td>
+<td>Peso según modelo/versiones…</td>
+<td>4x4 según versión</td>
+<td class="details">Utilitario mediano / SUV · Fiat Toro ref. 4,945 x 1,898 x 1,892 m; HR-V ref. 4,330 x 1,790 x 1,590 m; según versión</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section><section class="equipment-block">
+<div class="block-title"><span>MÓDULOS Y CONTENEDORES</span><i></i></div>
+<div class="block-content">
+<div class="photo-slot"><img alt="Equipo representativo: Módulos Y Contenedores" src="assets/category_photos/modulos.jpg"/></div>
+<div class="table-wrap">
+<table>
+<colgroup><col class="col-model"/><col class="col-power"/><col class="col-weight"/><col class="col-traction"/><col class="col-details"/></colgroup>
+<thead><tr><th>MODELO</th><th>POTENCIA</th><th>PESO / PBT</th><th>TRACCIÓN</th><th>CAPACIDAD / DATOS RELEVANTES</th></tr></thead>
+<tbody><tr>
+<td class="model">Modulos oficina/habitacionales de 6 mts (equipados)</td>
+<td>No aplica (sin motor)</td>
+<td>Peso según equipamiento no…</td>
+<td>Módulo equipado</td>
+<td class="details">Módulo equipado · Largo 6 m; ancho/alto/peso según fabricante/configuración: no disponible</td>
+</tr><tr>
+<td class="model">Modulos oficina/habitacionales de 12 mts (equipados)</td>
+<td>No aplica (sin motor)</td>
+<td>Peso según equipamiento no…</td>
+<td>Módulo equipado</td>
+<td class="details">Módulo equipado · Largo 12 m; ancho/alto/peso según fabricante/configuración: no disponible</td>
+</tr><tr>
+<td class="model">Contenedores maritimos de 20 pies (6 mts)</td>
+<td>No aplica (sin motor)</td>
+<td>Tara exacta según unidad no…</td>
+<td>Contenedor marítimo 20 pies</td>
+<td class="details">Contenedor marítimo 20 pies · Largo externo 6,058 m; ancho 2,438 m; alto estándar 2,591 m; peso tara exacto según…</td>
+</tr><tr>
+<td class="model">Contenedores maritimos de 40 pies (12 mts)</td>
+<td>No aplica (sin motor)</td>
+<td>Tara exacta según unidad no…</td>
+<td>Contenedor marítimo 40 pies</td>
+<td class="details">Contenedor marítimo 40 pies · Largo externo 12,192 m; ancho 2,438 m; alto estándar 2,591 m; peso tara exacto según…</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<footer><span>CONSTRUVIAL S.A. · CATÁLOGO DE EQUIPOS</span><span>ESPECIFICACIONES REFERENCIALES · SUJETAS A CONFIGURACIÓN</span><span>08</span></footer>
+</section>
+</body>
+</html>
