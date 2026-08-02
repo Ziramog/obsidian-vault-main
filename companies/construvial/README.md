@@ -4,7 +4,7 @@
 Empresa constructora con **35+ años de trayectoria** en el mercado nacional. Especializada en obras viales, civiles, metálicas, electromecánicas y alquiler de equipos. Proveedora del sector público y privado.
 
 **Ubicación:** Autovía RN 36 Km 711, Almafuerte, Córdoba, Argentina
-**Contacto:** 03571 421350 - 423514 | info@construvialsa.com.ar
+**Contacto:** Fijo +54 9 351 7002645 | Comercial +54 9 3571 578542 | info@construvialsa.com.ar
 **WhatsApp:** wa.link/ocm4yr
 
 ---
@@ -88,7 +88,8 @@ Empresa constructora con **35+ años de trayectoria** en el mercado nacional. Es
 
 **CONSTRUVIAL SA**
 Dirección: Autovía RN 36 Km 711, Almafuerte, Córdoba, Argentina
-Tel: 03571 421350 - 423514
+Fijo: +54 9 351 7002645
+Comercial: +54 9 3571 578542
 Email: info@construvialsa.com.ar
 Web: www.construvialsa.com.ar
 Facebook: construvial_sa
