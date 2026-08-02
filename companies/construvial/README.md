@@ -3,7 +3,7 @@
 ## Resumen
 Empresa constructora con **35+ años de trayectoria** en el mercado nacional. Especializada en obras viales, civiles, metálicas, electromecánicas y alquiler de equipos. Proveedora del sector público y privado.
 
-**Ubicación:** Autovía RN 36 Km 711, Río Tercero, Córdoba, Argentina
+**Ubicación:** Autovía RN 36 Km 711, Almafuerte, Córdoba, Argentina
 **Contacto:** 03571 421350 - 423514 | info@construvialsa.com.ar
 **WhatsApp:** wa.link/ocm4yr
 
@@ -87,7 +87,7 @@ Empresa constructora con **35+ años de trayectoria** en el mercado nacional. Es
 ## Contacto directo
 
 **CONSTRUVIAL SA**
-Dirección: Autovía RN 36 Km 711, Río Tercero, Córdoba, Argentina
+Dirección: Autovía RN 36 Km 711, Almafuerte, Córdoba, Argentina
 Tel: 03571 421350 - 423514
 Email: info@construvialsa.com.ar
 Web: www.construvialsa.com.ar
