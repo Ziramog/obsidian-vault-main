@@ -99,4 +99,5 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - Leads en pausa: verificar inventario real al inicio; el vault puede quedar más optimista que la cola real.
 - Mockups AI no reemplazan venta concreta. Mostrar producto > mostrar idea.
 - Datos de pago: Juan los pasa al cliente, no al revés.
+- Catálogo Rental Construvial: conservar el diseño inicial oscuro/amarillo; optimizar solo la ocupación vertical, usar descripción técnica legible y replicar en la contratapa los tres ítems de Milicic (operador, mantenimiento y transporte).
 - No escribir secrets, tokens ni API keys en el vault.
