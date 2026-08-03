@@ -1,0 +1,1566 @@
+[
+  {
+    "pdf_page": 1,
+    "size": [
+      960.0,
+      540.0
+    ],
+    "text": "C.A.I.\nCLUB ATLÉTICO INDEPENDIENTE\nPUERTA AL\nINFIERNO\nPropuesta escultórica para el\nacceso exterior del Estadio\nLibertadores de América -\nRicardo Enrique Bochini.\nPresentación institucional + anexo técnico preliminar",
+    "spans": [
+      {
+        "text": "C.A.I.",
+        "bbox": [
+          61.5,
+          156.87,
+          124.01,
+          177.57
+        ],
+        "size": 20.7,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "CLUB ATLÉTICO INDEPENDIENTE",
+        "bbox": [
+          48.0,
+          34.55,
+          225.55,
+          44.35
+        ],
+        "size": 9.8,
+        "font": "DejaVuSans-Bold",
+        "color": 16777215
+      },
+      {
+        "text": "PUERTA AL",
+        "bbox": [
+          48.0,
+          267.13,
+          284.09,
+          305.13
+        ],
+        "size": 38.0,
+        "font": "DejaVuSans-Bold",
+        "color": 16777215
+      },
+      {
+        "text": "INFIERNO",
+        "bbox": [
+          48.0,
+          308.13,
+          253.35,
+          346.13
+        ],
+        "size": 38.0,
+        "font": "DejaVuSans-Bold",
+        "color": 16777215
+      },
+      {
+        "text": "Propuesta escultórica para el",
+        "bbox": [
+          50.0,
+          368.72,
+          276.44,
+          384.22
+        ],
+        "size": 15.5,
+        "font": "DejaVuSans",
+        "color": 16777215
+      },
+      {
+        "text": "acceso exterior del Estadio",
+        "bbox": [
+          50.0,
+          388.22,
+          260.06,
+          403.72
+        ],
+        "size": 15.5,
+        "font": "DejaVuSans",
+        "color": 16777215
+      },
+      {
+        "text": "Libertadores de América -",
+        "bbox": [
+          50.0,
+          407.72,
+          251.27,
+          423.22
+        ],
+        "size": 15.5,
+        "font": "DejaVuSans",
+        "color": 16777215
+      },
+      {
+        "text": "Ricardo Enrique Bochini.",
+        "bbox": [
+          50.0,
+          427.22,
+          240.01,
+          442.72
+        ],
+        "size": 15.5,
+        "font": "DejaVuSans",
+        "color": 16777215
+      },
+      {
+        "text": "Presentación institucional + anexo técnico preliminar",
+        "bbox": [
+          50.0,
+          474.33,
+          310.05,
+          484.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 16777215
+      }
+    ],
+    "images": 1
+  },
+  {
+    "pdf_page": 2,
+    "size": [
+      960.0,
+      540.0
+    ],
+    "text": "PROPUESTA INSTITUCIONAL\nPUERTA AL INFIERNO | 02\nUna obra para convertir el acceso en símbolo\nLa propuesta transforma la explanada exterior en un hito urbano ligado a la identidad roja.\n01 Identidad\nUna pieza monumental reconocible desde\nla calle, las vías y la llegada al estadio.\n02 Experiencia\nUn portal que ordena la llegada, genera\nencuentro y produce una imagen\ninstitucional potente.\n03 Hito urbano\nLa escala y la iluminación permiten\npresencia diurna y nocturna sin depender\nde cartelería.\nDecisión solicitada\nAutorizar una etapa de prefactibilidad para validar implantación, circulaciones, interferencias, estructura, iluminación y presupuesto de\norden de magnitud. La ubicación final debe quedar a decisión del Club luego del relevamiento.",
+    "spans": [
+      {
+        "text": "PROPUESTA INSTITUCIONAL",
+        "bbox": [
+          44.0,
+          17.47,
+          179.76,
+          26.07
+        ],
+        "size": 8.6,
+        "font": "DejaVuSans-Bold",
+        "color": 6710886
+      },
+      {
+        "text": "PUERTA AL INFIERNO | 02",
+        "bbox": [
+          808.03,
+          515.62,
+          916.0,
+          524.02
+        ],
+        "size": 8.4,
+        "font": "DejaVuSans",
+        "color": 6710886
+      },
+      {
+        "text": "Una obra para convertir el acceso en símbolo",
+        "bbox": [
+          44.0,
+          73.21,
+          810.17,
+          103.21
+        ],
+        "size": 30.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "La propuesta transforma la explanada exterior en un hito urbano ligado a la identidad roja.",
+        "bbox": [
+          44.0,
+          110.89,
+          785.02,
+          127.09
+        ],
+        "size": 16.2,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "01",
+        "bbox": [
+          61.0,
+          179.29,
+          91.62,
+          201.29
+        ],
+        "size": 22.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": " ",
+        "bbox": [
+          91.62,
+          183.91,
+          96.0,
+          198.91
+        ],
+        "size": 12.1,
+        "font": "DejaVuSans-Bold",
+        "color": 1513239
+      },
+      {
+        "text": "Identidad",
+        "bbox": [
+          96.0,
+          183.91,
+          161.41,
+          196.01
+        ],
+        "size": 12.1,
+        "font": "DejaVuSans-Bold",
+        "color": 1513239
+      },
+      {
+        "text": "Una pieza monumental reconocible desde",
+        "bbox": [
+          96.0,
+          209.33,
+          300.03,
+          219.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "la calle, las vías y la llegada al estadio.",
+        "bbox": [
+          96.0,
+          221.93,
+          285.42,
+          231.63
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "02",
+        "bbox": [
+          361.0,
+          179.29,
+          391.62,
+          201.29
+        ],
+        "size": 22.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": " ",
+        "bbox": [
+          391.62,
+          183.91,
+          396.0,
+          198.91
+        ],
+        "size": 12.1,
+        "font": "DejaVuSans-Bold",
+        "color": 1513239
+      },
+      {
+        "text": "Experiencia",
+        "bbox": [
+          396.0,
+          183.91,
+          475.36,
+          196.01
+        ],
+        "size": 12.1,
+        "font": "DejaVuSans-Bold",
+        "color": 1513239
+      },
+      {
+        "text": "Un portal que ordena la llegada, genera",
+        "bbox": [
+          396.0,
+          209.33,
+          590.17,
+          219.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "encuentro y produce una imagen",
+        "bbox": [
+          396.0,
+          221.93,
+          557.83,
+          231.63
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "institucional potente.",
+        "bbox": [
+          396.0,
+          234.53,
+          499.06,
+          244.23
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "03",
+        "bbox": [
+          661.0,
+          179.29,
+          691.62,
+          201.29
+        ],
+        "size": 22.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": " ",
+        "bbox": [
+          691.62,
+          183.91,
+          696.0,
+          198.91
+        ],
+        "size": 12.1,
+        "font": "DejaVuSans-Bold",
+        "color": 1513239
+      },
+      {
+        "text": "Hito urbano",
+        "bbox": [
+          696.0,
+          183.91,
+          776.92,
+          196.01
+        ],
+        "size": 12.1,
+        "font": "DejaVuSans-Bold",
+        "color": 1513239
+      },
+      {
+        "text": "La escala y la iluminación permiten",
+        "bbox": [
+          696.0,
+          209.33,
+          868.17,
+          219.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "presencia diurna y nocturna sin depender",
+        "bbox": [
+          696.0,
+          221.93,
+          899.38,
+          231.63
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "de cartelería.",
+        "bbox": [
+          696.0,
+          234.53,
+          760.62,
+          244.23
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "Decisión solicitada",
+        "bbox": [
+          44.0,
+          346.2,
+          229.1,
+          363.7
+        ],
+        "size": 17.5,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "Autorizar una etapa de prefactibilidad para validar implantación, circulaciones, interferencias, estructura, iluminación y presupuesto de",
+        "bbox": [
+          44.0,
+          378.98,
+          888.56,
+          391.38
+        ],
+        "size": 12.4,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "orden de magnitud. La ubicación final debe quedar a decisión del Club luego del relevamiento.",
+        "bbox": [
+          44.0,
+          395.58,
+          634.64,
+          407.98
+        ],
+        "size": 12.4,
+        "font": "DejaVuSans",
+        "color": 1513239
+      }
+    ],
+    "images": 0
+  },
+  {
+    "pdf_page": 3,
+    "size": [
+      960.0,
+      540.0
+    ],
+    "text": "PROPUESTA INSTITUCIONAL\nPUERTA AL INFIERNO | 03\nConcepto artístico\nUn arco de triunfo contemporáneo asociado a la mística del Diablo y al territorio de Avellaneda.\nLa Puerta al Infierno toma la iconografía roja y la convierte en una\nobra habitable: no solo se mira, también se atraviesa. Ese gesto\nvuelve memorable la llegada al estadio y genera un punto de\nreferencia para socios, visitantes e hinchas.\nEl fuego, la caldera y la figura del Diablo se reinterpretan como símbolos de pasión,\ncarácter y pertenencia. La obra no se presenta como decoración aplicada, sino como una\npieza escultórica autónoma con capacidad de incorporarse al patrimonio visual del Club.\nLenguaje formal\nDos soportes facetados sostienen el\ncoronamiento estelar original. No se\nincorporan aletas, cuernos ni piezas\nadicionales respecto de la maqueta de\nreferencia.",
+    "spans": [
+      {
+        "text": "PROPUESTA INSTITUCIONAL",
+        "bbox": [
+          44.0,
+          17.47,
+          179.76,
+          26.07
+        ],
+        "size": 8.6,
+        "font": "DejaVuSans-Bold",
+        "color": 6710886
+      },
+      {
+        "text": "PUERTA AL INFIERNO | 03",
+        "bbox": [
+          808.03,
+          515.62,
+          916.0,
+          524.02
+        ],
+        "size": 8.4,
+        "font": "DejaVuSans",
+        "color": 6710886
+      },
+      {
+        "text": "Concepto artístico",
+        "bbox": [
+          44.0,
+          73.21,
+          353.54,
+          103.21
+        ],
+        "size": 30.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "Un arco de triunfo contemporáneo asociado a la mística del Diablo y al territorio de Avellaneda.",
+        "bbox": [
+          44.0,
+          110.89,
+          822.77,
+          127.09
+        ],
+        "size": 16.2,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "La Puerta al Infierno toma la iconografía roja y la convierte en una",
+        "bbox": [
+          44.0,
+          173.89,
+          583.01,
+          190.09
+        ],
+        "size": 16.2,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "obra habitable: no solo se mira, también se atraviesa. Ese gesto",
+        "bbox": [
+          44.0,
+          194.49,
+          566.71,
+          210.69
+        ],
+        "size": 16.2,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "vuelve memorable la llegada al estadio y genera un punto de",
+        "bbox": [
+          44.0,
+          215.09,
+          544.39,
+          231.29
+        ],
+        "size": 16.2,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "referencia para socios, visitantes e hinchas.",
+        "bbox": [
+          44.0,
+          235.69,
+          400.42,
+          251.89
+        ],
+        "size": 16.2,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "El fuego, la caldera y la figura del Diablo se reinterpretan como símbolos de pasión,",
+        "bbox": [
+          44.0,
+          284.98,
+          565.87,
+          297.38
+        ],
+        "size": 12.4,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "carácter y pertenencia. La obra no se presenta como decoración aplicada, sino como una",
+        "bbox": [
+          44.0,
+          301.58,
+          600.95,
+          313.98
+        ],
+        "size": 12.4,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "pieza escultórica autónoma con capacidad de incorporarse al patrimonio visual del Club.",
+        "bbox": [
+          44.0,
+          318.18,
+          595.92,
+          330.58
+        ],
+        "size": 12.4,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "Lenguaje formal",
+        "bbox": [
+          660.0,
+          376.33,
+          738.95,
+          386.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "Dos soportes facetados sostienen el",
+        "bbox": [
+          660.0,
+          388.93,
+          835.69,
+          398.63
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "coronamiento estelar original. No se",
+        "bbox": [
+          660.0,
+          401.53,
+          836.61,
+          411.23
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "incorporan aletas, cuernos ni piezas",
+        "bbox": [
+          660.0,
+          414.13,
+          835.45,
+          423.83
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "adicionales respecto de la maqueta de",
+        "bbox": [
+          660.0,
+          426.73,
+          848.52,
+          436.43
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "referencia.",
+        "bbox": [
+          660.0,
+          439.33,
+          712.5,
+          449.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      }
+    ],
+    "images": 1
+  },
+  {
+    "pdf_page": 4,
+    "size": [
+      960.0,
+      540.0
+    ],
+    "text": "PROPUESTA INSTITUCIONAL\nPUERTA AL INFIERNO | 04\nImplantación conceptual\nIntervención de explanada exterior. Ubicación conceptual a validar por el Club.\nVÍAS / AV. MITRE\nMURO INSTITUCIONAL CAI RENOVADO\nEXPLANADA EXTERIOR DE ACCESO\nUBICACIÓN CONCEPTUAL A VALIDAR\nFACHADA DEL ESTADIO\nCriterios de ubicación\n• Mantener despeje visual para que la escultura se lea\ncompleta.\n• Evitar presentarla como colocada sobre una cancha\ndeportiva.\n• Conservar relación directa con la fachada y el acceso\nprincipal.\n• Permitir circulación de público, seguridad y\neventuales operativos.\n• Definir posición final mediante relevamiento del Club.\nNota: las imágenes son conceptuales. Si el Club decide retirar,\nmover o reformular usos existentes del sector, esa definición\ncorresponde a una etapa posterior.",
+    "spans": [
+      {
+        "text": "PROPUESTA INSTITUCIONAL",
+        "bbox": [
+          44.0,
+          17.47,
+          179.76,
+          26.07
+        ],
+        "size": 8.6,
+        "font": "DejaVuSans-Bold",
+        "color": 6710886
+      },
+      {
+        "text": "PUERTA AL INFIERNO | 04",
+        "bbox": [
+          808.03,
+          515.62,
+          916.0,
+          524.02
+        ],
+        "size": 8.4,
+        "font": "DejaVuSans",
+        "color": 6710886
+      },
+      {
+        "text": "Implantación conceptual",
+        "bbox": [
+          44.0,
+          73.21,
+          460.49,
+          103.21
+        ],
+        "size": 30.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "Intervención de explanada exterior. Ubicación conceptual a validar por el Club.",
+        "bbox": [
+          44.0,
+          110.89,
+          687.24,
+          127.09
+        ],
+        "size": 16.2,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "VÍAS / AV. MITRE",
+        "bbox": [
+          281.29,
+          461.31,
+          364.7,
+          470.11
+        ],
+        "size": 8.8,
+        "font": "DejaVuSans-Bold",
+        "color": 6710886
+      },
+      {
+        "text": "MURO INSTITUCIONAL CAI RENOVADO",
+        "bbox": [
+          194.59,
+          385.88,
+          451.39,
+          397.88
+        ],
+        "size": 12.0,
+        "font": "DejaVuSans-Bold",
+        "color": 16777215
+      },
+      {
+        "text": "EXPLANADA EXTERIOR DE ACCESO",
+        "bbox": [
+          243.94,
+          256.16,
+          402.06,
+          265.16
+        ],
+        "size": 9.0,
+        "font": "DejaVuSans",
+        "color": 6710886
+      },
+      {
+        "text": "UBICACIÓN CONCEPTUAL A VALIDAR",
+        "bbox": [
+          235.99,
+          348.54,
+          410.0,
+          357.04
+        ],
+        "size": 8.5,
+        "font": "DejaVuSans-Bold",
+        "color": 16777215
+      },
+      {
+        "text": "FACHADA DEL ESTADIO",
+        "bbox": [
+          250.6,
+          201.64,
+          395.39,
+          212.64
+        ],
+        "size": 11.0,
+        "font": "DejaVuSans-Bold",
+        "color": 16777215
+      },
+      {
+        "text": "Criterios de ubicación",
+        "bbox": [
+          625.0,
+          170.2,
+          840.39,
+          187.7
+        ],
+        "size": 17.5,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "•",
+        "bbox": [
+          626.0,
+          205.1,
+          631.9,
+          215.1
+        ],
+        "size": 10.0,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": " ",
+        "bbox": [
+          631.9,
+          205.33,
+          637.9,
+          215.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "Mantener despeje visual para que la escultura se lea",
+        "bbox": [
+          637.9,
+          205.33,
+          894.83,
+          215.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "completa.",
+        "bbox": [
+          640.0,
+          217.93,
+          688.37,
+          227.63
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "•",
+        "bbox": [
+          626.0,
+          234.3,
+          631.9,
+          244.3
+        ],
+        "size": 10.0,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": " ",
+        "bbox": [
+          631.9,
+          234.53,
+          637.9,
+          244.23
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "Evitar presentarla como colocada sobre una cancha",
+        "bbox": [
+          637.9,
+          234.53,
+          890.53,
+          244.23
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "deportiva.",
+        "bbox": [
+          640.0,
+          247.13,
+          689.48,
+          256.83
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "•",
+        "bbox": [
+          626.0,
+          263.5,
+          631.9,
+          273.5
+        ],
+        "size": 10.0,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": " ",
+        "bbox": [
+          631.9,
+          263.73,
+          637.9,
+          273.43
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "Conservar relación directa con la fachada y el acceso",
+        "bbox": [
+          637.9,
+          263.73,
+          897.65,
+          273.43
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "principal.",
+        "bbox": [
+          640.0,
+          276.33,
+          684.91,
+          286.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "•",
+        "bbox": [
+          626.0,
+          292.7,
+          631.9,
+          302.7
+        ],
+        "size": 10.0,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": " ",
+        "bbox": [
+          631.9,
+          292.93,
+          637.9,
+          302.63
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "Permitir circulación de público, seguridad y",
+        "bbox": [
+          637.9,
+          292.93,
+          848.38,
+          302.63
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "eventuales operativos.",
+        "bbox": [
+          640.0,
+          305.53,
+          750.83,
+          315.23
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "•",
+        "bbox": [
+          626.0,
+          321.9,
+          631.9,
+          331.9
+        ],
+        "size": 10.0,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": " ",
+        "bbox": [
+          631.9,
+          322.13,
+          637.9,
+          331.83
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "Definir posición final mediante relevamiento del Club.",
+        "bbox": [
+          637.9,
+          322.13,
+          899.77,
+          331.83
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "Nota: las imágenes son conceptuales. Si el Club decide retirar,",
+        "bbox": [
+          626.0,
+          446.04,
+          893.1,
+          454.54
+        ],
+        "size": 8.5,
+        "font": "DejaVuSans",
+        "color": 6710886
+      },
+      {
+        "text": "mover o reformular usos existentes del sector, esa definición",
+        "bbox": [
+          626.0,
+          456.64,
+          886.92,
+          465.14
+        ],
+        "size": 8.5,
+        "font": "DejaVuSans",
+        "color": 6710886
+      },
+      {
+        "text": "corresponde a una etapa posterior.",
+        "bbox": [
+          626.0,
+          467.24,
+          776.36,
+          475.74
+        ],
+        "size": 8.5,
+        "font": "DejaVuSans",
+        "color": 6710886
+      }
+    ],
+    "images": 0
+  },
+  {
+    "pdf_page": 5,
+    "size": [
+      960.0,
+      540.0
+    ],
+    "text": "Vista aérea frontal - acceso exterior propuesto\nFotomontaje conceptual con forma escultórica ajustada a la maqueta original.\n12 m\nALTURA MÁXIMA\n15-18 m\nANCHO A DEFINIR",
+    "spans": [
+      {
+        "text": "Vista aérea frontal - acceso exterior propuesto",
+        "bbox": [
+          40.0,
+          467.72,
+          402.23,
+          483.22
+        ],
+        "size": 15.5,
+        "font": "DejaVuSans",
+        "color": 16777215
+      },
+      {
+        "text": "Fotomontaje conceptual con forma escultórica ajustada a la maqueta original.",
+        "bbox": [
+          42.0,
+          506.16,
+          395.09,
+          515.16
+        ],
+        "size": 9.0,
+        "font": "DejaVuSans",
+        "color": 16777215
+      },
+      {
+        "text": "12 m",
+        "bbox": [
+          714.0,
+          466.73,
+          791.9,
+          494.73
+        ],
+        "size": 28.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "ALTURA MÁXIMA",
+        "bbox": [
+          714.0,
+          497.39,
+          786.69,
+          506.09
+        ],
+        "size": 8.7,
+        "font": "DejaVuSans",
+        "color": 16777215
+      },
+      {
+        "text": "15-18 m",
+        "bbox": [
+          826.0,
+          466.73,
+          954.49,
+          494.73
+        ],
+        "size": 28.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "ANCHO A DEFINIR",
+        "bbox": [
+          826.0,
+          497.39,
+          904.29,
+          506.09
+        ],
+        "size": 8.7,
+        "font": "DejaVuSans",
+        "color": 16777215
+      }
+    ],
+    "images": 1
+  },
+  {
+    "pdf_page": 6,
+    "size": [
+      960.0,
+      540.0
+    ],
+    "text": "Escala humana, presencia urbana y muro CAI renovado\nDetalle de proporción y lectura institucional",
+    "spans": [
+      {
+        "text": "Escala humana, presencia urbana y muro CAI renovado",
+        "bbox": [
+          40.0,
+          479.72,
+          472.28,
+          495.22
+        ],
+        "size": 15.5,
+        "font": "DejaVuSans",
+        "color": 16777215
+      },
+      {
+        "text": "Detalle de proporción y lectura institucional",
+        "bbox": [
+          720.31,
+          508.16,
+          918.04,
+          517.16
+        ],
+        "size": 9.0,
+        "font": "DejaVuSans",
+        "color": 16777215
+      }
+    ],
+    "images": 1
+  },
+  {
+    "pdf_page": 7,
+    "size": [
+      960.0,
+      540.0
+    ],
+    "text": "Vista nocturna - iluminación escenográfica\nVista nocturna corregida: iluminación escenográfica sobre la forma original, sin aletas ni cuernos añadidos.",
+    "spans": [
+      {
+        "text": "Vista nocturna - iluminación escenográfica",
+        "bbox": [
+          40.0,
+          475.72,
+          371.13,
+          491.22
+        ],
+        "size": 15.5,
+        "font": "DejaVuSans",
+        "color": 16777215
+      },
+      {
+        "text": "Vista nocturna corregida: iluminación escenográfica sobre la forma original, sin aletas ni cuernos añadidos.",
+        "bbox": [
+          42.0,
+          508.16,
+          526.9,
+          517.16
+        ],
+        "size": 9.0,
+        "font": "DejaVuSans",
+        "color": 16777215
+      }
+    ],
+    "images": 1
+  },
+  {
+    "pdf_page": 8,
+    "size": [
+      960.0,
+      540.0
+    ],
+    "text": "PROPUESTA INSTITUCIONAL\nPUERTA AL INFIERNO | 08\nCamino para convertir la idea en obra\nUna secuencia corta de validaciones permite presentar, ajustar y presupuestar con fundamento.\n1\nRelevamiento\nTopografía, accesos, redes,\ncirculaciones, usos del\nsector y medidas reales.\n2\nPrefactibilidad\nImplantación validada,\nmodelo 3D, estructura\nconceptual y fundaciones\npreliminares.\n3\nProyecto ejecutivo\nCálculo, planos,\nmaterialidad, iluminación,\nseguridad, permisos y\npresupuesto.\n4\nFabricación y\nmontaje\nModulación, transporte,\nizaje, control de calidad e\ninstalación en sitio.\nSiguiente paso recomendado\nConformar una mesa de trabajo entre Club, artista, arquitectura e ingeniería. El objetivo inicial no es cerrar la obra, sino validar\nimplantación, escala, factibilidad y criterios de presentación ante Comisión Directiva.\nResultado esperado: ubicación acordada, alcance técnico, costo de orden de magnitud y hoja de ruta para proyecto ejecutivo.",
+    "spans": [
+      {
+        "text": "PROPUESTA INSTITUCIONAL",
+        "bbox": [
+          44.0,
+          17.47,
+          179.76,
+          26.07
+        ],
+        "size": 8.6,
+        "font": "DejaVuSans-Bold",
+        "color": 6710886
+      },
+      {
+        "text": "PUERTA AL INFIERNO | 08",
+        "bbox": [
+          808.03,
+          515.62,
+          916.0,
+          524.02
+        ],
+        "size": 8.4,
+        "font": "DejaVuSans",
+        "color": 6710886
+      },
+      {
+        "text": "Camino para convertir la idea en obra",
+        "bbox": [
+          44.0,
+          73.21,
+          684.8,
+          103.21
+        ],
+        "size": 30.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "Una secuencia corta de validaciones permite presentar, ajustar y presupuestar con fundamento.",
+        "bbox": [
+          44.0,
+          110.89,
+          830.01,
+          127.09
+        ],
+        "size": 16.2,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "1",
+        "bbox": [
+          61.0,
+          170.29,
+          76.31,
+          192.29
+        ],
+        "size": 22.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "Relevamiento",
+        "bbox": [
+          96.0,
+          174.91,
+          189.61,
+          187.01
+        ],
+        "size": 12.1,
+        "font": "DejaVuSans-Bold",
+        "color": 1513239
+      },
+      {
+        "text": "Topografía, accesos, redes,",
+        "bbox": [
+          96.0,
+          200.33,
+          229.29,
+          210.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "circulaciones, usos del",
+        "bbox": [
+          96.0,
+          212.93,
+          205.55,
+          222.63
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "sector y medidas reales.",
+        "bbox": [
+          96.0,
+          225.53,
+          215.2,
+          235.23
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "2",
+        "bbox": [
+          283.0,
+          170.29,
+          298.31,
+          192.29
+        ],
+        "size": 22.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "Prefactibilidad",
+        "bbox": [
+          318.0,
+          174.91,
+          418.19,
+          187.01
+        ],
+        "size": 12.1,
+        "font": "DejaVuSans-Bold",
+        "color": 1513239
+      },
+      {
+        "text": "Implantación validada,",
+        "bbox": [
+          318.0,
+          200.33,
+          428.59,
+          210.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "modelo 3D, estructura",
+        "bbox": [
+          318.0,
+          212.93,
+          427.21,
+          222.63
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "conceptual y fundaciones",
+        "bbox": [
+          318.0,
+          225.53,
+          442.34,
+          235.23
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "preliminares.",
+        "bbox": [
+          318.0,
+          238.13,
+          381.84,
+          247.83
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "3",
+        "bbox": [
+          505.0,
+          170.29,
+          520.31,
+          192.29
+        ],
+        "size": 22.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "Proyecto ejecutivo",
+        "bbox": [
+          540.0,
+          174.91,
+          667.21,
+          187.01
+        ],
+        "size": 12.1,
+        "font": "DejaVuSans-Bold",
+        "color": 1513239
+      },
+      {
+        "text": "Cálculo, planos,",
+        "bbox": [
+          540.0,
+          200.33,
+          616.73,
+          210.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "materialidad, iluminación,",
+        "bbox": [
+          540.0,
+          212.93,
+          666.6,
+          222.63
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "seguridad, permisos y",
+        "bbox": [
+          540.0,
+          225.53,
+          647.57,
+          235.23
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "presupuesto.",
+        "bbox": [
+          540.0,
+          238.13,
+          603.47,
+          247.83
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "4",
+        "bbox": [
+          727.0,
+          170.29,
+          742.31,
+          192.29
+        ],
+        "size": 22.0,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "Fabricación y",
+        "bbox": [
+          762.0,
+          174.91,
+          852.91,
+          187.01
+        ],
+        "size": 12.1,
+        "font": "DejaVuSans-Bold",
+        "color": 1513239
+      },
+      {
+        "text": "montaje",
+        "bbox": [
+          762.0,
+          189.41,
+          817.84,
+          201.51
+        ],
+        "size": 12.1,
+        "font": "DejaVuSans-Bold",
+        "color": 1513239
+      },
+      {
+        "text": "Modulación, transporte,",
+        "bbox": [
+          762.0,
+          200.33,
+          877.42,
+          210.03
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "izaje, control de calidad e",
+        "bbox": [
+          762.0,
+          212.93,
+          886.69,
+          222.63
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "instalación en sitio.",
+        "bbox": [
+          762.0,
+          225.53,
+          855.96,
+          235.23
+        ],
+        "size": 9.7,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "Siguiente paso recomendado",
+        "bbox": [
+          44.0,
+          349.2,
+          331.46,
+          366.7
+        ],
+        "size": 17.5,
+        "font": "DejaVuSans-Bold",
+        "color": 13111342
+      },
+      {
+        "text": "Conformar una mesa de trabajo entre Club, artista, arquitectura e ingeniería. El objetivo inicial no es cerrar la obra, sino validar",
+        "bbox": [
+          44.0,
+          384.98,
+          839.16,
+          397.38
+        ],
+        "size": 12.4,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "implantación, escala, factibilidad y criterios de presentación ante Comisión Directiva.",
+        "bbox": [
+          44.0,
+          401.58,
+          574.89,
+          413.98
+        ],
+        "size": 12.4,
+        "font": "DejaVuSans",
+        "color": 1513239
+      },
+      {
+        "text": "Resultado esperado: ubicación acordada, alcance técnico, costo de orden de magnitud y hoja de ruta para proyecto ejecutivo.",
+        "bbox": [
+          44.0,
+          450.98,
+          831.08,
+          463.38
+        ],
+        "size": 12.4,
+        "font": "DejaVuSans",
+        "color": 1513239
+      }
+    ],
+    "images": 0
+  }
+]
