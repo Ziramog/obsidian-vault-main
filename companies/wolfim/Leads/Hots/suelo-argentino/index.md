@@ -2,8 +2,8 @@
 company: Suelo Argentino Negocios Inmobiliarios
 location: Villa María, Córdoba
 owner: wolfim-growth
-status: propuesta-en-revision
-updated: 2026-07-31
+status: propuesta-enviada
+updated: 2026-08-03
 ---
 
 # Suelo Argentino Negocios Inmobiliarios
@@ -16,7 +16,7 @@ updated: 2026-07-31
 - Trayectoria comunicada: más de 10 años.
 - Teléfonos públicos: ventas 353-4219830; alquileres 353-4414017; administración 353-4219823.
 - Email público: `sueloargentino@outlook.com`.
-- Persona de contacto: no confirmada.
+- Persona de contacto: Madelen.
 
 ## Oportunidad
 
@@ -31,11 +31,21 @@ El sitio actual es WordPress con HomePress + uListing, mantiene 115 propiedades 
 - Pago: USD 200 al iniciar + USD 199 al publicar.
 - Mantenimiento: 6 meses incluidos; luego USD 29/mes, sin permanencia.
 - Implementación estimada: 2 semanas desde confirmación y recepción de materiales y accesos.
-- Estado: borrador adaptado para revisión de Juan; no enviado.
+- Estado: propuesta enviada por WhatsApp a Madelen el 2026-08-03; respondió que lo están analizando.
+
+## Conversación comercial
+
+- 2026-08-03: Juan envió sitio de referencia y propuesta `Suelo_Argentino_propuesta.pdf`. Madelen respondió: "Genial" y "Ahora lo veo".
+- 2026-08-03: Juan envió follow-up escrito consultando si pudieron ver la propuesta, si les hace sentido avanzar y ofreciendo pasar cronograma/próximos pasos.
+- 2026-08-03 10:54: Madelen respondió: "si lo estamos analizando". Próxima respuesta recomendada: agradecer, dejar que lo vean tranquilos y ofrecer resolver dudas o coordinar 10 minutos cuando terminen de revisarlo.
+- Riesgo comercial: la página actual se la hizo su marido, analista de sistemas. No atacar la web ni WordPress; posicionar Wolfim como mejora comercial/premium, no como reemplazo personal del trabajo del marido.
+- Si aparece el marido como decisor técnico, conviene incluirlo en una llamada corta y hablarle de performance, mantenimiento, seguridad, fichas, WhatsApp por propiedad y SEO local.
 
 ## Próxima acción
 
-- [ ] Juan revisa ambas versiones y define contacto/canal de envío — 2026-07-31.
+- [x] Juan envió propuesta por WhatsApp a Madelen — 2026-08-03.
+- [x] Follow-up suave enviado — 2026-08-03.
+- [ ] Follow-up si no vuelve con dudas/decisión — 2026-08-06.
 
 ## Archivos vigentes
 

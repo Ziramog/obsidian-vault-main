@@ -6,6 +6,7 @@ Directorio de prospectos sin contacto o en espera de primera respuesta.
 - **Ubicación:** Supabase → `concesionarias_autos`
 - **Estado:** Outreach pendiente
 - **Vertical:** Concesionarias de vehículos
+- **Próximo paso:** preparar demo portal automotriz antes de iniciar outreach
 
 ## Leads manuales
 
@@ -16,5 +17,6 @@ Directorio de prospectos sin contacto o en espera de primera respuesta.
 | Gamma | — | 2026-05-03 | Pendiente |
 
 ## Acciones
+- [ ] Preparar demo portal automotriz antes de iniciar outreach a concesionarias
 - [ ] Integrar Comforti, Rivas, Gamma al outreach automatizado
 - [ ] Revisar datos de contacto en Supabase para los 3

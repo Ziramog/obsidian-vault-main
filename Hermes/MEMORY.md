@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-07-26
+last-reviewed: 2026-08-03
 confidence: medium
 status: active
 source: mixed
@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-07-28 15:58 ART | **Semáforo no confirmable: KPIs formales incompletos** · `almas-libres` profile creado para Fundación Almas Libres (SOUL + workspace + alias + smoke test OK) · `cron_campaign.py` sigue con cola agotada · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial Wolfim: enviar propuesta Farias + decidir si Web Viejas se reabastece o se pausa.
+**Última actualización:** 2026-08-03 10:34 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` confirmado otra vez con cola agotada (107 registros: 97 sent, 10 bounced, 0 pendientes) · briefing vigente sigue vencido · Luis Farias sigue como propuesta premium lista para revisión/envío · Almas Libres tiene handoff web detallado `HO-2026-08-03-001` listo para brain-local · Prioridad comercial Wolfim: reabastecer Web Viejas o pausar el canal y mover foco a cierre real.
 
 ---
 
@@ -30,13 +30,15 @@ source: mixed
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-07-26
+### Resultado latest — 2026-08-03
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Salida real: `✅ Todos los leads han sido enviados. No hay más pendientes.`
 - No apareció ningún error nuevo en stdout durante esta corrida.
+- Verificación del tracker: 107 registros totales, 97 `sent`, 10 `bounced`, 0 pendientes.
 - Riesgo inmediato: seguir corriendo sin inventario no genera oportunidad comercial nueva.
 
 ### Corrida histórica breve
+- 08/03: cola agotada; 107 registros totales, 0 pendientes; sin error nuevo visible en stdout.
 - 07/26: cola agotada; sin error nuevo visible en stdout.
 - 07/25: cola agotada; sin error nuevo visible en stdout.
 - 07/21: cola agotada; sin error nuevo visible en stdout.
@@ -75,7 +77,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - **Ango:** junio $333 cobrados. Sigue pendiente de fondo: MONTECOR pagar importación. Handoff local `HO-2026-07-16-001` sigue sin ack visible y ya está vencido.
 - **Korantis:** sin revenue; modo evidencia + scout. No desplazar a Wolfim.
 - **Construvial:** standby. No activar sin aprobación explícita de Juan.
-- **Almas Libres:** nuevo profile Hermes `almas-libres` creado 2026-07-28 para Fundación Almas Libres (santuario equino, 50 caballos asilvestrados, personería jurídica reciente). Juan implementa digital; Anne presidenta; Magalí vicepresidenta. Rutas: `~/.hermes/profiles/almas-libres/SOUL.md` y workspace `/home/hermes/almas-libres/`. Modelo operativo verificado: `gpt-5.4` vía `openai-codex`; intento low-cost `opencode-go/deepseek-v4-flash` falló por 401 insufficient balance.
+- **Almas Libres:** profile `almas-libres` activo para Fundación Almas Libres (santuario equino, alrededor de 50 caballos asilvestrados; cifra pública a validar). Juan implementa digital; Anne presidenta; Magalí vicepresidenta. `HO-2026-08-03-001` solicita a web-builder un MVP institucional + padrinazgo equino, en preview y sin publicación hasta validar datos y activos.
 
 ---
 
@@ -83,6 +85,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 - `local-to-vps`: `HO-2026-06-26-001` acknowledged; administrativamente archivable.
 - `vps-to-local` activos/vencidos:
+  - `HO-2026-08-03-001` — ready, normal, MVP web Almas Libres + padrinazgo; vence 2026-08-07 18:00 ART.
   - `HO-2026-06-27-001` — ready, normal, sin cierre visible.
   - `HO-2026-07-13-001` — high, vencido, sin ack visible.
   - `HO-2026-07-16-001` — high, vencido, sin ack visible.

@@ -4,7 +4,7 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 🔴 Reactivado — propuesta v16 con plazo de 2 semanas y mantenimiento detallado, lista para revisión/envío (21 Jul 2026)
+**Status:** 🔴 Reactivado — follow-up enviado 2026-08-03 tras regreso esperado en primeros días de agosto
 
 ## Oferta vigente Farias
 - Desarrollo: ~~USD 450~~ **USD 399** (USD 200 al iniciar / USD 199 contra entrega)
@@ -20,6 +20,12 @@
 - Propuesta comercial vigente v16 con plazo y mantenimiento detallado: [[propuesta-farias-portal-v16-mobile-plazo-mantenimiento-2026-07-21.pdf]] y [[propuesta-farias-portal-v16-a4-desktop-plazo-mantenimiento-2026-07-21.pdf]]
 - Borrador anterior para La Montaña queda superseded por error de contexto: [[presupuesto-loteo-la-montana-2026-07-13]]
 - Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
+
+## Conversación comercial reciente
+
+- Antes del 2026-08-03: Luis revisó la propuesta y dijo que le gustó; luego pausó por enfermedad del padre y dijo que volvía los primeros días de agosto.
+- 2026-08-03: Juan envió follow-up suave a Luis, retomando el hilo porque había dicho que volvía a la oficina los primeros días de agosto. Esperar respuesta antes de empujar cierre.
+- 2026-08-03 10:05: Luis respondió: "Buen día. Recordame el miércoles y vemos de acomodarlo porque regreso el miércoles a la oficina recién". Juan respondió: "Dale perfecto". Próxima acción: recordar el miércoles 2026-08-05, no antes.
 
 ## Proposal
 ![[propuesta-farias-portal-v16-mobile-plazo-mantenimiento-2026-07-21.pdf]]
@@ -55,9 +61,11 @@
 - [x] Aclarar enfoque correcto: Farias & Asociados basado en Roggero & Roma
 - [x] Handoff web-builder recibido con detalle admin panel
 - [x] Propuesta portal premium Farias armada (13 Jul 2026)
-- [ ] Juan revisa v16 mobile y A4/desktop con plazo y mantenimiento detallado
-- [ ] Enviar propuesta por WhatsApp a Luis
-- [ ] Charla con Luis + amigo al regreso del viaje
+- [x] Juan revisó v16 mobile y A4/desktop con plazo y mantenimiento detallado
+- [x] Enviar propuesta por WhatsApp a Luis
+- [x] Follow-up al regreso del viaje enviado — 2026-08-03
+- [ ] Recordar a Luis el miércoles como pidió — 2026-08-05
+- [ ] Charla con Luis + amigo si responde positivo
 - [ ] Contract signed
 - [ ] Payment received (USD 200 iniciales si avanza propuesta USD 399)
 
