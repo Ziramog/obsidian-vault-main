@@ -10,6 +10,12 @@ Directorio de leads con conversación abierta o en proceso de cierre.
 | Luis Farias | Farias & Asociados | USD 399 + USD 29/mes desde mes 7 | Pidió recordatorio miércoles 2026-08-05 al volver a oficina | 65% |
 | Madelen | Suelo Argentino Negocios Inmobiliarios | USD 399 + USD 29/mes desde mes 7 | Respondió que lo están analizando | 55% |
 
+## Cobros cerrados
+
+| Fecha | Cliente | Concepto | Monto | Estado |
+|---|---|---|---:|---|
+| 2026-08-05 | Construvial S.A. | 2 brochures / catálogos digitales PDF | USD 180 | ✅ Cobrado |
+
 ## Checkpoints
 - Julio 2026: $400/mes
 - Agosto 2026: $700/mes
