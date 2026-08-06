@@ -27,8 +27,8 @@ estado: cobrado
 
 | Ítem | Descripción | Cantidad | Precio unitario | Subtotal |
 |---|---|---:|---:|---:|
-| 1 | Brochure digital en PDF — catálogo digital para Construvial S.A. | 1 | USD 90 | USD 90 |
-| 2 | Brochure digital en PDF — catálogo digital para Construvial S.A. | 1 | USD 90 | USD 90 |
+| 1 | Brochure digital en PDF — Catálogo Construvial Rental | 1 | USD 90 | USD 90 |
+| 2 | Brochure digital en PDF — Brochure corporativo PRESOL | 1 | USD 90 | USD 90 |
 
 **Total abonado:** **USD 180**
 

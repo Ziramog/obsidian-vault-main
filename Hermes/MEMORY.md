@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-08-03 10:34 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` confirmado otra vez con cola agotada (107 registros: 97 sent, 10 bounced, 0 pendientes) · briefing vigente sigue vencido · Luis Farias sigue como propuesta premium lista para revisión/envío · Almas Libres tiene handoff web detallado `HO-2026-08-03-001` listo para brain-local · Prioridad comercial Wolfim: reabastecer Web Viejas o pausar el canal y mover foco a cierre real.
+**Última actualización:** 2026-08-05 11:19 ART | **Semáforo no confirmable: KPIs formales incompletos** · Construvial/PRESOL depositó **USD 180** por los dos catálogos; recibo no fiscal generado · `cron_campaign.py` confirmado con cola agotada (107 registros: 97 sent, 10 bounced, 0 pendientes) · briefing vigente sigue vencido · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial Wolfim: reabastecer Web Viejas o pausar el canal y mover foco a cierre real.
 
 ---
 
@@ -76,7 +76,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - **Wolfim:** foco principal mientras KPIs formales sigan vencidos. Web Viejas sin inventario; prioridad real es seguimiento/cierre.
 - **Ango:** junio $333 cobrados. Sigue pendiente de fondo: MONTECOR pagar importación. Handoff local `HO-2026-07-16-001` sigue sin ack visible y ya está vencido.
 - **Korantis:** sin revenue; modo evidencia + scout. No desplazar a Wolfim.
-- **Construvial:** standby. No activar sin aprobación explícita de Juan.
+- **Construvial:** cobro puntual confirmado 2026-08-05: **USD 180** por catálogos Construvial Rental + PRESOL. Sigue en standby comercial; no activar trabajo nuevo sin aprobación explícita de Juan.
 - **Almas Libres:** profile `almas-libres` activo para Fundación Almas Libres (santuario equino, alrededor de 50 caballos asilvestrados; cifra pública a validar). Juan implementa digital; Anne presidenta; Magalí vicepresidenta. `HO-2026-08-03-001` solicita a web-builder un MVP institucional + padrinazgo equino, en preview y sin publicación hasta validar datos y activos.
 
 ---
@@ -103,4 +103,5 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - Mockups AI no reemplazan venta concreta. Mostrar producto > mostrar idea.
 - Datos de pago: Juan los pasa al cliente, no al revés.
 - Catálogo Rental Construvial: conservar el diseño inicial oscuro/amarillo; optimizar solo la ocupación vertical, usar descripción técnica legible, replicar en la contratapa los tres ítems de Milicic (operador, mantenimiento y transporte) y usar el isotipo C delineado —no óvalos— como patrón sobre los fondos grises.
+- Recibos Wolfim: usar el diseño fijo existente; no improvisar layouts nuevos ni variantes genéricas.
 - No escribir secrets, tokens ni API keys en el vault.

@@ -7,7 +7,7 @@ Directorio de leads con conversación abierta o en proceso de cierre.
 | Lead | Empresa | Valor | Estado | Probabilidad |
 |------|---------|-------|--------|-------------|
 | Ann | Documental de cine | No cotizado | 🟡 WA agendado | — |
-| Luis Farias | Farias & Asociados | USD 399 + USD 29/mes desde mes 7 | Pidió recordatorio miércoles 2026-08-05 al volver a oficina | 65% |
+| Luis Farias | Farias & Asociados | USD 399 + USD 29/mes desde mes 7 | Recordatorio enviado 2026-08-05, esperando definición | 65% |
 | Madelen | Suelo Argentino Negocios Inmobiliarios | USD 399 + USD 29/mes desde mes 7 | Respondió que lo están analizando | 55% |
 
 ## Cobros cerrados
@@ -23,7 +23,8 @@ Directorio de leads con conversación abierta o en proceso de cierre.
 
 ## Acciones
 - [x] Follow-up Luis Farias enviado — 2026-08-03
-- [ ] Recordar a Luis Farias como pidió — 2026-08-05
+- [x] Recordar a Luis Farias como pidió — 2026-08-05
+- [ ] Reintentar Luis Farias si no responde — 2026-08-07
 - [ ] Completar datos Ann
 - [x] Follow-up suave a Madelen enviado — 2026-08-03
 - [ ] Follow-up Madelen si no vuelve con dudas/decisión — 2026-08-06

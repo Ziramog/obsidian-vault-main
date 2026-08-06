@@ -26,6 +26,7 @@
 - Antes del 2026-08-03: Luis revisó la propuesta y dijo que le gustó; luego pausó por enfermedad del padre y dijo que volvía los primeros días de agosto.
 - 2026-08-03: Juan envió follow-up suave a Luis, retomando el hilo porque había dicho que volvía a la oficina los primeros días de agosto. Esperar respuesta antes de empujar cierre.
 - 2026-08-03 10:05: Luis respondió: "Buen día. Recordame el miércoles y vemos de acomodarlo porque regreso el miércoles a la oficina recién". Juan respondió: "Dale perfecto". Próxima acción: recordar el miércoles 2026-08-05, no antes.
+- 2026-08-05: Juan envió el recordatorio a Luis para retomar lo del portal y pedir lectura/definición de avance. Esperar respuesta antes de enviar otro mensaje.
 
 ## Proposal
 ![[propuesta-farias-portal-v16-mobile-plazo-mantenimiento-2026-07-21.pdf]]
@@ -64,7 +65,8 @@
 - [x] Juan revisó v16 mobile y A4/desktop con plazo y mantenimiento detallado
 - [x] Enviar propuesta por WhatsApp a Luis
 - [x] Follow-up al regreso del viaje enviado — 2026-08-03
-- [ ] Recordar a Luis el miércoles como pidió — 2026-08-05
+- [x] Recordar a Luis el miércoles como pidió — 2026-08-05
+- [ ] Reintento si no responde — 2026-08-07
 - [ ] Charla con Luis + amigo si responde positivo
 - [ ] Contract signed
 - [ ] Payment received (USD 200 iniciales si avanza propuesta USD 399)
