@@ -93,6 +93,16 @@ La idea es que no dependan de un diseñador o programador cada vez que entra o s
 Desde el panel se puede actualizar stock, fotos, precio, estado y destacados. El sitio sigue vivo, no queda abandonado a los dos meses.
 ```
 
+## Al mencionar módulo interno privado
+
+```text
+Y esto también puede servirles puertas adentro.
+
+Cada auto puede tener su ficha pública para vender, y una ficha privada para ustedes: documentación, mantenimiento, estado técnico, costos, tareas pendientes y observaciones internas.
+
+Eso no lo ve el cliente. Es para que la concesionaria tenga el stock ordenado y no dependa de planillas, carpetas o mensajes perdidos de WhatsApp.
+```
+
 ## Pitch de diferenciación
 
 ```text
@@ -125,6 +135,7 @@ La propuesta es armarles un portal a medida para la agencia:
 - WhatsApp por vehículo;
 - historias compartibles para redes;
 - panel para mantener el stock actualizado;
+- módulo interno opcional para documentación, mantenimiento, estado técnico y checklist privado por unidad;
 - hosting, soporte y mantenimiento.
 
 Después, si quieren crecer más, podemos sumar campañas en redes, Google Ads, piezas para Instagram y reportes de consultas.
@@ -155,7 +166,8 @@ Usar después de mostrar el demo, no antes de explicar demasiado.
 3. ¿Quién carga los autos cuando ingresa una unidad nueva?
 4. ¿Les consultan por WhatsApp con datos concretos o tienen que explicar todo desde cero?
 5. ¿Les interesaría que cada auto tenga una ficha para compartir y usar en redes?
-6. ¿Quieren algo solo de presencia o algo que también acompañe campañas?
+6. ¿Cómo ordenan internamente documentación, mantenimiento y estado de cada unidad?
+7. ¿Quieren algo solo de presencia o algo que también acompañe campañas y orden interno?
 
 ## Objeciones y respuestas
 

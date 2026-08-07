@@ -120,6 +120,8 @@ Explicar en lenguaje comercial, no técnico.
 El portal funciona como un showroom digital propio. Cada auto tiene su ficha, fotos, precio, datos y botón de consulta. El cliente no pregunta en abstracto: consulta por una unidad concreta.
 
 Además, cada ficha se puede compartir y convertir en contenido para redes. Entonces la web no queda aislada: alimenta WhatsApp, Instagram, Facebook y campañas.
+
+Y si la agencia quiere más orden interno, cada unidad también puede tener una ficha privada con documentación, mantenimiento, estado técnico, costos y tareas pendientes. Eso no lo ve el público: queda como backoffice de stock.
 ```
 
 ### C — Confirmar y cerrar con naturalidad
