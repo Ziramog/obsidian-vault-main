@@ -207,7 +207,9 @@ for r in pages:
     if '/properties/' not in path:
         continue
     clean_title = title.replace(' · Roggero & Roma', '').replace(' · Alta Gracia', '').replace(' · Córdoba', '')
-    prop_rows.append([clean_title[:58], r.get('screenPageViews', '0'), r.get('totalUsers', '0')])
+    if len(clean_title) > 58:
+        clean_title = clean_title[:52].rsplit(' ', 1)[0].rstrip() + '...'
+    prop_rows.append([clean_title, r.get('screenPageViews', '0'), r.get('totalUsers', '0')])
     if len(prop_rows) >= 6:
         break
 
@@ -336,9 +338,9 @@ pdf.body(
 pdf.table(
     ['Horario', 'Sesiones', 'Vistas', 'Cuándo publicar'],
     [
-        ['10 a 12 hs', f'~{h10_12}', f'~{v10_12}', 'Mañana — horario laboral'],
-        ['18 a 21 hs', f'~{h18_21}', f'~{v18_21}', 'Noche — después del trabajo'],
-        ['Resto del día', f'~{rest_s}', f'~{rest_v}', 'Tráfico disperso'],
+        ['10 a 12 hs', f'{h10_12}', f'{v10_12}', 'Mañana — horario laboral'],
+        ['18 a 21 hs', f'{h18_21}', f'{v18_21}', 'Noche — después del trabajo'],
+        ['Resto del día', f'{rest_s}', f'{rest_v}', 'Tráfico disperso'],
     ],
     [30, 26, 30, 92],
     font_size=7.7,
@@ -354,7 +356,7 @@ pdf.add_page()
 pdf.section('Señales de interés y próximo paso', 'Actividad comercial')
 pdf.metric_cards([
     ('Fichas vistas', fmt_num(property_viewed), 'interacción con propiedades'),
-    ('Clics de WhatsApp', fmt_num(whatsapp), 'contacto directo'),
+    ('Clics de WhatsApp', fmt_num(whatsapp), 'intención de contacto'),
 ], columns=2)
 pdf.body(
     'La medición actual muestra fichas de propiedades vistas y clics de WhatsApp como señales claras. Para los próximos informes vamos a separar mejor búsquedas, filtros y contactos reales con eventos propios.',
