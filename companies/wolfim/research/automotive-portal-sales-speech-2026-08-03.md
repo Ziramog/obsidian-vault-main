@@ -232,6 +232,28 @@ La idea sería adaptarlo a su marca, su stock y su forma de venta.
 Si te parece, el próximo paso es definir una primera versión con 10 a 15 vehículos y te paso una propuesta concreta.
 ```
 
+## Método comercial incorporado
+
+Este speech ahora se apoya en la adaptación del Método Comercial Zoom al vertical automotor:
+
+```text
+companies/wolfim/research/automotive-portal-sales-plan-zoom-adapted-2026-08-03.md
+```
+
+Regla central:
+
+> La concesionaria no compra una web. Compra una transformación: verse más sólida, ordenar el stock, recibir mejores consultas y tener una base propia para campañas.
+
+Método operativo: **C.O.N.E.C.T.A.**
+
+- Crear confianza.
+- Observar y escuchar.
+- Necesidades: descubrir qué busca la agencia.
+- Explicar la solución adecuada.
+- Confirmar y cerrar con naturalidad.
+- Tener seguimiento.
+- Acompañar para fidelizar.
+
 ## Regla de tono para Juan
 
 Decir menos “puede mejorar sus ventas” y más:
