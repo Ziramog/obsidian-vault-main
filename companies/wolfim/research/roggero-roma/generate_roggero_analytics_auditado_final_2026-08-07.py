@@ -6,9 +6,7 @@ Excluye fuentes técnicas/login del total client-facing.
 from __future__ import annotations
 
 import json
-import subprocess
 import sys
-from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
@@ -21,8 +19,6 @@ from wolfim_report_preset_auditado import WolfimReport, copy_to_transfer
 
 KEY = '/home/hermes/.hermes/profiles/wolfim-growth/wolfim-analytics-tools-a0b1de9655b0.json'
 PROP = '539918073'
-PREV_START = '2026-06-08'
-PREV_END = '2026-07-07'
 START = '2026-07-07'
 END = '2026-08-06'
 DATE_LABEL = date.today().strftime('%d/%m/%Y')
@@ -115,7 +111,7 @@ def fmt_num(v):
 
 def metric(start, end, filt=None):
     return ga4(start, end, [], [
-        'totalUsers', 'sessions', 'screenPageViews', 'engagedSessions', 'engagementRate', 'bounceRate'
+        'totalUsers', 'sessions', 'screenPageViews', 'engagementRate'
     ], filt=filt)
 
 
@@ -130,32 +126,12 @@ def source_sessions(source, medium=None, filt=None):
 
 
 print(f'📊 Generando informe cliente limpio real — {START} a {END}')
-raw = metric(START, END)
-tech = metric(START, END, INTERNAL_ANY)
 clean = metric(START, END, CLEAN_FILTER)
-prev = metric(PREV_START, PREV_END)
-prev_admin = metric(PREV_START, PREV_END, {'orGroup': {'expressions': [ADMIN_PATH, ADMIN_TITLE_ADMIN, ADMIN_TITLE_EDIT, ADMIN_TITLE_PANEL]}})
-
-raw_sessions = to_int(raw.get('sessions'))
-raw_views = to_int(raw.get('screenPageViews'))
-tech_sessions = to_int(tech.get('sessions'))
-tech_views = to_int(tech.get('screenPageViews'))
-tech_users = to_int(tech.get('totalUsers'))
 users = to_int(clean.get('totalUsers'))
 sessions = to_int(clean.get('sessions'))
 views = to_int(clean.get('screenPageViews'))
-engaged = to_int(clean.get('engagedSessions'))
 engagement = to_float(clean.get('engagementRate')) * 100
-bounce = to_float(clean.get('bounceRate')) * 100
 views_per_session = round(views / max(sessions, 1), 2)
-views_per_user = round(views / max(users, 1), 2)
-
-prev_sessions = to_int(prev.get('sessions'))
-prev_views = to_int(prev.get('screenPageViews'))
-prev_engagement = to_float(prev.get('engagementRate')) * 100
-prev_bounce = to_float(prev.get('bounceRate')) * 100
-prev_admin_views = to_int(prev_admin.get('screenPageViews'))
-prev_admin_sessions = to_int(prev_admin.get('sessions'))
 
 countries = ga4(START, END, ['country'], ['totalUsers', 'sessions', 'screenPageViews'], filt=CLEAN_FILTER, limit=10, order_metric='screenPageViews')
 devices = ga4(START, END, ['deviceCategory'], ['totalUsers', 'sessions', 'screenPageViews'], filt=CLEAN_FILTER, limit=5, order_metric='sessions')
@@ -372,31 +348,4 @@ transfer = copy_to_transfer(OUT)
 print(f'✅ PDF generado: {OUT}')
 print(f'📎 Transfer: {transfer}')
 print(f'📦 Tamaño: {OUT.stat().st_size} bytes')
-print(f'📊 Totales: raw_sessions={raw_sessions} tech_sessions={tech_sessions} clean_sessions={sessions} clean_views={views}')
-
-bot_token = None
-with open('/home/hermes/.hermes/.env') as f:
-    for line in f:
-        if line.startswith('TELEGRAM_BOT_TOKEN='):
-            bot_token = line.split('=', 1)[1].strip()
-            break
-
-if False and bot_token:
-    # Envío desactivado: este artefacto se verifica antes de Telegram.
-    caption = 'Roggero & Roma — informe auditado final, métricas depuradas y consistentes.'
-    cmd = [
-        'curl', '-s', '-X', 'POST',
-        f'https://api.telegram.org/bot{bot_token}/sendDocument',
-        '-F', 'chat_id=1479438002',
-        '-F', f'document=@{transfer}',
-        '-F', f'caption={caption}',
-        '--max-time', '90',
-    ]
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
-    data = json.loads(result.stdout) if result.stdout else {}
-    if data.get('ok'):
-        print(f'📨 Telegram OK — message_id: {data["result"]["message_id"]}')
-    else:
-        print(f'⚠️ Error Telegram: {data}')
-else:
-    print('⚠️ TELEGRAM_BOT_TOKEN no encontrado')
+print(f'📊 Totales depurados: users={users} sessions={sessions} views={views}')
