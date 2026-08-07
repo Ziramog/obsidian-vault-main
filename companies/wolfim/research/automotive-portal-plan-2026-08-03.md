@@ -150,6 +150,36 @@ Valor comercial: cada vehículo se convierte en pieza lista para redes. Esto es 
 6. Subida múltiple de imágenes.
 7. Vista previa antes de publicar.
 
+### Módulo interno privado de stock
+
+Nueva oportunidad de producto: el portal también puede funcionar como sistema interno para ordenar stock, documentación y mantenimiento.
+
+La lógica correcta es separar cada vehículo en dos capas:
+
+1. **Ficha pública:** lo que ve el comprador.
+2. **Ficha privada:** lo que ve la concesionaria con login.
+
+Valor comercial:
+
+- documentación por unidad;
+- historial de mantenimiento;
+- estado técnico;
+- costos de preparación;
+- notas internas;
+- checklist prepublicación;
+- estado comercial interno;
+- vencimientos o documentación pendiente.
+
+Esto convierte el producto de “web para mostrar autos” en **showroom público + backoffice privado de stock**.
+
+Recomendación: no frenar V0 por esto. Usarlo como diferencial/upsell para V1/V2 y, si el clon lo permite, mostrar una pestaña interna simple en el demo.
+
+Documento ampliado:
+
+```text
+companies/wolfim/research/automotive-portal-internal-stock-module-2026-08-07.md
+```
+
 ### Datos demo
 
 Crear una marca ficticia para evitar problemas: **Wolfim Motors Demo**.
@@ -220,12 +250,17 @@ Alcance:
 - Sitemap.
 - Analytics básico.
 - Guía de uso simple para la concesionaria.
+- Ficha interna privada por vehículo con notas, estado técnico y documentación.
+- Checklist prepublicación para ordenar qué falta antes de publicar cada unidad.
 
 Tiempo objetivo: 7 a 10 días de producción técnica.
 
 ### Fase 3 — Upsells
 
 Funcionalidades para subir ticket:
+- Módulo interno privado por vehículo: documentación, mantenimiento, estado técnico, notas y checklist.
+- Alertas de vencimiento de documentación/VTV/RTO.
+- Reporte de costos de preparación por vehículo.
 - Descripciones IA por vehículo.
 - Comparador lado a lado.
 - PDF de presupuesto automático.
@@ -243,7 +278,8 @@ Precios para validar/cerrar con Juan antes de enviar propuesta formal:
 |---|---:|---:|---|
 | Presencia + catálogo simple | USD 450 | USD 39/mes | Concesionaria chica con 10-25 unidades |
 | Portal concesionaria | USD 650-850 | USD 49-79/mes | Agencia con stock activo y necesidad de panel |
-| Portal + growth | USD 900+ | USD 99+/mes | Agencia que quiere SEO, reportes, Ads y automatización |
+| Portal operativo interno | USD 900-1200 | USD 79-129/mes | Agencia que quiere ordenar documentación, mantenimiento y stock privado |
+| Portal + growth | USD 1200+ | USD 129+/mes | Agencia que quiere SEO, reportes, Ads y automatización |
 
 Regla comercial: no venderlo como “web”. Venderlo como “salón virtual con stock propio y consultas por unidad”.
 
@@ -256,10 +292,11 @@ Dolores a tocar:
 3. Cuando alguien googlea “concesionaria en [ciudad]”, muchas veces encuentra portales antes que tu marca.
 4. El cliente pregunta por WhatsApp sin contexto; con ficha propia consulta por una unidad concreta.
 5. Una web propia mejora percepción: no sos solo un perfil en redes, sos una concesionaria con salón digital.
+6. Puertas adentro, documentación, mantenimiento, costos y estado de cada unidad suelen quedar en carpetas, planillas o WhatsApp; el portal puede ordenarlo en una ficha privada por vehículo.
 
 Promesa:
 
-> “Te damos una web propia donde el cliente ve el stock, filtra, entra a la ficha del auto y consulta por WhatsApp con el vehículo ya identificado.”
+> “Te damos una web propia donde el cliente ve el stock, filtra, entra a la ficha del auto y consulta por WhatsApp con el vehículo ya identificado. Y si querés ordenar puertas adentro, cada unidad también puede tener su ficha privada con documentación, mantenimiento, estado técnico y tareas pendientes.”
 
 ## Plan comercial con leads existentes
 

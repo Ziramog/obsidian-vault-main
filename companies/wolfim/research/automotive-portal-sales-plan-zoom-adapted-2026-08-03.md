@@ -92,6 +92,7 @@ Antes de proponer, mirar y preguntar:
 - ¿Quién carga los autos cuando ingresan?
 - ¿Qué pasa cuando alguien pregunta por WhatsApp?
 - ¿Qué les gustaría ordenar o mejorar?
+- ¿Cómo ordenan internamente documentación, mantenimiento y estado de cada unidad?
 
 ### N — Necesidades: descubrir qué busca la agencia
 
@@ -102,7 +103,8 @@ No quedarse en “quieren una web”. Buscar la transformación real:
 - quieren diferenciarse;
 - quieren consultas más calificadas;
 - quieren tener destino para campañas;
-- quieren no depender tanto de portales/redes.
+- quieren no depender tanto de portales/redes;
+- quieren ordenar documentación, mantenimiento y estado interno de cada unidad.
 
 Pregunta clave:
 

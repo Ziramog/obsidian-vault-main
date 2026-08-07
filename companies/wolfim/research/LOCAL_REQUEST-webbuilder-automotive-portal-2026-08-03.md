@@ -7,6 +7,7 @@ company: Wolfim
 target: brain-vps-to-web-builder
 priority: high
 related-plan: companies/wolfim/research/automotive-portal-plan-2026-08-03.md
+related-addendum: companies/wolfim/research/LOCAL_REQUEST-webbuilder-automotive-portal-internal-stock-addendum-2026-08-07.md
 ---
 
 # LOCAL_REQUEST — Demo portal automotriz Wolfim
@@ -114,6 +115,19 @@ Agregar:
 - Sitemap.
 - Analytics básico.
 - Guía de uso para concesionaria.
+- Ficha interna privada por vehículo con notas, documentación, estado técnico y checklist prepublicación.
+- Separación estricta entre datos públicos y datos privados.
+
+## Alcance V2 — Portal operativo interno
+
+Agregar si el cliente lo justifica:
+
+- Historial de mantenimiento por vehículo.
+- Documentación adjunta por unidad.
+- Costos de preparación y margen objetivo.
+- Alertas de vencimientos de VTV/RTO/documentación.
+- Roles/permisos para admin, vendedor y preparación/taller.
+- Reportes de stock y tareas pendientes.
 
 ## Mapeo funcional
 
