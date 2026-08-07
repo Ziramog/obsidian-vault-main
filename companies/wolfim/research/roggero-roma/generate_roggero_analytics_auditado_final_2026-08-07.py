@@ -17,7 +17,7 @@ from google.auth.transport.requests import Request
 from google.oauth2 import service_account
 
 sys.path.append('/home/hermes/scripts')
-from wolfim_report_preset import WolfimReport, copy_to_transfer
+from wolfim_report_preset_auditado import WolfimReport, copy_to_transfer
 
 KEY = '/home/hermes/.hermes/profiles/wolfim-growth/wolfim-analytics-tools-a0b1de9655b0.json'
 PROP = '539918073'
@@ -231,23 +231,12 @@ pdf = WolfimReport(
 
 pdf.add_cover(
     title='Informe mensual de Analytics',
-    subtitle='Lectura comercial con datos depurados: visitantes reales, navegación del catálogo y señales claras de interés.',
+    subtitle='Lectura comercial con datos depurados: navegación del catálogo y señales claras de interés.',
     client='Roggero & Roma',
     period=PERIOD_LABEL,
     prepared_for='Franco / Marcos Roma',
     date_label=DATE_LABEL,
 )
-# Correct the location rail inherited from the generic preset.
-pdf.set_fill_color(*pdf.color('paper'))
-pdf.rect(15, 268.5, 165, 9, 'F')
-pdf.set_xy(16, 270)
-pdf.set_font('MONO', '', 6.5)
-pdf.set_text_color(*pdf.color('gray_400'))
-pdf.cell(42, 4, 'CÓRDOBA, ARGENTINA')
-pdf.set_fill_color(*pdf.color('green'))
-pdf.ellipse(59.5, 271.2, 1.8, 1.8, 'F')
-pdf.set_x(64)
-pdf.cell(0, 4, 'SERVICIO REMOTO')
 
 pdf.add_page()
 pdf.section('Antes de leer los números', 'Nota sobre la medición')
@@ -362,13 +351,13 @@ if prop_rows:
     pdf.table(['Propiedad', 'Vistas', 'Usuarios'], prop_rows, [116, 31, 31], font_size=7.2, row_h=10)
 
 pdf.add_page()
-pdf.section('Señales comerciales y próximo paso', 'Eventos claros')
+pdf.section('Señales de interés y próximo paso', 'Actividad comercial')
 pdf.metric_cards([
-    ('Fichas vistas', fmt_num(property_viewed), 'property_viewed'),
-    ('Clicks WhatsApp', fmt_num(whatsapp), 'contacto directo'),
+    ('Fichas vistas', fmt_num(property_viewed), 'interacción con propiedades'),
+    ('Clics de WhatsApp', fmt_num(whatsapp), 'contacto directo'),
 ], columns=2)
 pdf.body(
-    'La medición actual muestra fichas de propiedades y clicks de WhatsApp como señales claras. Para los próximos informes vamos a separar mejor búsquedas, filtros y contactos reales con eventos propios.',
+    'La medición actual muestra fichas de propiedades vistas y clics de WhatsApp como señales claras. Para los próximos informes vamos a separar mejor búsquedas, filtros y contactos reales con eventos propios.',
     size=9.2,
 )
 pdf.closing_panel(
