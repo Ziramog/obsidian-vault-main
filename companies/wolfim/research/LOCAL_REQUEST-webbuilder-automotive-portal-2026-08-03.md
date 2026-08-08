@@ -695,7 +695,7 @@ Web-builder debe entregar:
 - pendientes P2;
 - capturas de home, catálogo, ficha pública y módulo interno si el flujo local de handoff las admite.
 
-## 21. Respuesta requerida en el handoff oficial
+## 22. Respuesta requerida en el handoff oficial
 
 Crear `response.md` en:
 
@@ -738,6 +738,8 @@ Funcionalidades públicas:
 
 Módulo interno:
 - Login:
+- Vista interna de stock:
+- Búsqueda/filtros internos:
 - Interno:
 - Documentación:
 - Mantenimiento:
@@ -773,7 +775,7 @@ Bloqueos o decisiones requeridas de Juan:
 - ...
 ```
 
-## 22. Regla de cierre
+## 23. Regla de cierre
 
 La tarea no se considera terminada por haber escrito componentes.
 
