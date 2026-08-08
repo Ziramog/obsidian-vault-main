@@ -1,6 +1,6 @@
 ---
 owner: wolfim-growth
-status: pending-brain-vps
+status: merged-into-parent
 type: LOCAL_REQUEST_ADDENDUM
 created: 2026-08-07
 company: Wolfim
@@ -13,6 +13,8 @@ related:
 ---
 
 # LOCAL_REQUEST_ADDENDUM — módulo interno privado de stock/documentación
+
+> Consolidado en `companies/wolfim/research/LOCAL_REQUEST-webbuilder-automotive-portal-2026-08-03.md` el 2026-08-07. Este archivo queda como historial y no es la fuente operativa vigente.
 
 ## Contexto
 
