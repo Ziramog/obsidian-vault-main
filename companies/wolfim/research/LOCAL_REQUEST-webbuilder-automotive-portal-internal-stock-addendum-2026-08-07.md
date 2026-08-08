@@ -5,7 +5,7 @@ type: LOCAL_REQUEST_ADDENDUM
 created: 2026-08-07
 company: Wolfim
 target: brain-vps-to-web-builder
-priority: medium
+priority: high
 parent-request: companies/wolfim/research/LOCAL_REQUEST-webbuilder-automotive-portal-2026-08-03.md
 related:
   - companies/wolfim/research/automotive-portal-internal-stock-module-2026-08-07.md
@@ -22,9 +22,15 @@ La idea: cada vehículo debe poder tener una vista pública y una vista privada.
 
 ## Pedido para brain-vps/web-builder
 
-No frenar el V0 comercial si ya está en marcha.
+Contexto actualizado por Juan: el showroom demo ya está funcional aproximadamente en un 90% y es clonable.
 
-Incorporar este concepto como diseño de producto y, si el tiempo técnico lo permite, dejar una primera versión demostrable o estructura preparada.
+Con ese escenario, el módulo interno deja de ser una idea para “más adelante” y pasa a ser el siguiente diferencial del producto.
+
+Pedido concreto:
+
+- No frenar el cierre del V0 público si falta poco para publicarlo.
+- Apenas el showroom esté estable, desarrollar una primera versión mínima de ficha interna privada.
+- Si técnicamente es simple, incluir una sección demo “Interno” en el admin actual para que Juan pueda mostrarla comercialmente.
 
 ## Prioridad del desarrollo
 

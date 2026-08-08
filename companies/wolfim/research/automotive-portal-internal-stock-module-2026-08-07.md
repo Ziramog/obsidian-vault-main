@@ -173,7 +173,13 @@ Roles posibles:
 
 ## MVP recomendado
 
-Para no frenar el demo comercial, dividir en fases.
+Contexto actualizado: si el showroom demo ya está funcional aproximadamente en un 90% y es clonable, conviene avanzar con el módulo interno mínimo como siguiente sprint.
+
+La prioridad cambia así:
+
+1. cerrar/publicar showroom público;
+2. agregar ficha interna privada mínima;
+3. usarlo como diferencial comercial para vender paquete superior.
 
 ### V0 demo público
 
