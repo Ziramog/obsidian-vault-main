@@ -316,6 +316,10 @@ sold
 ### 11.2 Campos privados mínimos P1
 
 ```text
+internalStockCode
+licensePlate
+vin
+engineNumber
 internalNotes
 internalStatus
 entryDate
@@ -368,6 +372,10 @@ Puede resolverse con tabs, secciones o navegación equivalente. Debe ser usable 
 
 Campos requeridos:
 
+- código interno de stock;
+- patente/dominio;
+- VIN/chasis;
+- número de motor;
 - fecha de ingreso;
 - origen del stock;
 - ubicación física;
@@ -378,6 +386,8 @@ Campos requeridos:
 - costo de compra/toma;
 - margen objetivo;
 - precio mínimo aceptable.
+
+Patente, VIN/chasis y número de motor son privados por defecto.
 
 Los campos económicos son privados y nunca deben aparecer en la ficha pública.
 
@@ -491,6 +501,35 @@ Debe contemplar:
 
 Mostrar avance de manera simple, sin bloquear publicación automáticamente salvo que ya exista esa lógica.
 
+### 12.6 Vista interna de stock
+
+Para que el módulo sirva realmente como ordenamiento y no solo como ficha aislada, P1 debe incluir una vista interna de stock.
+
+Tabla o lista mínima:
+
+- código interno;
+- vehículo;
+- patente/dominio;
+- fecha de ingreso;
+- días en stock calculados;
+- ubicación;
+- estado interno;
+- estado documental resumido;
+- tareas/mantenimiento pendientes;
+- responsable;
+- acción para abrir ficha.
+
+Filtros mínimos:
+
+- búsqueda por código, marca/modelo, patente o VIN;
+- estado interno;
+- documentación incompleta;
+- mantenimiento/tareas pendientes;
+- responsable;
+- ubicación.
+
+Puede incluir contadores simples como disponibles, en preparación, listos para publicar, reservados y vendidos. No se requiere dashboard analítico complejo.
+
 ## 13. Privacidad y separación público/privado
 
 Regla crítica:
@@ -502,6 +541,9 @@ Validar específicamente que no se expongan:
 - costo de compra;
 - margen;
 - precio mínimo;
+- patente/dominio;
+- VIN/chasis;
+- número de motor;
 - notas internas;
 - estado técnico privado;
 - responsable;
@@ -554,7 +596,21 @@ No bloquear la entrega por:
 
 Estos puntos pueden documentarse como evolución posterior.
 
-## 16. Criterios de aceptación P0
+## 16. Protección del proyecto y de los datos
+
+Antes de cambiar esquemas, seed o persistencia:
+
+- identificar dónde vive la información actual;
+- evitar migraciones destructivas;
+- conservar los 12 a 15 vehículos demo existentes;
+- realizar backup/export si una migración puede modificar datos;
+- mantener compatibilidad o documentar migración;
+- no mezclar datos de dos concesionarias;
+- no reutilizar usuarios, bases o storage reales de Roggero.
+
+Si el proyecto actual usa datos mock, mantener el seed separado y repetible. Si usa base persistente, documentar migraciones y rollback.
+
+## 17. Criterios de aceptación P0
 
 - Se continúa el proyecto existente; no se genera un clon duplicado sin justificación.
 - Preview HTTP accesible en desktop, mobile e iPad.
@@ -572,10 +628,11 @@ Estos puntos pueden documentarse como evolución posterior.
 - Lint/typecheck aprobado o fallos preexistentes documentados con evidencia.
 - Preview/deploy verificado con output real.
 
-## 17. Criterios de aceptación P1
+## 18. Criterios de aceptación P1
 
 - Login requerido para acceder al módulo interno.
 - Existe admin de vehículos funcional.
+- Existe vista interna de stock con búsqueda, filtros y resumen de pendientes.
 - Se puede crear y editar un vehículo.
 - Se puede publicar/despublicar.
 - Estados público e interno funcionan por separado.
@@ -590,7 +647,7 @@ Estos puntos pueden documentarse como evolución posterior.
 - La UX interna puede mostrarse desde iPad.
 - Build, lint/typecheck y pruebas relevantes pasan.
 
-## 18. Criterios de clonabilidad
+## 19. Criterios de clonabilidad
 
 - Branding y datos de contacto centralizados.
 - Seed demo separado de la UI.
@@ -600,7 +657,7 @@ Estos puntos pueden documentarse como evolución posterior.
 - Nuevo clon puede configurarse sin tocar la lógica del portal.
 - Una concesionaria no comparte base de datos, storage o usuarios con otra por accidente.
 
-## 19. Pruebas mínimas requeridas
+## 20. Pruebas mínimas requeridas
 
 Además de build/lint/typecheck:
 
@@ -612,15 +669,17 @@ Además de build/lint/typecheck:
 6. Iniciar sesión con credencial demo configurada fuera del repo.
 7. Editar un campo público y verificar reflejo público.
 8. Editar una nota/costo interno y confirmar que no se expone públicamente.
-9. Crear una entrada de mantenimiento.
-10. Cambiar estado de un documento.
-11. Cambiar un ítem del checklist.
-12. Revisar sitemap/metadata y confirmar ausencia de rutas/datos privados.
-13. Verificar responsive en viewport mobile y tablet/iPad.
+9. Abrir la vista interna de stock y probar búsqueda/filtros.
+10. Crear una entrada de mantenimiento.
+11. Cambiar estado de un documento.
+12. Cambiar un ítem del checklist.
+13. Buscar públicamente patente, VIN, costo y notas internas y confirmar ausencia.
+14. Revisar sitemap/metadata y confirmar ausencia de rutas/datos privados.
+15. Verificar responsive en viewport mobile y tablet/iPad.
 
 Si existen tests automatizados, ampliarlos. Si no existen, documentar pruebas manuales con resultados reales.
 
-## 20. Entregables
+## 21. Entregables
 
 Web-builder debe entregar:
 
