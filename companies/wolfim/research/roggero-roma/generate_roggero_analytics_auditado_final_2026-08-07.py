@@ -248,6 +248,21 @@ pdf.metric_cards([
     ('Páginas por sesión', str(views_per_session).replace('.', ','), 'profundidad'),
     ('Engagement rate', fmt_pct(engagement), 'sesiones con interacción'),
 ])
+pdf.body('Qué significa cada cuadrito:', size=8.5, color='black')
+pdf.table(
+    ['Cuadrito', 'En simple'],
+    [
+        ['Usuarios medidos', 'Personas distintas que entraron al sitio en el período.'],
+        ['Sesiones depuradas', 'Visitas útiles al sitio, sin accesos técnicos o administrativos.'],
+        ['Vistas depuradas', 'Cantidad de páginas vistas dentro de esas visitas.'],
+        ['Google orgánico', 'Visitas que llegaron desde búsquedas en Google.'],
+        ['Páginas por sesión', 'Promedio de páginas que mira cada visita.'],
+        ['Engagement rate', 'Sesiones donde la persona navegó o interactuó; no es consulta ni venta.'],
+    ],
+    [45, 133],
+    font_size=6.8,
+    row_h=7.2,
+)
 pdf.callout(
     'Conclusión principal',
     'Menos ruido y más foco: el dato útil muestra tráfico concentrado en Argentina, búsquedas de propiedades y navegación profunda dentro del catálogo.',
@@ -334,6 +349,16 @@ pdf.metric_cards([
     ('Fichas vistas', fmt_num(property_viewed), 'interacción con propiedades'),
     ('Clics de WhatsApp', fmt_num(whatsapp), 'intención de contacto'),
 ], columns=2)
+pdf.table(
+    ['Cuadrito', 'En simple'],
+    [
+        ['Fichas vistas', 'Veces que se abrió una ficha individual de propiedad.'],
+        ['Clics de WhatsApp', 'Personas que tocaron el botón de WhatsApp; indica intención, no consulta confirmada.'],
+    ],
+    [45, 133],
+    font_size=7.0,
+    row_h=8.0,
+)
 pdf.body(
     'La medición actual muestra fichas de propiedades vistas y clics de WhatsApp como señales claras. Para los próximos informes vamos a separar mejor búsquedas, filtros y contactos reales con eventos propios.',
     size=9.2,
