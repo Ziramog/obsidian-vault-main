@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-08-05 11:19 ART | **Semáforo no confirmable: KPIs formales incompletos** · Construvial/PRESOL depositó **USD 180** por los dos catálogos; recibo no fiscal generado · `cron_campaign.py` confirmado con cola agotada (107 registros: 97 sent, 10 bounced, 0 pendientes) · briefing vigente sigue vencido · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial Wolfim: reabastecer Web Viejas o pausar el canal y mover foco a cierre real.
+**Última actualización:** 2026-08-07 22:29 ART | **Semáforo no confirmable: KPIs formales incompletos** · Wolfim Motors: showroom confirmado listo por Juan; handoff activo para desarrollar a fondo el módulo interno privado · Construvial/PRESOL depositó **USD 180** por los dos catálogos; recibo no fiscal generado · `cron_campaign.py` confirmado con cola agotada (107 registros: 97 sent, 10 bounced, 0 pendientes) · briefing vigente sigue vencido · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial Wolfim: reabastecer Web Viejas o pausar el canal y mover foco a cierre real.
 
 ---
 
@@ -85,6 +85,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 - `local-to-vps`: `HO-2026-06-26-001` acknowledged; administrativamente archivable.
 - `vps-to-local` activos/vencidos:
+  - `HO-2026-08-03-002` — high, showroom confirmado listo por Juan; scope activo: módulo interno privado completo; derivar a web-builder en la próxima sesión local.
   - `HO-2026-08-03-001` — ready, normal, MVP web Almas Libres + padrinazgo; vence 2026-08-07 18:00 ART.
   - `HO-2026-06-27-001` — ready, normal, sin cierre visible.
   - `HO-2026-07-13-001` — high, vencido, sin ack visible.
