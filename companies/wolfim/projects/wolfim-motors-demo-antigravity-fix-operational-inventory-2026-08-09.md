@@ -548,7 +548,7 @@ Escapar input antes de construir `$regex`:
 
 ```js
 function escapeRegex(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return String(value).replace(new RegExp('[.*+?^${}()|\\[\\]\\\\]', 'g'), '\\$&');
 }
 ```
 
