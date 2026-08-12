@@ -4,12 +4,13 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 🔴 Reactivado — follow-up enviado 2026-08-03 tras regreso esperado en primeros días de agosto
+**Status:** 🔴 Confirmado de palabra — anticipo pendiente para 2026-08-17
 
 ## Oferta vigente Farias
 - Desarrollo: ~~USD 450~~ **USD 399** (USD 200 al iniciar / USD 199 contra entrega)
 - Mantenimiento: **6 meses incluidos** y luego **USD 29/mes** sin permanencia; hosting, SSL, `.com`, backup semanal/restauración, soporte técnico/WhatsApp y Analytics mensual
 - Servicio: portal responsive + panel + migración inicial + dominios `.com.ar`/`.com`; implementación estimada en **2 semanas** desde la recepción del material
+- Estado de cobro: **anticipo no acreditado**; no registrar todavía como proyecto iniciado
 
 ## Nueva oportunidad — Portal Farias basado en Roggero & Roma
 - Contexto: Juan le mostró a Luis Farias la web `lamontaña.lat` hecha para Víctor como demo visual/calidad Wolfim.
@@ -19,7 +20,8 @@
 - Relevamiento técnico web-builder: [[companies/wolfim/projects/farias-admin-panel-relevamiento-roggero-2026-07-13]]
 - Propuesta comercial vigente v16 con plazo y mantenimiento detallado: [[propuesta-farias-portal-v16-mobile-plazo-mantenimiento-2026-07-21.pdf]] y [[propuesta-farias-portal-v16-a4-desktop-plazo-mantenimiento-2026-07-21.pdf]]
 - Borrador anterior para La Montaña queda superseded por error de contexto: [[presupuesto-loteo-la-montana-2026-07-13]]
-- Acción: enviar propuesta por WhatsApp y proponer charla al regreso del viaje.
+- Onboarding interno: [[onboarding-farias-inicio-2026-08-12]]
+- Acción: confirmar modalidad exacta del anticipo, pedir datos iniciales y verificar acreditación el 2026-08-17.
 
 ## Conversación comercial reciente
 
@@ -27,6 +29,9 @@
 - 2026-08-03: Juan envió follow-up suave a Luis, retomando el hilo porque había dicho que volvía a la oficina los primeros días de agosto. Esperar respuesta antes de empujar cierre.
 - 2026-08-03 10:05: Luis respondió: "Buen día. Recordame el miércoles y vemos de acomodarlo porque regreso el miércoles a la oficina recién". Juan respondió: "Dale perfecto". Próxima acción: recordar el miércoles 2026-08-05, no antes.
 - 2026-08-05: Juan envió el recordatorio a Luis para retomar lo del portal y pedir lectura/definición de avance. Esperar respuesta antes de enviar otro mensaje.
+- 2026-08-12: Juan informó confirmación de avance de palabra. Total acordado: USD 399. Luis prevé emitir el anticipo del 50% el lunes 2026-08-17. El anticipo todavía no está cobrado ni acreditado.
+- 2026-08-12: Condición de mantenimiento confirmada: primeros 6 meses incluidos y luego USD 29/mes sin permanencia.
+- 2026-08-12: Pendiente resolver la forma del anticipo: 50% exacto equivale a USD 199,50, mientras la propuesta v16 indica USD 200 iniciales y USD 199 contra entrega.
 
 ## Proposal
 ![[propuesta-farias-portal-v16-mobile-plazo-mantenimiento-2026-07-21.pdf]]
@@ -66,10 +71,12 @@
 - [x] Enviar propuesta por WhatsApp a Luis
 - [x] Follow-up al regreso del viaje enviado — 2026-08-03
 - [x] Recordar a Luis el miércoles como pidió — 2026-08-05
-- [ ] Reintento si no responde — 2026-08-07
-- [ ] Charla con Luis + amigo si responde positivo
-- [ ] Contract signed
-- [ ] Payment received (USD 200 iniciales si avanza propuesta USD 399)
+- [x] Confirmación verbal de avance recibida — informada 2026-08-12
+- [ ] Confirmar modalidad del anticipo: USD 199,50 + USD 199,50 o USD 200 + USD 199
+- [ ] Enviar pedido inicial de materiales y datos administrativos
+- [ ] Recibir aceptación escrita breve
+- [ ] Verificar acreditación del anticipo — prevista 2026-08-17
+- [ ] Iniciar proyecto después de anticipo acreditado y material mínimo recibido
 
 ## Sitio Actual — Diagnóstico histórico superseded
 
@@ -117,9 +124,9 @@
 | Entrega propiedades | Listado básico | Filtros + galería |
 
 ## Next Steps
-1. Juan revisa las versiones v16 con plazo de 2 semanas y mantenimiento detallado, mobile y A4/desktop.
-2. Envío a Luis Farias y confirmación de interés.
-3. Pago inicial de USD 200 y registro de `fariasyasociados.com`.
-4. Coordinación segura de acceso técnico y fuente de propiedades.
-5. Migración inicial, diseño y revisión mobile/desktop.
-6. Publicación en `fariasyasociados.com.ar`, vinculación del `.com` y pago final de USD 199.
+1. Confirmar si el cobro se documenta como 50% exacto o como USD 200 iniciales + USD 199 finales.
+2. Enviar el pedido inicial de datos y materiales de [[onboarding-farias-inicio-2026-08-12]].
+3. Verificar la acreditación del anticipo prevista para el 2026-08-17.
+4. Coordinar de forma segura el dominio y la fuente de propiedades; no pedir contraseñas por texto plano.
+5. Mantener `fariasyasociados.com.ar` operativo durante la migración, el diseño y la revisión mobile/desktop.
+6. Publicar después de la aprobación, vincular el `.com` y cobrar el saldo final.
