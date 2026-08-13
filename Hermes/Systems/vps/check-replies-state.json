@@ -2,9 +2,9 @@
   "job": "check-replies",
   "account": "ingjuangomariz@gmail.com",
   "campaign_subject_prefix": "Noté algo en la web de",
-  "last_checked_at": "2026-08-13T10:02:56-03:00",
-  "last_top_envelope_id": 68747,
-  "previous_top_envelope_id": 68708,
-  "delta_count": 39,
+  "last_checked_at": "2026-08-13T14:02:41-03:00",
+  "last_top_envelope_id": 68765,
+  "previous_top_envelope_id": 68747,
+  "delta_count": 18,
   "last_result": "Sin novedades"
 }
