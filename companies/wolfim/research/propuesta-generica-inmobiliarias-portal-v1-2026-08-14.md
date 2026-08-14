@@ -100,7 +100,7 @@ Si el dominio `.com` de la marca está disponible, lo registramos para ofrecer u
 
 ### 1. Confirmación y reserva
 
-La inmobiliaria confirma la propuesta y realiza el pago inicial de USD 200. Wolfim verifica el `.com`, reserva el proyecto y prepara el inicio.
+La inmobiliaria confirma la propuesta y realiza el pago inicial de USD 200. Wolfim reserva el proyecto y prepara el inicio. La verificación del `.com` queda cubierta dentro de la etapa de dominios.
 
 ### 2. Relevamiento y accesos
 
