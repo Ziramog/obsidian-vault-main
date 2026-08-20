@@ -1,7 +1,7 @@
 ---
 owner: brain-vps
-date: 2026-08-15
-updated-at: 2026-08-15T10:04:16-03:00
+date: 2026-08-20
+updated-at: 2026-08-20T10:01:07-03:00
 ---
 
 # HOY

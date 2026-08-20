@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-08-14 10:01 ART | **Semáforo no confirmable: KPIs formales incompletos** · Wolfim Motors: showroom confirmado listo por Juan; handoff activo para desarrollar a fondo el módulo interno privado · Construvial/PRESOL depositó **USD 180** por los dos catálogos; recibo no fiscal generado · `cron_campaign.py` reejecutado y reconfirmado con cola agotada (107 registros: 97 sent, 10 bounced, 0 pendientes) · briefing vigente sigue vencido · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial Wolfim: reabastecer Web Viejas o pausar el canal y mover foco a cierre real.
+**Última actualización:** 2026-08-20 10:01 ART | **Semáforo no confirmable: KPIs formales incompletos** · Wolfim Motors: showroom confirmado listo por Juan; handoff activo para desarrollar a fondo el módulo interno privado · Construvial/PRESOL depositó **USD 180** por los dos catálogos; recibo no fiscal generado · `cron_campaign.py` reejecutado 2026-08-20 y reconfirmado con cola agotada (107 registros: 97 sent, 10 bounced, 0 pendientes) · briefing vigente sigue vencido · Luis Farias sigue como propuesta premium lista para revisión/envío · Prioridad comercial Wolfim: reabastecer Web Viejas o pausar el canal y mover foco a cierre real.
 
 ---
 
@@ -30,7 +30,7 @@ source: mixed
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-08-14
+### Resultado latest — 2026-08-20
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Salida real: `✅ Todos los leads han sido enviados. No hay más pendientes.`
 - No apareció ningún error nuevo en stdout durante esta corrida.
@@ -38,6 +38,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - Riesgo inmediato: seguir corriendo sin inventario no genera oportunidad comercial nueva.
 
 ### Corrida histórica breve
+- 08/20: cola agotada; 107 registros totales, 0 pendientes; sin error nuevo visible en stdout.
 - 08/14: cola agotada; 107 registros totales, 0 pendientes; sin error nuevo visible en stdout.
 - 08/09: cola agotada; 107 registros totales, 0 pendientes; sin error nuevo visible en stdout.
 - 08/03: cola agotada; 107 registros totales, 0 pendientes; sin error nuevo visible en stdout.
