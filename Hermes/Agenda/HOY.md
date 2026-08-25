@@ -1,18 +1,22 @@
 ---
 owner: brain-vps
-date: 2026-08-22
-updated-at: 2026-08-22T10:03:34-03:00
+date: 2026-08-25
+updated-at: 2026-08-25T09:11:13-03:00
 ---
 
 # HOY
 
-- [x] Ejecutar `python3 /home/hermes/workspace/scraping/cron_campaign.py`
-  - Resultado real: `✅ Todos los leads han sido enviados. No hay más pendientes.`
-  - Verificación tracker: 107 registros totales, 97 `sent`, 10 `bounced`, 0 pendientes componibles.
-  - Inventario fuente: 121 leads; 102 ya cubiertos por tracker; 19 no componibles por reglas del script; 0 candidatos para próxima tanda.
+## 🔴 Prioridad alta / arrastre de ayer
 
-## Atrasadas / atención
+- [ ] **Actualizar KPIs formales** — ingresos cobrados del mes, gastos fijos, gap mensual, objetivo vigente.
+- [ ] **Decidir Web Viejas** — reabastecer leads nuevos o pausar canal y hacer follow-up humano.
+- [ ] **Revisar handoff Wolfim Motors Demo `HO-2026-08-03-002`** — high, vencido, sin response visible.
 
-- 🔴 Briefing vencido desde 2026-06-25 / reality-check vencido 2026-06-28.
-- 🔴 KPIs formales vencidos desde 2026-06-25; semáforo financiero no confirmable.
-- 🔴 Handoff high Wolfim `HO-2026-08-03-002` sigue sin ack/cierre visible.
+## ✅ Cerrado hoy
+
+- [x] **Hermes update/gateway ejecutado:** `hermes update` OK; `hermes gateway start` OK; gateway verificado activo/running.
+
+## 🟡 Atención operativa
+
+- Gateway activo con advertencia Telegram polling: posible sesión previa retenida u otro proceso usando el mismo bot token.
+- Briefing y KPIs siguen vencidos; semáforo financiero no confirmable.
