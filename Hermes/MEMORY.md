@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-08-25 10:03 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` ejecutado y verificado: cola agotada (107 registros: 97 sent, 10 bounced, 0 failed, 0 pendientes componibles) · briefing vigente vencido · Prioridad comercial Wolfim: reabastecer Web Viejas o pausar canal y mover foco a follow-up/cierre real.
+**Última actualización:** 2026-08-26 10:03 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` ejecutado y verificado: cola agotada (107 registros: 97 sent, 10 bounced, 0 failed, 0 pendientes componibles) · briefing vigente vencido · Prioridad comercial Wolfim: reabastecer Web Viejas o pausar canal y mover foco a follow-up/cierre real.
 
 ---
 
@@ -30,7 +30,7 @@ source: mixed
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-08-25
+### Resultado latest — 2026-08-26
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Salida real: `✅ Todos los leads han sido enviados. No hay más pendientes.`
 - Verificación tracker: 107 registros totales, 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles.
@@ -38,6 +38,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - Riesgo inmediato: seguir corriendo sin inventario no genera oportunidad comercial nueva.
 
 ### Corrida histórica breve
+- 08/26: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
 - 08/25: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
 - 08/24: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
 - 08/22: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
