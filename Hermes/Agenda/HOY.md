@@ -1,10 +1,14 @@
 ---
 owner: brain-vps
 date: 2026-08-27
-updated-at: 2026-08-27T10:05:20-03:00
+updated-at: 2026-08-27T23:59:00-03:00
+summary-status: completed
+linked-session: hq/sessions/2026-08-27.md
 ---
 
 # HOY
+
+> Cierre cron end-of-day: día operativo sin sesión humana visible en `hq/sessions/`. Resumen completo: [[2026-08-27|hq/sessions/2026-08-27]].
 
 ## 🔴 Prioridad alta / arrastre
 
@@ -12,14 +16,24 @@ updated-at: 2026-08-27T10:05:20-03:00
 - [ ] **Decidir Web Viejas** — reabastecer leads nuevos o pausar canal y hacer follow-up humano.
 - [ ] **Revisar handoff Wolfim Motors Demo `HO-2026-08-03-002`** — high, vencido, sin response visible.
 - [ ] **Corregir warning `email-suite` ambiguo** — los crons `check-replies` ejecutan, pero reportan colisión de skill/nombre.
-- [ ] **Triage de `errors.log` Hermes** — health check previo reportó 70 errores no auto-reparables; Auto-Solve sigue escaneando.
+- [ ] **Triage de `errors.log` Hermes** — health check reportó 51 errores no auto-reparables; Auto-Solve siguió escaneando 57 recientes.
+- [ ] **Verificar Hermes update/gateway** — gateway quedó activo en 0.20.6, pero `hermes --version` al cierre reporta 114 commits behind.
 
 ## ✅ Cerrado hoy
 
+- [x] **Hermes Health Check 04:01 ART ejecutado:** Gateway ✅, Telegram ✅, Hermes ✅; 51 errores no auto-reparables; alerta Telegram enviada.
+- [x] **Hermes update/gateway 09:00 ART trabajado:** `hermes --version` verificó v0.20.6; socket gateway final responde `code_version: 0.20.6`; servicio systemd activo desde 09:24 ART. Warning residual: update disponible 114 commits behind y build web UI con fallback por `lucide-react`.
 - [x] **`cron_campaign.py` ejecutado 10:05 ART:** cola agotada; stdout: `✅ Todos los leads han sido enviados. No hay más pendientes.` Verificación tracker: 107 total, 97 sent, 10 bounced, 0 failed, 0 pendientes componibles.
+- [x] **check-replies 10:05 ART ejecutado:** sin novedades / 0 matches de campaña.
+- [x] **Morning Report 11:01 ART ejecutado:** enviado a Telegram (`Sent to 1479438002`, `DONE`).
+- [x] **Inbox triage 13:03 ART ejecutado:** accionables: RWS Project Dubbing 67 jobs P0, crédito Mercado Libre $31.409,84 vence mañana, oportunidades laborales LinkedIn relevantes.
+- [x] **check-replies 14:03 ART ejecutado:** 17 emails nuevos; 0 matches de campaña; cross-check `check_replies.py --inbox-size 250`: `Sin novedades`.
+- [x] **check-replies 18:02 ART ejecutado:** 11 emails nuevos; 0 matches de campaña; state actualizado a top ID 69546.
+- [x] **Resumen de sesión end-of-day generado:** `hq/sessions/2026-08-27.md` creado; Daily consolidado como completed.
 
 ## 🟡 Atención operativa
 
 - KPIs formales vencidos desde 2026-06-25; semáforo financiero no confirmable.
 - Briefing vigente vencido; no cambiar prioridades sin Juan.
 - Web Viejas no tiene inventario útil para próximas tandas; seguir corriendo el cron sin reabastecer no genera oportunidades nuevas.
+- Conflict markers preexistentes fuera de este cierre: `.obsidian/plugins/obsidian-git/main.js` y `companies/wolfim/intelligence/plan-ads-seo-2026-06-29.md`.
