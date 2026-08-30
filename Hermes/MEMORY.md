@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-08-27
+last-reviewed: 2026-08-30
 confidence: medium
 status: active
 source: mixed
@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-08-29 10:03 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` ejecutado y verificado: cola agotada (107 registros: 97 sent, 10 bounced, 0 failed, 0 pendientes componibles) · briefing vigente vencido · Prioridad comercial Wolfim: reabastecer Web Viejas o pausar canal y mover foco a follow-up/cierre real.
+**Última actualización:** 2026-08-30 10:04 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` ejecutado y verificado: cola agotada (121 leads fuente; tracker 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles; 19 no componibles) · briefing vigente vencido · Prioridad comercial Wolfim: reabastecer Web Viejas o pausar canal y mover foco a follow-up/cierre real.
 
 ---
 
@@ -23,21 +23,22 @@ source: mixed
 
 ## Wolfim — Web Viejas / Email Outreach
 
-**Estado:** ✅ El cron funciona, pero **la cola sigue agotada**. Última corrida: 2026-08-29 10:01 ART.
+**Estado:** ✅ El cron funciona, pero **la cola sigue agotada**. Última corrida: 2026-08-30 10:04 ART.
 
 ### Pipeline
 ```text
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-08-29
+### Resultado latest — 2026-08-30
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Salida real: `✅ Todos los leads han sido enviados. No hay más pendientes.`
-- Verificación tracker: 107 registros totales, 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles.
-- Verificación inventario: 121 leads fuente; 107 cubiertos por `sent`/`bounced`; 19 no componibles por reglas del script; 0 candidatos para próxima tanda.
+- Verificación tracker: 121 leads fuente; 107 registros en tracker, 97 `sent`, 10 `bounced`, 0 `failed`.
+- Verificación inventario: 107 cubiertos por `sent`/`bounced`; 19 no componibles por reglas del script; 0 candidatos para próxima tanda.
 - Riesgo inmediato: seguir corriendo sin inventario no genera oportunidad comercial nueva.
 
 ### Corrida histórica breve
+- 08/30: cola agotada; 107 registros totales, 0 pendientes componibles; sin error visible en stdout.
 - 08/29: cola agotada; 107 registros totales, 0 pendientes componibles; sin error visible en stdout.
 - 08/28: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
 - 08/27: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
@@ -81,11 +82,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 ## Handoffs / coordinación
 
 - `local-to-vps`: `HO-2026-06-26-001` acknowledged; administrativamente archivable.
-- `vps-to-local` activos/vencidos principales:
-  - `HO-2026-08-03-002` — Wolfim Motors Demo, high, vencido, sin response visible.
-  - `HO-2026-08-03-001` — Almas Libres MVP, normal, vencido.
-  - `HO-2026-07-13-001` — Sync V6 profiles locales, high, vencido.
-  - `HO-2026-07-16-001`, `HO-2026-07-22-001`, `HO-2026-07-24-001`, `HO-2026-07-27-001` — ANGO web/Ads, high, vencidos o sin cierre formal visible.
+- `vps-to-local` activos/vencidos principales: `HO-2026-08-03-002` Wolfim Motors Demo (high); `HO-2026-08-03-001` Almas Libres MVP; `HO-2026-07-13-001` Sync V6 profiles locales; `HO-2026-07-16-001`, `HO-2026-07-22-001`, `HO-2026-07-24-001`, `HO-2026-07-27-001` ANGO.
 - `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` y `2026-07-24-jobseeker-profile.md` esperan consolidación / decisión de Juan.
 
 ---
@@ -95,6 +92,5 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - Leads en pausa: verificar inventario real al inicio; el vault puede quedar más optimista que la cola real.
 - Mockups AI no reemplazan venta concreta. Mostrar producto > mostrar idea.
 - Datos de pago: Juan los pasa al cliente, no al revés.
-- Catálogo Rental Construvial: conservar diseño inicial oscuro/amarillo; optimizar ocupación vertical; usar descripción técnica legible; replicar ítems de Milicic; usar isotipo C delineado como patrón.
 - Recibos Wolfim: usar diseño fijo existente; no improvisar layouts nuevos ni variantes genéricas.
 - No escribir secrets, tokens ni API keys en el vault.
