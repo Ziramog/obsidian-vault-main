@@ -23,6 +23,7 @@ source: cron-campaign
 
 - [x] **`cron_campaign.py` ejecutado 10:03 ART:** exit code 0; stdout: `✅ Todos los leads han sido enviados. No hay más pendientes.`
 - [x] **Tracker Web Viejas verificado 10:03 ART:** 121 leads fuente; 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`; 0 pendientes componibles; 19 no componibles.
+- [x] **Check replies Gmail 14:02 ART:** `himalaya envelope list -s 10` revisado; delta 18 mensajes desde id 69719 a 69737; 0 respuestas nuevas a campaña `Noté algo en la web de...`.
 
 ## 🟡 Atención operativa
 
