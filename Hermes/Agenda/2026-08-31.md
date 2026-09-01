@@ -1,32 +1,44 @@
 ---
 owner: brain-vps
 date: 2026-08-31
-updated-at: 2026-08-31T10:03:46-03:00
-summary-status: active
-source: cron-campaign
+updated-at: 2026-08-31T23:59:37-03:00
+summary-status: completed
+source: session-end-cron
+linked-session: hq/sessions/2026-08-31.md
 ---
 
 # Agenda 2026-08-31
 
+> Cierre cron end-of-day. No hubo sesión humana visible en `hq/sessions/` ni `Hermes/Sessions/`; el día se reconstruyó desde cron outputs y actividad real del vault. Resumen completo: [[2026-08-31|hq/sessions/2026-08-31]].
+
 ## 🔴 Arrastre / requiere confirmación de Juan
 
-- [ ] **Actualizar KPIs formales** — ingresos cobrados del mes, gastos fijos, gap mensual, objetivo vigente. Vencido desde 2026-06-25.
-- [ ] **Decidir Web Viejas** — reabastecer leads nuevos o pausar canal y hacer follow-up humano. La cola actual no genera contactos nuevos.
-- [ ] **Hacer follow-up humano** — Luis Farias primero; después Conforti, RIVAS y Ann.
-- [ ] **Revisar handoff Wolfim Motors Demo `HO-2026-08-03-002`** — high, vencido, sin response visible.
-- [ ] **Cerrar/actualizar handoffs ANGO vencidos** — `HO-2026-07-16-001`, `HO-2026-07-22-001`, `HO-2026-07-24-001`, `HO-2026-07-27-001`.
-- [ ] **Triage Hermes update/gateway** — `hermes --version` al cierre previo seguía 46 commits behind; gateway activo pero con conflicto Telegram polling.
-- [ ] **Revisar backup offsite Roggero & Roma** — backup local OK, subida Google Drive falló con WARN en arrastre previo.
-- [ ] **Limpiar memoria persistente bloqueada `hermes_env`** — pendiente por drift de memoria.
+- [ ] **Actualizar KPIs formales** — ingresos cobrados del mes, gastos fijos, gap mensual y objetivo vigente.
+- [ ] **Hacer follow-up humano a Luis Farias y Madelen** — el pipeline no se mueve solo.
+- [ ] **Decidir cómo usar los 113 leads nuevos** — outreach manual con hallazgo real por sitio o descarte.
+- [ ] **Confirmar cobro pendiente de Víctor Abrile** — recibo emitido hoy por ARS 178.860.
+- [ ] **Triage Hermes update/gateway** — `npm ENOTEMPTY`, service definition outdated y `hermes --version` sigue 360 commits behind.
+- [ ] **Revisar Daily Email Summary** — hoy falló por `HTTP 429: The usage limit has been reached`.
+- [ ] **Cerrar o revalidar handoffs vencidos** — Wolfim Motors Demo, ANGO y Sync V6.
+- [ ] **Limpiar memoria persistente bloqueada `hermes_env`**.
 
 ## ✅ Cerrado hoy
 
-- [x] **`cron_campaign.py` ejecutado 10:03 ART:** exit code 0; stdout: `✅ Todos los leads han sido enviados. No hay más pendientes.`
-- [x] **Tracker Web Viejas verificado 10:03 ART:** 121 leads fuente; 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`; 0 pendientes componibles; 19 no componibles.
-- [x] **Check replies Gmail 14:02 ART:** `himalaya envelope list -s 10` revisado; delta 18 mensajes desde id 69719 a 69737; 0 respuestas nuevas a campaña `Noté algo en la web de...`.
+- [x] **Health check 04:01 ART** — Gateway ✅, Hermes ✅, Telegram ❌; 51 errores no auto-reparables; alerta enviada.
+- [x] **Supabase Keep-Alive 06:00 ART** — QUINI6 y ANGO activos (HTTP 200).
+- [x] **Intento de `hermes update && hermes gateway start` 09:00 ART** — update incompleto; Node deps en estado mixto y restart del gateway no quedó limpio.
+- [x] **`cron_campaign.py` 10:04 ART** — `✅ Todos los leads han sido enviados. No hay más pendientes.`
+- [x] **Check replies Gmail 10:04 / 14:03 / 18:03 ART** — 0 respuestas nuevas a campaña `Noté algo en la web de...`; estado `69719 → 69737 → 69743`.
+- [x] **Morning Report 11:01 ART** — enviado a Telegram (`Sent to 1479438002`, `DONE`).
+- [x] **Lote Wolfim Mar del Plata 17:15–17:18 ART** — 49 leads, 24 WhatsApp confirmados.
+- [x] **Lote Wolfim Pinamar 18:51–18:53 ART** — 34 leads, 18 WhatsApp confirmados.
+- [x] **Recibo Víctor Abrile 18:57–19:00 ART** — emitido `REC-WF-2026-08-31-VICTOR-001` por ARS 178.860; pipeline actualizado.
+- [x] **Lote Wolfim Villa Gesell 22:06–22:07 ART** — 30 leads, 17 WhatsApp confirmados.
+- [x] **Resumen end-of-day generado** — `hq/sessions/2026-08-31.md` y Daily consolidados.
 
 ## 🟡 Atención operativa
 
-- Semáforo financiero no confirmable: `kpis.md` sigue incompleto/vencido.
-- Briefing vigente vencido: no cambiar prioridades sin Juan.
-- Web Viejas necesita inventario nuevo o follow-up/cierre humano; seguir corriendo cron sin leads es ruido operativo.
+- Semáforo financiero sigue no confirmable: `kpis.md` continúa incompleto/vencido.
+- Briefing vigente sigue vencido: no hay autorización fresca para cambiar foco.
+- Web Viejas email sigue técnicamente sano pero comercialmente vacío.
+- El inbox cron del mediodía falló por cuota (`HTTP 429`).

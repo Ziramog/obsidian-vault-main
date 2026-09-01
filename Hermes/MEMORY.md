@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-08-31 10:03 ART | **Semáforo no confirmable: KPIs formales incompletos** · `cron_campaign.py` ejecutado y verificado: cola agotada (121 leads fuente; tracker 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles; 19 no componibles) · briefing vigente vencido · Prioridad comercial Wolfim: follow-up/cierre real o reabastecer Web Viejas.
+**Última actualización:** 2026-08-31 23:59 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas sigue agotado (121 leads fuente; tracker 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles; 19 no componibles) · 3 lotes nuevos de inmobiliarias listos para outreach manual (113 leads totales, 59 WhatsApp confirmados) · recibo de Víctor Abrile emitido por ARS 178.860 pendiente de cobro · briefing vigente vencido.
 
 ---
 
@@ -61,10 +61,11 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 ## Pipeline comercial activo
 
 - Franco Roma — Roggero & Roma ✅ cerrado/cobrado. Backup VPS operativo. Publicación/DNS dependen de Juan/NIC.
-- Víctor Abrile ✅ cobrado: $450 USD total.
+- Víctor Abrile ✅ histórico cobrado: $450 USD total. Además, 2026-08-31 quedó emitido recibo `REC-WF-2026-08-31-VICTOR-001` por ARS 178.860, pendiente de cobro.
 - Luis Farias — Farias & Asociados 🔴 propuesta portal inmobiliario premium USD 450 + USD 25/mes lista para revisión/envío. Si avanza, 50% inicial = USD 225.
 - GAMA Inmobiliaria ❌ caído: sin respuesta.
 - Conforti Propiedades, RIVAS Inmuebles y Ann 🆕 seguimiento pendiente.
+- Inventario nuevo Wolfim 2026-08-31 para outreach manual inmobiliario: Mar del Plata 49 leads (24 WhatsApp confirmados), Pinamar 34 (18), Villa Gesell 30 (17).
 
 **Patrón vigente:** Juan construye bien; el cuello de botella sigue siendo cerrar ventas. Si pasan 3+ días sin follow-up a leads, activar anti-parálisis comercial.
 

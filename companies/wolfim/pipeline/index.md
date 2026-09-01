@@ -16,6 +16,12 @@ Directorio de leads con conversación abierta o en proceso de cierre.
 |---|---|---|---:|---|
 | 2026-08-05 | Construvial S.A. | 2 brochures / catálogos digitales PDF | USD 180 | ✅ Cobrado |
 
+## Cobros pendientes / recibos emitidos
+
+| Fecha | Cliente | Concepto | Total | Estado |
+|---|---|---|---:|---|
+| 2026-08-31 | Víctor Abrile | Gestión publicitaria + costo publicidad Argenprop; aplica saldo a favor USD 18 | ARS 178.860 | 🟡 Pendiente de cobro |
+
 ## Checkpoints
 - Julio 2026: $400/mes
 - Agosto 2026: $700/mes
