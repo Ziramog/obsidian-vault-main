@@ -38,3 +38,4 @@ entries: 0
 | Fecha | Insight | Origen |
 |---|---|---|
 | 2026-06-29 | 21 empresas en DB (oil & gas, minería). Propuesta enviada 19/05. Sin respuesta aún. | MEMORY.md |
+| 2026-09-01 | PRESOL (cliente del socio Construvial) dio a Juan campaña de campo 2 semanas: auto + viáticos + fijo. Corredores: Río Tercero→Villa María, →Río Cuarto, →Córdoba. Tranporte pesado: Atego 15/20 tn, plataforma SICA CVS 20 con malacate, hidrogrúa Palfinger/Hidro Grubert. Diferencial: combo plataforma+malacate+hidrogrúa+seguro+GPS, casi nadie lo ofrece junto en la zona. Mercado fragmentado. Lo más caliente: obra pública Río Cuarto (Circunvalación USD 300M + $27.000M) y Villa María (3 obras viales $75.000M). | Sesión 2026-09-01 campaña PRESOL |

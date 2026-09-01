@@ -20,11 +20,12 @@ source-of-truth: Juan → socio de Construvial
 
 ## Estado actual
 
-- **Fase:** STANDBY. Sin activación comercial aún.
-- **Propuesta enviada:** 19/05.
+- **Fase:** CAMPAÑA ACTIVA. Juan tiene mandato comercial de PRESOL (cliente del socio) para campaña de campo 2 semanas (auto + viáticos + fijo), aprobada 2026-09-01.
+- **Cobertura:** Corredores Río Tercero → Villa María (RP 6), → Río Cuarto (RN 36), → Córdoba (RN 36).
+- **Propuesta enviada a Construvial:** 19/05. Construvial/PRESOL pagó USD 180 por dos catálogos (08/2026).
 - **Base de datos:** 21 empresas en DB (leads_oil_gas_mining.csv).
-- **Profile asignado:** construvial-growth (solo investigación hasta activación explícita de Juan).
-- **Sin revenue** a través de Juan.
+- **Material campaña:** `companies/construvial/presol-campana-2026-09/` (plan, oferta, fichas, planilla, mensajes WhatsApp).
+- **Sin revenue** a través de Juan (campaña paga fijo + viáticos).
 
 ## Oportunidades detectadas
 
