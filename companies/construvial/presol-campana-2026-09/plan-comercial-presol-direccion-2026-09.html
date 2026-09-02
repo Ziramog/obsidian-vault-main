@@ -3,511 +3,1360 @@
 * { box-sizing: border-box; }
 body {
   margin: 0;
+  background: #edf4f6;
+  color: #132033;
   font-family: Inter, Arial, Helvetica, sans-serif;
-  color: #152033;
-  background: #f4f7f8;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
+a { color: inherit; text-decoration: none; }
 .page {
   width: 297mm;
   height: 210mm;
-  padding: 14mm 16mm 13mm 16mm;
+  padding: 13mm 15mm 12mm 15mm;
   page-break-after: always;
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 88% 9%, rgba(0, 151, 167, 0.13), transparent 34%),
-    linear-gradient(180deg, #fbfcfd 0%, #eef5f6 100%);
+    radial-gradient(circle at 90% 9%, rgba(0, 168, 180, 0.13), transparent 35%),
+    linear-gradient(180deg, #fbfdfe 0%, #eef6f7 100%);
 }
 .page.dark {
-  color: #ffffff;
+  color: #fff;
   background:
-    radial-gradient(circle at 82% 18%, rgba(0, 188, 212, 0.30), transparent 34%),
-    linear-gradient(135deg, #07111f 0%, #0e2435 55%, #05303b 100%);
+    radial-gradient(circle at 88% 13%, rgba(0, 178, 190, .32), transparent 34%),
+    linear-gradient(135deg, #07111f 0%, #0d2335 56%, #05323e 100%);
 }
 .header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  border-bottom: 2.2px solid #00a6b2;
-  padding-bottom: 4mm;
+  border-bottom: 2px solid #00a6b2;
+  padding-bottom: 3.5mm;
   margin-bottom: 5mm;
 }
-.kicker { font-size: 10.5pt; letter-spacing: .11em; text-transform: uppercase; color: #0b8b95; font-weight: 800; }
+.kicker { font-size: 10.8pt; letter-spacing: .11em; text-transform: uppercase; color: #008a95; font-weight: 900; }
 .dark .kicker { color: #5ee4ee; }
-h1 { font-size: 31pt; line-height: 1.02; margin: 2mm 0 0 0; color:#111827; letter-spacing: -0.045em; }
-.dark h1, .dark h2 { color: #ffffff; }
-h2 { font-size: 21pt; line-height: 1.08; margin: 0 0 4mm 0; letter-spacing: -0.03em; color:#111827; }
-h3 { font-size: 14.5pt; line-height: 1.1; margin: 0 0 2mm 0; color:#111827; }
-p, li { font-size: 12pt; line-height: 1.35; }
-.small { font-size: 10.2pt; color: #5e6b7a; line-height: 1.25; }
-.dark .small { color: #cbd7df; }
-.footer { position: absolute; left: 16mm; right: 16mm; bottom: 7mm; display:flex; justify-content:space-between; color:#64748b; font-size:8.8pt; }
-.dark .footer { color:#9edbe1; }
-.brand { font-size: 10pt; text-align:right; color:#718096; line-height: 1.15; }
-.dark .brand { color:#b7f4f8; }
-.hero-grid { display:grid; grid-template-columns: 1.15fr .85fr; gap: 12mm; align-items: stretch; height: 142mm; }
-.hero-title { padding-top: 10mm; }
-.hero-title h1 { font-size: 44pt; max-width: 170mm; }
-.hero-title .subtitle { font-size: 18pt; line-height:1.22; color:#d8faff; margin-top: 7mm; max-width: 160mm; }
-.hero-panel { border:1px solid rgba(123,238,245,.32); background:rgba(255,255,255,.07); border-radius: 18px; padding: 8mm; box-shadow: 0 25px 80px rgba(0,0,0,.22); }
-.big-number { font-size: 40pt; font-weight: 900; line-height: 1; color:#ffffff; letter-spacing:-.05em; }
-.stat-label { font-size: 11pt; color:#b9f4f6; text-transform:uppercase; letter-spacing:.08em; font-weight:800; }
-.stat-row { display:grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-bottom:6mm; }
-.stat-card { padding: 5mm; border-radius: 13px; background: rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); }
-.pillline { margin-top: 9mm; display:flex; flex-wrap:wrap; gap:2mm; }
-.pill { display:inline-flex; align-items:center; border:1px solid rgba(0,166,178,.28); border-radius: 999px; padding: 1.6mm 3.4mm; background:#ffffff; color:#1f3448; font-size: 9.8pt; font-weight:700; }
-.dark .pill { background:rgba(255,255,255,.10); color:#eaffff; border-color:rgba(255,255,255,.20); }
-.two { display:grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
-.compact-two .card { padding: 4.2mm 5mm; }
-.compact-two li { font-size: 11.2pt; margin-bottom: 1.4mm; }
-.three { display:grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
-.four { display:grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; }
-.card { background:rgba(255,255,255,.93); border:1px solid #d7e3ea; border-radius: 14px; padding: 5mm; box-shadow: 0 12px 26px rgba(16,24,40,.06); }
-.card.darkcard { background:#0f1a2c; color:white; border-color:#17384a; }
-.card.darkcard h3 { color:white; }
-.callout { border-left: 5px solid #00a6b2; background:#e9fbfc; border-radius: 10px; padding: 4mm 5mm; margin: 0 0 5mm 0; font-size:12pt; line-height:1.35; }
-.callout strong { color:#044c57; }
-.summary-table { width:100%; border-collapse: collapse; background:#ffffff; border-radius: 12px; overflow:hidden; box-shadow:0 12px 24px rgba(16,24,40,.06); }
-.summary-table th { background:#111827; color:#fff; font-size: 10.2pt; text-align:left; padding: 2.8mm 3mm; }
-.summary-table td { font-size: 10.5pt; padding: 2.4mm 3mm; border-bottom:1px solid #dde7ee; vertical-align:top; }
-.summary-table .num { font-weight:900; font-size: 13pt; color:#0f766e; text-align:center; }
-.summary-cards { display:grid; grid-template-columns: repeat(5, 1fr); gap: 3.2mm; }
-.summary-card { background:#fff; border:1px solid #d7e3ea; border-radius:13px; padding:3.8mm; min-height:43mm; box-shadow:0 10px 22px rgba(16,24,40,.055); }
-.summary-card h3 { font-size:11.8pt; line-height:1.12; min-height:12mm; margin-bottom:2.5mm; }
-.summary-nums b { display:block; font-size:25pt; line-height:1; color:#04747c; }
-.summary-nums span { display:block; font-size:8.8pt; text-transform:uppercase; color:#60798a; letter-spacing:.06em; font-weight:900; }
-.summary-mini { margin-top:3mm; font-size:9.4pt; line-height:1.25; color:#46596b; }
-.summary-mini strong { color:#0f766e; }
-.bar { height: 7px; border-radius: 999px; background:#dbe8ee; overflow:hidden; margin-top:1.8mm; }
-.bar span { display:block; height:100%; background:linear-gradient(90deg,#00a6b2,#1a5f7a); }
-.corridor-grid { display:grid; grid-template-columns: 42mm 1fr 40mm; gap: 4mm; margin-bottom: 2.4mm; align-items:stretch; }
-.corridor-name { border-radius: 13px; background:#111827; color:#fff; padding:4.5mm; display:flex; flex-direction:column; justify-content:center; }
-.corridor-name strong { font-size:13.2pt; line-height:1.05; }
-.corridor-name span { font-size:9pt; color:#bdd3df; margin-top:1.5mm; }
-.corridor-detail { border-radius: 13px; border:1px solid #d7e3ea; background:#fff; padding:4mm; font-size:11pt; line-height:1.28; }
-.corridor-count { border-radius: 13px; border:1px solid #9ee9f0; background:#e8fbfd; padding:4mm; font-weight:800; color:#074c57; font-size:11.8pt; display:flex; align-items:center; justify-content:center; text-align:center; }
-.matrix { display:grid; grid-template-columns: repeat(3, 1fr); gap: 4.5mm; }
-.matrix-card { border-radius:14px; background:#fff; border:1px solid #d8e5ec; padding:4.8mm; min-height:31mm; }
-.matrix-card h3 { font-size:13.4pt; }
-.matrix-card p { margin:0; font-size:10.7pt; line-height:1.28; color:#334155; }
-.segment-count { font-size: 20pt; font-weight:900; color:#00818b; line-height:1; float:right; }
-.corridor-header { display:grid; grid-template-columns: 1fr 92mm; gap: 8mm; align-items:stretch; }
-.corridor-title { background:#111827; color:#fff; border-radius:16px; padding:7mm; }
-.corridor-title h2 { color:#fff; margin-bottom:3mm; font-size:25pt; }
-.corridor-title p { color:#dce8ef; margin:0; font-size:12.5pt; }
-.corridor-stats { display:grid; grid-template-columns: 1fr 1fr; gap:3.5mm; }
-.mini-stat { background:#e9fbfc; border:1px solid #8de5ed; border-radius:14px; padding:4mm; }
-.mini-stat b { display:block; font-size:22pt; line-height:1; color:#045c66; }
-.mini-stat span { font-size:9.7pt; text-transform:uppercase; letter-spacing:.06em; color:#527381; font-weight:800; }
-.company-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top:5mm; }
-.company-card { background:#fff; border:1px solid #d7e3ea; border-radius:14px; padding:4mm; min-height:38mm; position:relative; overflow:hidden; }
+h1 { margin: 2mm 0 0 0; font-size: 43pt; line-height: 1.02; letter-spacing: -.045em; color:#fff; }
+h2 { margin: 0; font-size: 24pt; line-height: 1.05; letter-spacing: -.035em; color:#111827; }
+.dark h2 { color:#fff; }
+h3 { margin: 0 0 2mm 0; font-size: 14pt; line-height: 1.12; color:#111827; }
+p, li { font-size: 12.3pt; line-height: 1.34; }
+.small { font-size: 9.6pt; line-height: 1.22; color:#5b6b7e; }
+.dark .small { color:#cceaf0; }
+.footer { position:absolute; left:15mm; right:15mm; bottom:6.5mm; display:flex; justify-content:space-between; color:#668095; font-size:8.8pt; }
+.dark .footer { color:#b7eef3; }
+.brand { text-align:right; font-size:10pt; line-height:1.15; color:#6e8194; }
+.dark .brand { color:#bdf3f7; }
+.cover-grid { display:grid; grid-template-columns: 1.18fr .82fr; gap:12mm; height:144mm; align-items:stretch; }
+.cover-copy { padding-top: 10mm; }
+.cover-sub { font-size:18pt; line-height:1.22; color:#d9fbff; margin-top:7mm; max-width:168mm; }
+.pillline { margin-top:9mm; display:flex; flex-wrap:wrap; gap:2mm; }
+.pill { display:inline-flex; border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.10); color:#efffff; padding:1.7mm 3.8mm; font-size:10pt; font-weight:800; }
+.cover-panel { border:1px solid rgba(123,238,245,.32); background:rgba(255,255,255,.075); border-radius:18px; padding:8mm; box-shadow:0 25px 80px rgba(0,0,0,.24); }
+.stat-row { display:grid; grid-template-columns:1fr 1fr; gap:5mm; margin-bottom:5mm; }
+.stat-card { padding:5mm; border-radius:14px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.08); }
+.big { font-size:39pt; line-height:1; font-weight:950; letter-spacing:-.05em; color:#fff; }
+.stat-label { margin-top:1mm; font-size:10.3pt; color:#bdf5f8; text-transform:uppercase; letter-spacing:.08em; font-weight:900; }
+.callout { border-left:5px solid #00a6b2; background:#e6fbfc; border-radius:10px; padding:4mm 5mm; font-size:12.4pt; line-height:1.35; margin-bottom:5mm; }
+.two { display:grid; grid-template-columns:1fr 1fr; gap:5mm; }
+.three { display:grid; grid-template-columns:repeat(3, 1fr); gap:5mm; }
+.card { background:#fff; border:1px solid #d5e3ea; border-radius:14px; padding:4.5mm; box-shadow:0 12px 24px rgba(16,24,40,.055); }
+.summary-grid { display:grid; grid-template-columns: repeat(5, 1fr); gap:3.2mm; margin-top:4mm; }
+.summary-card { background:#fff; border:1px solid #d5e3ea; border-radius:14px; padding:4mm; min-height:45mm; box-shadow:0 10px 22px rgba(16,24,40,.055); }
+.summary-card h3 { font-size:12pt; min-height:12mm; }
+.summary-card b { display:block; font-size:25pt; line-height:1; color:#03757f; }
+.summary-card .label { display:block; font-size:8.8pt; letter-spacing:.07em; text-transform:uppercase; color:#63798a; font-weight:900; }
+.summary-card .mini { margin-top:3mm; font-size:9.8pt; line-height:1.25; color:#46596b; }
+.offer-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:4.5mm; }
+.offer-card { background:#fff; border:1px solid #d5e3ea; border-radius:14px; padding:5mm; min-height:42mm; }
+.offer-card h3 { font-size:14pt; }
+.offer-card p { margin:0; font-size:11.3pt; line-height:1.29; color:#334155; }
+.company-list { display:grid; grid-template-columns: 1fr 1fr; gap:4mm; }
+.company-card { background:#fff; border:1px solid #d4e2e9; border-radius:13px; padding:3.5mm 4mm 3.3mm 4.3mm; min-height:43mm; position:relative; box-shadow:0 9px 18px rgba(16,24,40,.045); overflow:hidden; }
 .company-card:before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:#00a6b2; }
-.company-card h3 { font-size:12.8pt; line-height:1.13; margin:0 0 1.6mm 0; padding-left:1.5mm; }
-.company-meta { font-size:9.7pt; color:#536274; line-height:1.2; margin-bottom:2mm; padding-left:1.5mm; }
-.company-hook { font-size:10.6pt; line-height:1.25; color:#1e293b; padding-left:1.5mm; }
-.card-bottom { display:flex; gap:2mm; align-items:center; margin-top:2.5mm; padding-left:1.5mm; flex-wrap:wrap; }
-.badge, .phone { display:inline-block; border-radius:999px; padding:1.2mm 2.4mm; font-size:8.8pt; font-weight:900; }
-.priority-A { background:#fee2e2; color:#991b1b; }
-.priority-B { background:#fef3c7; color:#92400e; }
-.priority-C { background:#e5e7eb; color:#374151; }
-.q-ok { background:#dcfce7; color:#166534; }
-.q-ver { background:#fef9c3; color:#854d0e; }
-.q-a-relevar { background:#f3f4f6; color:#475569; }
-.more-note { grid-column: span 3; border-radius:12px; padding:3mm 4mm; background:#f2fafb; border:1px dashed #00a6b2; color:#07545d; font-size:11.2pt; font-weight:700; }
-.def-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap:5mm; }
-.def-card { padding:5mm; background:#fff; color:#152033; border:1px solid #d7e3ea; border-radius:14px; min-height:43mm; }
-.def-card h3, .def-card li { color:#152033; }
-.def-card h3 { display:flex; align-items:center; gap:2mm; }
-.numcircle { display:inline-flex; align-items:center; justify-content:center; width:8mm; height:8mm; border-radius:50%; background:#00a6b2; color:white; font-size:11pt; font-weight:900; }
-ul.clean { padding-left: 5mm; margin: 0; }
-ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
-.bigquote { font-size: 20pt; line-height:1.18; font-weight:800; color:#0f2433; letter-spacing:-.025em; }
-.subtle { color:#64748b; }
-.no-break { break-inside: avoid; }
+.company-top { display:flex; gap:2mm; align-items:flex-start; justify-content:space-between; margin-bottom:1.4mm; }
+.company-name { font-size:13.2pt; line-height:1.08; font-weight:900; color:#111827; padding-left:1mm; }
+.badges { display:flex; gap:1.5mm; flex-shrink:0; }
+.badge { border-radius:999px; padding:1.1mm 2.4mm; font-size:8.5pt; font-weight:950; white-space:nowrap; }
+.prio-A { background:#fee2e2; color:#9b1c1c; }
+.prio-B { background:#fef3c7; color:#8a4a05; }
+.prio-C { background:#e5e7eb; color:#374151; }
+.q-OK { background:#dcfce7; color:#166534; }
+.q-VER { background:#fef9c3; color:#854d0e; }
+.q-Arelevar { background:#f1f5f9; color:#475569; }
+.meta { font-size:9.8pt; color:#58697d; line-height:1.18; margin-bottom:1.7mm; padding-left:1mm; }
+.line { font-size:10.4pt; line-height:1.23; margin-bottom:1.25mm; padding-left:1mm; color:#1f2937; }
+.line strong { color:#0f172a; }
+.phone-link { color:#005f6a; font-weight:900; }
+.maps-link { display:inline-block; margin-left:2mm; color:#006c76; font-weight:900; }
+.list-header { display:flex; align-items:flex-start; justify-content:space-between; gap:8mm; margin-bottom:4mm; }
+.corr-title { background:#111827; color:#fff; border-radius:14px; padding:5mm 6mm; width:170mm; }
+.corr-title h2 { color:#fff; margin-bottom:2mm; font-size:24pt; }
+.corr-title p { margin:0; color:#dce8ef; font-size:11.6pt; line-height:1.28; }
+.corr-stats { display:grid; grid-template-columns: 1fr 1fr; gap:3mm; width:78mm; }
+.mini-stat { background:#e6fbfc; border:1px solid #82e4eb; border-radius:13px; padding:3.6mm; }
+.mini-stat b { display:block; font-size:20pt; line-height:1; color:#045d66; }
+.mini-stat span { display:block; font-size:8.6pt; text-transform:uppercase; letter-spacing:.06em; color:#597385; font-weight:900; }
+.section-note { font-size:10.4pt; color:#54677b; margin-top:2mm; }
+ul.clean { margin:0; padding-left:5mm; }
+ul.clean li { margin-bottom:2mm; font-size:11.6pt; }
 </style></head><body>
 <section class="page dark">
-  <div class="hero-grid">
-    <div class="hero-title">
-      <div class="kicker">Documento de apoyo para Dirección PRESOL</div>
+  <div class="cover-grid">
+    <div class="cover-copy">
+      <div class="kicker">Documento para reunión de Dirección PRESOL</div>
       <h1>Plan comercial territorial</h1>
-      <div class="subtitle">Corredores relevados, empresas objetivo y criterios para decidir la salida comercial.</div>
-      <div class="pillline">
-        <span class="pill">Transporte especial</span><span class="pill">Hidrogrúa</span><span class="pill">Plataforma</span><span class="pill">Malacate</span><span class="pill">Seguro + GPS</span>
-      </div>
+      <div class="cover-sub">Corredores, empresas objetivo, teléfonos y oferta concreta para activar oportunidades de transporte pesado.</div>
+      <div class="pillline"><span class="pill">Plataforma 15/20 tn</span><span class="pill">Hidrogrúa</span><span class="pill">Malacate</span><span class="pill">Seguro</span><span class="pill">GPS</span></div>
     </div>
-    <div class="hero-panel">
-      <div class="stat-row">
-        <div class="stat-card"><div class="big-number">117</div><div class="stat-label">empresas objetivo</div></div>
-        <div class="stat-card"><div class="big-number">44</div><div class="stat-label">clase A</div></div>
-      </div>
-      <div class="stat-row">
-        <div class="stat-card"><div class="big-number">73</div><div class="stat-label">teléfonos OK</div></div>
-        <div class="stat-card"><div class="big-number">5</div><div class="stat-label">corredores</div></div>
-      </div>
-      <p class="small">Actualizado con planilla operativa enriquecida. Este PDF resume la oportunidad para dirección; la base completa queda en Excel/CSV para ejecución.</p>
+    <div class="cover-panel">
+      <div class="stat-row"><div class="stat-card"><div class="big">117</div><div class="stat-label">empresas objetivo</div></div><div class="stat-card"><div class="big">44</div><div class="stat-label">clase A</div></div></div>
+      <div class="stat-row"><div class="stat-card"><div class="big">73</div><div class="stat-label">teléfonos OK</div></div><div class="stat-card"><div class="big">5</div><div class="stat-label">corredores</div></div></div>
+      <p class="small">Fecha de corte: 2026-09-02. La secuencia de salida se define con PRESOL según disponibilidad, tarifas y estrategia comercial.</p>
     </div>
   </div>
-  <div class="footer"><span>PRESOL · Campaña comercial 2026-09</span><span>2026-09-02</span></div>
+  <div class="footer"><span>PRESOL · Plan comercial territorial</span><span>2026-09-02</span></div>
 </section>
 
 
 <section class="page">
-  <div class="header"><div><div class="kicker">Cómo usar este documento</div><h2>Una guía de decisión, no un cronograma</h2></div><div class="brand">Plan comercial territorial<br>2026-09-02</div></div>
-  <div class="callout"><strong>Alcance:</strong> presenta corredores, empresas objetivo y calidad de oportunidad. No fija todavía qué corredor se visita primero ni asigna fechas.</div>
-  <div class="two compact-two">
-    <div class="card">
-      <h3>Qué muestra</h3>
-      <ul class="clean">
-        <li>Mercado relevado por corredor.</li>
-        <li>Empresas clase A como puertas de mayor encaje.</li>
-        <li>Rubros donde PRESOL tiene oferta concreta.</li>
-        <li>Calidad de teléfonos y necesidad de validación.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Qué se decide después</h3>
-      <ul class="clean">
-        <li>Secuencia operativa de salida.</li>
-        <li>Tarifa mínima, precio/km y hora de hidrogrúa.</li>
-        <li>Quién atiende consultas entrantes.</li>
-        <li>Alcance real para áridos/material suelto.</li>
-      </ul>
-    </div>
+  <div class="header"><div><div class="kicker">Resumen ejecutivo</div><h2>Mercado relevado por corredor</h2></div><div class="brand">Sin cronograma cerrado<br>2026-09-02</div></div>
+  <div class="callout"><strong>Objetivo de la reunión:</strong> validar qué corredores activar, con qué tarifa mínima y quién toma las consultas entrantes. El listado posterior permite salir con teléfonos, rubro, responsable a pedir y servicio a ofrecer.</div>
+  <div class="summary-grid">
+<div class="summary-card">
+  <h3>Río Tercero / base</h3>
+  <b>28</b><span class="label">empresas</span>
+  <div class="mini"><strong>8</strong> clase A · <strong>16</strong> clase B · <strong>10</strong> tel. OK</div>
+</div>
+
+<div class="summary-card">
+  <h3>Corralito / acceso RN36</h3>
+  <b>6</b><span class="label">empresas</span>
+  <div class="mini"><strong>1</strong> clase A · <strong>5</strong> clase B · <strong>3</strong> tel. OK</div>
+</div>
+
+<div class="summary-card">
+  <h3>RN36 Sur / Río Cuarto</h3>
+  <b>26</b><span class="label">empresas</span>
+  <div class="mini"><strong>14</strong> clase A · <strong>10</strong> clase B · <strong>20</strong> tel. OK</div>
+</div>
+
+<div class="summary-card">
+  <h3>RP6 / Villa María</h3>
+  <b>28</b><span class="label">empresas</span>
+  <div class="mini"><strong>8</strong> clase A · <strong>15</strong> clase B · <strong>20</strong> tel. OK</div>
+</div>
+
+<div class="summary-card">
+  <h3>RN36 Norte / Córdoba</h3>
+  <b>29</b><span class="label">empresas</span>
+  <div class="mini"><strong>13</strong> clase A · <strong>16</strong> clase B · <strong>20</strong> tel. OK</div>
+</div>
+</div>
+  <div class="two" style="margin-top:6mm">
+    <div class="card"><h3>Criterio de clasificación</h3><ul class="clean"><li><strong>Clase A:</strong> mayor probabilidad de movimiento pesado concreto.</li><li><strong>Clase B:</strong> oportunidad útil para seguimiento o visita complementaria.</li><li><strong>Clase C:</strong> dato a relevar o puerta de menor urgencia.</li></ul></div>
+    <div class="card"><h3>Cómo leer el listado</h3><ul class="clean"><li>Llamar o visitar pidiendo el área indicada.</li><li>No vender solo flete: ofrecer operación completa.</li><li>Cerrar cada contacto con un próximo movimiento a cotizar.</li></ul></div>
   </div>
-  <h3 style="margin-top:5mm">Resumen actualizado por corredor</h3>
-  <div class="summary-cards"><div class="summary-card"><h3>Río Tercero / base</h3><div class="summary-nums"><b>28</b><span>empresas</span></div><div class="summary-mini"><strong>8</strong> clase A · <strong>10</strong> tel. OK · <strong>12</strong> nuevas</div></div>
-<div class="summary-card"><h3>Corralito / acceso RN36</h3><div class="summary-nums"><b>6</b><span>empresas</span></div><div class="summary-mini"><strong>1</strong> clase A · <strong>3</strong> tel. OK · <strong>4</strong> nuevas</div></div>
-<div class="summary-card"><h3>RN36 Sur / Río Cuarto</h3><div class="summary-nums"><b>26</b><span>empresas</span></div><div class="summary-mini"><strong>14</strong> clase A · <strong>20</strong> tel. OK · <strong>3</strong> nuevas</div></div>
-<div class="summary-card"><h3>RP6 / Villa María</h3><div class="summary-nums"><b>28</b><span>empresas</span></div><div class="summary-mini"><strong>8</strong> clase A · <strong>20</strong> tel. OK · <strong>6</strong> nuevas</div></div>
-<div class="summary-card"><h3>RN36 Norte / Córdoba</h3><div class="summary-nums"><b>29</b><span>empresas</span></div><div class="summary-mini"><strong>13</strong> clase A · <strong>20</strong> tel. OK · <strong>6</strong> nuevas</div></div></div>
   <div class="footer"><span>PRESOL · Dirección</span><span>2</span></div>
 </section>
 
 
 <section class="page">
-  <div class="header"><div><div class="kicker">Corredores comerciales relevados</div><h2>Territorio organizado por oportunidad</h2></div><div class="brand">Sin orden de salida<br>definido aún</div></div>
-
-    <div class="corridor-grid no-break">
-      <div class="corridor-name"><strong>Río Tercero / base</strong><span>Validación inmediata y bajo costo de visita.</span></div>
-      <div class="corridor-detail">Plaza de cercanía: parque industrial, metalmecánicas, hormigón, módulos, montaje y agroindustria. Ideal para validar rápido oferta, discurso y objeciones.<div class="bar"><span style="width:28%"></span></div><span class="small">Clase A: 8 de 28 empresas.</span></div>
-      <div class="corridor-count">28 empresas<br>8 clase A</div>
-    </div>
-    <div class="corridor-grid no-break">
-      <div class="corridor-name"><strong>Corralito / acceso RN36</strong><span>Bloque satélite agroindustrial para complementar salidas cortas.</span></div>
-      <div class="corridor-detail">Satélite agroindustrial cercano a Río Tercero. No se trata como subzona de Río Cuarto: funciona como bloque corto de acopio, planta y ruta secundaria hacia Autovía 36.<div class="bar"><span style="width:16%"></span></div><span class="small">Clase A: 1 de 6 empresas.</span></div>
-      <div class="corridor-count">6 empresas<br>1 clase A</div>
-    </div>
-    <div class="corridor-grid no-break">
-      <div class="corridor-name"><strong>RN36 Sur / Río Cuarto</strong><span>Mayor concentración de obra y movimiento pesado.</span></div>
-      <div class="corridor-detail">Corredor con mayor densidad de obra, canteras, hormigón, módulos, metalmecánica y contratistas. Buen potencial para cotizaciones de maquinaria, obradores y picos de obra.<div class="bar"><span style="width:53%"></span></div><span class="small">Clase A: 14 de 26 empresas.</span></div>
-      <div class="corridor-count">26 empresas<br>14 clase A</div>
-    </div>
-    <div class="corridor-grid no-break">
-      <div class="corridor-name"><strong>RP6 / Villa María</strong><span>Industria + agro + logística, con buena calidad de teléfonos.</span></div>
-      <div class="corridor-detail">Hub industrial y agroindustrial: PILT, metalmecánica, transformadores, acopios, constructoras, containers y logística. Conviene tratarlo por subzonas y empresas con teléfono validable.<div class="bar"><span style="width:28%"></span></div><span class="small">Clase A: 8 de 28 empresas.</span></div>
-      <div class="corridor-count">28 empresas<br>8 clase A</div>
-    </div>
-    <div class="corridor-grid no-break">
-      <div class="corridor-name"><strong>RN36 Norte / Córdoba</strong><span>Volumen alto, requiere selección fina por nicho y subzona.</span></div>
-      <div class="corridor-detail">Mercado grande y más disperso. La oportunidad está en subzonas concretas: Alta Gracia, Despeñaderos, Malagueño, Córdoba Sur/RN36 y nichos de módulos/premoldeados.<div class="bar"><span style="width:44%"></span></div><span class="small">Clase A: 13 de 29 empresas.</span></div>
-      <div class="corridor-count">29 empresas<br>13 clase A</div>
-    </div>
+  <div class="header"><div><div class="kicker">Oferta PRESOL</div><h2>Qué proponer según el rubro</h2></div><div class="brand">Transporte pesado<br>+ operación</div></div>
+  <div class="offer-grid"><div class="offer-card"><h3>Obra / constructoras</h3><p>Traslado de maquinaria, módulos de obrador, estructuras, equipos y materiales pesados entre frentes.</p></div><div class="offer-card"><h3>Agro / acopios</h3><p>Equipos de planta, silos, balanzas, norias, repuestos pesados e insumos voluminosos.</p></div><div class="offer-card"><h3>Módulos / containers</h3><p>Retiro, carga, transporte, descarga y posicionamiento con plataforma, malacate e hidrogrúa según maniobra.</p></div><div class="offer-card"><h3>Metalmecánica</h3><p>Estructuras, tanques, piezas industriales, transformadores, implementos y despachos especiales.</p></div><div class="offer-card"><h3>Hormigón / áridos / premoldeados</h3><p>Equipos de planta, bombas, premoldeados, picos de obra y movimientos pesados de apoyo.</p></div><div class="offer-card"><h3>Industria / mantenimiento</h3><p>Traslados no rutinarios, mudanzas internas, repuestos pesados y apoyo operativo con seguro/GPS.</p></div></div>
+  <div class="two" style="margin-top:6mm">
+    <div class="card"><h3>Mensaje comercial base</h3><p>“Estamos relevando traslados pesados en la zona. PRESOL puede resolver retiro, carga, transporte, descarga y posicionamiento con plataforma, malacate, hidrogrúa, seguro y seguimiento GPS.”</p></div>
+    <div class="card"><h3>Pregunta de cierre</h3><p>“¿Cuál es el próximo movimiento pesado que tienen que resolver y con quién conviene cotizarlo?”</p></div>
+  </div>
   <div class="footer"><span>PRESOL · Dirección</span><span>3</span></div>
 </section>
 
 
 <section class="page">
-  <div class="header"><div><div class="kicker">Oferta comercial PRESOL</div><h2>Qué vender según el tipo de cliente</h2></div><div class="brand">Oferta práctica<br>sin precio cerrado</div></div>
-  <div class="matrix"><div class="matrix-card"><span class="segment-count">10</span><h3>Entrega + descarga + posicionamiento</h3><p>Proveedores de módulos, casas industrializadas, containers y obradores.</p></div><div class="matrix-card"><span class="segment-count">16</span><h3>Equipos, obradores y frentes de obra</h3><p>Constructoras, obra vial, movimiento de suelo, contratistas con necesidades variables.</p></div><div class="matrix-card"><span class="segment-count">26</span><h3>Planta, silos y repuestos pesados</h3><p>Acopios, cooperativas, alimentos, fertilizantes e implementos.</p></div><div class="matrix-card"><span class="segment-count">22</span><h3>Premoldeados, bombas y equipos de planta</h3><p>Hormigoneras, canteras, corralones, premoldeados y caleras.</p></div><div class="matrix-card"><span class="segment-count">13</span><h3>Estructuras, tanques y piezas industriales</h3><p>Metalmecánicas, transformadores, carrozados, montajes y talleres.</p></div><div class="matrix-card"><span class="segment-count">27</span><h3>Mantenimiento y movimientos especiales</h3><p>Industria general, autopartes, alimentos, química, logística interna.</p></div></div>
-  <div class="two" style="margin-top:6mm">
-    <div class="card darkcard"><h3>Mensaje comercial base</h3><p>“Estamos relevando necesidades de traslado pesado en la zona. PRESOL puede resolver retiro, carga, transporte, descarga y posicionamiento con plataforma, malacate, hidrogrúa, seguro y seguimiento GPS.”</p></div>
-    <div class="card"><h3>Regla de visita</h3><p class="bigquote">No vender “un camión”. Pedir el próximo movimiento concreto y convertirlo en cotización.</p></div>
-  </div>
-  <div class="footer"><span>PRESOL · Dirección</span><span>4</span></div>
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>Río Tercero / base</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>Río Tercero / base</h2><p>Zona de cercanía para validar discurso, oferta y objeciones con bajo costo de visita. Foco: parque industrial, metalmecánica, hormigón, módulos, montaje y agroindustria.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>28</b><span>empresas</span></div>
+            <div class="mini-stat"><b>8</b><span>clase A</span></div>
+            <div class="mini-stat"><b>10</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>1/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Hormicor</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Hormigón elaborado</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571500888">03571 500888 / 03571 510066</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.178000,-64.111000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> planta / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de cantera/planta; transporte de material suelto sujeto a confirmar unidad o esquema operativo.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Metalúrgica Novaretti</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Recipientes y equipos metalmecánicos</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571414282">03571 414282 / 03571 606930</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.169000,-64.117000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Metalúrgica Río Tercero S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Tercero · Parque Industrial Leonardo Da Vinci · Equipamiento minero, vial y agroindustrial / fundición</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571430558">03571 430558</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Metal%C3%BArgica+R%C3%ADo+Tercero+S.A.+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de repuestos/equipos/silos/implementos + coordinación de retiro y descarga.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">NT Construcciones</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero / Av. Savio · Obras civiles industriales / montaje</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+5493571597645">+54 9 3571 597645</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=NT+Construcciones+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / jefe de obra</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte especial de equipos/obrador + apoyo de hidrogrúa según maniobra + seguro/GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Tres Eme S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Silos y mecanización</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571432190">03571 432190 / 03571 637720</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.181000,-64.103000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Vial del Centro</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Obras de infraestructura vial</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543516411413">0351 6411413</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.183000,-64.101000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>4</span></div>
 </section>
 
 
 <section class="page">
-  <div class="header"><div><div class="kicker">Empresas objetivo por corredor</div><h2>Río Tercero / base</h2></div><div class="brand">28 prospectos<br>8 clase A</div></div>
-  <div class="corridor-header">
-    <div class="corridor-title"><h2>Río Tercero / base</h2><p>Plaza de cercanía: parque industrial, metalmecánicas, hormigón, módulos, montaje y agroindustria. Ideal para validar rápido oferta, discurso y objeciones.</p></div>
-    <div class="corridor-stats">
-      <div class="mini-stat"><b>28</b><span>empresas</span></div>
-      <div class="mini-stat"><b>8</b><span>clase A</span></div>
-      <div class="mini-stat"><b>10</b><span>teléfonos OK</span></div>
-      <div class="mini-stat"><b>12</b><span>nuevas</span></div>
-    </div>
-  </div>
-  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"> · +2 clase A adicionales en Excel</span></h3>
-  <div class="company-grid">
-        <div class="company-card no-break">
-          <h3>Hormicor</h3>
-          <div class="company-meta">Río Tercero · Hormigón / áridos</div>
-          <div class="company-hook">Ofrecer respaldo para picos de obra y traslados de equipos.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">03571 500888 / 03571 510066</span></div>
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>Río Tercero / base</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>Río Tercero / base</h2><p>Zona de cercanía para validar discurso, oferta y objeciones con bajo costo de visita. Foco: parque industrial, metalmecánica, hormigón, módulos, montaje y agroindustria.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>28</b><span>empresas</span></div>
+            <div class="mini-stat"><b>8</b><span>clase A</span></div>
+            <div class="mini-stat"><b>10</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>2/5</b><span>página</span></div>
+          </div>
         </div>
-        <div class="company-card no-break">
-          <h3>Metalúrgica Novaretti</h3>
-          <div class="company-meta">Río Tercero · Metalmecánica</div>
-          <div class="company-hook">Cotizar despacho recurrente a plantas/obras.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">03571 414282 / 03571 606930</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Metalúrgica Río Tercero S.A.</h3>
-          <div class="company-meta">Río Tercero · Agro / acopios</div>
-          <div class="company-hook">Produce equipamiento e insumos para minería, vial y agroindustria; encaje directo con cargas pesadas.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">03571 430558</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>NT Construcciones</h3>
-          <div class="company-meta">Río Tercero · Obra / constructoras</div>
-          <div class="company-hook">Obras civiles industriales, montaje de naves y mantenimiento en complejos fabriles; clientes industriales regionales.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">+54 9 3571 597645</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Tres Eme S.A.</h3>
-          <div class="company-meta">Río Tercero · Agro / acopios</div>
-          <div class="company-hook">Ofrecer flete + descarga/posicionamiento en obra rural.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">03571 432190 / 03571 637720</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Vial del Centro</h3>
-          <div class="company-meta">Río Tercero · Obra / constructoras</div>
-          <div class="company-hook">Pedir próximo movimiento de maquinaria entre frentes.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0351 6411413</span></div>
-        </div></div>
-  <div class="footer"><span>Base completa en planilla enriquecida · Clase B/C disponibles para seguimiento</span><span>5</span></div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">ESISA</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Viviendas/módulos industrializados</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571565662">Portería parque: 03571 565662; mail esisaservicios@gmail.com</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.182000,-64.107000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">IMBAL S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Estructuras metálicas / montaje</div>
+              <div class="line"><strong>Tel.:</strong> A relevar en terreno <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.180000,-64.106000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Hidrobull</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Accesorios para minicargadoras</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571549612">03571 549612</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.171500,-64.116500">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de logística/compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Detectar el próximo movimiento pesado y convertirlo en cotización concreta.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">MetalMec S.R.L.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Implementos y accesorios</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571681577">03571 681577 / 03571 506656</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.170500,-64.118500">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Oleos San José S.R.L.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Extrusado/aceite de soja</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571692471">03571 692471 / 03571 640630</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.182600,-64.102500">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Río Metal</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Tercero · Parque Industrial Leonardo Da Vinci · Estructuras metálicas</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+5493571529444">+54 9 3571 52-9444</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%ADo+Metal+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Plataforma 20 tn para piezas/estructuras + seguro de carga + trazabilidad GPS.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>5</span></div>
 </section>
 
 
 <section class="page">
-  <div class="header"><div><div class="kicker">Empresas objetivo por corredor</div><h2>Corralito / acceso RN36</h2></div><div class="brand">6 prospectos<br>1 clase A</div></div>
-  <div class="corridor-header">
-    <div class="corridor-title"><h2>Corralito / acceso RN36</h2><p>Satélite agroindustrial cercano a Río Tercero. No se trata como subzona de Río Cuarto: funciona como bloque corto de acopio, planta y ruta secundaria hacia Autovía 36.</p></div>
-    <div class="corridor-stats">
-      <div class="mini-stat"><b>6</b><span>empresas</span></div>
-      <div class="mini-stat"><b>1</b><span>clase A</span></div>
-      <div class="mini-stat"><b>3</b><span>teléfonos OK</span></div>
-      <div class="mini-stat"><b>4</b><span>nuevas</span></div>
-    </div>
-  </div>
-  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"></span></h3>
-  <div class="company-grid">
-        <div class="company-card no-break">
-          <h3>AGD — Planta de Acopio Corralito</h3>
-          <div class="company-meta">Corralito · Agro / acopios</div>
-          <div class="company-hook">Acopio AGD; pedir operaciones/mantenimiento.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">03571 492144 / 492172 / +</span></div>
-        </div></div>
-  <div class="footer"><span>Base completa en planilla enriquecida · Clase B/C disponibles para seguimiento</span><span>6</span></div>
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>Río Tercero / base</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>Río Tercero / base</h2><p>Zona de cercanía para validar discurso, oferta y objeciones con bajo costo de visita. Foco: parque industrial, metalmecánica, hormigón, módulos, montaje y agroindustria.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>28</b><span>empresas</span></div>
+            <div class="mini-stat"><b>8</b><span>clase A</span></div>
+            <div class="mini-stat"><b>10</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>3/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Baudino Hnos.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Estructuras metálicas</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+54357115600693">03571 15600693 / 3571 457279 / 3571 458732</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Baudino+Hnos.+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Plataforma 20 tn para piezas/estructuras + seguro de carga + trazabilidad GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Charrúa Implementos Agrícolas</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Implementos agrícolas</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571619149">03571 619149 / 03571 503663 (a confirmar)</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.168609,-64.118792">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">HIDROSERVIS</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Cilindros hidráulicos</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571565662">Portería parque: 03571 565662</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.181800,-64.104800">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de logística/compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Detectar el próximo movimiento pesado y convertirlo en cotización concreta.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Hormilas S.A.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Hormigón elaborado</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571573231">03571 573231 (a confirmar)</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.163876,-64.106999">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / planta</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslado de equipos de planta, bombas, premoldeados y apoyo a picos de obra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Atanor / Albaugh</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Química / agroquímicos</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.173000,-64.110000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Bravo Gustavo y Guillermo</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Parque Industrial Leonardo Da Vinci · Premoldeados</div>
+              <div class="line"><strong>Tel.:</strong> A relevar vía parque <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Bravo+Gustavo+y+Guillermo+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> planta / despacho</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de premoldeados/equipos; áridos sueltos solo sujeto a validar caja volcadora o tercerización.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>6</span></div>
 </section>
 
 
 <section class="page">
-  <div class="header"><div><div class="kicker">Empresas objetivo por corredor</div><h2>RN36 Sur / Río Cuarto</h2></div><div class="brand">26 prospectos<br>14 clase A</div></div>
-  <div class="corridor-header">
-    <div class="corridor-title"><h2>RN36 Sur / Río Cuarto</h2><p>Corredor con mayor densidad de obra, canteras, hormigón, módulos, metalmecánica y contratistas. Buen potencial para cotizaciones de maquinaria, obradores y picos de obra.</p></div>
-    <div class="corridor-stats">
-      <div class="mini-stat"><b>26</b><span>empresas</span></div>
-      <div class="mini-stat"><b>14</b><span>clase A</span></div>
-      <div class="mini-stat"><b>20</b><span>teléfonos OK</span></div>
-      <div class="mini-stat"><b>3</b><span>nuevas</span></div>
-    </div>
-  </div>
-  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"> · +8 clase A adicionales en Excel</span></h3>
-  <div class="company-grid">
-        <div class="company-card no-break">
-          <h3>AFEMA S.A.</h3>
-          <div class="company-meta">Río Cuarto · Obra / constructoras</div>
-          <div class="company-hook">Obras viales activas; pedir jefe de obra/logística.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0351 7371862</span></div>
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>Río Tercero / base</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>Río Tercero / base</h2><p>Zona de cercanía para validar discurso, oferta y objeciones con bajo costo de visita. Foco: parque industrial, metalmecánica, hormigón, módulos, montaje y agroindustria.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>28</b><span>empresas</span></div>
+            <div class="mini-stat"><b>8</b><span>clase A</span></div>
+            <div class="mini-stat"><b>10</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>4/5</b><span>página</span></div>
+          </div>
         </div>
-        <div class="company-card no-break">
-          <h3>CAGLE — Cooperativa Agrícola de Elena</h3>
-          <div class="company-meta">Elena · Agro / acopios</div>
-          <div class="company-hook">Obras recientes + nueva planta futura: transporte de equipos.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">3584 881118</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Canteras Bringas</h3>
-          <div class="company-meta">Río Cuarto · Hormigón / áridos</div>
-          <div class="company-hook">Pegada a Circunvalación: muy caliente para obra vial.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0358 154906010</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>CasaContainer Río Cuarto</h3>
-          <div class="company-meta">Río Cuarto · Módulos / containers</div>
-          <div class="company-hook">Ellos venden “te lo llevamos”; PRESOL puede ser proveedor logístico.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0358 4310288</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Construcciones Metálicas El Colono S.A.</h3>
-          <div class="company-meta">Río Cuarto · Agro / acopios</div>
-          <div class="company-hook">Uno de los mejores encajes; pedir despacho/montaje.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0358 4628525</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Cotagro — Alcira Gigena</h3>
-          <div class="company-meta">Alcira Gigena · Agro / acopios</div>
-          <div class="company-hook">Cotagro concentra 4 puntos del corredor; pedir compras/logística.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">358 4393127 / 358 4125695 / +</span></div>
-        </div></div>
-  <div class="footer"><span>Base completa en planilla enriquecida · Clase B/C disponibles para seguimiento</span><span>7</span></div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Construcciones Sermanter S.R.L.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Parque Industrial Leonardo Da Vinci · Construcción, montaje y mantenimiento</div>
+              <div class="line"><strong>Tel.:</strong> A relevar vía parque <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Construcciones+Sermanter+S.R.L.+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Plataforma 20 tn para piezas/estructuras + seguro de carga + trazabilidad GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Fabri-Mec</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Parque Industrial Leonardo Da Vinci · Tornería / hoyadoras hidráulicas para grúas y minicargadoras</div>
+              <div class="line"><strong>Tel.:</strong> A relevar vía parque <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Fabri-Mec+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslados especiales de mantenimiento, equipos y repuestos con seguro/GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Fábrica Militar Río Tercero</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Industria estatal / metalmecánica pesada</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.181966,-64.113216">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">LiftingMach S.A.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Parque Industrial Leonardo Da Vinci · Autoelevadores / maquinaria industrial</div>
+              <div class="line"><strong>Tel.:</strong> A relevar vía parque <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=LiftingMach+S.A.+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslados especiales de mantenimiento, equipos y repuestos con seguro/GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">PROMETVA S.R.L.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Parque Industrial Leonardo Da Vinci · Ingeniería / fabricación industrial</div>
+              <div class="line"><strong>Tel.:</strong> A relevar vía parque <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=PROMETVA+S.R.L.+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslados especiales de mantenimiento, equipos y repuestos con seguro/GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Taller Sarmiento</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Parque Industrial Leonardo Da Vinci · Servicios industriales / mantenimiento</div>
+              <div class="line"><strong>Tel.:</strong> A relevar vía parque <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Taller+Sarmiento+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> mantenimiento / compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslados especiales de mantenimiento, equipos y repuestos con seguro/GPS.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>7</span></div>
 </section>
 
 
 <section class="page">
-  <div class="header"><div><div class="kicker">Empresas objetivo por corredor</div><h2>RP6 / Villa María</h2></div><div class="brand">28 prospectos<br>8 clase A</div></div>
-  <div class="corridor-header">
-    <div class="corridor-title"><h2>RP6 / Villa María</h2><p>Hub industrial y agroindustrial: PILT, metalmecánica, transformadores, acopios, constructoras, containers y logística. Conviene tratarlo por subzonas y empresas con teléfono validable.</p></div>
-    <div class="corridor-stats">
-      <div class="mini-stat"><b>28</b><span>empresas</span></div>
-      <div class="mini-stat"><b>8</b><span>clase A</span></div>
-      <div class="mini-stat"><b>20</b><span>teléfonos OK</span></div>
-      <div class="mini-stat"><b>6</b><span>nuevas</span></div>
-    </div>
-  </div>
-  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"> · +2 clase A adicionales en Excel</span></h3>
-  <div class="company-grid">
-        <div class="company-card no-break">
-          <h3>ACA — Centro de Desarrollo Comercial Tío Pujio</h3>
-          <div class="company-meta">Tío Pujio · Agro / acopios</div>
-          <div class="company-hook">Pedir Mario Peppino / responsable logística; no ir sin ficha.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">353 5622710 / 0353 4860518 / +</span></div>
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>Río Tercero / base</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>Río Tercero / base</h2><p>Zona de cercanía para validar discurso, oferta y objeciones con bajo costo de visita. Foco: parque industrial, metalmecánica, hormigón, módulos, montaje y agroindustria.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>28</b><span>empresas</span></div>
+            <div class="mini-stat"><b>8</b><span>clase A</span></div>
+            <div class="mini-stat"><b>10</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>5/5</b><span>página</span></div>
+          </div>
         </div>
-        <div class="company-card no-break">
-          <h3>Cooperativa Agrícola La Vencedora</h3>
-          <div class="company-meta">Hernando · Agro / acopios</div>
-          <div class="company-hook">Planta nueva 24.000 tn; pedir gerente Ariel Ferreyra.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0353 4847133</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Industrias Cormetal S.A.</h3>
-          <div class="company-meta">Villa María · Metalmecánica</div>
-          <div class="company-hook">Pedir responsable de logística/despachos.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0353 4610900 / 0353 6567355</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Mayo Transformadores S.R.L.</h3>
-          <div class="company-meta">Villa María · Metalmecánica</div>
-          <div class="company-hook">Seguro de carga + GPS como argumento fuerte.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0353 4647606</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Metalúrgica JAP / MJAP</h3>
-          <div class="company-meta">Villa María · Metalmecánica</div>
-          <div class="company-hook">Fabrica carrozados, acoplados, estructuras para montacargas y carrocerías volcadoras; encaje directo con PRESOL.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">+54 35 3656-3732 / +54 35 3565-7977</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Salsiteco S.A.</h3>
-          <div class="company-meta">Villa María · Obra / constructoras</div>
-          <div class="company-hook">Muy buen encaje con obras viales; pedir jefe de obra.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0353 4524006 / 0353 5006023</span></div>
-        </div></div>
-  <div class="footer"><span>Base completa en planilla enriquecida · Clase B/C disponibles para seguimiento</span><span>8</span></div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Grupo AVO S.A.</div><div class="badges"><span class="badge prio-C">Clase C</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Aceite de soja / balanceados</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571565662">Portería parque: 03571 565662</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.175431,-64.127787">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Transporte Sosa</div><div class="badges"><span class="badge prio-C">Clase C</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Parque Industrial Leonardo Da Vinci · Fabricación y reparación de cajas volcadoras</div>
+              <div class="line"><strong>Tel.:</strong> A relevar vía parque <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Transporte+Sosa+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> dueño / taller</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslados especiales de mantenimiento, equipos y repuestos con seguro/GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Volonte Marcelo</div><div class="badges"><span class="badge prio-C">Clase C</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Parque Industrial Leonardo Da Vinci · Arenado, pintura industrial y servicio de izaje</div>
+              <div class="line"><strong>Tel.:</strong> A relevar vía parque <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Volonte+Marcelo+R%C3%ADo+Tercero+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / taller</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslados especiales de mantenimiento, equipos y repuestos con seguro/GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Áridos S.A.</div><div class="badges"><span class="badge prio-C">Clase C</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Tercero · Río Tercero · Áridos / cantera</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.175149,-64.110626">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> planta / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de cantera/planta; transporte de material suelto sujeto a confirmar unidad o esquema operativo.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>8</span></div>
 </section>
 
 
 <section class="page">
-  <div class="header"><div><div class="kicker">Empresas objetivo por corredor</div><h2>RN36 Norte / Córdoba</h2></div><div class="brand">29 prospectos<br>13 clase A</div></div>
-  <div class="corridor-header">
-    <div class="corridor-title"><h2>RN36 Norte / Córdoba</h2><p>Mercado grande y más disperso. La oportunidad está en subzonas concretas: Alta Gracia, Despeñaderos, Malagueño, Córdoba Sur/RN36 y nichos de módulos/premoldeados.</p></div>
-    <div class="corridor-stats">
-      <div class="mini-stat"><b>29</b><span>empresas</span></div>
-      <div class="mini-stat"><b>13</b><span>clase A</span></div>
-      <div class="mini-stat"><b>20</b><span>teléfonos OK</span></div>
-      <div class="mini-stat"><b>6</b><span>nuevas</span></div>
-    </div>
-  </div>
-  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"> · +7 clase A adicionales en Excel</span></h3>
-  <div class="company-grid">
-        <div class="company-card no-break">
-          <h3>AG GROUP Industria</h3>
-          <div class="company-meta">Córdoba capital zona sur · Módulos / containers</div>
-          <div class="company-hook">Aunque está en Jesús María, vende en Córdoba; ofrecer logística provincial.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">3525 513210</span></div>
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>Corralito / acceso RN36</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>Corralito / acceso RN36</h2><p>Bloque satélite cercano a Río Tercero. Perfil agroindustrial con salida por rutas secundarias hacia Autovía 36.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>6</b><span>empresas</span></div>
+            <div class="mini-stat"><b>1</b><span>clase A</span></div>
+            <div class="mini-stat"><b>3</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>1/1</b><span>página</span></div>
+          </div>
         </div>
-        <div class="company-card no-break">
-          <h3>AG Viviendas Industrializadas</h3>
-          <div class="company-meta">Alta Gracia · Módulos / containers</div>
-          <div class="company-hook">Cada venta necesita logística: proponer proveedor regional.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">3547 672399 / 3547 420854</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Canteras Ruiz</h3>
-          <div class="company-meta">Córdoba capital zona sur · Hormigón / áridos</div>
-          <div class="company-hook">Servicio de áridos sólo si se confirma volcador/tercerización.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0351 5570618 / 0351 4524228 / +</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Corblock</h3>
-          <div class="company-meta">Malagueño · Hormigón / áridos</div>
-          <div class="company-hook">Planta en Malagueño, premoldeados/pretensados; oportunidad para cargas regionales y reparto pesado.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0351 3568259</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Corralón Mis Ladrillos</h3>
-          <div class="company-meta">Córdoba capital zona sur · Hormigón / áridos</div>
-          <div class="company-hook">Entrada rápida a mercado capitalino; ofrecer reparto pesado regional.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0351 3705858</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Hormi Block S.A.</h3>
-          <div class="company-meta">Córdoba capital zona sur · Hormigón / áridos</div>
-          <div class="company-hook">Av. Vélez Sarsfield 5801; entrada directa por corredor.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0351 4939510 / 0351 4945800</span></div>
-        </div></div>
-  <div class="footer"><span>Base completa en planilla enriquecida · Clase B/C disponibles para seguimiento</span><span>9</span></div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">AGD — Planta de Acopio Corralito</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Corralito · Corralito · S-253 / S-372 hacia Autovía 36 · Acopio agroindustrial</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571492144">03571 492144 / 492172 / 492228</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.022500,-64.191000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Alimentos Tancacha</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Tancacha · Tancacha / RP6 - satélite agroindustrial · Alimentos balanceados / planta industrial</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571502272">+54 3571 50-2272</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Alimentos+Tancacha+Tancacha+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> mantenimiento / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de repuestos/equipos/silos/implementos + coordinación de retiro y descarga.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Trisoil S.A.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Corralito · Corralito · S-253 / S-372 hacia Autovía 36 · Alimentos balanceados / aceite</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571502525">03571 502525 / 502526</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.030000,-64.183000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> mantenimiento / compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslados especiales de mantenimiento, repuestos pesados, mudanzas internas y cargas con seguro/GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">RG Rodolfo Grosso</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Tancacha · Tancacha / RP6 - satélite agroindustrial · Agroindustria / maquinaria o insumos</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571521091">3571 521091</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=RG+Rodolfo+Grosso+Tancacha+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> dueño / operaciones</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de repuestos/equipos/silos/implementos + coordinación de retiro y descarga.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">ACOGRA</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Tancacha · Tancacha / RP6 - satélite agroindustrial · Fertilizantes líquidos / agroindustria</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=ACOGRA+Tancacha+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> planta / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de repuestos/equipos/silos/implementos + coordinación de retiro y descarga.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Agricultores Unidos de Tancacha Coop. Agrícola Ltda.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Tancacha · Tancacha / RP6 - satélite agroindustrial · Cooperativa agropecuaria / insumos</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Agricultores+Unidos+de+Tancacha+Coop.+Agr%C3%ADcola+Ltda.+Tancacha+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> compra de insumos / acopio</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de repuestos/equipos/silos/implementos + coordinación de retiro y descarga.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>9</span></div>
 </section>
 
 
 <section class="page">
-  <div class="header"><div><div class="kicker">Lectura comercial</div><h2>La oportunidad no está solo en cantidad</h2></div><div class="brand">Filtro por rubro<br>y encaje</div></div>
-  <div class="callout"><strong>Criterio:</strong> priorizar empresas que puedan pedir un movimiento concreto: módulo, máquina, estructura, pieza industrial, repuesto pesado, equipo de planta o traslado de obrador.</div>
-  <div class="matrix">
-    <div class="matrix-card"><h3>Obra / constructoras</h3><p><strong>Ejemplos:</strong> NT Construcciones, Vial del Centro, AFEMA S.A.</p><p style="margin-top:2mm">Constructoras, obra vial, movimiento de suelo, contratistas con necesidades variables.</p></div>
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RN36 Sur / Río Cuarto</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
 
-    <div class="matrix-card"><h3>Módulos / containers</h3><p><strong>Ejemplos:</strong> AG Viviendas Industrializadas, AG GROUP Industria, Lucy’s House / Rental</p><p style="margin-top:2mm">Proveedores de módulos, casas industrializadas, containers y obradores.</p></div>
-
-    <div class="matrix-card"><h3>Agro / acopios</h3><p><strong>Ejemplos:</strong> Metalúrgica Río Tercero S.A., Tres Eme S.A., AGD — Planta de Acopio Corralito</p><p style="margin-top:2mm">Acopios, cooperativas, alimentos, fertilizantes e implementos.</p></div>
-
-    <div class="matrix-card"><h3>Metalmecánica</h3><p><strong>Ejemplos:</strong> Metalúrgica Novaretti, Industrias Cormetal S.A., Mayo Transformadores S.R.L.</p><p style="margin-top:2mm">Metalmecánicas, transformadores, carrozados, montajes y talleres.</p></div>
-
-    <div class="matrix-card"><h3>Hormigón / áridos</h3><p><strong>Ejemplos:</strong> Hormicor, Miguel Ángel Premoldeados, Precons S.R.L.</p><p style="margin-top:2mm">Hormigoneras, canteras, corralones, premoldeados y caleras.</p></div>
-
-    <div class="matrix-card"><h3>Industria / mantenimiento</h3><p><strong>Ejemplos:</strong> Hidrobull, MetalMec S.R.L., Oleos San José S.R.L.</p><p style="margin-top:2mm">Industria general, autopartes, alimentos, química, logística interna.</p></div>
-    </div>
-  <div class="footer"><span>PRESOL · Dirección</span><span>10</span></div>
+        <div class="list-header">
+          <div class="corr-title"><h2>RN36 Sur / Río Cuarto</h2><p>Corredor con fuerte presencia de obra, canteras, hormigón, módulos, metalmecánica y contratistas.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>26</b><span>empresas</span></div>
+            <div class="mini-stat"><b>14</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>1/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">AFEMA S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Constructora vial</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543517371862">0351 7371862</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.105000,-64.335000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">CAGLE — Cooperativa Agrícola de Elena</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Elena · Elena · Acopio / agro / estación de servicios</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584881118">3584 881118</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.569649,-64.392432">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Canteras Bringas</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Áridos / hormigón / obra pública</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+54358154906010">0358 154906010</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.145000,-64.425000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">CasaContainer Río Cuarto</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Módulos / containers</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584310288">0358 4310288</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.118737,-64.382102">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Construcciones Metálicas El Colono S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Estructuras metálicas / silos</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584628525">0358 4628525</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.151690,-64.357888">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Cotagro — Alcira Gigena</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Alcira Gigena · Alcira Gigena · Cooperativa agroindustrial / maní / acopio</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584393127">358 4393127 / 358 4125695 / 0358 4933333</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.755782,-64.339199">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>10</span></div>
 </section>
 
 
 <section class="page">
-  <div class="header"><div><div class="kicker">Base operativa ampliada</div><h2>Qué queda en la planilla, no en el PDF</h2></div><div class="brand">Excel/CSV<br>para campo</div></div>
-  <div class="three">
-    <div class="card"><div class="big-number" style="color:#045c66">31</div><h3>nuevos agregados</h3><p>Incorporados selectivamente por encaje y fuente trazable.</p></div>
-    <div class="card"><div class="big-number" style="color:#045c66">44</div><h3>datos a validar</h3><p>Teléfonos a verificar o relevar antes de priorizar agenda.</p></div>
-    <div class="card"><div class="big-number" style="color:#045c66">6</div><h3>hojas de Excel</h3><p>Prospectos, resumen, nuevos, clase A, pendientes y uso en campo.</p></div>
-  </div>
-  <h3 style="margin-top:7mm">Por qué no poner todo en Dirección</h3>
-  <div class="two">
-    <div class="card"><p>El PDF debe ayudar a decidir estrategia: corredores, segmentos, masa crítica y puertas clase A. Si se fuerza la base completa, la letra baja y el documento pierde utilidad.</p></div>
-    <div class="card"><p>La ejecución vive en Excel: filtros, teléfonos, links tel:, Maps, fuente, evidencia, estado de contacto, próximo paso y notas de campo.</p></div>
-  </div>
-  <div class="footer"><span>PRESOL · Dirección</span><span>11</span></div>
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RN36 Sur / Río Cuarto</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RN36 Sur / Río Cuarto</h2><p>Corredor con fuerte presencia de obra, canteras, hormigón, módulos, metalmecánica y contratistas.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>26</b><span>empresas</span></div>
+            <div class="mini-stat"><b>14</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>2/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Da Ros Premoldeados</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Premoldeados de hormigón / agro e industria</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543585089009">+54 358 508-9009</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Da+Ros+Premoldeados+R%C3%ADo+Cuarto+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de repuestos/equipos/silos/implementos + coordinación de retiro y descarga.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Dexco Constructora</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Constructora local</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584640139">0358 4640139 / 0358 154869634</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.112715,-64.369622">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">INCISA S.A. — División Hormigones</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto / Holmberg / General Cabrera · Hormigón elaborado / plantas y bombeo</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584389870">3584 38 9870</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=INCISA+S.A.+%E2%80%94+Divisi%C3%B3n+Hormigones+R%C3%ADo+Cuarto+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> planta / mantenimiento / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de premoldeados/equipos; áridos sueltos solo sujeto a validar caja volcadora o tercerización.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Marinelli S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Áridos / hormigón / obras</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584647058">0358 4647058</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.102771,-64.336058">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Paolini Hnos S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Obra vial / constructora nacional</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+541148779600">011 48779600</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.114000,-64.331000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Soardo Construcciones</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Constructora local</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584166315">0358 4166315</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.119000,-64.351000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>11</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RN36 Sur / Río Cuarto</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RN36 Sur / Río Cuarto</h2><p>Corredor con fuerte presencia de obra, canteras, hormigón, módulos, metalmecánica y contratistas.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>26</b><span>empresas</span></div>
+            <div class="mini-stat"><b>14</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>3/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">BIDESA Obras Viales y Civiles</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Obra vial / UTE</div>
+              <div class="line"><strong>Tel.:</strong> A relevar en obrador <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.108000,-64.327000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Luciano S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Obra vial / UTE</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.111000,-64.329000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Agrorio Maquinarias</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Maquinaria agrícola</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543586093110">03586 093110</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.125500,-64.382000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Capello S.A.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Constructora / corralón</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584645929">0358 4645929</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.121500,-64.350500">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Cooperativa Alba de Gigena</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Alcira Gigena · Alcira Gigena · Cooperativa agropecuaria</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584960151">0358 4960151</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.757500,-64.335000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Cotagro — Río Cuarto</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Agro / fertilizantes / acopio</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584933333">0358 4933333</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.118000,-64.322000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>12</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RN36 Sur / Río Cuarto</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RN36 Sur / Río Cuarto</h2><p>Corredor con fuerte presencia de obra, canteras, hormigón, módulos, metalmecánica y contratistas.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>26</b><span>empresas</span></div>
+            <div class="mini-stat"><b>14</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>4/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Cotagro — Sucursal Chucul</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Chucul · Chucul · Acopio agropecuario</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584912008">0358 4912008 / 0358 4933333</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.016000,-64.208000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Doble A Servicios Metalúrgicos</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Berrotarán · Berrotarán · Zinguería / estructuras metálicas</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584185826">358 4185826</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.452000,-64.388000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Fontezuela Cereales</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Acopio / cereales</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+542477497135">02477 497135/37</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.123200,-64.345300">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Gliestore S.A.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Elena · Elena · Soja / alimentos / exportación</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543584641548">0358 4641548 / 9358 4024598</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.571800,-64.390000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">CARMIX S.R.L.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Río Cuarto · Río Cuarto · Premoldeados / pisos industriales / pavimento / silos</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=CARMIX+S.R.L.+R%C3%ADo+Cuarto+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / obra</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de repuestos/equipos/silos/implementos + coordinación de retiro y descarga.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Parque Industrial y Logístico Las Higueras</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Las Higueras · Las Higueras · Radicaciones / logística</div>
+              <div class="line"><strong>Tel.:</strong> A relevar vía municipio/parque <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-33.093000,-64.288000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>13</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RN36 Sur / Río Cuarto</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RN36 Sur / Río Cuarto</h2><p>Corredor con fuerte presencia de obra, canteras, hormigón, módulos, metalmecánica y contratistas.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>26</b><span>empresas</span></div>
+            <div class="mini-stat"><b>14</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>5/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">3C Biogás S.A.</div><div class="badges"><span class="badge prio-C">Clase C</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Alcira Gigena · Alcira Gigena · Energía / biogás</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.757000,-64.332000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Canteras/corralones locales</div><div class="badges"><span class="badge prio-C">Clase C</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Berrotarán · Berrotarán · Áridos / materiales</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.452000,-64.384000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> planta / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de cantera/planta; transporte de material suelto sujeto a confirmar unidad o esquema operativo.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>14</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RP6 / Villa María</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RP6 / Villa María</h2><p>Hub industrial y agroindustrial: PILT, metalmecánica, transformadores, acopios, constructoras, containers y logística.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>28</b><span>empresas</span></div>
+            <div class="mini-stat"><b>8</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>1/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">ACA — Centro de Desarrollo Comercial Tío Pujio</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Tío Pujio · Tío Pujio · Acopio gigante / agro</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543535622710">353 5622710 / 0353 4860518 / 0353 4860519</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.288000,-63.356000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Cooperativa Agrícola La Vencedora</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Hernando · Hernando · Acopio / agroinsumos / combustible</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534847133">0353 4847133</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.426000,-63.733000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Industrias Cormetal S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Metalmecánica / estructuras</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534610900">0353 4610900 / 0353 6567355</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.385796,-63.267403">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Mayo Transformadores S.R.L.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Transformadores / metalmecánica</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534647606">0353 4647606</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.423000,-63.205000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Metalúrgica JAP / MJAP</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · PILT Villa María · Carrozados, trailers, estructuras y reparación de camiones</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543536563732">+54 35 3656-3732 / +54 35 3565-7977</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Metal%C3%BArgica+JAP+%2F+MJAP+Villa+Mar%C3%ADa+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> Juan / Ronald / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Plataforma 20 tn para piezas/estructuras + seguro de carga + trazabilidad GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Salsiteco S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Constructora / movimiento de suelo</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534524006">0353 4524006 / 0353 5006023</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.412000,-63.236000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>15</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RP6 / Villa María</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RP6 / Villa María</h2><p>Hub industrial y agroindustrial: PILT, metalmecánica, transformadores, acopios, constructoras, containers y logística.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>28</b><span>empresas</span></div>
+            <div class="mini-stat"><b>8</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>2/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Terramar Logística SRL / Terminal Villa María</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Villa María · PILT Villa María · Terminal de contenedores / logística</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534533821">0353 4533821</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Terramar+Log%C3%ADstica+SRL+%2F+Terminal+Villa+Mar%C3%ADa+Villa+Mar%C3%ADa+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones terminal / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Plataforma + malacate + hidrogrúa para retiro, traslado, descarga y posicionamiento.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Héctor A. Bertone S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Villa María · Villa María · Acopio / logística granaria</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.389000,-63.251000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Agrohernando</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Hernando · Hernando · Acopio / granos / insumos</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534960418">0353 4960418</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.428000,-63.730000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Carra Sanitarios</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Materiales / sanitario / obra</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534125456">0353 4125456</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.421000,-63.232000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de logística/compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Detectar el próximo movimiento pesado y convertirlo en cotización concreta.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Cooperativa Agropecuaria Almafuerte</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Almafuerte · Almafuerte · Acopio / semillas / agroinsumos</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543571471182">03571 471182</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.192000,-64.255000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">DM Constructora</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Constructora</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534260498">0353 4260498</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.408066,-63.245873">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>16</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RP6 / Villa María</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RP6 / Villa María</h2><p>Hub industrial y agroindustrial: PILT, metalmecánica, transformadores, acopios, constructoras, containers y logística.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>28</b><span>empresas</span></div>
+            <div class="mini-stat"><b>8</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>3/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Dipromas S.R.L.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Metalmecánica / PILT</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534296608">0353 4296608</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.421000,-63.203000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Frigorífico La Pequeña S.R.L.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Alimenticia / frigorífico</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+54353154197312">0353 154197312</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.420000,-63.209000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Ghio Construcciones</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Constructora / desarrollos</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534016390">0353 4016390</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.415019,-63.237719">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Industria Metal-Her</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Hernando · Hernando · Implementos agrícolas / tolvas</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+54353156568385">0353 156568385 / 0353 4846509</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.424000,-63.737000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Metalúrgica Jor-Ba / Grupo Tío Pujio</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Tío Pujio · Tío Pujio · Metalúrgica / extrusado soja</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543573402941">03573 402941</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.290000,-63.352000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">S.A. Molinos Fénix</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Molino / alimentos</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534533573">0353 4533573</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.410000,-63.246000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> mantenimiento / compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslados especiales de mantenimiento, repuestos pesados, mudanzas internas y cargas con seguro/GPS.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>17</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RP6 / Villa María</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RP6 / Villa María</h2><p>Hub industrial y agroindustrial: PILT, metalmecánica, transformadores, acopios, constructoras, containers y logística.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>28</b><span>empresas</span></div>
+            <div class="mini-stat"><b>8</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>4/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Sarmiento Materiales</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Corralón / materiales</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534610259">0353 4610259 / 0353 4112139</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.411372,-63.226831">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Stainless Steel Manufacturers S.R.L.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Acero inoxidable / fabricación</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534792885">0353 4792885</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.425000,-63.207000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Villa María Cereales</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Acopio / agroinsumos</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543535656802">03535 656802</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.386500,-63.260000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Ceuta Contenedores</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Villa María · Villa María · Contenedores y obradores</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+54353154139159">0353 154139159</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ceuta+Contenedores+Villa+Mar%C3%ADa+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Plataforma + malacate + hidrogrúa para retiro, traslado, descarga y posicionamiento.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">PILT Villa María — Administración</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Villa María · PILT / administración parque · Puerta institucional / parque industrial</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534618698">0353 4618698 / 0353 4608191</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=PILT+Villa+Mar%C3%ADa+%E2%80%94+Administraci%C3%B3n+Villa+Mar%C3%ADa+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> administración / listado empresas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Pedir listado de empresas/obras y ofrecer PRESOL como proveedor logístico regional.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">San Borg Internacional / Laboratorios Weende</div><div class="badges"><span class="badge prio-C">Clase C</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Villa María · Villa María · Laboratorio alimentos/agro</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534531453">0353 4531453</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.412500,-63.247000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>18</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RP6 / Villa María</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RP6 / Villa María</h2><p>Hub industrial y agroindustrial: PILT, metalmecánica, transformadores, acopios, constructoras, containers y logística.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>28</b><span>empresas</span></div>
+            <div class="mini-stat"><b>8</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>5/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Hans Aberturas SRL</div><div class="badges"><span class="badge prio-C">Clase C</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Villa María · Villa María · Metalmecánica / aberturas</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543534446515">+54 353 4446515</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hans+Aberturas+SRL+Villa+Mar%C3%ADa+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> producción / despacho</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Plataforma 20 tn para piezas/estructuras + seguro de carga + trazabilidad GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Her.Agro Maquinarias</div><div class="badges"><span class="badge prio-C">Clase C</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Hernando · Hernando · Maquinaria agrícola nueva/usada</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543535690587">3535 690587 (a confirmar)</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.422000,-63.731000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">AgroServ S.R.L.</div><div class="badges"><span class="badge prio-C">Clase C</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Hernando · Hernando · Concesionario maquinaria agrícola</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-32.429500,-63.734500">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Contemar</div><div class="badges"><span class="badge prio-C">Clase C</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Villa María · Villa María · Contenedores y obradores</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Contemar+Villa+Mar%C3%ADa+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Plataforma + malacate + hidrogrúa para retiro, traslado, descarga y posicionamiento.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>19</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RN36 Norte / Córdoba</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RN36 Norte / Córdoba</h2><p>Mercado grande y disperso. Trabajar por subzonas útiles: Alta Gracia, Despeñaderos, Malagueño, Córdoba Sur/RN36 y nichos industriales.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>29</b><span>empresas</span></div>
+            <div class="mini-stat"><b>13</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>1/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">AG GROUP Industria</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Córdoba capital zona sur · Contacto remoto / Jesús María · Módulos / construcción industrializada</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543525513210">3525 513210</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.000000,-64.090000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">AG Viviendas Industrializadas</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Alta Gracia · Alta Gracia · Módulos / viviendas industrializadas</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543547672399">3547 672399 / 3547 420854</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.655000,-64.420000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Canteras Ruiz</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Córdoba capital zona sur · Córdoba Sur-Oeste / canteras · Áridos / cantera</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543515570618">0351 5570618 / 0351 4524228 / 0351 155508346</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.475000,-64.235000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> planta / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de cantera/planta; transporte de material suelto sujeto a confirmar unidad o esquema operativo.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Corblock</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Malagueño · Malagueño · Premoldeados y pretensados de hormigón</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543513568259">0351 3568259</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Corblock+Malague%C3%B1o+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de premoldeados/equipos; áridos sueltos solo sujeto a validar caja volcadora o tercerización.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Corralón Mis Ladrillos</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Córdoba capital zona sur · Córdoba Oeste / Av. Colón · Corralón mayorista</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543513705858">0351 3705858</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.396774,-64.251905">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de logística/compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Detectar el próximo movimiento pesado y convertirlo en cotización concreta.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Hormi Block S.A.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Córdoba capital zona sur · Córdoba Sur / RN36-Vélez Sarsfield · Hormigón elaborado</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543514939510">0351 4939510 / 0351 4945800</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.481687,-64.203118">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / planta</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslado de equipos de planta, bombas, premoldeados y apoyo a picos de obra.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>20</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RN36 Norte / Córdoba</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RN36 Norte / Córdoba</h2><p>Mercado grande y disperso. Trabajar por subzonas útiles: Alta Gracia, Despeñaderos, Malagueño, Córdoba Sur/RN36 y nichos industriales.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>29</b><span>empresas</span></div>
+            <div class="mini-stat"><b>13</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>2/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Lucy’s House / Rental</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Córdoba capital zona sur · Córdoba Norte / Monseñor Pablo Cabrera · Módulos habitacionales</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543512077113">0351 2077113</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.368536,-64.205299">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">MegaContainers</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Córdoba capital zona sur · Córdoba Norte-Oeste / Villa Belgrano · Venta/alquiler de containers</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543515179179">0351 5179179</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.350332,-64.254449">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Miguel Ángel Premoldeados</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Alta Gracia · Alta Gracia / Ruta 5 · Premoldeados de hormigón</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543547430962">03547 430962 / 03547 15501860</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Miguel+%C3%81ngel+Premoldeados+Alta+Gracia+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de premoldeados/equipos; áridos sueltos solo sujeto a validar caja volcadora o tercerización.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Precons S.R.L.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Alta Gracia · Alta Gracia · Premoldeados / tanques / construcción</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543547430993">3547 430993</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.662670,-64.414474">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Pretencord S.R.L.</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Córdoba capital · Córdoba capital · Pretensados y premoldeados de hormigón</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543512422363">+54 351 2422363 / +54 351 2454059</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Pretencord+S.R.L.+C%C3%B3rdoba+capital+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de premoldeados/equipos; áridos sueltos solo sujeto a validar caja volcadora o tercerización.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">AS Premoldeados</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Despeñaderos · Despeñaderos / RN36 · Premoldeados de hormigón / galpones / techos</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543547675513">3547 675513</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=AS+Premoldeados+Despe%C3%B1aderos+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / colocación</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de premoldeados/equipos; áridos sueltos solo sujeto a validar caja volcadora o tercerización.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>21</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RN36 Norte / Córdoba</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RN36 Norte / Córdoba</h2><p>Mercado grande y disperso. Trabajar por subzonas útiles: Alta Gracia, Despeñaderos, Malagueño, Córdoba Sur/RN36 y nichos industriales.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>29</b><span>empresas</span></div>
+            <div class="mini-stat"><b>13</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>3/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Grupo Calidra / Cal Malagueño</div><div class="badges"><span class="badge prio-A">Clase A</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Malagueño · Malagueño · Cal / minería / áridos</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.467000,-64.358000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> planta / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de cantera/planta; transporte de material suelto sujeto a confirmar unidad o esquema operativo.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Boetto y Buttigliengo S.A.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Córdoba capital · Córdoba capital · Constructora</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543514653272">0351 4653272</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.449963,-64.252114">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">CABIAL Empresa Constructora</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Córdoba capital · Córdoba capital · Constructora</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543514822855">0351 4822855 / 0351 4658599</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.438000,-64.205000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Corralón Bergese Hnos.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Malagueño · Malagueño · Corralón / materiales</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543516870914">0351 6870914 / 0351 2013895</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.441753,-64.439418">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de logística/compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Detectar el próximo movimiento pesado y convertirlo en cotización concreta.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Grupo Buglione</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Alta Gracia · Alta Gracia · Autopartes / remanufactura</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543516512408">0351 6512408 / 0351 3271171 / 03547 432121</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.660000,-64.430000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> mantenimiento / compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslados especiales de mantenimiento, repuestos pesados, mudanzas internas y cargas con seguro/GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Iveco / CNH Ferreyra</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Ferreyra / Santa Isabel · Ferreyra / Santa Isabel · Automotriz / camiones</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+541120341400">011 20341400 (central)</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.455000,-64.130000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>22</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RN36 Norte / Córdoba</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RN36 Norte / Córdoba</h2><p>Mercado grande y disperso. Trabajar por subzonas útiles: Alta Gracia, Despeñaderos, Malagueño, Córdoba Sur/RN36 y nichos industriales.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>29</b><span>empresas</span></div>
+            <div class="mini-stat"><b>13</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>4/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Mattsay Steel Frame</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Alta Gracia · Alta Gracia · Casas modulares / steel frame</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543547477530">3547 477530</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.653000,-64.428000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Metal-Ferr</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Despeñaderos · Despeñaderos · Metalúrgica agro/industria</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543547525300">3547 525300 / 3547 492716</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.817000,-64.294000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de acopio / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de planta, silos, balanzas, repuestos y cargas especiales para acopios/agroindustria.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Porta Hnos.</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Córdoba capital zona sur · Córdoba Sur / Camino San Antonio · Industrial / alcohol / alimentos</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543514938400">0351 4938400</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.490145,-64.189401">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> mantenimiento / compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Traslados especiales de mantenimiento, repuestos pesados, mudanzas internas y cargas con seguro/GPS.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Renault Planta Santa Isabel</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-OK">OK</span></div></div>
+              <div class="meta">Ferreyra / Santa Isabel · Ferreyra / Santa Isabel · Automotriz</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543514268268">0351 4268268</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.455000,-64.160000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de logística/compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Detectar el próximo movimiento pesado y convertirlo en cotización concreta.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Bendito Corralón Mayorista</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Córdoba capital zona sur · Córdoba capital zona sur · Corralón mayorista</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543518741592">0351 8741592 (a confirmar)</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.463000,-64.202000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> responsable de logística/compras</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Detectar el próximo movimiento pesado y convertirlo en cotización concreta.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">IngaV Constructora</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-VER">VER</span></div></div>
+              <div class="meta">Córdoba capital · Córdoba capital · Constructora</div>
+              <div class="line"><strong>Tel.:</strong> <a class="phone-link" href="tel:+543515890684">0351 5890684 / 0351 5579222 (verificar)</a> <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.413163,-64.170080">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> jefe de obra / logística</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de equipos, módulos de obrador, estructuras y materiales pesados; descarga o posicionamiento cuando aplique.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>23</span></div>
+</section>
+
+
+<section class="page">
+  <div class="header"><div><div class="kicker">Listado de empresas objetivo</div><h2>RN36 Norte / Córdoba</h2></div><div class="brand">Empresas con teléfono<br>y acción sugerida</div></div>
+
+        <div class="list-header">
+          <div class="corr-title"><h2>RN36 Norte / Córdoba</h2><p>Mercado grande y disperso. Trabajar por subzonas útiles: Alta Gracia, Despeñaderos, Malagueño, Córdoba Sur/RN36 y nichos industriales.</p></div>
+          <div class="corr-stats">
+            <div class="mini-stat"><b>29</b><span>empresas</span></div>
+            <div class="mini-stat"><b>13</b><span>clase A</span></div>
+            <div class="mini-stat"><b>20</b><span>tel. OK</span></div>
+            <div class="mini-stat"><b>5/5</b><span>página</span></div>
+          </div>
+        </div>
+  <div class="company-list">
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Canteras Terra</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Córdoba capital zona sur · Córdoba capital zona sur · Áridos / cantera</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.462000,-64.360000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> planta / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Movimiento de equipos de cantera/planta; transporte de material suelto sujeto a confirmar unidad o esquema operativo.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">El Alto Áridos, Hormigón y Desarrollos</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Córdoba / Sierras · Sierras / RN36-Ruta 5 · Áridos / hormigón / desarrollos</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=El+Alto+%C3%81ridos%2C+Hormig%C3%B3n+y+Desarrollos+C%C3%B3rdoba+%2F+Sierras+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> planta / mantenimiento</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de premoldeados/equipos; áridos sueltos solo sujeto a validar caja volcadora o tercerización.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Habitaciones Calificadas</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Alta Gracia · Alta Gracia · Módulos habitacionales</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.650000,-64.421000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> operaciones / entregas</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Entrega y descarga de módulos/containers con plataforma, malacate e hidrogrúa según maniobra.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">Parque Industrial Despeñaderos N°64</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Despeñaderos · Despeñaderos · Radicaciones industriales</div>
+              <div class="line"><strong>Tel.:</strong> A relevar vía municipio <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=-31.812000,-64.289000">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / producción</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Despacho de estructuras, tanques, transformadores, piezas de ingeniería y equipos sobre plataforma 20 tn.</div>
+            </div>
+            <div class="company-card">
+              <div class="company-top"><div class="company-name">R5 Premoldeados</div><div class="badges"><span class="badge prio-B">Clase B</span><span class="badge q-Arelevar">A relevar</span></div></div>
+              <div class="meta">Alta Gracia · Alta Gracia · Premoldeados / muros / cerramientos</div>
+              <div class="line"><strong>Tel.:</strong> A relevar <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=R5+Premoldeados+Alta+Gracia+C%C3%B3rdoba+Argentina">Maps</a></div>
+              <div class="line"><strong>Pedir por:</strong> despacho / colocación</div>
+              <div class="line"><strong>Qué ofrecer:</strong> Transporte de premoldeados/equipos; áridos sueltos solo sujeto a validar caja volcadora o tercerización.</div>
+            </div></div>
+  <div class="footer"><span>PRESOL · Listado para reunión</span><span>24</span></div>
 </section>
 
 
 <section class="page dark">
-  <div class="header"><div><div class="kicker">Definiciones para aprobar salida comercial</div><h2>Qué falta decidir con PRESOL</h2></div><div class="brand">Cierre de reunión<br>2026-09-02</div></div>
-  <div class="def-grid">
-    <div class="def-card"><h3><span class="numcircle">1</span>Oferta y precio</h3><ul class="clean"><li>Tarifa mínima.</li><li>Precio/km o rango por viaje.</li><li>Hora/jornada de hidrogrúa.</li><li>Política de espera.</li></ul></div>
-    <div class="def-card"><h3><span class="numcircle">2</span>Operación</h3><ul class="clean"><li>Disponibilidad real de equipos.</li><li>Quién responde consultas.</li><li>Quién aprueba descuentos.</li><li>Alcance para áridos/material suelto.</li></ul></div>
-    <div class="def-card"><h3><span class="numcircle">3</span>Salida comercial</h3><ul class="clean"><li>Corredores a activar primero.</li><li>Contactos previos de PRESOL.</li><li>Llamada previa o visita directa.</li><li>Formato de seguimiento diario.</li></ul></div>
+  <div class="header"><div><div class="kicker">Definiciones para salir a vender</div><h2>Decisiones de reunión</h2></div><div class="brand">PRESOL<br>2026-09-02</div></div>
+  <div class="three">
+    <div class="card"><h3>Oferta y precio</h3><ul class="clean"><li>Tarifa mínima.</li><li>Precio/km o rango por viaje.</li><li>Hora o jornada de hidrogrúa.</li><li>Política de espera.</li></ul></div>
+    <div class="card"><h3>Operación</h3><ul class="clean"><li>Disponibilidad real de equipos.</li><li>Responsable de consultas.</li><li>Quién aprueba descuentos.</li><li>Alcance para áridos/material suelto.</li></ul></div>
+    <div class="card"><h3>Salida comercial</h3><ul class="clean"><li>Corredores a activar.</li><li>Contactos previos de PRESOL.</li><li>Llamada previa o visita directa.</li><li>Formato de seguimiento diario.</li></ul></div>
   </div>
-  <div style="margin-top:11mm" class="hero-panel"><p class="bigquote" style="color:#fff;margin:0">Próximo paso recomendado: validar tarifa y responsables internos, elegir 1–2 corredores de arranque y convertir la clase A en agenda de llamadas/visitas.</p></div>
-  <div class="footer"><span>PRESOL · Plan comercial territorial</span><span>12</span></div>
+  <div class="cover-panel" style="margin-top:10mm"><p style="margin:0;font-size:22pt;line-height:1.16;font-weight:900;color:#fff">Próximo paso: elegir corredores de arranque, validar tarifas y convertir las empresas clase A en agenda de llamadas/visitas.</p></div>
+  <div class="footer"><span>PRESOL · Plan comercial territorial</span><span>25</span></div>
 </section>
 </body></html>
