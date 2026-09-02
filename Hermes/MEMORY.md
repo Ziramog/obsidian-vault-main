@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-09-01 23:58 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas sigue agotado (121 leads fuente; tracker 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles; 19 no componibles) · 113 leads inmobiliarios 31/08 listos para outreach manual · recibo Víctor Abrile ARS 178.860 pendiente de cobro · Construvial/PRESOL activó campaña de campo 2 semanas con auto + viáticos + fijo, monto/condición no registrados · briefing vigente vencido.
+**Última actualización:** 2026-09-02 10:02 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas sigue agotado (121 leads fuente; tracker 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles; 19 no componibles) · 113 leads inmobiliarios 31/08 listos para outreach manual · recibo Víctor Abrile ARS 178.860 pendiente de cobro · Construvial/PRESOL activó campaña de campo 2 semanas con auto + viáticos + fijo, monto/condición no registrados · briefing vigente vencido.
 
 ---
 
@@ -23,14 +23,14 @@ source: mixed
 
 ## Wolfim — Web Viejas / Email Outreach
 
-**Estado:** ✅ El cron funciona, pero **la cola sigue agotada**. Última corrida verificada: 2026-09-01 10:00 ART.
+**Estado:** ✅ El cron funciona, pero **la cola sigue agotada**. Última corrida verificada: 2026-09-02 10:02 ART.
 
 ### Pipeline
 ```text
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-09-01
+### Resultado latest — 2026-09-02
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Salida real: `✅ Todos los leads han sido enviados. No hay más pendientes.`
 - Verificación tracker conocida: 121 leads fuente; 107 registros en tracker, 97 `sent`, 10 `bounced`, 0 `failed`.
@@ -38,6 +38,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - Riesgo inmediato: seguir corriendo sin inventario no genera oportunidad comercial nueva.
 
 ### Corrida histórica breve
+- 09/02: cola agotada; 0 pendientes; cron_campaign.py OK (`Todos los leads han sido enviados`).
 - 09/01: cola agotada; 0 pendientes; check-replies 10/14/18: `Sin novedades`.
 - 08/31: cola agotada; 107 registros totales, 0 pendientes componibles; sin error visible en stdout.
 - 08/30: cola agotada; 107 registros totales, 0 pendientes componibles; sin error visible en stdout.
