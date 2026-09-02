@@ -1,0 +1,575 @@
+<!doctype html><html><head><meta charset="utf-8"><title>PRESOL micro-rutas y mapa</title><style>
+@page { size: A4 landscape; margin: 9mm; }
+* { box-sizing:border-box; }
+body { font-family: Inter, Arial, sans-serif; color:#0f172a; margin:0; font-size:9px; line-height:1.28; }
+.page { page-break-after: always; }
+h1 { font-size:34px; margin:0 0 10px; } h2 { font-size:17px; margin:8px 0 6px; } h3 { font-size:12px; color:#0e7490; margin:5px 0; }
+.cover { height:188mm; padding:22mm; border-radius:10px; background:linear-gradient(135deg,#071827,#0e2a40 60%,#06121f); color:#fff; position:relative; }
+.kicker { color:#67e8f9; font-weight:900; letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; }
+.subtitle { color:#d7f2f7; max-width:760px; font-size:15px; }
+.cards { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:28px; max-width:820px; }
+.card { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.17); padding:12px; border-radius:9px; }
+.big { display:block; font-size:26px; font-weight:900; }
+.label { color:#a8e6ef; font-size:9px; text-transform:uppercase; font-weight:800; }
+header { display:flex; justify-content:space-between; border-bottom:3px solid #0e7490; padding-bottom:6px; margin-bottom:8px; }
+.brand { font-size:15px; font-weight:900; }
+.small { color:#64748b; font-size:8px; }
+.callout { background:#ecfeff; border:1px solid #67e8f9; border-left:5px solid #0891b2; padding:8px; border-radius:8px; margin:7px 0; font-size:10px; }
+.warn { background:#fff7ed; border-color:#fed7aa; border-left-color:#f97316; }
+table { width:100%; border-collapse:collapse; margin:5px 0 8px; } th { background:#0f172a; color:#fff; padding:5px; text-align:left; font-size:8px; } td { border:1px solid #d8dee8; padding:4px 5px; vertical-align:top; font-size:7.8px; } tbody tr:nth-child(even) td { background:#f8fafc; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.mapbox { border:1px solid #cbd5e1; border-radius:10px; overflow:hidden; background:#f8fafc; padding:4px; height:auto; }
+.mapbox svg { width:100%; height:150mm; display:block; }
+.badge { display:inline-block; padding:2px 5px; border-radius:6px; font-weight:900; font-size:7px; } .A { background:#fee2e2; color:#991b1b; } .B { background:#fef3c7; color:#92400e; } .C { background:#dbeafe; color:#1e40af; }
+a { color:#0369a1; text-decoration:none; }
+ul { margin:4px 0 4px 14px; padding:0; }
+</style></head><body>
+<section class="page cover"><div class="kicker">PRESOL · Campaña comercial 2026</div><h1>Micro-rutas operativas + mapa de zonas calientes</h1><div class="subtitle">Documento de campo para convertir corredores comerciales en jornadas de visita, con ubicaciones aproximadas, prioridades y enlaces a Google Maps.</div><div class="cards"><div class="card"><span class="big">86</span><span class="label">prospectos mapeados</span></div><div class="card"><span class="big">34</span><span class="label">prioridad A</span></div><div class="card"><span class="big">12</span><span class="label">zonas calientes</span></div><div class="card"><span class="big">10</span><span class="label">días de ruta</span></div></div><div style="position:absolute;bottom:18mm;left:22mm;right:22mm;color:#b7d7df"><b>Nota:</b> ubicaciones aproximadas. Algunas coordenadas salen de dirección pública; otras se ubican por parque/ciudad con offset para planificación visual. Validar con Google Maps antes de manejar.</div></section>
+<section class="page"><header><div><div class="brand">PRESOL · Mapa general</div><div class="small">Vista de corredores y zonas calientes</div></div><div class="small">2026-09-01 22:00 ART</div></header><div class="mapbox"><svg viewBox="0 0 1000 640" width="100%" xmlns="http://www.w3.org/2000/svg">
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<polyline points="334.9,345.6 290.9,306.3 178.3,418.5 175.4,450.1 208.0,498.2 200.4,593.8 235.4,585.9" fill="none" stroke="#dc2626" stroke-width="5" stroke-dasharray="10 7" opacity=".55"/>
+<polyline points="334.9,345.6 552.6,411.7 768.0,375.6 834.3,407.5 830.3,413.3" fill="none" stroke="#ea580c" stroke-width="5" stroke-dasharray="10 7" opacity=".55"/>
+<polyline points="334.9,345.6 254.3,350.6 232.0,252.6 155.4,209.8 195.4,161.2 282.9,162.0 325.7,158.0 292.1,148.9" fill="none" stroke="#2563eb" stroke-width="5" stroke-dasharray="10 7" opacity=".55"/>
+<circle cx="340.6" cy="347.7" r="25.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="367.6" y="347.7" font-size="13" fill="#92400e" font-weight="700">Parque Industrial Leonardo Da Vinci</text>
+<circle cx="208.6" cy="589.1" r="60.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="270.6" y="589.1" font-size="13" fill="#92400e" font-weight="700">Obra vial</text>
+<circle cx="160.0" cy="598.2" r="60.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="222.0" y="598.2" font-size="13" fill="#92400e" font-weight="700">Canteras</text>
+<circle cx="854.3" cy="410.9" r="35.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="891.3" y="410.9" font-size="13" fill="#92400e" font-weight="700">PILT Villa María</text>
+<circle cx="831.4" cy="412.7" r="50.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="883.4" y="412.7" font-size="13" fill="#92400e" font-weight="700">Obras RN158</text>
+<circle cx="768.0" cy="375.6" r="25.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="795.0" y="375.6" font-size="13" fill="#92400e" font-weight="700">ACA Tío Pujio</text>
+<circle cx="552.6" cy="411.7" r="30.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="584.6" y="411.7" font-size="13" fill="#92400e" font-weight="700">Hernando RP6</text>
+<circle cx="282.9" cy="162.0" r="60.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="344.9" y="162.0" font-size="13" fill="#92400e" font-weight="700">Córdoba Sur</text>
+<circle cx="265.7" cy="139.0" r="60.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="327.7" y="139.0" font-size="13" fill="#92400e" font-weight="700">Córdoba Oeste-Norte</text>
+<circle cx="155.4" cy="209.8" r="50.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="207.4" y="209.8" font-size="13" fill="#92400e" font-weight="700">Alta Gracia</text>
+<circle cx="195.4" cy="161.2" r="50.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="247.4" y="161.2" font-size="13" fill="#92400e" font-weight="700">Malagueño</text>
+<circle cx="325.7" cy="158.0" r="45.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="372.7" y="158.0" font-size="13" fill="#92400e" font-weight="700">Ferreyra</text>
+<circle cx="338.9" cy="348.0" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="336.6" cy="346.9" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="339.4" cy="347.4" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="333.1" cy="344.6" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="341.1" cy="347.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="342.3" cy="348.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="206.2" cy="497.8" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="290.9" cy="306.3" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="175.8" cy="449.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="208.6" cy="589.1" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="213.1" cy="589.8" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="157.1" cy="599.5" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="181.7" cy="592.6" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="195.5" cy="601.3" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="188.8" cy="591.1" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="212.0" cy="590.6" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="208.0" cy="588.5" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="210.9" cy="591.4" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="199.4" cy="592.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="552.6" cy="411.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="768.0" cy="375.6" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="828.0" cy="402.0" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="818.6" cy="401.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="854.3" cy="410.9" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="836.6" cy="408.0" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="160.0" cy="210.3" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="163.2" cy="212.3" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="348.6" cy="39.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="265.7" cy="163.3" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="256.1" cy="142.8" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="283.9" cy="165.0" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="282.7" cy="135.5" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="254.6" cy="130.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<circle cx="195.4" cy="161.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="340.9" y="361.6" font-size="15" fill="#334155" font-weight="900">Río Tercero</text>
+<text x="296.9" y="322.3" font-size="15" fill="#334155" font-weight="900">Corralito</text>
+<text x="184.3" y="434.5" font-size="15" fill="#334155" font-weight="900">Berrotarán</text>
+<text x="214.0" y="514.2" font-size="15" fill="#334155" font-weight="900">Alcira Gigena</text>
+<text x="181.4" y="466.1" font-size="15" fill="#334155" font-weight="900">Elena</text>
+<text x="287.1" y="581.8" font-size="15" fill="#334155" font-weight="900">Chucul</text>
+<text x="206.4" y="609.8" font-size="15" fill="#334155" font-weight="900">Río Cuarto</text>
+<text x="241.4" y="601.9" font-size="15" fill="#334155" font-weight="900">Las Higueras</text>
+<text x="260.3" y="366.6" font-size="15" fill="#334155" font-weight="900">Almafuerte</text>
+<text x="558.6" y="427.7" font-size="15" fill="#334155" font-weight="900">Hernando</text>
+<text x="774.0" y="391.6" font-size="15" fill="#334155" font-weight="900">Tío Pujio</text>
+<text x="840.3" y="423.5" font-size="15" fill="#334155" font-weight="900">Villa María</text>
+<text x="836.3" y="429.3" font-size="15" fill="#334155" font-weight="900">Villa Nueva</text>
+<text x="238.0" y="268.6" font-size="15" fill="#334155" font-weight="900">Despeñaderos</text>
+<text x="161.4" y="225.8" font-size="15" fill="#334155" font-weight="900">Alta Gracia</text>
+<text x="201.4" y="177.2" font-size="15" fill="#334155" font-weight="900">Malagueño</text>
+<text x="288.9" y="178.0" font-size="15" fill="#334155" font-weight="900">Córdoba sur</text>
+<text x="331.7" y="174.0" font-size="15" fill="#334155" font-weight="900">Ferreyra / Santa Isabel</text>
+<text x="298.1" y="164.9" font-size="15" fill="#334155" font-weight="900">Córdoba capital</text>
+<text x="18" y="28" font-size="24" fill="#0f172a" font-weight="900">Mapa general: PRESOL — zonas calientes y prospectos</text>
+<text x="18" y="52" font-size="12" fill="#64748b">Rojo=A · Naranja=B · Azul=C · Amarillo=zona caliente · Líneas=corredores aproximados</text>
+</svg></div><div class="callout warn"><b>Corrección operativa:</b> Córdoba no debe tratarse como una sola zona. Separar Córdoba Sur/RN36, Córdoba Oeste-Norte, Alta Gracia-Despeñaderos, Malagueño y Ferreyra. AG GROUP figura como contacto útil, pero su dirección pública cae en Jesús María: llamar/contactar remoto, no meterlo como visita física del día Córdoba.</div></section>
+<section class="page"><header><div><div class="brand">PRESOL · Base Río Tercero</div><div class="small">Mapa operativo por micro-corredor</div></div><div class="small">Ubicaciones aproximadas</div></header><div class="mapbox"><svg viewBox="0 0 1000 560" width="100%" xmlns="http://www.w3.org/2000/svg">
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<circle cx="784.0" cy="317.3" r="25.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="811.0" y="317.3" font-size="13" fill="#92400e" font-weight="700">Parque Industrial Leonardo Da Vinci</text>
+<circle cx="772.0" cy="323.6" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="781.0" y="319.6" font-size="12" fill="#0f172a" font-weight="700">ESISA</text>
+<circle cx="756.0" cy="298.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="765.0" y="294.7" font-size="12" fill="#0f172a" font-weight="700">Hormicor</text>
+<circle cx="776.0" cy="311.1" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="785.0" y="307.1" font-size="12" fill="#0f172a" font-weight="700">IMBAL S.A.</text>
+<circle cx="732.0" cy="242.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="741.0" y="238.7" font-size="12" fill="#0f172a" font-weight="700">Metalúrgica Novaretti</text>
+<circle cx="788.0" cy="317.3" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="797.0" y="313.3" font-size="12" fill="#0f172a" font-weight="700">Tres Eme S.A.</text>
+<circle cx="796.0" cy="329.8" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="805.0" y="325.8" font-size="12" fill="#0f172a" font-weight="700">Vial del Centro</text>
+<circle cx="760.0" cy="267.6" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="769.0" y="263.6" font-size="12" fill="#0f172a" font-weight="700">Atanor / Albaugh</text>
+<circle cx="724.8" cy="240.2" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="733.8" y="236.2" font-size="12" fill="#0f172a" font-weight="700">Charrúa Implementos Agrícolas</text>
+<circle cx="747.1" cy="323.3" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="756.1" y="319.3" font-size="12" fill="#0f172a" font-weight="700">Fábrica Militar Río Tercero</text>
+<circle cx="780.8" cy="322.3" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="789.8" y="318.3" font-size="12" fill="#0f172a" font-weight="700">HIDROSERVIS</text>
+<circle cx="734.0" cy="258.2" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="743.0" y="254.2" font-size="12" fill="#0f172a" font-weight="700">Hidrobull</text>
+<circle cx="772.0" cy="210.8" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="781.0" y="206.8" font-size="12" fill="#0f172a" font-weight="700">Hormilas S.A.</text>
+<circle cx="726.0" cy="252.0" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="735.0" y="248.0" font-size="12" fill="#0f172a" font-weight="700">MetalMec S.R.L.</text>
+<circle cx="790.0" cy="327.3" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="799.0" y="323.3" font-size="12" fill="#0f172a" font-weight="700">Oleos San José S.R.L.</text>
+<circle cx="688.9" cy="282.7" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<circle cx="757.5" cy="280.9" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<text x="750.0" y="283.6" font-size="15" fill="#334155" font-weight="900">Río Tercero</text>
+<text x="186.0" y="401.8" font-size="15" fill="#334155" font-weight="900">Almafuerte</text>
+<text x="18" y="28" font-size="24" fill="#0f172a" font-weight="900">Base Río Tercero</text>
+<text x="18" y="52" font-size="12" fill="#64748b">Rojo=A · Naranja=B · Azul=C · Amarillo=zona caliente · Líneas=corredores aproximados</text>
+</svg></div></section>
+<section class="page"><header><div><div class="brand">PRESOL · RN36 Sur — Río Cuarto</div><div class="small">Mapa operativo por micro-corredor</div></div><div class="small">Ubicaciones aproximadas</div></header><div class="mapbox"><svg viewBox="0 0 1000 640" width="100%" xmlns="http://www.w3.org/2000/svg">
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<polyline points="872.0,109.8 718.0,35.7 324.0,247.1 314.0,306.7 428.0,397.3 401.4,577.6 524.0,562.7" fill="none" stroke="#dc2626" stroke-width="5" stroke-dasharray="10 7" opacity=".55"/>
+<circle cx="892.0" cy="113.7" r="25.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="919.0" y="113.7" font-size="13" fill="#92400e" font-weight="700">Parque Industrial Leonardo Da Vinci</text>
+<circle cx="430.0" cy="568.6" r="60.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="492.0" y="568.6" font-size="13" fill="#92400e" font-weight="700">Obra vial</text>
+<circle cx="260.0" cy="585.8" r="60.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="322.0" y="585.8" font-size="13" fill="#92400e" font-weight="700">Canteras</text>
+<circle cx="886.0" cy="114.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="895.0" y="110.2" font-size="12" fill="#0f172a" font-weight="700">ESISA</text>
+<circle cx="878.0" cy="112.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="887.0" y="108.2" font-size="12" fill="#0f172a" font-weight="700">Hormicor</text>
+<circle cx="888.0" cy="113.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="897.0" y="109.2" font-size="12" fill="#0f172a" font-weight="700">IMBAL S.A.</text>
+<circle cx="866.0" cy="107.8" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="875.0" y="103.8" font-size="12" fill="#0f172a" font-weight="700">Metalúrgica Novaretti</text>
+<circle cx="894.0" cy="113.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="903.0" y="109.7" font-size="12" fill="#0f172a" font-weight="700">Tres Eme S.A.</text>
+<circle cx="898.0" cy="114.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="907.0" y="110.7" font-size="12" fill="#0f172a" font-weight="700">Vial del Centro</text>
+<circle cx="880.0" cy="109.8" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="889.0" y="105.8" font-size="12" fill="#0f172a" font-weight="700">Atanor / Albaugh</text>
+<circle cx="862.4" cy="107.6" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="871.4" y="103.6" font-size="12" fill="#0f172a" font-weight="700">Charrúa Implementos Agrícolas</text>
+<circle cx="873.6" cy="114.2" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="882.6" y="110.2" font-size="12" fill="#0f172a" font-weight="700">Fábrica Militar Río Tercero</text>
+<circle cx="890.4" cy="114.1" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="899.4" y="110.1" font-size="12" fill="#0f172a" font-weight="700">HIDROSERVIS</text>
+<circle cx="867.0" cy="109.0" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="876.0" y="105.0" font-size="12" fill="#0f172a" font-weight="700">Hidrobull</text>
+<circle cx="886.0" cy="105.3" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="895.0" y="101.3" font-size="12" fill="#0f172a" font-weight="700">Hormilas S.A.</text>
+<circle cx="863.0" cy="108.6" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="872.0" y="104.6" font-size="12" fill="#0f172a" font-weight="700">MetalMec S.R.L.</text>
+<circle cx="895.0" cy="114.5" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="904.0" y="110.5" font-size="12" fill="#0f172a" font-weight="700">Oleos San José S.R.L.</text>
+<circle cx="844.4" cy="111.0" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<circle cx="878.7" cy="110.8" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<circle cx="421.6" cy="396.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="430.6" y="392.7" font-size="12" fill="#0f172a" font-weight="700">Cotagro — Alcira Gigena</text>
+<circle cx="430.0" cy="397.5" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="439.0" y="393.5" font-size="12" fill="#0f172a" font-weight="700">Cooperativa Alba de Gigena</text>
+<circle cx="436.0" cy="397.3" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<circle cx="324.0" cy="247.1" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="333.0" y="243.1" font-size="12" fill="#0f172a" font-weight="700">Doble A Servicios Metalúrgicos</text>
+<circle cx="332.0" cy="247.1" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<circle cx="684.0" cy="524.8" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="693.0" y="520.8" font-size="12" fill="#0f172a" font-weight="700">Cotagro — Sucursal Chucul</text>
+<circle cx="718.0" cy="35.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="727.0" y="31.7" font-size="12" fill="#0f172a" font-weight="700">AGD — Planta de Acopio Corralito</text>
+<circle cx="734.0" cy="39.4" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="743.0" y="35.4" font-size="12" fill="#0f172a" font-weight="700">Trisoil S.A.</text>
+<circle cx="315.1" cy="305.1" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="324.1" y="301.1" font-size="12" fill="#0f172a" font-weight="700">CAGLE — Cooperativa Agrícola de El</text>
+<circle cx="320.0" cy="306.1" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="329.0" y="302.1" font-size="12" fill="#0f172a" font-weight="700">Gliestore S.A.</text>
+<circle cx="524.0" cy="562.7" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="430.0" cy="568.6" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="439.0" y="564.6" font-size="12" fill="#0f172a" font-weight="700">AFEMA S.A.</text>
+<circle cx="446.0" cy="570.1" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="455.0" y="566.1" font-size="12" fill="#0f172a" font-weight="700">BIDESA Obras Viales y Civiles</text>
+<circle cx="250.0" cy="588.3" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="259.0" y="584.3" font-size="12" fill="#0f172a" font-weight="700">Canteras Bringas</text>
+<circle cx="335.8" cy="575.4" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="344.8" y="571.4" font-size="12" fill="#0f172a" font-weight="700">CasaContainer Río Cuarto</text>
+<circle cx="384.2" cy="591.6" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="393.2" y="587.6" font-size="12" fill="#0f172a" font-weight="700">Construcciones Metálicas El Colono</text>
+<circle cx="360.8" cy="572.4" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="369.8" y="568.4" font-size="12" fill="#0f172a" font-weight="700">Dexco Constructora</text>
+<circle cx="442.0" cy="571.6" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="451.0" y="567.6" font-size="12" fill="#0f172a" font-weight="700">Luciano S.A.</text>
+<circle cx="427.9" cy="567.5" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="436.9" y="563.5" font-size="12" fill="#0f172a" font-weight="700">Marinelli S.A.</text>
+<circle cx="438.0" cy="573.0" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="447.0" y="569.0" font-size="12" fill="#0f172a" font-weight="700">Paolini Hnos S.A.</text>
+<circle cx="398.0" cy="575.5" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="407.0" y="571.5" font-size="12" fill="#0f172a" font-weight="700">Soardo Construcciones</text>
+<circle cx="336.0" cy="578.7" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="399.0" cy="576.7" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="456.0" cy="575.0" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="409.4" cy="577.6" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="878.0" y="125.8" font-size="15" fill="#334155" font-weight="900">Río Tercero</text>
+<text x="724.0" y="51.7" font-size="15" fill="#334155" font-weight="900">Corralito</text>
+<text x="330.0" y="263.1" font-size="15" fill="#334155" font-weight="900">Berrotarán</text>
+<text x="434.0" y="413.3" font-size="15" fill="#334155" font-weight="900">Alcira Gigena</text>
+<text x="320.0" y="322.7" font-size="15" fill="#334155" font-weight="900">Elena</text>
+<text x="690.0" y="540.8" font-size="15" fill="#334155" font-weight="900">Chucul</text>
+<text x="407.4" y="593.6" font-size="15" fill="#334155" font-weight="900">Río Cuarto</text>
+<text x="530.0" y="578.7" font-size="15" fill="#334155" font-weight="900">Las Higueras</text>
+<text x="596.0" y="135.1" font-size="15" fill="#334155" font-weight="900">Almafuerte</text>
+<text x="18" y="28" font-size="24" fill="#0f172a" font-weight="900">RN36 Sur: Río Tercero → Río Cuarto</text>
+<text x="18" y="52" font-size="12" fill="#64748b">Rojo=A · Naranja=B · Azul=C · Amarillo=zona caliente · Líneas=corredores aproximados</text>
+</svg></div></section>
+<section class="page"><header><div><div class="brand">PRESOL · Villa María / RP6-RN158</div><div class="small">Mapa operativo por micro-corredor</div></div><div class="small">Ubicaciones aproximadas</div></header><div class="mapbox"><svg viewBox="0 0 1000 600" width="100%" xmlns="http://www.w3.org/2000/svg">
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<polyline points="171.7,52.1 489.2,451.6 803.3,233.7 900.0,426.3 894.2,461.1" fill="none" stroke="#ea580c" stroke-width="5" stroke-dasharray="10 7" opacity=".55"/>
+<circle cx="180.0" cy="64.7" r="25.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="207.0" y="64.7" font-size="13" fill="#92400e" font-weight="700">Parque Industrial Leonardo Da Vinci</text>
+<circle cx="929.2" cy="446.8" r="35.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="966.2" y="446.8" font-size="13" fill="#92400e" font-weight="700">PILT Villa María</text>
+<circle cx="895.8" cy="457.9" r="50.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="947.8" y="457.9" font-size="13" fill="#92400e" font-weight="700">Obras RN158</text>
+<circle cx="803.3" cy="233.7" r="25.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="830.3" y="233.7" font-size="13" fill="#92400e" font-weight="700">ACA Tío Pujio</text>
+<circle cx="489.2" cy="451.6" r="30.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="521.2" y="451.6" font-size="13" fill="#92400e" font-weight="700">Hernando RP6</text>
+<circle cx="177.5" cy="66.3" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="186.5" y="62.3" font-size="12" fill="#0f172a" font-weight="700">ESISA</text>
+<circle cx="174.2" cy="60.0" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="183.2" y="56.0" font-size="12" fill="#0f172a" font-weight="700">Hormicor</text>
+<circle cx="178.3" cy="63.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="187.3" y="59.2" font-size="12" fill="#0f172a" font-weight="700">IMBAL S.A.</text>
+<circle cx="169.2" cy="45.8" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="178.2" y="41.8" font-size="12" fill="#0f172a" font-weight="700">Metalúrgica Novaretti</text>
+<circle cx="180.8" cy="64.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="189.8" y="60.7" font-size="12" fill="#0f172a" font-weight="700">Tres Eme S.A.</text>
+<circle cx="182.5" cy="67.9" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="191.5" y="63.9" font-size="12" fill="#0f172a" font-weight="700">Vial del Centro</text>
+<circle cx="175.0" cy="52.1" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="184.0" y="48.1" font-size="12" fill="#0f172a" font-weight="700">Atanor / Albaugh</text>
+<circle cx="167.7" cy="45.2" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="176.7" y="41.2" font-size="12" fill="#0f172a" font-weight="700">Charrúa Implementos Agrícolas</text>
+<circle cx="172.3" cy="66.3" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="181.3" y="62.3" font-size="12" fill="#0f172a" font-weight="700">Fábrica Militar Río Tercero</text>
+<circle cx="179.3" cy="66.0" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="188.3" y="62.0" font-size="12" fill="#0f172a" font-weight="700">HIDROSERVIS</text>
+<circle cx="169.6" cy="49.7" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="178.6" y="45.7" font-size="12" fill="#0f172a" font-weight="700">Hidrobull</text>
+<circle cx="177.5" cy="37.7" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="186.5" y="33.7" font-size="12" fill="#0f172a" font-weight="700">Hormilas S.A.</text>
+<circle cx="167.9" cy="48.2" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="176.9" y="44.2" font-size="12" fill="#0f172a" font-weight="700">MetalMec S.R.L.</text>
+<circle cx="181.2" cy="67.3" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="190.2" y="63.3" font-size="12" fill="#0f172a" font-weight="700">Oleos San José S.R.L.</text>
+<circle cx="160.2" cy="55.9" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<circle cx="174.5" cy="55.5" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<circle cx="54.2" cy="82.1" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="63.2" y="78.1" font-size="12" fill="#0f172a" font-weight="700">Cooperativa Agropecuaria Almafuert</text>
+<circle cx="489.2" cy="451.6" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="498.2" y="447.6" font-size="12" fill="#0f172a" font-weight="700">Cooperativa Agrícola La Vencedora</text>
+<circle cx="491.7" cy="454.7" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="500.7" y="450.7" font-size="12" fill="#0f172a" font-weight="700">Agrohernando</text>
+<circle cx="485.8" cy="448.4" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="494.8" y="444.4" font-size="12" fill="#0f172a" font-weight="700">Industria Metal-Her</text>
+<circle cx="487.9" cy="457.1" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<circle cx="490.8" cy="445.3" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<circle cx="803.3" cy="233.7" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="812.3" y="229.7" font-size="12" fill="#0f172a" font-weight="700">ACA — Centro de Desarrollo Comerci</text>
+<circle cx="806.7" cy="236.8" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="815.7" y="232.8" font-size="12" fill="#0f172a" font-weight="700">Metalúrgica Jor-Ba / Grupo Tío Puj</text>
+<circle cx="890.8" cy="393.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="899.8" y="389.2" font-size="12" fill="#0f172a" font-weight="700">Héctor A. Bertone S.A.</text>
+<circle cx="877.2" cy="388.1" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="886.2" y="384.1" font-size="12" fill="#0f172a" font-weight="700">Industrias Cormetal S.A.</text>
+<circle cx="929.2" cy="446.8" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="938.2" y="442.8" font-size="12" fill="#0f172a" font-weight="700">Mayo Transformadores S.R.L.</text>
+<circle cx="903.3" cy="429.5" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="912.3" y="425.5" font-size="12" fill="#0f172a" font-weight="700">Salsiteco S.A.</text>
+<circle cx="906.7" cy="443.7" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="895.1" cy="423.3" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="930.8" cy="443.7" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="925.8" cy="442.1" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="901.9" cy="434.2" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="895.0" cy="426.3" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="911.0" cy="428.5" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="927.5" cy="450.0" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="883.3" cy="389.2" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="894.2" cy="430.3" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<text x="177.7" y="68.1" font-size="15" fill="#334155" font-weight="900">Río Tercero</text>
+<text x="60.2" y="98.1" font-size="15" fill="#334155" font-weight="900">Almafuerte</text>
+<text x="495.2" y="467.6" font-size="15" fill="#334155" font-weight="900">Hernando</text>
+<text x="809.3" y="249.7" font-size="15" fill="#334155" font-weight="900">Tío Pujio</text>
+<text x="906.0" y="442.3" font-size="15" fill="#334155" font-weight="900">Villa María</text>
+<text x="900.2" y="477.1" font-size="15" fill="#334155" font-weight="900">Villa Nueva</text>
+<text x="18" y="28" font-size="24" fill="#0f172a" font-weight="900">RP6 / RN158: Río Tercero → Villa María</text>
+<text x="18" y="52" font-size="12" fill="#64748b">Rojo=A · Naranja=B · Azul=C · Amarillo=zona caliente · Líneas=corredores aproximados</text>
+</svg></div></section>
+<section class="page"><header><div><div class="brand">PRESOL · RN36 Norte — Córdoba</div><div class="small">Mapa operativo por micro-corredor</div></div><div class="small">Ubicaciones aproximadas</div></header><div class="mapbox"><svg viewBox="0 0 1000 660" width="100%" xmlns="http://www.w3.org/2000/svg">
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<polyline points="883.6,622.4 627.3,631.6 556.4,448.3 312.7,368.1 440.0,277.2 718.2,278.7 854.5,271.3 747.6,254.3" fill="none" stroke="#2563eb" stroke-width="5" stroke-dasharray="10 7" opacity=".55"/>
+<circle cx="901.8" cy="626.3" r="25.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="928.8" y="626.3" font-size="13" fill="#92400e" font-weight="700">Parque Industrial Leonardo Da Vinci</text>
+<circle cx="718.2" cy="278.7" r="60.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="780.2" y="278.7" font-size="13" fill="#92400e" font-weight="700">Córdoba Sur</text>
+<circle cx="663.6" cy="235.6" r="60.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="725.6" y="235.6" font-size="13" fill="#92400e" font-weight="700">Córdoba Oeste-Norte</text>
+<circle cx="312.7" cy="368.1" r="50.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="364.7" y="368.1" font-size="13" fill="#92400e" font-weight="700">Alta Gracia</text>
+<circle cx="440.0" cy="277.2" r="50.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="492.0" y="277.2" font-size="13" fill="#92400e" font-weight="700">Malagueño</text>
+<circle cx="854.5" cy="271.3" r="45.0" fill="#fde68a" stroke="#eab308" stroke-width="2" opacity=".45"/>
+<text x="901.5" y="271.3" font-size="13" fill="#92400e" font-weight="700">Ferreyra</text>
+<circle cx="896.4" cy="626.8" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="905.4" y="622.8" font-size="12" fill="#0f172a" font-weight="700">ESISA</text>
+<circle cx="889.1" cy="624.8" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="898.1" y="620.8" font-size="12" fill="#0f172a" font-weight="700">Hormicor</text>
+<circle cx="898.2" cy="625.8" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="907.2" y="621.8" font-size="12" fill="#0f172a" font-weight="700">IMBAL S.A.</text>
+<circle cx="878.2" cy="620.4" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="887.2" y="616.4" font-size="12" fill="#0f172a" font-weight="700">Metalúrgica Novaretti</text>
+<circle cx="903.6" cy="626.3" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="912.6" y="622.3" font-size="12" fill="#0f172a" font-weight="700">Tres Eme S.A.</text>
+<circle cx="907.3" cy="627.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="916.3" y="623.2" font-size="12" fill="#0f172a" font-weight="700">Vial del Centro</text>
+<circle cx="890.9" cy="622.4" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="899.9" y="618.4" font-size="12" fill="#0f172a" font-weight="700">Atanor / Albaugh</text>
+<circle cx="874.9" cy="620.2" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="883.9" y="616.2" font-size="12" fill="#0f172a" font-weight="700">Charrúa Implementos Agrícolas</text>
+<circle cx="885.1" cy="626.7" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="894.1" y="622.7" font-size="12" fill="#0f172a" font-weight="700">Fábrica Militar Río Tercero</text>
+<circle cx="900.4" cy="626.7" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="909.4" y="622.7" font-size="12" fill="#0f172a" font-weight="700">HIDROSERVIS</text>
+<circle cx="879.1" cy="621.6" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="888.1" y="617.6" font-size="12" fill="#0f172a" font-weight="700">Hidrobull</text>
+<circle cx="896.4" cy="617.9" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="905.4" y="613.9" font-size="12" fill="#0f172a" font-weight="700">Hormilas S.A.</text>
+<circle cx="875.5" cy="621.1" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="884.5" y="617.1" font-size="12" fill="#0f172a" font-weight="700">MetalMec S.R.L.</text>
+<circle cx="904.5" cy="627.0" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="913.5" y="623.0" font-size="12" fill="#0f172a" font-weight="700">Oleos San José S.R.L.</text>
+<circle cx="858.6" cy="623.5" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<circle cx="889.8" cy="623.4" r="4" fill="#0ea5e9" stroke="#fff" stroke-width="2"/>
+<circle cx="327.3" cy="369.1" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="336.3" y="365.1" font-size="12" fill="#0f172a" font-weight="700">AG Viviendas Industrializadas</text>
+<circle cx="337.3" cy="372.9" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="346.3" y="368.9" font-size="12" fill="#0f172a" font-weight="700">Precons S.R.L.</text>
+<circle cx="309.1" cy="371.6" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="318.1" y="367.6" font-size="12" fill="#0f172a" font-weight="700">Grupo Buglione</text>
+<circle cx="325.5" cy="366.7" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="334.5" y="362.7" font-size="12" fill="#0f172a" font-weight="700">Habitaciones Calificadas</text>
+<circle cx="312.7" cy="368.1" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="321.7" y="364.1" font-size="12" fill="#0f172a" font-weight="700">Mattsay Steel Frame</text>
+<circle cx="632.5" cy="268.9" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="641.5" y="264.9" font-size="12" fill="#0f172a" font-weight="700">Boetto y Buttigliengo S.A.</text>
+<circle cx="718.2" cy="263.0" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="727.2" y="259.0" font-size="12" fill="#0f172a" font-weight="700">CABIAL Empresa Constructora</text>
+<circle cx="781.7" cy="250.9" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="790.7" y="246.9" font-size="12" fill="#0f172a" font-weight="700">IngaV Constructora</text>
+<circle cx="927.3" cy="48.9" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="936.3" y="44.9" font-size="12" fill="#0f172a" font-weight="700">AG GROUP Industria</text>
+<circle cx="663.6" cy="281.1" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="672.6" y="277.1" font-size="12" fill="#0f172a" font-weight="700">Canteras Ruiz</text>
+<circle cx="632.9" cy="242.9" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="641.9" y="238.9" font-size="12" fill="#0f172a" font-weight="700">Corralón Mis Ladrillos</text>
+<circle cx="721.6" cy="284.4" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="730.6" y="280.4" font-size="12" fill="#0f172a" font-weight="700">Hormi Block S.A.</text>
+<circle cx="717.6" cy="229.1" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="726.6" y="225.1" font-size="12" fill="#0f172a" font-weight="700">Lucy’s House / Rental</text>
+<circle cx="628.3" cy="220.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="637.3" y="216.2" font-size="12" fill="#0f172a" font-weight="700">MegaContainers</text>
+<circle cx="723.6" cy="275.2" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="436.4" cy="274.8" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="746.5" cy="288.5" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="556.4" cy="448.3" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="565.5" cy="445.9" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="854.5" cy="271.3" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="800.0" cy="271.3" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<circle cx="440.0" cy="277.2" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="449.0" y="273.2" font-size="12" fill="#0f172a" font-weight="700">Grupo Calidra / Cal Malagueño</text>
+<circle cx="292.0" cy="264.9" r="5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+<text x="889.6" y="638.4" font-size="15" fill="#334155" font-weight="900">Río Tercero</text>
+<text x="749.6" y="564.8" font-size="15" fill="#334155" font-weight="900">Corralito</text>
+<text x="633.3" y="647.6" font-size="15" fill="#334155" font-weight="900">Almafuerte</text>
+<text x="562.4" y="464.3" font-size="15" fill="#334155" font-weight="900">Despeñaderos</text>
+<text x="318.7" y="384.1" font-size="15" fill="#334155" font-weight="900">Alta Gracia</text>
+<text x="446.0" y="293.2" font-size="15" fill="#334155" font-weight="900">Malagueño</text>
+<text x="724.2" y="294.7" font-size="15" fill="#334155" font-weight="900">Córdoba sur</text>
+<text x="860.5" y="287.3" font-size="15" fill="#334155" font-weight="900">Ferreyra / Santa Isabel</text>
+<text x="753.6" y="270.3" font-size="15" fill="#334155" font-weight="900">Córdoba capital</text>
+<text x="18" y="28" font-size="24" fill="#0f172a" font-weight="900">RN36 Norte: Río Tercero → Córdoba</text>
+<text x="18" y="52" font-size="12" fill="#64748b">Rojo=A · Naranja=B · Azul=C · Amarillo=zona caliente · Líneas=corredores aproximados</text>
+</svg></div></section>
+<section class="page"><header><div><div class="brand">PRESOL · Micro-rutas de campo</div><div class="small">Orden de ataque por jornada</div></div><div class="small">Links a Google Maps en versión digital</div></header>
+<table><thead><tr><th>Día</th><th>Zona</th><th>Objetivo</th><th>Stops principales</th><th>Regla de venta</th><th>Mapa</th></tr></thead><tbody>
+<tr><td><b>Día 1</b></td><td>Base Río Tercero + Corralito/Berrotarán</td><td>Cierres rápidos sin gastar km + primeras puertas RN36 sur.</td><td>Parque Industrial Leonardo Da Vinci / Río Tercero, Tres Eme S.A., Metalúrgica Novaretti, ESISA, Vial del Centro, Hormicor, AGD — Planta de Acopio Corralito, Trisoil S.A., Doble A Servicios Metalúrgicos</td><td>Si un contacto pide precio: no prometer; pedir origen/destino/peso y pasar cotización el mismo día.</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=-32.181000,-64.104000&destination=-32.452000,-64.388000&travelmode=driving&waypoints=-32.181000,-64.103000|-32.169000,-64.117000|-32.182000,-64.107000|-32.183000,-64.101000|-32.178000,-64.111000|-32.022500,-64.191000|-32.030000,-64.183000">Abrir ruta</a></td></tr>
+<tr><td><b>Día 2</b></td><td>Alcira Gigena → Elena → Chucul</td><td>Cooperativas y agroindustria; Cotagro como llave regional.</td><td>Cotagro — Alcira Gigena, Cooperativa Alba de Gigena, CAGLE — Cooperativa Agrícola de Elena, Gliestore S.A., Cotagro — Sucursal Chucul</td><td>Buscar responsable de logística/acopio; preguntar próximos movimientos de equipos o ampliaciones.</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=-32.755782,-64.339199&destination=-33.016000,-64.208000&travelmode=driving&waypoints=-32.757500,-64.335000|-32.569649,-64.392432|-32.571800,-64.390000">Abrir ruta</a></td></tr>
+<tr><td><b>Día 3</b></td><td>Río Cuarto — obra vial</td><td>Golpe central: obradores, constructoras y necesidad urgente de mover máquinas.</td><td>Obra vial / Circunvalación Río Cuarto, AFEMA S.A., BIDESA Obras Viales y Civiles, Luciano S.A., Paolini Hnos S.A., Dexco Constructora, Soardo Construcciones, Capello S.A.</td><td>Prioridad absoluta: salir con 3 pedidos de cotización reales.</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=-33.105000,-64.335000&destination=-33.121500,-64.350500&travelmode=driving&waypoints=-33.105000,-64.335000|-33.108000,-64.327000|-33.111000,-64.329000|-33.114000,-64.331000|-33.112715,-64.369622|-33.119000,-64.351000">Abrir ruta</a></td></tr>
+<tr><td><b>Día 4</b></td><td>Río Cuarto — industria, áridos y módulos</td><td>Clientes repetitivos y logística tercerizable.</td><td>Construcciones Metálicas El Colono S.A., Marinelli S.A., Canteras Bringas, CasaContainer Río Cuarto, Parque Industrial y Logístico Las Higueras, Cotagro — Río Cuarto, Agrorio Maquinarias</td><td>No vender áridos fuerte hasta confirmar caja volcadora o tercerización.</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=-33.151690,-64.357888&destination=-33.125500,-64.382000&travelmode=driving&waypoints=-33.102771,-64.336058|-33.145000,-64.425000|-33.118737,-64.382102|-33.093000,-64.288000|-33.118000,-64.322000">Abrir ruta</a></td></tr>
+<tr><td><b>Día 5</b></td><td>Repesca semana 1</td><td>Cotizaciones, llamadas y seguimiento 24/48h.</td><td>Río Tercero, Río Cuarto</td><td>Día de cierre, no de más exploración. Todo lead A debe quedar con próxima acción.</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=-32.173000,-64.114000&destination=-33.123200,-64.349300&travelmode=driving">Abrir ruta</a></td></tr>
+<tr><td><b>Día 6</b></td><td>Villa María — PILT + constructoras</td><td>Hub industrial, metalmecánico y obras RN158/VM-VN.</td><td>PILT Villa María / Parque Industrial, Industrias Cormetal S.A., Mayo Transformadores S.R.L., Dipromas S.R.L., Stainless Steel Manufacturers S.R.L., Salsiteco S.A., DM Constructora, Carra Sanitarios, Sarmiento Materiales</td><td>Dentro del PILT: no perder tiempo entre ciudades; trabajar por radio corto.</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=-32.423000,-63.205000&destination=-32.411372,-63.226831&travelmode=driving&waypoints=-32.385796,-63.267403|-32.423000,-63.205000|-32.421000,-63.203000|-32.425000,-63.207000|-32.412000,-63.236000|-32.408066,-63.245873|-32.421000,-63.232000">Abrir ruta</a></td></tr>
+<tr><td><b>Día 7</b></td><td>Villa María agro + retorno RP6</td><td>Acopios, agroindustria y satélites de alto volumen.</td><td>Héctor A. Bertone S.A., Villa María Cereales, S.A. Molinos Fénix, ACA — Centro de Desarrollo Comercial Tío Pujio, Cooperativa Agrícola La Vencedora, Agrohernando, Industria Metal-Her, Cooperativa Agropecuaria Almafuerte</td><td>La pregunta clave: “¿quién les mueve equipos, silos, balanzas o módulos cuando amplían planta?”</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=-32.389000,-63.251000&destination=-32.192000,-64.255000&travelmode=driving&waypoints=-32.386500,-63.260000|-32.410000,-63.246000|-32.288000,-63.356000|-32.426000,-63.733000|-32.428000,-63.730000|-32.424000,-63.737000">Abrir ruta</a></td></tr>
+<tr><td><b>Día 8</b></td><td>Córdoba — módulos, corralones y materiales</td><td>Entrar por servicios de cierre más rápido; separar sur de oeste/norte.</td><td>Hormi Block S.A., Canteras Ruiz, Porta Hnos., Corralón Mis Ladrillos, MegaContainers, Lucy’s House / Rental</td><td>AG GROUP está en Jesús María: llamar/contactar remoto, no meterlo como visita física del día.</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=-31.481687,-64.203118&destination=-31.368536,-64.205299&travelmode=driving&waypoints=-31.475000,-64.235000|-31.490145,-64.189401|-31.396774,-64.251905|-31.350332,-64.254449">Abrir ruta</a></td></tr>
+<tr><td><b>Día 9</b></td><td>Alta Gracia → Despeñaderos → Malagueño</td><td>Premoldeados, módulos, metalúrgicas y cal/áridos.</td><td>Precons S.R.L., AG Viviendas Industrializadas, Mattsay Steel Frame, Grupo Buglione, Metal-Ferr, Parque Industrial Despeñaderos N°64, Grupo Calidra / Cal Malagueño, Corralón Bergese Hnos.</td><td>Objetivo: 2 cotizaciones y 5 contactos directos, no folleto institucional.</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=-31.662670,-64.414474&destination=-31.441753,-64.439418&travelmode=driving&waypoints=-31.655000,-64.420000|-31.653000,-64.428000|-31.660000,-64.430000|-31.817000,-64.294000|-31.812000,-64.289000|-31.467000,-64.358000">Abrir ruta</a></td></tr>
+<tr><td><b>Día 10</b></td><td>Cierre general</td><td>Repesca, presupuesto y segunda vuelta.</td><td>Río Tercero, Río Cuarto, Villa María, Córdoba capital zona sur</td><td>Sin seguimiento no hay venta. Día 10 es para convertir visitas en pedidos de precio.</td><td><a href="https://www.google.com/maps/dir/?api=1&origin=-32.173000,-64.114000&destination=-31.470000,-64.205000&travelmode=driving&waypoints=-33.123200,-64.349300|-32.410000,-63.240000">Abrir ruta</a></td></tr>
+</tbody></table></section>
+<section class="page"><header><div><div class="brand">PRESOL · Detalle de stops</div><div class="small">Usar como checklist en el auto</div></div><div class="small">No irse sin próxima acción</div></header>
+<h2>Día 1 — Base Río Tercero + Corralito/Berrotarán</h2><div class="callout"><b>Objetivo:</b> Cierres rápidos sin gastar km + primeras puertas RN36 sur.<br><b>Regla:</b> Si un contacto pide precio: no prometer; pedir origen/destino/peso y pasar cotización el mismo día.<br><b>Ruta:</b> <a href="https://www.google.com/maps/dir/?api=1&origin=-32.181000,-64.104000&destination=-32.452000,-64.388000&travelmode=driving&waypoints=-32.181000,-64.103000|-32.169000,-64.117000|-32.182000,-64.107000|-32.183000,-64.101000|-32.178000,-64.111000|-32.022500,-64.191000|-32.030000,-64.183000">Abrir en Google Maps</a></div>
+<table><thead><tr><th>#</th><th>Stop</th><th>Prioridad</th><th>Sector</th><th>Teléfono</th><th>Google Maps</th><th>Gancho</th></tr></thead><tbody>
+<tr><td>1</td><td><b>Parque Industrial Leonardo Da Vinci / Río Tercero</b><br><span class="small">Río Tercero</span></td><td>HOT</td><td>Zona caliente</td><td></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.181000,-64.104000">Abrir</a></td><td>Trabajar como bloque de visitas</td></tr>
+<tr><td>2</td><td><b>Tres Eme S.A.</b><br><span class="small">Río Tercero</span></td><td><span class="badge A">A</span></td><td>Silos y mecanización</td><td><a href="tel:+5493571432190">03571 432190 / 03571 637720</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.181000,-64.103000">Abrir</a></td><td>Ofrecer flete + descarga/posicionamiento en obra rural.</td></tr>
+<tr><td>3</td><td><b>Metalúrgica Novaretti</b><br><span class="small">Río Tercero</span></td><td><span class="badge A">A</span></td><td>Recipientes y equipos metalmecánicos</td><td><a href="tel:+5493571414282">03571 414282 / 03571 606930</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.169000,-64.117000">Abrir</a></td><td>Cotizar despacho recurrente a plantas/obras.</td></tr>
+<tr><td>4</td><td><b>ESISA</b><br><span class="small">Río Tercero</span></td><td><span class="badge A">A</span></td><td>Viviendas/módulos industrializados</td><td><a href="tel:+5493571565662">Portería parque: 03571 565662; mail esisaservicios@gmail.com</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.182000,-64.107000">Abrir</a></td><td>Socio natural para entregas de módulos a obra.</td></tr>
+<tr><td>5</td><td><b>Vial del Centro</b><br><span class="small">Río Tercero</span></td><td><span class="badge A">A</span></td><td>Obras de infraestructura vial</td><td><a href="tel:+5493516411413">0351 6411413</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.183000,-64.101000">Abrir</a></td><td>Pedir próximo movimiento de maquinaria entre frentes.</td></tr>
+<tr><td>6</td><td><b>Hormicor</b><br><span class="small">Río Tercero</span></td><td><span class="badge A">A</span></td><td>Hormigón elaborado</td><td><a href="tel:+5493571500888">03571 500888 / 03571 510066</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.178000,-64.111000">Abrir</a></td><td>Ofrecer respaldo para picos de obra y traslados de equipos.</td></tr>
+<tr><td>7</td><td><b>AGD — Planta de Acopio Corralito</b><br><span class="small">Corralito</span></td><td><span class="badge A">A</span></td><td>Acopio agroindustrial</td><td><a href="tel:+5493571492144">03571 492144 / 492172 / 492228</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.022500,-64.191000">Abrir</a></td><td>Acopio AGD; pedir operaciones/mantenimiento.</td></tr>
+<tr><td>8</td><td><b>Trisoil S.A.</b><br><span class="small">Corralito</span></td><td><span class="badge B">B</span></td><td>Alimentos balanceados / aceite</td><td><a href="tel:+5493571502525">03571 502525 / 502526</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.030000,-64.183000">Abrir</a></td><td>Ofrecer fletes de repuestos/equipos y cargas especiales.</td></tr>
+<tr><td>9</td><td><b>Doble A Servicios Metalúrgicos</b><br><span class="small">Berrotarán</span></td><td><span class="badge B">B</span></td><td>Zinguería / estructuras metálicas</td><td><a href="tel:+5493584185826">358 4185826</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.452000,-64.388000">Abrir</a></td><td>Visitar y detectar obras/instalaciones próximas.</td></tr>
+</tbody></table>
+<h2>Día 2 — Alcira Gigena → Elena → Chucul</h2><div class="callout"><b>Objetivo:</b> Cooperativas y agroindustria; Cotagro como llave regional.<br><b>Regla:</b> Buscar responsable de logística/acopio; preguntar próximos movimientos de equipos o ampliaciones.<br><b>Ruta:</b> <a href="https://www.google.com/maps/dir/?api=1&origin=-32.755782,-64.339199&destination=-33.016000,-64.208000&travelmode=driving&waypoints=-32.757500,-64.335000|-32.569649,-64.392432|-32.571800,-64.390000">Abrir en Google Maps</a></div>
+<table><thead><tr><th>#</th><th>Stop</th><th>Prioridad</th><th>Sector</th><th>Teléfono</th><th>Google Maps</th><th>Gancho</th></tr></thead><tbody>
+<tr><td>1</td><td><b>Cotagro — Alcira Gigena</b><br><span class="small">Alcira Gigena</span></td><td><span class="badge A">A</span></td><td>Cooperativa agroindustrial / maní / acopio</td><td><a href="tel:+5493584393127">358 4393127 / 358 4125695 / 0358 4933333</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.755782,-64.339199">Abrir</a></td><td>Cotagro concentra 4 puntos del corredor; pedir compras/logística.</td></tr>
+<tr><td>2</td><td><b>Cooperativa Alba de Gigena</b><br><span class="small">Alcira Gigena</span></td><td><span class="badge B">B</span></td><td>Cooperativa agropecuaria</td><td><a href="tel:+5493584960151">0358 4960151</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.757500,-64.335000">Abrir</a></td><td>Visita de diagnóstico; posible derivación a productores.</td></tr>
+<tr><td>3</td><td><b>CAGLE — Cooperativa Agrícola de Elena</b><br><span class="small">Elena</span></td><td><span class="badge A">A</span></td><td>Acopio / agro / estación de servicios</td><td><a href="tel:+5493584881118">3584 881118</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.569649,-64.392432">Abrir</a></td><td>Obras recientes + nueva planta futura: transporte de equipos.</td></tr>
+<tr><td>4</td><td><b>Gliestore S.A.</b><br><span class="small">Elena</span></td><td><span class="badge B">B</span></td><td>Soja / alimentos / exportación</td><td><a href="tel:+5493584641548">0358 4641548 / 9358 4024598</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.571800,-64.390000">Abrir</a></td><td>Empresa exportadora; preguntar por logística de equipos y planta.</td></tr>
+<tr><td>5</td><td><b>Cotagro — Sucursal Chucul</b><br><span class="small">Chucul</span></td><td><span class="badge B">B</span></td><td>Acopio agropecuario</td><td><a href="tel:+5493584912008">0358 4912008 / 0358 4933333</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.016000,-64.208000">Abrir</a></td><td>Punto de paso; no dedicar medio día.</td></tr>
+</tbody></table>
+<h2>Día 3 — Río Cuarto — obra vial</h2><div class="callout"><b>Objetivo:</b> Golpe central: obradores, constructoras y necesidad urgente de mover máquinas.<br><b>Regla:</b> Prioridad absoluta: salir con 3 pedidos de cotización reales.<br><b>Ruta:</b> <a href="https://www.google.com/maps/dir/?api=1&origin=-33.105000,-64.335000&destination=-33.121500,-64.350500&travelmode=driving&waypoints=-33.105000,-64.335000|-33.108000,-64.327000|-33.111000,-64.329000|-33.114000,-64.331000|-33.112715,-64.369622|-33.119000,-64.351000">Abrir en Google Maps</a></div>
+<table><thead><tr><th>#</th><th>Stop</th><th>Prioridad</th><th>Sector</th><th>Teléfono</th><th>Google Maps</th><th>Gancho</th></tr></thead><tbody>
+<tr><td>1</td><td><b>Obra vial / Circunvalación Río Cuarto</b><br><span class="small">Río Cuarto</span></td><td>HOT</td><td>Zona caliente</td><td></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.105000,-64.335000">Abrir</a></td><td>Trabajar como bloque de visitas</td></tr>
+<tr><td>2</td><td><b>AFEMA S.A.</b><br><span class="small">Río Cuarto</span></td><td><span class="badge A">A</span></td><td>Constructora vial</td><td><a href="tel:+5493517371862">0351 7371862</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.105000,-64.335000">Abrir</a></td><td>Obras viales activas; pedir jefe de obra/logística.</td></tr>
+<tr><td>3</td><td><b>BIDESA Obras Viales y Civiles</b><br><span class="small">Río Cuarto</span></td><td><span class="badge A">A</span></td><td>Obra vial / UTE</td><td>A relevar en obrador</td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.108000,-64.327000">Abrir</a></td><td>Si está en obra, entrar por obrador; teléfono no público.</td></tr>
+<tr><td>4</td><td><b>Luciano S.A.</b><br><span class="small">Río Cuarto</span></td><td><span class="badge A">A</span></td><td>Obra vial / UTE</td><td>A relevar</td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.111000,-64.329000">Abrir</a></td><td>Oferente/contratista; buscar obrador primero.</td></tr>
+<tr><td>5</td><td><b>Paolini Hnos S.A.</b><br><span class="small">Río Cuarto</span></td><td><span class="badge A">A</span></td><td>Obra vial / constructora nacional</td><td><a href="tel:+5491148779600">011 48779600</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.114000,-64.331000">Abrir</a></td><td>Teléfono central; mejor entrar por obrador local.</td></tr>
+<tr><td>6</td><td><b>Dexco Constructora</b><br><span class="small">Río Cuarto</span></td><td><span class="badge A">A</span></td><td>Constructora local</td><td><a href="tel:+5493584640139">0358 4640139 / 0358 154869634</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.112715,-64.369622">Abrir</a></td><td>Tiene obras activas; pedir compras/operaciones.</td></tr>
+<tr><td>7</td><td><b>Soardo Construcciones</b><br><span class="small">Río Cuarto</span></td><td><span class="badge A">A</span></td><td>Constructora local</td><td><a href="tel:+5493584166315">0358 4166315</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.119000,-64.351000">Abrir</a></td><td>Pedir responsable de obra; cotizar un próximo traslado.</td></tr>
+<tr><td>8</td><td><b>Capello S.A.</b><br><span class="small">Río Cuarto</span></td><td><span class="badge B">B</span></td><td>Constructora / corralón</td><td><a href="tel:+5493584645929">0358 4645929</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.121500,-64.350500">Abrir</a></td><td>Vender apoyo logístico para obras y compras pesadas.</td></tr>
+</tbody></table>
+<h2>Día 4 — Río Cuarto — industria, áridos y módulos</h2><div class="callout"><b>Objetivo:</b> Clientes repetitivos y logística tercerizable.<br><b>Regla:</b> No vender áridos fuerte hasta confirmar caja volcadora o tercerización.<br><b>Ruta:</b> <a href="https://www.google.com/maps/dir/?api=1&origin=-33.151690,-64.357888&destination=-33.125500,-64.382000&travelmode=driving&waypoints=-33.102771,-64.336058|-33.145000,-64.425000|-33.118737,-64.382102|-33.093000,-64.288000|-33.118000,-64.322000">Abrir en Google Maps</a></div>
+<table><thead><tr><th>#</th><th>Stop</th><th>Prioridad</th><th>Sector</th><th>Teléfono</th><th>Google Maps</th><th>Gancho</th></tr></thead><tbody>
+<tr><td>1</td><td><b>Construcciones Metálicas El Colono S.A.</b><br><span class="small">Río Cuarto</span></td><td><span class="badge A">A</span></td><td>Estructuras metálicas / silos</td><td><a href="tel:+5493584628525">0358 4628525</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.151690,-64.357888">Abrir</a></td><td>Uno de los mejores encajes; pedir despacho/montaje.</td></tr>
+<tr><td>2</td><td><b>Marinelli S.A.</b><br><span class="small">Río Cuarto</span></td><td><span class="badge A">A</span></td><td>Áridos / hormigón / obras</td><td><a href="tel:+5493584647058">0358 4647058</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.102771,-64.336058">Abrir</a></td><td>Tiene cantera y flota; ofrecer respaldo/picos/traslados especiales.</td></tr>
+<tr><td>3</td><td><b>Canteras Bringas</b><br><span class="small">Río Cuarto</span></td><td><span class="badge A">A</span></td><td>Áridos / hormigón / obra pública</td><td><a href="tel:+549358154906010">0358 154906010</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.145000,-64.425000">Abrir</a></td><td>Pegada a Circunvalación: muy caliente para obra vial.</td></tr>
+<tr><td>4</td><td><b>CasaContainer Río Cuarto</b><br><span class="small">Río Cuarto</span></td><td><span class="badge A">A</span></td><td>Módulos / containers</td><td><a href="tel:+5493584310288">0358 4310288</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.118737,-64.382102">Abrir</a></td><td>Ellos venden “te lo llevamos”; PRESOL puede ser proveedor logístico.</td></tr>
+<tr><td>5</td><td><b>Parque Industrial y Logístico Las Higueras</b><br><span class="small">Las Higueras</span></td><td><span class="badge B">B</span></td><td>Radicaciones / logística</td><td>A relevar vía municipio/parque</td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.093000,-64.288000">Abrir</a></td><td>Pedir listado de empresas radicadas y obras en apertura de calles.</td></tr>
+<tr><td>6</td><td><b>Cotagro — Río Cuarto</b><br><span class="small">Río Cuarto</span></td><td><span class="badge B">B</span></td><td>Agro / fertilizantes / acopio</td><td><a href="tel:+5493584933333">0358 4933333</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.118000,-64.322000">Abrir</a></td><td>Punto dentro de red Cotagro; usar puerta Alcira si funciona.</td></tr>
+<tr><td>7</td><td><b>Agrorio Maquinarias</b><br><span class="small">Río Cuarto</span></td><td><span class="badge B">B</span></td><td>Maquinaria agrícola</td><td><a href="tel:+5493586093110">03586 093110</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.125500,-64.382000">Abrir</a></td><td>Ofrecer PRESOL como transportista regional confiable.</td></tr>
+</tbody></table>
+<h2>Día 5 — Repesca semana 1</h2><div class="callout"><b>Objetivo:</b> Cotizaciones, llamadas y seguimiento 24/48h.<br><b>Regla:</b> Día de cierre, no de más exploración. Todo lead A debe quedar con próxima acción.<br><b>Ruta:</b> <a href="https://www.google.com/maps/dir/?api=1&origin=-32.173000,-64.114000&destination=-33.123200,-64.349300&travelmode=driving">Abrir en Google Maps</a></div>
+<table><thead><tr><th>#</th><th>Stop</th><th>Prioridad</th><th>Sector</th><th>Teléfono</th><th>Google Maps</th><th>Gancho</th></tr></thead><tbody>
+<tr><td>1</td><td><b>Río Tercero</b><br><span class="small">Río Tercero</span></td><td>REF</td><td>Ciudad/zona</td><td></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.173000,-64.114000">Abrir</a></td><td></td></tr>
+<tr><td>2</td><td><b>Río Cuarto</b><br><span class="small">Río Cuarto</span></td><td>REF</td><td>Ciudad/zona</td><td></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.123200,-64.349300">Abrir</a></td><td></td></tr>
+</tbody></table>
+</section>
+<section class="page"><header><div><div class="brand">PRESOL · Detalle de stops</div><div class="small">Usar como checklist en el auto</div></div><div class="small">No irse sin próxima acción</div></header>
+<h2>Día 6 — Villa María — PILT + constructoras</h2><div class="callout"><b>Objetivo:</b> Hub industrial, metalmecánico y obras RN158/VM-VN.<br><b>Regla:</b> Dentro del PILT: no perder tiempo entre ciudades; trabajar por radio corto.<br><b>Ruta:</b> <a href="https://www.google.com/maps/dir/?api=1&origin=-32.423000,-63.205000&destination=-32.411372,-63.226831&travelmode=driving&waypoints=-32.385796,-63.267403|-32.423000,-63.205000|-32.421000,-63.203000|-32.425000,-63.207000|-32.412000,-63.236000|-32.408066,-63.245873|-32.421000,-63.232000">Abrir en Google Maps</a></div>
+<table><thead><tr><th>#</th><th>Stop</th><th>Prioridad</th><th>Sector</th><th>Teléfono</th><th>Google Maps</th><th>Gancho</th></tr></thead><tbody>
+<tr><td>1</td><td><b>PILT Villa María / Parque Industrial</b><br><span class="small">Villa María</span></td><td>HOT</td><td>Zona caliente</td><td></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.423000,-63.205000">Abrir</a></td><td>Trabajar como bloque de visitas</td></tr>
+<tr><td>2</td><td><b>Industrias Cormetal S.A.</b><br><span class="small">Villa María</span></td><td><span class="badge A">A</span></td><td>Metalmecánica / estructuras</td><td><a href="tel:+5493534610900">0353 4610900 / 0353 6567355</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.385796,-63.267403">Abrir</a></td><td>Pedir responsable de logística/despachos.</td></tr>
+<tr><td>3</td><td><b>Mayo Transformadores S.R.L.</b><br><span class="small">Villa María</span></td><td><span class="badge A">A</span></td><td>Transformadores / metalmecánica</td><td><a href="tel:+5493534647606">0353 4647606</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.423000,-63.205000">Abrir</a></td><td>Seguro de carga + GPS como argumento fuerte.</td></tr>
+<tr><td>4</td><td><b>Dipromas S.R.L.</b><br><span class="small">Villa María</span></td><td><span class="badge B">B</span></td><td>Metalmecánica / PILT</td><td><a href="tel:+5493534296608">0353 4296608</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.421000,-63.203000">Abrir</a></td><td>Visita dentro del PILT; pedir compras/logística.</td></tr>
+<tr><td>5</td><td><b>Stainless Steel Manufacturers S.R.L.</b><br><span class="small">Villa María</span></td><td><span class="badge B">B</span></td><td>Acero inoxidable / fabricación</td><td><a href="tel:+5493534792885">0353 4792885</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.425000,-63.207000">Abrir</a></td><td>Posicionar transporte seguro para piezas terminadas.</td></tr>
+<tr><td>6</td><td><b>Salsiteco S.A.</b><br><span class="small">Villa María</span></td><td><span class="badge A">A</span></td><td>Constructora / movimiento de suelo</td><td><a href="tel:+5493534524006">0353 4524006 / 0353 5006023</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.412000,-63.236000">Abrir</a></td><td>Muy buen encaje con obras viales; pedir jefe de obra.</td></tr>
+<tr><td>7</td><td><b>DM Constructora</b><br><span class="small">Villa María</span></td><td><span class="badge B">B</span></td><td>Constructora</td><td><a href="tel:+5493534260498">0353 4260498</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.408066,-63.245873">Abrir</a></td><td>Pedir responsable de compras/obra.</td></tr>
+<tr><td>8</td><td><b>Carra Sanitarios</b><br><span class="small">Villa María</span></td><td><span class="badge B">B</span></td><td>Materiales / sanitario / obra</td><td><a href="tel:+5493534125456">0353 4125456</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.421000,-63.232000">Abrir</a></td><td>Ubicado sobre corredor; preguntar fletes a clientes/obras.</td></tr>
+<tr><td>9</td><td><b>Sarmiento Materiales</b><br><span class="small">Villa María</span></td><td><span class="badge B">B</span></td><td>Corralón / materiales</td><td><a href="tel:+5493534610259">0353 4610259 / 0353 4112139</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.411372,-63.226831">Abrir</a></td><td>Cotizar reparto pesado fuera de zona o picos.</td></tr>
+</tbody></table>
+<h2>Día 7 — Villa María agro + retorno RP6</h2><div class="callout"><b>Objetivo:</b> Acopios, agroindustria y satélites de alto volumen.<br><b>Regla:</b> La pregunta clave: “¿quién les mueve equipos, silos, balanzas o módulos cuando amplían planta?”<br><b>Ruta:</b> <a href="https://www.google.com/maps/dir/?api=1&origin=-32.389000,-63.251000&destination=-32.192000,-64.255000&travelmode=driving&waypoints=-32.386500,-63.260000|-32.410000,-63.246000|-32.288000,-63.356000|-32.426000,-63.733000|-32.428000,-63.730000|-32.424000,-63.737000">Abrir en Google Maps</a></div>
+<table><thead><tr><th>#</th><th>Stop</th><th>Prioridad</th><th>Sector</th><th>Teléfono</th><th>Google Maps</th><th>Gancho</th></tr></thead><tbody>
+<tr><td>1</td><td><b>Héctor A. Bertone S.A.</b><br><span class="small">Villa María</span></td><td><span class="badge A">A</span></td><td>Acopio / logística granaria</td><td>A relevar</td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.389000,-63.251000">Abrir</a></td><td>Pedir responsable de logística/acopio; teléfono a relevar.</td></tr>
+<tr><td>2</td><td><b>Villa María Cereales</b><br><span class="small">Villa María</span></td><td><span class="badge B">B</span></td><td>Acopio / agroinsumos</td><td><a href="tel:+5493535656802">03535 656802</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.386500,-63.260000">Abrir</a></td><td>RN 9 km 553; consultar próximos movimientos.</td></tr>
+<tr><td>3</td><td><b>S.A. Molinos Fénix</b><br><span class="small">Villa María</span></td><td><span class="badge B">B</span></td><td>Molino / alimentos</td><td><a href="tel:+5493534533573">0353 4533573</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.410000,-63.246000">Abrir</a></td><td>Preguntar por movimientos de maquinaria/planta.</td></tr>
+<tr><td>4</td><td><b>ACA — Centro de Desarrollo Comercial Tío Pujio</b><br><span class="small">Tío Pujio</span></td><td><span class="badge A">A</span></td><td>Acopio gigante / agro</td><td><a href="tel:+5493535622710">353 5622710 / 0353 4860518 / 0353 4860519</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.288000,-63.356000">Abrir</a></td><td>Pedir Mario Peppino / responsable logística; no ir sin ficha.</td></tr>
+<tr><td>5</td><td><b>Cooperativa Agrícola La Vencedora</b><br><span class="small">Hernando</span></td><td><span class="badge A">A</span></td><td>Acopio / agroinsumos / combustible</td><td><a href="tel:+5493534847133">0353 4847133</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.426000,-63.733000">Abrir</a></td><td>Planta nueva 24.000 tn; pedir gerente Ariel Ferreyra.</td></tr>
+<tr><td>6</td><td><b>Agrohernando</b><br><span class="small">Hernando</span></td><td><span class="badge B">B</span></td><td>Acopio / granos / insumos</td><td><a href="tel:+5493534960418">0353 4960418</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.428000,-63.730000">Abrir</a></td><td>Empresa familiar 20 años; pedir responsable de operaciones.</td></tr>
+<tr><td>7</td><td><b>Industria Metal-Her</b><br><span class="small">Hernando</span></td><td><span class="badge B">B</span></td><td>Implementos agrícolas / tolvas</td><td><a href="tel:+549353156568385">0353 156568385 / 0353 4846509</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.424000,-63.737000">Abrir</a></td><td>Muy buen encaje para entregas a clientes y ferias.</td></tr>
+<tr><td>8</td><td><b>Cooperativa Agropecuaria Almafuerte</b><br><span class="small">Almafuerte</span></td><td><span class="badge B">B</span></td><td>Acopio / semillas / agroinsumos</td><td><a href="tel:+5493571471182">03571 471182</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.192000,-64.255000">Abrir</a></td><td>100.000 tn acopiadas; preguntar ampliaciones/mantenimiento.</td></tr>
+</tbody></table>
+<h2>Día 8 — Córdoba — módulos, corralones y materiales</h2><div class="callout"><b>Objetivo:</b> Entrar por servicios de cierre más rápido; separar sur de oeste/norte.<br><b>Regla:</b> AG GROUP está en Jesús María: llamar/contactar remoto, no meterlo como visita física del día.<br><b>Ruta:</b> <a href="https://www.google.com/maps/dir/?api=1&origin=-31.481687,-64.203118&destination=-31.368536,-64.205299&travelmode=driving&waypoints=-31.475000,-64.235000|-31.490145,-64.189401|-31.396774,-64.251905|-31.350332,-64.254449">Abrir en Google Maps</a></div>
+<table><thead><tr><th>#</th><th>Stop</th><th>Prioridad</th><th>Sector</th><th>Teléfono</th><th>Google Maps</th><th>Gancho</th></tr></thead><tbody>
+<tr><td>1</td><td><b>Hormi Block S.A.</b><br><span class="small">Córdoba Sur / RN36-Vélez Sarsfield</span></td><td><span class="badge A">A</span></td><td>Hormigón elaborado</td><td><a href="tel:+5493514939510">0351 4939510 / 0351 4945800</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.481687,-64.203118">Abrir</a></td><td>Av. Vélez Sarsfield 5801; entrada directa por corredor.</td></tr>
+<tr><td>2</td><td><b>Canteras Ruiz</b><br><span class="small">Córdoba Sur-Oeste / canteras</span></td><td><span class="badge A">A</span></td><td>Áridos / cantera</td><td><a href="tel:+5493515570618">0351 5570618 / 0351 4524228 / 0351 155508346</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.475000,-64.235000">Abrir</a></td><td>Servicio de áridos sólo si se confirma volcador/tercerización.</td></tr>
+<tr><td>3</td><td><b>Porta Hnos.</b><br><span class="small">Córdoba Sur / Camino San Antonio</span></td><td><span class="badge B">B</span></td><td>Industrial / alcohol / alimentos</td><td><a href="tel:+5493514938400">0351 4938400</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.490145,-64.189401">Abrir</a></td><td>Camino San Antonio km 4,5: visitar si entra en ruta Córdoba sur.</td></tr>
+<tr><td>4</td><td><b>Corralón Mis Ladrillos</b><br><span class="small">Córdoba Oeste / Av. Colón</span></td><td><span class="badge A">A</span></td><td>Corralón mayorista</td><td><a href="tel:+5493513705858">0351 3705858</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.396774,-64.251905">Abrir</a></td><td>Entrada rápida a mercado capitalino; ofrecer reparto pesado regional.</td></tr>
+<tr><td>5</td><td><b>MegaContainers</b><br><span class="small">Córdoba Norte-Oeste / Villa Belgrano</span></td><td><span class="badge A">A</span></td><td>Venta/alquiler de containers</td><td><a href="tel:+5493515179179">0351 5179179</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.350332,-64.254449">Abrir</a></td><td>Proveedor natural: cada container vendido necesita logística.</td></tr>
+<tr><td>6</td><td><b>Lucy’s House / Rental</b><br><span class="small">Córdoba Norte / Monseñor Pablo Cabrera</span></td><td><span class="badge A">A</span></td><td>Módulos habitacionales</td><td><a href="tel:+5493512077113">0351 2077113</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.368536,-64.205299">Abrir</a></td><td>Muy buen encaje para planchada + malacate.</td></tr>
+</tbody></table>
+<h2>Día 9 — Alta Gracia → Despeñaderos → Malagueño</h2><div class="callout"><b>Objetivo:</b> Premoldeados, módulos, metalúrgicas y cal/áridos.<br><b>Regla:</b> Objetivo: 2 cotizaciones y 5 contactos directos, no folleto institucional.<br><b>Ruta:</b> <a href="https://www.google.com/maps/dir/?api=1&origin=-31.662670,-64.414474&destination=-31.441753,-64.439418&travelmode=driving&waypoints=-31.655000,-64.420000|-31.653000,-64.428000|-31.660000,-64.430000|-31.817000,-64.294000|-31.812000,-64.289000|-31.467000,-64.358000">Abrir en Google Maps</a></div>
+<table><thead><tr><th>#</th><th>Stop</th><th>Prioridad</th><th>Sector</th><th>Teléfono</th><th>Google Maps</th><th>Gancho</th></tr></thead><tbody>
+<tr><td>1</td><td><b>Precons S.R.L.</b><br><span class="small">Alta Gracia</span></td><td><span class="badge A">A</span></td><td>Premoldeados / tanques / construcción</td><td><a href="tel:+5493547430993">3547 430993</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.662670,-64.414474">Abrir</a></td><td>Parque en expansión; ofrecer servicio a clientes finales.</td></tr>
+<tr><td>2</td><td><b>AG Viviendas Industrializadas</b><br><span class="small">Alta Gracia</span></td><td><span class="badge A">A</span></td><td>Módulos / viviendas industrializadas</td><td><a href="tel:+5493547672399">3547 672399 / 3547 420854</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.655000,-64.420000">Abrir</a></td><td>Cada venta necesita logística: proponer proveedor regional.</td></tr>
+<tr><td>3</td><td><b>Mattsay Steel Frame</b><br><span class="small">Alta Gracia</span></td><td><span class="badge B">B</span></td><td>Casas modulares / steel frame</td><td><a href="tel:+5493547477530">3547 477530</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.653000,-64.428000">Abrir</a></td><td>Instalación en lote; preguntar si tercerizan traslados.</td></tr>
+<tr><td>4</td><td><b>Grupo Buglione</b><br><span class="small">Alta Gracia</span></td><td><span class="badge B">B</span></td><td>Autopartes / remanufactura</td><td><a href="tel:+5493516512408">0351 6512408 / 0351 3271171 / 03547 432121</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.660000,-64.430000">Abrir</a></td><td>Parque N°53; entrar por logística/compras.</td></tr>
+<tr><td>5</td><td><b>Metal-Ferr</b><br><span class="small">Despeñaderos</span></td><td><span class="badge B">B</span></td><td>Metalúrgica agro/industria</td><td><a href="tel:+5493547525300">3547 525300 / 3547 492716</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.817000,-64.294000">Abrir</a></td><td>Empresa local 25+ años; pedir producción/despacho.</td></tr>
+<tr><td>6</td><td><b>Parque Industrial Despeñaderos N°64</b><br><span class="small">Despeñaderos</span></td><td><span class="badge B">B</span></td><td>Radicaciones industriales</td><td>A relevar vía municipio</td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.812000,-64.289000">Abrir</a></td><td>Pedir listado de empresas radicadas al municipio/parque.</td></tr>
+<tr><td>7</td><td><b>Grupo Calidra / Cal Malagueño</b><br><span class="small">Malagueño</span></td><td><span class="badge A">A</span></td><td>Cal / minería / áridos</td><td>A relevar</td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.467000,-64.358000">Abrir</a></td><td>Prospecto grande; entrar por mantenimiento/proveedores.</td></tr>
+<tr><td>8</td><td><b>Corralón Bergese Hnos.</b><br><span class="small">Malagueño</span></td><td><span class="badge B">B</span></td><td>Corralón / materiales</td><td><a href="tel:+5493516870914">0351 6870914 / 0351 2013895</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.441753,-64.439418">Abrir</a></td><td>Ofrecer refuerzo logístico para envíos fuera de zona.</td></tr>
+</tbody></table>
+<h2>Día 10 — Cierre general</h2><div class="callout"><b>Objetivo:</b> Repesca, presupuesto y segunda vuelta.<br><b>Regla:</b> Sin seguimiento no hay venta. Día 10 es para convertir visitas en pedidos de precio.<br><b>Ruta:</b> <a href="https://www.google.com/maps/dir/?api=1&origin=-32.173000,-64.114000&destination=-31.470000,-64.205000&travelmode=driving&waypoints=-33.123200,-64.349300|-32.410000,-63.240000">Abrir en Google Maps</a></div>
+<table><thead><tr><th>#</th><th>Stop</th><th>Prioridad</th><th>Sector</th><th>Teléfono</th><th>Google Maps</th><th>Gancho</th></tr></thead><tbody>
+<tr><td>1</td><td><b>Río Tercero</b><br><span class="small">Río Tercero</span></td><td>REF</td><td>Ciudad/zona</td><td></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.173000,-64.114000">Abrir</a></td><td></td></tr>
+<tr><td>2</td><td><b>Río Cuarto</b><br><span class="small">Río Cuarto</span></td><td>REF</td><td>Ciudad/zona</td><td></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.123200,-64.349300">Abrir</a></td><td></td></tr>
+<tr><td>3</td><td><b>Villa María</b><br><span class="small">Villa María</span></td><td>REF</td><td>Ciudad/zona</td><td></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.410000,-63.240000">Abrir</a></td><td></td></tr>
+<tr><td>4</td><td><b>Córdoba capital zona sur</b><br><span class="small">Córdoba capital zona sur</span></td><td>REF</td><td>Ciudad/zona</td><td></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.470000,-64.205000">Abrir</a></td><td></td></tr>
+</tbody></table>
+</section>
+<section class="page"><header><div><div class="brand">PRESOL · Prioridad A georreferenciada</div><div class="small">Visitar sí o sí</div></div><div class="small">Teléfono + Google Maps</div></header><table><thead><tr><th>Empresa</th><th>Corredor / micro-zona</th><th>Sector</th><th>Teléfono</th><th>Google Maps</th><th>Gancho</th></tr></thead><tbody>
+<tr><td><b>ESISA</b></td><td>Base Río Tercero<br><span class="small">Río Tercero</span></td><td>Viviendas/módulos industrializados</td><td><a href="tel:+5493571565662">Portería parque: 03571 565662; mail esisaservicios@gmail.com</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.182000,-64.107000">Abrir</a></td><td>Socio natural para entregas de módulos a obra.</td></tr>
+<tr><td><b>Hormicor</b></td><td>Base Río Tercero<br><span class="small">Río Tercero</span></td><td>Hormigón elaborado</td><td><a href="tel:+5493571500888">03571 500888 / 03571 510066</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.178000,-64.111000">Abrir</a></td><td>Ofrecer respaldo para picos de obra y traslados de equipos.</td></tr>
+<tr><td><b>IMBAL S.A.</b></td><td>Base Río Tercero<br><span class="small">Río Tercero</span></td><td>Estructuras metálicas / montaje</td><td>A relevar en terreno</td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.180000,-64.106000">Abrir</a></td><td>Fabrican y montan; pedir responsable de despacho/montaje.</td></tr>
+<tr><td><b>Metalúrgica Novaretti</b></td><td>Base Río Tercero<br><span class="small">Río Tercero</span></td><td>Recipientes y equipos metalmecánicos</td><td><a href="tel:+5493571414282">03571 414282 / 03571 606930</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.169000,-64.117000">Abrir</a></td><td>Cotizar despacho recurrente a plantas/obras.</td></tr>
+<tr><td><b>Tres Eme S.A.</b></td><td>Base Río Tercero<br><span class="small">Río Tercero</span></td><td>Silos y mecanización</td><td><a href="tel:+5493571432190">03571 432190 / 03571 637720</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.181000,-64.103000">Abrir</a></td><td>Ofrecer flete + descarga/posicionamiento en obra rural.</td></tr>
+<tr><td><b>Vial del Centro</b></td><td>Base Río Tercero<br><span class="small">Río Tercero</span></td><td>Obras de infraestructura vial</td><td><a href="tel:+5493516411413">0351 6411413</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.183000,-64.101000">Abrir</a></td><td>Pedir próximo movimiento de maquinaria entre frentes.</td></tr>
+<tr><td><b>Cotagro — Alcira Gigena</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Alcira Gigena</span></td><td>Cooperativa agroindustrial / maní / acopio</td><td><a href="tel:+5493584393127">358 4393127 / 358 4125695 / 0358 4933333</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.755782,-64.339199">Abrir</a></td><td>Cotagro concentra 4 puntos del corredor; pedir compras/logística.</td></tr>
+<tr><td><b>AGD — Planta de Acopio Corralito</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Corralito</span></td><td>Acopio agroindustrial</td><td><a href="tel:+5493571492144">03571 492144 / 492172 / 492228</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.022500,-64.191000">Abrir</a></td><td>Acopio AGD; pedir operaciones/mantenimiento.</td></tr>
+<tr><td><b>CAGLE — Cooperativa Agrícola de Elena</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Elena</span></td><td>Acopio / agro / estación de servicios</td><td><a href="tel:+5493584881118">3584 881118</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.569649,-64.392432">Abrir</a></td><td>Obras recientes + nueva planta futura: transporte de equipos.</td></tr>
+<tr><td><b>AFEMA S.A.</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Río Cuarto</span></td><td>Constructora vial</td><td><a href="tel:+5493517371862">0351 7371862</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.105000,-64.335000">Abrir</a></td><td>Obras viales activas; pedir jefe de obra/logística.</td></tr>
+<tr><td><b>BIDESA Obras Viales y Civiles</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Río Cuarto</span></td><td>Obra vial / UTE</td><td>A relevar en obrador</td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.108000,-64.327000">Abrir</a></td><td>Si está en obra, entrar por obrador; teléfono no público.</td></tr>
+<tr><td><b>Canteras Bringas</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Río Cuarto</span></td><td>Áridos / hormigón / obra pública</td><td><a href="tel:+549358154906010">0358 154906010</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.145000,-64.425000">Abrir</a></td><td>Pegada a Circunvalación: muy caliente para obra vial.</td></tr>
+<tr><td><b>CasaContainer Río Cuarto</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Río Cuarto</span></td><td>Módulos / containers</td><td><a href="tel:+5493584310288">0358 4310288</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.118737,-64.382102">Abrir</a></td><td>Ellos venden “te lo llevamos”; PRESOL puede ser proveedor logístico.</td></tr>
+<tr><td><b>Construcciones Metálicas El Colono S.A.</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Río Cuarto</span></td><td>Estructuras metálicas / silos</td><td><a href="tel:+5493584628525">0358 4628525</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.151690,-64.357888">Abrir</a></td><td>Uno de los mejores encajes; pedir despacho/montaje.</td></tr>
+<tr><td><b>Dexco Constructora</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Río Cuarto</span></td><td>Constructora local</td><td><a href="tel:+5493584640139">0358 4640139 / 0358 154869634</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.112715,-64.369622">Abrir</a></td><td>Tiene obras activas; pedir compras/operaciones.</td></tr>
+<tr><td><b>Luciano S.A.</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Río Cuarto</span></td><td>Obra vial / UTE</td><td>A relevar</td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.111000,-64.329000">Abrir</a></td><td>Oferente/contratista; buscar obrador primero.</td></tr>
+<tr><td><b>Marinelli S.A.</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Río Cuarto</span></td><td>Áridos / hormigón / obras</td><td><a href="tel:+5493584647058">0358 4647058</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.102771,-64.336058">Abrir</a></td><td>Tiene cantera y flota; ofrecer respaldo/picos/traslados especiales.</td></tr>
+<tr><td><b>Paolini Hnos S.A.</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Río Cuarto</span></td><td>Obra vial / constructora nacional</td><td><a href="tel:+5491148779600">011 48779600</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.114000,-64.331000">Abrir</a></td><td>Teléfono central; mejor entrar por obrador local.</td></tr>
+<tr><td><b>Soardo Construcciones</b></td><td>Río Cuarto / RN36 sur<br><span class="small">Río Cuarto</span></td><td>Constructora local</td><td><a href="tel:+5493584166315">0358 4166315</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-33.119000,-64.351000">Abrir</a></td><td>Pedir responsable de obra; cotizar un próximo traslado.</td></tr>
+<tr><td><b>Cooperativa Agrícola La Vencedora</b></td><td>Villa María / RP6<br><span class="small">Hernando</span></td><td>Acopio / agroinsumos / combustible</td><td><a href="tel:+5493534847133">0353 4847133</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.426000,-63.733000">Abrir</a></td><td>Planta nueva 24.000 tn; pedir gerente Ariel Ferreyra.</td></tr>
+<tr><td><b>ACA — Centro de Desarrollo Comercial Tío Pujio</b></td><td>Villa María / RP6<br><span class="small">Tío Pujio</span></td><td>Acopio gigante / agro</td><td><a href="tel:+5493535622710">353 5622710 / 0353 4860518 / 0353 4860519</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.288000,-63.356000">Abrir</a></td><td>Pedir Mario Peppino / responsable logística; no ir sin ficha.</td></tr>
+<tr><td><b>Héctor A. Bertone S.A.</b></td><td>Villa María / RP6<br><span class="small">Villa María</span></td><td>Acopio / logística granaria</td><td>A relevar</td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.389000,-63.251000">Abrir</a></td><td>Pedir responsable de logística/acopio; teléfono a relevar.</td></tr>
+<tr><td><b>Industrias Cormetal S.A.</b></td><td>Villa María / RP6<br><span class="small">Villa María</span></td><td>Metalmecánica / estructuras</td><td><a href="tel:+5493534610900">0353 4610900 / 0353 6567355</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.385796,-63.267403">Abrir</a></td><td>Pedir responsable de logística/despachos.</td></tr>
+<tr><td><b>Mayo Transformadores S.R.L.</b></td><td>Villa María / RP6<br><span class="small">Villa María</span></td><td>Transformadores / metalmecánica</td><td><a href="tel:+5493534647606">0353 4647606</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.423000,-63.205000">Abrir</a></td><td>Seguro de carga + GPS como argumento fuerte.</td></tr>
+<tr><td><b>Salsiteco S.A.</b></td><td>Villa María / RP6<br><span class="small">Villa María</span></td><td>Constructora / movimiento de suelo</td><td><a href="tel:+5493534524006">0353 4524006 / 0353 5006023</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-32.412000,-63.236000">Abrir</a></td><td>Muy buen encaje con obras viales; pedir jefe de obra.</td></tr>
+<tr><td><b>AG Viviendas Industrializadas</b></td><td>Córdoba / RN36 norte<br><span class="small">Alta Gracia</span></td><td>Módulos / viviendas industrializadas</td><td><a href="tel:+5493547672399">3547 672399 / 3547 420854</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.655000,-64.420000">Abrir</a></td><td>Cada venta necesita logística: proponer proveedor regional.</td></tr>
+<tr><td><b>Precons S.R.L.</b></td><td>Córdoba / RN36 norte<br><span class="small">Alta Gracia</span></td><td>Premoldeados / tanques / construcción</td><td><a href="tel:+5493547430993">3547 430993</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.662670,-64.414474">Abrir</a></td><td>Parque en expansión; ofrecer servicio a clientes finales.</td></tr>
+<tr><td><b>AG GROUP Industria</b></td><td>Córdoba / RN36 norte<br><span class="small">Contacto remoto / Jesús María</span></td><td>Módulos / construcción industrializada</td><td><a href="tel:+5493525513210">3525 513210</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.000000,-64.090000">Abrir</a></td><td>Aunque está en Jesús María, vende en Córdoba; ofrecer logística provincial.</td></tr>
+<tr><td><b>Canteras Ruiz</b></td><td>Córdoba / RN36 norte<br><span class="small">Córdoba Sur-Oeste / canteras</span></td><td>Áridos / cantera</td><td><a href="tel:+5493515570618">0351 5570618 / 0351 4524228 / 0351 155508346</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.475000,-64.235000">Abrir</a></td><td>Servicio de áridos sólo si se confirma volcador/tercerización.</td></tr>
+<tr><td><b>Corralón Mis Ladrillos</b></td><td>Córdoba / RN36 norte<br><span class="small">Córdoba Oeste / Av. Colón</span></td><td>Corralón mayorista</td><td><a href="tel:+5493513705858">0351 3705858</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.396774,-64.251905">Abrir</a></td><td>Entrada rápida a mercado capitalino; ofrecer reparto pesado regional.</td></tr>
+<tr><td><b>Hormi Block S.A.</b></td><td>Córdoba / RN36 norte<br><span class="small">Córdoba Sur / RN36-Vélez Sarsfield</span></td><td>Hormigón elaborado</td><td><a href="tel:+5493514939510">0351 4939510 / 0351 4945800</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.481687,-64.203118">Abrir</a></td><td>Av. Vélez Sarsfield 5801; entrada directa por corredor.</td></tr>
+<tr><td><b>Lucy’s House / Rental</b></td><td>Córdoba / RN36 norte<br><span class="small">Córdoba Norte / Monseñor Pablo Cabrera</span></td><td>Módulos habitacionales</td><td><a href="tel:+5493512077113">0351 2077113</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.368536,-64.205299">Abrir</a></td><td>Muy buen encaje para planchada + malacate.</td></tr>
+<tr><td><b>MegaContainers</b></td><td>Córdoba / RN36 norte<br><span class="small">Córdoba Norte-Oeste / Villa Belgrano</span></td><td>Venta/alquiler de containers</td><td><a href="tel:+5493515179179">0351 5179179</a></td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.350332,-64.254449">Abrir</a></td><td>Proveedor natural: cada container vendido necesita logística.</td></tr>
+<tr><td><b>Grupo Calidra / Cal Malagueño</b></td><td>Córdoba / RN36 norte<br><span class="small">Malagueño</span></td><td>Cal / minería / áridos</td><td>A relevar</td><td><a href="https://www.google.com/maps/search/?api=1&query=-31.467000,-64.358000">Abrir</a></td><td>Prospecto grande; entrar por mantenimiento/proveedores.</td></tr>
+</tbody></table></section>
+<section class="page"><header><div><div class="brand">PRESOL · Archivos generados</div><div class="small">Para uso en campo y edición posterior</div></div><div class="small">2026-09-01 22:00 ART</div></header><h2>Archivos</h2><ul><li><b>PDF:</b> micro-rutas-y-mapa-presol-2026-09.pdf</li><li><b>Mapa interactivo HTML:</b> mapa-interactivo-prospectos-presol-2026-09.html</li><li><b>KML:</b> mapa-prospectos-presol-2026-09.kml — abrir/importar en Google Earth o My Maps.</li><li><b>GeoJSON:</b> mapa-prospectos-presol-2026-09.geojson — GIS / edición técnica.</li><li><b>CSV:</b> mapa-prospectos-presol-2026-09.csv — planilla/importación.</li></ul><div class="callout warn"><b>Punto crítico antes de la calle:</b> confirmar tarifa base/km, mínimo de salida, hora de hidrogrúa y capacidad real para áridos. Sin eso, el mapa genera visitas pero no cierres.</div></section>
+</body></html>

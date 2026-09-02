@@ -1,6 +1,6 @@
 ---
 owner: brain-vps
-last-reviewed: 2026-08-31
+last-reviewed: 2026-09-01
 confidence: medium
 status: active
 source: mixed
@@ -8,47 +8,40 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-08-31 23:59 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas sigue agotado (121 leads fuente; tracker 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles; 19 no componibles) · 3 lotes nuevos de inmobiliarias listos para outreach manual (113 leads totales, 59 WhatsApp confirmados) · recibo de Víctor Abrile emitido por ARS 178.860 pendiente de cobro · briefing vigente vencido.
+**Última actualización:** 2026-09-01 23:58 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas sigue agotado (121 leads fuente; tracker 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles; 19 no componibles) · 113 leads inmobiliarios 31/08 listos para outreach manual · recibo Víctor Abrile ARS 178.860 pendiente de cobro · Construvial/PRESOL activó campaña de campo 2 semanas con auto + viáticos + fijo, monto/condición no registrados · briefing vigente vencido.
 
 ---
 
 ## Semáforo financiero
 
-- Estado operativo previo registrado: 🟢 ESCALA — junio cerró con Wolfim $1.000 USD + Ango $333 USD = $1.333 USD.
-- Advertencia activa: `Hermes/Intelligence/kpis.md` sigue vencido desde 2026-06-25 y sin números formales de Juan. No se puede confirmar el semáforo real.
-- Regla prudente mientras no haya update formal: Wolfim prioritaria. Ango secundaria solo por estado previo. Construvial y Korantis no desplazan revenue Wolfim.
-- Briefing vigente también está vencido; no hay autorización fresca para cambiar prioridades.
+- Estado operativo histórico registrado: 🟢 ESCALA — junio cerró con Wolfim $1.000 USD + Ango $333 USD = $1.333 USD.
+- Advertencia activa: `Hermes/Intelligence/kpis.md` sigue vencido desde 2026-06-25 y sin números formales de Juan. No se puede confirmar el semáforo real de septiembre.
+- Regla prudente mientras no haya update formal: Wolfim prioritaria. Construvial/PRESOL solo como excepción por mandato documentado; no debe desplazar cierres Wolfim.
+- Briefing vigente también está vencido; no hay autorización fresca para cambiar prioridades globales.
 
 ---
 
 ## Wolfim — Web Viejas / Email Outreach
 
-**Estado:** ✅ El cron funciona, pero **la cola sigue agotada**. Última corrida: 2026-08-30 10:04 ART.
+**Estado:** ✅ El cron funciona, pero **la cola sigue agotada**. Última corrida verificada: 2026-09-01 10:00 ART.
 
 ### Pipeline
 ```text
 dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py → cron diario
 ```
 
-### Resultado latest — 2026-08-30
+### Resultado latest — 2026-09-01
 - Ejecutado: `python3 /home/hermes/workspace/scraping/cron_campaign.py`
 - Salida real: `✅ Todos los leads han sido enviados. No hay más pendientes.`
-- Verificación tracker: 121 leads fuente; 107 registros en tracker, 97 `sent`, 10 `bounced`, 0 `failed`.
+- Verificación tracker conocida: 121 leads fuente; 107 registros en tracker, 97 `sent`, 10 `bounced`, 0 `failed`.
 - Verificación inventario: 107 cubiertos por `sent`/`bounced`; 19 no componibles por reglas del script; 0 candidatos para próxima tanda.
 - Riesgo inmediato: seguir corriendo sin inventario no genera oportunidad comercial nueva.
 
 ### Corrida histórica breve
+- 09/01: cola agotada; 0 pendientes; check-replies 10/14/18: `Sin novedades`.
 - 08/31: cola agotada; 107 registros totales, 0 pendientes componibles; sin error visible en stdout.
 - 08/30: cola agotada; 107 registros totales, 0 pendientes componibles; sin error visible en stdout.
-- 08/29: cola agotada; 107 registros totales, 0 pendientes componibles; sin error visible en stdout.
-- 08/28: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
-- 08/27: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
-- 08/26: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
-- 08/25: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
-- 08/24: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
-- 08/22: cola agotada; 107 registros totales, 0 pendientes componibles; sin error nuevo visible en stdout.
-- 08/20: cola agotada; 107 registros totales, 0 pendientes; sin error nuevo visible en stdout.
-- 08/14 y anteriores: canal llegó gradualmente a cola agotada; última tanda útil registrada 07/12 con 2 enviados.
+- 08/29 y anteriores: canal llegó gradualmente a cola agotada; última tanda útil registrada 07/12 con 2 enviados.
 
 ### Configuración conocida
 - Remitente: `Juan Gomariz <juan@wolfim.com>`; reply-to `juan@wolfim.com` → Cloudflare → `ingjuangomariz@gmail.com`.
@@ -62,10 +55,12 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 - Franco Roma — Roggero & Roma ✅ cerrado/cobrado. Backup VPS operativo. Publicación/DNS dependen de Juan/NIC.
 - Víctor Abrile ✅ histórico cobrado: $450 USD total. Además, 2026-08-31 quedó emitido recibo `REC-WF-2026-08-31-VICTOR-001` por ARS 178.860, pendiente de cobro.
-- Luis Farias — Farias & Asociados 🔴 propuesta portal inmobiliario premium USD 450 + USD 25/mes lista para revisión/envío. Si avanza, 50% inicial = USD 225.
+- Luis Farias — Farias & Asociados 🔴 propuesta portal inmobiliario premium lista; requiere follow-up humano/anticipo.
+- Madelen — Suelo Argentino 🔴 analizando propuesta desde 31/08; requiere follow-up si no vuelve.
 - GAMA Inmobiliaria ❌ caído: sin respuesta.
 - Conforti Propiedades, RIVAS Inmuebles y Ann 🆕 seguimiento pendiente.
-- Inventario nuevo Wolfim 2026-08-31 para outreach manual inmobiliario: Mar del Plata 49 leads (24 WhatsApp confirmados), Pinamar 34 (18), Villa Gesell 30 (17).
+- Inventario Wolfim 2026-08-31 para outreach manual inmobiliario: Mar del Plata 49 leads (24 WhatsApp confirmados), Pinamar 34 (18), Villa Gesell 30 (17). Total: 113 leads, 59 WA confirmados.
+- Raypac / Leonardo Gastager 🟡 inbox 2026-09-01: cotización kit cámara 360° por USD 14.750 + IVA; requiere decisión de seguimiento.
 
 **Patrón vigente:** Juan construye bien; el cuello de botella sigue siendo cerrar ventas. Si pasan 3+ días sin follow-up a leads, activar anti-parálisis comercial.
 
@@ -75,8 +70,8 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 - Wolfim: foco principal mientras KPIs formales sigan vencidos. Web Viejas sin inventario; prioridad real es seguimiento/cierre.
 - Ango: junio $333 cobrados. MONTECOR pagar importación sigue pendiente. Handoffs locales de landing/medición/Ads siguen sin cierre visible.
+- Construvial: PRESOL pasó a **campaña activa** 2026-09-01: Juan tiene campaña de campo 2 semanas (auto + viáticos + fijo) para logística/cargas pesadas en corredores Río Tercero→Río Cuarto/Villa María/Córdoba. Paquete creado: plan, oferta, ficha, WhatsApp, planilla, dossier 86 prospectos, mapas y micro-rutas. Falta registrar monto/condición de pago y confirmar tarifa base/km + áridos/volcador.
 - Korantis: sin revenue; modo evidencia + scout. No desplazar a Wolfim.
-- Construvial: cobro puntual 2026-08-05: USD 180 por catálogos Construvial Rental + PRESOL. Standby comercial; no activar trabajo nuevo sin aprobación explícita de Juan.
 - Almas Libres: profile activo; `HO-2026-08-03-001` pide MVP institucional + padrinazgo equino en preview, sin publicación hasta validar datos y activos.
 
 ---
