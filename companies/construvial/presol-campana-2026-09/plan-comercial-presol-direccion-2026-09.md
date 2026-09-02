@@ -15,7 +15,7 @@ Documento listo para reunión. Incluye resumen, oferta comercial y listado compl
 - Empresas objetivo: 117
 - Clase A: 44
 - Teléfonos OK: 73
-- Páginas PDF: 25
+- Páginas PDF: 35
 
 | Corredor | Total | Clase A | Clase B | Tel. OK |
 |---|---:|---:|---:|---:|
