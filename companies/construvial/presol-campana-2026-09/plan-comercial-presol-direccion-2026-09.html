@@ -60,6 +60,8 @@ p, li { font-size: 12pt; line-height: 1.35; }
 .pill { display:inline-flex; align-items:center; border:1px solid rgba(0,166,178,.28); border-radius: 999px; padding: 1.6mm 3.4mm; background:#ffffff; color:#1f3448; font-size: 9.8pt; font-weight:700; }
 .dark .pill { background:rgba(255,255,255,.10); color:#eaffff; border-color:rgba(255,255,255,.20); }
 .two { display:grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.compact-two .card { padding: 4.2mm 5mm; }
+.compact-two li { font-size: 11.2pt; margin-bottom: 1.4mm; }
 .three { display:grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
 .four { display:grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; }
 .card { background:rgba(255,255,255,.93); border:1px solid #d7e3ea; border-radius: 14px; padding: 5mm; box-shadow: 0 12px 26px rgba(16,24,40,.06); }
@@ -71,6 +73,13 @@ p, li { font-size: 12pt; line-height: 1.35; }
 .summary-table th { background:#111827; color:#fff; font-size: 10.2pt; text-align:left; padding: 2.8mm 3mm; }
 .summary-table td { font-size: 10.5pt; padding: 2.4mm 3mm; border-bottom:1px solid #dde7ee; vertical-align:top; }
 .summary-table .num { font-weight:900; font-size: 13pt; color:#0f766e; text-align:center; }
+.summary-cards { display:grid; grid-template-columns: repeat(5, 1fr); gap: 3.2mm; }
+.summary-card { background:#fff; border:1px solid #d7e3ea; border-radius:13px; padding:3.8mm; min-height:43mm; box-shadow:0 10px 22px rgba(16,24,40,.055); }
+.summary-card h3 { font-size:11.8pt; line-height:1.12; min-height:12mm; margin-bottom:2.5mm; }
+.summary-nums b { display:block; font-size:25pt; line-height:1; color:#04747c; }
+.summary-nums span { display:block; font-size:8.8pt; text-transform:uppercase; color:#60798a; letter-spacing:.06em; font-weight:900; }
+.summary-mini { margin-top:3mm; font-size:9.4pt; line-height:1.25; color:#46596b; }
+.summary-mini strong { color:#0f766e; }
 .bar { height: 7px; border-radius: 999px; background:#dbe8ee; overflow:hidden; margin-top:1.8mm; }
 .bar span { display:block; height:100%; background:linear-gradient(90deg,#00a6b2,#1a5f7a); }
 .corridor-grid { display:grid; grid-template-columns: 42mm 1fr 40mm; gap: 4mm; margin-bottom: 2.4mm; align-items:stretch; }
@@ -147,7 +156,7 @@ ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
 <section class="page">
   <div class="header"><div><div class="kicker">Cómo usar este documento</div><h2>Una guía de decisión, no un cronograma</h2></div><div class="brand">Plan comercial territorial<br>2026-09-02</div></div>
   <div class="callout"><strong>Alcance:</strong> presenta corredores, empresas objetivo y calidad de oportunidad. No fija todavía qué corredor se visita primero ni asigna fechas.</div>
-  <div class="two">
+  <div class="two compact-two">
     <div class="card">
       <h3>Qué muestra</h3>
       <ul class="clean">
@@ -155,7 +164,6 @@ ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
         <li>Empresas clase A como puertas de mayor encaje.</li>
         <li>Rubros donde PRESOL tiene oferta concreta.</li>
         <li>Calidad de teléfonos y necesidad de validación.</li>
-        <li>Base ampliada disponible en Excel para seguimiento.</li>
       </ul>
     </div>
     <div class="card">
@@ -164,17 +172,16 @@ ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
         <li>Secuencia operativa de salida.</li>
         <li>Tarifa mínima, precio/km y hora de hidrogrúa.</li>
         <li>Quién atiende consultas entrantes.</li>
-        <li>Qué contactos previos de PRESOL se activan primero.</li>
         <li>Alcance real para áridos/material suelto.</li>
       </ul>
     </div>
   </div>
-  <h3 style="margin-top:6mm">Resumen actualizado por corredor</h3>
-  <table class="summary-table"><thead><tr><th>Corredor</th><th>Total</th><th>Clase A</th><th>Tel. OK</th><th>Nuevos</th></tr></thead><tbody><tr><td><strong>Río Tercero / base</strong><div class="small">Validación inmediata y bajo costo de visita.</div></td><td class="num">28</td><td class="num">8</td><td class="num">10</td><td class="num">12</td></tr>
-<tr><td><strong>Corralito / acceso RN36</strong><div class="small">Bloque satélite agroindustrial para complementar salidas cortas.</div></td><td class="num">6</td><td class="num">1</td><td class="num">3</td><td class="num">4</td></tr>
-<tr><td><strong>RN36 Sur / Río Cuarto</strong><div class="small">Mayor concentración de obra y movimiento pesado.</div></td><td class="num">26</td><td class="num">14</td><td class="num">20</td><td class="num">3</td></tr>
-<tr><td><strong>RP6 / Villa María</strong><div class="small">Industria + agro + logística, con buena calidad de teléfonos.</div></td><td class="num">28</td><td class="num">8</td><td class="num">20</td><td class="num">6</td></tr>
-<tr><td><strong>RN36 Norte / Córdoba</strong><div class="small">Volumen alto, requiere selección fina por nicho y subzona.</div></td><td class="num">29</td><td class="num">13</td><td class="num">20</td><td class="num">6</td></tr></tbody></table>
+  <h3 style="margin-top:5mm">Resumen actualizado por corredor</h3>
+  <div class="summary-cards"><div class="summary-card"><h3>Río Tercero / base</h3><div class="summary-nums"><b>28</b><span>empresas</span></div><div class="summary-mini"><strong>8</strong> clase A · <strong>10</strong> tel. OK · <strong>12</strong> nuevas</div></div>
+<div class="summary-card"><h3>Corralito / acceso RN36</h3><div class="summary-nums"><b>6</b><span>empresas</span></div><div class="summary-mini"><strong>1</strong> clase A · <strong>3</strong> tel. OK · <strong>4</strong> nuevas</div></div>
+<div class="summary-card"><h3>RN36 Sur / Río Cuarto</h3><div class="summary-nums"><b>26</b><span>empresas</span></div><div class="summary-mini"><strong>14</strong> clase A · <strong>20</strong> tel. OK · <strong>3</strong> nuevas</div></div>
+<div class="summary-card"><h3>RP6 / Villa María</h3><div class="summary-nums"><b>28</b><span>empresas</span></div><div class="summary-mini"><strong>8</strong> clase A · <strong>20</strong> tel. OK · <strong>6</strong> nuevas</div></div>
+<div class="summary-card"><h3>RN36 Norte / Córdoba</h3><div class="summary-nums"><b>29</b><span>empresas</span></div><div class="summary-mini"><strong>13</strong> clase A · <strong>20</strong> tel. OK · <strong>6</strong> nuevas</div></div></div>
   <div class="footer"><span>PRESOL · Dirección</span><span>2</span></div>
 </section>
 
@@ -233,7 +240,7 @@ ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
       <div class="mini-stat"><b>12</b><span>nuevas</span></div>
     </div>
   </div>
-  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"></span></h3>
+  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"> · +2 clase A adicionales en Excel</span></h3>
   <div class="company-grid">
         <div class="company-card no-break">
           <h3>Hormicor</h3>
@@ -270,18 +277,6 @@ ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
           <div class="company-meta">Río Tercero · Obra / constructoras</div>
           <div class="company-hook">Pedir próximo movimiento de maquinaria entre frentes.</div>
           <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0351 6411413</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>ESISA</h3>
-          <div class="company-meta">Río Tercero · Módulos / containers</div>
-          <div class="company-hook">Socio natural para entregas de módulos a obra.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ver">VER</span><span class="small">Portería parque: 03571 565662 / mail esisa</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>IMBAL S.A.</h3>
-          <div class="company-meta">Río Tercero · Metalmecánica</div>
-          <div class="company-hook">Fabrican y montan; pedir responsable de despacho/montaje.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-a-relevar">A relevar</span><span class="small">A relevar</span></div>
         </div></div>
   <div class="footer"><span>Base completa en planilla enriquecida · Clase B/C disponibles para seguimiento</span><span>5</span></div>
 </section>
@@ -321,7 +316,7 @@ ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
       <div class="mini-stat"><b>3</b><span>nuevas</span></div>
     </div>
   </div>
-  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"> · +5 clase A adicionales en Excel</span></h3>
+  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"> · +8 clase A adicionales en Excel</span></h3>
   <div class="company-grid">
         <div class="company-card no-break">
           <h3>AFEMA S.A.</h3>
@@ -358,24 +353,6 @@ ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
           <div class="company-meta">Alcira Gigena · Agro / acopios</div>
           <div class="company-hook">Cotagro concentra 4 puntos del corredor; pedir compras/logística.</div>
           <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">358 4393127 / 358 4125695 / +</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Da Ros Premoldeados</h3>
-          <div class="company-meta">Río Cuarto · Agro / acopios</div>
-          <div class="company-hook">Premoldeados con productos agro e industriales y envío propio; PRESOL puede ofrecer refuerzo o traslados especiales.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">+54 358 508-9009</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Dexco Constructora</h3>
-          <div class="company-meta">Río Cuarto · Obra / constructoras</div>
-          <div class="company-hook">Tiene obras activas; pedir compras/operaciones.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0358 4640139 / 0358 154869634</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>INCISA S.A. — División Hormigones</h3>
-          <div class="company-meta">Río Cuarto · Hormigón / áridos</div>
-          <div class="company-hook">Dos plantas estratégicas y planta móvil; puede requerir traslados de equipos, bombas y apoyo en obras.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">3584 38 9870</span></div>
         </div></div>
   <div class="footer"><span>Base completa en planilla enriquecida · Clase B/C disponibles para seguimiento</span><span>7</span></div>
 </section>
@@ -392,7 +369,7 @@ ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
       <div class="mini-stat"><b>6</b><span>nuevas</span></div>
     </div>
   </div>
-  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"></span></h3>
+  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"> · +2 clase A adicionales en Excel</span></h3>
   <div class="company-grid">
         <div class="company-card no-break">
           <h3>ACA — Centro de Desarrollo Comercial Tío Pujio</h3>
@@ -429,18 +406,6 @@ ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
           <div class="company-meta">Villa María · Obra / constructoras</div>
           <div class="company-hook">Muy buen encaje con obras viales; pedir jefe de obra.</div>
           <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0353 4524006 / 0353 5006023</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Terramar Logística SRL / Terminal Villa María</h3>
-          <div class="company-meta">Villa María · Módulos / containers</div>
-          <div class="company-hook">Terminal interior de contenedores: oportunidad para traslados, entrega, retiro y apoyo de maniobras.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ver">VER</span><span class="small">0353 4533821</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Héctor A. Bertone S.A.</h3>
-          <div class="company-meta">Villa María · Agro / acopios</div>
-          <div class="company-hook">Pedir responsable de logística/acopio; teléfono a relevar.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-a-relevar">A relevar</span><span class="small">A relevar</span></div>
         </div></div>
   <div class="footer"><span>Base completa en planilla enriquecida · Clase B/C disponibles para seguimiento</span><span>8</span></div>
 </section>
@@ -457,7 +422,7 @@ ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
       <div class="mini-stat"><b>6</b><span>nuevas</span></div>
     </div>
   </div>
-  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"> · +4 clase A adicionales en Excel</span></h3>
+  <h3 style="margin-top:5mm">Puertas de mayor encaje para revisar con PRESOL<span class="small"> · +7 clase A adicionales en Excel</span></h3>
   <div class="company-grid">
         <div class="company-card no-break">
           <h3>AG GROUP Industria</h3>
@@ -494,24 +459,6 @@ ul.clean li { margin-bottom:2mm; font-size:11.4pt; }
           <div class="company-meta">Córdoba capital zona sur · Hormigón / áridos</div>
           <div class="company-hook">Av. Vélez Sarsfield 5801; entrada directa por corredor.</div>
           <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0351 4939510 / 0351 4945800</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Lucy’s House / Rental</h3>
-          <div class="company-meta">Córdoba capital zona sur · Módulos / containers</div>
-          <div class="company-hook">Muy buen encaje para planchada + malacate.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0351 2077113</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>MegaContainers</h3>
-          <div class="company-meta">Córdoba capital zona sur · Módulos / containers</div>
-          <div class="company-hook">Proveedor natural: cada container vendido necesita logística.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">0351 5179179</span></div>
-        </div>
-        <div class="company-card no-break">
-          <h3>Miguel Ángel Premoldeados</h3>
-          <div class="company-meta">Alta Gracia · Hormigón / áridos</div>
-          <div class="company-hook">Premoldeados con línea infraestructura y piezas especiales; buen encaje para plataforma e hidrogrúa.</div>
-          <div class="card-bottom"><span class="badge priority-A">Clase A</span><span class="phone q-ok">OK</span><span class="small">03547 430962 / 03547 15501860</span></div>
         </div></div>
   <div class="footer"><span>Base completa en planilla enriquecida · Clase B/C disponibles para seguimiento</span><span>9</span></div>
 </section>
