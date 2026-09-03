@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-09-02 10:02 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas sigue agotado (121 leads fuente; tracker 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles; 19 no componibles) · 113 leads inmobiliarios 31/08 listos para outreach manual · recibo Víctor Abrile ARS 178.860 pendiente de cobro · Construvial/PRESOL activó campaña de campo 2 semanas con auto + viáticos + fijo, monto/condición no registrados · briefing vigente vencido.
+**Última actualización:** 2026-09-02 23:58 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas sigue agotado (121 leads fuente; tracker 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles; 19 no componibles) · 113 leads inmobiliarios 31/08 listos para outreach manual · recibo Víctor Abrile ARS 178.860 pendiente de cobro · Construvial/PRESOL activó campaña de campo 2 semanas con auto + viáticos + fijo, monto/condición no registrados · briefing vigente vencido.
 
 ---
 
@@ -71,7 +71,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 - Wolfim: foco principal mientras KPIs formales sigan vencidos. Web Viejas sin inventario; prioridad real es seguimiento/cierre.
 - Ango: junio $333 cobrados. MONTECOR pagar importación sigue pendiente. Handoffs locales de landing/medición/Ads siguen sin cierre visible.
-- Construvial: PRESOL pasó a **campaña activa** 2026-09-01: Juan tiene campaña de campo 2 semanas (auto + viáticos + fijo) para logística/cargas pesadas en corredores Río Tercero→Río Cuarto/Villa María/Córdoba. Paquete creado: plan, oferta, ficha, WhatsApp, planilla, dossier 86 prospectos, mapas y micro-rutas. Falta registrar monto/condición de pago y confirmar tarifa base/km + áridos/volcador.
+- Construvial: PRESOL pasó a **campaña activa** 2026-09-01: Juan tiene campaña de campo 2 semanas (auto + viáticos + fijo) para logística/cargas pesadas en corredores Río Tercero→Río Cuarto/Villa María/Córdoba. Paquete creado: plan, oferta, ficha, WhatsApp, planilla, paquete dirección/campo ampliado a 117 empresas (44 clase A, 73 teléfonos OK) + PDF final 35 páginas. Falta registrar monto/condición de pago y cerrar tarifa base/km, mínima, hora hidrogrúa, responsable WhatsApp y alcance áridos/volcador.
 - Korantis: sin revenue; modo evidencia + scout. No desplazar a Wolfim.
 - Almas Libres: profile activo; `HO-2026-08-03-001` pide MVP institucional + padrinazgo equino en preview, sin publicación hasta validar datos y activos.
 

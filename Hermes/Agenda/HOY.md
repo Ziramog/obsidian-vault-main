@@ -1,15 +1,15 @@
 ---
 owner: brain-vps
-date: 2026-09-01
-updated-at: 2026-09-01T23:58:19-03:00
+date: 2026-09-02
+updated-at: 2026-09-02T23:58:04-03:00
 summary-status: completed
 source: session-end-cron
-linked-session: hq/sessions/2026-09-01.md
+linked-session: hq/sessions/2026-09-02.md
 ---
 
-# Agenda 2026-09-01
+# Agenda 2026-09-02
 
-> Cierre cron end-of-day. No existía agenda del día al abrir; se crea desde la actividad real reconstruida. Resumen completo: [[2026-09-01|hq/sessions/2026-09-01]].
+> Cierre cron end-of-day. Resumen completo: [[2026-09-02|hq/sessions/2026-09-02]]. Briefing y KPIs siguen vencidos; no se cambian prioridades globales desde cron.
 
 ## 🔴 Arrastre / requiere acción de Juan
 
@@ -17,28 +17,26 @@ linked-session: hq/sessions/2026-09-01.md
 - [ ] **Hacer follow-up humano a Luis Farias y Madelen** — el pipeline no se mueve solo.
 - [ ] **Confirmar cobro pendiente de Víctor Abrile** — recibo ARS 178.860 emitido 31/08; no hay acreditación registrada hoy.
 - [ ] **Definir uso real de los 113 leads inmobiliarios del 31/08** — outreach manual con hallazgo concreto o descarte.
-- [ ] **PRESOL día 0** — fijar tarifa base/km, mínima, hora hidrogrúa, condición de cobro/fijo para Juan y confirmar si se puede vender áridos/volcador.
-- [ ] **Responder AWS suspension warning** — wording mínimo/seguro; no admitir deuda/culpa.
-- [ ] **Revisar vencimientos Naranja X y Ecogas** — Naranja $2.541.932,97 + USD 51,72 vto 10/09; Ecogas $32.571,03 vto 10/09 + deuda previa $31.886,61.
-- [ ] **Echo Project / Project Dubbing** — cargar horas pendientes y decidir si tomar jobs.
-- [ ] **Triage Hermes update/gateway** — gateway activo pero Hermes sigue 157 commits behind.
+- [ ] **PRESOL antes de calle** — fijar tarifa base/km, mínima, hora hidrogrúa, condición de cobro/fijo para Juan, responsable WhatsApp y confirmar si se puede vender áridos/volcador.
+- [ ] **Revisar n8n security update** — solo si existe instancia self-hosted activa.
+- [ ] **Revisar facturas Ziramog/Juanchi** — ARS 3.244.750,52 y ARS 13.981.057,89.
+- [ ] **Triage Hermes update/gateway** — gateway activo, pero el update de hoy tuvo `npm ENOTEMPTY` y bloqueo de gateway start desde el propio gateway.
 - [ ] **Cerrar/revalidar handoffs vencidos** — Wolfim Motors Demo, Almas Libres, Sync V6 y ANGO.
 - [ ] **Limpiar memoria persistente bloqueada `hermes_env`**.
 
 ## ✅ Cerrado hoy
 
-- [x] **Health check 04:00 ART** — Gateway ✅, Telegram ✅, Hermes ✅; 144 errores no auto-reparables; alerta enviada.
-- [x] **`hermes update` 09:00 ART** — actualizado a v0.21.0, pero restart incompleto y aún 157 commits behind.
-- [x] **`cron_campaign.py` 10:00 ART** — cola agotada; no hay leads pendientes.
-- [x] **Check replies Gmail 10:04 / 14:05 / 18:02 ART** — `Sin novedades`.
-- [x] **Morning Report 11:01 ART** — enviado a Telegram (`Sent to 1479438002`, `DONE`).
-- [x] **Daily Email Summary 13:06 ART** — detectó Raypac, AWS, Naranja, Ecogas, Echo Project y Project Dubbing.
-- [x] **Construvial/PRESOL 19:40–22:39 ART** — paquete completo de campaña creado: plan, oferta, ficha, WhatsApp, planilla, dossier, PDFs, mapa, KML/GeoJSON/CSV y patterns.
-- [x] **Resumen end-of-day generado** — `hq/sessions/2026-09-01.md`, Daily, Agenda y MEMORY consolidados.
+- [x] **Health check 04:01 ART** — Gateway ✅, Telegram ✅, Hermes ✅; 85 errores no auto-reparables; alerta enviada.
+- [x] **Hermes update/gateway 09:00 ART** — ejecutado con problemas; no queda como cierre limpio.
+- [x] **`cron_campaign.py` 10:02 ART** — ejecutado OK; cola agotada: `✅ Todos los leads han sido enviados. No hay más pendientes.`
+- [x] **Check replies Gmail 10:03 / 14:03 / 18:02 ART** — 51 emails nuevos monitoreados, 0 respuestas/candidatos de campaña; último top ID 69857.
+- [x] **Morning Report 11:01 ART** — enviado (`Sent to 1479438002`, `DONE`).
+- [x] **Inbox triage 13:02 ART** — detectó 2 facturas/adjuntos financieros grandes de Ziramog/Juanchi y 1 security update n8n.
+- [x] **Construvial/PRESOL 12:50–17:43 ART** — paquete comercial/dirección creado y refinado: 117 empresas, 44 A, 73 teléfonos OK, PDF 35 páginas listo para reunión.
+- [x] **Resumen end-of-day generado** — `hq/sessions/2026-09-02.md`, Daily y Agenda consolidados.
 
 ## 🟡 Atención operativa
 
-- Semáforo financiero no confirmable: `kpis.md` sigue vencido.
-- Briefing vigente vencido: no hay autorización fresca global; PRESOL queda marcado como excepción por mandato documentado.
-- Construvial activó trabajo real; falta registrar monto/condición de pago.
-- Web Viejas email sigue sano pero vacío.
+- Wolfim: canal automático sano pero sin inventario. La acción real es humana.
+- Construvial/PRESOL: buena producción, pero sin precio/monto/condición registrada todavía.
+- Sistema: gateway activo; update no resuelto limpiamente.
