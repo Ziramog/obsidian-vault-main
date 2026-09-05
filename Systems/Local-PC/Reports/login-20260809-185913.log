@@ -1,0 +1,27 @@
+﻿18:59:13 === PC Brain - Monitor de Login ===
+18:59:13 Inicio: 08/09/2026 18:59:13
+18:59:13 --- 1. Espacio libre ---
+18:59:13   C:: 249 GB libre de 476.9 GB (52.2%)
+18:59:13   D:: 273.6 GB libre de 495.8 GB (55.2%)
+18:59:13   H:: 42.1 GB libre de 488.3 GB (8.6%)
+18:59:13   ALERTA: H: por debajo del 10%
+18:59:13   I:: 209.9 GB libre de 878.9 GB (23.9%)
+18:59:14 --- 2. Estado de discos ---
+18:59:18   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+18:59:19   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+18:59:19 --- 3. Ultimo backup ---
+18:59:19   No se detecto sistema de backup automatico
+18:59:19 --- 4. Errores criticos (24h) ---
+18:59:19   18:59 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+18:59:19   18:58 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:59:19   18:58 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:59:19   18:58 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:59:19   18:58 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:59:19   18:57 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {94269C4E-071A-4116-90E6-52E557067E4E} did not register with DCOM within the required timeout.
+18:59:19   17:56 [Error] Microsoft-Windows-WindowsUpdateClient: 20 - Installation Failure: Windows failed to install the following update with error 0x80073D02: 9PLM9XGG6VKS-OpenAI.Codex.
+18:59:19   17:56 [Error] Microsoft-Windows-WindowsUpdateClient: 20 - Installation Failure: Windows failed to install the following update with error 0x80073D02: 9NKSQGP7F2NH-5319275A.WhatsA
+18:59:19 --- 5. Boot NVMe ---
+18:59:19   Error verificando NVMe
+18:59:19 --- Actualizando STATUS.md ---
+18:59:19 STATUS.md actualizado
+18:59:20 === Completado en 6.8 segundos ===

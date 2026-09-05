@@ -1,0 +1,13 @@
+﻿08:00:00 === PC Brain - Backup Documents ===
+08:00:00 Inicio: 08/31/2026 08:00:00
+08:00:00 Origen: C:\Users\ingju\Documents
+08:00:00 Destino: D:\Backups\Documents
+08:00:01 Espacio libre en D:: 273 GB
+08:00:03 Origen: 19983 archivos, 1.46 GB
+08:00:03 Iniciando robocopy...
+08:00:08 robocopy completado (codigo 3):
+08:00:08   - Archivos nuevos copiados
+08:00:08   - Archivos extra en destino (ok)
+08:00:08 Duracion: 7.7 segundos
+08:00:08 Log: C:\Projects\Obsidian\obsidian-vault-main\Systems\Local-PC\Reports\robocopy-backup-documents.log
+08:00:08 === Backup Documents completado ===

@@ -1,0 +1,23 @@
+﻿21:19:21 === PC Brain - Monitor de Login ===
+21:19:21 Inicio: 08/20/2026 21:19:21
+21:19:21 --- 1. Espacio libre ---
+21:19:22   C:: 245.4 GB libre de 476.9 GB (51.4%)
+21:19:22   D:: 273.6 GB libre de 495.8 GB (55.2%)
+21:19:22   H:: 39.5 GB libre de 488.3 GB (8.1%)
+21:19:22   ALERTA: H: por debajo del 10%
+21:19:22   I:: 209.9 GB libre de 878.9 GB (23.9%)
+21:19:22 --- 2. Estado de discos ---
+21:19:27   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+21:19:27   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+21:19:27 --- 3. Ultimo backup ---
+21:19:27   No se detecto sistema de backup automatico
+21:19:27 --- 4. Errores criticos (24h) ---
+21:19:27   21:19 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+21:19:27   21:19 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+21:19:27   15:42 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server Microsoft.Windows.ContentDeliveryManager_10.0.19041.4239_neutral_neutral_cw5n1h2txyewy!App.AppX2dz2dz7bvszf1s
+21:19:27   15:42 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {082F08A8-6F51-4FA3-9A14-7563C83D7C49} did not register with DCOM within the required timeout.
+21:19:27 --- 5. Boot NVMe ---
+21:19:27   Error verificando NVMe
+21:19:27 --- Actualizando STATUS.md ---
+21:19:27 STATUS.md actualizado
+21:19:28 === Completado en 6.8 segundos ===

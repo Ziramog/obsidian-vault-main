@@ -1,15 +1,15 @@
 ﻿# STATUS - DESKTOP-3V091DM
 
-> Ultima actualizacion: 2026-07-18 18:54:22
+> Ultima actualizacion: 2026-08-30 14:41:49
 > Script: workspace/scripts/monitor-login.ps1
 
 ## Discos
 
 | Unidad | Capacidad | Libre | Porcentaje | Estado |
 |--------|-----------|-------|------------|--------|
-| C: | 476.9 GB | 293.5 GB | 61.5% | OK |
-| D: | 495.8 GB | 274.5 GB | 55.4% | OK |
-| H: | 488.3 GB | 48.4 GB | 9.9% | OK |
+| C: | 476.9 GB | 250.9 GB | 52.6% | OK |
+| D: | 495.8 GB | 273 GB | 55.1% | OK |
+| H: | 488.3 GB | 39.5 GB | 8.1% | OK |
 | I: | 878.9 GB | 209.9 GB | 23.9% | OK |
 
 ## Ultimo backup
@@ -24,7 +24,9 @@
 ## Errores recientes (24h)
 
 `
-(No se pudieron leer eventos del sistema: requiere admin)
+18:30 [Error] Volsnap: 36 - The shadow copies of volume C: were aborted because the shadow copy storage could not grow due to a user imposed limit.
+18:29 [Error] Microsoft-Windows-WindowsUpdateClient: 20 - Installation Failure: Windows failed to install the following update with error 0x80073D02: 9PLM9XGG6VKS-OpenAI.Codex.
+18:29 [Error] Microsoft-Windows-WindowsUpdateClient: 20 - Installation Failure: Windows failed to install the following update with error 0x80073D02: 9WZDNCRD29V9-MICROSOFT.MICRO
 `
 
 ## Tareas programadas
