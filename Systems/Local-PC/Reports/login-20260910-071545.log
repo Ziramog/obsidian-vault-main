@@ -1,0 +1,29 @@
+﻿07:15:45 === PC Brain - Monitor de Login ===
+07:15:46 Inicio: 09/10/2026 07:15:45
+07:15:46 --- 1. Espacio libre ---
+07:15:48   C:: 215.3 GB libre de 476.9 GB (45.1%)
+07:15:48   D:: 272.9 GB libre de 495.8 GB (55%)
+07:15:48   H:: 31.3 GB libre de 488.3 GB (6.4%)
+07:15:48   ALERTA: H: por debajo del 10%
+07:15:48   I:: 196.5 GB libre de 878.9 GB (22.4%)
+07:15:48 --- 2. Estado de discos ---
+07:15:54   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+07:15:55   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+07:15:55 --- 3. Ultimo backup ---
+07:15:55   No se detecto sistema de backup automatico
+07:15:55 --- 4. Errores criticos (24h) ---
+07:15:55   07:15 [Error] Microsoft-Windows-DNS-Client: 1012 - There was an error while attempting to read the local hosts file.
+07:15:55   23:13 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
+07:15:55   23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+07:15:55   23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+07:15:55   23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+07:15:55   23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+07:15:55   23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
+07:15:55   23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
+07:15:55   23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
+07:15:55   23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
+07:15:55 --- 5. Boot NVMe ---
+07:15:56   Error verificando NVMe
+07:15:56 --- Actualizando STATUS.md ---
+07:15:56 STATUS.md actualizado
+07:15:56 === Completado en 10.8 segundos ===

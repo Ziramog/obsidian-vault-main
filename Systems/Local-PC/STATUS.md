@@ -1,16 +1,16 @@
 ﻿# STATUS - DESKTOP-3V091DM
 
-> Ultima actualizacion: 2026-08-30 14:41:49
+> Ultima actualizacion: 2026-09-10 07:15:56
 > Script: workspace/scripts/monitor-login.ps1
 
 ## Discos
 
 | Unidad | Capacidad | Libre | Porcentaje | Estado |
 |--------|-----------|-------|------------|--------|
-| C: | 476.9 GB | 250.9 GB | 52.6% | OK |
-| D: | 495.8 GB | 273 GB | 55.1% | OK |
-| H: | 488.3 GB | 39.5 GB | 8.1% | OK |
-| I: | 878.9 GB | 209.9 GB | 23.9% | OK |
+| C: | 476.9 GB | 215.3 GB | 45.1% | OK |
+| D: | 495.8 GB | 272.9 GB | 55% | OK |
+| H: | 488.3 GB | 31.3 GB | 6.4% | OK |
+| I: | 878.9 GB | 196.5 GB | 22.4% | OK |
 
 ## Ultimo backup
 
@@ -24,9 +24,16 @@
 ## Errores recientes (24h)
 
 `
-18:30 [Error] Volsnap: 36 - The shadow copies of volume C: were aborted because the shadow copy storage could not grow due to a user imposed limit.
-18:29 [Error] Microsoft-Windows-WindowsUpdateClient: 20 - Installation Failure: Windows failed to install the following update with error 0x80073D02: 9PLM9XGG6VKS-OpenAI.Codex.
-18:29 [Error] Microsoft-Windows-WindowsUpdateClient: 20 - Installation Failure: Windows failed to install the following update with error 0x80073D02: 9WZDNCRD29V9-MICROSOFT.MICRO
+07:15 [Error] Microsoft-Windows-DNS-Client: 1012 - There was an error while attempting to read the local hosts file.
+23:13 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
+23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
+23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
+23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
+23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
 `
 
 ## Tareas programadas
