@@ -8,7 +8,17 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-09-02 23:58 ART | **Semáforo no confirmable: KPIs formales incompletos** · Web Viejas sigue agotado (121 leads fuente; tracker 107 registros: 97 `sent`, 10 `bounced`, 0 `failed`, 0 pendientes componibles; 19 no componibles) · 113 leads inmobiliarios 31/08 listos para outreach manual · recibo Víctor Abrile ARS 178.860 pendiente de cobro · Construvial/PRESOL activó campaña de campo 2 semanas con auto + viáticos + fijo, monto/condición no registrados · briefing vigente vencido.
+**Última actualización:** 2026-09-22 13:40 ART | **Semáforo no confirmable: KPIs formales incompletos (vencidos desde 25/06)** · 🔴 Cuota del token-plan agotada desde 20/09: los 8 jobs agent-mode del VPS están caídos hasta el reset del 27/09 22:55 UTC (propuesta de pineo a DeepSeek esperando aprobación de Juan) · Web Viejas sin cola · recibo Víctor Abrile ARS 178.860 pendiente de cobro · briefing vencido desde 25/06.
+
+---
+
+## Incidente activo — cuota de proveedor (2026-09-22)
+
+- Modelo default `qwen3.8-max` vía provider `custom` (token-plan.ap-southeast-1.maas.aliyuncs.com) agotó su cuota semanal el 20/09.
+- Caídos todos los jobs agent-mode: health check 04:00, morning report 08:00, `check-replies` (18 fallos seguidos), `wolfim-campaign`, session end-of-day 23:55, update diario, informe mensual Roggero, daily email summary.
+- Siguen OK los jobs no-agent (auto-solve, agenda reminder, backups): son scripts, no consumen modelo.
+- Probe en vivo 22/09: DeepSeek ✅, Gemini ✅, MiniMax ✅, OpenRouter ❌ (400).
+- Fix propuesto y NO aplicado (requiere aprobación de Juan por ser gasto/cambio de proveedor): `hermes cron edit <id> --model deepseek-chat --provider deepseek` sobre los 8 jobs.
 
 ---
 
