@@ -1,10 +1,1 @@
-{
-  "job": "check-replies",
-  "account": "ingjuangomariz@gmail.com",
-  "campaign_subject_prefix": "Noté algo en la web de",
-  "last_checked_at": "2026-09-14T10:00:58-03:00",
-  "last_top_envelope_id": 70486,
-  "previous_top_envelope_id": 70138,
-  "delta_count": 348,
-  "last_result": "Sin novedades"
-}
+{"job": "check-replies", "account": "ingjuangomariz@gmail.com", "campaign_subject_prefix": "Noté algo en la web de", "last_checked_at": "2026-09-23T14:02:00-03:00", "last_top_envelope_id": 71033, "previous_top_envelope_id": 70486, "delta_count": 546, "last_result": "Sin novedades"}
