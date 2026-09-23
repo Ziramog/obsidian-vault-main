@@ -1,0 +1,25 @@
+﻿18:37:28 === PC Brain - Monitor de Login ===
+18:37:28 Inicio: 09/22/2026 18:37:28
+18:37:28 --- 1. Espacio libre ---
+18:37:29   C:: 148.7 GB libre de 476.9 GB (31.2%)
+18:37:29   D:: 272.3 GB libre de 495.8 GB (54.9%)
+18:37:29   H:: 31.3 GB libre de 488.3 GB (6.4%)
+18:37:29   ALERTA: H: por debajo del 10%
+18:37:29   I:: 161.2 GB libre de 878.9 GB (18.3%)
+18:37:29 --- 2. Estado de discos ---
+18:37:33   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+18:37:33   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+18:37:33 --- 3. Ultimo backup ---
+18:37:33   No se detecto sistema de backup automatico
+18:37:33 --- 4. Errores criticos (24h) ---
+18:37:33   18:37 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+18:37:33   18:35 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:37:33   18:35 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:37:34   18:35 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:37:34   18:35 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:37:34   18:33 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {082F08A8-6F51-4FA3-9A14-7563C83D7C49} did not register with DCOM within the required timeout.
+18:37:34 --- 5. Boot NVMe ---
+18:37:34   Error verificando NVMe
+18:37:34 --- Actualizando STATUS.md ---
+18:37:34 STATUS.md actualizado
+18:37:34 === Completado en 6.2 segundos ===

@@ -1,16 +1,16 @@
 ﻿# STATUS - DESKTOP-3V091DM
 
-> Ultima actualizacion: 2026-09-10 07:15:56
+> Ultima actualizacion: 2026-09-22 18:37:34
 > Script: workspace/scripts/monitor-login.ps1
 
 ## Discos
 
 | Unidad | Capacidad | Libre | Porcentaje | Estado |
 |--------|-----------|-------|------------|--------|
-| C: | 476.9 GB | 215.3 GB | 45.1% | OK |
-| D: | 495.8 GB | 272.9 GB | 55% | OK |
+| C: | 476.9 GB | 148.6 GB | 31.2% | OK |
+| D: | 495.8 GB | 272.3 GB | 54.9% | OK |
 | H: | 488.3 GB | 31.3 GB | 6.4% | OK |
-| I: | 878.9 GB | 196.5 GB | 22.4% | OK |
+| I: | 878.9 GB | 161.2 GB | 18.3% | OK |
 
 ## Ultimo backup
 
@@ -24,16 +24,12 @@
 ## Errores recientes (24h)
 
 `
-07:15 [Error] Microsoft-Windows-DNS-Client: 1012 - There was an error while attempting to read the local hosts file.
-23:13 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
-23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
-23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
-23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
-23:08 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
-23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
-23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
-23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
-23:06 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {AB8902B4-09CA-4BB6-B78D-A8F59079A8D5} did not register with DCOM within the required timeout.
+18:37 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+18:35 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:35 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:35 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:35 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{07994733-C8B2-4A17-83A5-A53718485262} because another co
+18:33 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {082F08A8-6F51-4FA3-9A14-7563C83D7C49} did not register with DCOM within the required timeout.
 `
 
 ## Tareas programadas
