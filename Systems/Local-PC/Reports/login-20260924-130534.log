@@ -1,0 +1,29 @@
+﻿13:05:34 === PC Brain - Monitor de Login ===
+13:05:34 Inicio: 09/24/2026 13:05:34
+13:05:34 --- 1. Espacio libre ---
+13:05:35   C:: 159 GB libre de 476.9 GB (33.3%)
+13:05:35   D:: 272.3 GB libre de 495.8 GB (54.9%)
+13:05:35   H:: 31.3 GB libre de 488.3 GB (6.4%)
+13:05:35   ALERTA: H: por debajo del 10%
+13:05:36   I:: 161.2 GB libre de 878.9 GB (18.3%)
+13:05:36 --- 2. Estado de discos ---
+13:05:40   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+13:05:40   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+13:05:40 --- 3. Ultimo backup ---
+13:05:40   No se detecto sistema de backup automatico
+13:05:40 --- 4. Errores criticos (24h) ---
+13:05:40   13:05 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+13:05:40   13:05 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+13:05:40   13:05 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+13:05:40   13:05 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+13:05:40   12:56 [Error] Microsoft-Windows-TPM-WMI: 1801 - Secure Boot CA/keys need to be updated. This device signature information is included here.
+13:05:40   12:49 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {082F08A8-6F51-4FA3-9A14-7563C83D7C49} did not register with DCOM within the required timeout.
+13:05:40   12:46 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+13:05:40   12:46 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+13:05:40   12:46 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+13:05:40   12:46 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+13:05:40 --- 5. Boot NVMe ---
+13:05:40   Error verificando NVMe
+13:05:40 --- Actualizando STATUS.md ---
+13:05:40 STATUS.md actualizado
+13:05:40 === Completado en 6.2 segundos ===
