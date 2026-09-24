@@ -16,7 +16,8 @@ source: mixed
 
 - Cron sábado 10:00 OK; paso 1-4 (Mongo Atlas, Cloudinary 1390, GitHub mirror, tar+sha) sanos. Paso 5 Drive falla por `invalid_grant` (refresh token revocado ~agosto) → **sin offsite**.
 - Causa del doble run de los sábados: crontab del sistema Y cron Hermes lanzan `backup.sh` a las 10:00. 5 duplicados (2,8 GB) borrados el 24/09 tras verificar sha256 de los keep; quedan 5 backups = 5,3 GB. Pendiente: desactivar el crontab del sistema (lo edita solo Juan o con aprobación explícita).
-- Decisión de Juan: offsite a **Cloudflare R2** via rclone. Bloqueo: el `[credencial: CLOUDFLARE_API_TOKEN]` actual da 403 en `/r2/buckets` (permiso R2 Read&Edit no incluido) y no existe bucket. Falta: Juan crea bucket + token con permiso R2, y se pone por SSH en `~/.hermes/.env` como `R2_ACCESS_KEY_ID`/`R2_SECRET_ACCESS_KEY` (recomendado: token API de R2 con policy Write). Luego rclone config no-interno con env_auth + `rclone copy` en backup.sh + rotación `rclone delete --min-age 30d`.
+- Decisión de Juan: offsite a **Cloudflare R2** via rclone. **✅ IMPLEMENTADO 24/09**: remote `wolfim-r2` → bucket `wolfim-backups`. Paso 5 de backup.sh sube con reintentos+checksum+verificación y **alerta por Telegram si falla**; retención **últimos 3 backups en R2** (free tier 10 GB). Doble programador eliminado (crontab del sistema comentado, con backup). Prueba end-to-end OK: sha local = sha remoto.
+- **Farias & Asociados**: carpeta `farias-asociados/` en el mismo bucket. Script `/home/hermes/roggero_backup/scripts/farias_backup.sh` (wrapper en `~/.hermes/scripts/farias-backup-wrapper.sh`) + cron Hermes `farias-backup-R2` sábados 10:00, retención 3. Hoy solo respalda datos (CSV/JSON propiedades, 5 KB); cuando el portal se active, agregar fuente Supabase/repo al script.
 
 ---
 
