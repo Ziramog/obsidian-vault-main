@@ -8,17 +8,15 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-09-22 13:40 ART | **Semáforo no confirmable: KPIs formales incompletos (vencidos desde 25/06)** · 🔴 Cuota del token-plan agotada desde 20/09: los 8 jobs agent-mode del VPS están caídos hasta el reset del 27/09 22:55 UTC (propuesta de pineo a DeepSeek esperando aprobación de Juan) · Web Viejas sin cola · recibo Víctor Abrile ARS 178.860 pendiente de cobro · briefing vencido desde 25/06.
+**Última actualización:** 2026-09-24 15:05 ART | **Semáforo no confirmable: KPIs formales incompletos (vencidos desde 25/06)** · Cuota token-plan: recuperada el 22-23/09 (crons verificados OK el 24/09); se dejó cadena de fallback activa `qwen3.8-flash → deepseek-flash` para futuros 429 · Backup Roggero: 100% OK local, offsite Drive roto (token OAuth revocado) — migración a R2 aprobada, pendiente de bucket + API token con permiso R2 · recibo Víctor Abrile ARS 178.860 pendiente de cobro · briefing vencido desde 25/06.
 
 ---
 
-## Incidente activo — cuota de proveedor (2026-09-22)
+## Backup Roggero & Roma — estado 2026-09-24
 
-- Modelo default `qwen3.8-max` vía provider `custom` (token-plan.ap-southeast-1.maas.aliyuncs.com) agotó su cuota semanal el 20/09.
-- Caídos todos los jobs agent-mode: health check 04:00, morning report 08:00, `check-replies` (18 fallos seguidos), `wolfim-campaign`, session end-of-day 23:55, update diario, informe mensual Roggero, daily email summary.
-- Siguen OK los jobs no-agent (auto-solve, agenda reminder, backups): son scripts, no consumen modelo.
-- Probe en vivo 22/09: DeepSeek ✅, Gemini ✅, MiniMax ✅, OpenRouter ❌ (400).
-- Fix propuesto y NO aplicado (requiere aprobación de Juan por ser gasto/cambio de proveedor): `hermes cron edit <id> --model deepseek-chat --provider deepseek` sobre los 8 jobs.
+- Cron sábado 10:00 OK; paso 1-4 (Mongo Atlas, Cloudinary 1390, GitHub mirror, tar+sha) sanos. Paso 5 Drive falla por `invalid_grant` (refresh token revocado ~agosto) → **sin offsite**.
+- Causa del doble run de los sábados: crontab del sistema Y cron Hermes lanzan `backup.sh` a las 10:00. 5 duplicados (2,8 GB) borrados el 24/09 tras verificar sha256 de los keep; quedan 5 backups = 5,3 GB. Pendiente: desactivar el crontab del sistema (lo edita solo Juan o con aprobación explícita).
+- Decisión de Juan: offsite a **Cloudflare R2** via rclone. Bloqueo: el `[credencial: CLOUDFLARE_API_TOKEN]` actual da 403 en `/r2/buckets` (permiso R2 Read&Edit no incluido) y no existe bucket. Falta: Juan crea bucket + token con permiso R2, y se pone por SSH en `~/.hermes/.env` como `R2_ACCESS_KEY_ID`/`R2_SECRET_ACCESS_KEY` (recomendado: token API de R2 con policy Write). Luego rclone config no-interno con env_auth + `rclone copy` en backup.sh + rotación `rclone delete --min-age 30d`.
 
 ---
 
