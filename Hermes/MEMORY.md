@@ -8,7 +8,24 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-09-24 15:05 ART | **Semáforo no confirmable: KPIs formales incompletos (vencidos desde 25/06)** · Cuota token-plan: recuperada el 22-23/09 (crons verificados OK el 24/09); se dejó cadena de fallback activa `qwen3.8-flash → deepseek-flash` para futuros 429 · Backup Roggero: 100% OK local, offsite Drive roto (token OAuth revocado) — migración a R2 aprobada, pendiente de bucket + API token con permiso R2 · recibo Víctor Abrile ARS 178.860 pendiente de cobro · briefing vencido desde 25/06.
+**Última actualización:** 2026-09-24 17:20 ART | **Ingresos sep-2026 registrados por Juan el 24/09 (ver sección Flujo de caja)** · Semáforo: pendiente confirmación formal en kpis.md (vacío desde 25/06) · Cuota token-plan: recuperada el 22-23/09 (crons verificados OK el 24/09); cadena de fallback activa `qwen3.8-flash → deepseek-flash` · Backup Roggero: 100% OK local, offsite Drive roto — migración a R2 aprobada, pendiente bucket + API token · briefing vencido desde 25/06, refresh en curso con prioridades nuevas (cobro Faarias 🥇, Presol/Construvial 🥈, trading 🥉).
+
+---
+
+## Flujo de caja — septiembre 2026 (datos de Juan, 24/09)
+
+| Concepto | Monto USD | Estado | Fecha |
+|---|---|---|---|
+| Wolfim — trabajo Faarias | 400 | Pendiente de cobro (trabajo terminado) | sep-2026 |
+| Construvial — Presol semana 1 | 333 | Cobrado | 1ª sem sep-2026 |
+| Construvial — Presol semana 2 | 333 | Pendiente de cobro | 2ª sem sep-2026 |
+| ANGO (regular mensual) | 333/mes | Cobrado sep | mensual recurrente |
+| Víctor Abrile | 266 | Cobrado | sep-2026 |
+
+- Cobrado sep: 932 USD (333 Presol + 333 ANGO + 266 Víctor).
+- Pendiente sep: 733 USD (400 Faarias + 333 Presol sem 2).
+- Víctor Abrile: cobrado en USD; queda verificar si el recibo ARS 178.860 pendiente quedó saldado con este ingreso.
+- Presol: ampliar en companies/construvial/intelligence/ — empresa del grupo Presol, trabajo semanal recurrente.
 
 ---
 
