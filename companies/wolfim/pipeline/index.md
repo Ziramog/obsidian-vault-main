@@ -7,7 +7,7 @@ Directorio de leads con conversación abierta o en proceso de cierre.
 | Lead | Empresa | Valor | Estado | Probabilidad |
 |------|---------|-------|--------|-------------|
 | Ann | Documental de cine | No cotizado | 🟡 WA agendado | — |
-| Luis Farias | Farias & Asociados | USD 399 + USD 29/mes desde mes 7 | Confirmado de palabra; anticipo pendiente para 2026-08-17 | 90% |
+| Luis Farias | Farias & Asociados | USD 399 + mantenimiento bonificado oct 2026-mar 2027; USD 29/mes desde abr 2027 | Detalle de cobro emitido 2026-09-25; pago pendiente | 90% |
 | Madelen | Suelo Argentino Negocios Inmobiliarios | USD 399 + USD 29/mes desde mes 7 | Respondió que lo están analizando | 55% |
 
 ## Cobros cerrados
@@ -21,6 +21,7 @@ Directorio de leads con conversación abierta o en proceso de cierre.
 | Fecha | Cliente | Concepto | Total | Estado |
 |---|---|---|---:|---|
 | 2026-08-31 | Víctor Abrile | Gestión publicitaria + costo publicidad Argenprop; aplica saldo a favor USD 18 | ARS 178.860 | 🟡 Pendiente de cobro |
+| 2026-09-25 | Farias & Asociados | Portal web inmobiliario; mantenimiento bonificado oct 2026-mar 2027 | USD 399 | 🟡 Pendiente de pago |
 
 ## Checkpoints
 - Julio 2026: $400/mes
