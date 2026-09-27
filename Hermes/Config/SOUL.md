@@ -55,7 +55,7 @@
 | Hermes/Indexes/ | obsidian-indexer o brain-vps | — | Auto-generado o semi-auto. |
 | Hermes/Reports/ | Scripts/reporting | — | Regenerables. |
 | Hermes/Systems/vps/ | brain-vps | — | Estado y notas del VPS, incluidos cron. |
-| Hermes/Systems/local/ | pc-ops / brain-local | — | Estado y notas locales. |
+| Hermes/Systems/local/ | pcbrain / brain-local | — | Estado y notas locales. pc-ops nunca existió; pcbrain cubre el rol desde 2026-06-23. |
 | Hermes/Quarantine/ | Cualquier agente (depósito) | — | Solo sale con revisión (ver sección 4). |
 | companies/wolfim/ | wolfim-growth | web-builder, brain-vps según subruta | No mezclar ventas con código sin handoff. |
 | companies/ango/ | ango-commercial | web-builder, brain-vps | ANGO no es Wolfim. |

@@ -107,7 +107,11 @@ Todos los profiles empresariales arrancan con scope acotado: pueden leer su empr
 | brain-local | Global local | Orquestador de producción local | Hermes/Handoffs/, repos activos | Briefing + handoffs pendientes |
 | web-builder | Desarrollo | Implementación web/apps, builds, deploy prep | repos locales + companies/*/projects/ | context + patterns de empresa activa |
 | web-auditor | Calidad | Auditoría independiente, performance, SEO, accesibilidad | companies/*/audit/ | Solo lectura de repos |
-| pc-ops | Sistema | PC, WSL, discos, Tailscale, backups locales | Hermes/Systems/local/ | — |
+| pcbrain | Sistema | PC Windows, discos, SMART, backups, inventario | Systems/Local-PC/ en vault | SYSTEM-INVENTORY + CHANGELOG |
+| algolab | Trading algo | Ejecución SQX, campaigns, backtests | profiles/algolab/workspace/ | — |
+| algolab-strategy | Trading research | Investigación/estrategia (no ejecuta) | profiles/algolab-strategy/workspace/ | — |
+| algolab-darwin | Trading optimización | Optimización evolutiva de estrategias | profiles/algolab-darwin/workspace/ | — |
+| trading-performance | Trading manual | Coach de proceso, premercado, journal, reglas prop firms | profiles/trading-performance/workspace/ | — |
 
 `web-auditor` tiene acceso de solo lectura a todos los repos activos del proyecto en curso. Solo escribe en paths de reporte. No modifica código.
 
@@ -310,7 +314,7 @@ applies-to:
 | `Hermes/Indexes/` | obsidian-indexer / brain-vps | — | Auto-generado |
 | `Hermes/Reports/` | Scripts/reporting | — | Regenerables |
 | `Hermes/Systems/vps/` | brain-vps | — | Estado y cron del VPS |
-| `Hermes/Systems/local/` | pc-ops / brain-local | — | Estado y notas locales |
+| `Hermes/Systems/local/` | pcbrain / brain-local | — | Estado y notas locales. pc-ops nunca existió; pcbrain cubre el rol |
 | `Hermes/Quarantine/` | Cualquier agente | — | Solo sale con revisión |
 | `Hermes/Memory/pending/` | brain-vps | — | Propuestas → consolidar en MEMORY |
 | `companies/wolfim/` | wolfim-growth | web-builder, brain-vps | No mezclar ventas con código |

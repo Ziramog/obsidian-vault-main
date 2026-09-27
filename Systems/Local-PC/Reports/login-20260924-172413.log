@@ -1,0 +1,29 @@
+﻿17:24:13 === PC Brain - Monitor de Login ===
+17:24:13 Inicio: 09/24/2026 17:24:13
+17:24:13 --- 1. Espacio libre ---
+17:24:14   C:: 147.1 GB libre de 476.9 GB (30.8%)
+17:24:14   D:: 272.3 GB libre de 495.8 GB (54.9%)
+17:24:14   H:: 31.3 GB libre de 488.3 GB (6.4%)
+17:24:14   ALERTA: H: por debajo del 10%
+17:24:14   I:: 161.2 GB libre de 878.9 GB (18.3%)
+17:24:14 --- 2. Estado de discos ---
+17:24:19   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+17:24:19   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+17:24:19 --- 3. Ultimo backup ---
+17:24:19   No se detecto sistema de backup automatico
+17:24:19 --- 4. Errores criticos (24h) ---
+17:24:19   17:24 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+17:24:19   17:24 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+17:24:19   17:21 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server {F4DF18B4-A2CF-4B0A-8D62-954CD6AD2E33} did not register with DCOM within the required timeout.
+17:24:19   17:21 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server Microsoft.YourPhone_1.25072.81.0_x64__8wekyb3d8bbwe!App.AppXn958k7nsj8mxxmsepqdam8xk948t30sc.mca did not regi
+17:24:19   17:21 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server Microsoft.WindowsStore_22608.1401.3.0_x64__8wekyb3d8bbwe!App.AppXbes12ecwhvvewxbmkmnasc9amnxfsx1c.mca did not
+17:24:19   17:21 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server Microsoft.YourPhone_1.25072.81.0_x64__8wekyb3d8bbwe!App.AppXn958k7nsj8mxxmsepqdam8xk948t30sc.mca did not regi
+17:24:19   17:21 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server MicrosoftWindows.Client.CBS_1000.19062.1000.0_x64__cw5n1h2txyewy!Global.DesktopSpotlight.AppXmakp9w4re9tj70pp
+17:24:19   17:21 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server Microsoft.Windows.Search_1.14.18.19041_neutral_neutral_cw5n1h2txyewy!ShellFeedsUI.AppXfbff151h5bmghg166fvn34c
+17:24:19   17:21 [Error] Microsoft-Windows-DistributedCOM: 10010 - The server Microsoft.YourPhone_1.25072.81.0_x64__8wekyb3d8bbwe!App.AppXn958k7nsj8mxxmsepqdam8xk948t30sc.mca did not regi
+17:24:19   13:05 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+17:24:19 --- 5. Boot NVMe ---
+17:24:20   Error verificando NVMe
+17:24:20 --- Actualizando STATUS.md ---
+17:24:20 STATUS.md actualizado
+17:24:20 === Completado en 7.1 segundos ===

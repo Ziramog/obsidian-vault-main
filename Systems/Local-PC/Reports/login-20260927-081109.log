@@ -1,0 +1,29 @@
+﻿08:11:09 === PC Brain - Monitor de Login ===
+08:11:09 Inicio: 09/27/2026 08:11:09
+08:11:09 --- 1. Espacio libre ---
+08:11:10   C:: 110.6 GB libre de 476.9 GB (23.2%)
+08:11:10   D:: 272.3 GB libre de 495.8 GB (54.9%)
+08:11:10   H:: 31.3 GB libre de 488.3 GB (6.4%)
+08:11:10   ALERTA: H: por debajo del 10%
+08:11:10   I:: 161.2 GB libre de 878.9 GB (18.3%)
+08:11:10 --- 2. Estado de discos ---
+08:11:14   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+08:11:14   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+08:11:14 --- 3. Ultimo backup ---
+08:11:14   No se detecto sistema de backup automatico
+08:11:14 --- 4. Errores criticos (24h) ---
+08:11:15   08:11 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+08:11:15   08:11 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+08:11:15   08:11 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+08:11:15   08:10 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{43D42B25-5935-48A9-882A-D26B9F4115A4} because another co
+08:11:15   08:10 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{43D42B25-5935-48A9-882A-D26B9F4115A4} because another co
+08:11:15   08:10 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{43D42B25-5935-48A9-882A-D26B9F4115A4} because another co
+08:11:15   08:10 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{43D42B25-5935-48A9-882A-D26B9F4115A4} because another co
+08:11:15   08:10 [Critical] Microsoft-Windows-Kernel-Power: 41 - The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding
+08:11:15   08:10 [Error] EventLog: 6008 - The previous system shutdown at 5:23:17 AM on ‎9/‎27/‎2026 was unexpected.
+08:11:15   21:25 [Error] Microsoft-Windows-WHEA-Logger: 1 - A fatal hardware error has occurred. A record describing the condition is contained in the data section of this event.
+08:11:15 --- 5. Boot NVMe ---
+08:11:15   Error verificando NVMe
+08:11:15 --- Actualizando STATUS.md ---
+08:11:15 STATUS.md actualizado
+08:11:15 === Completado en 5.9 segundos ===
