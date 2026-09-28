@@ -33,9 +33,14 @@ directorio, copia verbatim del original `C:\Projects\hermes-pwa\BRAIN_LOCAL_HAND
 2. Traer el código a `/opt/hermes-pwa`.
 3. Crear `/opt/hermes-pwa/.env.local` con `HERMES_API_URL=http://127.0.0.1:8642`,
    `HERMES_HOME=/root/.hermes`, `HERMES_VPS_URL=http://100.105.0.23:8642`.
+   **CORREGIDO 2026-09-27: la ruta real es `/home/hermes/.hermes` y el deploy va a
+   `/home/hermes/hermes-pwa` (sin sudo). Ver §5.**
 4. `npm install && npm run build` (debe salir con código 0).
 5. `pm2 start npm --name hermes-pwa -- run start && pm2 save && pm2 startup`.
+   **CORREGIDO: requiere startup propio del usuario `hermes`. Ver §5.**
 6. `tailscale serve --bg 3000` y verificar `tailscale serve status`.
+   **YA HECHO en el VPS: `https://vmi3131751.taila7f43b.ts.net` → `127.0.0.1:3000`.**
+   **Paso saltable.**
 
 ## 2. BLOQUEANTE REAL — el repo de GitHub está DESACTUALIZADO
 
@@ -83,3 +88,46 @@ Por eso este handoff queda `blocked-on: decision-de-juan`.
 - Desde el celular (4G/5G): el Directorio de Bots carga, los bots del VPS dan 🟢
   Online, se puede abrir un chat y cambiar el modelo desde la píldora del header.
 - `response.md` en este mismo directorio con URLs, paths y evidencia de los checks.
+
+---
+
+## 5. Preflight del VPS — correcciones al plan (2026-09-27, brain-vps)
+
+Auditoría real del servidor `vmi3131751` contra este documento. **Estas
+correcciones pisan lo que dice `BRAIN_LOCAL_HANDOVER.md`:**
+
+1. **`HERMES_HOME` está MAL en el handover.** La instalación vive en
+   `/home/hermes/.hermes` y todo corre como usuario `hermes`, no root (`/root` no
+   es listable). Con `/root/.hermes` el `GET/PATCH /api/profiles` no encuentra
+   ningún perfil.
+2. **Node: no hay nvm ni volta.** El `node -v` (26.7.0) sale del toolchain de
+   Hermes (`/home/hermes/.hermes/tools/node-26.7.0-linux-x64/bin/node`). Fijar
+   Node 20 = instalar por NodeSource (sudo passwordless, OK) **y** garantizar que
+   el PATH del PM2 de `hermes` apunte a ese node, no al de Hermes.
+3. **El criterio "sobrevive un reinicio" hoy no se cumple solo.** Los procesos
+   viven en el PM2 del usuario `hermes` (`agenda-telegram-bot`,
+   `hermes-dashboard`), pero la única unit de arranque es `pm2-root.service`
+   (root, `enabled`) y el `dump.pm2` de root está **vacío**. Un `pm2 save` desde
+   `hermes` no resucita nada post-reboot: hace falta startup propio de `hermes`
+   (systemd user + linger, o unit system corriendo como `hermes`).
+4. **Falta el único secreto.** El gateway `127.0.0.1:8642` responde
+   `401 Invalid gateway API key (API_SERVER_KEY)`. `HERMES_API_URL` es correcta;
+   lo que falta es la key que carga la PWA en el login. **La pasa el director por
+   fuera del vault — no se escribe acá.** (En la PC local el nombre de la variable
+   es `API_SERVER_KEY`; en el VPS vive en `/home/hermes/.hermes/.env`.)
+   @director: leerla ahí y pasarla a brain-vps por canal privado.
+
+**Atajo:** `tailscale serve` ya apunta `https://vmi3131751.taila7f43b.ts.net` →
+`http://127.0.0.1:3000`. El Paso 6 queda saltable.
+
+**Path de deploy — decisión: `/home/hermes/hermes-pwa`** (no `/opt`): corre como el
+mismo usuario dueño de PM2 y del `HERMES_HOME`, sin sudo y sin archivos
+root-owned. `/opt` está limpio pero no aporta nada acá.
+
+**Estado de red verificado por el VPS:** `TRUzT` (`100.105.0.23`) figura online, así
+que `HERMES_VPS_URL` es válido. Puerto 3000 libre; ocupados 22, 53, 443, 631, 4002,
+4011, 5003, 8642, 9119. Disco 73G libres / RAM 5.2Gi disponibles. PM2 6.0.14.
+Tailscale 1.102.2.
+
+**Sigue bloqueado en la decisión A/B/C del director** (ver §2). El handoff pasa a
+`in-progress` cuando esté el sha del push (A) o la transferencia rsync (B).
