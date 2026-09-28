@@ -80,7 +80,30 @@ congelado, no un fantasma inventado.
 - El PWA del PC está caído (`:3000`) y el funnel da 502 → cualquier agregación cross-node necesita
   `HERMES_PEER_PWA_URL` y el par arriba, si no el celular ve sólo el VPS.
 
-## 5. Reproducción
+## 5. Cierres del equipo (2026-09-28, sobre este recon)
+
+- **web-auditor** encontró el value completo en el `.log` del LevelDB: origen `file://`, key real de 55 bytes
+  `_file://\x00\x01hermes.plugin.hermes-bots.group-chats`, con `roomId:"rmuli31hi-inptr"`, `members` (incluye
+  `default` con `connectionKind:"remote"`) y un mapa `sessions:{"thread:tmuls27a9-gy4qv::local::web-auditor":"20260928_180756_e235d7"}`
+  → el store del Desktop mapea thread → id de sesión de `state.db`, así que reconstruir no exige adivinar salas.
+  Igual vive en localStorage del cliente: la PWA en `:3000` no lo puede leer.
+- **web-auditor** reconstruyó `rmugviqw9` entera sólo con `state.db`: **204 turnos** ordenados (primero
+  `1790357897`, último `1790550139`) parseando el envoltorio — o sea la reconstrucción es viable sin el store.
+- **brain-local**: el nodo **VPS tiene 0 sesiones de sala** (8 bots + `default`, 52 sesiones), por lo que las
+  salas del Desktop vistas desde el celular **tienen** que venir por peer fetch; con el PC apagado el estado es
+  "nodo offline", no lista vacía. Contrato HTTP congelado en el prompt de Fase 2.
+- **58→60 `hidden=1` / 3 visibles** (ids: brain-local `rmufxz2ti` 162 msgs, brain-local `rmugviqw9` 76,
+  web-builder `rmugviqw9` 87): quien derive salas del API de sesiones ve 3 de 63 → el camino de salas no puede
+  llevar el filtro `hidden`.
+- **El censo por título tiene lag de minutos**: `session_key`/`chat_id`/`chat_type`/`thread_id`/`origin_json`
+  están en NULL en las 63 filas; la sala y el thread viven sólo en el string `title`, que se escribe después de
+  crear la fila. Comparar antes/después contra un snapshot congelado, nunca recontando en vivo.
+- **Gap detectado acá (2026-09-28, posterior al censo de 61):** el censo limitado a `profiles/*/state.db` se
+  come las **2 sesiones del perfil `default`** en `HERMES_HOME/state.db` (`rmufxz2ti` → 6, no 4; total 63, no 61).
+  El `default` es miembro real de esa sala (`default-this-device`), así que si el PWA censa sólo directorios de
+  perfiles pierde sus respuestas.
+
+## 6. Reproducción
 
 ```bash
 # A: qué salas ve hoy la PWA desde profile.yaml
