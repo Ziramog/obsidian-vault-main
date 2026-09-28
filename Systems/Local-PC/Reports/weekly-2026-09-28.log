@@ -1,0 +1,19 @@
+﻿09:00:07 === PC Brain - Monitor Semanal ===
+09:00:08 --- 1. SMART ---
+09:00:20   WD PC SN740 SDDPNQD-512G-2006 | SSD | 476.9 GB | Healthy | OK
+09:00:20   WDC WD20EZRZ-00Z5HB0 | HDD | 1863 GB | Healthy | OK
+09:00:20 --- 2. Espacio ---
+09:00:20   C:: 476.9 GB total, 110.2 GB libre (23.1%) []
+09:00:20   D:: 495.8 GB total, 272.3 GB libre (54.9%) [Programas]
+09:00:20   H:: 488.3 GB total, 31.3 GB libre (6.4%) [TRUzT]
+09:00:20   I:: 878.9 GB total, 161.2 GB libre (18.3%) [Downloads]
+09:00:20 --- 3. Defender ---
+09:00:23   Defender OK
+09:00:23 --- 4. Updates ---
+09:00:49   Updates: 9 pendientes
+09:00:49 --- 5. Git ---
+09:00:57   Repos con problemas: 1
+09:00:57 --- 6. .env ---
+09:01:06   .env files: 13
+09:01:07 === Completado en 60.3 segundos ===
+09:01:08 Informe guardado: C:\Projects\Obsidian\obsidian-vault-main\Systems\Local-PC\Reports\weekly-2026-09-28.md
