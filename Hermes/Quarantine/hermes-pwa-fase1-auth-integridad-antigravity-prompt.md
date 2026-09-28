@@ -126,6 +126,20 @@ nuevo `src/app/api/health/route.ts`.
 - Cero secretos en el repo: leerlos siempre del env.
 - No romper el login actual: la key que hoy funciona debe seguir entrando, pero terminando en cookie.
 
+## Modo de entrega (lo fija quien lanza; el resto del prompt no cambia)
+
+- **Modo (iii) — recomendado:** un commit en `fix/fase1-auth` **+ push de esa rama** (nunca `main`). Es la única
+  que permite el rollout del VPS con `fetch + checkout <SHA>`; `main` queda en `46ca485` hasta que Juan mergee.
+- **Modo (ii):** los cambios quedan en la rama **sin commitear**; además de `tsc` + `build`, entregar
+  `git diff > <ruta FUERA del repo>/fase1.diff` y el `sha256sum` del árbol, para que la verificación de
+  web-auditor quede anclada a algo identificable.
+- **Modo (i):** commit local en `fix/fase1-auth`, sin push (el VPS no puede enrollar hasta que haya push).
+
+Higiene del commit (aplica a los tres modos): `.env.local`, `.next`, `*.tsbuildinfo` y `public/sw.js` ya están en
+`.gitignore` (verificado con `git check-ignore`), así que `git add -A` no arrastra secretos ni artefactos; **no**
+commitear `.env*`, ni `fase1.diff`, ni nada de `.next/`. El `fase1.diff` va **fuera** del repo: adentro lo deja
+sucio y rompe el baseline "working tree limpio" del que dependen los criterios.
+
 ## Criterios de aceptación
 
 Ejecutados por Antigravity contra el build (`npm run build && npm start`) de su propio nodo y **pegados en el
