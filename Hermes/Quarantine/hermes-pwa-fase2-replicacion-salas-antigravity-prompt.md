@@ -132,7 +132,8 @@ Antigravity debe **pegar en el mensaje de cierre** la salida real de:
 2. Tabla por sala (script temporal, no commiteado) con columnas
    `roomId | threads | miembros | log reconstruido (n) | primeros/últimos 2 timestamps ISO` para las 3 salas
    conocidas, y comparación contra el baseline medido en `state.db`:
-   `rmugviqw9-6zez7` (13+7+8 sesiones de 3 perfiles) · `rmufxz2ti-w6sk5` (7 sesiones) · `rmuag13gp-5r3kn` (31 sesiones).
+   `rmugviqw9-6zez7` (23 sesiones: brain-local 8, web-builder 7, web-auditor 8) · `rmufxz2ti-w6sk5` (6 sesiones) ·
+   `rmuag13gp-5r3kn` (31 sesiones: algolab 16, algolab-strategy 15).
    El número reconstruido **no puede ser menor** que la cantidad de turnos únicos (`user` parseados + `assistant`
    con contenido, deduplicados) de esas sesiones; si es menor, el parseo del sobre está mal.
 3. `GET /api/groups` → cada sala con `messageCount` = largo real del log, y **ninguna** sala con el log del seed.
