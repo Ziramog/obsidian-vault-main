@@ -132,6 +132,7 @@ for ext in ("", "-wal", "-shm"):
     if os.path.exists(db+ext): shutil.copy(db+ext, tmp)
 copy = os.path.join(tmp, os.path.basename(db))
 last = None
+stable = 0
 for _ in range(tries):
     try:
         c = sqlite3.connect(copy)
@@ -140,8 +141,14 @@ for _ in range(tries):
     except Exception as e:
         print("err", e); sys.exit(1)
     sig = [(r[0], r[2], len(r[3] or b"")) for r in rows]
-    if sig == last: break
-    last = sig; time.sleep(3)
+    if sig == last:
+        stable += 1
+        if stable >= 3:      # tres lecturas iguales seguidas = la corrida terminó
+            break
+    else:
+        stable = 0
+        last = sig
+    time.sleep(3)
 def strings(blob):
     if isinstance(blob, str): blob = blob.encode("utf8", "ignore")
     return [t.decode("utf8","ignore") for t in re.findall(rb"[ -~]{8,}", blob or b"")]
