@@ -100,15 +100,21 @@ nuevo `src/app/api/health/route.ts`.
 
 ## Entorno de ejecución (leer antes de correr nada)
 
-- `.env.local` del repo **ya tiene** `HERMES_API_KEY`, `HERMES_API_URL`, `HERMES_VPS_API_KEY`, `HERMES_VPS_URL`
-  (nombres reales, valores no se tocan). **No hace falta ninguna variable nueva:** el guard tiene que aceptar
-  como válido el set existente. Si algo devuelve `503 auth not configured`, el bug es del guard, no del env —
-  **no** se lo arregla ampliando el guard ni agregando credenciales al repo.
-- **Puertos:** en esta máquina hay **dos instancias viejas del PWA ya corriendo** en `:3111` (PID 28792) y
-  `:3112` (PID 7160) con el código sin arreglar, y el gateway vive en `:8642`. `:3000` está libre. Las pruebas
-  se hacen **siempre contra el proceso nuevo** (`npm run build && npm start`, que escucha en `:3000`);
-  **no apagar, matar ni reiniciar** los procesos de `:3111`/`:3112` (son los que usa Juan desde el celular).
-  Probar contra ellos da 200 con clave falsa y hace parecer que el fix no funcionó.
+- **Claves:** el set permitido del guard es **el que exista en el env del nodo**, no una lista cableada.
+  Hoy: **PC** → `HERMES_API_URL`, `HERMES_VPS_URL`, `HERMES_API_KEY`, `HERMES_VPS_API_KEY` (4);
+  **VPS** → esas 4 **+ `HERMES_HOME` y `HERMES_NODE_NAME`** (6). O sea: las únicas claves de autenticación son
+  `HERMES_API_KEY` y `HERMES_VPS_API_KEY` (+ `HERMES_PWA_TOKEN` opcional): el guard acepta las que existan,
+  **nunca** `HERMES_HOME`/`HERMES_NODE_NAME`/las URLs, y **no** se lo cablea al set de la PC (si queda atado a
+  4 nombres, el deploy del VPS se cae por env y el `build` sigue verde).
+  Si algo devuelve `503 auth not configured`, el bug es del guard, no del env: **no** se lo arregla ampliando
+  el guard ni agregando credenciales al repo.
+- **Puertos (¡distinto en cada nodo!).** En la **PC**: hay dos instancias viejas vivas en `:3111` (PID 28792) y
+  `:3112` (PID 7160) con el código sin arreglar, `:3000` está libre y el gateway vive en `:8642`. En el **VPS**:
+  `:3000` **es el deploy** (`pm2 hermes-pwa`, cwd `/home/hermes/hermes-pwa`, `main` @ `46ca485`, detrás de
+  `tailscale serve`) y `:3111`/`:3112` no existen. Reglas: en la PC se prueba **sólo** contra el proceso nuevo
+  (`npm run build && npm start` → `:3000`), y **no** se apagan ni reinician los PIDs de `:3111`/`:3112`
+  (probar contra ellos da 200 con clave falsa y parece que el fix no funcionó); en el VPS **no se toca `pm2`**
+  ni el `:3000` del deploy — ese rollout lo hace el propio nodo con el SHA cerrado.
 
 ## Restricciones
 

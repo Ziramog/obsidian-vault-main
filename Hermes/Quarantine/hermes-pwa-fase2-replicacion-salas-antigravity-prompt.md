@@ -140,6 +140,13 @@ Implementación:
   **Ops (B10):** el PWA del PC está caído hoy, así que el celular no ve las salas del Desktop hasta que el par
   esté arriba; con el par caído la PWA del VPS debe mostrar el estado "nodo PC offline" + último snapshot, nunca
   una lista vacía.
+- **Quién mide qué (topología, verificada el 2026-09-28 por el propio nodo VPS):** al celular lo sirve el
+  **VPS** — `pm2 hermes-pwa`, cwd `/home/hermes/hermes-pwa`, `main` @ `46ca485`, en `:3000` detrás de
+  `tailscale serve` (ahí `:3111`/`:3112` no existen y `:3000` **es** el deploy, no un puerto libre). El rollout en
+  el VPS lo hace ese nodo con el SHA cerrado (fetch + checkout del SHA, build con el Node pinneado,
+  `pm2 restart --update-env`); el agente **no** toca `pm2` ni el `:3000` del VPS. En la PC, las dos instancias
+  viejas de `:3111` (:3111 PID 28792) y `:3112` (PID 7160) no se apagan. Los criterios se miden **en la PWA del
+  VPS** (la que ve el celular), salvo el 2 y el 7, que salen del censo local del nodo dueño (PC).
 
 ### 3. Eliminar los seeds hardcodeados (B3)
 
