@@ -188,10 +188,13 @@ Aportes de @web-builder (recon) y @web-auditor (probes independientes) sobre est
 2. **B3 mal diagnosticado en la primera versión.** El mensaje del seed **sí existió** (es el último
    `assistant` de web-auditor en `20260927_141639_f2fa83`). El bug es el log hardcodeado + la lista de
    salas fija.
-3. **Censo de sesiones de sala: 61 en el nodo PC** (rmuag13gp 31 / rmugviqw9 23 / rmufxz2ti 4 /
-   rmuli31hi 3). El 60 de @web-auditor sale de contar `rmuli31hi` = 2 cuando son 3 (`brain-local` 1 +
-   `web-builder` 1 + `web-auditor` 1). **El nodo VPS tiene 0** (verificado por su gateway :8642,
-   8 perfiles + `default`): nada de `state.db` del VPS entra en la cuenta.
+3. **Censo de sesiones de sala: 63 en el nodo PC** (rmuag13gp 31 / rmugviqw9 23 / rmufxz2ti 6 /
+   rmuli31hi 3), de las cuales **60 `hidden=1`** y sólo **3 visibles**. Dos correcciones sucesivas:
+   el 60 de @web-auditor omitía `rmuli31hi` de web-builder (3, no 2); mi 61 omitía
+   **`HERMES_HOME/state.db`** (= perfil `default`, 2 sesiones de `rmufxz2ti`, 28 y 83 msgs, ambos
+   `hidden=1`), fuente legítima porque `default-this-device` es miembro real de esa sala
+   (`connectionKind:"remote"`). Verificado con el censo completo (todas las fuentes) = 63/60/3.
+   **El nodo VPS tiene 0** (gateway :8642, 8 perfiles + `default`): nada del VPS entra en la cuenta.
 4. **Baseline mutado por mi propio probe E2E** (para cualquier comparación antes/después del
    `profile.yaml` del VPS). Log de `rmugviqw9` en el VPS, congelado con ids exactos:
    `msg-wb-1` (seed, at 1790550198785) · `usr_1790632373669_fm47n` (at 1790632373669, mi probe) ·
@@ -203,11 +206,11 @@ Aportes de @web-builder (recon) y @web-auditor (probes independientes) sobre est
 
 ### Dato estructural confirmado (independiente, 18:4x UTC)
 
-De las **61** sesiones de sala, **58 tienen `hidden=1`** y sólo **3** son visibles para `/api/sessions`
+De las **63** sesiones de sala, **60 tienen `hidden=1`** y sólo **3** son visibles para `/api/sessions`
 (brain-local `rmufxz2ti · tmufybayi-ujnk5` 162 msgs, brain-local `rmugviqw9 · tmuirrz6z-25oxp` 76 msgs,
 web-builder `rmugviqw9 · tmuirrz6z-25oxp` 87 msgs). Consecuencia: quién intente derivar las salas del
-**API de sesiones** ve 3 de 61 — Fase 2 lee `state.db`/gateway **sin** el filtro `hidden` o usa peer fetch.
-Además ninguna de las 61 filas tiene `session_key`, `chat_id`, `chat_type`, `thread_id` ni `origin_json`
+**API de sesiones** ve 3 de 63 — Fase 2 lee `state.db`/gateway **sin** el filtro `hidden` o usa peer fetch.
+Además ninguna de las 63 filas tiene `session_key`, `chat_id`, `chat_type`, `thread_id` ni `origin_json`
 (todos NULL): la sala y el thread viven **sólo en el `title`**, escrito después de crear la fila → un censo
 por título tiene lag de minutos; el antes/después se hace contra snapshot congelado.
 
