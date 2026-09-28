@@ -77,9 +77,9 @@ Censo de sesiones de sala (medido 2026-09-28 18:2x UTC, `title LIKE 'Group: %'`)
 |---|---|---|
 | rmuag13gp-5r3kn · Algolab Strategy, Algolab | 31 (algolab 16 + algolab-strategy 15) | 54 entradas |
 | rmugviqw9-6zez7 · Brain Local, Web Builder, Web Auditor | 23 (brain-local 8 + web-builder 7 + web-auditor 8) | **3** (1 seed + los 2 de mi probe E2E) |
-| rmufxz2ti-w6sk5 · Brain Local, 100.124.132.48:9119 | 4 (brain-local) | **0** |
+| rmufxz2ti-w6sk5 · Brain Local, 100.124.132.48:9119 | 4 (brain-local) + 2 (perfil `default` en `HERMES_HOME/state.db`) | **0** |
 | rmuli31hi-inptr · (esta sala) | 3 (brain-local 1 + web-builder 1 + web-auditor 1) | **0** + `warning:"Group room not found"` |
-| **TOTAL nodo PC** | **61** | — |
+| **TOTAL nodo PC** | **63** (60 `hidden=1`, 3 visibles) | — |
 | **TOTAL nodo VPS** (8 perfiles + default, vía :8642) | **0** | — |
 
 **Consecuencia de diseño para la Fase 2 (evidencia decisiva):** el nodo VPS tiene **0** sesiones de
