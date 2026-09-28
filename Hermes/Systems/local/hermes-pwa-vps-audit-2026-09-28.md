@@ -303,6 +303,28 @@ grupos es un plugin in-tree: `apps/desktop/src/plugins/hermes-bots/` (`group-cha
   `updatedAt` lo sigue, dentro del minuto siguiente a un mensaje de sala; (iii) el espejo lleva las **4
   salas** con `omitted` por sala (no 1 con `delete rooms[key]`).
 
+### CLI Antigravity headless — receta verificada (2026-09-28, 4 corridas reales)
+
+`language_server.exe agentapi` funciona de verdad, pero necesita **tres** variables de entorno y la
+app corriendo (el LS vive dentro de la IDE):
+
+| var | de dónde sale | falla con |
+|---|---|---|
+| `ANTIGRAVITY_LS_ADDRESS` | `http://127.0.0.1:<puerto gRPC>` del `language_server.exe --standalone` (hoy **59804**; el otro puerto del mismo PID, 59803, es HTTP/1.1 y contesta `error reading server preface: EOF`) | `ANTIGRAVITY_LS_ADDRESS is not set` |
+| `ANTIGRAVITY_CSRF_TOKEN` | el `--csrf_token <uuid>` de la propia línea de comandos del LS | `Unauthenticated ... missing CSRF token` |
+| `ANTIGRAVITY_PROJECT_ID` | `~/.gemini/config/projects/<uuid>.json` (`hermes-pwa` = `ee38b6c1-8799-4305-af6c-1533a4c86471`) | `project_id is required when providing project_env_config` |
+
+Comandos: `new-conversation [--model=flash_lite|flash|pro] [--title=] [--profile=] "<prompt>"` →
+`{conversationId}`; `get-conversation-metadata <id>` → workspace/rama/settings; `send-message
+<recipient_id> "<content>"`. **El project id NO se deduce del cwd** (probado: dentro del repo sin la
+variable falla; desde `/tmp` con ella el workspace es el del proyecto). La respuesta se lee sin GUI en
+`~/.gemini/antigravity/conversations/<id>.db` (SQLite, tabla `steps`). Script operativo:
+`Hermes/Systems/local/antigravity-cli.sh` (`discover` / `new` / `read`), probado end-to-end: pidió
+`git branch --show-current` en el repo y devolvió `SCRIPT_OK main`.
+
+**Para Fase 3:** no hay ningún proyecto apuntando a `AppData\Local\hermes\hermes-agent`, así que el CLI
+no puede trabajar sobre ese repo hasta crear/registrar un proyecto para esa carpeta.
+
 ### Prompts de fix ya escritos (vault, pendientes de commit)
 
 | Fase | Archivo | Contenido |

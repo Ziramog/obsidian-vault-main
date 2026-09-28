@@ -68,7 +68,7 @@ cmd_discover() {
   echo "proyectos   :"
   for f in "$PROJDIR"/*.json; do
     [ -f "$f" ] || continue
-    n=$($PY -c "import json,sys;d=json.load(open(sys.argv[1]));print(d.get('name'),'|',d.get('id'),'|',json.dumps(d.get('projectResources',{}))[:120])" "$f" 2>/dev/null)
+    n=$($PY -c "import json,sys;d=json.load(open(sys.argv[1]));print(d.get('name'),'|',d.get('id'),'|',json.dumps(d.get('projectResources',{}))[:120])" "$(winpath "$f")" 2>/dev/null)
     echo "  - $n"
   done
 }
@@ -79,13 +79,13 @@ resolve_project() { # $1 = nombre o uuid
   if [[ "$want" =~ ^[0-9a-f-]{36}$ ]]; then echo "$want"; return 0; fi
   for f in "$PROJDIR"/*.json; do
     [ -f "$f" ] || continue
-    id=$($PY -c "import json,sys;d=json.load(open(sys.argv[1]));print(d['id'] if d.get('name','').lower()==sys.argv[2].lower() else '')" "$f" "$want" 2>/dev/null)
+    id=$($PY -c "import json,sys;d=json.load(open(sys.argv[1]));print(d['id'] if d.get('name','').lower()==sys.argv[2].lower() else '')" "$(winpath "$f")" "$want" 2>/dev/null)
     [ -n "$id" ] && { echo "$id"; return 0; }
   done
   # segundo intento: por carpeta (URL-encoded)
   local enc; enc=$(printf '%s' "$want" | sed 's|^/c/|file:///c%3A/|; s|/|%2F|g')
   grep -l "$enc" "$PROJDIR"/*.json 2>/dev/null | while read -r f; do
-    $PY -c "import json,sys;print(json.load(open(sys.argv[1]))['id'])" "$f"; break
+    $PY -c "import json,sys;print(json.load(open(sys.argv[1]))['id'])" "$(winpath "$f")"; break
   done
 }
 
@@ -122,7 +122,7 @@ cmd_new() {
 # ---------- lectura ----------
 cmd_read() {
   local id="$1" tries="${2:-20}"
-  $PY - "$CONVDIR/$id.db" "$tries" <<'PY'
+  $PY - "$(winpath "$CONVDIR/$id.db")" "$tries" <<'PY'
 import os,re,sqlite3,sys,time,shutil,glob
 db, tries = sys.argv[1], int(sys.argv[2])
 if not os.path.exists(db):
