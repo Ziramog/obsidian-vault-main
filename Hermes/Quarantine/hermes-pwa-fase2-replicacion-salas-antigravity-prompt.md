@@ -38,7 +38,27 @@ thread viven sólo en el string `title`, que se escribe después de crear la fil
 congelado, no recontar en vivo; y si el camino de salas pasa por el API de sesiones **no puede llevar el filtro
 `hidden`** (60 de 63 caen ahí).
 
-1. En la sesión de cada bot, los turnos de la sala entran como mensajes `user` con este sobre (formato real,
+### 0. Techo real de esta fase (esto decide el criterio de cierre)
+
+El log canónico de una sala vive **sólo** en el store C (localStorage del Desktop) y **ningún componente
+server-side lo puede leer**. Reconstruir desde `state.db` (store B) **no es equivalente**: el parser estricto de
+web-auditor da `102 / 96 / 475 / 15` contra `115 / 172 / 327 / 10` del store — infla porque los mensajes se citan
+entre sí (las líneas `  Nombre [nodo]: texto` reaparecen dentro de otros mensajes) y desinfla porque un bot que
+entra tarde no tiene envoltorio de los mensajes viejos. Caso vivo: `rmuli31hi`, store 10 = lo que se ve en
+pantalla. Además el store guarda **76 mappings de sesión contra 63 filas** en `state.db` (ids huérfanos): el peer
+fetch tiene que tolerarlos y **no usarlos para contar**.
+
+Por eso esta fase entrega **reconstrucción** y el endpoint debe declararlo rotulado:
+`source:"reconstructed"`. Nunca reportar el número reconstruido como si fuera el log de la sala.
+
+La igualdad con el store (`115/172/327/10`) es criterio de **Fase 3**, y requiere un puente server-visible del log
+del Desktop. La vía natural ya existe: el plugin ya empuja el log vía `profiles.configure` → `ui_meta`, pero hoy
+deja **1 sola sala con 54 entradas de 327** en el `profile.yaml` (consistente con el cap de 64 KB de `ui_meta`,
+que viaja en cada `profiles.list`); la otra vía, leer el LevelDB del Electron, implica dependencia de snappy y
+acoplarse a la key interna del app — no recomendada. Dejar el código preparado para que, si mañana aparece
+`source:"store"`, se prefiera sin refactor.
+
+
    `profile.yaml`/`state.db` de brain-local, sesión `20260927_195115_70e472`):
 
    ```

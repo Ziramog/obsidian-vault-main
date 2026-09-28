@@ -68,8 +68,10 @@ en `:3000` y sin sincronizar entre nodos. `state.db` **no es un log de sala**: s
 `Group: <roomId> · <thread>` son la sesión propia de cada bot (`assistant 30 / tool 53 / user 1` en la
 de brain-local), y la sala hay que **reconstruirla** parseando el envoltorio
 `[Group chat: "…"] … New messages in the room since your last turn:` + líneas `  Nombre [nodo]: texto`.
-Es viable: @web-auditor reconstruyó `rmugviqw9` completa (204 turnos ordenados, primero 1790357897,
-último 1790550139).
+Es viable pero **no equivalente al log real**: @web-auditor reconstruyó `rmugviqw9` (204 turnos con parser
+estricto) y el cruce contra el value del LevelDB dio **115** mensajes en el log del store (infla por
+citas cruzadas entre bots, desinfla por bots que entran tarde). El log del store es la verdad; la
+reconstrucción desde `state.db` es sólo el fallback cuando no hay acceso al store.
 
 Censo de sesiones de sala (medido 2026-09-28 18:2x UTC, `title LIKE 'Group: %'`):
 
@@ -134,9 +136,12 @@ Un `npm ci` limpio en el VPS puede romper `/api/groups` y `/api/groups/*/chat`.
 Fallback hardcodeado: el `config.yaml` del PC no es legible desde el VPS, así que el selector de
 modelo muestra un valor falso para los 9 bots del PC.
 
-### B10 — Ops (BAJO)
-El PWA local del PC no está corriendo (:3000 cerrado) y el funnel devuelve 502 → el celular hoy
-depende exclusivamente del VPS.
+### B10 — Ops (BAJO · **corregido 18:5x**: no está caído, es un puerto mal documentado)
+La PWA local del PC **sí está corriendo**: :3111 y :3112 responden 200 (dos `next start`, PIDs 28792 y
+7160) sirviendo el build previo — `Bearer totally-fake-key` → **200** y `/api/health` → **404**, o sea
+B1 y B7 también en el nodo PC. El problema real es de **puerto**: `iniciar-pwa.bat` y el README apuntan a
+:3000 y el funnel `truzt.taila7f43b.ts.net` apunta a :3000 → de ahí el 502 (nadie escucha en :3000).
+Fix: alinear el funnel con 3111/3112 o correr el PWA local en 3000; y corregir el .bat/README.
 
 ## Orquestación propuesta
 
@@ -233,10 +238,14 @@ offline, para que la UI no lea 0 como "sala vacía"). El cliente ramifica por `c
 limpia la lista; sólo un 200 reemplaza la lista local. Se elimina el `warning:"Group room not found"`
 con HTTP 200.
 
-**Criterios de cierre de Fase 2:** (1) `rmugviqw9` en la PWA del VPS muestra los 204 turnos
-reconstruidos y las 3 ids del baseline (`msg-wb-1`, `usr_1790632373669_fm47n`, `bot_1790632380284_p90ph`)
-desaparecen del log; (2) sala desconocida → 404 con `code`, nunca 200 `[]`; (3) prueba de corte: con el
-gateway del PC caído, la PWA del VPS responde 503 y el cliente conserva el último snapshot.
+**Criterios de cierre de Fase 2:** (1) `rmugviqw9` en la PWA del VPS sirve el **log real de la sala**
+(115 mensajes del store — `rmufxz2ti` 172, `rmuag13gp` 327, `rmuli31hi` 10), **no** los 204 de la
+reconstrucción desde `state.db`, que es un artefacto del parser, y las 3 ids del baseline (`msg-wb-1`,
+`usr_1790632373669_fm47n`, `bot_1790632380284_p90ph`) desaparecen del log; el store referencia **76
+mappings de sesión contra 63 filas** en `state.db` (ids huérfanos: p. ej. `rmugviqw9` 30 vs 23), así que
+el peer fetch debe tolerarlos y **no** usarlos para contar; (2) sala desconocida → 404 con `code`, nunca
+200 `[]`; (3) prueba de corte: con el gateway del PC caído, la PWA del VPS responde 503 y el cliente
+conserva el último snapshot.
 
 ### Prompts de fix ya escritos (vault, pendientes de commit)
 
