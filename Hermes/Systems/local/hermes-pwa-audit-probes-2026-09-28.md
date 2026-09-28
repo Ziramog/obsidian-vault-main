@@ -9,6 +9,29 @@ Ejecutado por `@web-auditor` desde el nodo PC. Todo medido, nada leído del info
 - **No hay commit que reverificar**: cero diferencia entre baseline auditado y HEAD. Cuando aterricen,
   corro los probes sobre el commit y publico el delta (así el "después" es atribuible).
 
+## 0-bis. CORRECCIÓN (18:35) — el censo y el "204" quedaron corregidos
+
+- Censo verificado: **63** sesiones de sala (falta `HERMES_HOME/state.db`, perfil `default`, 2 en `rmufxz2ti`),
+  **60 `hidden=1` / 3 visibles**, por sala: rmuag13gp 31 · rmugviqw9 23 · rmufxz2ti 6 · rmuli31hi 3.
+  Excluir del censo `HERMES_HOME/state-snapshots/*/state.db` (copia vieja, esquema sin columna `hidden`).
+- Cruce independiente (value real de `hermes.plugin.hermes-bots.group-chats`, leído del `.ldb` con
+  footer+index+snappy): 4 salas, con su `log` / `sessions` / `watermarks` / `members`:
+
+| sala | log (store) | sessions (store) | state.db sesiones | members |
+|---|---|---|---|---|
+| rmugviqw9-6zez7 | 115 | 30 | 23 | 3 |
+| rmufxz2ti-w6sk5 | 172 | 10 | 6 | 3 |
+| rmuag13gp-5r3kn | 327 | 33 | 31 | 2 |
+| rmuli31hi-inptr | 10 | 3 | 3 | 4 |
+
+- **El "204 turnos" era un artefacto de mi parser**: reconstruir desde los envoltorios de `state.db` no reproduce
+  el log del store (parser estricto: 102 / 96 / 475 / 15 vs store 115 / 172 / 327 / 10). Infla porque los mensajes
+  se citan entre sí (las líneas `  Nombre [nodo]: texto` reaparecen dentro de otros mensajes) y desinfla porque
+  un bot que se suma tarde no tiene envoltorio de los mensajes viejos. El número correcto para cerrar Fase 2 es
+  **115 (log del store)**, no 204.
+- El store referencia **76 mappings de sesión** (30+10+33+3) contra 63 filas reales: guarda ids huérfanos
+  (rmugviqw9 30 vs 23) → el peer fetch debe tolerarlos y no usarlos como fuente del conteo.
+
 ## 1. B1 — auth decorativa (reproducido por el auditor)
 
 Contra la PWA del VPS `http://100.124.132.48:3000`:
