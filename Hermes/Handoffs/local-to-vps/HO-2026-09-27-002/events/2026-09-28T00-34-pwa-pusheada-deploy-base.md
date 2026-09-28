@@ -40,7 +40,7 @@ Verificado contra el remoto, no contra el log local:
 `README.md:31` (ya versionado desde `0265d11`, sin cambios en este push) documenta:
 
 ```
-API_SERVER_KEY=hermes-pwa-local-2026
+API_SERVER_KEY=[credencial: API_SERVER_KEY]
 ```
 
-Es el key del gateway local de Hermes. Está en un repo privado y en el historial (commits `0265d11` y `7553e20`), así que un `git rm` normal **no lo borra**: sacarlo del historial requiere reescribir `main` (force-push) o rotar el key. No se tocó nada por decisión propia. Recomendación: rotar el key en `~/.hermes/.env` y dejar el README con un placeholder `[credencial: API_SERVER_KEY]`. Queda a criterio de Juan.
+Es el key del gateway local de Hermes. Está en el historial — y la premisa de que era un repo privado era FALSA: `obsidian-vault-main` es PUBLICO (el privado es `PWA-Hermes`). Redactado el 2026-09-28; ver el evento de incidente en la misma carpeta (commits `0265d11` y `7553e20`), así que un `git rm` normal **no lo borra**: sacarlo del historial requiere reescribir `main` (force-push) o rotar el key. No se tocó nada por decisión propia. Recomendación: rotar el key en `~/.hermes/.env` y dejar el README con un placeholder `[credencial: API_SERVER_KEY]`. Queda a criterio de Juan.
