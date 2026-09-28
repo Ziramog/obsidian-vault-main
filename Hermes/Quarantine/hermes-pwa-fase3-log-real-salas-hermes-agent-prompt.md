@@ -146,3 +146,14 @@ y el consumidor TS (`apps/shared/src/gateway-contract.generated.ts`).
    (`grep -o -a "hermes-bots-groups.\{0,200\}" dist/assets/index-*.js`), porque es de ahí —no del `app.asar` del
    23-sep— que el renderer vivo toma el código. Y comprobar que el `updatedAt` del espejo en `profile.yaml`
    **avanza** después del cambio (hoy está fijo en 15:41 y ahí es donde se ve el rechazo silencioso).
+8. **Termómetro binario de "espejo sano"** (criterio acordado con @web-auditor / @brain-local): tras reconstruir
+   `dist`, un mensaje en cualquier sala debe mover **`_ui_meta_revisions["hermes-bots-groups"]` de 1668 a 1669** y
+   el `updatedAt` embebido dentro del minuto. Si el error explícito ya se ve pero el contador sigue en 1668, el
+   payload sigue sin entrar y el fix está a medias. (`_ui_meta_revisions` sólo lo escribe
+   `methods_profiles.py:519-524`, o sea el espejo es gateway-mediated; su escritura es atómica —
+   `utils.atomic_yaml_write`, `:525-526` — y **no** es el B5 de la auditoría, que es el `saveProfileDoc` del PWA.)
+9. Higiene de evidencia, para que nadie defienda el diagnóstico con un dato flojo: `24e3` **no discrimina** builds
+   (`GROUP_CHAT_SYNC_IMAGE_CHARS = 24000` vale igual en HEAD y en el working tree). El par que sí:
+   en el bundle vivo `12e2` y `1.2e3` (así minifica HEAD su `TEXT_CHARS = 1200`) aparecen **0** veces y `9e5`
+   aparece **2**. Y el contraargumento fácil de encontrar ya está cerrado: el `48e3` del bundle **no** es HEAD,
+   es `MAX_REVIVE_BUFFER_CHARS = 48_000` de `src/app/right-sidebar/terminal/terminals.ts:57`.
