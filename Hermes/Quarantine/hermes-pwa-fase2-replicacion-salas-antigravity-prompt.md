@@ -59,6 +59,7 @@ acoplarse a la key interna del app — no recomendada. Dejar el código preparad
 `source:"store"`, se prefiera sin refactor.
 
 
+1. En la sesión de cada bot, los turnos de la sala entran como mensajes `user` con este sobre (formato real,
    `profile.yaml`/`state.db` de brain-local, sesión `20260927_195115_70e472`):
 
    ```
@@ -189,8 +190,12 @@ Antigravity debe **pegar en el mensaje de cierre** la salida real de:
    con contenido, deduplicados) de esas sesiones; si es menor, el parseo del sobre está mal.
 3. `GET /api/groups` → cada sala con `messageCount` = largo real del log, `source` y `nodeStatus`, y **ninguna**
    sala con el log del seed.
-4. `GET /api/groups/rmugviqw9-6zez7/messages` → `200` con **204 turnos** (número de la auditoría) y las 3 ids del
+4. `GET /api/groups/rmugviqw9-6zez7/messages` → `200` con `source:"reconstructed"`, orden correcto y las 3 ids del
    baseline del VPS (`msg-wb-1`, `usr_1790632373669_fm47n`, `bot_1790632380284_p90ph`) **fuera** del log.
+   Baseline congelado del parser estricto: **102 / 96 / 475 / 15** (`rmugviqw9` / `rmufxz2ti` / `rmuag13gp` /
+   `rmuli31hi`); el log reconstruido debe caer ahí (±10%), **no** en los `115/172/327/10` del store: esos son el
+   log real del Desktop y no son alcanzables sin el puente de Fase 3. Si este test "pasa" con 115, el agente leyó
+   el LevelDB del Electron y hay que revisar cómo.
 5. Sala inexistente → `404 {code:"ROOM_NOT_FOUND"}` (nunca `200 {messages:[]}`).
 6. Prueba de corte: con el gateway del PC caído, `GET /api/groups` sigue devolviendo las salas locales con
    `nodeStatus:"offline"` y `messageCount:null`, y `/api/groups/<id>/messages` de una sala del PC → `503 {code:"PEER_OFFLINE"}`;
@@ -201,5 +206,12 @@ Antigravity debe **pegar en el mensaje de cierre** la salida real de:
 8. `git diff` no toca `src/app/api/chat/route.ts` ni el flujo 1-a-1 de bots.
 
 Estos tres son los **criterios de cierre de Fase 2** fijados con @web-auditor; sin los tres no se cierra:
-`rmugviqw9` reconstruida con sus 204 turnos y las 3 ids del baseline fuera · sala desconocida → `404` con `code`
-y nunca `200 []` · corte con el par caído → `503` y el cliente conservando el snapshot.
+`rmugviqw9` reconstruida y rotulada `source:"reconstructed"` dentro del baseline del parser estricto (102, no 115)
+con las 3 ids del baseline fuera · sala desconocida → `404` con `code` y nunca `200 []` · corte con el par caído →
+`503` y el cliente conservando el snapshot.
+
+**Fase 3 (no en este commit):** igualar el log real del Desktop (`115/172/327/10`) haciendo server-visible el
+store del Electron — subir/eliminar el cap de 64 KB de `ui_meta` en el push de `profiles.configure` del plugin
+`hermes-bots` (repo `hermes-agent`, no este repo), y recién entonces el endpoint puede responder
+`source:"store"`. Mientras tanto queda la reconstrucción, que es incompleta por diseño (el bot que entra tarde no
+tiene el historial previo) y hay que decirlo en la UI: mostrar el origen del log, no hacerlo pasar por completo.

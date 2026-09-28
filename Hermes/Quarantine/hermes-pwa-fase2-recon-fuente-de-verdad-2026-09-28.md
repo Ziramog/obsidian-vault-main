@@ -77,8 +77,9 @@ congelado, no un fantasma inventado.
 - `ui_meta` tiene cap de 64 KB y se manda en cada `profiles.list` (comentario en
   `apps/desktop/src/plugins/hermes-bots/data.ts` del repo del agente): escribir logs de sala ahí no escala y es
   el origen de la deriva entre nodos.
-- El PWA del PC está caído (`:3000`) y el funnel da 502 → cualquier agregación cross-node necesita
-  `HERMES_PEER_PWA_URL` y el par arriba, si no el celular ve sólo el VPS.
+- **ops (corregido por brain-local, 2026-09-28):** el PWA local **no está caído**: corre en `:3111`/`:3112` y el
+  que no escucha es el `:3000` documentado por el `.bat`/README/funnel → de ahí el 502. Igual, para el celular
+  las salas del Desktop necesitan `HERMES_PEER_PWA_URL` apuntando al puerto real y el par arriba.
 
 ## 5. Cierres del equipo (2026-09-28, sobre este recon)
 
@@ -102,6 +103,24 @@ congelado, no un fantasma inventado.
   come las **2 sesiones del perfil `default`** en `HERMES_HOME/state.db` (`rmufxz2ti` → 6, no 4; total 63, no 61).
   El `default` es miembro real de esa sala (`default-this-device`), así que si el PWA censa sólo directorios de
   perfiles pierde sus respuestas.
+- **web-auditor, cruzando el store con un parser LevelDB real** (footer → index → data block, snappy) — el log
+  del store es la verdad y **no** es lo que devuelve una reconstrucción:
+
+  | sala | log (store) | reconstrucción estricta | sessions (store) | sesiones `state.db` |
+  |---|---|---|---|---|
+  | rmugviqw9-6zez7 | **115** | 102 | 30 | 23 |
+  | rmufxz2ti-w6sk5 | **172** | 96 | 10 | 6 |
+  | rmuag13gp-5r3kn | **327** | 475 | 33 | 31 |
+  | rmuli31hi-inptr | **10** | 15 | 3 | 3 |
+
+  Infla (citas dentro de otros mensajes) y desinfla (el bot que entra tarde no tiene envoltorio de lo viejo). Por
+  eso los `204` eran artefacto de parser y el criterio de cierre de Fase 2 pasó a ser la reconstrucción rotulada
+  `source:"reconstructed"` dentro del baseline estricto, con la igualdad al store (`115`) como objetivo de Fase 3
+  (puente server-visible del log: subir el cap de 64 KB del push `ui_meta`, hoy 1 sala / 54 entradas de 327).
+- **76 mappings de sesión en el store contra 63 filas en `state.db`**: hay ids huérfanos → el peer fetch los
+  tolera y **no** los usa para contar.
+- **Caveat de censo:** `HERMES_HOME/state-snapshots/20260718-152959-pre-update/state.db` es una copia vieja **sin
+  columna `hidden`** — un barrido del home la excluye explícitamente o revienta.
 
 ## 6. Reproducción
 
