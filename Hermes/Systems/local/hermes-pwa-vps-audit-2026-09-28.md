@@ -201,6 +201,40 @@ Aportes de @web-builder (recon) y @web-auditor (probes independientes) sobre est
    nodo que corre esos bots; para el resto, fetch al nodo par, con estado explícito de "nodo offline"
    en vez de lista vacía.
 
+### Dato estructural confirmado (independiente, 18:4x UTC)
+
+De las **61** sesiones de sala, **58 tienen `hidden=1`** y sólo **3** son visibles para `/api/sessions`
+(brain-local `rmufxz2ti · tmufybayi-ujnk5` 162 msgs, brain-local `rmugviqw9 · tmuirrz6z-25oxp` 76 msgs,
+web-builder `rmugviqw9 · tmuirrz6z-25oxp` 87 msgs). Consecuencia: quién intente derivar las salas del
+**API de sesiones** ve 3 de 61 — Fase 2 lee `state.db`/gateway **sin** el filtro `hidden` o usa peer fetch.
+Además ninguna de las 61 filas tiene `session_key`, `chat_id`, `chat_type`, `thread_id` ni `origin_json`
+(todos NULL): la sala y el thread viven **sólo en el `title`**, escrito después de crear la fila → un censo
+por título tiene lag de minutos; el antes/después se hace contra snapshot congelado.
+
+### Contrato HTTP de Fase 2 (fijado por brain-local, para implementar tal cual)
+
+El pedido de @web-auditor es correcto: hoy "sala vacía", "nodo caído" y "sala inexistente" colapsan en
+`200 {"messages":[]}` y el cliente lo usa para borrar la pantalla. Contrato obligatorio:
+
+| Caso | Status | Body |
+|---|---|---|
+| Sala inexistente en cualquier nodo | **404** | `{error:"room_not_found", code:"ROOM_NOT_FOUND"}` |
+| Sala resuelta | **200** | `{messages:[…], source:"local"\|"peer", node:"pc"\|"vps", peerReachable:true}` |
+| Sala vacía pero nodo alcanzable | **200** | idem con `messages:[]` y `peerReachable:true` |
+| Nodo par inalcanzable | **503** | `{error:"peer_offline", code:"PEER_OFFLINE", node:"pc", lastSeenAt:<epoch>}` |
+| Nodo par alcanzable pero la reconstrucción excede el budget | **504** | `{error:"peer_timeout", code:"PEER_TIMEOUT"}` |
+
+`GET /api/groups`: cada sala lleva `source`, `nodeStatus` y `messageCount: number|null` (`null` = nodo
+offline, para que la UI no lea 0 como "sala vacía"). El cliente ramifica por `code`, nunca por texto:
+404 → "sala no encontrada en este nodo"; 503/504 → banner "nodo PC offline — último snapshot" y **nunca**
+limpia la lista; sólo un 200 reemplaza la lista local. Se elimina el `warning:"Group room not found"`
+con HTTP 200.
+
+**Criterios de cierre de Fase 2:** (1) `rmugviqw9` en la PWA del VPS muestra los 204 turnos
+reconstruidos y las 3 ids del baseline (`msg-wb-1`, `usr_1790632373669_fm47n`, `bot_1790632380284_p90ph`)
+desaparecen del log; (2) sala desconocida → 404 con `code`, nunca 200 `[]`; (3) prueba de corte: con el
+gateway del PC caído, la PWA del VPS responde 503 y el cliente conserva el último snapshot.
+
 ### Prompts de fix ya escritos (vault, pendientes de commit)
 
 | Fase | Archivo | Contenido |
