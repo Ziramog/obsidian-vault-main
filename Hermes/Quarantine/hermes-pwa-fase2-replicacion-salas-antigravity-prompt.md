@@ -137,9 +137,10 @@ Implementación:
   ya no depende de ese log.
 - **Cross-node:** `HERMES_PEER_PWA_URL` + `HERMES_PEER_PWA_TOKEN` (o reusar `[credencial: HERMES_VPS_API_KEY]`)
   en el `.env` de cada nodo. Sin la variable → local-only y `peerReachable:false`, sin excepción no capturada.
-  **Ops (B10):** el PWA del PC está caído hoy, así que el celular no ve las salas del Desktop hasta que el par
-  esté arriba; con el par caído la PWA del VPS debe mostrar el estado "nodo PC offline" + último snapshot, nunca
-  una lista vacía.
+  **Ops (B10):** el PWA del PC **no está caído** — corre en `:3111` (:3111 PID 28792) y `:3112` (PID 7160), y el
+  que no escucha es el `:3000` documentado por el `.bat`/README/funnel, de ahí el 502. `HERMES_PEER_PWA_URL` tiene
+  que apuntar al puerto real del par; con el par inalcanzable, el estado es "nodo PC offline" + último snapshot,
+  nunca lista vacía.
 - **Quién mide qué (topología, verificada el 2026-09-28 por el propio nodo VPS):** al celular lo sirve el
   **VPS** — `pm2 hermes-pwa`, cwd `/home/hermes/hermes-pwa`, `main` @ `46ca485`, en `:3000` detrás de
   `tailscale serve` (ahí `:3111`/`:3112` no existen y `:3000` **es** el deploy, no un puerto libre). El rollout en
