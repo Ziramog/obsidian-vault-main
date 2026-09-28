@@ -24,7 +24,19 @@ Hoy la PWA arma las salas **sólo** desde
 | `<HERMES_HOME>/profiles/<bot>/state.db` (+ `-wal`) | sesiones **de cada bot**, ocultas, tituladas `Group: <roomId> · <threadId>` | Es la única transcripción disponible en disco, pero **no es un log de sala**: en una sesión real hay `assistant 30 / tool 53 / user 1` |
 | localStorage del app Electron (`file://` → key `hermes.plugin.hermes-bots.group-chats`) | store canónico del Desktop (catálogo + log en vivo) | Inalcanzable desde la PWA y no sincroniza entre nodos |
 
-Consecuencia: la fuente de verdad alcanzable es `state.db`, pero hay que **reconstruir** la sala:
+Consecuencia: la fuente de verdad alcanzable es `state.db` **del nodo que corre esos bots**, pero hay que
+**reconstruir** la sala. Hechos medidos por los tres (censo acordado, `title LIKE 'Group: %'` sobre los 9
+`state.db` del nodo PC): **63 sesiones de sala, 60 con `hidden=1`, sólo 3 visibles** — 61 en los perfiles de
+bots (algolab 16 + algolab-strategy 15 + brain-local 13 + web-auditor 9 + web-builder 8) **+ 2 en
+`HERMES_HOME/state.db` del perfil `default`**, que también es miembro de sala (`default-this-device` en
+`rmufxz2ti`) y que un censo limitado a `profiles/*/state.db` se come. Por sala:
+`rmuag13gp` 31 · `rmugviqw9` 23 · `rmufxz2ti` 6 · `rmuli31hi` 3. En el nodo **VPS hay 0 sesiones de sala** (8 bots + `default`),
+así que para las salas del Desktop el PWA del VPS **obligatoriamente** pide la sala al nodo par; en el nodo
+dueño (PC) se reconstruye de `state.db`. Dos avisos que ahorran horas: el censo **por título tiene lag de
+minutos** (`session_key`/`chat_id`/`chat_type`/`thread_id`/`origin_json` están en NULL en las 63: la sala y el
+thread viven sólo en el string `title`, que se escribe después de crear la fila) → comparar contra un snapshot
+congelado, no recontar en vivo; y si el camino de salas pasa por el API de sesiones **no puede llevar el filtro
+`hidden`** (60 de 63 caen ahí).
 
 1. En la sesión de cada bot, los turnos de la sala entran como mensajes `user` con este sobre (formato real,
    `profile.yaml`/`state.db` de brain-local, sesión `20260927_195115_70e472`):
@@ -75,20 +87,38 @@ Consecuencia: la fuente de verdad alcanzable es `state.db`, pero hay que **recon
   Los datos vivos están en `-wal`: si `open` falla, copiar `state.db` + `-wal` + `-shm` a un tmp del proceso y abrir
   la copia. Cachear el resultado 2 s (`last_activity_at` como clave) para no leer 10 DB por poll de 3.2 s.
 
-### 2. API de salas
+### 2. API de salas — **contrato congelado por brain-local, implementar tal cual**
 
-- `src/app/api/groups/route.ts`: reemplazar la lectura de `ui_meta` por `readRooms()`. Aceptar
-  `?node=local|vps|all` (**default: `all`**) y, cuando el par esté configurado, pedir
-  `GET <peer>/api/groups?node=<origin>` con el token de servicio y mergear por `roomId` (gana el log más largo).
-- `src/app/api/groups/[groupId]/messages/route.ts`: devolver el log reconstruido con `?node=`. Sala
-  desconocida → **404** `{error:"Room not found"}` (nunca `200 {messages:[]}`), ver Fase 1 punto 5.
+`GET /api/groups` — por sala: `source: "local"|"peer"`, `nodeStatus: "online"|"offline"|"timeout"`,
+`messageCount: number|null` (**`null`, nunca `0`, cuando el nodo está offline**: la UI no puede poder leer
+"nodo caído" como "sala vacía").
+
+`GET /api/groups/[groupId]/messages` — sólo estos tres casos, y el cliente ramifica **por `code`, nunca por texto**:
+
+| Caso | Respuesta |
+|---|---|
+| resuelta (aunque esté vacía) | `200 {messages:[…], source:"local"|"peer", node:"pc"|"vps", peerReachable:true}` |
+| la sala no existe en ningún nodo | `404 {code:"ROOM_NOT_FOUND"}` |
+| el nodo par no responde | `503 {code:"PEER_OFFLINE", node:"pc", lastSeenAt:<epoch>}` |
+| responde pero la reconstrucción excede el budget | `504 {code:"PEER_TIMEOUT"}` |
+
+Implementación:
+
+- `src/app/api/groups/route.ts`: reemplazar la lectura de `ui_meta` por el censo de `state.db` local
+  (`readRooms()`) **sin filtro `hidden`**, más el censo del par cuando esté configurado y alcanzable.
+  Cada sala del nodo OWNER se reconstruye localmente; las salas del Desktop vistas desde el VPS vienen del peer.
+- `src/app/api/groups/[groupId]/messages/route.ts`: si la sala existe localmente → reconstruir y `200` con
+  `source:"local"`; si no, pedirla al par (`GET <peer>/api/groups/<id>/messages`, timeout 4 s, budget de
+  reconstrucción 5 s) y devolver `200` con `source:"peer"`; `404` sólo si ninguno de los dos la tiene.
+  **Eliminar** el `200 {messages:[], warning:"Group room not found in local profile"}` actual.
 - `src/app/api/groups/[groupId]/chat/route.ts`: al persistir el mensaje del usuario y la respuesta, seguir
-  escribiendo en `profile.yaml` bajo `withProfileDocLock` (Fase 1) **pero** marcar la sala en
-  `ui_meta["hermes-bots-groups"].rooms` sólo como caché local; la lectura ya no depende de ese log.
-- **Cross-node:** agregar `HERMES_PEER_PWA_URL` (+ `HERMES_PEER_PWA_TOKEN`, o reusar
-  `[credencial: HERMES_VPS_API_KEY]`) al `.env` de cada nodo; sin esa variable el endpoint funciona local-only
-  y devuelve `peerConfigured:false` en la respuesta. **Nota de ops (B10):** el PWA del PC está caído, y hoy el
-  celular depende sólo del VPS; sin el par arriba, las salas del otro nodo no aparecen → avisar por log, no fallar.
+  escribiendo en `profile.yaml` bajo `withProfileDocLock` (Fase 1) **pero** sólo como caché local; la lectura
+  ya no depende de ese log.
+- **Cross-node:** `HERMES_PEER_PWA_URL` + `HERMES_PEER_PWA_TOKEN` (o reusar `[credencial: HERMES_VPS_API_KEY]`)
+  en el `.env` de cada nodo. Sin la variable → local-only y `peerReachable:false`, sin excepción no capturada.
+  **Ops (B10):** el PWA del PC está caído hoy, así que el celular no ve las salas del Desktop hasta que el par
+  esté arriba; con el par caído la PWA del VPS debe mostrar el estado "nodo PC offline" + último snapshot, nunca
+  una lista vacía.
 
 ### 3. Eliminar los seeds hardcodeados (B3)
 
@@ -99,12 +129,13 @@ Consecuencia: la fuente de verdad alcanzable es `state.db`, pero hay que **recon
 
 ### 4. Cliente: no borrar la pantalla (B4)
 
-- `src/lib/api.ts:213-228` (`fetchGroupMessages`): quitar `catch → return []`. Propagar el error y
-  distinguir `404` (sala inexistente → estado vacío explícito, con mensaje) de error de red/servidor
-  (→ conservar la última lista buena).
+- `src/lib/api.ts:213-228` (`fetchGroupMessages`): quitar `catch → return []` y el `if (res.status === 404) return []`.
+  Devolver un resultado tipado `{ok:true, messages, source, peerReachable} | {ok:false, code:"ROOM_NOT_FOUND"|"PEER_OFFLINE"|"PEER_TIMEOUT"|"NETWORK", node?, lastSeenAt?}`.
 - `src/components/GroupChatView.tsx:68-96`: eliminar el criterio `list.length !== currentList.length`
-  (línea 79) y reemplazarlo por merge por `id`: sólo reemplazar cuando el conjunto de `id` cambia, y jamás
-  escribir una lista vacía si la respuesta falló. Mostrar banner "sin conexión, mostrando último estado".
+  (línea 79) y reemplazarlo por merge por `id`. Reglas de render, ramificando por `code`:
+  `200` → reemplaza/mergea la lista; `404 ROOM_NOT_FOUND` → estado vacío explícito ("sala inexistente"), sin
+  inventar contenido; `503 PEER_OFFLINE` / `504 PEER_TIMEOUT` / error de red → **no tocar la lista**, mostrar
+  banner "nodo PC offline — último snapshot (hh:mm)" con `lastSeenAt`. El polling de 3.2 s debe seguir corriendo.
 
 ## Archivos a tocar
 
@@ -130,18 +161,25 @@ Antigravity debe **pegar en el mensaje de cierre** la salida real de:
 
 1. `tsc --noEmit` = 0 y `npm run build` = OK.
 2. Tabla por sala (script temporal, no commiteado) con columnas
-   `roomId | threads | miembros | log reconstruido (n) | primeros/últimos 2 timestamps ISO` para las 3 salas
-   conocidas, y comparación contra el baseline medido en `state.db`:
-   `rmugviqw9-6zez7` (23 sesiones: brain-local 8, web-builder 7, web-auditor 8) · `rmufxz2ti-w6sk5` (6 sesiones) ·
-   `rmuag13gp-5r3kn` (31 sesiones: algolab 16, algolab-strategy 15).
+   `roomId | threads | miembros | log reconstruido (n) | primeros/últimos 2 timestamps ISO` para las 4 salas
+   conocidas, contra el censo congelado del nodo dueño (snapshot a las 18:15, no recontado en vivo):
+   `rmugviqw9-6zez7` 23 sesiones (brain-local 8 + web-builder 7 + web-auditor 8) · `rmufxz2ti-w6sk5` 6
+   (brain-local 4 + `default` 2) · `rmuli31hi-inptr` 3 · `rmuag13gp-5r3kn` 31 (algolab 16 + algolab-strategy 15).
    El número reconstruido **no puede ser menor** que la cantidad de turnos únicos (`user` parseados + `assistant`
    con contenido, deduplicados) de esas sesiones; si es menor, el parseo del sobre está mal.
-3. `GET /api/groups` → cada sala con `messageCount` = largo real del log, y **ninguna** sala con el log del seed.
-4. `GET /api/groups/rmugviqw9-6zez7/messages` incluye los mensajes de hoy (los que ya están en `state.db`), no un
-   único mensaje.
-5. Sala inexistente → `404` (no `200 {messages:[]}`), y el cliente muestra "no se pudo cargar" sin vaciar la lista.
-6. Con el gateway del otro nodo apagado, `/api/groups` sigue devolviendo las salas locales y
-   `peerConfigured:false`; no hay excepción no capturada ni 500.
-7. Un `profile.yaml` de prueba con 0 salas en `ui_meta` sigue mostrando las 3 salas reales (prueba de que la
-   fuente dejó de ser `ui_meta`).
+3. `GET /api/groups` → cada sala con `messageCount` = largo real del log, `source` y `nodeStatus`, y **ninguna**
+   sala con el log del seed.
+4. `GET /api/groups/rmugviqw9-6zez7/messages` → `200` con **204 turnos** (número de la auditoría) y las 3 ids del
+   baseline del VPS (`msg-wb-1`, `usr_1790632373669_fm47n`, `bot_1790632380284_p90ph`) **fuera** del log.
+5. Sala inexistente → `404 {code:"ROOM_NOT_FOUND"}` (nunca `200 {messages:[]}`).
+6. Prueba de corte: con el gateway del PC caído, `GET /api/groups` sigue devolviendo las salas locales con
+   `nodeStatus:"offline"` y `messageCount:null`, y `/api/groups/<id>/messages` de una sala del PC → `503 {code:"PEER_OFFLINE"}`;
+   el cliente **conserva el snapshot** con el banner y no vacía la lista. Sin excepción no capturada ni 500.
+7. Un `profile.yaml` de prueba con 0 salas en `ui_meta` sigue mostrando las salas reales (prueba de que la
+   fuente dejó de ser `ui_meta`), y el censo incluye `HERMES_HOME/state.db` (sin eso, `rmufxz2ti` pierde las 2
+   sesiones del miembro `default`).
 8. `git diff` no toca `src/app/api/chat/route.ts` ni el flujo 1-a-1 de bots.
+
+Estos tres son los **criterios de cierre de Fase 2** fijados con @web-auditor; sin los tres no se cierra:
+`rmugviqw9` reconstruida con sus 204 turnos y las 3 ids del baseline fuera · sala desconocida → `404` con `code`
+y nunca `200 []` · corte con el par caído → `503` y el cliente conservando el snapshot.

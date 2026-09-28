@@ -17,7 +17,7 @@ los archivos del nodo PC, no de inferencia.
 | # | Store | Contenido real | Alcanzable por la PWA |
 |---|---|---|---|
 | A | `<HERMES_HOME>/profile.yaml` → `ui_meta["hermes-bots-groups"].rooms` | **1 sola sala**: `id:rmuag13gp-5r3kn` ("Algolab Strategy, Algolab", 54 entradas de log). Es lo que hoy lee `src/lib/hermes-fs.ts` + `app/api/groups/route.ts` | Sí (es la que usa) |
-| B | `<HERMES_HOME>/profiles/<bot>/state.db` | Sesiones **ocultas** `Group: <roomId> · <threadId>` por perfil. Conteo exacto del nodo PC (incluye `HERMES_HOME/state.db`): `rmugviqw9` 23 (brain-local 8, web-builder 7, web-auditor 8) · `rmufxz2ti` 6 · `rmuag13gp` 31 · `rmuli31hi` 1 → **61 sesiones de sala en total, contra 1 mensaje que muestra la PWA** | Sí (no la usa) |
+| B | `<HERMES_HOME>/profiles/<bot>/state.db` (+ el `HERMES_HOME/state.db` del perfil `default`) | Sesiones **ocultas** `Group: <roomId> · <threadId>` por perfil. Censo acordado del nodo PC (18:15): **63 sesiones, 60 `hidden=1`, 3 visibles** — 61 en perfiles de bots (algolab 16, algolab-strategy 15, brain-local 13, web-auditor 9, web-builder 8) **+ 2 del perfil `default`** en `HERMES_HOME/state.db` (miembro `default-this-device` de `rmufxz2ti`). Por sala: `rmuag13gp` 31 · `rmugviqw9` 23 · `rmufxz2ti` 6 · `rmuli31hi` 3 → contra **3 mensajes** que muestra la PWA del VPS (1 real + 2 del `PING E2E`) | Sí (no la usa) |
 | C | localStorage del Electron (`%APPDATA%\hermes\Local Storage\leveldb`, origen `file://`, key **`hermes.plugin.hermes-bots.group-chats`**) | Store canónico del Desktop: catálogo de salas + log en vivo | **No** (LevelDB comprimido, del cliente, no sincroniza) |
 
 Evidencia de A: en `C:\Users\ingju\AppData\Local\hermes\profile.yaml` el único room con log es
