@@ -17,18 +17,32 @@ La PWA lee el espejo que el plugin del Desktop publica en `ui_meta['hermes-bots-
 
 | Capa | Ubicación | Qué hace |
 |---|---|---|
-| Plugin (TS) | `apps/desktop/src/plugins/hermes-bots/group-chat.ts:52` → `GROUP_CHAT_SYNC_MAX_BYTES = 900_000` (ver también `:53` `…_MESSAGES = 100`, `:54` `…_TEXT_CHARS = 60_000`) | Arma la "bounded ui_meta projection: a compacted log" (`:275-280`) y trimmea el log de **una** sala hasta entrar en el presupuesto; si aun así no entra, `delete rooms[key]` |
+| Plugin (TS) | `apps/desktop/src/plugins/hermes-bots/group-chat.ts:52-54` → **working tree**: `GROUP_CHAT_SYNC_MAX_BYTES = 900_000`, `…_MESSAGES = 100`, `…_TEXT_CHARS = 60_000` · **commit `a7254e2d4c` (13-sep)**: `48000` / `16` / `1200` — o sea los tres números están **editados a mano y sin commitear** | Arma la "bounded ui_meta projection: a compacted log" (`:275-280`) y trimmea el log de **una** sala hasta entrar en el presupuesto; si aun así no entra, `delete rooms[key]` |
 | Gateway (Python) | `tui_gateway/methods_profiles.py:494` → `if len(json.dumps(incoming)) > 65536: return` | **Rechazo silencioso**: `return` antes de mergear, `applied["ui_meta"] = False`, sin excepción ni mensaje |
 
-**Root cause del "1 de 4 salas"** (medido en el nodo PC, `profile.yaml` con `updatedAt` fresco del 2026-09-28 15:41):
-la proyección rankea las salas por actividad (`:283-289`, newest-first) y trimmea **sólo la sala que está
-agregando** (`while (compact.log.length > 1 && groupChatGatewayJsonSize(envelope) > MAX) compact.log.shift()`,
-`:398-401`). La sala más nueva se queda con todo el presupuesto — evidencia: la única sala publicada tiene
-`log: 54` con **`omitted: 359`** (413 → 54) y las otras tres quedaron **borradas** por la rama
-`if (groupChatGatewayJsonSize(envelope) > MAX) delete rooms[key]` (`:405-407`). Y como el cap real del gateway
-(64 KB) es **29× menor** que el presupuesto del plugin (900 KB), el payload completo nunca entra: el gateway
-rechaza **toda** la escritura de `ui_meta` y en disco queda el último payload que sí entró — la sala vieja,
-recortada.
+**Medición del espejo que hoy está en disco** (`%LOCALAPPDATA%\hermes\profile.yaml`): 1 room,
+`updatedAt` 2026-09-28 15:41, log de 54 entradas con `omitted: 359`, **12 con `truncated: true`**,
+`text` máx 2.930 caracteres, JSON del `ui_meta` = **47.023 bytes** (entra en los 65.536 ✓).
+Esos números no coinciden ni con el commit (`48000`/`1200`/`16`) ni con el working tree
+(`900_000`/`60_000`/`100`): el payload lo escribió un estado intermedio (presupuesto ≈48 KB y tope de texto
+≈3.000 caracteres), o sea que **las constantes se vienen tocando a mano hoy** para intentar que el celular
+vea más.
+
+**Riesgo activo (predicción, no observación):** con los valores del working tree el payload de 4 salas queda
+muy por encima de 65.536 → el gateway lo rechaza **en silencio** y el espejo deja de actualizarse del todo.
+Es decir, el edit local de hoy empeora el síntoma ("1 sala recortada" → "cero actualizaciones"): no se debe
+dejar esa constante así ni "arreglar" el celular subiéndola.
+
+**Root cause del "1 de 4 salas"**: la proyección rankea las salas por actividad (`:283-289`, newest-first) y
+trimmea **sólo la sala que está agregando**
+(`while (compact.log.length > 1 && groupChatGatewayJsonSize(envelope) > MAX) compact.log.shift()`, `:398-401`).
+La sala más nueva se queda con todo el presupuesto de la corrida: con el presupuesto ≈48 KB que escribió el
+payload que está en disco, algolab (413 entradas) lo consumió entero — `log: 54`, `omitted: 359` — y las otras
+tres salas cayeron por la rama `if (groupChatGatewayJsonSize(envelope) > MAX) delete rooms[key]` (`:405-407`).
+Con el presupuesto del working tree (900 KB) el resultado empeora por el otro lado: el JSON supera los 65.536 del
+gateway y **toda** la escritura se rechaza en silencio, así que en disco queda congelado el último payload que
+sí entró. En las dos direcciones el síntoma es el mismo: **un solo escritor, un solo presupuesto y ningún
+rebalanceo entre salas**.
 
 Consecuencia: subir el tope **no alcanza**; mientras el `ui_meta` sea el transporte, el celular ve una proyección
 recortada y con salas faltantes.
@@ -88,6 +102,10 @@ y el consumidor TS (`apps/shared/src/gateway-contract.generated.ts`).
 - El repo tiene su propio `AGENTS.md` y sus reglas de tests (`scripts/run_tests.sh`): no inventar comandos.
 - Caveat de verificación: el código leído es el del repo; **confirmar las constantes contra la build instalada**
   del Desktop antes de cerrar el diagnóstico (si la build difiere, el número del recorte puede variar).
+- **Antes de empezar:** el working tree de `hermes-agent` tiene **3 archivos modificados sin commitear** en el
+  plugin (`group-chat.ts`, `group-chat-view.tsx`, `plugin.tsx`) y ahí viven exactamente los tres números que
+  rompen el presupuesto. Decidir con Juan si se descartan, se stashean o entran como parte del branch; la rama
+  nueva tiene que partir de un estado **declarado**, no de este diff sorpresa.
 
 ## Criterios de aceptación
 
