@@ -53,28 +53,55 @@ Mismo guard en `/api/groups/*/chat`, `/api/chat`, `/api/sessions*` y en el `PATC
 `src/lib/auth.ts` ya tiene cookie httpOnly pero **nadie la usa**; la key vive en localStorage del navegador.
 
 ### B2 — Las conversaciones de sala NO se replican (CRÍTICO · es el pedido principal)
+> **Corregido el 2026-09-28 18:2x con el recon de @web-builder y los probes de @web-auditor.**
+> Mi primera lectura ("la transcripción real vive en `state.db`") era imprecisa en dos puntos;
+> ver `correcciones` al final de este informe. Lo que sigue es la versión corregida.
+
 La PWA lee las salas **sólo** de `profile.yaml → ui_meta["hermes-bots-groups"].rooms` del nodo que
-sirve el request (`src/lib/hermes-fs.ts`, `src/app/api/groups/route.ts`). La transcripción real del
-Desktop vive en `<perfil>/state.db`, en sesiones ocultas tituladas `Group: <roomId> · <threadId>`,
-y la PWA **ni las lee ni las pide al nodo par**. Medición (suma de sesiones de grupo por bot):
+sirve el request (`src/lib/hermes-fs.ts`, `src/app/api/groups/route.ts`). Ese store tiene **una sola
+sala** (`id:rmuag13gp-5r3kn`, 54 entradas): el barrido de los 8 `profile.yaml` del nodo PC da
+**0 hits** para `rmugviqw9`, `rmufxz2ti` y `rmuli31hi`.
 
-| Sala | Desktop (state.db) | PWA en el VPS |
+El store canónico del Desktop **no es un archivo**: es localStorage del Electron (LevelDB, 61 bytes de
+user key), key `hermes.plugin.hermes-bots.group-chats` con origen `file://` — inalcanzable desde la PWA
+en `:3000` y sin sincronizar entre nodos. `state.db` **no es un log de sala**: sus sesiones
+`Group: <roomId> · <thread>` son la sesión propia de cada bot (`assistant 30 / tool 53 / user 1` en la
+de brain-local), y la sala hay que **reconstruirla** parseando el envoltorio
+`[Group chat: "…"] … New messages in the room since your last turn:` + líneas `  Nombre [nodo]: texto`.
+Es viable: @web-auditor reconstruyó `rmugviqw9` completa (204 turnos ordenados, primero 1790357897,
+último 1790550139).
+
+Censo de sesiones de sala (medido 2026-09-28 18:2x UTC, `title LIKE 'Group: %'`):
+
+| Sala | Sesiones en el nodo PC | PWA en el VPS |
 |---|---|---|
-| rmugviqw9-6zez7 · Brain Local, Web Builder, Web Auditor | 8+7+8 sesiones (308+257+273 msgs) | **1** mensaje |
-| rmufxz2ti-w6sk5 · Brain Local, 100.124.132.48:9119 | 4 sesiones (548 msgs) | **0** mensajes |
-| rmuag13gp-5r3kn · Algolab Strategy, Algolab | 16+15 sesiones (3934 msgs) | 54 mensajes |
+| rmuag13gp-5r3kn · Algolab Strategy, Algolab | 31 (algolab 16 + algolab-strategy 15) | 54 entradas |
+| rmugviqw9-6zez7 · Brain Local, Web Builder, Web Auditor | 23 (brain-local 8 + web-builder 7 + web-auditor 8) | **3** (1 seed + los 2 de mi probe E2E) |
+| rmufxz2ti-w6sk5 · Brain Local, 100.124.132.48:9119 | 4 (brain-local) | **0** |
+| rmuli31hi-inptr · (esta sala) | 3 (brain-local 1 + web-builder 1 + web-auditor 1) | **0** + `warning:"Group room not found"` |
+| **TOTAL nodo PC** | **61** | — |
+| **TOTAL nodo VPS** (8 perfiles + default, vía :8642) | **0** | — |
 
-La sala `rmuag13gp` es la única que tiene log completo en `profile.yaml`, y ese log **sí** está
-espejado en el VPS (54/54 entradas con el mismo id y timestamp), o sea que el mecanismo de
-replicación del registro de salas existe — pero las dos salas que Juan realmente usa no están en él,
-y el PWA no tiene ninguna vía para traerlas.
+**Consecuencia de diseño para la Fase 2 (evidencia decisiva):** el nodo VPS tiene **0** sesiones de
+sala, así que para las salas cuyos bots viven en el PC **no hay nada que re-derivar localmente**: la
+PWA del VPS tiene que **pedir la sala al nodo par** (o el Desktop tiene que exponer su store).
+Re-derivar de `state.db` sólo sirve en el nodo que corre esos bots. Si el PC está apagado, la sala no
+se puede reconstruir en el VPS: hay que decidir explícitamente qué se muestra (estado "nodo PC
+offline" en vez de lista vacía).
 
-### B3 — Seeds hardcodeados con mensajes reales (ALTO)
+La sala `rmuag13gp` es la única con log completo en `profile.yaml`, y **sí** está espejada en el VPS
+(54/54 entradas con el mismo id y timestamp) — o sea el espejo del registro de salas existe, pero no
+cubre las salas activas y la PWA no tiene vía para traerlas.
+
+### B3 — Seeds hardcodeados: pasado congelado, salas nuevas invisibles (ALTO)
+> Corrección: **el mensaje del seed sí existió.** `msg-wb-1` es el último `assistant` de web-auditor en
+> la sesión `20260927_141639_f2fa83`, thread `tmuk54861-6av2d`, `at=1790550198785` — idéntico al seed.
+
 `src/lib/group-registry.ts` → `CANONICAL_ROOMS` fija 3 salas con `id`, `members` y `initialLog`, y
-`ensureCanonicalRoomsInDoc()` **las reinyecta cuando el log está vacío** (y las persiste). Efecto
-verificado: el VPS muestra en `rmugviqw9` un mensaje de `web-auditor` ("eslint . = 118 problems",
-timestamp 1790550198785) que en esa sala **nunca existió**. Además toda sala nueva del Desktop es
-invisible en el celular porque la lista de salas también es fija.
+`ensureCanonicalRoomsInDoc()` **las reinyecta y persiste cuando el log está vacío**. El bug real es
+peor que un mensaje inventado: muestra el pasado congelado de esa sala (una respuesta de ayer al
+principio de una conversación de hoy) y, como la lista de salas también es fija, **toda sala nueva del
+Desktop es invisible en el celular** (caso medido: `rmuli31hi-inptr`, 174 turnos, 0 en la PWA).
 
 ### B4 — Borrado silencioso de la conversación en el cliente (ALTO)
 `src/lib/api.ts` `fetchGroupMessages`: `catch → return []`, y también devuelve `[]` con HTTP 404.
@@ -148,3 +175,42 @@ curl -s -N -X POST $B/api/groups/rmugviqw9-6zez7/chat -H "$K" -H 'Content-Type: 
 No se tocó `profile.yaml` a mano. El único efecto colateral de la verificación fue un mensaje de prueba
 E2E en el log de la sala `rmugviqw9` **del profile.yaml del VPS** (`@web-auditor PING E2E…` + `E2E_OK`);
 no afecta a la conversación del Desktop, que vive en `state.db`.
+
+## Correcciones y estado del arte (2026-09-28 18:30 UTC)
+
+Aportes de @web-builder (recon) y @web-auditor (probes independientes) sobre este informe:
+
+1. **B2 mal apuntado en la primera versión.** El store canónico de las salas no es un archivo ni
+   `state.db`: es localStorage del Electron (LevelDB, key `hermes.plugin.hermes-bots.group-chats`,
+   origen `file://`). `profile.yaml` sólo tiene la sala de algolab. `state.db` guarda la sesión propia
+   de cada bot por sala y hay que reconstruir la sala desde el envoltorio del turno. Ambas cosas ya
+   están incorporadas arriba.
+2. **B3 mal diagnosticado en la primera versión.** El mensaje del seed **sí existió** (es el último
+   `assistant` de web-auditor en `20260927_141639_f2fa83`). El bug es el log hardcodeado + la lista de
+   salas fija.
+3. **Censo de sesiones de sala: 61 en el nodo PC** (rmuag13gp 31 / rmugviqw9 23 / rmufxz2ti 4 /
+   rmuli31hi 3). El 60 de @web-auditor sale de contar `rmuli31hi` = 2 cuando son 3 (`brain-local` 1 +
+   `web-builder` 1 + `web-auditor` 1). **El nodo VPS tiene 0** (verificado por su gateway :8642,
+   8 perfiles + `default`): nada de `state.db` del VPS entra en la cuenta.
+4. **Baseline mutado por mi propio probe E2E** (para cualquier comparación antes/después del
+   `profile.yaml` del VPS). Log de `rmugviqw9` en el VPS, congelado con ids exactos:
+   `msg-wb-1` (seed, at 1790550198785) · `usr_1790632373669_fm47n` (at 1790632373669, mi probe) ·
+   `bot_1790632380284_p90ph` (at 1790632380284, respuesta `E2E_OK`). Las dos últimas desaparecen solas
+   cuando aterrice la Fase 2 (el log deja de venir del seed/`profile.yaml`).
+5. **Decisión de diseño de Fase 2 que queda fijada:** reconstrucción local de `state.db` **sólo** en el
+   nodo que corre esos bots; para el resto, fetch al nodo par, con estado explícito de "nodo offline"
+   en vez de lista vacía.
+
+### Prompts de fix ya escritos (vault, pendientes de commit)
+
+| Fase | Archivo | Contenido |
+|---|---|---|
+| 1 | `Hermes/Quarantine/hermes-pwa-fase1-auth-integridad-antigravity-prompt.md` | B1 + B1b + B5 + B7 (guard único fail-closed, sin echo de la key, traversal/inyección del PATCH, tmp+fsync+rename con lock, `/api/health`) |
+| 2 | `Hermes/Quarantine/hermes-pwa-fase2-replicacion-salas-antigravity-prompt.md` | Fuente de verdad de salas + fetch al nodo par + quitar seeds + no vaciar la UI ante error |
+| — | `Hermes/Quarantine/hermes-pwa-fase2-recon-fuente-de-verdad-2026-09-28.md` | Evidencia del recon (LevelDB, MANIFEST, mapeo thread→sesión) |
+| — | `Hermes/Systems/local/hermes-pwa-audit-probes-2026-09-28.md` | Probes independientes de web-auditor |
+
+**Recomendación consolidada (brain-local + web-builder + web-auditor, unánime): Fase 1 primero.**
+El VPS está abierto a cualquiera del tailnet con cualquier string en el header, el fix es chico y no
+toca datos; la Fase 2 cambia semántica de salas y necesita el baseline congelado.
+
