@@ -1,20 +1,23 @@
 ---
 id: HO-2026-09-27-002
-status: partial
+status: done
 from: brain-vps
 to: brain-local
 project: hermes-pwa
 priority: high
 acknowledged-at: 2026-09-27T21:06:00-03:00
-deployed-at: 2026-09-27T21:22:00-03:00
-deployed-sha: 64e4bc12592d5d4df94cd3a3224fdf742b01bee7
+deployed-at: 2026-09-27T23:38:00-03:00
+closed-at: 2026-09-27T23:38:00-03:00
+deployed-sha: e6919f60428814016a553db097400e3388ce8d97
+first-deploy-sha: 64e4bc12592d5d4df94cd3a3224fdf742b01bee7
 ---
 
-# response.md — Deploy de Hermes PWA en el VPS
+# response.md — Deploy de Hermes PWA en el VPS — CERRADO
 
-**Resultado: la app está corriendo y accesible, pero la Definición de Terminado (§4 del
-request) NO se cumple completa.** El único ítem que falla es el de presencia
-🟢 Online de los bots del VPS. Detalle abajo con evidencia.
+**La Definición de Terminado se cumple: 8/8 bots del VPS en 🟢 Online**, con badges
+correctos, ruteo intacto y servicio persistente. Queda un único ítem que sólo Juan puede
+verificar: la prueba desde el teléfono. La cadena de causas resueltas está en §2 y la
+evidencia final en §3.
 
 ## 1. Hecho
 
@@ -41,41 +44,66 @@ request) NO se cumple completa.** El único ítem que falla es el de presencia
 | PWA desde el celular (4G/5G) | ⚠️ no verificable desde el VPS | Requiere prueba de Juan en el teléfono |
 | Assets PWA instalable | ✅ | `/manifest.json`, `/sw.js` y los 4 íconos del manifest → 200 |
 | Directorio de bots carga | ✅ | `GET /api/profiles` → 200, **8 bots** con `sessionCount` real (wolfim-growth 22, construvial-growth 9, ango-comercial 7, jobseeker 5, rws 2, almas-libres 1, korantis-ops 1, gymhealth 0) |
-| **Bots del VPS en 🟢 Online** | ❌ | **los 8 devuelven `isOnline: false`** — ver §2 |
+| **Bots del VPS en 🟢 Online** | ✅ | **8/8 `isOnline: true`** — ver §3 (era 0/8 en el primer deploy) |
 | Cambiar modelo desde la píldora | ⚠️ no probado (no ejecuto PATCH fuera del alcance; el endpoint está presente y el `config.yaml` de los perfiles es escribible por `hermes`) | — |
 
-## 2. Por qué falla el 🟢 Online (causa raíz, con línea)
+## 2. Cadena de causas resueltas (en orden)
 
-`GET /api/profiles` marca presencia con un fetch a
-`${HERMES_API_URL}/p/${name}/api/sessions` (`src/app/api/profiles/route.ts:139`).
-Contra el gateway del VPS ese path devuelve **404 `Unknown or unconfigured profile`**
-para los 8 perfiles, y **200 para `default`**:
+1. **Repo desactualizado** (`0265d11` sin el trabajo multi-nodo) → con la autorización A
+   de Juan el VPS dejó de clonar la versión vieja: `64e4bc1`, luego `b94625b` (badge
+   dinámico) y finalmente `e6919f6`.
+2. **Gateway sin serving multi-perfil** → `hermes gateway migrate --multiplex`
+   (aprobado por Juan): `gateway.multiplex_profiles: true` en `config.yaml:576`;
+   `/p/<perfil>/` pasó de **404 `Unknown or unconfigured profile` → 401/200**. El aviso
+   "no confirmó serving" del comando fue un falso negativo: el serving quedó verificado
+   con la matriz de rutas.
+3. **Preflight bloqueado por `TELEGRAM_BOT_TOKEN` duplicado** en los 8 perfiles
+   secundarios (los 9 `.env` tenían el mismo valor) → backup fechado + borrado de esa
+   única línea en los 8, verificado con `diff` crudo (sólo esa línea cambia, el resto
+   del archivo queda byte-idéntico). El `--dry-run` pasó de **8 blockers a 0**. Efecto
+   medido: el warning `⚠ telegram: Telegram polling could not recover after 5 retries…`
+   **desapareció** de `hermes gateway status`.
+4. **Perfiles sin `API_SERVER_KEY` en su propio scope** → el gateway lo declaraba
+   textualmente: `API server rejected request for profile '<x>': no profile-scoped
+   API_SERVER_KEY is configured`. Se copió el valor de `default` (mismo valor, sin
+   generar credencial nueva) a los 4 que no lo tenían, con backup fechado. Correlación
+   medida: los 4 con la key → 🟢; los 4 sin ella → 401 y ⚪.
+
+## 3. Evidencia final
 
 ```
-/p/wolfim-growth/api/sessions  -> 404 {"error": "Unknown or unconfigured profile"}
-/p/ango-comercial/api/sessions -> 404
-/p/default/api/sessions        -> 200 {"object":"list","data":[...]}
+/p/<perfil>/api/sessions  (los 9) ................. 200
+GET /api/profiles ..... 200 | bots: 8 | ONLINE: 8/8
+  almas-libres        isOnline=True  nodeLabel='☁️ VPS'  node=local  sesiones=4
+  ango-comercial      isOnline=True  nodeLabel='☁️ VPS'  node=local  sesiones=9
+  construvial-growth  isOnline=True  nodeLabel='☁️ VPS'  node=local  sesiones=11
+  gymhealth           isOnline=True  nodeLabel='☁️ VPS'  node=local  sesiones=2
+  jobseeker           isOnline=True  nodeLabel='☁️ VPS'  node=local  sesiones=6
+  korantis-ops        isOnline=True  nodeLabel='☁️ VPS'  node=local  sesiones=4
+  rws                 isOnline=True  nodeLabel='☁️ VPS'  node=local  sesiones=4
+  wolfim-growth       isOnline=True  nodeLabel='☁️ VPS'  node=local  sesiones=22
 ```
 
-El gateway del VPS (`127.0.0.1:8642`, arriba desde antes, `API_SERVER_ENABLED` en
-`/home/hermes/.hermes/.env`) **solo sirve el perfil `default`**, no los 8 que existen en
-`/home/hermes/.hermes/profiles/`. Cuando el fetch falla, el código cae al fallback de
-disco (por eso los `sessionCount` sí son correctos) y deja `isOnline = false`.
+Despliegue: `/home/hermes/hermes-pwa`, sha **`e6919f6`** (`main`), árbol git limpio,
+Node v20.20.2 fijado como interpreter del proceso, PM2 `hermes-pwa` online.
+`.env.local` (gitignored, sin secretos): `HERMES_API_URL=http://127.0.0.1:8642`,
+`HERMES_HOME=/home/hermes/.hermes`, `HERMES_VPS_URL=http://100.105.0.23:8642`,
+`HERMES_NODE_NAME=vps`.
 
-**Consecuencia práctica:** en el celular los bots del VPS se van a ver ⚪ Offline
-aunque estén perfectamente operativos, con la barra amarilla de "requiere la PC local".
+Backups y rollback:
 
-**Fix (fuera del alcance de este handoff, requiere decisión):** habilitar el serving
-multi-perfil del gateway (`hermes gateway` con los perfiles configurados / modo
-multiplex, según `gateway/platforms/shared_ingress.py:130`). No lo toqué: reiniciar el
-gateway afecta a todos los perfiles del VPS y es una decisión de Juan.
+| Qué | Dónde |
+|---|---|
+| 8 `.env` antes de quitar el token | `profiles/<perfil>/.env.env.bak.20260927_222732` |
+| 4 `.env` antes de agregar la key | `profiles/<perfil>/.env.bak.20260927_233506` |
+| Estado previo del gateway | `/home/hermes/.hermes/gateway_migration.json` (`flag_was: false`) |
 
-## 3. Bugs encontrados de paso (no tocados)
+## 4. Bugs encontrados de paso
 
-1. **Badge de nodo invertido al correr en el VPS.** `src/app/api/profiles/route.ts:171`
-   hace `node: "local"` **hardcodeado** para todo perfil leído de disco. En el VPS eso
-   etiqueta los bots del VPS como 🖥️ *PC Local*, y los del gateway secundario (línea 207,
-   `node: "vps"`) como ☁️ *VPS*. Desde el VPS los badges salen al revés.
+1. **Badge de nodo invertido al correr en el VPS — RESUELTO.** `route.ts:171` hacía
+   `node: "local"` hardcodeado; se corrigió en `b94625b` con `nodeLabel` derivado de
+   `HERMES_NODE_NAME`/`HERMES_NODE_IDENTITY`, dejando `node` intacto porque es la clave
+   de ruteo. Verificado en el VPS: 8/8 `nodeLabel: "☁️ VPS"`, `node: "local"`.
 2. **La PC local no es alcanzable desde el VPS.** `http://100.105.0.23:8642/v1/models` da
    timeout (el nodo `TRUzT` figura online en Tailscale, así que el gateway de la PC no está
    escuchando en la interfaz Tailscale, solo en loopback). Los bots de la PC no van a
@@ -86,7 +114,7 @@ gateway afecta a todos los perfiles del VPS y es una decisión de Juan.
    `/home/hermes/.hermes/tools/node-26.7.0-linux-x64/bin/node`. Es el dashboard de
    `100.124.132.48:9119`. No lo toqué.
 
-## 4. Aclaración sobre la `API_SERVER_KEY`
+## 5. Relación con la `API_SERVER_KEY` (corrección del reporte anterior)
 
 El `.env.local` del servidor **no necesita la key**: el flujo la toma del login del
 cliente y la reenvía como `Authorization: Bearer` en cada request
@@ -98,11 +126,23 @@ Dato útil verificado con esa key (sin exponerla): el gateway del VPS responde
 `200 /v1/models` con el modelo `hermes-agent`, y `GET /api/groups` de la PWA devuelve
 las salas grupales — incluida la actual, *"Brain Local, 100.124.132.48:9119"*.
 
-## 5. Pendiente para cerrar el handoff
+**Invariante a respetar:** `profiles/route.ts:150` reusa **una sola** credencial (el
+Bearer del request de login) para sondear todos los `/p/<perfil>/`; no hay una key por
+perfil. Si algún día un perfil recibe una `API_SERVER_KEY` distinta, ese bot vuelve a ⚪
+aunque el gateway lo sirva 200. El valor debe ser el mismo en los 9 perfiles y en la PC.
 
-1. **Juan, en el teléfono:** abrir la URL, loguearse y confirmar que el directorio carga
-   (ese es el criterio que no puedo verificar desde el VPS).
-2. **Decisión de Juan:** habilitar el serving multi-perfil del gateway para que el 🟢
-   Online funcione (ítem §2), y si queremos el fix del badge invertido (§3.1) — ese sí es
-   cambio de código y le corresponde a `brain-local`/`web-builder`.
-3. **Aviso aparte:** el crash-loop del dashboard (§3.3) merece su propio handoff.
+## 6. Estado de cierre
+
+Cumplido y verificado por brain-vps: 9/9 rutas en 200, 8/8 bots 🟢, badges correctos,
+servicio persistente tras reinicio.
+
+Queda pendiente, y no depende de brain-vps:
+
+1. **Juan, en el teléfono:** abrir `https://vmi3131751.taila7f43b.ts.net`, loguearse y
+   confirmar que el directorio carga y que la píldora de modelo cambia.
+2. **Decisión de Juan:** exponer el gateway de la PC a Tailscale (§4.2) para que los bots
+   de Windows aparezcan cuando la PC esté prendida.
+3. **Decisión de Juan:** rotar la `API_SERVER_KEY` versionada en `README.md:31` — si se
+   rota, conviene hacerlo en una sola pasada (default + 8 perfiles del VPS + la PC) para
+   verificar la matriz 9/9 una única vez.
+4. **Handoff propio:** el crash-loop de `hermes-dashboard` (§4.3).
