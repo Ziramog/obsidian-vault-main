@@ -98,6 +98,18 @@ que ninguna escritura de perfil pueda perder datos ni salir del directorio de pe
 `src/app/api/groups/[groupId]/messages/route.ts` · `src/app/api/groups/[groupId]/chat/route.ts` ·
 nuevo `src/app/api/health/route.ts`.
 
+## Entorno de ejecución (leer antes de correr nada)
+
+- `.env.local` del repo **ya tiene** `HERMES_API_KEY`, `HERMES_API_URL`, `HERMES_VPS_API_KEY`, `HERMES_VPS_URL`
+  (nombres reales, valores no se tocan). **No hace falta ninguna variable nueva:** el guard tiene que aceptar
+  como válido el set existente. Si algo devuelve `503 auth not configured`, el bug es del guard, no del env —
+  **no** se lo arregla ampliando el guard ni agregando credenciales al repo.
+- **Puertos:** en esta máquina hay **dos instancias viejas del PWA ya corriendo** en `:3111` (PID 28792) y
+  `:3112` (PID 7160) con el código sin arreglar, y el gateway vive en `:8642`. `:3000` está libre. Las pruebas
+  se hacen **siempre contra el proceso nuevo** (`npm run build && npm start`, que escucha en `:3000`);
+  **no apagar, matar ni reiniciar** los procesos de `:3111`/`:3112` (son los que usa Juan desde el celular).
+  Probar contra ellos da 200 con clave falsa y hace parecer que el fix no funcionó.
+
 ## Restricciones
 
 - **No tocar** el ruteo de salas ni los gates de `PC_BOTS`/`NODE_NAME` de `groups/[groupId]/chat/route.ts:127-133`

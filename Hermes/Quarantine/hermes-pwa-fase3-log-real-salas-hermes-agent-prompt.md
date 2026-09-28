@@ -3,6 +3,12 @@
 **Repo:** `C:\Users\ingju\AppData\Local\hermes\hermes-agent` (**NO** `hermes-pwa`; blast radius de Hermes mismo).
 **Rama propia** (`fix/group-chat-ui-meta-budget`), **OK explícito de Juan** requerido antes de tocar nada, y **sin**
 relación con los commits de Fase 1/2 de `hermes-pwa`.
+
+**Prerrequisito de ejecución (agregado 2026-09-28):** esta carpeta **no tiene proyecto de Antigravity**, así que
+**no se puede manejar por el CLI headless** (`Hermes/Systems/local/antigravity-cli.sh`) hasta crear uno apuntando a
+`AppData\Local\hermes\hermes-agent`. Antes de arrancar: crear el proyecto (o decidir que esta fase se hace con
+otra herramienta / a mano). Además el working tree tiene 3 archivos del plugin modificados sin commitear: la rama
+tiene que partir de un estado declarado, no de ese diff (ver Restricciones).
 **Objetivo de negocio:** que el celular (PWA) muestre el log **completo** de cada sala del Desktop, no una
 reconstrucción incompleta ni una proyección recortada.
 **Precedente:** `Hermes/Quarantine/hermes-pwa-fase2-recon-fuente-de-verdad-2026-09-28.md` y
