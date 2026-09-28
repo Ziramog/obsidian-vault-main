@@ -270,6 +270,39 @@ grupos es un plugin in-tree: `apps/desktop/src/plugins/hermes-bots/` (`group-cha
 - Pregunta abierta para Fase 3: el espejo en el nodo PC sólo tiene **1 sala (algolab)** mientras el store
   del Desktop tiene **4** → falta ver por qué el push no cubre `rmugviqw9`, `rmufxz2ti` ni `rmuli31hi`.
 
+#### Cap del gateway y congelamiento actual (triple verificado, 19:0x–19:1x UTC)
+
+- **El cap es una decisión documentada, no un accidente.** `tui_gateway/methods_profiles.py:487`
+  `_configure_ui_meta`, docstring `:488-489`: *"Merge `params["ui_meta"]` key-wise into profile.yaml (None
+  deletes). 64KB cap (rides every roster paint)"*. `:491` `applied["ui_meta"] = False`; `:494`
+  `if len(json.dumps(incoming)) > 65536: return` → **rechazo mudo**: sin excepción, sin campo de error, y
+  se pierde **toda** la escritura de `ui_meta` (no es por clave).
+- **El espejo SÍ pasa por el gateway** (no es escritura directa del plugin): en `profile.yaml:1-2` está
+  `_ui_meta_revisions: {hermes-bots-groups: 1668}`, el contador CAS que `_configure_ui_meta` incrementa en
+  cada apply exitoso (`:519`, `:524`, y *"revisions survive deletion"* `:489-490`). Es el **instrumento
+  exacto**: si avanza, el espejo está sano; si queda clavado, hay rechazo.
+- **Estado hoy: congelado.** `profile.yaml` mtime **19:41:26.204Z**, `ui_meta["hermes-bots-groups"].updatedAt`
+  **1790624485107 = 19:41:25.107Z**, contador CAS clavado en **1668**, sala `revision: 1936`,
+  `omitted: 359`, 54 entradas, 12 con `truncated: true` → **3 h 30 min sin una sola escritura** con el
+  Desktop vivo (medido 23:11 UTC / 19:11 local). El espejo no es "recortado": está **muerto**.
+- **Causa raíz del "1 de 4"** (código del plugin): proyección newest-first (`group-chat.ts:283-289`) +
+  trim que sólo ajusta la sala que se está agregando (`:398-401`) → la sala más nueva se come el
+  presupuesto entero y las otras tres caen por `delete rooms[key]` (`:405-407`). Sin rebalanceo entre salas
+  el reparto es todo o nada.
+- **Build viva vs fuente:** HEAD de `hermes-agent` = `5a3e03ef37` (23-sep) con
+  `GROUP_CHAT_SYNC_MAX_BYTES = 48000` / `SYNC_TEXT_CHARS = 1200`; el **working tree** (3 archivos
+  modificados **sin commitear**, 30 inserciones, editados hoy 11:27 y 15:43) trae `900_000` / `60_000`.
+  `apps/desktop/dist/` reconstruido **15:47** contiene `9e5` y `6e4` → la app que corre usa el working
+  tree, cuyo payload de 4 salas **excede los 65.536** del gateway → rechazo mudo → espejo congelado desde
+  las 15:41 (escrito por la build anterior de `dist/`, ~48 KB de presupuesto). Ojo: `24e3` en el bundle es
+  `GROUP_CHAT_SYNC_IMAGE_CHARS`, **idéntico en HEAD y en el worktree**, así que no discrimina build; los
+  que sí discriminan son `9e5` y `6e4`.
+- **Criterios de aceptación de Fase 3 (punto 1, sin cambio de comportamiento):** (i) `ui_meta` > 65.536 →
+  respuesta con error explícito (`ui_meta_error:"too_large"`) en vez del mudo `applied.ui_meta=false`;
+  (ii) tras reconstruir `dist`, `_ui_meta_revisions["hermes-bots-groups"]` **avanza** desde 1668 y
+  `updatedAt` lo sigue, dentro del minuto siguiente a un mensaje de sala; (iii) el espejo lleva las **4
+  salas** con `omitted` por sala (no 1 con `delete rooms[key]`).
+
 ### Prompts de fix ya escritos (vault, pendientes de commit)
 
 | Fase | Archivo | Contenido |
