@@ -1,0 +1,102 @@
+# Prompt para Antigravity — Fase 3 · el log real de las salas en el celular (repo `hermes-agent`)
+
+**Repo:** `C:\Users\ingju\AppData\Local\hermes\hermes-agent` (**NO** `hermes-pwa`; blast radius de Hermes mismo).
+**Rama propia** (`fix/group-chat-ui-meta-budget`), **OK explícito de Juan** requerido antes de tocar nada, y **sin**
+relación con los commits de Fase 1/2 de `hermes-pwa`.
+**Objetivo de negocio:** que el celular (PWA) muestre el log **completo** de cada sala del Desktop, no una
+reconstrucción incompleta ni una proyección recortada.
+**Precedente:** `Hermes/Quarantine/hermes-pwa-fase2-recon-fuente-de-verdad-2026-09-28.md` y
+`Hermes/Quarantine/hermes-pwa-fase2-replicacion-salas-antigravity-prompt.md` (sección 0 = techo real).
+
+---
+
+## Diagnóstico (verificado sobre el código, no inferido)
+
+La PWA lee el espejo que el plugin del Desktop publica en `ui_meta['hermes-bots-groups']`. Ese espejo es
+**lossy por diseño** y hay **dos topes** en dos capas distintas:
+
+| Capa | Ubicación | Qué hace |
+|---|---|---|
+| Plugin (TS) | `apps/desktop/src/plugins/hermes-bots/group-chat.ts:52` → `GROUP_CHAT_SYNC_MAX_BYTES = 900_000` (ver también `:53` `…_MESSAGES = 100`, `:54` `…_TEXT_CHARS = 60_000`) | Arma la "bounded ui_meta projection: a compacted log" (`:275-280`) y trimmea el log de **una** sala hasta entrar en el presupuesto; si aun así no entra, `delete rooms[key]` |
+| Gateway (Python) | `tui_gateway/methods_profiles.py:494` → `if len(json.dumps(incoming)) > 65536: return` | **Rechazo silencioso**: `return` antes de mergear, `applied["ui_meta"] = False`, sin excepción ni mensaje |
+
+**Root cause del "1 de 4 salas"** (medido en el nodo PC, `profile.yaml` con `updatedAt` fresco del 2026-09-28 15:41):
+la proyección rankea las salas por actividad (`:283-289`, newest-first) y trimmea **sólo la sala que está
+agregando** (`while (compact.log.length > 1 && groupChatGatewayJsonSize(envelope) > MAX) compact.log.shift()`,
+`:398-401`). La sala más nueva se queda con todo el presupuesto — evidencia: la única sala publicada tiene
+`log: 54` con **`omitted: 359`** (413 → 54) y las otras tres quedaron **borradas** por la rama
+`if (groupChatGatewayJsonSize(envelope) > MAX) delete rooms[key]` (`:405-407`). Y como el cap real del gateway
+(64 KB) es **29× menor** que el presupuesto del plugin (900 KB), el payload completo nunca entra: el gateway
+rechaza **toda** la escritura de `ui_meta` y en disco queda el último payload que sí entró — la sala vieja,
+recortada.
+
+Consecuencia: subir el tope **no alcanza**; mientras el `ui_meta` sea el transporte, el celular ve una proyección
+recortada y con salas faltantes.
+
+## Tarea — tres cosas, en este orden
+
+### 1. Hacer visible el rechazo (bug de diagnóstico, mínimo y bloqueante)
+
+- En `_configure_ui_meta` (`methods_profiles.py:487`), cuando `len(json.dumps(incoming)) > 65536`, **no** retornar
+  en silencio: devolver `applied["ui_meta_error"] = "too_large"`, el tamaño calculado y el límite. El plugin ya
+  distingue `applied.ui_meta !== true` (`apps/desktop/src/plugins/hermes-bots/data.ts:416-438`), así que la señal
+  se puede mostrar/serializar sin tocar el contrato existente.
+- Mismo tratamiento para los otros dos `return` silenciosos del mismo camino (conflictos CAS ya reportan).
+- Test: `tests/tui_gateway/test_profiles_ui_meta_cas.py` (o hermano) con un `incoming` de >65536 → el resultado
+  trae `ui_meta_error` y `profile.yaml` **no** se modifica.
+
+### 2. Que la proyección quepa de verdad (plugin TS)
+
+- Reemplazar el presupuesto único `900_000` por el cap real del gateway (65 536) con el margen por escapado de
+  Unicode que el comentario de `:50-51` ya declara explícito (`json.dumps` escapa no-ASCII) — y **derivar** el
+  número de una sola constante compartida, no de dos valores que se creen equivalentes.
+- Repartir el presupuesto **entre** salas (round-robin por sala, no greedy): ninguna sala puede quedarse el total
+  ni desaparecer. `omitted` ya existe por sala (`:64-68`) y es lo que la UI debe usar para decir "hay N mensajes
+  anteriores que el espejo no lleva".
+- Nunca `delete rooms[key]`: una sala sin presupuesto se publica con `log: []` + `omitted: <n>` (el celular
+  distingue "sala sin mensajes" de "sala no existe" — ver contrato HTTP de Fase 2 en `hermes-pwa`).
+- Tests del plugin (`group-chat.test.ts`, `group-chat-view.test.ts`, `group-panes.test.ts`): 4 salas reales
+  (413/172/115/10 entradas) → las 4 presentes, todas con `omitted` correcto y el JSON final ≤ cap.
+
+### 3. Arquitectura (recomendación a decidir, no implementar sin OK)
+
+`ui_meta` **viaja en cada `profiles.list`**: usarlo como API de transcripción para el celular es un costo
+permanente por paint y un techo estructural. Opciones, en orden de preferencia:
+
+1. **RPC dedicado** de salas/transcripción (`groups.transcript` en `tui_gateway/contracts/groups_bot_relay.py`,
+   que ya declara formas de roster/eventos/room-link) leyendo el log del plugin; `ui_meta` queda sólo con el
+   catálogo (`name`, `members`, `roomId`, `revision`, `omitted`) — chico, barato y siempre completo.
+2. Publicar el log completo a un store server-visible (archivo o tabla `state.db`) por sala y que la PWA lo lea
+   por HTTP desde el nodo dueño.
+3. Sólo subir el cap del gateway: la peor de las tres (encarece cada `profiles.list` de todos los clientes y no
+   elimina el recorte).
+
+## Archivos a tocar (Fase 3)
+
+`tui_gateway/methods_profiles.py` · `apps/desktop/src/plugins/hermes-bots/group-chat.ts` ·
+tests: `tests/tui_gateway/test_profiles_ui_meta_cas.py`, `apps/desktop/src/plugins/hermes-bots/group-chat*.test.ts`.
+En el punto 3, además: `tui_gateway/contracts/groups_bot_relay.py` + `scripts/gen_gateway_contracts.py` (regenerar)
+y el consumidor TS (`apps/shared/src/gateway-contract.generated.ts`).
+
+## Restricciones
+
+- **No** tocar `hermes-pwa` en esta fase; su Fase 1/2 se cierra aparte.
+- **No** romper el contrato `ui_meta` (lo consumen Desktop y PWA): los campos nuevos son aditivos
+  (`omitted` ya existe; `ui_meta_error` es nuevo en el resultado del RPC).
+- **No** cambiar el ranking por actividad ni el formato del log; sólo el reparto del presupuesto.
+- **No** tocar `_ui_meta_revisions` / CAS: el rechazo por tamaño se reporta, no se reintenta a ciegas.
+- El repo tiene su propio `AGENTS.md` y sus reglas de tests (`scripts/run_tests.sh`): no inventar comandos.
+- Caveat de verificación: el código leído es el del repo; **confirmar las constantes contra la build instalada**
+  del Desktop antes de cerrar el diagnóstico (si la build difiere, el número del recorte puede variar).
+
+## Criterios de aceptación
+
+1. Con las 4 salas reales del nodo, `ui_meta['hermes-bots-groups'].rooms` en `profile.yaml` tiene **4 rooms**
+   (hoy 1) y el JSON medido (con escapado Python) **≤ 65 536**.
+2. `omitted` por sala coincide con el recorte real y la PWA puede mostrar "faltan N mensajes anteriores".
+3. `log 0` nunca aparece como ausencia de sala: una sala sin presupuesto sigue publicada.
+4. Push de `>64 KB`: el RPC responde `ui_meta_error:"too_large"` con tamaño y límite; `profile.yaml` intacto.
+5. Suites del gateway (`tests/tui_gateway/`) y del plugin (vitest `apps/desktop`) en verde; `tsc` del desktop y
+   regeneración de contratos sin drift.
+6. Receipt real: `GET /api/groups` de la PWA del VPS mostrando la sala con su catálogo completo y el conteo de
+   `omitted` de cada una, contra el mismo `profile.yaml` que hoy sólo trae `id:rmuag13gp-5r3kn`.
