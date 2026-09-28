@@ -24,14 +24,15 @@ evidencia final en §3.
 | Ítem | Valor |
 |---|---|
 | Path | `/home/hermes/hermes-pwa` (decisión del request, sin sudo, owner `hermes`) |
-| SHA desplegado | `64e4bc12592d5d4df94cd3a3224fdf742b01bee7` (`chore: untrack generated service worker artifacts`) |
-| Ancestro | `9219d89 feat: multi-node bot directory, model selector, iOS-style mobile UI` |
+| SHA desplegado (final) | `e6919f60428814016a553db097400e3388ce8d97` (`main`) |
+| SHA del primer deploy | `64e4bc12592d5d4df94cd3a3224fdf742b01bee7` (`chore: untrack generated service worker artifacts`) |
+| Ancestro del primer deploy | `9219d89 feat: multi-node bot directory, model selector, iOS-style mobile UI` |
 | Node | `/home/hermes/tools/node-v20.20.2-linux-x64/bin/node` (v20.20.2 / npm 10.8.2) |
 | Build | `npm install` 774 paquetes OK; `npm run build` **exit 0**, 29,6 s, 10 páginas + 10 rutas dinámicas + `/auth/login` |
-| Proceso | PM2 `hermes-pwa` id 4, `online`, restarts 0, interpreter fijado al node 20 |
+| Proceso | PM2 `hermes-pwa` id 4, `online`, interpreter fijado al node 20 (los 2 restarts corresponden a los redeploys de `b94625b` y `e6919f6`) |
 | Persistencia | `pm2-hermes.service` **enabled** (no existía: solo estaba `pm2-root.service`, con `dump.pm2` vacío) + `pm2 save` |
 | Exposición | `tailscale serve` ya apuntaba `/` → `127.0.0.1:3000` (previo al deploy); `https://vmi3131751.taila7f43b.ts.net` responde **200** |
-| `.env.local` | `HERMES_API_URL=http://127.0.0.1:8642`, `HERMES_HOME=/home/hermes/.hermes`, `HERMES_VPS_URL=http://100.105.0.23:8642` (gitignored, sin secretos) |
+| `.env.local` | `HERMES_API_URL=http://127.0.0.1:8642`, `HERMES_HOME=/home/hermes/.hermes`, `HERMES_VPS_URL=http://100.105.0.23:8642`, `HERMES_NODE_NAME=vps` (gitignored, sin secretos) |
 | Repo después del build | `git status` limpio — el commit #2 de `brain-local` (untrack de `sw.js`/`workbox-*.js`) cumplió su objetivo |
 
 ### Checks de la Definición de Terminado
