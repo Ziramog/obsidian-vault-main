@@ -28,10 +28,16 @@ Esos números no coinciden ni con el commit (`48000`/`1200`/`16`) ni con el work
 ≈3.000 caracteres), o sea que **las constantes se vienen tocando a mano hoy** para intentar que el celular
 vea más.
 
-**Riesgo activo (predicción, no observación):** con los valores del working tree el payload de 4 salas queda
-muy por encima de 65.536 → el gateway lo rechaza **en silencio** y el espejo deja de actualizarse del todo.
-Es decir, el edit local de hoy empeora el síntoma ("1 sala recortada" → "cero actualizaciones"): no se debe
-dejar esa constante así ni "arreglar" el celular subiéndola.
+**Estado actual verificado (no predicción): qué build corre y con qué números.** La app que escribe el espejo es
+`hermes-agent/apps/desktop/release/win-unpacked/Hermes.exe` (5 procesos vivos), pero el **renderer no sale del
+`app.asar`** (paquete del 23-sep: no contiene la key `hermes-bots-groups` ni las constantes) sino de
+`apps/desktop/dist/`, **reconstruido hoy 15:47** (después del edit de las 11:27 y después de la escritura del
+espejo). En el bundle minificado `dist/assets/index-DcgY84mB.js` los valores son los del **working tree**:
+`Xk='hermes-bots-groups'`, **`Zk=9e5`** (900.000), **`Oke=6e4`** (60.000), `Ake=24e3`, `kke='… [truncated]'`.
+Conclusión: la build viva ya tiene el presupuesto de 900 KB contra el cap de 65.536 del gateway → **el rechazo
+silencioso no es hipotético, es el estado actual** y el espejo quedará congelado en el payload de 15:41 (escrito
+por la build anterior de `dist/`, la que sí tenía ~48 KB y por eso pudo entrar). Por eso: no se toca ningún tope
+sin revertir/declarar primero ese diff y **reconstruir `dist`** como parte del ciclo de verificación.
 
 **Root cause del "1 de 4 salas"**: la proyección rankea las salas por actividad (`:283-289`, newest-first) y
 trimmea **sólo la sala que está agregando**
@@ -118,3 +124,7 @@ y el consumidor TS (`apps/shared/src/gateway-contract.generated.ts`).
    regeneración de contratos sin drift.
 6. Receipt real: `GET /api/groups` de la PWA del VPS mostrando la sala con su catálogo completo y el conteo de
    `omitted` de cada una, contra el mismo `profile.yaml` que hoy sólo trae `id:rmuag13gp-5r3kn`.
+7. Ciclo de build: tras el cambio, **reconstruir `apps/desktop/dist`** y verificar las constantes en el bundle
+   (`grep -o -a "hermes-bots-groups.\{0,200\}" dist/assets/index-*.js`), porque es de ahí —no del `app.asar` del
+   23-sep— que el renderer vivo toma el código. Y comprobar que el `updatedAt` del espejo en `profile.yaml`
+   **avanza** después del cambio (hoy está fijo en 15:41 y ahí es donde se ve el rechazo silencioso).
