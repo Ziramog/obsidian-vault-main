@@ -39,6 +39,22 @@ silencioso no es hipotético, es el estado actual** y el espejo quedará congela
 por la build anterior de `dist/`, la que sí tenía ~48 KB y por eso pudo entrar). Por eso: no se toca ningún tope
 sin revertir/declarar primero ese diff y **reconstruir `dist`** como parte del ciclo de verificación.
 
+**El rechazo está demostrado, no predicho (suite del plugin corriendo sobre este working tree):**
+`npx vitest run src/plugins/hermes-bots/group-chat.test.ts` → **4 failed | 45 passed**, y los tres números que
+salen de las aserciones viejas son la medida del payload que la build viva le manda al gateway:
+
+| test | aserción | real |
+|---|---|---|
+| `is size bounded and favors recent messages` (`:535`) | ≤ 48000 | **507.379** |
+| `preserves threads and budgets escaped Unicode` (`:590`) | ≤ 48000 | **232.219** |
+| `counts the head entries the mirror does not carry` (`:611`) | `log` de 16 | **40** |
+| `marks truncated sync text instead of silently slicing it` (`:568`) | `truncated === true` | `undefined` |
+
+Contra el cap real de **65.536**, esos envelopes son 3,5× y 7,7× más grandes: la escritura se rechaza entera y
+encima **sin tocar los tests** (el archivo de tests está sin modificar). Es la firma exacta del congelamiento
+medido en `profile.yaml` (mtime y `updatedAt` en 15:41, **3 h 30 min sin escrituras** con el Desktop vivo,
+`_ui_meta_revisions` clavado en 1668).
+
 **Root cause del "1 de 4 salas"**: la proyección rankea las salas por actividad (`:283-289`, newest-first) y
 trimmea **sólo la sala que está agregando**
 (`while (compact.log.length > 1 && groupChatGatewayJsonSize(envelope) > MAX) compact.log.shift()`, `:398-401`).
@@ -120,8 +136,10 @@ y el consumidor TS (`apps/shared/src/gateway-contract.generated.ts`).
 2. `omitted` por sala coincide con el recorte real y la PWA puede mostrar "faltan N mensajes anteriores".
 3. `log 0` nunca aparece como ausencia de sala: una sala sin presupuesto sigue publicada.
 4. Push de `>64 KB`: el RPC responde `ui_meta_error:"too_large"` con tamaño y límite; `profile.yaml` intacto.
-5. Suites del gateway (`tests/tui_gateway/`) y del plugin (vitest `apps/desktop`) en verde; `tsc` del desktop y
-   regeneración de contratos sin drift.
+5. Suites en verde, y **no por borrar aserciones**: las 4 que hoy fallan por el diff (`:535`, `:568`, `:590`,
+   `:611`) tienen que describir el contrato nuevo (presupuesto derivado del cap real, `omitted` por sala,
+   truncado por texto) o eliminarse con justificación escrita; y se agrega la que hoy **no** existe: envelope
+   ≤ 65.536. `tsc` del desktop y regeneración de contratos sin drift.
 6. Receipt real: `GET /api/groups` de la PWA del VPS mostrando la sala con su catálogo completo y el conteo de
    `omitted` de cada una, contra el mismo `profile.yaml` que hoy sólo trae `id:rmuag13gp-5r3kn`.
 7. Ciclo de build: tras el cambio, **reconstruir `apps/desktop/dist`** y verificar las constantes en el bundle
