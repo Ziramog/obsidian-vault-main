@@ -247,6 +247,29 @@ el peer fetch debe tolerarlos y **no** usarlos para contar; (2) sala desconocida
 200 `[]`; (3) prueba de corte: con el gateway del PC caído, la PWA del VPS responde 503 y el cliente
 conserva el último snapshot.
 
+### Fase 3 — dónde vive de verdad el espejo de salas (verificado en el código de hermes-agent, 19:05 UTC)
+
+El checkout de hermes-agent está en `C:\Users\ingju\AppData\Local\hermes\hermes-agent` y el chat de
+grupos es un plugin in-tree: `apps/desktop/src/plugins/hermes-bots/` (`group-chat.ts`, `group-pin.ts`,
+`plugin.tsx`, + tests). Hallazgos que ajustan el alcance de Fase 3:
+
+- `group-chat.ts:50-52` — **`GROUP_CHAT_SYNC_MAX_BYTES = 900_000`** con el comentario *"Gateway ui_meta is
+  capped after Python JSON serialization. Keep a healthy [margin]"*. O sea: **no hay un cap de 64 KB**;
+  hay **dos** topes — el del gateway (Python, a localizar) y este presupuesto de proyección de 900 KB.
+- La proyección es **lossy por diseño**: `group-chat.ts:59` la describe como *"bounded ui_meta projection:
+  a compacted log plus …"*, con un loop que **descarta entradas del log** hasta entrar en el presupuesto
+  (`:398`), **descarta imágenes** (`:403`) y **capea miembros** (`:359`). Eso explica 54 entradas en
+  `profile.yaml` contra 327 en el store para la sala de algolab: no es corrupción, es el espejo recortado.
+- **El consumidor declarado del espejo es el celular**: `group-chat.test.ts:11` — *"profile ui_meta so
+  mobile sees the same rooms"*; `group-chat.ts:277` — *"rides the default profile's ui_meta so mobile can
+  show the same messages"*; y `:180` (#114341) anota que el espejo de `ui_meta` **es la única copia en
+  disco de una sala**.
+- Consecuencia: **Fase 3 vive en `hermes-agent` (plugin desktop + cap del gateway), no en `hermes-pwa`**,
+  y su prompt debe nombrar los dos topes. Cuando el espejo sea completo, el endpoint responde
+  `source:"store"` y el cliente lo prefiere; peer fetch y reconstrucción quedan como fallback.
+- Pregunta abierta para Fase 3: el espejo en el nodo PC sólo tiene **1 sala (algolab)** mientras el store
+  del Desktop tiene **4** → falta ver por qué el push no cubre `rmugviqw9`, `rmufxz2ti` ni `rmuli31hi`.
+
 ### Prompts de fix ya escritos (vault, pendientes de commit)
 
 | Fase | Archivo | Contenido |
