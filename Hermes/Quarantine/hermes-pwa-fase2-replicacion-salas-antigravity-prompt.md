@@ -374,6 +374,13 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     - **A.4** los **hosts se resuelven desde el env del nodo que ejecuta** (`HERMES_VPS_URL` está invertido según quién
       pregunta, igual que `HERMES_VPS_URL` vs `HERMES_API_URL`), **jamás** desde el `node=` del cliente: si no, el fix
       arregla un sentido y rompe el otro.
+    La resolución de nodo por dato del cliente **no son tres rutas: son 6 sitios en 4 archivos** (medido con grep
+    sobre la rama) + 1 del cliente — el fix es **una sola función de ruteo** usada por todos, no seis parches:
+    `app/api/chat/route.ts:19` (`body.node`), `app/api/sessions/route.ts:15` (POST) y `:56` (GET, `?node=`),
+    `app/api/sessions/[sessionId]/route.ts:18` y `:56`, `app/api/sessions/[sessionId]/messages/route.ts:18`; del lado
+    cliente, `lib/api.ts:153` (`if (node) body.node = node`). **Criterio de aceptación por grep:** no debe quedar
+    ninguna coincidencia de `node === "vps"`, `body.node`, `searchParams.get("node")` ni `x-hermes-node` decidiendo el
+    gateway en `src/app/api/**`; el test de los dos sentidos corre en **las cuatro rutas**, no sólo en el chat.
     **Por qué no sirve la etiqueta que la app ya pinta:** `profiles/route.ts:43-44`
     define `PC_BOTS` y `VPS_BOTS` **hardcodeados** y `:146` elige la lista del par con
     `NODE_NAME === "vps" ? PC_BOTS : VPS_BOTS`; lo que sí se mide después es `sessionCount` (`:108`/`:165`, con
@@ -401,13 +408,15 @@ con las 3 ids del baseline fuera · sala desconocida → `404` con `code` y nunc
 
 ## Higiene de entrega (aplica al commit 3 y al 4)
 
-- **Los scripts auxiliares del agente no van al repo.** Verificado en la rama: quedaron **11 sin trackear** en la raíz
+- **Los scripts auxiliares del agente no van al repo.** Verificado en la rama: quedaron **12 sin trackear** en la raíz
   (`apply-fixes.js`, `fix-types.py`, `fix-types2.py`, `fix-types3.py`, `patch.py`, `patch2.py`, `patch3.py`,
-  `patch_chat.py`, `patch_room_store.py`, `test.ps1`, `verify.ts` — el último es probablemente el verificador del
-  propio agente, revisarlo antes de borrar). **Ninguno entró a un commit**: `46ca485..HEAD` no contiene ni un `.py`,
-  `.js`, `.mjs` ni `.sh`. El riesgo es el próximo `git add -A`: esos patrones **no** están en `.gitignore`, así que
-  van al `.gitignore` o —mejor— los temporales se escriben **fuera del repo** (`$TMPDIR`), como el `fase1.diff` de
-  Fase 1.
+  `patch_chat.py`, `patch_room_store.py`, `test.ps1`, `verify.ts` y `out.txt` — 63 KB, salida de una corrida).
+  **Ninguno entró a un commit**: `46ca485..HEAD` no contiene ni un `.py`, `.js`, `.mjs`, `.sh`, `.ps1` ni `verify.ts`.
+  **`verify.ts` NO se borra**: importa `readRooms`/`readRoomTranscript` de `src/lib/room-store` e imprime
+  `roomId | members | messageCount | first/last timestamp` — es el instrumento para re-correr los criterios 4, 11 y 20
+  después del fix; se cosecha a `scripts/` o fuera del repo **antes** del `git clean`. El riesgo es el próximo
+  `git add -A`: esos patrones **no** están en `.gitignore`, así que van al `.gitignore` o —mejor— los temporales se
+  escriben **fuera del repo** (`$TMPDIR`), como el `fase1.diff` de Fase 1.
 - **Cero archivos ajenos al cambio en el commit**: revisar `git show --stat` antes de commitear y no incluir
   temporales, evidencias ni artefactos de build.
 
