@@ -34,7 +34,7 @@ Causas medidas (todas reproducidas antes de corregir):
 3. **La autenticación era decorativa.** Cualquier cadena servía como clave: `Bearer totally-fake-key` devolvía **200** en `/api/profiles`, `/api/groups` y `/api/sessions`.
 4. **Defectos de reconstrucción**: mensajes duplicados, autores inventados a partir del texto, y "miembros" con nombre de frase.
 
-Lo corregido y verificado (números abajo, §4 y §5):
+Lo corregido y verificado (números abajo, §4 y §5; todas las tablas de conteos corresponden a mediciones del **2026-09-29** y van con su hora en cada sección):
 
 | | antes | después |
 |---|---|---|
@@ -128,6 +128,8 @@ Y el orden importa: el `members` servido **estaba contaminado** por el mismo par
 
 ### 5.2 Resultado final (`9062356`)
 
+Mediciones: **2026-09-29 21:05–21:40 UTC** (local y fusionado, servidor con el build del commit, home real).
+
 **Local (par caído)** — autores fuera de la población de confianza: **0** en las 4 salas. Formas legítimas conservadas: `You` 414 · `algolab-strategy` 407 · `algolab` 395 · `brain-local` 130 · `web-builder` 61 · `web-auditor` 48 · **`hermes` 47** · `default` 16.
 
 **Fusionado (los dos nodos)**, `source=merged`, `peerReachable=true`:
@@ -152,7 +154,13 @@ Y el orden importa: el `members` servido **estaba contaminado** por el mismo par
 
 **Rollout del VPS** (ejecutado por el nodo del VPS): `deploy/fase2` @ `9062356`, `npm run build` con `node v20.20.2`, `pm2 restart hermes-pwa --update-env`, `main` intacto durante el rollout.
 
-**Verificación desde el cliente (mediciones independientes, no reportes de terceros):**
+**Verificación desde el cliente (mediciones independientes, no reportes de terceros).**
+**Hora de las mediciones de este §6: 2026-09-29 22:30 UTC.** Las tablas con conteos de turnos son fotos: la sala del equipo creció de 56 a 59 turnos entre dos mediciones hechas con 20 minutos de diferencia, así que cada número de este informe vale para su hora. Si una medición posterior da más turnos, no es una discrepancia: es la sala creciendo.
+
+Dos aclaraciones de payload, para que un re-verificador no lea un falso negativo:
+
+- **El roster de una sala NO viaja en el payload del transcript**: `GET /api/groups/<id>/messages` no incluye `members` (devuelve `null`). Los miembros se leen en el **listado**, `GET /api/groups` (`members=4/2/3/3` en las cuatro salas). Buscar `members` dentro de `messages` y encontrarlo `null` no significa que el arreglo no aterrizó.
+- **La etiqueta invertida** (`node:"local"` con `source:"peer"`) está confirmada en las **cuatro** salas por **tres clientes distintos** (PC, VPS y un verificador independiente): es una inconsistencia de etiqueta demostrada, no la observación de un nodo.
 
 `GET http://100.124.132.48:3000/api/groups` → **200**:
 
