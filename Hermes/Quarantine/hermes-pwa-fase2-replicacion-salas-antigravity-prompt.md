@@ -420,6 +420,32 @@ con las 3 ids del baseline fuera · sala desconocida → `404` con `code` y nunc
 - **Cero archivos ajenos al cambio en el commit**: revisar `git show --stat` antes de commitear y no incluir
   temporales, evidencias ni artefactos de build.
 
+## Addendum commit 5 — medido sobre `ec2adac` (para la spec del 5)
+
+Los dos rojos del commit 3 (duplicados y pérdida del autor remoto) se arreglan en el commit 5; tres mediciones propias
+que la spec necesita antes de implementarlo:
+
+1. **"La sesión del dueño" es un CONJUNTO, no una sesión.** Censo de los stores de este nodo por sala y perfil:
+   `rmugviqw9` → brain-local **8**, web-auditor **8**, web-builder **7**; `rmuag13gp` → algolab **16** +
+   algolab-strategy **15**; `rmufxz2ti` → brain-local 4 + `default` 2; `rmuli31hi` → 1 por perfil. Una regla que
+   conserve "la sesión del autor" (singular) **pierde hasta 15 de 16 turnos** de un perfil: el dueño es el **conjunto
+   de sesiones de ese `profile_name` para ese `roomId`**, y dentro de ese conjunto cada línea es un evento.
+2. **No hay ninguna columna que marque "propio vs contexto" — medido, y es un resultado negativo.** En las 26
+   sesiones de sala, **todas** las filas (683 sobres `user` incluidos, más `assistant`/`tool`) tienen
+   `observed=0, active=1, compacted=0, display_kind=NULL`: constantes. La distinción propio/contexto sólo se puede
+   deducir **estructuralmente** (la etiqueta de la propia línea + el `profile_name` de la sesión), nunca leyendo una
+   columna. `display_identity` es un blob de 24 bytes **único por fila** (no agrupa nada).
+3. **El "0 repetidos" no es alcanzable sin excluir los repetidos triviales.** Dentro de las sesiones **propias** de cada
+   autor en `rmugviqw9`: brain-local 52 `assistant` con **1** texto repetido (hasta 8 copias), web-auditor 37 con
+   **1** (17 copias), web-builder 46 con **2** (12 y 3 copias) — son avisos cortos tipo `(pass)`, envíos legítimamente
+   idénticos. La aserción queda **con umbral explícito**: 0 pares repetidos para texto no trivial (p. ej. ≥ 120
+   caracteres) **y** ningún autor pierde turnos (piso = máximo entre las dos mitades); los repetidos cortos se
+   reportan como métrica con estos valores esperados (1 / 1 / 2 por autor en `rmugviqw9`).
+4. **Consecuencia declarada del arreglo de autoría:** si las líneas del nodo remoto se sirven sólo desde las sesiones
+   propias de ese autor y el par está caído, **esos turnos no aparecen** (no se inventan ni se atribuyen a otro). Es
+   el comportamiento correcto bajo el principio de honestidad, y va escrito en la UI como "nodo offline" — nunca como
+   "mensajes de otro autor".
+
 ## Addendum — verificado en el código de `3a7d929` (commit 2), para el commit 3
 
 Tres criterios **no** quedaron en la forma pedida; con líneas, para que el addendum los toque sin re-hacer nada más:
