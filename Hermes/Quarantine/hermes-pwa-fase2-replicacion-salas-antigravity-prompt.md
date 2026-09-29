@@ -286,18 +286,47 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     `profile=algolab`). El PWA no puede propagar un error sin `code`: lo mapea a un `code` propio (perfil/nodo mal
     emparejado ≠ nodo caído ≠ sala inexistente), porque el cliente ramifica por `code` y con el texto crudo la UI
     vuelve a "lista vacía".
-19. **El parser no puede inventar miembros (medido hoy, sin fix).** En el transcript de `rmugviqw9` (207 entradas)
-    aparecen como remitentes nombres que **no son miembros de la sala**: `"model"` ×5, `"agent"` ×4, `"pattern"` ×4,
-    `"type"` ×1, `agent_config` ×1, y tres etiquetas `--**default` / `--**lightweight` / `--**auditoría-interna`.
-    Son fragmentos de **JSON/Markdown citados dentro del cuerpo** de un mensaje que matchean la forma
-    `^\s{2}<algo>:` y se atribuyen como si fueran turnos de un miembro. Regla: **sólo** pueden ser remitentes los
-    miembros del **roster del censo** (los perfiles con ≥1 sesión del `roomId`) más `You`; cualquier otro nombre es
-    artefacto → se descarta (o se marca `unknown`) y **la lista de miembros de la sala sale del censo, nunca del
-    parseo**. Criterio: para las 4 salas, el conjunto de `from.name` ⊆ roster ∪ {`You`}, con el roster citado al lado.
-    Si un remitente real no está en el roster (bot que entró después), el roster se corrige, no el test.
-**Los conteos que dependen del tiempo se miden, no se citan:** los baselines de las salas activas crecen durante la
-tarde (esta sala pasó de 15 a 46 a 49 turnos; los artefactos de compactación medidos 6/2/2/0 y 8/2/0/2 en dos
-momentos distintos). Todo criterio de cantidad es **"0 / igual al censo de ese momento"**, nunca un número fijo.
+19. **Los remitentes: tres formas legítimas y ninguna inventada (la aserción va sobre el payload).**
+    Medido: hasta el **40 %** de los turnos servidos en `rmugviqw9` tienen autor fuera del roster (`"model"`,
+    `headers`, `body`, `apikey`, `"state_sha256"`, fragmentos de código y listas) — en el celular eso son autores que
+    no existen, y **también inflan el `messageCount`**. Las tres formas que **sí** son remitente:
+    1. `^  <Nombre> \[<nodo>\]: ` — `<nodo>` con forma válida (`This device` | `PC Local` | `IPv4:port`). Es la que
+       deja pasar al nodo remoto (`Hermes [100.124.132.48:9119]`, 30 turnos reales en `rmufxz2ti`).
+    2. `^  <Nombre> (you) \[<nodo>\]: ` — **turno propio de ese bot**, nunca filtrado: sin esta forma se descarta la
+       mayoría del contenido de la sala (247 líneas en `rmuag13gp`, 27 en `rmuli31hi` = un tercio de la sala).
+    3. `^  <Nombre>: ` **sin** etiqueta de nodo — legítima **sólo** si ese nombre ya apareció **etiquetado en esa
+       misma sala** (compuerta de roster derivado del propio corpus). Sin la compuerta entra basura de depuración
+       (`todos: isOnline=True, nodeLabel='☁️ VPS'…`); con ella entran `Algolab: …` ×24 y sale el volcado.
+    El nombre no puede contener `"`, backtick, `(`, `)`, `=`, `,`, `?` ni arrancar con `-`: eso mata las líneas de
+    lista (`--long`, `--máximo`, `--**total`) y de código, que son cuerpo citado. **Ni el espejo ni el store son
+    fuente del roster** (medido: el espejo tiene 1 sala, con `members` sólo locales; el store es localStorage del
+    Electron, inalcanzable): el roster se deriva del **corpus de esa sala** ∪ censo ∪ `You`.
+    **La aserción va sobre el payload, nunca sobre la regex:** el **100 %** de los turnos servidos tiene
+    `from.name ∈ roster ∪ {You}`, contando **turnos atribuidos**. Un criterio escrito como "0 líneas que no matchean
+    la regex" pasa dejando fantasmas adentro (medido: `53 vs 83` y `6 vs 15` según cómo se cuente) y, al revés,
+    empuja a recortar contenido legítimo. Esperados post-fix, medidos: **808 / 124 / 118 / 53** para
+    `rmuag13gp / rmugviqw9 / rmufxz2ti / rmuli31hi` — declarados explícitos para que el fix no se autosabotee
+    conservando fantasmas con tal de no bajar el número.
+20. **Sala presente en los dos nodos: unión con dedup, no precedencia.** Ningún nodo es superconjunto del otro: el
+    corpus del PC en esta sala arranca **17:57:35** (2 h 52 min antes de la única sesión del VPS, 20:49:15) y el del
+    VPS en `rmufxz2ti` llega hasta **09-28 00:11:57** (55 min después del PC, que corta en 09-27 23:16). Cualquier
+    regla de precedencia ("gana el local" o "gana el dueño de los bots") **pierde contenido medible**, así que donde
+    los dos nodos tienen corpus el resultado es **`source:"merged"`** con dedup por identidad de evento
+    `(nombre, at, texto normalizado)`; `source:"local"` sólo cuando el otro nodo no tiene esa sala.
+    **Unidad fijada antes de comparar:** se cuentan **eventos de envoltorio** (líneas de remitente en rol `user`),
+    nunca filas de `state.db` — en la sesión del VPS de esta sala, 86 filas = 7 `user` + 37 `assistant` + 42 `tool`,
+    o sea contar filas infla entre **5× y 12×**.
+    **Test que discrimina (más barato que un conteo):** el transcript que ve el celular tiene que contener **un evento
+    en el tramo que sólo un nodo tiene** — en esta sala alguno entre **17:57:35 y 20:49:15** (sólo PC); en
+    `rmufxz2ti` alguno entre **09-27 23:16 y 09-28 00:11:57** (sólo VPS). Un `merged` que no traiga esos dos tramos
+    no fusionó nada, aunque el total dé verde.
+**Los conteos que dependen del tiempo se miden, no se citan.** Los baselines de las salas activas crecen durante la
+tarde (esta sala pasó de 15 a 46 a 49 a 53 turnos; los artefactos de compactación dieron 6/2/2/0, 8/2/0/2 y 2/9/0/2
+en tres momentos distintos), así que todo criterio de cantidad se evalúa **contra el censo derivado en la misma
+corrida**. Los números explícitos de los criterios 11 y 19 (`808/124/118/53`, artefactos `0`) son de referencia: el
+esperado es **igual o mayor** que esos valores — el fix no puede bajarlos, sólo subir el conteo con el crecimiento
+real de la sala — y la aserción fuerte es siempre la **estructural** (100 % de los turnos con autor del roster,
+0 artefactos), no el total.
 
 Estos tres son los **criterios de cierre de Fase 2** fijados con @web-auditor; sin los tres no se cierra:
 `rmugviqw9` reconstruida y rotulada `source:"reconstructed"` dentro del baseline **derivado en la misma corrida**
