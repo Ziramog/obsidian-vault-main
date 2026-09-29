@@ -200,10 +200,16 @@ Antigravity debe **pegar en el mensaje de cierre** la salida real de:
    sala con el log del seed.
 4. `GET /api/groups/rmugviqw9-6zez7/messages` → `200` con `source:"reconstructed"`, orden correcto y las 3 ids del
    baseline del VPS (`msg-wb-1`, `usr_1790632373669_fm47n`, `bot_1790632380284_p90ph`) **fuera** del log.
-   Baseline congelado del parser estricto: **102 / 96 / 475 / 15** (`rmugviqw9` / `rmufxz2ti` / `rmuag13gp` /
-   `rmuli31hi`); el log reconstruido debe caer ahí (±10%), **no** en los `115/172/327/10` del store: esos son el
-   log real del Desktop y no son alcanzables sin el puente de Fase 3. Si este test "pasa" con 115, el agente leyó
-   el LevelDB del Electron y hay que revisar cómo.
+   **El baseline no se hardcodea: se deriva en la misma corrida.** Antes de medir, correr el censo contra `state.db`
+   del nodo dueño **en ese momento** y publicar los dos números (censos `n` de turnos únicos por sala + largo
+   reconstruido). La foto de las 18:15 (23/6/3/31 sesiones) y los conteos viejos (`102 / 96 / 475 / 15`) quedan
+   **sólo como referencia**: las salas activas crecen (esta sala pasó de 15 a 46 turnos en una tarde), así que
+   comparar contra un número congelado da falso rojo y tienta a "pasar" el test por la vía equivocada. El rango
+   ±10% se aplica **sólo** entre mediciones contemporáneas (censo y reconstrucción del mismo momento).
+   El log reconstruido **no puede leer** el store del Desktop: si aparece el número del store (`115/172/327/10`),
+   el agente leyó el LevelDB del Electron y hay que revisar cómo.
+   **Ojo con la inflación por citas:** un mensaje citado dentro de otro (los bots se citan entre sí) es una cita,
+   no un turno nuevo; el conteo tiene que excluirlas o el total queda por encima del censo.
 5. Sala inexistente → `404 {code:"ROOM_NOT_FOUND"}` (nunca `200 {messages:[]}`).
 6. Prueba de corte: con el gateway del PC caído, `GET /api/groups` sigue devolviendo las salas locales con
    `nodeStatus:"offline"` y `messageCount:null`, y `/api/groups/<id>/messages` de una sala del PC → `503 {code:"PEER_OFFLINE"}`;
@@ -212,9 +218,33 @@ Antigravity debe **pegar en el mensaje de cierre** la salida real de:
    fuente dejó de ser `ui_meta`), y el censo incluye `HERMES_HOME/state.db` (sin eso, `rmufxz2ti` pierde las 2
    sesiones del miembro `default`).
 8. `git diff` no toca `src/app/api/chat/route.ts` ni el flujo 1-a-1 de bots.
+9. **El GET no escribe (incluido el home sin migrar).** `GET /api/groups` y los GET de sala deben dejar
+   `profile.yaml` **idéntico al byte** (hash antes/después) en **dos** homes: el real y uno que **todavía tenga los
+   ids semilla** (`msg-wb-1` / `msg-algo-1`) en `ui_meta`. Motivo medido: en `ba48686` quedó
+   `if (doc && migrateSeedRooms(doc)) saveProfileDoc(doc);` en el camino de lectura
+   (`app/api/groups/route.ts:70-73`, `app/api/groups/[groupId]/messages/route.ts:15-18`) — mismo defecto de clase
+   que B3 (un GET que persiste), y la verificación que dio "hash igual" lo hizo sobre un home **ya migrado**. La
+   limpieza de los ids semilla va en un **script de migración / arranque**, nunca en un GET; y el escritor sigue
+   siendo el serializador del PWA sobre un archivo que también escriben Desktop y gateway (además de clobbear el
+   espejo, roza el lost-update de B5).
+10. **Escribir en una sala que sólo existe en `state.db`.** `POST /api/groups/<sala>/chat` tiene que resolver la
+    sala por la **misma** fuente que `/messages`; hoy `/chat` la busca en `ui_meta["hermes-bots-groups"]`
+    (`chat/route.ts:40-44`), así que para `rmugviqw9`/`rmufxz2ti`/`rmuli31hi` (fuera del espejo) contesta
+    `404 {"error":"Group room not found"}`: **la historia se lee pero no se puede contestar**, que es justo el caso
+    de uso del celular. Y el 404 de `/chat` (y el `error` del SSE de `chat/route.ts:150`) tiene que llevar
+    `code:"ROOM_NOT_FOUND"` igual que `/messages`: el contrato se aplica a las dos rutas, no a una.
+11. **Sin artefactos de compactación como mensajes.** El transcript no puede exponer marcadores internos
+    (`[PRIOR CONTEXT — …]`, `[END OF PRIOR CONTEXT — …]`, `[CONTEXT COMPACTION — …]`, `[member-quoted …]`,
+    `[OUT-OF-BAND USER MESSAGE …]`) como si fueran turnos — hoy salen en las entradas 10 y 33 de esta sala. Regla
+    **estructural**, no lista negra de strings: dentro del sobre sólo producen mensaje las líneas que matchean
+    `^  <nombre> [<nodo>]: <texto>` o `^  You (user): <texto>`; todo bloque entre corchetes en línea propia se
+    descarta, y un `[member-quoted X] Y` es **cita** (se descarta el envoltorio; si el interior ya está en el log
+    no cuenta ni en `messageCount`). Criterio para @web-auditor: el transcript de esta sala no debe contener
+    ninguna cadena `PRIOR CONTEXT` / `COMPACTION` / `member-quoted`.
 
 Estos tres son los **criterios de cierre de Fase 2** fijados con @web-auditor; sin los tres no se cierra:
-`rmugviqw9` reconstruida y rotulada `source:"reconstructed"` dentro del baseline del parser estricto (102, no 115)
+`rmugviqw9` reconstruida y rotulada `source:"reconstructed"` dentro del baseline **derivado en la misma corrida**
+(nunca el `115` del store del Desktop)
 con las 3 ids del baseline fuera · sala desconocida → `404` con `code` y nunca `200 []` · corte con el par caído →
 `503` y el cliente conservando el snapshot.
 
