@@ -320,8 +320,26 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     la identidad: el par emite ids de 22 hex que **no existen** en el store del otro nodo. Con `(nombre, at, texto)`
     exacto el merge **duplica en vez de fusionar**.
     **Clave correcta: multiset por `(nombre, texto normalizado)`** (con ordinal de ocurrencia, para no colapsar dos
-    envíos legítimamente idénticos), usando `at` sólo para elegir el timestamp canónico (**el del nodo dueño**) y
-    para ordenar. `at` nunca es parte de la identidad.
+    envíos legítimamente idénticos). Hoy la clave es **inyectiva** en las cuatro salas (998/207/133/60 turnos, **0
+    colisiones**, repetición máxima 1), así que el ordinal sólo se ejercita con un test **sintético**; lo que sí es
+    aserción estructural es que **tras la fusión no haya ningún par `(nombre, texto)` repetido** (distintos del merge
+    == distintos de la unión).
+    **`at` no sirve para identidad, ni para orden, ni como timestamp — y no sale del store.** Los valores que el
+    payload repite 3 / 52 / 70 veces (`1790639791.454`, `1790481940.471`, `1790480669.478`) dan **0 filas** con ese
+    timestamp en las 63 sesiones de sala de un nodo y en las ~98k filas del otro: la reconstrucción lo **deriva**. Es
+    la hora de **entrega del sobre** (2,2 s con el bot activo, 37 min sin actividad) y dentro de un mismo payload llega
+    a estar compartido por **70 turnos** (998 turnos / 649 timestamps en `rmuag13gp`), así que ordenar por él desordena
+    70 turnos de golpe.
+    **Orden = `rowid` del sobre + índice de la línea dentro del sobre**, y la unión ordena por
+    (`started_at` de la sesión, `rowid` del sobre, índice de línea) con **el nodo como clave externa**. **Timestamp
+    canónico = el de la fila del sobre** (el único honesto y disponible): 70 turnos con el mismo timestamp dejan de
+    ser un defecto y pasan a ser el resultado esperado de 70 líneas leídas del mismo sobre — medido en el otro nodo,
+    una sesión con **10 sobres y 57 líneas de remitente** (13/10/12/2/4/2/2/8/2/2), cada sobre con un solo timestamp.
+    **Aserciones estructurales, sólo dos:** (a) ningún par `(nombre, texto)` repetido tras la fusión; (b) **0
+    inversiones entre filas de sobre** (alcanzable y estricto: da 0 por construcción). La monotonía del timestamp
+    sobre la mitad completa **no es aserción, es métrica que se reporta** — hoy **13 de 63** mitades tienen
+    inversiones y **9 de 63** timestamps repetidos antes de tocar nada, así que exigir 0 ahí obligaría al agente a
+    violar el criterio o a recortar datos.
     **Unidad fijada antes de comparar:** se cuentan **eventos de envoltorio** (líneas de remitente en rol `user`),
     nunca filas de `state.db` — en la sesión del VPS de esta sala, 86 filas = 7 `user` + 37 `assistant` + 42 `tool`,
     o sea contar filas infla entre **5× y 12×**.
@@ -345,6 +363,29 @@ Estos tres son los **criterios de cierre de Fase 2** fijados con @web-auditor; s
 (nunca el `115` del store del Desktop)
 con las 3 ids del baseline fuera · sala desconocida → `404` con `code` y nunca `200 []` · corte con el par caído →
 `503` y el cliente conservando el snapshot.
+
+## Addendum — verificado en el código de `3a7d929` (commit 2), para el commit 3
+
+Tres criterios **no** quedaron en la forma pedida; con líneas, para que el addendum los toque sin re-hacer nada más:
+
+1. **Criterio 20 — la clave de dedup quedó con `at` adentro.** `src/lib/room-store.ts:337-344`:
+   `if (Math.abs(d.at - item.at) <= 5000)` antes de comparar `(nombre, texto normalizado)`. Con la asincronía medida
+   (2,2 s con el bot activo, **36 min** sin actividad) eso **no** deduplica: duplica o no según la suerte del reloj.
+   Y el `id` estable es `sha1(roomId|thread|at|nombre|texto)` (`:346-348`) → el mismo evento con distinto `at` en los
+   dos nodos recibe **id distinto** y el cliente lo re-renderiza. Pedido: clave = multiset `(nombre, texto
+   normalizado)` con ordinal, **sin `at`**; `at` sólo como dato informativo de la fila del sobre.
+2. **Criterio 9 — la migración se movió a *module load*.** `src/lib/room-store.ts:8-14` (`// Module load migration`:
+   `if (doc && migrateSeedRooms(doc)) saveProfileDoc(doc)`), o sea **cualquier import** del store escribe
+   `profile.yaml`, no sólo un GET. La migración va a un **script de arranque/migración**, no a un efecto de import.
+3. **Criterio 10 — el `404` con `code` quedó bien (`chat/route.ts:43`) pero el camino de envío sigue persistiendo en
+   el espejo.** `chat/route.ts:124-141` entra en `withProfileDocLock`, exige `rooms[roomKey]` en
+   `ui_meta["hermes-bots-groups"]` y hace `log.push(userMsg)` ahí dentro; si la sala existe sólo en `state.db`, el
+   `:43` la deja pasar y el error `ROOM_NOT_FOUND` sale **dentro del stream** (`:144`), después de que el celular ya
+   empezó a enviar. Además contradice la restricción de Fase 2 ("no escribir logs de sala en `ui_meta`"): el mensaje
+   del usuario tiene que persistir en la fuente de `state.db`, no en el espejo.
+
+Lo demás del commit 2 sí aterrizó: el censo por `state.db`, el gate de remitentes con `labeledNames`/`(you)`
+(`room-store.ts:270-290`), la normalización de errores con `code` y el health nuevo.
 
 **Fase 3 (no en este commit):** igualar el log real del Desktop (`115/172/327/10`) haciendo server-visible el
 store del Electron — subir/eliminar el cap de 64 KB de `ui_meta` en el push de `profiles.configure` del plugin
