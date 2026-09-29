@@ -421,6 +421,30 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     caché sólo guarda resultados **medidos**; **(d)** el test del ruteo corre en un **puerto ≠ 3000** (como los dos
     nodos reales) **y en los dos escenarios**: con `:3000` libre **y** con `:3000` ocupado por un listener ajeno.
 
+23. **Gramática de autoría, versión medida (para el commit 6: los "fantasmas" no son fantasmas).** Extraje **todos**
+    los candidatos a autor de las cuatro salas desde los sobres `user` de este nodo: **258 candidatos / 1878
+    apariciones**. Con la forma estricta (`^[A-Za-z0-9][A-Za-z0-9_.\- ]{0,63}( \(you\))? \[[^\]]{1,40}\]$`) caen
+    **244**, de los cuales **243 son basura real** (`"model"` ×12, `headers` ×12, `"agent"` ×12, `"pattern"` ×12,
+    `method`/`body`/`id`, `- Resolución` ×15, líneas de espacios) y **uno es legítimo con otra gramática**:
+    **`You (user):` ×433**, que necesita su **propia forma positiva** (autor `You`), no el filtro.
+    Y el hallazgo que ordena el resto: **lo que hoy figura como "fuera del roster" son los mismos participantes con
+    nombre de pantalla** — `Algolab [This device]` ×239, `Algolab Strategy (you) [This device]` ×210,
+    `Web Builder [This device]` ×34, `Brain Local (you) [This device]` ×18, `Web Auditor [This device]` ×13,
+    `Hermes [100.124.132.48:9119]` ×49, `Hermes (you) [This device]` ×6. La comparación label↔`profile_name` falla por
+    **forma del nombre**, no por pertenencia: normalizando (`casefold` + quitar espacios, `-`, `_`) **coinciden 5 de 6
+    pares** — `Web Builder`≡`web-builder`, `Web Auditor`≡`web-auditor`, `Brain Local`≡`brain-local`,
+    `Algolab Strategy`≡`algolab-strategy`, `Algolab`≡`algolab`.
+    - **El sexto no se arregla normalizando**: `Hermes` ⇄ `default` es un **alias**, y el `config.yaml` de los perfiles
+      **no expone `display_name`** (`display:` sólo tiene `resume_display`), así que no hay de dónde leerlo. `Hermes` es
+      el **nombre de pantalla del NODO**, no del perfil: por eso la etiqueta `Hermes [100.124.132.48:9119]` lleva la IP
+      del nodo del VPS y `Hermes (you) [This device]` es ese mismo nodo en local. El roster de la compuerta tiene que
+      ser **normalizado(perfiles del censo) ∪ normalizado(nombres de nodo del env/config) ∪ {`You`}**.
+    - **Regla final**: forma estricta **y** nombre normalizado en ese roster (la compuerta sigue siendo obligatoria para
+      la forma sin etiqueta `Nombre:`); el `nodo` de la etiqueta se sirve tal cual (`This device`, `PC Local`, IPv4:puerto).
+    - **Test negativo con corpus**: las **243 formas** medidas no pueden aparecer nunca como autor en el payload (lista
+      de patrones como casos de prueba), y el test positivo exige que las etiquetas legítimas de arriba **sobrevivan**
+      (si no, el filtro borra contenido real: es el fallo del 19(i) otra vez).
+
 **Los conteos que dependen del tiempo se miden, no se citan.** Los baselines de las salas activas crecen durante la
 tarde (esta sala pasó de 15 a 46 a 49 a 53 turnos; los artefactos de compactación dieron 6/2/2/0, 8/2/0/2 y 2/9/0/2
 en tres momentos distintos), así que todo criterio de cantidad se evalúa **contra el censo derivado en la misma
