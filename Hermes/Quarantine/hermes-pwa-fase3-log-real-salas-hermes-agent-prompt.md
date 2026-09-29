@@ -6,9 +6,25 @@ relación con los commits de Fase 1/2 de `hermes-pwa`.
 
 **Prerrequisito de ejecución (agregado 2026-09-28):** esta carpeta **no tiene proyecto de Antigravity**, así que
 **no se puede manejar por el CLI headless** (`Hermes/Systems/local/antigravity-cli.sh`) hasta crear uno apuntando a
-`AppData\Local\hermes\hermes-agent`. Antes de arrancar: crear el proyecto (o decidir que esta fase se hace con
-otra herramienta / a mano). Además el working tree tiene 3 archivos del plugin modificados sin commitear: la rama
-tiene que partir de un estado declarado, no de ese diff (ver Restricciones).
+`AppData\Local\hermes\hermes-agent`. El formato es trivial y se puede crear a mano (un archivo, reversible
+borrándolo) y `hermes-agent` es repo git:
+
+```json
+{
+  "id": "<uuid nuevo>",
+  "name": "hermes-agent",
+  "projectResources": { "resources": [ { "gitFolder": {
+      "folderUri": "file:///c%3A/Users/ingju/AppData/Local/hermes/hermes-agent",
+      "defaultBranch": "main" } } ] },
+  "settings": {},
+  "isWorkspaceOnly": false
+}
+```
+
+Alternativa: correr esta fase con otra herramienta o a mano. Lo que **no** se puede esquivar es el paso 1 (hacer
+visible el rechazo): es una línea y es el único instrumento del congelamiento. Además el working tree tiene 3
+archivos del plugin modificados sin commitear: la rama tiene que partir de un estado declarado, no de ese diff
+(ver Restricciones).
 **Objetivo de negocio:** que el celular (PWA) muestre el log **completo** de cada sala del Desktop, no una
 reconstrucción incompleta ni una proyección recortada.
 **Precedente:** `Hermes/Quarantine/hermes-pwa-fase2-recon-fuente-de-verdad-2026-09-28.md` y
@@ -74,6 +90,24 @@ rebalanceo entre salas**.
 
 Consecuencia: subir el tope **no alcanza**; mientras el `ui_meta` sea el transporte, el celular ve una proyección
 recortada y con salas faltantes.
+
+## Lo que cambió después de escribir este prompt (medido, no inferido)
+
+1. **El termómetro es parcial: mide un solo escritor.** `updatedAt` + `_ui_meta_revisions` sólo reflejan el camino
+   del gateway. El **PWA también escribe el mismo `HERMES_HOME/profile.yaml`** (medido: 20:52, inyectando salas) y
+   el archivo puede ganar/perder salas mientras el termómetro dice "congelado hace 3 h 30". El criterio 8/9 se
+   mantiene, con la cláusula agregada: hay que **atribuir** la escritura (¿cambió `_ui_meta_revisions`?) además de
+   mirar el reloj, y no dar por sano el espejo con el termómetro quieto.
+2. **El round-trip del escritor del PWA no conserva el doc.** El archivo que dejó el PWA a las 20:52 son **53.122 b
+   con 3 salas (2 vacías)**, contra **55.551 b con 1 sala** de las 19:00 con el **mismo log de 54 entradas**: menos
+   contenido real, 2,4 KB menos de archivo. Consecuencia para la arquitectura de abajo: **el store nuevo no puede
+   tener dos escritores**. Si se elige la opción 2, el dueño del store es el Desktop y cualquier escritura del PWA
+   sobre él se elimina (no se "sincroniza").
+3. **Los artefactos de compactación ya vienen marcados en el origen.** El blob que hoy se ve como mensaje en la sala
+   dice textualmente `[member-quoted PRIOR CONTEXT — for reference only; not a new message]`: el marcador ya existe
+   en `state.db`, así que la fuente es el registro de la propia sesión del bot. Cualquier RPC de transcripción (opción
+   1) o store server-visible (opción 2) tiene que **honrar ese marcador** — excluirlos del payload y del conteo — y
+   no republicarlos como turnos; el filtro de Fase 2 (criterio 11) es el parche aguas abajo.
 
 ## Tarea — tres cosas, en este orden
 
