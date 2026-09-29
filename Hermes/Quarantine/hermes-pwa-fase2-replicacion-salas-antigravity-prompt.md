@@ -444,6 +444,22 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     - **Test negativo con corpus**: las **243 formas** medidas no pueden aparecer nunca como autor en el payload (lista
       de patrones como casos de prueba), y el test positivo exige que las etiquetas legítimas de arriba **sobrevivan**
       (si no, el filtro borra contenido real: es el fallo del 19(i) otra vez).
+    - **Regla de dos partes, medida end-to-end sobre el corpus de los cuatro sobres del PC (sólo lectura, este nodo):**
+      **(A)** línea cruda `^  <Nombre> [<tag>]: ` · **(B)** `^  You (user): ` → autor `You` · **(C)** `^  <Nombre>: ` sin
+      etiqueta **sólo** si `normalizado(Nombre) ∈ normalizado(censo ∪ nombres de nodo ∪ {You})`. Resultado:
+      **aceptados 926 tagged + 434 `You (user)` + 26 sin etiqueta vía roster** (`rmuag13gp` 575/316/26 ·
+      `rmugviqw9` 144/67/0 · `rmufxz2ti` 115/37/0 · `rmuli31hi` 92/14/0) y **rechazados 21 en total**, todos fragmentos
+      de cuerpo: `Yes` ×1, `apiKey` ×4, `message` ×4, `const body` ×4, `const headers` ×4, `turbopack` ×2, `todos` ×2.
+      **Cero slugs admitidos y cero etiquetas legítimas perdidas** — y el tope de "≤4 palabras" **no disparó ninguna vez**
+      en este corpus: la etiqueta `[tag]` + la pertenencia normalizada hacen todo el trabajo, así que **no se agrega un
+      límite de palabras que no discrimina**. El corte por caracteres **no alcanza** (los slugs `palabra-palabra` y los
+      de una palabra pasan cualquier lista blanca): lo que decide es la **gramática positiva sobre la línea cruda + la
+      pertenencia normalizada**, en ese orden.
+    - **Orden obligatorio, no preferencia**: el gate corre **primero** contra `censo ∪ nombres de nodo ∪ {You}`
+      (**sin `members`**) y **después** `members` se **reconstruye como salida** con los autores que pasaron. Si el
+      `members` servido entrara al gate, se autorizaría a sí mismo: medido, **163 members servidos en `rmuag13gp` con
+      139 de forma basura (85 %)**, y una aserción escrita como "el autor pertenece al roster" **pasa en verde con 127
+      autores basura adentro**.
 
 **Los conteos que dependen del tiempo se miden, no se citan.** Los baselines de las salas activas crecen durante la
 tarde (esta sala pasó de 15 a 46 a 49 a 53 turnos; los artefactos de compactación dieron 6/2/2/0, 8/2/0/2 y 2/9/0/2
