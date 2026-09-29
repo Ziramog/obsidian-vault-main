@@ -265,8 +265,8 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     con literales. El test corre **en los dos nodos**, no sólo en la PC.
 15. **El presupuesto del peer se deriva del p95 medido, no del arranque en frío.** Medido en el hop que usa el
     celular (VPS → PC `:3300`): `9,71 s / 9,60 s / 0,83 s / 0,83 s` en `/api/groups` y `10,51 s / 1,65 s / 10,61 s` en
-    mensajes — o sea **el ~10 s reaparece intercalado después de llamadas de 0,8-1,9 s** (5 de 9 por encima del
-    presupuesto), no sólo en el primer hit. Con los topes hardcodeados de `groups/route.ts:91` (**4.000 ms**) y
+    mensajes — o sea **el ~10 s reaparece intercalado después de llamadas de 0,8-1,9 s** (en la muestra acumulada,
+    **6 de 10 llamadas por encima del presupuesto**, con un pico de 11,16 s), no sólo en el primer hit. Con los topes hardcodeados de `groups/route.ts:91` (**4.000 ms**) y
     `messages/route.ts:40` (**5.000 ms**) el celular va a mostrar `PEER_OFFLINE`/`PEER_TIMEOUT` **intermitente**.
     Se pide: presupuesto derivado del **p95 medido** (~10,6 s) o **caché con TTL** en el par, y test de aceptación
     con **N llamadas consecutivas sin fallos** (≥9, la muestra medida) — "una llamada pasa" no firma nada.
@@ -311,8 +311,17 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     corpus del PC en esta sala arranca **17:57:35** (2 h 52 min antes de la única sesión del VPS, 20:49:15) y el del
     VPS en `rmufxz2ti` llega hasta **09-28 00:11:57** (55 min después del PC, que corta en 09-27 23:16). Cualquier
     regla de precedencia ("gana el local" o "gana el dueño de los bots") **pierde contenido medible**, así que donde
-    los dos nodos tienen corpus el resultado es **`source:"merged"`** con dedup por identidad de evento
-    `(nombre, at, texto normalizado)`; `source:"local"` sólo cuando el otro nodo no tiene esa sala.
+    los dos nodos tienen corpus el resultado es **`source:"merged"`**; `source:"local"` sólo cuando el otro nodo no
+    tiene esa sala.
+    **La clave de dedup NO puede incluir `at` — medido, y era mi error.** El mismo texto llega con timestamp distinto
+    según quién lo reconstruya: `2,377 s`, `2,217 s` y **`2.201 s` (36 min 41 s)** de delta entre el `state.db` de un
+    nodo y el payload del par, porque el par observa los envoltorios **cuando corre su propia sesión**, así que su
+    `at` es una hora de *entrega*, no de emisión (2 s con su bot activo, 36 min sin actividad). Y los `id` no salvan
+    la identidad: el par emite ids de 22 hex que **no existen** en el store del otro nodo. Con `(nombre, at, texto)`
+    exacto el merge **duplica en vez de fusionar**.
+    **Clave correcta: multiset por `(nombre, texto normalizado)`** (con ordinal de ocurrencia, para no colapsar dos
+    envíos legítimamente idénticos), usando `at` sólo para elegir el timestamp canónico (**el del nodo dueño**) y
+    para ordenar. `at` nunca es parte de la identidad.
     **Unidad fijada antes de comparar:** se cuentan **eventos de envoltorio** (líneas de remitente en rol `user`),
     nunca filas de `state.db` — en la sesión del VPS de esta sala, 86 filas = 7 `user` + 37 `assistant` + 42 `tool`,
     o sea contar filas infla entre **5× y 12×**.
@@ -320,6 +329,9 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     en el tramo que sólo un nodo tiene** — en esta sala alguno entre **17:57:35 y 20:49:15** (sólo PC); en
     `rmufxz2ti` alguno entre **09-27 23:16 y 09-28 00:11:57** (sólo VPS). Un `merged` que no traiga esos dos tramos
     no fusionó nada, aunque el total dé verde.
+    **Test de no-duplicación, con el caso real:** el par **ya emite 7 eventos `hermes`** en esta sala, así que el
+    `merged` no puede mostrarlos dos veces — se contrasta el **conteo por `(nombre, texto)`** contra el de cada nodo
+    por separado (ningún texto puede aparecer más veces que el máximo de las dos mitades).
 **Los conteos que dependen del tiempo se miden, no se citan.** Los baselines de las salas activas crecen durante la
 tarde (esta sala pasó de 15 a 46 a 49 a 53 turnos; los artefactos de compactación dieron 6/2/2/0, 8/2/0/2 y 2/9/0/2
 en tres momentos distintos), así que todo criterio de cantidad se evalúa **contra el censo derivado en la misma

@@ -109,6 +109,16 @@ recortada y con salas faltantes.
    1) o store server-visible (opción 2) tiene que **honrar ese marcador** — excluirlos del payload y del conteo — y
    no republicarlos como turnos; el filtro de Fase 2 (criterio 11) es el parche aguas abajo.
 
+**Los criterios 8/9 NO los puede cerrar el agente.** Exigen el Desktop **reconstruido y corriendo** el plugin nuevo
+(para ver `_ui_meta_revisions` avanzar y el espejo actualizarse), y este trabajo tiene **prohibido** tocar la app en
+uso. Por lo tanto: el agente cierra lo verificable headless (paso 1 con su test, presupuesto y reparto con los tests
+del plugin, constante del bundle en un `dist` construido en su rama) y **declara 8/9 como paso aparte** — rebuild +
+restart del Desktop, con OK de Juan, que es el único momento en que se pueden medir. Prohibido simularlos, correr
+`next`/electron en la app en uso, o dar por bueno el termómetro sin la build nueva.
+
+**Local-only:** el remoto de este repo es `github.com/NousResearch/hermes-agent` (**upstream del proveedor, no un
+fork**), así que la entrega es **commit local en la rama, sin push**: publicarlo requiere un fork, que decide Juan.
+
 ## Tarea — tres cosas, en este orden
 
 ### 1. Hacer visible el rechazo (bug de diagnóstico, mínimo y bloqueante)
