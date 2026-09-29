@@ -251,6 +251,51 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     contra los **55.551 b con 1 sala** de las 19:00 **con el mismo log de 54 entradas** — menos contenido real y 2,4 KB
     menos de archivo. Hasta medirlo, el PWA no debe ser escritor de un archivo compartido con el Desktop y el gateway:
     si no se puede garantizar el round-trip completo, la escritura se elimina (el GET deja de escribir, criterio 9).
+13. **Servicio del par: `HERMES_HOME` fijado por unidad + health honesto.** El listener del par (PC) tiene que
+    **fijar `HERMES_HOME` en su unidad/servicio**, nunca heredarlo de la shell. Medido: lanzado sin él (heredando
+    `…\profiles\brain-local`) **no falla y miente**: sirve **3 salas en vez de 4** (sin `rmuag13gp`), `rmugviqw9` con
+    **110 mensajes en vez de 207** y `/api/health` con **`profileCount:0` y `ok:true`**. Y el health no puede quedar
+    verde sin datos: si `PROFILES_DIR` no existe o `profileCount` es 0 con `profileYaml` ausente, la respuesta es
+    **`ok:false`** con el motivo y el path resuelto (misma clase que el health que probaba `/v1/models`).
+14. **La etiqueta `node` del peer se deriva de la config y se prueba en los dos sentidos.** Hoy está hardcodeada
+    (`messages/route.ts:29` `node:"pc"`, `:52` `node:"vps"`, `:64` `node:"pc"`) y como el cliente **rutea por ese
+    campo** (`fetchSessions`/`createSession`/`sendMessage`), **en el VPS queda invertida**: el celular etiquetaría
+    como `vps` una sala y una sesión que viven en la PC. `node` = identidad del **nodo dueño real** derivada de la
+    config (`HERMES_NODE_IDENTITY`/`HERMES_NODE_NAME`), y el cliente resuelve `node → URL` con un mapa de config, no
+    con literales. El test corre **en los dos nodos**, no sólo en la PC.
+15. **El arranque en frío no puede leerse como `PEER_OFFLINE`.** Medido entre nodos: la **primera** llamada al par
+    tardó **8.931 ms**, las siguientes **380 / 358 ms**; el timeout del peer es **5.000 ms** (`messages/route.ts:40`).
+    Con eso, la primera vista del celular tras cada reinicio muestra "nodo PC offline" con el par sano. Se pide
+    **warm-up del par al arrancar** o presupuesto de primera llamada con un reintento, y el criterio de aceptación
+    son **N llamadas consecutivas exitosas** (≥5), nunca una sola.
+16. **El par escucha en la interfaz del tailnet, no en loopback.** Con bind a `127.0.0.1`/`localhost` el fetch del
+    otro nodo da `ECONNREFUSED` y el celular ve `PEER_OFFLINE` con el listener "andando". El bind es la IP del tailnet
+    (verificado: `100.105.0.23:3300` en `netstat`, PID 63060) y `HERMES_PEER_PWA_URL` se escribe con **IP**, no con
+    nombre de host. Prohibido tocar `:3000`, `:3111`, `:3112` ni `:8642`.
+17. **Configuración del par: una variable, cero secretos nuevos.** `HERMES_PEER_PWA_TOKEN` cae a
+    `HERMES_VPS_API_KEY`, y con la inversión de nombres cada nodo ya guarda la key del otro (PC 21/43, VPS 43/21);
+    `HERMES_GATEWAY_URL` y `HERMES_NODE_IDENTITY` tienen fallback a `HERMES_API_URL`/`HERMES_NODE_NAME`. La única sin
+    default es **`HERMES_PEER_PWA_URL`**: una línea por nodo (PC → VPS `:3000`, VPS → PC `<ip-tailnet>:3300`).
+    **Prohibido** agregar secretos nuevos o copiar valores entre nodos. Y el camino ya está medido de punta a punta:
+    un peer fetch real PC → VPS autenticó correctamente con esos fallbacks (el VPS devolvió su 404 sin `code` y el par
+    lo normalizó a `404 {code:"ROOM_NOT_FOUND"}`).
+18. **Los errores del upstream se normalizan a `code`.** El gateway de un nodo responde
+    `{"error":"Upstream error"}` **sin `code`** cuando se pide un perfil que no vive en ese nodo (medido en el VPS con
+    `profile=algolab`). El PWA no puede propagar un error sin `code`: lo mapea a un `code` propio (perfil/nodo mal
+    emparejado ≠ nodo caído ≠ sala inexistente), porque el cliente ramifica por `code` y con el texto crudo la UI
+    vuelve a "lista vacía".
+19. **El parser no puede inventar miembros (medido hoy, sin fix).** En el transcript de `rmugviqw9` (207 entradas)
+    aparecen como remitentes nombres que **no son miembros de la sala**: `"model"` ×5, `"agent"` ×4, `"pattern"` ×4,
+    `"type"` ×1, `agent_config` ×1, y tres etiquetas `--**default` / `--**lightweight` / `--**auditoría-interna`.
+    Son fragmentos de **JSON/Markdown citados dentro del cuerpo** de un mensaje que matchean la forma
+    `^\s{2}<algo>:` y se atribuyen como si fueran turnos de un miembro. Regla: **sólo** pueden ser remitentes los
+    miembros del **roster del censo** (los perfiles con ≥1 sesión del `roomId`) más `You`; cualquier otro nombre es
+    artefacto → se descarta (o se marca `unknown`) y **la lista de miembros de la sala sale del censo, nunca del
+    parseo**. Criterio: para las 4 salas, el conjunto de `from.name` ⊆ roster ∪ {`You`}, con el roster citado al lado.
+    Si un remitente real no está en el roster (bot que entró después), el roster se corrige, no el test.
+**Los conteos que dependen del tiempo se miden, no se citan:** los baselines de las salas activas crecen durante la
+tarde (esta sala pasó de 15 a 46 a 49 turnos; los artefactos de compactación medidos 6/2/2/0 y 8/2/0/2 en dos
+momentos distintos). Todo criterio de cantidad es **"0 / igual al censo de ese momento"**, nunca un número fijo.
 
 Estos tres son los **criterios de cierre de Fase 2** fijados con @web-auditor; sin los tres no se cierra:
 `rmugviqw9` reconstruida y rotulada `source:"reconstructed"` dentro del baseline **derivado en la misma corrida**
