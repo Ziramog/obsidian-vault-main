@@ -399,6 +399,18 @@ Estos tres son los **criterios de cierre de Fase 2** fijados con @web-auditor; s
 con las 3 ids del baseline fuera · sala desconocida → `404` con `code` y nunca `200 []` · corte con el par caído →
 `503` y el cliente conservando el snapshot.
 
+## Higiene de entrega (aplica al commit 3 y al 4)
+
+- **Los scripts auxiliares del agente no van al repo.** Verificado en la rama: quedaron **11 sin trackear** en la raíz
+  (`apply-fixes.js`, `fix-types.py`, `fix-types2.py`, `fix-types3.py`, `patch.py`, `patch2.py`, `patch3.py`,
+  `patch_chat.py`, `patch_room_store.py`, `test.ps1`, `verify.ts` — el último es probablemente el verificador del
+  propio agente, revisarlo antes de borrar). **Ninguno entró a un commit**: `46ca485..HEAD` no contiene ni un `.py`,
+  `.js`, `.mjs` ni `.sh`. El riesgo es el próximo `git add -A`: esos patrones **no** están en `.gitignore`, así que
+  van al `.gitignore` o —mejor— los temporales se escriben **fuera del repo** (`$TMPDIR`), como el `fase1.diff` de
+  Fase 1.
+- **Cero archivos ajenos al cambio en el commit**: revisar `git show --stat` antes de commitear y no incluir
+  temporales, evidencias ni artefactos de build.
+
 ## Addendum — verificado en el código de `3a7d929` (commit 2), para el commit 3
 
 Tres criterios **no** quedaron en la forma pedida; con líneas, para que el addendum los toque sin re-hacer nada más:
