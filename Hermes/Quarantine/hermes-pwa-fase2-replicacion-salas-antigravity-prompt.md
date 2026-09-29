@@ -361,7 +361,20 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     desempate explícito; **(b)** el mismo criterio aplica a `/api/chat`, no sólo a salas y sesiones; **(c)** error con
     `code` propio cuando el perfil no vive en ningún nodo alcanzable (≠ "no autorizado" ≠ "nodo caído"). Sin esto, el
     rollout puede dejar las salas andando y **el envío a 9 de los 17 bots igual roto**.
-    **El "origen" que la app ya pinta NO es una medición — no sirve como fuente del ruteo.** `profiles/route.ts:43-44`
+    **Spec final acordada (A.1–A.4) — el ruteo sale de una medición, no de una etiqueta ni de un campo del cliente:**
+    - **A.1** agregar **`?scope=local`** a `/api/profiles`: devuelve **sólo lo que este nodo puede atender**. Hoy no
+      existe: las cinco variantes probadas en la PC y las tres en el VPS (`""`, `?scope=local`, `?node=local`,
+      `?local=1`, `?peer=0`, `?node=pc`) devuelven **siempre los 17 nombres agregados**.
+    - **A.2** la tabla perfil→nodo se arma con **dos llamadas** (local + par) y se cachea con **TTL ≥ 60 s**. Si el par
+      falla, sus perfiles quedan **desconocidos, nunca ausentes** (hoy `sessionCount: 0` con `catch` silencioso dice
+      "existe pero sin datos" y se lee igual que "no existe").
+    - **A.3** el sondeo por perfil queda como **respaldo**, preguntando a **los dos nodos**: uno solo **no discrimina** —
+      medido: desde la PC `brain-local` → 200 y `rws` → 404; desde el VPS exactamente al revés. El mismo 404 sirve
+      para "vive en el otro nodo" y para "no existe", y encima responde en ~0,6 s, así que el error no se nota.
+    - **A.4** los **hosts se resuelven desde el env del nodo que ejecuta** (`HERMES_VPS_URL` está invertido según quién
+      pregunta, igual que `HERMES_VPS_URL` vs `HERMES_API_URL`), **jamás** desde el `node=` del cliente: si no, el fix
+      arregla un sentido y rompe el otro.
+    **Por qué no sirve la etiqueta que la app ya pinta:** `profiles/route.ts:43-44`
     define `PC_BOTS` y `VPS_BOTS` **hardcodeados** y `:146` elige la lista del par con
     `NODE_NAME === "vps" ? PC_BOTS : VPS_BOTS`; lo que sí se mide después es `sessionCount` (`:108`/`:165`, con
     `catch → 0`). Rutear por esa etiqueta sería mudar el mismo defecto de clase que ya matamos con `CANONICAL_ROOMS`
