@@ -233,14 +233,24 @@ Antigravity debe **pegar en el mensaje de cierre** la salida real de:
     `404 {"error":"Group room not found"}`: **la historia se lee pero no se puede contestar**, que es justo el caso
     de uso del celular. Y el 404 de `/chat` (y el `error` del SSE de `chat/route.ts:150`) tiene que llevar
     `code:"ROOM_NOT_FOUND"` igual que `/messages`: el contrato se aplica a las dos rutas, no a una.
-11. **Sin artefactos de compactación como mensajes.** El transcript no puede exponer marcadores internos
-    (`[PRIOR CONTEXT — …]`, `[END OF PRIOR CONTEXT — …]`, `[CONTEXT COMPACTION — …]`, `[member-quoted …]`,
-    `[OUT-OF-BAND USER MESSAGE …]`) como si fueran turnos — hoy salen en las entradas 10 y 33 de esta sala. Regla
-    **estructural**, no lista negra de strings: dentro del sobre sólo producen mensaje las líneas que matchean
-    `^  <nombre> [<nodo>]: <texto>` o `^  You (user): <texto>`; todo bloque entre corchetes en línea propia se
-    descarta, y un `[member-quoted X] Y` es **cita** (se descarta el envoltorio; si el interior ya está en el log
-    no cuenta ni en `messageCount`). Criterio para @web-auditor: el transcript de esta sala no debe contener
-    ninguna cadena `PRIOR CONTEXT` / `COMPACTION` / `member-quoted`.
+11. **Sin artefactos de compactación como mensajes.** *(Corregido con la medición de @web-auditor sobre `ba48686`:
+no son citas internas, son **mensajes propios cuyo texto es el blob de compactación** — 6 en esta sala, 2 en
+`rmugviqw9`, 2 en `rmuag13gp`, 0 en `rmufxz2ti`.)* El transcript no puede exponerlos. Filtro en **dos** niveles:
+   - **Estructural** (dentro del sobre): sólo producen mensaje las líneas que matchean `^  <nombre> [<nodo>]: <texto>`
+     o `^  You (user): <texto>`; todo bloque entre corchetes en línea propia se descarta.
+   - **Por contenido (el que faltaba y es el que atrapa lo que hoy se ve):** un mensaje cuyo texto **empiece con**
+     `[member-quoted PRIOR CONTEXT` o **contenga** `[END OF PRIOR CONTEXT` es artefacto → fuera del payload **y** del
+     `messageCount`. También `[CONTEXT COMPACTION — …]` y `[OUT-OF-BAND USER MESSAGE — …]`.
+   Criterio para @web-auditor: 0 apariciones de `PRIOR CONTEXT` / `COMPACTION` / `member-quoted` en el transcript de
+   las 4 salas. **Nota de alcance:** el origen está en `state.db` (el registro de la propia sesión del bot), no en el
+   parser, así que esto es un parche aguas abajo: la corrección de raíz (no registrar/publicar los scaffolds de
+   compactación como contenido de mensaje) queda anotada para Fase 3 como decisión de arquitectura, no se arregla acá.
+12. **El escritor del PWA no puede perder claves del doc.** Para **cada** camino de escritura del PWA, diff del
+    **conjunto de claves** de `profile.yaml` (no sólo del hash) antes/después: ninguna clave existente puede
+    desaparecer. Motivo medido: el archivo que escribió el PWA a las 20:52 son **53.122 b con 3 salas** (2 vacías)
+    contra los **55.551 b con 1 sala** de las 19:00 **con el mismo log de 54 entradas** — menos contenido real y 2,4 KB
+    menos de archivo. Hasta medirlo, el PWA no debe ser escritor de un archivo compartido con el Desktop y el gateway:
+    si no se puede garantizar el round-trip completo, la escritura se elimina (el GET deja de escribir, criterio 9).
 
 Estos tres son los **criterios de cierre de Fase 2** fijados con @web-auditor; sin los tres no se cierra:
 `rmugviqw9` reconstruida y rotulada `source:"reconstructed"` dentro del baseline **derivado en la misma corrida**
