@@ -350,6 +350,18 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     **Test de no-duplicación, con el caso real:** el par **ya emite 7 eventos `hermes`** en esta sala, así que el
     `merged` no puede mostrarlos dos veces — se contrasta el **conteo por `(nombre, texto)`** contra el de cada nodo
     por separado (ningún texto puede aparecer más veces que el máximo de las dos mitades).
+21. **"Veo los bots pero no puedo hablarles" — el chat rutea por `body.node`, no por el perfil (medido en el código
+    que hoy corre en el celular).** `src/app/api/chat/route.ts:19-20` (`3186a37`): `isVps = body.node === "vps" ||
+    x-hermes-node === "vps"` y `targetBaseUrl = isVps ? HERMES_VPS_URL : HERMES_API_URL` — o sea **sin `node` en el
+    body la petición va al gateway local**, y ahí un perfil que vive en el otro nodo (`brain-local`, `web-builder`,
+    `web-auditor`, `algolab`, `algolab-strategy`, `trading-performance`, `pcbrain`, `algolab-darwin`, `omh-test`)
+    devuelve **`404 "Unknown or unconfigured profile"`**. No existe ningún mapa perfil→nodo: la lista de bots se
+    construye con los dos nodos, pero el envío no sabe a cuál ir. Pedido: **(a)** resolver el nodo **desde el perfil**
+    (mapa perfil→nodo derivado de la config/censo, no de un campo del cliente), con el `node` del body sólo como
+    desempate explícito; **(b)** el mismo criterio aplica a `/api/chat`, no sólo a salas y sesiones; **(c)** error con
+    `code` propio cuando el perfil no vive en ningún nodo alcanzable (≠ "no autorizado" ≠ "nodo caído"). Sin esto, el
+    rollout puede dejar las salas andando y **el envío a 9 de los 17 bots igual roto**.
+
 **Los conteos que dependen del tiempo se miden, no se citan.** Los baselines de las salas activas crecen durante la
 tarde (esta sala pasó de 15 a 46 a 49 a 53 turnos; los artefactos de compactación dieron 6/2/2/0, 8/2/0/2 y 2/9/0/2
 en tres momentos distintos), así que todo criterio de cantidad se evalúa **contra el censo derivado en la misma
