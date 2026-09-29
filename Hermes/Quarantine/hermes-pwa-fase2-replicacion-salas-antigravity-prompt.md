@@ -270,27 +270,6 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     `messages/route.ts:40` (**5.000 ms**) el celular va a mostrar `PEER_OFFLINE`/`PEER_TIMEOUT` **intermitente**.
     Se pide: presupuesto derivado del **p95 medido** (~10,6 s) o **caché con TTL** en el par, y test de aceptación
     con **N llamadas consecutivas sin fallos** (≥9, la muestra medida) — "una llamada pasa" no firma nada.
-19. **Roster correcto y filtro sintáctico (corregido con la medición de @web-auditor: la versión anterior era
-    destructiva).** Filtrar por pertenencia al censo local **borra contenido real**: el nodo remoto escribe con
-    `Hermes [100.124.132.48:9119]` y **no tiene sesión en el `state.db` de este nodo**, así que el censo lo excluye
-    (`rmufxz2ti` 2 vs 3 miembros reales, `rmuli31hi` 3 vs 4 — totales que el **store** del Desktop sí tiene completos,
-    pero que el espejo **no**). La regla es de dos mitades:
-    - **(i) Roster: ni el espejo ni el store sirven como fuente de los remotos — medido.** El espejo
-      (`HERMES_HOME/profile.yaml`) tiene **1 solo `roomId`** (`rmuag13gp-5r3kn`) y **0 apariciones** de
-      `rmuli31hi`/`rmufxz2ti`/`rmugviqw9`; y en esa única sala sus `members` son **sólo locales**
-      (`algolab-strategy`, `algolab`, `connectionKind: local`, `connectionLabel: This device`), sin el nodo remoto.
-      El store del Desktop **sí** tiene los rosters completos (4/3/3/2), pero es localStorage del Electron:
-      inalcanzable desde el PWA y **prohibido** como reach-around. Entonces la fuente de los remotos es **el propio
-      sobre**: el remitente legítimo viene con etiqueta de nodo machine-shaped — `Hermes [100.124.132.48:9119]`,
-      `Brain Local [This device]`, `PC Local` — mientras que los fantasmas (`"model": 0.5`, `body`, `headers`,
-      `if-(!res.ok)-throw-…`, `const-lines-=-text.split(…`) **no tienen etiqueta de nodo**.
-    - **(ii) El filtro es la gramática del sobre, no la pertenencia:** un remitente es válido sólo si la línea matchea
-      `^  <nombre> \[<nodo>\]: ` con `<nombre>` en `^[A-Za-z0-9_.\- ]{1,64}$` (sin `"`, backtick, `(`, `)`, `=`, `,`,
-      `?`) y `<nodo>` con forma de nodo válida (`This device` | `PC Local` | `IPv4:port`). Todo lo que no matchee es
-      artefacto. Con la gramática caen los ~90 falsos de `rmugviqw9` y sobreviven los `hermes` ×30 de `rmufxz2ti` y
-      ×4 de esta sala — sin depender de ninguna fuente inalcanzable.
-    Criterio: en las 4 salas, `from.name` ⊆ roster ∪ {`You`}, con el **roster, el censo y las etiquetas de nodo
-    declarados al lado** para que se vea si la diferencia es un fantasma o un remoto legítimo.
 16. **El par escucha en la interfaz del tailnet, no en loopback.** Con bind a `127.0.0.1`/`localhost` el fetch del
     otro nodo da `ECONNREFUSED` y el celular ve `PEER_OFFLINE` con el listener "andando". El bind es la IP del tailnet
     (verificado: `100.105.0.23:3300` en `netstat`, PID 63060) y `HERMES_PEER_PWA_URL` se escribe con **IP**, no con
