@@ -392,6 +392,19 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     inalcanzable* (el probe falla y queda `sessionCount: 0`, la misma mentira de B7). Van con **`code` distintos**,
     porque el cliente decide cosas distintas con cada uno.
 
+22. **El ruteo del commit 4 se llama a sí mismo por HTTP a un puerto adivinado (verificado en el código de
+    `97104fd`, es el #5 de la auditoría externa y es correcto).** `src/lib/routing.ts`: la mitad local de la tabla sale
+    de `fetch(\`http://localhost:${process.env.PORT || 3000}/api/profiles?scope=local\`)` — con `PORT` sin definir
+    asume **3000**, y el par de la PC corre en **3300**, así que en cualquier despliegue fuera del 3000 la llamada pega
+    contra un puerto vacío, entra en `catch (err) {}` **silencioso** y **la mitad local de la caché queda vacía** sin
+    ninguna señal (el `sessionCount: 0` de B7, otra vez). Peor: la caché vacía se considera **verdad durante 60 s**.
+    Misma llamada en la mitad del par: `process.env.HERMES_PEER_PWA_URL || ROUTING_HERMES_VPS_URL.replace(/:\d+$/,
+    ":3000")` — la derivación es **correcta en la PC** (el peer del VPS corre en `:3000`) y **equivocada en el VPS**
+    (el peer de la PC corre en `:3300`), o sea justo en el sentido que usa el celular. Pedido: **(a)** la mitad local
+    sale de la **función en proceso** (o del origen/`PORT` real del request), nunca de un HTTP a sí mismo; **(b)**
+    `HERMES_PEER_PWA_URL` **exigida**, sin derivación de puerto; **(c)** un fallo de mitad **nunca** se cachea como
+    "ausente" — es `NODE_UNREACHABLE` (criterio 21) y la caché sólo guarda resultados medidos.
+
 **Los conteos que dependen del tiempo se miden, no se citan.** Los baselines de las salas activas crecen durante la
 tarde (esta sala pasó de 15 a 46 a 49 a 53 turnos; los artefactos de compactación dieron 6/2/2/0, 8/2/0/2 y 2/9/0/2
 en tres momentos distintos), así que todo criterio de cantidad se evalúa **contra el censo derivado en la misma
