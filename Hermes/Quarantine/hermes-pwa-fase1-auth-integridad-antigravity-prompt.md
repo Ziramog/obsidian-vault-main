@@ -143,9 +143,23 @@ sucio y rompe el baseline "working tree limpio" del que dependen los criterios.
 ## Criterios de aceptación
 
 Ejecutados por Antigravity contra el build (`npm run build && npm start`) de su propio nodo y **pegados en el
-mensaje de cierre** (comando + status + primeras 2 líneas de body):
+mensaje de cierre** (comando + status + primeras 2 líneas de body). Si algún criterio no se puede correr, hay que
+**decirlo explícitamente** en el cierre — omitirlo en silencio invalida la entrega (pasó en la corrida real: el
+informe no traía ninguna salida y el defecto sólo apareció al correr los criterios a mano).
+
+**Precondición de toda la corrida:** exportar `HERMES_HOME` **explícito** (`%LOCALAPPDATA%\hermes` o un home de
+prueba tipo `$(mktemp -d)`). Lanzado desde una shell de Hermes, `HERMES_HOME` apunta a
+`…\hermes\profiles\<perfil>`, donde `PROFILES_DIR` **no existe**: eso da `PATCH` 500 "Profiles directory not
+found" y `/api/health` con `profileCount: 0`, y hace mentir a criterios que están bien.
 
 1. `tsc --noEmit` = 0 errores; `npm run build` = OK.
+2. **Camino feliz (obligatorio, y el que faltaba):** `PATCH /api/profiles` con
+   `{"profile":"<perfil real>","model":"<modelo real>"}` → **200**, y el `config.yaml` de ese perfil **cambia**
+   (diff antes/después). Un solo error de escritura acá invalida todo el punto 4.
+   **Nota de implementación que costó una corrida entera:** el temporal de la escritura atómica se abre con
+   handle de **escritura** (`fs.openSync(tmp, "w")`) — `fsyncSync` sobre un handle `'r'` tira
+   `EPERM: operation not permitted, fsync` **en Windows** y devuelve 0 en Linux, así que el bug se ve en un nodo
+   y no en el otro. Verificar en los dos lugares (PATCH y `saveProfileDoc`) y en los dos SO.
 2. `Bearer totally-fake-key` → **401** en: `/api/profiles`, `/api/groups`, `/api/groups/<id>/messages`,
    `/api/groups/<id>/chat`, `/api/sessions`, `/api/sessions/<id>`, `/api/sessions/<id>/messages`, `/api/chat`,
    `PATCH /api/profiles`, `DELETE /api/sessions/<id>`.
