@@ -361,6 +361,16 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     desempate explícito; **(b)** el mismo criterio aplica a `/api/chat`, no sólo a salas y sesiones; **(c)** error con
     `code` propio cuando el perfil no vive en ningún nodo alcanzable (≠ "no autorizado" ≠ "nodo caído"). Sin esto, el
     rollout puede dejar las salas andando y **el envío a 9 de los 17 bots igual roto**.
+    **El "origen" que la app ya pinta NO es una medición — no sirve como fuente del ruteo.** `profiles/route.ts:43-44`
+    define `PC_BOTS` y `VPS_BOTS` **hardcodeados** y `:146` elige la lista del par con
+    `NODE_NAME === "vps" ? PC_BOTS : VPS_BOTS`; lo que sí se mide después es `sessionCount` (`:108`/`:165`, con
+    `catch → 0`). Rutear por esa etiqueta sería mudar el mismo defecto de clase que ya matamos con `CANONICAL_ROOMS`
+    (B3): una lista que se desincroniza de la realidad y no avisa. El ruteo sale de la **medición** — el mismo probe
+    por perfil que ya existe — con las dos listas a lo sumo como pista inicial, y el mapa **cacheado con TTL** (las
+    llamadas al par medidas llegan a 11 s, criterio 15).
+    **Dos fallos que hoy se ven iguales y no lo son:** *el perfil no vive en ese nodo* (el nodo contesta) ≠ *el nodo es
+    inalcanzable* (el probe falla y queda `sessionCount: 0`, la misma mentira de B7). Van con **`code` distintos**,
+    porque el cliente decide cosas distintas con cada uno.
 
 **Los conteos que dependen del tiempo se miden, no se citan.** Los baselines de las salas activas crecen durante la
 tarde (esta sala pasó de 15 a 46 a 49 a 53 turnos; los artefactos de compactación dieron 6/2/2/0, 8/2/0/2 y 2/9/0/2
