@@ -10,9 +10,20 @@ ROOMS=${ROOMS:-"rmuli31hi-inptr rmugviqw9-6zez7 rmufxz2ti-w6sk5 rmuag13gp-5r3kn"
 CFG=${CFG:-"brain-local web-builder rws wolfim-growth"}   # 2 del PC + 2 del VPS
 TMPF=".hermes-verif-$$.json"
 trap 'rm -f "$TMPF"' EXIT
+LOCAL_PORT=${LOCAL_PORT:-}   # p.ej. 3000: habilita el criterio 0 (identidad de la puerta)
 fail=0
 
 say() { printf '%-58s %s\n' "$1" "$2"; }
+
+# 0) identidad de la puerta (best effort, sólo si se declara el puerto local)
+if [ -n "$LOCAL_PORT" ] && command -v powershell >/dev/null 2>&1; then
+  ID=$(powershell -NoProfile -Command "\$p=(Get-NetTCPConnection -LocalPort $LOCAL_PORT -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1).OwningProcess; if(\$p){ \$o=Get-CimInstance Win32_Process -Filter \"ProcessId=\$p\"; 'PID '+\$o.ProcessId+' start='+\$o.CreationDate+' cmd='+(\$o.CommandLine -replace '\s+',' ') } else { 'SIN LISTENER' }" 2>/dev/null | tr -d '\r')
+  BID=$(cat .next/BUILD_ID 2>/dev/null); HED=$(git rev-parse --short HEAD 2>/dev/null)
+  say "0 identidad puerta :$LOCAL_PORT" "$ID"
+  [ -n "$BID" ] && say "0 build en disco (BUILD_ID / HEAD)" "$BID / $HED"
+else
+  say "0 identidad de la puerta" "no aplica (puerta remota: $BASE)"
+fi
 
 # 1) health: identidad y perfiles locales (el health puede dar 200 con 0 perfiles)
 H=$(curl -sk -m 20 "$BASE/api/health")
