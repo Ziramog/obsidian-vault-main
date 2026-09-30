@@ -59,24 +59,37 @@ done
 for r in $ROOMS; do
   curl -sk -m 120 -H "Authorization: Bearer $KEY" "$BASE/api/groups/$r/messages" > "$TMPF"
   python3 - "$r" "$TMPF" <<'PY' || fail=1
-import json,sys,collections
-r=sys.argv[1]
+import json,sys,collections,re,os
+r=sys.argv[1]; win=int(os.environ.get('WINDOW_S','120'))*1000
 try: d=json.load(open(sys.argv[2]))
-except Exception as e: print('%-58s FALLA no-json'%('ids repetidos %s'%r)); raise SystemExit(1)
+except Exception: print('%-58s FALLA no-json'%('4 %s'%r)); raise SystemExit(1)
 m=d.get('messages') or []
-c=collections.Counter(x.get('id') for x in m)
-dup=sum(1 for v in c.values() if v>1); extra=sum(v-1 for v in c.values() if v>1)
-merged=d.get('merged'); peer=d.get('peerReachable')
-if len(m)==0:
-    why='FALLA sala VACIA (0 turnos, source=%s): no es verde, es una puerta que no sirvio nada' % d.get('source')
-elif dup:
-    why='FALLA %d turnos, %d ids repetidos, %d de mas, source=%s peer=%s' % (len(m),dup,extra,d.get('source'),peer)
-elif not peer:
-    why='FALLA sin fusion (source=%s, peerReachable=%s): el verde es de una sala a medias' % (d.get('source'),peer)
-else:
-    why='OK  %d turnos, 0 repetidos, source=%s, peerReachable=%s' % (len(m),d.get('source'),peer)
-print('%-58s %s' % ('ids repetidos %s'%r, why))
-raise SystemExit(0 if (len(m)>0 and dup==0 and peer) else 1)
+def auth(x):
+    n=(x.get('from') or {}).get('name') or '?'
+    return 'hermes' if n in ('hermes','.hermes') else n
+def text(x):
+    t=x.get('text')
+    if not isinstance(t,str): t=json.dumps(t,sort_keys=True,ensure_ascii=False)
+    return re.sub(r'\s+',' ',t).strip()
+rows=len(m); ids=len(set(x.get('id') for x in m))
+ev=set((auth(x),text(x)) for x in m)
+g=collections.defaultdict(list)
+for x in m: g[(auth(x),text(x))].append(x.get('at') or 0)
+cop=0
+for k,ts in g.items():
+    ts=sorted(t for t in ts if t)
+    for i in range(1,len(ts)):
+        if ts[i]-ts[i-1]<=win: cop+=1
+peer=d.get('peerReachable'); src=d.get('source')
+tag='filas=%d eventos=%d copias<%ds=%d ids_distintos=%d source=%s peer=%s'%(rows,len(ev),win//1000,cop,ids,src,peer)
+if rows==0:
+    print('%-58s FALLA sala VACIA | %s'%('4 %s'%r,tag)); raise SystemExit(1)
+if not peer:
+    print('%-58s FALLA sin fusion | %s'%('4 %s'%r,tag)); raise SystemExit(1)
+if cop:
+    print('%-58s FALLA copias del mismo instante | %s'%('4 %s'%r,tag)); raise SystemExit(1)
+print('%-58s OK  %s'%('4 %s'%r,tag))
+raise SystemExit(0)
 PY
 done
 
