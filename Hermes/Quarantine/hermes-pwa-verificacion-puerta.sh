@@ -66,14 +66,17 @@ except Exception as e: print('%-58s FALLA no-json'%('ids repetidos %s'%r)); rais
 m=d.get('messages') or []
 c=collections.Counter(x.get('id') for x in m)
 dup=sum(1 for v in c.values() if v>1); extra=sum(v-1 for v in c.values() if v>1)
+merged=d.get('merged'); peer=d.get('peerReachable')
 if len(m)==0:
     why='FALLA sala VACIA (0 turnos, source=%s): no es verde, es una puerta que no sirvio nada' % d.get('source')
 elif dup:
-    why='FALLA %d turnos, %d ids repetidos, %d de mas, source=%s' % (len(m),dup,extra,d.get('source'))
+    why='FALLA %d turnos, %d ids repetidos, %d de mas, source=%s peer=%s' % (len(m),dup,extra,d.get('source'),peer)
+elif not peer:
+    why='FALLA sin fusion (source=%s, peerReachable=%s): el verde es de una sala a medias' % (d.get('source'),peer)
 else:
-    why='OK  %d turnos, 0 repetidos, source=%s' % (len(m),d.get('source'))
+    why='OK  %d turnos, 0 repetidos, source=%s, peerReachable=%s' % (len(m),d.get('source'),peer)
 print('%-58s %s' % ('ids repetidos %s'%r, why))
-raise SystemExit(0 if (len(m)>0 and dup==0) else 1)
+raise SystemExit(0 if (len(m)>0 and dup==0 and peer) else 1)
 PY
 done
 

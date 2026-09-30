@@ -479,6 +479,28 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
     legítimos del otro). Test en las dos direcciones: **filtrar `.hermes` por roster pierde 58 mensajes reales** — la
     aserción tiene que exigir que sobrevivan.
 
+26. **El verde tiene que probar FUSIÓN, no sólo ausencia de repetidos (criterio de aceptación, el más incómodo de
+    todos).** Medido: los cuatro criterios pasaron en las tres puertas **mientras cada una servía media conversación**
+    (`source:"reconstructed"`, `peerReachable:false`). Lo que falta medir y ahora es requisito: **`peerReachable ===
+    true`** y el `source` declarado; con la fusión apagada, lo que la puerta del celular **no entrega** es **67/72
+    eventos** en esta sala y **73/73** en `rmufxz2ti` (comparación por prefijo de texto, 40 y 80 chars; cota superior
+    declarada: la etiqueta `hermes`/`.hermes` se normalizó, `You`/`You (user)` no). Regla: **`turnos > 0` + `repetidos
+    == 0` + `peerReachable === true`**, y el `source` impreso en el resultado. Un "puerta OK" con la fusión apagada es
+    la cuarta vez que un arnés firma lo que no midió.
+27. **`buildId` (y el commit) expuestos en `/api/health`** (criterio 0 en puerta remota). Hoy el único dato
+    distinguible por HTTP es el `uptime` (y `path` como fingerprint por nodo), así que la identidad de una puerta
+    remota **no es verificable** y toda la ronda se reconstruyó por forense. Con `buildId` + commit en el health,
+    cualquier medición queda atribuida sola, local o remota, y el criterio 0 del script de puerta funciona en las dos.
+    Mientras no exista, el script lo declara **PENDIENTE** en vez de fingir que verificó.
+28. **Caché real y presupuestos anidados crecientes (el lockstep).** La causa de los 12–17 s por vista **no es el
+    tamaño de los presupuestos** sino `room-store.ts:251`: la caché del transcript tiene **TTL de 2000 ms** y se
+    invalida con `lastActivityAt`, así que en una sala viva **cada vista re-lee y re-parsea el store entero** (medido:
+    llamadas seguidas dan 15,96 · 16,24 · 14,96 · 15,54 · 16,28 · 16,99 s — no es arranque en frío). Pedido: **(a)**
+    invalidar **sólo por `lastActivityAt`** (la primera vista tras un cambio de actividad paga, las demás son
+    instantáneas); **(b)** presupuestos **anidados crecientes hacia afuera, nunca iguales** — hoy adentro hay 5 s/12 s y
+    afuera también 12 s, así que el hop de afuera **no puede** recibir al de adentro por construcción: escalera a
+    validar contra la latencia medida (par 20 s → VPS 26 s → funnel 32 s).
+
 **Los conteos que dependen del tiempo se miden, no se citan.** Los baselines de las salas activas crecen durante la
 tarde (esta sala pasó de 15 a 46 a 49 a 53 turnos; los artefactos de compactación dieron 6/2/2/0, 8/2/0/2 y 2/9/0/2
 en tres momentos distintos), así que todo criterio de cantidad se evalúa **contra el censo derivado en la misma
