@@ -73,12 +73,20 @@ Estos puntos **no** están cerrados y se declaran con su medición:
 
 **Las dos puertas no son comparables — presentar por puerta, nunca en una sola tabla** (medición 2026-09-29, mismo día, minutos de diferencia):
 
-| puerta | build | perfiles | ruteo | `rmuli31hi` | `rmugviqw9` |
-|---|---|---|---|---|---|
-| funnel `truzt…` (nodo PC) | `c7b2d70` | 17: 9 `🖥️ PC Local` + 8 `☁️ VPS`, todos online | **400 ×4** | **0 ids repetidos** | **0 ids repetidos** |
-| `100.124.132.48:3000` (nodo VPS) | `9062356` | 17 | 400 ×4 | **4 ids repetidos / 5 de más** | **17 ids repetidos / 33 de más** |
+| puerta | build | perfiles | ruteo | `rmuli31hi` | `rmugviqw9` | `rmufxz2ti` | `rmuag13gp` |
+|---|---|---|---|---|---|---|---|
+| funnel `truzt…` (nodo PC) | `c7b2d70` | 17: 9 `🖥️ PC Local` + 8 `☁️ VPS` | **400 ×4** | **0** | **0** | **0** | **0** |
+| par `100.105.0.23:3300` (nodo PC) | `c7b2d70` | 9 locales | 400 ×4 | **0** | **0** | **0** | **0** |
+| `100.124.132.48:3000` (nodo VPS) | `c7b2d70` | 17 | 400 ×4 | **0** | **504 `PEER_TIMEOUT`** | **0** | **504 `PEER_TIMEOUT`** |
 
-Los conteos de turnos tampoco son comparables entre puertas (el funnel fusiona las dos mitades; el VPS sirve su propia vista): un auditor que lea "85" y "90" en la misma fila va a creer que hay una discrepancia donde hay dos artefactos distintos.
+Estado final medido (2026-09-29, última pasada): **el criterio "0 turnos con `id` repetido" se cumple en las tres puertas** — 116/116, 182/182, 162/162 y 1383/1383 en las puertas del PC, y 134/134 y 184/184 en las dos salas que el VPS sirve desde su propio corpus (frente a los 94 turnos de más del despliegue anterior). Los conteos **no son comparables entre puertas** (una fusiona las dos mitades, otra sirve sólo la suya): un auditor que lea "116" y "134" en la misma fila va a creer que hay una discrepancia donde hay dos artefactos distintos.
+
+**Dos residuos nuevos de esta última medición**:
+
+- **Timeout del par en las salas grandes**: en la puerta del VPS, `rmugviqw9` y `rmuag13gp` (las dos mayores: 196 y 1167 turnos en el par) devuelven **`504 {"code":"PEER_TIMEOUT"}`**, y **de forma repetible**: la segunda pasada, con el par ya caliente, da idéntico resultado, así que **no es arranque en frío** sino que el presupuesto de `messages/route.ts:40` (**5000 ms**) no alcanza para los payloads grandes de una llamada cruzada (la clase se midió entre 2 y 10 s). Los dos nodos reportan además `peerReachable:false` en su propia puerta, de modo que hoy cada puerta sirve su mitad y **la fusión no está ocurriendo**: los conteos de arriba son "por mitad", no fusionados.
+- **Autores basura `.hermes` en la reconstrucción local del VPS**: en su propio corpus, `rmuli31hi` tiene **20 turnos** y `rmufxz2ti` **58** con autor **`.hermes`** — un nombre que no pertenece a ninguna población de confianza declarada. No aparece en el corpus del PC. Es una clase nueva del mismo tipo que el informe ya documenta (autor derivado de un identificador en vez de un nombre verificado) y queda **del lado del nodo VPS**.
+
+**Nota de método sobre la población de confianza**: el roster con el que se validan los autores debe ser la **unión de los perfiles locales que declaran los dos nodos** (`?scope=local` de cada uno → 20 nombres) más los especiales (`You`, `hermes`, `default`). Validar con el censo de un solo nodo produce **falsos positivos** en la puerta del otro: con el censo del PC, los autores legítimos del corpus local del VPS aparecen como "fuera de roster".
 
 **Trampa de arranque que hay que declarar** (mordió dos veces en esta ronda): **mismo binario, mismo `.env.local`, `HERMES_HOME` distinto ⇒ 0 perfiles**. La instancia del funnel relanzada **sin** `HERMES_HOME` arrancó sana (`/api/health` 200) y con **`profileCount: 0`** y `?scope=local` vacío: la app se veía funcionando y no tenía ni un perfil local. Es la misma clase de defecto que el resto del informe — una degradación que no se anuncia — y por eso el arranque de cualquier nodo debe fijar `HERMES_HOME` explícitamente y verificarse con `profileCount` **antes** de declararlo sano.
 
