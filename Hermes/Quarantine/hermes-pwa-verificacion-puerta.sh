@@ -1,8 +1,16 @@
 #!/bin/sh
 # Verificación de puerta — Hermes PWA (Fase 2, criterios sin umbral)
-# Uso:  BASE=https://truzt.taila7f43b.ts.net KEY=<clave> sh verificacion-puerta.sh
+# Uso:  BASE=https://truzt.taila7f43b.ts.net KEY=<clave> LOCAL_PORT=3000 sh verificacion-puerta.sh
 #       BASE=http://100.124.132.48:3000 KEY=<clave> sh verificacion-puerta.sh
 # Salida: una línea OK/FALLA por criterio. No escribe nada, no envía mensajes.
+#
+# Criterios:
+#   0. identidad de la puerta (con LOCAL_PORT): PID dueño del puerto, BUILD_ID y commit en disco
+#   1. health: ok:true y profileCount != 0 (el health da 200 con 0 perfiles locales)
+#   2. perfiles: hay perfiles y ninguno offline
+#   3. ruteo: los perfiles de prueba resuelven (400 = frena en la validación; nada enviado)
+#   4. transcripts: turnos > 0  Y  0 ids repetidos, sin umbral de largo
+#      (0 turnos con 0 ids repetidos es una sala VACÍA, no una sala sana: no pasa como OK)
 
 BASE=${BASE:-http://100.124.132.48:3000}
 KEY=${KEY:?falta KEY}
@@ -58,9 +66,14 @@ except Exception as e: print('%-58s FALLA no-json'%('ids repetidos %s'%r)); rais
 m=d.get('messages') or []
 c=collections.Counter(x.get('id') for x in m)
 dup=sum(1 for v in c.values() if v>1); extra=sum(v-1 for v in c.values() if v>1)
-ok = (dup==0)
-print('%-58s %s' % ('ids repetidos %s'%r, ('OK  %d turnos, 0 repetidos, source=%s'%(len(m),d.get('source'))) if ok else ('FALLA %d turnos, %d ids repetidos, %d de mas, source=%s'%(len(m),dup,extra,d.get('source')))))
-raise SystemExit(0 if ok else 1)
+if len(m)==0:
+    why='FALLA sala VACIA (0 turnos, source=%s): no es verde, es una puerta que no sirvio nada' % d.get('source')
+elif dup:
+    why='FALLA %d turnos, %d ids repetidos, %d de mas, source=%s' % (len(m),dup,extra,d.get('source'))
+else:
+    why='OK  %d turnos, 0 repetidos, source=%s' % (len(m),d.get('source'))
+print('%-58s %s' % ('ids repetidos %s'%r, why))
+raise SystemExit(0 if (len(m)>0 and dup==0) else 1)
 PY
 done
 
