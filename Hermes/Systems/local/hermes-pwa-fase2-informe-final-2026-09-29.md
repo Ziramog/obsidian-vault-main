@@ -90,6 +90,18 @@ Estado final medido (2026-09-29, última pasada): **el criterio "0 turnos con `i
 
 **Trampa de arranque que hay que declarar** (mordió dos veces en esta ronda): **mismo binario, mismo `.env.local`, `HERMES_HOME` distinto ⇒ 0 perfiles**. La instancia del funnel relanzada **sin** `HERMES_HOME` arrancó sana (`/api/health` 200) y con **`profileCount: 0`** y `?scope=local` vacío: la app se veía funcionando y no tenía ni un perfil local. Es la misma clase de defecto que el resto del informe — una degradación que no se anuncia — y por eso el arranque de cualquier nodo debe fijar `HERMES_HOME` explícitamente y verificarse con `profileCount` **antes** de declararlo sano.
 
+**La fusión estaba rota por un CICLO de pares, y era configuración, no código.** Los dos nodos apuntaban su par al otro (el VPS apuntaba a `100.105.0.23:3300` y el par de la PC apuntaba al VPS) → cada request esperaba a un nodo que esperaba de vuelta: por eso los tiempos medidos eran **exactamente los presupuestos** (12,5–13,8 s ≈ el tope de 12 s; `/api/profiles` del par 24,4 s ≈ 2 × 12 s) y por eso las tres puertas respondían su mitad local con `peerReachable:false`. **Roto el ciclo** (el par queda como **hoja**: su par apuntado a un destino muerto) la fusión vuelve: **las cuatro salas del funnel `merged` con `peerReachable:true` y 0 ids repetidos**. Nota de configuración: en `c7b2d70` **no se puede dejar la variable del par *vacía*** — `routing.ts:54-55` lanza y `:72-79` retorna antes de registrar la mitad local (residuo 12) → la hoja se implementa apuntando el par a un destino muerto, **no** vaciándolo. El arreglo de fondo (commit 8) es que un par caído o ausente **no** vacíe la mitad local.
+
+**Y la verificación de que la fusión no recorta nada, medida por eventos y no por filas** (mismo instante, las tres puertas):
+
+| sala | funnel (celular) | VPS | eventos distintos: funnel / VPS | sólo en VPS | sólo en funnel |
+|---|---|---|---|---|---|
+| `rmuli31hi` | 185 `merged` | 185 `merged` | 180 / 180 | **0** | **0** |
+| `rmugviqw9` | 140 `merged` | 182 `peer` | 120 / 120 | **0** | **0** |
+| `rmuag13gp` | 995 `merged` | 1408 `peer` | 872 / 872 | **0** | **0** |
+
+Los conjuntos de **eventos** (autor + texto) son idénticos en las tres puertas: **cero contenido perdido**, y con la fusión encendida el celular muestra **el 100 %** de los eventos (la pérdida del 67/72 que se había medido era del modo sin fusión). Pero las **filas** no son iguales: el par sirve **1408 filas para 872 eventos** (536 filas de más, con `id` distintos) y el VPS las relaya tal cual, mientras la fusión del funnel las colapsa a 995. **Consecuencia de criterio: "0 `id` repetidos" es necesario pero NO suficiente** — el mismo evento puede seguir apareciendo dos veces con `id` distinto cuando llega por contextos de nodo distintos. Hasta que eso se cierre, la comparación válida es **eventos, no filas** (y el par, como hoja que reconstruye su propio corpus, es hoy la fuente de esas filas de más).
+
 **Nota sobre los residuos 6 y 7**: son **independientes**. `messages/route.ts` **no llama** a `resolveProfileNode` y su `fetch` al par aborta a los 12 s, así que el arranque en frío de 62,9 s **no** es un timeout del par ni el `HERMES_SELF_URL` faltante: presentarlos como una misma causa sería un error que cualquier auditor derriba midiendo.
 
 **Nota sobre zonas horarias**: las fechas de este informe están en **UTC-3** sobre el epoch del payload. El mismo epoch renderizado en UTC-4 da `09-27 23:16:49` donde aquí dice `09-28 00:16:49` — una hora de diferencia de **presentación**, no de contenido. Toda comparación de ventanas temporales entre nodos debe declarar su zona.
