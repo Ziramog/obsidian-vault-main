@@ -22,9 +22,12 @@ Changing the OpenAI/Codex account must use the provider authentication flow, not
 
 After any account change, run the guard manually or wait for its scheduled run.
 
-## Scheduled tasks
+## Startup enforcement
 
-- `HermesModelRoutingGuard-Logon` — at user logon.
-- `HermesModelRoutingGuard-Hourly` — every hour.
+The first attempt to create user Task Scheduler tasks was denied by Windows (`schtasks.exe`: `ERROR: Access is denied.`). The guard therefore uses a per-user startup entry instead:
 
-Both run the same guard. The guard is idempotent: when configuration matches baseline, it performs only read checks and writes no config.
+- Registry value: `HKCU\Software\Microsoft\Windows\CurrentVersion\Run\HermesModelRoutingGuard`
+- Launcher: `scripts/run-model-routing-guard-hidden.vbs`
+- Behavior: runs hidden at logon and repeats the idempotent guard every 60 minutes while the user session is active.
+
+The guard performs only read checks when configuration matches the baseline.
