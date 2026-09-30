@@ -461,6 +461,24 @@ no son citas internas, son **mensajes propios cuyo texto es el blob de compactac
       139 de forma basura (85 %)**, y una aserción escrita como "el autor pertenece al roster" **pasa en verde con 127
       autores basura adentro**.
 
+24. **Presupuesto ≥ latencia medida, nunca un número elegido a mano (para el commit 8).** Medido desde la punta que
+    consulta: `/api/groups/<sala>/messages` entre **14,96 y 16,99 s** y `/api/profiles` entre **23,93 y 24,93 s**,
+    contra los presupuestos del código —**5 s** en `messages/route.ts:40`, **12 s** de relay y **2 s** de sondeo en
+    `routing.ts`— o sea un déficit de **3 a 12 veces**. Consecuencia medida: **las dos salas grandes vuelven VACÍAS**
+    (`0 turnos`, `source:null`) y **los 9 perfiles del par salen `offline`** aunque el ruteo a ellos resuelve (`400`).
+    Pedido: presupuesto **derivado de la latencia medida (≥ 20 s)** o **caché en el par**, con el número medido al lado
+    en el código; y el criterio de aceptación exige **`turnos > 0` además de `0` repetidos** — una sala vacía no es una
+    sala sana (un arnés lo firmó como OK tres veces esta noche).
+25. **La identidad del autor sale de la CONFIG, nunca del basename de una ruta (`.hermes` ≠ `hermes`).**
+    `room-store.ts:134/259` usa `path.basename(path.dirname(store))`, así que el mismo autor aparece como `hermes` en la
+    PC y **`.hermes`** en el nodo del VPS (su `HERMES_HOME` es `/home/hermes/.hermes`). Son **mensajes reales** —
+    medidos: **58 turnos en `rmufxz2ti` y 20** en esta sala, con `source:"This device"` y textos verificables. Es la
+    tercera pestaña de "etiqueta derivada de la ruta en vez de la config" (después de `node` literal y `lastSeenAt`).
+    Pedido: **mapear a la identidad de display del nodo**, y la población de confianza del gate es
+    **censo ∪ nombres de nodo y de display ∪ `You`** (un roster de un solo nodo marca como basura a los autores
+    legítimos del otro). Test en las dos direcciones: **filtrar `.hermes` por roster pierde 58 mensajes reales** — la
+    aserción tiene que exigir que sobrevivan.
+
 **Los conteos que dependen del tiempo se miden, no se citan.** Los baselines de las salas activas crecen durante la
 tarde (esta sala pasó de 15 a 46 a 49 a 53 turnos; los artefactos de compactación dieron 6/2/2/0, 8/2/0/2 y 2/9/0/2
 en tres momentos distintos), así que todo criterio de cantidad se evalúa **contra el censo derivado en la misma
