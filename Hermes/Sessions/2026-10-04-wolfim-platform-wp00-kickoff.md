@@ -4,7 +4,7 @@ profile: brain-local
 type: orchestration
 project: wolfim-platform
 pack: WOLFIM_PLATFORM_PROJECT_PACK_v7
-status: WP01 aceptado · WP02 liberado
+status: WP00–WP02 aceptados · WP03 pendiente (D2/A1 de Juan) · HO-2026-10-04-001 cerrado con escalado
 ---
 
 # Sesión — 2026-10-04 — Wolfim Platform · kickoff (WP00 → WP01)
@@ -136,13 +136,70 @@ conviene fijarlo antes de que entre código. Cambio cosmético, reversible.
 
 ---
 
+## WP02 — Install Documentation · ✅ ACEPTADO
+
+Ejecutado por `web-builder` el 2026-10-04 (reportado 17:0x; el WP había quedado sin
+arrancar, no bloqueado). Validado por brain-local con verificación independiente sin Git.
+
+```text
+STATUS:            COMPLETE
+TARGET HEAD:       17f6863f73eec46787bd7c9fdc7fc06c0420ad2e (branch main, 2 commits)
+TARGET ARCHIVOS:   31 creados (23 docs activos + 7 visuals en docs/visuals/ + .gitattributes)
+                   + docs/PROJECT_STATE.md modificado · 32 files changed · 22430 insertions
+TARGET git status: limpio · sin remote · docs/ = 9.9 MB
+VERIFICADO:        git log (17f6863) · git rev-parse · git ls-files = 37 · docs/*.md = 25
+                   (23 nuevos + implementation-baseline.md + PROJECT_STATE.md)
+                   visuals/ = 7 PNG · .gitattributes = `* text=auto eol=lf` · CRLF 0 warnings
+SOURCE:            SIN CAMBIOS → e9f774c, status ` M AGENTS.md`, mtime AGENTS.md 2026-09-25 (D1 intacto)
+DEVIATIONS:        2 (documentadas por el builder, verificadas)
+```
+
+### Verificación de brain-local (cruda)
+
+```text
+$ git -C C:/Projects/wolfim-platform rev-parse HEAD
+17f6863f73eec46787bd7c9fdc7fc06c0420ad2e
+$ git -C C:/Projects/wolfim-platform status --porcelain     → (vacío)
+$ git -C C:/Projects/wolfim-platform ls-files | wc -l       → 37
+$ git -C C:/Projects/wolfim-platform remote -v              → (vacío, sin remote)
+$ du -sh C:/Projects/wolfim-platform/docs/                  → 9.9M
+$ git -C C:/Projects/wolfim-motors-demo rev-parse HEAD      → e9f774c52865d6a30d87816f2d1fbc1ba1d02deb
+$ git -C C:/Projects/wolfim-motors-demo status --porcelain  →  M AGENTS.md
+```
+
+Desviación 2 confirmada: `git config --local --list` del TARGET solo tiene claves `core.*`
+— **no hay identidad local**; sale de la global (`Ziramog <fullpowerok@gmail.com>`). El hash
+`8db13cd` sigue válido (mismos valores), pero la identidad explícita debe fijarse antes del
+primer push (que ya requiere aprobación de Juan).
+
+---
+
+## Frente paralelo — HO-2026-10-04-001 (brain-vps → brain-local) · ✅ RESUELTO
+
+Ejecutado en paralelo a WP02, sin tocar el scope Wolfim.
+
+```text
+OBJETIVO 1 (¿hay otro poller de 8644817415 fuera del VPS?)  → SÍ
+HOST/PROCESO:  esta PC (truzt, Tailscale 100.105.0.23) · PID 13808 (hermes gateway run,
+               multiplexer del perfil default) · perfil `algolab`
+FUENTE:        AppData\Local\hermes\profiles\algolab\.env → TELEGRAM_BOT_TOKEN=8644817415:[redactado]
+CORRELACIÓN:   update del Hermes desktop reinició el gateway local 2026-10-03 23:44:04 EDT;
+               adapter algolab reconectó 23:44:50 EDT = mismo minuto del onset del VPS
+               (00:44:25 ART). Conflicto espejo hoy 09:52–09:56 EDT (conflict 1/5…5/5, algolab).
+OBJETIVO 2 (desactivar)  → ESCALADO a Juan: el fix es editar profiles/algolab/.env,
+               fuera de la zona de escritura de brain-local. No ejecutado.
+CIERRE:        response.md + 2 events escritos en HO-2026-10-04-001/ (vault). Zona respetada.
+```
+
+---
+
 ## Estado y secuencia
 
 ```text
 WP00  Dual Repository Baseline      → ✅ ACEPTADO (2026-10-04)
 WP01  Bootstrap TARGET_REPO         → ✅ ACEPTADO (TARGET HEAD 8db13cd)
-WP02  Install documentation         → 🟢 LIBERADO (brief en group chat)
-WP03  Workspace skeleton            → bloqueado por WP02 (+ addendum D2: vitest)
+WP02  Install documentation         → ✅ ACEPTADO (TARGET HEAD 17f6863 · 31 archivos)
+WP03  Workspace skeleton            → ⛔ bloqueado por D2 (vitest) y A1 (AGENTS.md) — decisión de Juan
 ```
 
 Audit gate más cercano: **WP10** (tenant-scoped indexes). WP00/WP01/WP02 sin gate.
@@ -150,11 +207,13 @@ Gate humano más cercano: **WP31** (Demo Portal Cutover → aprobación explíci
 
 ## Pendiente de decisión
 
-1. **HO-2026-10-04-001** (verificar segundo poller de Telegram en la PC, `due-at
-   2026-10-06`). Trabajo de brain-local sobre `hermes-system`, no de Wolfim.
-   Propuesto: correrlo en paralelo mientras web-builder ejecuta WP02.
+1. **HO-2026-10-04-001** → ✅ ejecutado y respondido (response.md + 2 events, 2026-10-04
+   17:02 -04). Verdicto: SÍ hay segundo poller → perfil `algolab` de esta PC.
+   **Acción correctiva pendiente de Juan** (comentar `TELEGRAM_BOT_TOKEN` en
+   `profiles/algolab/.env` — fuera de la zona de escritura de brain-local).
 2. Briefing: `reality-check-required-by` (2026-10-01) vencido — pedir reality-check a Juan.
 3. **D2 (vitest en WP03) — sigue pendiente de OK de Juan.** Bloquea WP03, no WP02.
+4. **A1 (`AGENTS.md` en la raíz del TARGET) — decisión de Juan**, independiente de D2.
 
 ## Referencias
 
