@@ -4,10 +4,10 @@ profile: brain-local
 type: orchestration
 project: wolfim-platform
 pack: WOLFIM_PLATFORM_PROJECT_PACK_v7
-status: WP00 delegado
+status: WP00 aceptado · WP01 liberado
 ---
 
-# Sesión — 2026-10-04 — Wolfim Platform · kickoff (WP00)
+# Sesión — 2026-10-04 — Wolfim Platform · kickoff (WP00 → WP01)
 
 ## Protocolo de apertura (SOUL)
 
@@ -15,10 +15,10 @@ status: WP00 delegado
 |---|---|
 | Briefing `current.md` + TTL | `last-reviewed 2026-09-24T17:40-03` + `valid-for-hours 336` → vence **2026-10-08T17:40-03**. Hoy 2026-10-04 → **VIGENTE (≈4 días)**. |
 | Flag briefing | `reality-check-required-by: 2026-10-01` vencido hace 3 días. No invalida el TTL; se reporta. |
-| Handoffs `vps-to-local` ready | **HO-2026-10-04-001** (brain-vps → brain-local, project `hermes-system`, `depends-on: []`). Es el único `ready` no archivado. |
-| Dependencias | HO-2026-10-04-001: sin dependencias → procesable, pero **fuera del scope Wolfim**. |
+| Handoffs `vps-to-local` ready | **HO-2026-10-04-001** (brain-vps → brain-local, project `hermes-system`, `depends-on: []`). Único `ready` no archivado. |
+| Dependencias | Sin dependencias → procesable, pero **fuera del scope Wolfim**. |
 | Events / scope-changes | Sin `events/` en HO-2026-10-04-001. Sin cambios de alcance. |
-| `companies/wolfim/intelligence/context.md` | Leído (vault). |
+| `companies/wolfim/intelligence/context.md` | Leído. |
 | `companies/wolfim/intelligence/patterns.md` | Leído — v2, `last-reviewed 2026-07-19`, 20 insights. |
 
 ## Verificación de repos (solo existencia, sin Git)
@@ -26,7 +26,7 @@ status: WP00 delegado
 | Repo | Path | Estado |
 |---|---|---|
 | SOURCE_REPO | `C:\Projects\wolfim-motors-demo` | **EXISTE** (`.git`, `.next`, `app/`, `AGENTS.md`) |
-| TARGET_REPO | `C:\Projects\wolfim-platform` | **NO EXISTE** → WP00 debe reportar `TARGET_NOT_CREATED` |
+| TARGET_REPO | `C:\Projects\wolfim-platform` | **NO EXISTE** → `TARGET_NOT_CREATED` (confirmado dos veces, independientemente) |
 
 ## Pack v7 — recibido y validado
 
@@ -39,30 +39,82 @@ Coherencia con SOUL brain-local: **VERIFICADA**. El adapter no modifica zonas de
 escritura ni permisos Git; brain-local sigue sin ejecutar Git y sin escribir repos
 ni `PROJECT_STATE.md`.
 
-## Acción ejecutada
+---
 
-- **WP00 — Dual Repository Baseline** delegado a `web-builder` (brief completo en el
-  group chat "wolfim platform", 2026-10-04).
-- Alcance WP00: inspección read-only de SOURCE + verificación de TARGET. **Sin código
-  de feature.** Sin Git de escritura. Sin push.
+## WP00 — Dual Repository Baseline · ✅ ACEPTADO
+
+Ejecutado por `web-builder` el 2026-10-04. Resultado validado por brain-local.
+
+```text
+STATUS:            COMPLETE (read-only)
+ARCHIVOS:          0 creados · 0 modificados (git status idéntico pre/post inspección)
+SOURCE HEAD:       e9f774c  (branch main, up-to-date con origin/main, 158 commits)
+SOURCE dirty:      1 → M AGENTS.md (+18 líneas, no staged) — doc de orquestación
+STACK:             npm · node v26.7.0 · npm 11.19.0 · next 14.2.4 · react 18 · mongoose 8.5
+install:           node_modules presente (459 paquetes top-level)
+BUILD:             npm run build → EXIT 0 · 0 errores · 38 warnings lint · 52 rutas
+TESTS:             NONE_CONFIGURED (sin runner ni script "test" en SOURCE)
+ENV:               solo NOMBRES (9 en .env.local, 7 en .env.example) — sin valores
+PROJECT_STATE:     N/A — TARGET_NOT_CREATED
+DEVIATIONS:        ninguna
+```
+
+### Hallazgos del builder (pre-existentes, no introducidos por el WP)
+
+| # | Hallazgo | Destino |
+|---|---|---|
+| 1 | `middleware.js` es **bypass total** (`NextResponse.next()` para todo, matcher sobre `/admin`, `/superadmin`, `/profile`) — coherente con modo demo deliberado | Punto crítico de **WP13** (Auth + Membership). Hoy no hay gate de ruta activo. |
+| 2 | `app/api/site-config/site-config/route.js` — ruta anidada duplicada | Limpieza en WP02/WP03, no urgente |
+| 3 | Scripts sueltos en raíz (`audit-*.js`, `check_*.mjs`, `audit_report.json`) | **NO migrar al TARGET** |
+| 4 | Sin tests ni runner | Ver D2 abajo |
+
+### Verificación independiente de brain-local (sin Git)
+
+`C:\Projects\wolfim-platform` → **no existe** (ni carpeta parcial ni symlink).
+`AGENTS.md` en SOURCE con mtime 2026-09-25 16:37 → la mod sin commitear es previa al WP,
+no la introdujo el builder. Coincide con el reporte.
+
+---
+
+## Decisiones de orquestación
+
+**D1 — `M AGENTS.md` en SOURCE: NO se commitea, NO se revierte, NO se toca.**
+La política de repositorio (adapter §Repos, migration-strategy §10) dice que SOURCE
+permanece sin cambios y que modificarlo exige autorización explícita de un WP. El diff
+agrega preferencias de modelo (Antigravity) y "Brain Trust" → documentación de
+orquestación, no código de feature. Se deja el working tree de SOURCE tal cual y **no
+entra al TARGET en WP01**: el TARGET arranca sin AGENTS.md; si Juan lo quiere, se decide
+en WP02 junto con el resto de la documentación.
+
+**D2 — Falta infra de tests (propuesta, requiere OK de Juan).**
+El plan v3 fija el gate de WP03 como install/build, pero los audit gates
+(WP10/WP13/WP15/WP16/WP21/WP22/WP27/WP28/WP30/WP32) necesitan evidencia ejecutable:
+aislamiento de tenant, concurrencia de reserva, no-sale-duplicada. Con `NONE_CONFIGURED`
+en SOURCE, propongo **agregar un runner mínimo (vitest) en WP03** dentro del TARGET y
+registrarlo como addendum del plan. Es infraestructura nueva en un repo nuevo, no cambia
+alcance de producto — pero el plan está marcado FROZEN, así que pido OK antes de incluirlo.
+
+---
 
 ## Estado y secuencia
 
 ```text
-WP00  delegado (esperando resultado builder)
-WP01  Bootstrap TARGET_REPO        → bloqueado por WP00
-WP02  Install documentation        → bloqueado por WP01
-WP03  Workspace skeleton           → bloqueado por WP02
+WP00  Dual Repository Baseline      → ✅ ACEPTADO (2026-10-04)
+WP01  Bootstrap TARGET_REPO         → 🟢 LIBERADO (brief en group chat)
+WP02  Install documentation         → bloqueado por WP01
+WP03  Workspace skeleton            → bloqueado por WP02 (+ posible addendum D2: vitest)
 ```
 
-Audit gate más cercano: **WP10** (tenant-scoped indexes). WP00 no tiene gate de auditoría.
+Audit gate más cercano: **WP10** (tenant-scoped indexes). WP00/WP01/WP02 sin gate.
+Gate humano más cercano: **WP31** (Demo Portal Cutover → aprobación explícita de Juan).
 
 ## Pendiente de decisión
 
 1. **HO-2026-10-04-001** (verificar segundo poller de Telegram en la PC, `due-at
-   2026-10-06`). Es trabajo de brain-local sobre `hermes-system`, no de Wolfim.
-   Propuesto: correrlo en paralelo mientras web-builder ejecuta WP00.
-2. Briefing: `reality-check-required-by` (2026-10-01) vencido — pedir a Juan reality-check.
+   2026-10-06`). Trabajo de brain-local sobre `hermes-system`, no de Wolfim.
+   Propuesto: correrlo en paralelo mientras web-builder ejecuta WP01.
+2. Briefing: `reality-check-required-by` (2026-10-01) vencido — pedir reality-check a Juan.
+3. D2 (runner de tests en WP03) — OK de Juan.
 
 ## Referencias
 
