@@ -4,7 +4,7 @@ profile: brain-local
 type: orchestration
 project: wolfim-platform
 pack: WOLFIM_PLATFORM_PROJECT_PACK_v7
-status: WP00 aceptado · WP01 liberado
+status: WP01 aceptado · WP02 liberado
 ---
 
 # Sesión — 2026-10-04 — Wolfim Platform · kickoff (WP00 → WP01)
@@ -96,13 +96,53 @@ alcance de producto — pero el plan está marcado FROZEN, así que pido OK ante
 
 ---
 
+---
+
+## WP01 — Bootstrap TARGET_REPO · ✅ ACEPTADO
+
+Ejecutado por `web-builder` el 2026-10-04. Resultado validado por brain-local
+(verificación independiente sin Git: árbol en disco + `.git/HEAD` + artefactos).
+
+```text
+STATUS:            COMPLETE
+TARGET HEAD:       8db13cd (branch main, 1 commit, 261 insertions)
+TARGET ARCHIVOS:   6 creados (.gitignore, apps/.gitkeep, packages/.gitkeep, docs/.gitkeep,
+                   docs/implementation-baseline.md, docs/PROJECT_STATE.md) · 0 modificados
+TARGET remote:     NINGUNO (sin remote, sin push, sin clone)
+SOURCE:            SIN CAMBIOS (HEAD e9f774c, status solo `M AGENTS.md`)
+TESTS:             NONE_CONFIGURED (TARGET sin package.json aún)
+BUILD:             N/A en TARGET. SOURCE sigue EXIT 0 / 0 errores / 38 warnings
+PROJECT_STATE:     escrito por web-builder (75 líneas, Wave 0 · Status GREEN)
+DEVIATIONS:        ninguna
+```
+
+Verificado además: `.next` de SOURCE con artefactos reales del build de hoy
+(`BUILD_ID` 2026-10-04 16:14, `trace` 16:15) → el `npm run build` de WP00 fue real,
+no simulado. `AGENTS.md` sigue con mtime 2026-09-25.
+
+### D3 — Identidad de autor (decidida)
+
+`git config --local` = `Ziramog` / `fullpowerok@gmail.com`, los mismos valores que la
+identidad global y que el repo SOURCE. Como los valores **coinciden**, no hace falta
+`amend`: el hash `8db13cd` sigue siendo válido. Si el repo va a publicarse bajo una
+cuenta/org de Wolfim, hay que decirlo **antes del primer push** (el push ya requiere
+aprobación de Juan).
+
+### D4 — Normalización de finales de línea (decidida)
+
+Agregar `.gitattributes` con `* text=auto eol=lf` en WP02 + `git add --renormalize .`
+para limpiar los CRLF que Git avisó al commitear los 3 archivos de texto. Repo nuevo →
+conviene fijarlo antes de que entre código. Cambio cosmético, reversible.
+
+---
+
 ## Estado y secuencia
 
 ```text
 WP00  Dual Repository Baseline      → ✅ ACEPTADO (2026-10-04)
-WP01  Bootstrap TARGET_REPO         → 🟢 LIBERADO (brief en group chat)
-WP02  Install documentation         → bloqueado por WP01
-WP03  Workspace skeleton            → bloqueado por WP02 (+ posible addendum D2: vitest)
+WP01  Bootstrap TARGET_REPO         → ✅ ACEPTADO (TARGET HEAD 8db13cd)
+WP02  Install documentation         → 🟢 LIBERADO (brief en group chat)
+WP03  Workspace skeleton            → bloqueado por WP02 (+ addendum D2: vitest)
 ```
 
 Audit gate más cercano: **WP10** (tenant-scoped indexes). WP00/WP01/WP02 sin gate.
@@ -112,9 +152,9 @@ Gate humano más cercano: **WP31** (Demo Portal Cutover → aprobación explíci
 
 1. **HO-2026-10-04-001** (verificar segundo poller de Telegram en la PC, `due-at
    2026-10-06`). Trabajo de brain-local sobre `hermes-system`, no de Wolfim.
-   Propuesto: correrlo en paralelo mientras web-builder ejecuta WP01.
+   Propuesto: correrlo en paralelo mientras web-builder ejecuta WP02.
 2. Briefing: `reality-check-required-by` (2026-10-01) vencido — pedir reality-check a Juan.
-3. D2 (runner de tests en WP03) — OK de Juan.
+3. **D2 (vitest en WP03) — sigue pendiente de OK de Juan.** Bloquea WP03, no WP02.
 
 ## Referencias
 
