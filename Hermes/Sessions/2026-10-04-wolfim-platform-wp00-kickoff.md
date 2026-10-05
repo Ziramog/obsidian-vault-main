@@ -205,15 +205,29 @@ WP03  Workspace skeleton            → ⛔ bloqueado por D2 (vitest) y A1 (AGEN
 Audit gate más cercano: **WP10** (tenant-scoped indexes). WP00/WP01/WP02 sin gate.
 Gate humano más cercano: **WP31** (Demo Portal Cutover → aprobación explícita de Juan).
 
+## Decisiones del 2026-10-04 (mandato de Juan en group chat "wolfim platform")
+
+Juan: *"ocupate de este proyecto … hagan que esto suceda"* → instrucción de **no frenar
+por decisiones menores**. brain-local resuelve como coordinador y registra, sin volver a
+preguntar:
+
+| # | Decisión | Alcance | Reversibilidad |
+|---|---|---|---|
+| **D2** | **APROBADO** — vitest como runner de tests del TARGET, dev-only, dentro de WP03 | No cambia scope de producto; es infra de evidencia para los audit gates WP10/13/15/16/21/22/27/28/30/32, que hoy no tendrían forma de producir evidencia ejecutable (`SOURCE: NONE_CONFIGURED`). Repo nuevo → no afecta a SOURCE. | 1 commit (`revert`) — sin efecto en SOURCE ni en producción |
+| **A1** | **AGENTS.md propio y mínimo del TARGET**, escrito en WP03 junto al esqueleto (no se copia el de SOURCE, que sigue con `+18` líneas sin commitear y no se toca → D1 intacto) | Documento de orquestación del repo nuevo, no código de producto | 1 commit |
+| D1 | Sin cambios: `M AGENTS.md` de SOURCE se deja como está, no entra al TARGET | — | — |
+
+Estas decisiones quedan como addendum del plan v3 (FROZEN) y se registran en este archivo.
+Si Juan objeta, se revierten con un commit — no cambian arquitectura, datos ni producto.
+
 ## Pendiente de decisión
 
 1. **HO-2026-10-04-001** → ✅ ejecutado y respondido (response.md + 2 events, 2026-10-04
    17:02 -04). Verdicto: SÍ hay segundo poller → perfil `algolab` de esta PC.
-   **Acción correctiva pendiente de Juan** (comentar `TELEGRAM_BOT_TOKEN` en
-   `profiles/algolab/.env` — fuera de la zona de escritura de brain-local).
+   **Acción correctiva pendiente de OK de Juan** (comentar `TELEGRAM_BOT_TOKEN` en
+   `profiles/algolab/.env`). Fuera del proyecto Wolfim y toca credenciales de otro perfil
+   → no se ejecuta sin OK explícito, aunque haya mandato amplio sobre Wolfim.
 2. Briefing: `reality-check-required-by` (2026-10-01) vencido — pedir reality-check a Juan.
-3. **D2 (vitest en WP03) — sigue pendiente de OK de Juan.** Bloquea WP03, no WP02.
-4. **A1 (`AGENTS.md` en la raíz del TARGET) — decisión de Juan**, independiente de D2.
 
 ## Referencias
 
