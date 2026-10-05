@@ -202,8 +202,34 @@ WP02  Install documentation         → ✅ ACEPTADO (commit 17f6863 · 31 archi
 WP03  Workspace skeleton            → ✅ ACEPTADO (código 1e864f7 · docs f2e0f1f/e8bd745 · 41 archivos)
 WP04  Extract DB Foundation         → ✅ ACEPTADO (código 01f2621 · docs 9df6624 · 12 archivos)
 WP05  SaaS Core Models              → ✅ ACEPTADO (código 10737d0 · docs 410219d · 17 archivos)
-WP06  Demo Tenant Bootstrap         → 🟢 LIBERADO (script idempotente `wolfim-demo` + `motors.wolfim.com` + TenantConfig, deuda #8 `openingHours`)
+WP06  Demo Tenant Bootstrap         → ✅ ACEPTADO (código d4c2008 · docs 32fec81 · 11 archivos)
+WP07  Extract Motors Core           → 🟢 LIBERADO (Vehicle + VehicleInternal desde SOURCE → packages/motors)
 ```
+
+### Verificación de brain-local — WP06 (2026-10-05 09:21, sin Git de escritura)
+
+```text
+$ git rev-parse HEAD → 32fec817fd1ecb30f20cbd32a5941903d70c3cd1 · status -uall = 0 · ls-files = 98 · remote vacío
+$ git diff --name-status 410219d..HEAD → 5 A · 6 M
+$ npm run build → EXIT 0 · npm test → 6 files passed | 2 skipped · 37 passed | 3 skipped
+$ npm run test:wp10 → 8/8 · npm run test:dist → 2/2 · status post-corrida → 0
+$ npm run seed:demo (sin MONGODB_URI) → EXIT 1 · "[db] MONGODB_URI not set …" + "seed demo falló: … sin conexión no se escribe nada"
+$ npx vitest run packages/db/src/seeds/demo-tenant.integration.test.ts → EXIT 0 · 1 file / 1 test skipped (visible)
+$ git -C .../wolfim-motors-demo rev-parse HEAD → e9f774c · " M AGENTS.md" (intacto)
+```
+
+**P9 verificado por muestreo contra SOURCE** (los datos del seed no son inventados):
+`contacto@wolfimmotors.com.ar`, `+54 9 3547 563911`, `Blvd. Carlos Pellegrini 710`,
+`G-PW4FH9WHQB` → `models/SiteConfig.js` líneas 7-9 y 21; los 3 horarios
+(`Lun - Vie` / `8:00 - 12:00 · 16:30 - 20:30`, `Sábados` / `9:00 - 12:00 hs`, `Domingos` / `Cerrado`)
+→ `components/Footer.jsx` líneas 98-106, misma forma. El guard de "no toca SiteConfig" es
+aserción real en `demo-tenant.test.ts`:156-161 (regex sobre el código con comentarios descartados).
+
+**Punto de coordinación para WP07:** el test estático de WP10
+(`index-shape.test.ts`) hoy asserta que `ALL_MODELS` son **exactamente las 5 colecciones del
+Core SaaS**. Al sumar `Vehicle`/`VehicleInternal` a `ALL_MODELS` esa aserción va a fallar a
+propósito — hay que actualizarla a la lista extendida, no relajarla, y así los índices de
+motors entran solos en la evidencia estática de WP10.
 
 ### Verificación de brain-local — WP05 + capa WP10 (2026-10-05 09:16, sin Git de escritura)
 
