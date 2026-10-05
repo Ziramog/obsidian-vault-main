@@ -201,8 +201,37 @@ WP01  Bootstrap TARGET_REPO         → ✅ ACEPTADO (commit 8db13cd)
 WP02  Install documentation         → ✅ ACEPTADO (commit 17f6863 · 31 archivos)
 WP03  Workspace skeleton            → ✅ ACEPTADO (código 1e864f7 · docs f2e0f1f/e8bd745 · 41 archivos)
 WP04  Extract DB Foundation         → ✅ ACEPTADO (código 01f2621 · docs 9df6624 · 12 archivos)
-WP05  SaaS Core Models              → 🟢 LIBERADO (Tenant, Domain, TenantConfig, Membership, User)
+WP05  SaaS Core Models              → ✅ ACEPTADO (código 10737d0 · docs 410219d · 17 archivos)
+WP06  Demo Tenant Bootstrap         → 🟢 LIBERADO (script idempotente `wolfim-demo` + `motors.wolfim.com` + TenantConfig, deuda #8 `openingHours`)
 ```
+
+### Verificación de brain-local — WP05 + capa WP10 (2026-10-05 09:16, sin Git de escritura)
+
+```text
+$ git rev-parse HEAD                       → 410219d19656e8557f26a9fc0196ea8cb4c79af8
+$ git status --porcelain -uall | wc -l     → 0     ·  ls-files → 93 (81 + 12)
+$ git diff --name-status 9df6624..HEAD     → 12 A · 5 M
+$ git remote -v                            → vacío (sin remote)
+$ npm run build    (tsc -b + typecheck:tests) → EXIT 0
+$ npm test         → 5 files passed | 1 skipped (6) · 29 passed | 2 skipped (31)
+$ npm run test:wp10 → 8/8   (estática, sin DB ni red)
+$ npm run test:dist → 2/2   (desde dist/ vía main/exports)
+$ git status post-corrida → 0
+$ npx vitest run …integration.test.ts                       → EXIT 0 · 1 file skipped · 2 tests skipped
+$ WOLFIM_DB_INTEGRATION=1 npx vitest run …integration.test.ts → EXIT 1 · 1 file FAILED (mensaje explícito: requiere MONGODB_URI)
+$ git -C .../wolfim-motors-demo rev-parse HEAD → e9f774c · status " M AGENTS.md" (Intacto)
+```
+
+La evidencia estática de WP10 es **adversarial, no decorativa**: incluye 3 casos que la hacen
+romper (unique global en colección de negocio, control negativo con `tenantId`, unique sobre
+`internalStockCode`) y la allowlist `tenants`/`users`/`domains` está asertada explícitamente
+(sin pase libre ciego). La capa de integración **no se saltea en silencio**: verificada la
+matriz exit-code (0 + skipped sin flag · 1 + failed con flag y sin `MONGODB_URI`).
+
+**P5 ratificada por brain-local:** opción 3 (skip explícito + `MONGODB_URI`), `mongodb-memory-server`
+descartado mientras el host no tenga Mongo — mantener `clone → npm ci → build → test`
+offline y determinista. Regla de gate: el veredicto dice qué capa corrió
+(`estática: 8/8 · integración: SALTEADA/CORRIDA`).
 
 ### Verificación de brain-local — WP03 + WP04 (2026-10-05, sin Git de escritura)
 
