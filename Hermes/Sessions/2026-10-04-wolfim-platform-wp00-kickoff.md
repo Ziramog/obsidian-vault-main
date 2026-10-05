@@ -205,9 +205,46 @@ WP05  SaaS Core Models              → ✅ ACEPTADO (código 10737d0 · docs 41
 WP06  Demo Tenant Bootstrap         → ✅ ACEPTADO (código d4c2008 · docs 32fec81 · 11 archivos)
 WP07  Extract Motors Core           → ✅ ACEPTADO (código f40f772 · docs 400a38b · 15 archivos: 5 A + 1 D + 9 M)
 WP08  tenantId required (parte inequívoca) → ✅ ACEPTADO (código d5b88b0 · docs 2687cc0 · 14 archivos: 4 A + 10 M)
-WP09  Demo Backfill                 → 🟢 LIBERADO con los 3 requisitos de P14
-WP16 / WP29                         → heredan 5 colecciones diferidas (ver B2)
+WP09  Demo Backfill                 → ✅ IMPLEMENTADO Y ACEPTADO en código · ⏳ GATE PENDIENTE de B3 (copia de la base)
+WP10  Tenant-scoped Indexes         → bloqueado por B3 (necesita la copia para la capa de integración)
 ```
+
+### Verificación de brain-local — WP09 (2026-10-05 10:06)
+
+```text
+$ git rev-parse HEAD → 470ff187899195fe7ecc4447ea6444d3c39622a8 · status -uall = 0 · ls-files = 111 · remote vacío
+$ git diff --name-status 2687cc0..HEAD → 5 A · 4 M
+$ npm run build → EXIT 0 · npm test → 9 files passed | 3 skipped · 74 passed | 4 skipped (16 del backfill)
+$ npm run test:wp10 → 12/12 · npm run test:dist → 2/2 · status post-corrida → 0
+$ npm run backfill:tenant (sin MONGODB_URI) → EXIT 1 (no lee ni escribe)
+$ git -C .../wolfim-motors-demo rev-parse HEAD → e9f774c · " M AGENTS.md" (intacto)
+```
+
+Revisado en el código, no en el reporte: `balanced: changed + remaining === missingBefore` (línea 146)
+con el gate evaluando **primero** el desbalance (razón `corrida parcial: en '<col>' …`) y `vacuo`
+si `scanned = 0`; `LIVE_DATABASE_DENYLIST = ['wolfim_motors']` + `assertSafeToWrite` (línea 208-219);
+`PARITY` vía `parityBetween(referencia, candidata)`; 9 colecciones **por nombre** (línea 17-27,
+sin modelos → no depende de qué modelos tenga el TARGET); `describeDatabase` recorta credenciales
+por el último `@` (testeado); `--inventory` para los índices. 16 unitarios de backfill incluidos
+los adversarios (corrida parcial que **debe** hacer fallar el reporte, copia parcial detectada,
+documento con campos que ningún schema acepta, dry-run sin una sola llamada a `updateMany`).
+
+### B3 — definición de la copia (condición para `--apply` + gate de WP09 y capa de integración de WP10)
+
+1. **Copia**: `wolfim_motors` → `wolfim_motors_test` (mismo cluster Atlas o cluster free aparte).
+2. **Paridad medida, no supuesta**: **dos `--dry-run`** (uno contra la base viva, otro contra la
+   copia — sólo lectura, el guard no los frena) comparados con `parityBetween`. Una sola corrida
+   mide la copia contra sí misma: no es paridad.
+3. **Inventario de índices de la copia con `--inventory` ANTES de crear los del TARGET.** Un
+   dump/restore se lleva los uniques **globales** de SOURCE (`Vehicle.slug`, `VehicleInternal.vehicle`,
+   `internalStockCode`, `Quotation.quoteNumber`). Con esos índices vivos el aislamiento no se puede
+   ejercitar —`createIndexes` de mongoose no borra los viejos— y el test de "dos tenants repiten
+   `internalStockCode`" fallaría por la razón equivocada. **Hay que darlos de baja explícitamente**
+   en la copia y el veredicto de WP10 debe listar índices antes/después. El mismo paso (drop de
+   uniques globales + alta de scoped) es lo que va a correr sobre producción en el cutover de WP31,
+   con aprobación de Juan.
+4. **Nada de esto toca `wolfim_motors`**: el guard ya bloquea `--apply` sin `--allow-live`, y el OK
+   humano + snapshot siguen siendo requisito para la base viva.
 
 ### Verificación de brain-local — WP08 (2026-10-05 09:56)
 
