@@ -204,9 +204,39 @@ WP04  Extract DB Foundation         → ✅ ACEPTADO (código 01f2621 · docs 9d
 WP05  SaaS Core Models              → ✅ ACEPTADO (código 10737d0 · docs 410219d · 17 archivos)
 WP06  Demo Tenant Bootstrap         → ✅ ACEPTADO (código d4c2008 · docs 32fec81 · 11 archivos)
 WP07  Extract Motors Core           → ✅ ACEPTADO (código f40f772 · docs 400a38b · 15 archivos: 5 A + 1 D + 9 M)
-WP08  tenantId Nullable             → 🟢 LIBERADO con ajuste P14 (ver abajo)
-WP09  Demo Backfill                 → requiere lo de P14 (backfill por API cruda, idempotente y re-corrible)
+WP08  tenantId required (parte inequívoca) → ✅ ACEPTADO (código d5b88b0 · docs 2687cc0 · 14 archivos: 4 A + 10 M)
+WP09  Demo Backfill                 → 🟢 LIBERADO con los 3 requisitos de P14
+WP16 / WP29                         → heredan 5 colecciones diferidas (ver B2)
 ```
+
+### Verificación de brain-local — WP08 (2026-10-05 09:56)
+
+```text
+$ git rev-parse HEAD → 2687cc02465b244272a4fb86ae56fa83c4f46cd2 · status -uall = 0 · ls-files = 106 · remote vacío
+$ git diff --name-status 400a38b..HEAD → 4 A · 10 M
+$ npm run build → EXIT 0 · npm test → 8 files passed | 2 skipped · 58 passed | 3 skipped
+$ npm run test:wp10 → 12/12 (9 colecciones: 5 core + vehicles + vehicleinternals + quotations + counters)
+$ npm run test:dist → 2/2 · status post-corrida → 0
+$ git -C .../wolfim-motors-demo rev-parse HEAD → e9f774c · " M AGENTS.md" (intacto)
+```
+
+`EVIDENCE_MODELS = ALL_MODELS + MOTORS_MODELS + QUOTATION_MODELS` (línea 46) con lista exacta
+(línea 50); `tenantId required` verificado en todos; `Counter` sin unique propio (línea 127)
+con `counterId(tenantId,key)` = `"<tenantId>:<key>"` + `parseCounterId`; `Quotation` con
+`{tenantId,quoteNumber}` unique (línea 182).
+
+### B2 — decisión de brain-local: **A (diferir), no crear `packages/portal-core`**
+
+Las 5 colecciones que faltan de §WP08 (`Subscriber`, `Review`, `BusinessInfo`, `SearchTerm`,
+`Message`) no tienen paquete natural entre los 10 workspaces del plan y `crm-core` está
+reservado para WP16. **Decisión: no extraerlas ahora; cada una entra en el WP que la consume**
+(`Message`/actividad → WP16; `Subscriber`/`Review`/`BusinessInfo`/`SearchTerm` → WP29 portal).
+Razones: (a) crear un workspace nuevo es cambio de estructura del plan → no lo hago por
+conveniencia; (b) **WP09 no las necesita** — el backfill opera por nombre de colección vía API
+cruda, sin modelo; (c) evita declarar modelos sin consumidor, que después quedan muertos.
+Queda registrado como diferido en `PROJECT_STATE.md` con su destino por WP. Nota para el gate:
+cuando entren en WP16/WP29 hay que sumarlas a los registries de modelos y la aserción exacta
+del test va a **fallar a propósito** hasta declararlas.
 
 ### Verificación de brain-local — WP07 (2026-10-05 09:52)
 
