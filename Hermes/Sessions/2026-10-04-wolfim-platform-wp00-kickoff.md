@@ -4,7 +4,7 @@ profile: brain-local
 type: orchestration
 project: wolfim-platform
 pack: WOLFIM_PLATFORM_PROJECT_PACK_v7
-status: WP00–WP02 aceptados · WP03 pendiente (D2/A1 de Juan) · HO-2026-10-04-001 cerrado con escalado
+status: WP00–WP04 aceptados · WP05 liberado · A1 (AGENTS.md) abierto sin bypass
 ---
 
 # Sesión — 2026-10-04 — Wolfim Platform · kickoff (WP00 → WP01)
@@ -197,10 +197,41 @@ CIERRE:        response.md + 2 events escritos en HO-2026-10-04-001/ (vault). Zo
 
 ```text
 WP00  Dual Repository Baseline      → ✅ ACEPTADO (2026-10-04)
-WP01  Bootstrap TARGET_REPO         → ✅ ACEPTADO (TARGET HEAD 8db13cd)
-WP02  Install documentation         → ✅ ACEPTADO (TARGET HEAD 17f6863 · 31 archivos)
-WP03  Workspace skeleton            → ⛔ bloqueado por D2 (vitest) y A1 (AGENTS.md) — decisión de Juan
+WP01  Bootstrap TARGET_REPO         → ✅ ACEPTADO (commit 8db13cd)
+WP02  Install documentation         → ✅ ACEPTADO (commit 17f6863 · 31 archivos)
+WP03  Workspace skeleton            → ✅ ACEPTADO (código 1e864f7 · docs f2e0f1f/e8bd745 · 41 archivos)
+WP04  Extract DB Foundation         → ✅ ACEPTADO (código 01f2621 · docs 9df6624 · 12 archivos)
+WP05  SaaS Core Models              → 🟢 LIBERADO (Tenant, Domain, TenantConfig, Membership, User)
 ```
+
+### Verificación de brain-local — WP03 + WP04 (2026-10-05, sin Git de escritura)
+
+```text
+$ git -C C:/Projects/wolfim-platform rev-parse HEAD        → 9df662449bdac1e5acda83d288013f9b655e85b7
+$ git status --porcelain -uall | wc -l                     → 0     (árbol limpio)
+$ git ls-files | wc -l                                     → 81    (37 + 39 + 5)
+$ git remote -v                                            → vacío (sin remote)
+$ git config --local user.name / user.email                → Ziramog / fullpowerok@gmail.com
+$ git diff --name-status 17f6863..HEAD | uniq -c por estado→ 44 A · 2 M   (= 39+5 nuevos · .gitignore + PROJECT_STATE.md)
+$ ls AGENTS.md                                             → No such file (A1 abierto, como se declaró)
+$ npm run build            → EXIT 0
+$ npx vitest run           → EXIT 0 · Test Files 3 passed (3) · Tests 12 passed (12) · 665ms
+$ npm run test:dist        → EXIT 0 · Test Files 1 passed (1) · Tests 2 passed (2)   (desde dist/ vía main/exports)
+$ git status post-corrida  → 0     (build/test no ensucian el commit)
+$ git -C .../wolfim-motors-demo rev-parse HEAD             → e9f774c · status " M AGENTS.md" · mtime 2026-09-25
+```
+
+`docs/PROJECT_STATE.md` en `GREEN`; `docs/ADDENDUM-D2-vitest.md` §3 trae los 10 gates
+(WP10/13/15/16/21/22/27/28/30/32) con `TBD` por gate → WP10 no hereda cobertura imaginaria.
+
+### A1 — `AGENTS.md` (abierto, sin bypass)
+
+El guard de archivos protegidos de instrucciones de agente bloqueó el write de web-builder
+dos veces (prompts de aprobación vencidos) y le prohíbe reintentar por otra vía. **brain-local
+no lo escribe ni lo rutea por otra herramienta**: sortear un control de seguridad no es una
+decisión de coordinación. Opciones para Juan: aprobar el prompt a nivel herramienta cuando
+aparezca, o crear el archivo él mismo con el contenido ya redactado. Está registrado como
+deuda en `PROJECT_STATE.md`; no bloquea ningún WP.
 
 Audit gate más cercano: **WP10** (tenant-scoped indexes). WP00/WP01/WP02 sin gate.
 Gate humano más cercano: **WP31** (Demo Portal Cutover → aprobación explícita de Juan).
