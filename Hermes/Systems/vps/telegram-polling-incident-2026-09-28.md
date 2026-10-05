@@ -47,6 +47,24 @@ health check de las 07:00 debe dar Telegram ✅.
 **7 líneas ERROR/CRITICAL** reales. Se agregó el parámetro `errors_only=True`
 (usado por `check_errors_log()`), sin tocar el detector de loops de reconexión.
 
+## Recurrencia 2026-10-05 04:03 ART (misma causa raíz, no resuelta)
+
+Diagnóstico nuevo (ver `Handoffs/vps-to-local/HO-2026-10-04-001/`): el conflicto
+**no** es una sesión stale del propio gateway, sino un **segundo poller externo**:
+el perfil `algolab` de la PC de Juan (`truzt`, Tailscale `100.105.0.23`) usa el
+mismo `[credencial: TELEGRAM_BOT_TOKEN]` (bot `8644817415`). Es una carrera: gana
+el gateway que arranca primero.
+
+Secuencia de hoy: health check 04:01 detectó telegram `fatal`, reinició (04:02);
+el VPS perdió la carrera → 5 reintentos agotados → `fatal` a las 04:07:40. Un
+restart limpio a las 04:10 reconectó (`telegram connected`, PID 3144077) y quedó
+estable a las 04:11.
+
+**Fix pendiente de Juan** (fuera de zona de brain-vps/brain-local): comentar
+`TELEGRAM_BOT_TOKEN` en `AppData\Local\hermes\profiles\algolab\.env` de la PC, o
+darle un bot propio. Mientras siga ahí, el cron de las 04:00 va a revertir a
+`fatal` cada vez que los dos gateways arranquen y el VPS pierda la carrera.
+
 ## Pendiente (no resuelto por este cron)
 
 `hermes-dashboard` (PM2 id 3) está en crash loop: **90.692 restarts** desde el
