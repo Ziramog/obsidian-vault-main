@@ -203,8 +203,47 @@ WP03  Workspace skeleton            → ✅ ACEPTADO (código 1e864f7 · docs f2
 WP04  Extract DB Foundation         → ✅ ACEPTADO (código 01f2621 · docs 9df6624 · 12 archivos)
 WP05  SaaS Core Models              → ✅ ACEPTADO (código 10737d0 · docs 410219d · 17 archivos)
 WP06  Demo Tenant Bootstrap         → ✅ ACEPTADO (código d4c2008 · docs 32fec81 · 11 archivos)
-WP07  Extract Motors Core           → 🟢 LIBERADO (Vehicle + VehicleInternal desde SOURCE → packages/motors)
+WP07  Extract Motors Core           → ✅ ACEPTADO (código f40f772 · docs 400a38b · 15 archivos: 5 A + 1 D + 9 M)
+WP08  tenantId Nullable             → 🟢 LIBERADO con ajuste P14 (ver abajo)
+WP09  Demo Backfill                 → requiere lo de P14 (backfill por API cruda, idempotente y re-corrible)
 ```
+
+### Verificación de brain-local — WP07 (2026-10-05 09:52)
+
+```text
+$ git rev-parse HEAD → 400a38bd9f166141fad9e153355f5cc3150297e2 · status -uall = 0 · ls-files = 102 · remote vacío
+$ git diff --name-status 32fec81..HEAD → 5 A · 1 D · 9 M
+$ npm run build → EXIT 0 · npm test → 7 files passed | 2 skipped · 49 passed | 3 skipped
+$ npm run test:wp10 → 11/11 (7 colecciones) · npm run test:dist → 2/2 · status post-corrida → 0
+$ git -C .../wolfim-motors-demo rev-parse HEAD → e9f774c · " M AGENTS.md" (intacto)
+```
+
+`tenantIdGaps()` implementado (`tenant-scope.ts:52-58`): reporta `missing` y `not-required`
+(chequea `path.isRequired === true`), y los casos que rompen pasaron de 1 a 3. `ALL_MODELS`
+= 7 colecciones exactas, allowlist sigue estricta. Sin legacy ajeno en `packages/motors`.
+
+### P14 — WP08 "tenantId nullable": decisión de brain-local (desvío deliberado de la letra del plan)
+
+El plan §WP08 pide `tenantId` **nullable** ("SOURCE debe seguir funcionando") y
+`data-model.md` §25 dice "no hacer `tenantId required` antes del backfill"; pero la aserción
+de WP10 exige `required: true`. **Decisión: el schema del TARGET mantiene `tenantId required: true`.**
+
+1. "SOURCE debe seguir funcionando" se cumple por **aislamiento de repos**: SOURCE corre su
+   propio código y su propio schema (`C:\Projects\wolfim-motors-demo`, intacto en `e9f774c`).
+   El TARGET no está desplegado, no tiene remote y no sirve tráfico.
+2. `required: true` es lo único que hace verificable "documento sin dueño" en WP10. Nullable
+   convierte la aserción en `not-required` y el gate pasaría con dueño opcional — justo el
+   modo de falla que venimos evitando.
+3. La secuencia de `data-model` §25 (4 nullable → 5 backfill → 6 índices → 9 required) es una
+   secuencia de **datos**, no de schema: en el split por repos, el paso "nullable" se satisface
+   en **WP09**, que debe tolerar documentos heredados sin `tenantId`.
+
+**Requisitos que esto le impone a WP09** (a verificar, no a prometer): el backfill lee/escribe
+por la **API cruda de la colección** (no por validación de mongoose), es **idempotente y
+re-corrible** hasta el cutover de WP31 (SOURCE puede seguir insertando docs sin `tenantId`
+mientras siga vivo), y reporta `scanned / changed / skipped / remaining` con `remaining = 0`
+como gate. Reversible: si Juan quiere la letra del plan, se vuelve nullable en un commit y la
+aserción de WP10 se degrada de forma explícita.
 
 ### Verificación de brain-local — WP06 (2026-10-05 09:21, sin Git de escritura)
 
