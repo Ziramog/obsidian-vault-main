@@ -332,7 +332,7 @@ pdf.callout(
 
 pdf.add_page()
 pdf.section('Qué busca la gente', 'Catálogo y comportamiento')
-pdf.body('Los filtros y las fichas vistas muestran qué tipo de propiedades concentran más atención. Esto sirve para priorizar publicaciones, fotos, descripciones y propiedades destacadas.', size=9.0)
+pdf.body('Los filtros de búsqueda muestran qué tipo de propiedades concentran más atención. Esto sirve para priorizar publicaciones, fotos, descripciones y propiedades destacadas.', size=9.0)
 if filter_rows:
     pdf.callout(
         'Casas sigue siendo el patrón principal',
@@ -364,23 +364,18 @@ if prop_rows:
     pdf.section('Propiedades con más visitas', 'Interés por inmueble')
     pdf.table(['Propiedad', 'Vistas', 'Usuarios'], prop_rows, [116, 31, 31], font_size=7.2, row_h=10)
 
-pdf.add_page()
-pdf.section('Señales de interés y próximo paso', 'Actividad comercial')
 # Los eventos custom (property_viewed, click_whatsapp) se interrumpieron el 2026-07-30.
-# Para períodos afectados no mostramos 0 (sería una lectura equivocada): avisamos que la
-# medición está en reparación.
+# En períodos afectados se omite por completo el bloque de señales de contacto.
 EVENT_TRACKING_GAP_FROM = '2026-07-30'
 if START >= EVENT_TRACKING_GAP_FROM:
-    pdf.callout(
-        'Medición de contacto en reparación',
-        'La medición de fichas vistas y clics de WhatsApp está interrumpida desde fines de julio y se está restableciendo. Para no dar una lectura equivocada, no la mostramos como cifra en este informe. Se retoma en el próximo.',
-        tone='black',
-    )
-    pdf.body(
-        'El foco de este período está en lo que sí se mide de forma confiable: navegación dentro del catálogo, procedencia del tráfico y búsquedas de propiedades.',
-        size=9.2,
+    pdf.add_page()
+    pdf.closing_panel(
+        'Cierre Wolfim',
+        'Este informe mira el sitio como herramienta comercial: qué tráfico vale la pena, qué se busca dentro del catálogo y qué señales pueden transformarse en consultas concretas.',
     )
 else:
+    pdf.add_page()
+    pdf.section('Señales de interés y próximo paso', 'Actividad comercial')
     pdf.metric_cards([
         ('Fichas vistas', fmt_num(property_viewed), 'interacción con propiedades'),
         ('Clics de WhatsApp', fmt_num(whatsapp), 'intención de contacto'),
@@ -399,10 +394,10 @@ else:
         'La medición actual muestra fichas de propiedades vistas y clics de WhatsApp como señales claras. Para los próximos informes vamos a separar mejor búsquedas, filtros y contactos reales con eventos propios.',
         size=9.2,
     )
-pdf.closing_panel(
-    'Cierre Wolfim',
-    'Este informe mira el sitio como herramienta comercial: qué tráfico vale la pena, qué se busca dentro del catálogo y qué señales pueden transformarse en consultas concretas.',
-)
+    pdf.closing_panel(
+        'Cierre Wolfim',
+        'Este informe mira el sitio como herramienta comercial: qué tráfico vale la pena, qué se busca dentro del catálogo y qué señales pueden transformarse en consultas concretas.',
+    )
 
 pdf.output(str(OUT))
 transfer = copy_to_transfer(OUT)
