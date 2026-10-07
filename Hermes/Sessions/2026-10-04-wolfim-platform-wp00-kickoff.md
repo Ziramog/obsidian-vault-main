@@ -205,9 +205,45 @@ WP05  SaaS Core Models              → ✅ ACEPTADO (código 10737d0 · docs 41
 WP06  Demo Tenant Bootstrap         → ✅ ACEPTADO (código d4c2008 · docs 32fec81 · 11 archivos)
 WP07  Extract Motors Core           → ✅ ACEPTADO (código f40f772 · docs 400a38b · 15 archivos: 5 A + 1 D + 9 M)
 WP08  tenantId required (parte inequívoca) → ✅ ACEPTADO (código d5b88b0 · docs 2687cc0 · 14 archivos: 4 A + 10 M)
-WP09  Demo Backfill                 → ✅ IMPLEMENTADO Y ACEPTADO en código · ⏳ GATE PENDIENTE de B3 (copia de la base)
-WP10  Tenant-scoped Indexes         → bloqueado por B3 (necesita la copia para la capa de integración)
+WP09  Demo Backfill                 → ✅ ACEPTADO · GATE PASADO (verificado por brain-local contra la copia)
+WP10  Tenant-scoped Indexes         → evidencia completa (estática 12/12 · integración 2/2 · inventario antes/después) → veredicto de web-auditor
+WP11  Tenant Resolver               → ✅ ACEPTADO (código 34d53d4 · docs 0f11149 · 12 archivos: 5 A + 7 M)
+WP12  Tenant-safe Repositories      → 🟢 LIBERADO (con reglas P20/P21/P22 y evidencia tipo WP10)
+WP13  Auth + Membership             → AUDIT GATE (detrás de WP12)
 ```
+
+### Verificación de brain-local — WP09 gate + WP11 (2026-10-05 20:19)
+
+```text
+# WP09 — gate medido por brain-local con los dos dry-runs comparados por JSON
+viva  ac-7zd9kbu-shard-00-00.9w7ocho.mongodb.net/wolfim_motors       → scanned 26 · missing 26 · gate passed=false (dry-run)
+copia ac-7zd9kbu-shard-00-01.9w7ocho.mongodb.net/wolfim_motors_copy  → scanned 26 · missing  0 · gate passed=true
+delta por colección = 0 en las 9 (vehicles 12/12 · vehicleinternals 12/12 · quotations 1/1 · counters 1/1 · 5 vacuas marcadas)
+WOLFIM_DB_INTEGRATION=1 → 13 files / 82 passed / 0 skipped
+--inventory copia → TARGET indexes en vehicles/vehicleinternals/quotations, SIN uniques globales legacy
+                    residuo declarado (deuda #14): reviews.googlePlaceId_1_reviewId_1 · businessinfos.googlePlaceId_1 · searchterms.term_1
+
+# WP11
+$ git rev-parse HEAD → 0f1114954a91953092cff2565b8504ad0d067e6e · status -uall = 0 · ls-files = 120 · remote vacío
+$ git diff --name-status b9f04bb..HEAD → 5 A · 7 M
+$ npm run build → EXIT 0 · npm test → 11 files passed | 4 skipped · 92 passed | 5 skipped (14 casos del resolver)
+$ WOLFIM_DB_INTEGRATION=1 → 15 files / 97 passed / 0 skipped (resolver real: motors.wolfim.com → wolfim-demo)
+$ test:wp10 → 12/12 · test:dist → 2/2 · status post-corrida → 0
+$ git -C .../wolfim-motors-demo rev-parse HEAD → e9f774c · " M AGENTS.md" (intacto)
+```
+
+### Rulings de brain-local sobre WP11
+
+- **P20 (no reescribir `www.`) — APROBADO.** Un alias es un registro `Domain` con `type: ALIAS`;
+  el ruteo queda auditable. Nada de trucos de string.
+- **P21 (servibilidad) — APROBADO.** Dominio `ACTIVE` únicamente; tenant `TRIAL`/`ACTIVE`.
+- **P22 (deuda #16, `vertical`) — RESUELTO: se SACA `vertical` del contrato**, no se deja `null` para siempre.
+  Un campo que sólo puede ser `null` en una interfaz pública es una trampa: el consumidor branchea y
+  recibe `null`. La autoridad es `multi-vertical-architecture-v3.md` §12–§13 ("la UI decide por módulos,
+  no por `vertical === 'MOTORS'`"), que es más específica que el §14 del plan. Si algún día hay fuente real
+  (campo en `Tenant`/`TenantConfig`), se agrega entonces. Desvío deliberado y reversible.
+- `config: null` (tenant sin `TenantConfig`) queda **honesto**: el fallback a `SiteConfig` es de la
+  transición y lo implementa el consumidor con su test, no el resolver.
 
 ### Verificación de brain-local — WP09 (2026-10-05 10:06)
 
