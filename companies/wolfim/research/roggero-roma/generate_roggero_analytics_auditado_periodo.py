@@ -366,24 +366,39 @@ if prop_rows:
 
 pdf.add_page()
 pdf.section('Señales de interés y próximo paso', 'Actividad comercial')
-pdf.metric_cards([
-    ('Fichas vistas', fmt_num(property_viewed), 'interacción con propiedades'),
-    ('Clics de WhatsApp', fmt_num(whatsapp), 'intención de contacto'),
-], columns=2)
-pdf.table(
-    ['Cuadrito', 'En simple'],
-    [
-        ['Fichas vistas', 'Veces que se abrió una ficha individual de propiedad.'],
-        ['Clics de WhatsApp', 'Personas que tocaron el botón de WhatsApp; indica intención, no consulta confirmada.'],
-    ],
-    [45, 133],
-    font_size=7.0,
-    row_h=8.0,
-)
-pdf.body(
-    'La medición actual muestra fichas de propiedades vistas y clics de WhatsApp como señales claras. Para los próximos informes vamos a separar mejor búsquedas, filtros y contactos reales con eventos propios.',
-    size=9.2,
-)
+# Los eventos custom (property_viewed, click_whatsapp) se interrumpieron el 2026-07-30.
+# Para períodos afectados no mostramos 0 (sería una lectura equivocada): avisamos que la
+# medición está en reparación.
+EVENT_TRACKING_GAP_FROM = '2026-07-30'
+if START >= EVENT_TRACKING_GAP_FROM:
+    pdf.callout(
+        'Medición de contacto en reparación',
+        'La medición de fichas vistas y clics de WhatsApp está interrumpida desde fines de julio y se está restableciendo. Para no dar una lectura equivocada, no la mostramos como cifra en este informe. Se retoma en el próximo.',
+        tone='black',
+    )
+    pdf.body(
+        'El foco de este período está en lo que sí se mide de forma confiable: navegación dentro del catálogo, procedencia del tráfico y búsquedas de propiedades.',
+        size=9.2,
+    )
+else:
+    pdf.metric_cards([
+        ('Fichas vistas', fmt_num(property_viewed), 'interacción con propiedades'),
+        ('Clics de WhatsApp', fmt_num(whatsapp), 'intención de contacto'),
+    ], columns=2)
+    pdf.table(
+        ['Cuadrito', 'En simple'],
+        [
+            ['Fichas vistas', 'Veces que se abrió una ficha individual de propiedad.'],
+            ['Clics de WhatsApp', 'Personas que tocaron el botón de WhatsApp; indica intención, no consulta confirmada.'],
+        ],
+        [45, 133],
+        font_size=7.0,
+        row_h=8.0,
+    )
+    pdf.body(
+        'La medición actual muestra fichas de propiedades vistas y clics de WhatsApp como señales claras. Para los próximos informes vamos a separar mejor búsquedas, filtros y contactos reales con eventos propios.',
+        size=9.2,
+    )
 pdf.closing_panel(
     'Cierre Wolfim',
     'Este informe mira el sitio como herramienta comercial: qué tráfico vale la pena, qué se busca dentro del catálogo y qué señales pueden transformarse en consultas concretas.',
