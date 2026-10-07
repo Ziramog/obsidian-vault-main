@@ -210,8 +210,43 @@ WP10  Tenant-scoped Indexes         → ✅ **PASS** (veredicto de web-auditor 2
 WP11  Tenant Resolver               → ✅ ACEPTADO (código 34d53d4 · docs 0f11149 · 12 archivos: 5 A + 7 M)
 WP12  Tenant-safe Repositories      → ✅ ACEPTADO (código a03f1db/69644bc · docs 4b7cbb4/657ebd4 · R1+R4 cerrados · autoIndex:false)
 WP13  Auth + Membership             → ✅ **PASS** (veredicto de web-auditor 2026-10-06, audita `8aaa87a`/`70c24bd`) con residuos H1–H6
-WP14  platform-app Foundation       → 🟢 LIBERADO COMPLETO + H1/H2/H3/H5/H6 dentro del alcance (H4 = lectura, sin cambio de código)
+WP14  platform-app Foundation       → 🟢 EN CURSO · H1–H6 cerrados (7e94345) · falta la parte UI (AppShell + rutas + /login) — a ejecutar con Antigravity bajo guardrails
 ```
+
+### H1 cerrado y verificado por brain-local (2026-10-06 22:22)
+
+Probe propio contra el `dist` real (sin conectar):
+
+```text
+BLOQUEADO  wolfim_motors        cluster0.9w7ocho.mongodb.net/wolfim_motors
+BLOQUEADO  (sin nombre de base) cluster0.9w7ocho.mongodb.net
+BLOQUEADO  /test                cluster0.9w7ocho.mongodb.net/test
+PERMITIDO  /wolfim_motors_copy  cluster0.9w7ocho.mongodb.net/wolfim_motors_copy
+PERMITIDO  localhost:27017/wolfim_motors
+allowLive + sin base → PERMITIDO   (la excepción explícita sigue siendo la única puerta)
+```
+
+`classifyDatabase()` + `assertNotLiveDatabase` fallan cerrado en las tres formas que antes pasaban.
+H2 (`userId: string | null` + `buildDemoSession`), H5 (`http-status.ts` con `ABSENCE_CODES` /
+`toHttpStatus` / `toPublicError`) y H6 (`session.ts` usa `buildSessionContext`/`buildDemoSession`)
+verificados en el código. `HEAD 7a91741b6603fc058548871df36120bf98db2c57`, `status` = 0, 137 archivos,
+build EXIT 0, unit **128 passed + 8 skipped**, integración **136 passed / 0 skipped**, `test:wp10` 12/12,
+`test:dist` 2/2, SOURCE intacto.
+
+### Decisión — Antigravity para la parte UI de WP14 (con guardrails)
+
+Verificado: `agy 1.2.11` existe en `%LOCALAPPDATA%\agy\bin\agy` con modo no interactivo. **Se usa**,
+que era el flujo que Juan tenía en mente desde el arranque (directo en infra, Antigravity desde UI).
+Condiciones:
+1. Antigravity trabaja **sólo dentro del TARGET**; SOURCE queda read-only y se verifica después
+   (`git -C SOURCE status` debe seguir con sólo ` M AGENTS.md`).
+2. **Antigravity no ejecuta git**: commitea web-builder, así el trail queda con autoría humana.
+3. El prompt incluye lectura obligatoria de `docs/PROJECT_STATE.md`, `AGENTS.md` y `docs/design-system.md`,
+   la política de H5 en el borde (un solo 404), y la prohibición de leer `.env`, `platformRole` desde el
+   cliente, o escribir fuera del repo.
+4. Todo pasa por los gates normales (build + tests + aceptación de brain-local). WP14 **no** es audit gate.
+5. El reporte debe decir **qué produjo Antigravity y qué se editó a mano** — Juan preguntó explícitamente
+   por el uso de la herramienta y la respuesta tiene que quedar en el registro, no en el aire.
 
 ### Veredicto WP13 (web-auditor 2026-10-06) y triage de brain-local
 
