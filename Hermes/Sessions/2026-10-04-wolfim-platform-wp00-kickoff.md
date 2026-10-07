@@ -209,8 +209,34 @@ WP09  Demo Backfill                 → ✅ ACEPTADO · GATE PASADO (verificado 
 WP10  Tenant-scoped Indexes         → ✅ **PASS** (veredicto de web-auditor 2026-10-06) con residuos R1–R4 declarados
 WP11  Tenant Resolver               → ✅ ACEPTADO (código 34d53d4 · docs 0f11149 · 12 archivos: 5 A + 7 M)
 WP12  Tenant-safe Repositories      → ✅ ACEPTADO (código a03f1db/69644bc · docs 4b7cbb4/657ebd4 · R1+R4 cerrados · autoIndex:false)
-WP13  Auth + Membership             → 🟢 LIBERADO (AUDIT GATE) con el molde endurecido + guard de base viva en `connectDB`
+WP13  Auth + Membership             → ✅ IMPLEMENTADO Y ACEPTADO en código (8aaa87a/70c24bd) · ⏳ VEREDICTO del gate en curso (web-auditor)
+WP14  platform-app Foundation       → 🟡 LIBERADO PARCIAL: AppShell + rutas + design system sí; el wiring de sesión (/login, next-auth) espera el veredicto de WP13
 ```
+
+### Verificación de brain-local — WP13 (2026-10-06 20:51)
+
+```text
+$ git rev-parse HEAD → 70c24bd46c3b807fbe1b1080f76efd1028e6a15a · status -uall = 0 · ls-files = 136 · remote vacío
+$ git diff --name-status 657ebd4..HEAD → 8 A · 12 M
+$ npm run build → EXIT 0 · npm test → 14 files passed | 6 skipped · 123 passed | 8 skipped
+$ WOLFIM_DB_INTEGRATION=1 → 20 files / 131 passed / 0 skipped
+$ test:wp10 → 12/12 · test:dist → 2/2 · status post-corrida → 0
+$ git -C .../wolfim-motors-demo rev-parse HEAD → e9f774c · " M AGENTS.md" (intacto)
+```
+
+**P24 (cierre de N1) verificado en el código, no en el reporte:** `connectDB()` llama
+`assertNotLiveDatabase(uri, { allowLive })` **antes** de conectar (líneas 68-74) y rechaza la
+promesa — el footgun queda cerrado en cualquier camino de código, no sólo en los CLIs. Tests:
+`connectDB()` contra `.../wolfim_motors` → `rejects.toThrow(/base viva 'wolfim_motors' bloqueada/)`
+y `connectDB({ allowLive: true })` → resuelve. **No re-corrí `--apply` contra la viva**: probar ese
+camino con un guard roto habría backfilleado producción. Lo verifiqué por código + unit test, y el
+hecho de que la viva siga con 26 documentos sin `tenantId` prueba que el bloqueo funcionó cuando el
+builder lo intentó.
+
+**Bypass demo (el punto del gate):** `decideDemoBypass` exige `tenantMode === 'DEMO'` **y**
+habilitación por entorno, devuelve rol acotado `VIEWER` y la sesión queda marcada `demoBypass: true`;
+tests explícitos de que un tenant `PRODUCTION` no lo obtiene **ni con el flag prendido** y que sin
+habilitación no hay bypass. Membership cross-tenant → `NOT FOUND`, nunca 403 (no filtra existencia).
 
 ### N1 — escritura de índices sobre la base viva: diagnóstico de brain-local (2026-10-06)
 
