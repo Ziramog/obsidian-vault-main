@@ -2,17 +2,15 @@
  "job": "check-replies",
  "account": "ingjuangomariz@gmail.com",
  "campaign_subject_prefix": "Noté algo en la web de",
- "last_checked_at": "2026-10-07T10:05:00-03:00",
- "check_run": "2026-10-07 10:03 ART",
- "last_top_envelope_id": 71841,
- "previous_top_envelope_id": 71813,
- "delta_count": 28,
+ "last_checked_at": "2026-10-07T14:02:00-03:00",
+ "check_run": "2026-10-07 14:02 ART",
+ "last_top_envelope_id": 71851,
+ "previous_top_envelope_id": 71841,
+ "delta_count": 10,
  "new_ids_since_last_check": [
-  "71814","71815","71816","71817","71818","71819","71820","71821","71822","71823",
-  "71824","71825","71826","71827","71828","71829","71830","71831","71832","71833",
-  "71834","71835","71836","71837","71838","71839","71840","71841"
+  "71842","71843","71844","71845","71846","71847","71848","71849","71850","71851"
  ],
- "new_ids_verdict": "todos newsletters / alertas de empleo (LinkedIn/Computrabajo) / promos funded accounts (The5ers) / bancos (Naranja X, BNA) / AWS / OCA / Venex; ninguna respuesta de campana",
- "campaign_send_verified": "ultima campana 'Noté algo en la web de Persona Selección' enviada 2026-06-21; lote campaign_tracker.csv (107 dominios) enviado 2026-06-22. NO hubo envio de campana el 2026-10-07.",
+ "new_ids_verdict": "todos newsletters / alertas de empleo (LinkedIn/Computrabajo) / bancos (Naranja X) / TTrades / LB Finanzas; ninguna respuesta de campana",
+ "campaign_send_verified": "ultima campana 'Noté algo en la web de Persona Selección' enviada 2026-06-21; lote campaign_tracker.csv (107 dominios) enviado 2026-06-22. NO hubo envio de campana el 2026-10-07 (Sent solo tiene el email del 21/06).",
  "last_result": "Sin novedades"
 }
