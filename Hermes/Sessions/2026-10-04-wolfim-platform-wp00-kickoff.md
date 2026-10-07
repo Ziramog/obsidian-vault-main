@@ -209,9 +209,36 @@ WP09  Demo Backfill                 → ✅ ACEPTADO · GATE PASADO (verificado 
 WP10  Tenant-scoped Indexes         → ✅ **PASS** (veredicto de web-auditor 2026-10-06) con residuos R1–R4 declarados
 WP11  Tenant Resolver               → ✅ ACEPTADO (código 34d53d4 · docs 0f11149 · 12 archivos: 5 A + 7 M)
 WP12  Tenant-safe Repositories      → ✅ ACEPTADO (código a03f1db/69644bc · docs 4b7cbb4/657ebd4 · R1+R4 cerrados · autoIndex:false)
-WP13  Auth + Membership             → ✅ IMPLEMENTADO Y ACEPTADO en código (8aaa87a/70c24bd) · ⏳ VEREDICTO del gate en curso (web-auditor)
-WP14  platform-app Foundation       → 🟡 LIBERADO PARCIAL: AppShell + rutas + design system sí; el wiring de sesión (/login, next-auth) espera el veredicto de WP13
+WP13  Auth + Membership             → ✅ **PASS** (veredicto de web-auditor 2026-10-06, audita `8aaa87a`/`70c24bd`) con residuos H1–H6
+WP14  platform-app Foundation       → 🟢 LIBERADO COMPLETO + H1/H2/H3/H5/H6 dentro del alcance (H4 = lectura, sin cambio de código)
 ```
+
+### Veredicto WP13 (web-auditor 2026-10-06) y triage de brain-local
+
+PASS para el entregable: bypass demo no global (por tenant + por request, rol `VIEWER`, marcado),
+membership tenant-scoped con NOT FOUND y nunca 403, usuarios `DISABLED`/`INVITED`/`SUSPENDED` sin
+sesión. Unit 13/13 propio, integración 1 caso (4 comportamientos) contra la copia, cobertura declarada.
+
+**H1 reproducido por brain-local** (llamando al `dist` real, sin conectar):
+
+```text
+BLOQUEADO  wolfim_motors          cluster0.9w7ocho.mongodb.net/wolfim_motors
+PERMITIDO  cluster0.9w7ocho…      cluster0.9w7ocho.mongodb.net          ← sin nombre de base: mongoose usa `test`
+PERMITIDO  test                   cluster0.9w7ocho.mongodb.net/test
+PERMITIDO  wolfim_motors_copy     cluster0.9w7ocho.mongodb.net/wolfim_motors_copy
+```
+
+| # | Hallazgo | Destino | Decisión |
+|---|---|---|---|
+| **H1** | El guard protege el **nombre de base**, no el cluster: URI sin base (o `/test`) pasa y mongoose conecta a la default del cluster de producción | **WP14, máxima prioridad** | **Fallar cerrado**: sin nombre de base → rechazar salvo `allowLive`; nombres reservados (`test`/`admin`/`local`) en host no-local → rechazar; se mantiene la denylist por nombre y la copia entra por nombre explícito `*_copy`/`*_test`. Con tests de cada forma de URI. **Debe cerrarse antes de cualquier escritura sobre la viva (incluye WP31).** |
+| **H2** | Sentinel `userId: 'demo'` no es `ObjectId` (`createFromHexString('demo')` lanza): hoy nada filtra por él, pero WP15/WP16 harían `find({ userId })` → `CastError` (500) | **WP14** | Firmas como se hizo con `tenantId` en WP11: `userId: string | null` + `demoBypass: true` como discriminante (o sentinel que castea y nunca matchea) |
+| **H3** | La composición resolver→session no está probada e2e (el test escribe `mode` a mano en el `ctx`) | **WP14** | El test de integración arma el `ctx` con `resolveTenantFromSlug` real |
+| **H4** | Denominador: la integración es **1 caso** que asserta 4 comportamientos | registrado | Se lee 1/1, no 4 — mismo criterio que el 4+1 de WP10 |
+| **H5** | Los 5 códigos de `AuthError` son distinguibles: el borde HTTP debe **colapsar** `USER_NOT_FOUND`+`MEMBERSHIP_NOT_FOUND`+`MEMBERSHIP_NOT_ACTIVE` en **un solo 404** o el 403 vuelve con otro nombre; `User.platformRole` existe y nadie lo lee → WP14 no debe aceptarlo del cliente ni derivarlo de input | **WP14** | Requisito de implementación del wiring de `/login` |
+| **H6** | `resolveSession` reconstruye el `SessionContext` a mano y `buildSessionContext` (con el chequeo de `USER_DISABLED`) queda sin usar: dos constructores del mismo tipo | **WP14** | Que uno llame al otro |
+
+@user dio OK para avanzar → **WP14 liberado completo** (AppShell, `/[tenantSlug]`, `/select-tenant`,
+`/login`, design system) con H1/H2/H3/H5/H6 en el mismo WP.
 
 ### Verificación de brain-local — WP13 (2026-10-06 20:51)
 
