@@ -210,8 +210,47 @@ WP10  Tenant-scoped Indexes         → ✅ **PASS** (veredicto de web-auditor 2
 WP11  Tenant Resolver               → ✅ ACEPTADO (código 34d53d4 · docs 0f11149 · 12 archivos: 5 A + 7 M)
 WP12  Tenant-safe Repositories      → ✅ ACEPTADO (código a03f1db/69644bc · docs 4b7cbb4/657ebd4 · R1+R4 cerrados · autoIndex:false)
 WP13  Auth + Membership             → ✅ **PASS** (veredicto de web-auditor 2026-10-06, audita `8aaa87a`/`70c24bd`) con residuos H1–H6
-WP14  platform-app Foundation       → 🟢 EN CURSO · H1–H6 cerrados (7e94345) · falta la parte UI (AppShell + rutas + /login) — a ejecutar con Antigravity bajo guardrails
+WP14  platform-app Foundation       → ✅ ACEPTADO (código c1e732d · docs 23ccc5e · 21 A + 9 M) — app Next generada con Antigravity y revisada · falta el wiring de next-auth
+A1 / deuda #15 (`AGENTS.md`)        → ✅ CERRADA (`ef331ff`: §2 sin columna de modelos + "este archivo no prescribe modelos")
 ```
+
+### WP14 con Antigravity — aceptado (2026-10-06 22:46) y decisiones
+
+```text
+$ git rev-parse HEAD → 23ccc5e25081fa0c69cd3df31572540d6e0d32c2 · status -uall = 0 · ls-files = 158 · remote vacío
+$ git diff --name-status 7a91741..HEAD → 21 A · 9 M
+$ npm run build (tsc -b + typecheck:tests + typecheck:app) → EXIT 0
+$ npm test → 15 files passed | 6 skipped · 141 passed | 8 skipped
+$ WOLFIM_DB_INTEGRATION=1 → 21 files / 149 passed / 0 skipped
+$ test:wp10 → 12/12 · test:dist → 2/2 · status post-corrida → 0
+$ git -C .../wolfim-motors-demo rev-parse HEAD → e9f774c · " M AGENTS.md" (intacto)
+```
+
+**El ejercicio valió la pena y queda como patrón:** Antigravity produjo el andamiaje de la app
+(AppShell, rutas, componentes, design tokens) y la revisión humana encontró una **regresión de política
+real** — habilitaba el bypass demo desde un checkbox del formulario y el body del route handler
+(`isDemo`), o sea controlado por el cliente, que es lo que P25 prohíbe. Verificado en el código final:
+`allowDemoBypass` sale de `process.env.WOLFIM_ALLOW_DEMO_BYPASS` **en el servidor** y `isDemo` no existe
+en ninguna fuente del repo. Se mantiene el patrón: **Antigravity para UI + revisión obligatoria antes del
+commit**, y el reporte declara qué salió de la herramienta y qué se editó a mano (guardrail 5 cumplido).
+
+**Deuda #20 (`next build` bloqueado en este host) — decisión de brain-local:**
+1. **Gate local de la app = `typecheck:app` + vitest** (ya encadenado en `npm run build`), declarado como
+   tal. No se finge que `next build` corre acá.
+2. **`next build` pasa a ser gate de PRE-DEPLOY obligatorio**: tiene que estar verde bajo el runtime de
+   deploy (Node 20/22; Vercel no corre Node 26) **antes de cualquier deploy**. La combinación
+   Node 26 + npm 11 + Next 14.2.4 es no soportada: el problema es de runtime, no del código.
+3. Autorizado un **spike acotado** (Node 20/22 portátil dentro del workspace, sin tocar el sistema)
+   cuando se acerque WP29/WP31, para convertir ese gate en algo ejecutable localmente.
+
+**`.next` está stale:** el bundle compilado (22:40) es anterior al fix de fuente (22:42) y todavía
+contiene el `isDemo` viejo. Está gitignoreado (no puede entrar al repo), pero **hay que borrarlo antes de
+servir o deployar** para no ejecutar código viejo.
+
+**Incidente declarado y aceptado:** el junction `apps/platform-app/node_modules → node_modules` hizo que
+npm removiera 90 paquetes; se restauró con `npm install` y se verificó build + suite en verde, más `npm ci`
+en clon limpio (90 paquetes en 15 s). Todo lo afectado era `node_modules` (gitignoreado). **Regla: no se
+crean junctions dentro de `node_modules`.**
 
 ### H1 cerrado y verificado por brain-local (2026-10-06 22:22)
 
