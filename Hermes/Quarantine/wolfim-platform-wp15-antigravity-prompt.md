@@ -11,9 +11,13 @@ zona: Hermes/Quarantine — no normativo; la copia que manda es la del commit de
 ## Objetivo
 
 Implementar en `packages/permissions` la capa de **módulos y permisos** del TARGET
-(`ModuleRegistry`, `authorize()`, `PermissionGate`, `ModuleGate`) con **fail-closed**, y entregar la
+(`ModuleRegistry`, `authorize()`, `PermissionGate`, `ModuleGate`) con **fail-closed** — ausencia de
+módulo, de permiso, de declaración en el catálogo o de sesión ⇒ **deny**, nunca allow —, y entregar la
 evidencia ejecutable (`tests/wp15-permissions.test.ts` + script `npm run test:wp15`). Sin consumidores
 de UI: el primer consumidor es **WP16 CRM Core** (P32) y eso se verifica, no se asume.
+**Alcance del rótulo `fail-closed`:** rige para la resolución de módulos/permisos y para los booleanos
+de §27, **no** para los defaults de negocio (ver P33 al cierre del Bloque B: `sellerVisibility` ausente
+⇒ `OPEN_TEAM` es default **de negocio, no de seguridad**, y no relaja nada financiero).
 
 ## Contexto del proyecto
 
@@ -98,7 +102,7 @@ inventar nombres:
 - Nombres §28: `lead.read|create|update|assign` · `opportunity.read|create|update|assign|close` · `vehicle.read|create|update|publish|financial.read|document.*` · `quotation.read|create|update|send` · `tenant.settings.*` · `membership.*` · `audit.read` (§23) · `platform.audit.read` (§23, rol de plataforma) · `reservation.create` (§29).
 - `§30` DoD: permisos **financieros** y de **documentos** aislados (no en `SELLER`), roles de plataforma separados de los roles de tenant, OWNER protegido.
 - Los comodines (`vehicle.document.*`, `tenant.settings.*`, `membership.*`) se **expanden a nombres concretos al construir el catálogo**; ninguna entrada del catálogo resuelto puede quedar con `*`.
-- **Fuera de alcance, con destino registrado (P33, §27):** las 5 policies configurables por tenant **no** se implementan en WP15 — el campo `policies` no existe en `TenantConfig` y **no hay valor legacy que migrar** (medido: 0 matches de los 5 nombres en todo SOURCE). Destinos ya fijados: `sellerCanPickUnassignedLeads` y `sellerVisibility` → **WP17 Leads Slice** (extiende a WP18/WP19); `sellerCanCreateReservation` → **WP27**; `sellerCanCreateSale` → **WP28**; `managerCanViewFinancials` → **sin WP asignado** (gap del plan; lo toma el primer WP que enforce `vehicle.financial.read`/`sale.financial.read` — candidatos WP22/WP25/WP28). WP15 **no** las implementa, pero tampoco deja un camino que las insinúe: el catálogo de roles fijos no introduce ninguna ruta "clave ausente ⇒ allow". La regla de ausencia ya está decidida para cuando lleguen: `sellerVisibility` ausente ⇒ `OPEN_TEAM` (§10, default recomendado para Motors); los cuatro booleanos ausentes ⇒ **false** (§9: habilitación explícita; §11: nunca inferir acceso). Ausente nunca significa allow.
+- **Fuera de alcance, con destino registrado (P33, §27):** las 5 policies configurables por tenant **no** se implementan en WP15 — el campo `policies` no existe en `TenantConfig` y **no hay valor legacy que migrar** (medido: 0 matches de los 5 nombres en todo SOURCE). Destinos ya fijados: `sellerCanPickUnassignedLeads` y `sellerVisibility` → **WP17 Leads Slice** (extiende a WP18/WP19); `sellerCanCreateReservation` → **WP27**; `sellerCanCreateSale` → **WP28**; `managerCanViewFinancials` → **sin WP asignado** (gap del plan; lo toma el primer WP que enforce `vehicle.financial.read`/`sale.financial.read` — candidatos WP22/WP25/WP28). WP15 **no** las implementa, pero tampoco deja un camino que las insinúe: el catálogo de roles fijos no introduce ninguna ruta "clave ausente ⇒ allow". La regla de ausencia queda **separada por tipo de valor**, y sólo una de las dos es fail-closed: **los cuatro booleanos ausentes ⇒ `false`** (§9: habilitación explícita; §11: nunca inferir acceso) — ese es el fail-closed, y vale sólo para ellos; **`sellerVisibility` ausente ⇒ `OPEN_TEAM`**, que es la rama **más ancha** por lo que se declara **default de negocio, no de seguridad**, con la cláusula de §10 pegada: esa ausencia **no puede relajar nada financiero**, porque `vehicle.financial.read`/`sale.financial.read` siguen ausentes ⇒ deny. Aserción de dos partes que lo hace falsable en WP17: **tenant sin `policies` ⇒ el Seller lee actividad del equipo Y se le niega el financiero**. Ausente nunca significa allow *para un permiso*; para `sellerVisibility` la ausencia significa el default de negocio declarado, nunca un permiso extra.
 
 ### Bloque C — `PermissionGate` / `ModuleGate` (`packages/permissions/src/gates.ts`)
 
