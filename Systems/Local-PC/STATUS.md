@@ -1,16 +1,16 @@
 ﻿# STATUS - DESKTOP-3V091DM
 
-> Ultima actualizacion: 2026-10-03 20:18:21
+> Ultima actualizacion: 2026-10-07 18:16:41
 > Script: workspace/scripts/monitor-login.ps1
 
 ## Discos
 
 | Unidad | Capacidad | Libre | Porcentaje | Estado |
 |--------|-----------|-------|------------|--------|
-| C: | 476.9 GB | 110.2 GB | 23.1% | OK |
+| C: | 476.9 GB | 126.4 GB | 26.5% | OK |
 | D: | 495.8 GB | 272.3 GB | 54.9% | OK |
 | H: | 488.3 GB | 31.3 GB | 6.4% | OK |
-| I: | 878.9 GB | 160.7 GB | 18.3% | OK |
+| I: | 878.9 GB | 148.4 GB | 16.9% | OK |
 
 ## Ultimo backup
 
@@ -24,9 +24,8 @@
 ## Errores recientes (24h)
 
 `
-20:17 [Error] BTHUSB: 17 - The local Bluetooth adapter has failed in an undetermined manner and will not be used. The driver has been unloaded.
-20:40 [Error] Microsoft-Windows-WindowsUpdateClient: 20 - Installation Failure: Windows failed to install the following update with error 0x80073D02: 9PLM9XGG6VKS-OpenAI.Codex.
-20:39 [Error] Microsoft-Windows-WindowsUpdateClient: 20 - Installation Failure: Windows failed to install the following update with error 0x80073D02: 9NKSQGP7F2NH-5319275A.WhatsA
+18:16 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
+18:16 [Error] Microsoft-Windows-DNS-Client: 1023 - Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network admini
 `
 
 ## Tareas programadas
