@@ -208,9 +208,50 @@ WP08  tenantId required (parte inequívoca) → ✅ ACEPTADO (código d5b88b0 ·
 WP09  Demo Backfill                 → ✅ ACEPTADO · GATE PASADO (verificado por brain-local contra la copia)
 WP10  Tenant-scoped Indexes         → ✅ **PASS** (veredicto de web-auditor 2026-10-06) con residuos R1–R4 declarados
 WP11  Tenant Resolver               → ✅ ACEPTADO (código 34d53d4 · docs 0f11149 · 12 archivos: 5 A + 7 M)
-WP12  Tenant-safe Repositories      → 🟢 LIBERADO (+ R1 y R4 asignados: test de `vehicleinternals` en runtime y comentario del archivo de evidencia)
-WP13  Auth + Membership             → AUDIT GATE (detrás de WP12)
+WP12  Tenant-safe Repositories      → ✅ ACEPTADO (código a03f1db/69644bc · docs 4b7cbb4/657ebd4 · R1+R4 cerrados · autoIndex:false)
+WP13  Auth + Membership             → 🟢 LIBERADO (AUDIT GATE) con el molde endurecido + guard de base viva en `connectDB`
 ```
+
+### N1 — escritura de índices sobre la base viva: diagnóstico de brain-local (2026-10-06)
+
+Medido por brain-local contra `wolfim_motors` (read-only, URI derivada fuera del repo y borrada):
+
+```text
+tenants 3: slug_1 status_1 · users 2: email_1 · domains 3: hostname_1 tenantId_1_type_1
+memberships 4: tenantId_1_userId_1 userId_1_status_1 tenantId_1_role_1 · tenant_configs 2: tenantId_1
+vehicles 8 (legacy slug_1/featured_1/published_1 + 4 del TARGET) · vehicleinternals 10 · quotations 5 · counters 2
+reviews/businessinfos/searchterms/subscribers/messages: sólo índices legacy (o ninguno)
+DOCUMENTOS: tenants 0 · domains 0 · memberships 0 · tenant_configs 0 · users 1 · vehicles 12 · vehicleinternals 12
+            quotations 1 · counters 1 · resto 0
+```
+
+**Lectura:** los índices del TARGET existen en la viva **también en las 5 colecciones de modelo que están
+vacías** (`tenants`, `users`, `domains`, `memberships`, `tenant_configs`) → la firma es un proceso que
+**registró todos los modelos del TARGET** y se conectó a la viva con `autoIndex` en su default (`true`).
+**El CLI de backfill queda exonerado**: verificado en fuente y en `dist`, importa sólo `connection.js`,
+`env.js`, `tenant-backfill.js` y `mongoose-raw.js` — **ningún modelo**, así que no puede crear índices
+(esto descarta el dry-run del builder y el mío).
+
+**Dato bueno, medido:** la viva tiene **0 documentos** en `tenants`/`domains`/`memberships`/`tenant_configs`
+y el resto con los conteos de SOURCE → **no se escribieron documentos de prueba en producción**: la huella
+es de esquema (índices), no de datos. Sin pérdida ni contaminación. Riesgo residual hoy: los uniques
+scoped de la viva indexan 26 documentos con `tenantId` ausente (clave `(null, slug)`), que no colisiona
+porque los uniques globales de SOURCE siguen vivos.
+
+**Atribución: no la puedo fechar ni asignar** (`listIndexes` no guarda timestamp). Candidatos: una corrida
+de integración/seed mientras el `.env` (o un `MONGODB_URI` exportado) apuntaba a la viva — el `.env` del
+TARGET tiene mtime de hoy 20:02, consistente con haber sido reescrito después. Queda como deuda #18
+"sin atribuir" en `PROJECT_STATE.md`, no como si no hubiera pasado.
+
+**Cierre de N1 (decidido):** `autoIndex: false` en `CONNECT_OPTIONS` + creación de índices explícita y
+guardada (`db:sync-indexes` con `--apply` y guard de base viva). **Además exijo para WP13** el mismo guard
+en `connectDB`: que la conexión **rechace** la base viva (por nombre) salvo `WOLFIM_ALLOW_LIVE=1`, así el
+footgun queda cerrado en cualquier camino de código, no sólo en el CLI. Regla operativa: a la viva sólo se
+llega por el CLI de backfill en dry-run; `--apply` requiere OK de Juan + snapshot.
+
+**Secuencia de WP31 re-escrita** (los índices del TARGET ya están en producción y el backfill no corrió):
+(a) backfill de `tenantId`, (b) baja de los 4 uniques globales legacy sobre datos vivos — ambas con
+snapshot previo y aprobación explícita de Juan.
 
 ### Veredicto WP10 (web-auditor, 2026-10-06) y corrección de lectura — brain-local
 
