@@ -1,7 +1,7 @@
 ---
 repo: C:\Projects\wolfim-platform  (TARGET — npm workspaces + vitest)
 commit-base: a550994
-origen: ADDENDUM-D2 §3 fila WP15 (congelada por web-auditor 2026-10-07) + PROJECT_STATE §5 P32
+origen: ADDENDUM-D2 §3 fila WP15 (congelada por web-auditor 2026-10-07) + PROJECT_STATE §5 P32/P33
 estado: lanzado
 zona: Hermes/Quarantine — no normativo; la copia que manda es la del commit de docs (a550994)
 ---
@@ -98,7 +98,7 @@ inventar nombres:
 - Nombres §28: `lead.read|create|update|assign` · `opportunity.read|create|update|assign|close` · `vehicle.read|create|update|publish|financial.read|document.*` · `quotation.read|create|update|send` · `tenant.settings.*` · `membership.*` · `audit.read` (§23) · `platform.audit.read` (§23, rol de plataforma) · `reservation.create` (§29).
 - `§30` DoD: permisos **financieros** y de **documentos** aislados (no en `SELLER`), roles de plataforma separados de los roles de tenant, OWNER protegido.
 - Los comodines (`vehicle.document.*`, `tenant.settings.*`, `membership.*`) se **expanden a nombres concretos al construir el catálogo**; ninguna entrada del catálogo resuelto puede quedar con `*`.
-- **Fuera de alcance, declarado** (§27): las 5 policies configurables por tenant (`sellerVisibility`, `sellerCanPickUnassignedLeads`, `managerCanViewFinancials`, `sellerCanCreateReservation`, `sellerCanCreateSale`) **no** se implementan en WP15 — necesitan fuente real en `TenantConfig` y eso no existe todavía. Se declaran como deuda explícita en el reporte; no se inventa la estructura.
+- **Fuera de alcance, con destino registrado (P33, §27):** las 5 policies configurables por tenant **no** se implementan en WP15 — el campo `policies` no existe en `TenantConfig` y **no hay valor legacy que migrar** (medido: 0 matches de los 5 nombres en todo SOURCE). Destinos ya fijados: `sellerCanPickUnassignedLeads` y `sellerVisibility` → **WP17 Leads Slice** (extiende a WP18/WP19); `sellerCanCreateReservation` → **WP27**; `sellerCanCreateSale` → **WP28**; `managerCanViewFinancials` → **sin WP asignado** (gap del plan; lo toma el primer WP que enforce `vehicle.financial.read`/`sale.financial.read` — candidatos WP22/WP25/WP28). WP15 **no** las implementa, pero tampoco deja un camino que las insinúe: el catálogo de roles fijos no introduce ninguna ruta "clave ausente ⇒ allow". La regla de ausencia ya está decidida para cuando lleguen: `sellerVisibility` ausente ⇒ `OPEN_TEAM` (§10, default recomendado para Motors); los cuatro booleanos ausentes ⇒ **false** (§9: habilitación explícita; §11: nunca inferir acceso). Ausente nunca significa allow.
 
 ### Bloque C — `PermissionGate` / `ModuleGate` (`packages/permissions/src/gates.ts`)
 
