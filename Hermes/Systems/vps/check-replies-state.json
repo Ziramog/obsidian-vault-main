@@ -2,15 +2,15 @@
  "job": "check-replies",
  "account": "ingjuangomariz@gmail.com",
  "campaign_subject_prefix": "Noté algo en la web de",
- "last_checked_at": "2026-10-07T14:02:00-03:00",
- "check_run": "2026-10-07 14:02 ART",
- "last_top_envelope_id": 71851,
- "previous_top_envelope_id": 71841,
- "delta_count": 10,
+ "last_checked_at": "2026-10-07T18:10:00-03:00",
+ "check_run": "2026-10-07 18:10 ART",
+ "last_top_envelope_id": 71865,
+ "previous_top_envelope_id": 71851,
+ "delta_count": 14,
  "new_ids_since_last_check": [
-  "71842","71843","71844","71845","71846","71847","71848","71849","71850","71851"
+  "71852","71853","71854","71855","71856","71857","71858","71859","71860","71861","71862","71863","71864","71865"
  ],
- "new_ids_verdict": "todos newsletters / alertas de empleo (LinkedIn/Computrabajo) / bancos (Naranja X) / TTrades / LB Finanzas; ninguna respuesta de campana",
- "campaign_send_verified": "ultima campana 'Noté algo en la web de Persona Selección' enviada 2026-06-21; lote campaign_tracker.csv (107 dominios) enviado 2026-06-22. NO hubo envio de campana el 2026-10-07 (Sent solo tiene el email del 21/06).",
+ "new_ids_verdict": "todos newsletters / alertas de empleo (LinkedIn/Computrabajo) / bancos (Naranja X) / logística (Andreani/Venex) / Grok / Raypac / Dropbox / Edna Trujillo (Project Dubbing); ninguna respuesta de campana. Cero coincidencias contra 97 destinatarios y 113 dominios del campaign_tracker.csv.",
+ "campaign_send_verified": "ultima campana 'Noté algo en la web de Persona Selección' enviada 2026-06-21 desde juan@wolfim.com (carpeta Sent solo tiene 4 items, ninguno de hoy). NO hubo envio de campana el 2026-10-07.",
  "last_result": "Sin novedades"
 }
