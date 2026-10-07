@@ -206,11 +206,39 @@ WP06  Demo Tenant Bootstrap         → ✅ ACEPTADO (código d4c2008 · docs 32
 WP07  Extract Motors Core           → ✅ ACEPTADO (código f40f772 · docs 400a38b · 15 archivos: 5 A + 1 D + 9 M)
 WP08  tenantId required (parte inequívoca) → ✅ ACEPTADO (código d5b88b0 · docs 2687cc0 · 14 archivos: 4 A + 10 M)
 WP09  Demo Backfill                 → ✅ ACEPTADO · GATE PASADO (verificado por brain-local contra la copia)
-WP10  Tenant-scoped Indexes         → evidencia completa (estática 12/12 · integración 2/2 · inventario antes/después) → veredicto de web-auditor
+WP10  Tenant-scoped Indexes         → ✅ **PASS** (veredicto de web-auditor 2026-10-06) con residuos R1–R4 declarados
 WP11  Tenant Resolver               → ✅ ACEPTADO (código 34d53d4 · docs 0f11149 · 12 archivos: 5 A + 7 M)
-WP12  Tenant-safe Repositories      → 🟢 LIBERADO (con reglas P20/P21/P22 y evidencia tipo WP10)
+WP12  Tenant-safe Repositories      → 🟢 LIBERADO (+ R1 y R4 asignados: test de `vehicleinternals` en runtime y comentario del archivo de evidencia)
 WP13  Auth + Membership             → AUDIT GATE (detrás de WP12)
 ```
+
+### Veredicto WP10 (web-auditor, 2026-10-06) y corrección de lectura — brain-local
+
+**PASS** para el entregable: índices tenant-scoped creados post-backfill, los 4 uniques globales
+legacy dados de baja en las 9 colecciones del plan, estática 12/12 e inventario reproducidos
+por el auditor. **No** es PASS sobre "aislamiento multi-tenant probado".
+
+**Corrijo mi propia frase:** dije "cobertura declarada 4 de 9 con datos" y eso describía dónde la
+**copia** tiene documentos, no dónde el test probó algo. La cobertura **runtime real es 1 de 9**
+(`tenant_configs`: dos configs de tenants distintos conviven, el segundo config del mismo tenant falla).
+`vehicles`, `vehicleinternals`, `quotations` y `counters` no aparecen en ningún test de integración.
+
+| Residuo | Estado | Acción |
+|---|---|---|
+| **R1** — el caso estrella (dos tenants repitiendo `internalStockCode` en `vehicleinternals`) está probado sólo por forma de índice, no en runtime | abierto | **asignado a WP12**: test de integración que siembre dos tenants, inserte el mismo `internalStockCode` (debe pasar) y el mismo `vehicle` dos veces (debe fallar) → cobertura runtime 1 → 2 |
+| **R2** — 3 uniques globales vivos en `reviews`/`businessinfos`/`searchterms` (medidos por el auditor, no por el reporte) | declarado (deuda #14) | obligación de WP16/WP29; en WP31 corre sobre producción con OK de Juan |
+| **R3** — la paridad viva-vs-copia no la pudo reproducir el auditor (mi archivo de URI derivada se borró por higiene de credenciales) | abierto | procedimiento reproducible abajo |
+| **R4** — comentario de cabecera de `tenant-isolation.integration.test.ts` sigue diciendo "este host no tiene Mongo… pendiente para WP10" | abierto | **asignado a WP12** (el texto se reusa como plantilla en WP13) |
+
+**R3 — cómo reproducirlo sin depender de mi reporte:**
+```text
+sed 's/wolfim_motors_copy/wolfim_motors/' <TARGET>/.env > <fuera-del-repo>/.env-live
+node packages/db/dist/backfill/cli.js --dry-run --env-file <fuera-del-repo>/.env-live --report-out <fuera-del-repo>/live.json
+# comparar scanned por colección contra el reporte de la copia; borrar el .env-live al terminar
+```
+Medición de brain-local (2026-10-05 20:1x): viva `scanned 26 / missing 26 / gate passed=false (dry-run)`
+vs copia `scanned 26 / missing 0 / gate passed=true`, delta 0 en las 9. El archivo derivado se borró
+porque contenía la credencial de producción en claro: es higiene, no falta de evidencia.
 
 ### Verificación de brain-local — WP09 gate + WP11 (2026-10-05 20:19)
 
