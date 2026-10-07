@@ -21,7 +21,7 @@ de dónde vino la regresión del bypass demo).
 | bytes | 16901 |
 | vault HEAD al congelar | `5a002a54` (2026-10-07 05:53:05 -04:00) — el vault **auto-pushea** cada 4 min (`\HermesVaultSyncLocal`), así que el sha del vault avanza; lo que ata el insumo es el **sha256 del archivo** |
 | TARGET base | `681949f` (docs-only: fila WP15 + P32 + P33 con relabel) · `status --porcelain -uall` = 0 |
-| Redacción | P33 con **relabel aceptado** (fail-closed sólo para los booleanos; `sellerVisibility` ausente = default de negocio) aplicada en prompt l.13-18 y l.101, y en `PROJECT_STATE` §5 |
+| Redacción | P33 con **relabel aceptado** (fail-closed sólo para los booleanos; `sellerVisibility` ausente = default de negocio) aplicada en el prompt por **frase textual, no por número de línea** (el parche mueve las líneas): el párrafo de `## Objetivo` que empieza "**Alcance del rótulo `fail-closed`:**" + el bullet de P33 que empieza "**Fuera de alcance, con destino registrado (P33, §27)**" y cierra "Ausente nunca significa allow *para un permiso*…"; y en `PROJECT_STATE §5`, la fila `P33` con el mismo relabel |
 
 ## Corrida
 
