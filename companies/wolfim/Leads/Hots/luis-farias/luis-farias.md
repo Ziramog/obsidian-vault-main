@@ -4,12 +4,13 @@
 **Location:** San Francisco, Córdoba
 **Vertical:** Inmobiliaria
 **Owner:** [[companies/wolfim]]
-**Status:** 📋 Seguimiento activo — respuesta a propuesta v2 pendiente (28-29 Abr 2026)
+**Status:** ✅ Cobrado — USD 399 acreditados el 06/10/2026 (portal web inmobiliario). Sin pendientes comerciales abiertos.
 
-## Offer
-- Setup fee: $300 USD (pago único)
-- Monthly: $25 USD/mes (sin permanencia)
-- Service: Sitio web profesional + panel de propiedades
+## Offer (cerrada)
+- Setup: USD 399 (pago único) — ✅ cobrado 06/10/2026
+- Mantenimiento: bonificado 6 meses (oct 2026 – mar 2027); desde abr 2027 USD 29/mes, sin permanencia
+- Service: portal inmobiliario (web + panel de propiedades)
+- Registro de cobro: `cobro-recibido-farias-asociados-portal-2026-10-06.md`
 
 ## Proposal
 ![[farias_propuesta_v2.pdf]]
@@ -76,11 +77,10 @@ Los 3 mockups PNG están en `mockups/`:
 - [x] First contact
 - [x] Proposal sent v1 (mar 2026)
 - [x] Proposal sent v2 (27 Abr 2026) — diagnóstico profundo
-- [ ] Seguimiento — esperando respuesta
+- [x] Confirmación verbal — 12 Ago 2026
+- [x] Payment received — USD 399 acreditados 06/10/2026
 - [ ] Contract signed
-- [ ] Payment received (50% = $150 USD)
 
 ## Next Steps
-1. Seguimiento: contactar a Luis Farias para respuesta a propuesta v2
-2. Si confirman → credenciales dominio + propiedades → 50% inicial → 3 semanas entrega
-3. Entregar mockup final con logo real de Farias + elementos elegidos de Stitch
+1. Mantenimiento bonificado oct-2026 → mar-2027; primer cobro abr-2027 (USD 29/mes).
+2. Sin pendientes comerciales abiertos con Farias (cobro cerrado 06/10/2026).
