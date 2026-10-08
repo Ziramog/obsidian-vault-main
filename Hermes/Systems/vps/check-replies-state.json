@@ -2,15 +2,19 @@
  "job": "check-replies",
  "account": "ingjuangomariz@gmail.com",
  "campaign_subject_prefix": "Noté algo en la web de",
- "last_checked_at": "2026-10-07T18:10:00-03:00",
- "check_run": "2026-10-07 18:10 ART",
- "last_top_envelope_id": 71865,
- "previous_top_envelope_id": 71851,
- "delta_count": 14,
+ "last_checked_at": "2026-10-08T10:05:00-03:00",
+ "check_run": "2026-10-08 10:05 ART",
+ "last_top_envelope_id": 71907,
+ "previous_top_envelope_id": 71865,
+ "delta_count": 42,
  "new_ids_since_last_check": [
-  "71852","71853","71854","71855","71856","71857","71858","71859","71860","71861","71862","71863","71864","71865"
+  "71866","71867","71868","71869","71870","71871","71872","71873","71874","71875",
+  "71876","71877","71878","71879","71880","71881","71882","71883","71884","71885",
+  "71886","71887","71888","71889","71890","71891","71892","71893","71894","71895",
+  "71896","71897","71898","71899","71900","71901","71902","71903","71904","71905",
+  "71906","71907"
  ],
- "new_ids_verdict": "todos newsletters / alertas de empleo (LinkedIn/Computrabajo) / bancos (Naranja X) / logística (Andreani/Venex) / Grok / Raypac / Dropbox / Edna Trujillo (Project Dubbing); ninguna respuesta de campana. Cero coincidencias contra 97 destinatarios y 113 dominios del campaign_tracker.csv.",
- "campaign_send_verified": "ultima campana 'Noté algo en la web de Persona Selección' enviada 2026-06-21 desde juan@wolfim.com (carpeta Sent solo tiene 4 items, ninguno de hoy). NO hubo envio de campana el 2026-10-07.",
+ "new_ids_verdict": "42 nuevos: alertas de empleo (LinkedIn/Computrabajo), Vercel deploy fails, Forex Factory, bancos (Naranja X/BNA), Ecogas, ObraPublica, promos (Gamma/VPS24/Cloudflare/Alpha Capital/Apex/Mercado Libre/LATAM/DeepLearning.AI/Movistar/Team POW/Google Play/Google Flow/n8n). Ninguna respuesta de campana. Cero coincidencias contra 107 dominios y 107 destinatarios del campaign_tracker.csv. Spam: sin respuestas de campana.",
+ "campaign_send_verified": "NO hubo envio de campana el 2026-10-08. campaign_tracker.csv sin filas nuevas desde 2026-07-12 (ultima tanda). El job wolfim-campaign corrio hoy 10:00 pero no registro envios. Carpeta Sent: ultimo mail con asunto de campana es 2026-06-21 (Persona Seleccion).",
  "last_result": "Sin novedades"
 }
