@@ -8,22 +8,23 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-09-24 17:20 ART | **Ingresos sep-2026 registrados por Juan el 24/09 (ver sección Flujo de caja)** · Semáforo: pendiente confirmación formal en kpis.md (vacío desde 25/06) · Cuota token-plan: recuperada el 22-23/09 (crons verificados OK el 24/09); cadena de fallback activa `qwen3.8-flash → deepseek-flash` · Backup Roggero: 100% OK local, offsite Drive roto — migración a R2 aprobada, pendiente bucket + API token · briefing vencido desde 25/06, refresh en curso con prioridades nuevas (cobro Faarias 🥇, Presol/Construvial 🥈, trading 🥉).
+**Última actualización:** 2026-10-07 23:55 ART | **Farias & Asociados COBRADO: USD 399 acreditados el 06/10 (informado por Juan el 07/10) — ítem 🥇 del briefing cerrado** | **Ingresos sep-2026 registrados por Juan el 24/09 (ver sección Flujo de caja)** · Semáforo: pendiente confirmación formal en kpis.md (vacío desde 25/06) · Cuota token-plan: recuperada el 22-23/09 (crons verificados OK el 24/09); cadena de fallback activa `qwen3.8-flash → deepseek-flash` · Backup Roggero: 100% OK local, offsite Drive roto — migración a R2 aprobada, pendiente bucket + API token · briefing vencido desde 25/06, refresh en curso con prioridades nuevas (cobro Faarias 🥇, Presol/Construvial 🥈, trading 🥉).
 
 ---
 
-## Flujo de caja — septiembre 2026 (datos de Juan, 24/09)
+## Flujo de caja — septiembre 2026 (datos de Juan, 24/09) + octubre
 
 | Concepto | Monto USD | Estado | Fecha |
 |---|---|---|---|
-| Wolfim — trabajo Faarias | 400 | Pendiente de cobro (trabajo terminado) | sep-2026 |
+| Wolfim — Farias & Asociados (portal web) | 399 | ✅ **Cobrado** (REG-WF-2026-10-06-FARIAS-001) | 06/10/2026 |
 | Construvial — Presol semana 1 | 333 | Cobrado | 1ª sem sep-2026 |
 | Construvial — Presol semana 2 | 333 | Pendiente de cobro | 2ª sem sep-2026 |
 | ANGO (regular mensual) | 333/mes | Cobrado sep | mensual recurrente |
 | Víctor Abrile | 266 | Cobrado | sep-2026 |
 
-- Cobrado sep: 932 USD (333 Presol + 333 ANGO + 266 Víctor).
-- Pendiente sep: 733 USD (400 Faarias + 333 Presol sem 2).
+- **Cobrado oct-2026 (a la fecha): 399 USD** — Farias & Asociados, portal web inmobiliario, acreditado 06/10/2026. Mantenimiento bonificado oct-2026 → mar-2027; desde abril 2027 USD 29/mes sin permanencia. Próximo hito de cobro: abril 2027.
+- Cobrado sep: 932 USD (333 Presol + 333 ANGO + 266 Víctor). Pendiente sep: 733 USD (333 Presol sem 2; los 400 de Farias pasaron a cobrados).
+- Con Farias cobrado, el pendiente propio de Wolfim queda en **cero**: el cuello de botella deja de ser cobrar lo viejo.
 - Víctor Abrile: cobrado en USD; queda verificar si el recibo ARS 178.860 pendiente quedó saldado con este ingreso.
 - Presol: ampliar en companies/construvial/intelligence/ — empresa del grupo Presol, trabajo semanal recurrente.
 
@@ -82,7 +83,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 - Franco Roma — Roggero & Roma ✅ cerrado/cobrado. Backup VPS operativo. Publicación/DNS dependen de Juan/NIC.
 - Víctor Abrile ✅ histórico cobrado: $450 USD total. Además, 2026-08-31 quedó emitido recibo `REC-WF-2026-08-31-VICTOR-001` por ARS 178.860, pendiente de cobro.
-- Luis Farias — Farias & Asociados 🔴 propuesta portal inmobiliario premium lista; requiere follow-up humano/anticipo.
+- Luis Farias — Farias & Asociados ✅ **cobrado USD 399** (portal web inmobiliario, acreditado 06/10/2026). Registro `REG-WF-2026-10-06-FARIAS-001`; mantenimiento bonificado hasta mar-2027, luego USD 29/mes.
 - Madelen — Suelo Argentino 🔴 analizando propuesta desde 31/08; requiere follow-up si no vuelve.
 - GAMA Inmobiliaria ❌ caído: sin respuesta.
 - Conforti Propiedades, RIVAS Inmuebles y Ann 🆕 seguimiento pendiente.
