@@ -26,7 +26,7 @@ source: mixed
 - **Cobrado oct-2026 (a la fecha): 499 USD** = 399 Farias & Asociados (portal web inmobiliario, acreditado 06/10/2026) + 100 Víctor Abrile (honorarios de gestión publicitaria Argenprop + Meta, cobrado 08/10/2026, informado por Juan). Mantenimiento Farias bonificado oct-2026 → mar-2027; desde abril 2027 USD 29/mes sin permanencia.
 - Cobrado sep: 932 USD (333 Presol + 333 ANGO + 266 Víctor). Pendiente sep: 733 USD (333 Presol sem 2; los 400 de Farias pasaron a cobrados).
 - Con Farias cobrado, el pendiente propio de Wolfim queda en **cero**: el cuello de botella deja de ser cobrar lo viejo.
-- Víctor Abrile: cobrado en USD; queda verificar si el recibo ARS 178.860 pendiente quedó saldado con este ingreso.
+- Víctor Abrile: cobrado en USD. **08/10/2026: USD 100 nuevos por honorarios de gestión publicitaria (Argenprop + Meta)** — ítem de octubre, el costo de pauta lo pagó él por separado. Queda abierto: si esos USD 100 son ítem nuevo o forman parte del recibo `REC-WF-2026-08-31-VICTOR-001` (ARS 178.860), que sigue sin acreditación registrada → confirmar con Juan.
 - Presol: ampliar en companies/construvial/intelligence/ — empresa del grupo Presol, trabajo semanal recurrente.
 
 ---
