@@ -21,8 +21,9 @@ source: mixed
 | Construvial — Presol semana 2 | 333 | Pendiente de cobro | 2ª sem sep-2026 |
 | ANGO (regular mensual) | 333/mes | Cobrado sep | mensual recurrente |
 | Víctor Abrile | 266 | Cobrado | sep-2026 |
+| Víctor Abrile — honorarios publicidad Argenprop + Meta | 100 | ✅ **Cobrado** | 08/10/2026 |
 
-- **Cobrado oct-2026 (a la fecha): 399 USD** — Farias & Asociados, portal web inmobiliario, acreditado 06/10/2026. Mantenimiento bonificado oct-2026 → mar-2027; desde abril 2027 USD 29/mes sin permanencia. Próximo hito de cobro: abril 2027.
+- **Cobrado oct-2026 (a la fecha): 499 USD** = 399 Farias & Asociados (portal web inmobiliario, acreditado 06/10/2026) + 100 Víctor Abrile (honorarios de gestión publicitaria Argenprop + Meta, cobrado 08/10/2026, informado por Juan). Mantenimiento Farias bonificado oct-2026 → mar-2027; desde abril 2027 USD 29/mes sin permanencia.
 - Cobrado sep: 932 USD (333 Presol + 333 ANGO + 266 Víctor). Pendiente sep: 733 USD (333 Presol sem 2; los 400 de Farias pasaron a cobrados).
 - Con Farias cobrado, el pendiente propio de Wolfim queda en **cero**: el cuello de botella deja de ser cobrar lo viejo.
 - Víctor Abrile: cobrado en USD; queda verificar si el recibo ARS 178.860 pendiente quedó saldado con este ingreso.
