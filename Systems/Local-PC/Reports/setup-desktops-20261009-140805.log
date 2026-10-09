@@ -1,0 +1,56 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261009140807
+Username: TRUZT\ingju
+RunAs User: TRUZT\ingju
+Configuration Name: 
+Machine: TRUZT (Microsoft Windows NT 10.0.19045.0)
+Host Application: powershell -ExecutionPolicy Bypass -File C:\Users\ingju\AppData\Local\hermes\profiles\pcbrain\workspace\scripts\setup-desktops.ps1
+Process ID: 17400
+PSVersion: 5.1.19041.6456
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.6456
+BuildVersion: 10.0.19041.6456
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Log: C:\Projects\Obsidian\obsidian-vault-main\Systems\Local-PC\Reports\setup-desktops-20261009-140805.log
+Mon1 (izq): 1920x1040 en (0,0)
+Mon2 (der): 1920x1040 en (1920,0)
+[+2.2s] === PC Brain - Setup de Escritorios ===
+[+2.2s] Limpiando escritorios...
+  VD -count -> Count of desktops: 3
+  Escritorios actuales: 3
+  VD -remove:1 -> Removing virtual desktop number 1 (desktop 'Desktop 2')
+Removing virtual desktop number 1 (desktop 'Desktop 2')
+  VD -count -> Count of desktops: 2
+  VD -remove:1 -> Removing virtual desktop number 1 (desktop 'Desktop 2')
+Removing virtual desktop number 1 (desktop 'Desktop 2')
+  VD -count -> Count of desktops: 1
+[+3.6s] Creando escritorios...
+  VD -new -> Creating virtual desktop number 1
+Creating virtual desktop number 1
+  VD -new -> Creating virtual desktop number 2
+Creating virtual desktop number 2
+  VD -count -> Count of desktops: 3
+  Total: 3
+[+4.2s] === Escritorio 0 ===
+  VD -switch:0 -> Switching to virtual desktop number 0 (desktop 'HEADQUARTES')
+Switching to virtual desktop number 0 (desktop 'HEADQUARTES')
+  Abriendo: C:\Users\ingju\AppData\Local\hermes\hermes-agent\apps\desktop\release\win-unpacked\Hermes.exe
+  Ventana detectada: Hermes (hwnd=131804, title='Hermes')
+  Posicionada: hwnd=131804 -> (0,0 960x1040) OK=True
+  Abriendo: shell:AppsFolder\44576milosp.OneCommander_p0rg76fmnrgsm!App
+  Ventana detectada: OneCommander (hwnd=263298, title='OneCommander')
+  Posicionada: hwnd=263298 -> (960,0 960x1040) OK=True
+  Abriendo: C:\Program Files\Google\Chrome\Application\chrome.exe
+  Ventana detectada: chrome (hwnd=133124, title='Google Chrome')
+True
+True
+  Maximizada (hwnd=133124)
+[+24.1s] === Escritorio 1 ===
+  VD -switch:1 -> Switching to virtual desktop number 1 (desktop 'Desktop 2')
+Switching to virtual desktop number 1 (desktop 'Desktop 2')
+  Abriendo: C:\Program Files\Google\Chrome\Application\chrome.exe

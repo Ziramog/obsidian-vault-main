@@ -1,0 +1,27 @@
+﻿14:07:56 === PC Brain - Monitor de Login ===
+14:07:56 Inicio: 10/09/2026 14:07:56
+14:07:56 --- 1. Espacio libre ---
+14:07:57   C:: 118 GB libre de 476.9 GB (24.7%)
+14:07:57   D:: 272.3 GB libre de 495.8 GB (54.9%)
+14:07:57   H:: 31.3 GB libre de 488.3 GB (6.4%)
+14:07:57   ALERTA: H: por debajo del 10%
+14:07:57   I:: 148.4 GB libre de 878.9 GB (16.9%)
+14:07:57 --- 2. Estado de discos ---
+14:08:04   WD PC SN740 SDDPNQD-512G-2006: Healthy / OK
+14:08:04   WDC WD20EZRZ-00Z5HB0: Healthy / OK
+14:08:04 --- 3. Ultimo backup ---
+14:08:04   No se detecto sistema de backup automatico
+14:08:04 --- 4. Errores criticos (24h) ---
+14:08:04   14:07 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{43D42B25-5935-48A9-882A-D26B9F4115A4} because another co
+14:08:04   14:07 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{43D42B25-5935-48A9-882A-D26B9F4115A4} because another co
+14:08:04   14:07 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{43D42B25-5935-48A9-882A-D26B9F4115A4} because another co
+14:08:05   14:07 [Error] Server: 2505 - The server could not bind to the transport \Device\NetBT_Tcpip_{43D42B25-5935-48A9-882A-D26B9F4115A4} because another co
+14:08:05   14:06 [Critical] Microsoft-Windows-Kernel-Power: 41 - The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding
+14:08:05   14:07 [Error] EventLog: 6008 - The previous system shutdown at 11:01:08 AM on ‎10/‎9/‎2026 was unexpected.
+14:08:05   03:24 [Error] Microsoft-Windows-WindowsUpdateClient: 20 - Installation Failure: Windows failed to install the following update with error 0x80073D02: 9PLM9XGG6VKS-OpenAI.Codex.
+14:08:05   03:24 [Error] Microsoft-Windows-WindowsUpdateClient: 20 - Installation Failure: Windows failed to install the following update with error 0x80073D02: 9NKSQGP7F2NH-5319275A.WhatsA
+14:08:05 --- 5. Boot NVMe ---
+14:08:05   Error verificando NVMe
+14:08:05 --- Actualizando STATUS.md ---
+14:08:05 STATUS.md actualizado
+14:08:05 === Completado en 8.5 segundos ===
