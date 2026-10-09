@@ -2,9 +2,10 @@
 owner: brain-vps
 type: registro-de-frentes
 created-at: 2026-10-08
-updated-at: 2026-10-09T07:05:00-03:00
+updated-at: 2026-10-09T07:20:00-03:00
 single-writer: brain-vps
 corte: 2026-10-09
+conteo-corte-2026-10-09: 29 abiertos = 14 vencidos · 1 vence-hoy · 1 bloqueado · 10 sin-fecha · 3 en-fecha (+3 sin clasificar, no contados)
 criterio-de-conteo: ver sección "Criterio de conteo" (buckets por due-at ISO vs fecha de corte)
 -rule: un frente sin dueño y sin due-at no es un frente, es ruido
 ---
@@ -27,7 +28,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | 🔒 **bloqueado** | el cierre depende de otro frente (se cuenta aparte; **no** suma a vencidos) |
 | ⏳ **sin fecha** | no hay `due-at` ISO → **violación de la regla**, se cuenta aparte y no entra en vencidos |
 
-**Corte 2026-10-09: 27 abiertos = 🔴 14 · ⏰ 1 · 🔒 1 · ⏳ 10 · 🟢 1.** *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)*
+**Corte 2026-10-09: 29 abiertos = 🔴 14 · ⏰ 1 · 🔒 1 · ⏳ 10 · 🟢 3.** *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)* Los 3 `❓ sin clasificar` de la bandeja del bot **no se cuentan como frentes** (son ruido hasta que tengan dueño y fecha).
 
 ## 🔥 Hoy — los 3 del día (WIP 3/3)
 
@@ -94,6 +95,21 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | S1 | WP31 — backfill `tenantId` + uniques legacy | OK + snapshot para el `--apply` | sin fecha | ⏳ sin fecha |
 | S2 | Conflicto de merge en `companies/wolfim/intelligence/plan-ads-seo-2026-06-29.md` | Decidir resolución (markers desde 29/06) | sin fecha | ⏳ sin fecha |
 | S3 | `hermes-vps-ops/SKILL.md` en el techo de 100k chars | Partir el skill | sin fecha | ⏳ sin fecha |
+
+## 📌 Fechado — triado de la bandeja del bot (09/10)
+
+| # (id del bot) | Frente | Próxima acción | Due | Estado |
+|---|---|---|---|---|
+| ag-20261009-001 | ANGO — cotización para Palmero | Cerrarla **antes del lunes** | 2026-10-12 | 🟢 en fecha |
+| ag-20261009-002 | Wolfim — publicidad Víctor (Argenprop + Meta) | Arrancar el trabajo **martes** | 2026-10-13 | 🟢 en fecha |
+
+### ❓ Sin clasificar (no son frentes todavía — falta contexto de Juan)
+
+| id | Lo que entró | Qué falta |
+|---|---|---|
+| ag-20261009-003 | "agenda" | No dice qué de la agenda: ¿revisarla, arreglarla, mostrarla? |
+| ag-20261009-004 | "listar comandos" | Es un pedido al bot, no un frente: ¿de qué bot y para qué? |
+| ag-20261009-005 | "semana que viene" | Audio cortado: ¿qué cosa es para la semana que viene? |
 
 ---
 
