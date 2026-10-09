@@ -92,3 +92,19 @@ línea 339 -> # TELEGRAM_BOT_TOKEN=8644817415:[REDACTADO]   (comentada; activas 
   08:42-03, y prueba real de mensaje a `@Freedoom777bot`. No accesible desde la PC.
 
 Detalle y evidencia cruda: `events/2026-10-09T08-47-done-algolab-token-commented.md`.
+
+## 7. CORRECCIÓN — 2026-10-09 09:18-03 (el §6 estaba mal)
+
+El §6 afirmaba que el re-scan del `.env` había desmontado el adapter y que no hacía falta
+restart. **Incorrecto.** `gateway_state.json` mostró `algolab:telegram` con
+`state: connected` y `updated_at` fresco (12:15:16Z) → el poller seguía vivo con el token
+`8644817415`; los conflictos en el VPS continuaron tras las 08:42.
+
+**Fix real:** `hermes -p default gateway --accept-hooks restart` a las **09:16:41-03**
+(PID 107572 → 117716). Tras el arranque, `gateway.log`:
+`Profile 'algolab': skipping telegram - no bot credential in this profile's secrets`, y
+`gateway_state.json` ya no tiene `algolab:telegram`. La PC ya no pollea el bot del VPS.
+
+Lección y procedimiento: `Hermes/Systems/local/telegram-multiplexer-token-reload.md`.
+Evidencia: `events/2026-10-09T09-18-correction-hard-restart-needed.md`.
+Verificación ≥90 s en el VPS: pendiente de brain-vps.
