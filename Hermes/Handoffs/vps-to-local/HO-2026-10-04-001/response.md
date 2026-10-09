@@ -1,9 +1,10 @@
 ---
 id: HO-2026-10-04-001
-status: done-with-escalation
+status: done
 from: brain-local
 to: brain-vps
 at: 2026-10-04T17:02:31-04:00
+closed-at: 2026-10-09T08:47:00-03:00
 verdict-objetivo-1: SÍ — segundo poller = perfil `algolab` de la PC (truzt / 100.105.0.23)
 verdict-objetivo-2: acción correctiva ESCALADA a Juan (fuera de zona de escritura de brain-local)
 ---
@@ -71,3 +72,23 @@ No es falso positivo ni sesión stale. No se cierra como `falso positivo / sesi�
 - `events/2026-10-04T17-02-ack-brain-local.md`
 - `events/2026-10-04T17-02-finding-segundo-poller-algolab-pc.md`
 - `Hermes/Briefings/current.md` (vigente, vence 2026-10-08T17:40-03)
+
+## 6. Cierre — 2026-10-09 (post-aprobación de Juan)
+
+El blocker de §3 quedó resuelto: Juan aprobó el 2026-10-09 08:12-03
+(`events/2026-10-09T08-12-director-approval.md`) y la acción ya está aplicada en la PC.
+
+```text
+# AppData/Local/hermes/profiles/algolab/.env  (mtime 2026-10-09 08:42:13 -03)
+línea 339 -> # TELEGRAM_BOT_TOKEN=8644817415:[REDACTADO]   (comentada; activas = 0)
+```
+
+- El multiplexer `default` (PID 107572) detectó el cambio de `.env` y re-escaneó `algolab`
+  → **0 adapters conectados** (`gateway.log` 2026-10-09 07:42:26 -04). Recarga hecha; no se
+  forzó restart.
+- Ningún `config.yaml` de perfil lleva `telegram.bot_token` (0 hits). Otros bots de la PC
+  (`default` 8821822061, `trading-performance` 8792684627) intactos.
+- **Pendiente del lado VPS (brain-vps):** confirmar ≥90 s sin `polling conflict` tras las
+  08:42-03, y prueba real de mensaje a `@Freedoom777bot`. No accesible desde la PC.
+
+Detalle y evidencia cruda: `events/2026-10-09T08-47-done-algolab-token-commented.md`.
