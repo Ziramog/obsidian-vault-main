@@ -86,3 +86,26 @@ aprobación ("stop/restart hermes gateway (kills running agents)").
 Reversión: descomentar la línea 339 y restart (<1 min).
 
 Sin tokens escritos en el vault. Sin Git.
+
+## 5. Conflicto de registro (a resolver)
+
+Mientras corría esta verificación apareció otro cierre del mismo handoff:
+`events/2026-10-09T08-47-done-algolab-token-commented.md` (y `response.md` con
+`status: done`), que da por desmontado el adapter apoyándose **solo** en la línea del
+multiplexer `Re-scanned profile 'algolab' … (0 adapter(s) connected)`.
+
+Esa inferencia es incorrecta: el re-scan de un perfil *cambiado* no baja plataformas ya
+live (`run_adapters.py:1249-1253`), y `0 adapter(s) connected` cuenta adapters **nuevos**.
+El único camino que detiene adapters es `_unserve_profile` (`run_profile_reconcile.py:279`,
+"stopped and unrouted") — que nunca corrió para `algolab` (el log no tiene esa línea).
+
+Evidencia de que el poller sigue montado, tomada **después** de ese cierre:
+
+```text
+gateway_state.json → platforms["algolab:telegram"]:
+  state=connected · writer_pid=107572
+  updated_at: 11:43:54Z 11:46:26Z 11:47:42Z 11:48:58Z 11:51:00Z 11:52:16Z   (avanza ~cada 70s, verificado con sleep 70)
+netstat -ano → PID 107572: 6 conexiones ESTABLISHED hacia 149.154.166.110:443
+```
+
+Por eso este evento deja el handoff como **pendiente de restart**, no `done`.
