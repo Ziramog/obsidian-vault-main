@@ -17,7 +17,7 @@ bandeja: Hermes/Agenda/bandeja.md
 ## 🔥 Los 3 del día (WIP 3/3)
 
 1. **P1 — Presol:** relevar horas trabajadas + acordar criterio + calcular importe cobrable.
-2. **D5 — Telegram PC/VPS:** separar definitivamente los tokens y probar ambos bots.
+2. **D5 — Telegram PC/VPS:** dos bots separados aprobados. Falta quitar de `algolab` el token duplicado y probar `@Freedoom777bot`; bot Agenda estricto en `HO-2026-10-09-003`.
 3. **ANGO — Palmero:** avanzar la cotización que vence antes del lunes 12/10.
 
 ✅ Cerrados hoy: Contabo · KPIs habilitados · Víctor aclarado · 4 handoffs ANGO consolidados en `HO-2026-10-09-002`.

@@ -50,7 +50,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | # | Frente | Próxima acción | Due | Estado |
 |---|---|---|---|---|
 | D2 | Briefing reality-check | Confirmar prioridades y refrescar v2 | 2026-10-01 | 🔴 vencido |
-| D5 | Telegram PC/VPS | Completar separación de bots/tokens + prueba end-to-end | 2026-10-09 | ⏰ vence hoy |
+|| D5 | Telegram PC/VPS | Ejecutar en PC la baja del token duplicado de `algolab` + prueba end-to-end de `@Freedoom777bot`; arquitectura de dos bots ya aprobada por Juan | 2026-10-09 | ⏰ vence hoy |
 | D7 | RWS / TrainAI dubbing | Arrancar la cola (160 jobs prioridad 0) o dar de baja la vía | sin fecha | ⏳ sin fecha |
 | D8 | `hermes-session-reset-policy` | OK de Juan | 2026-10-07 | 🔴 vencido |
 | D9 | `Memory/pending/` (2 items: Sync V6, JobSeeker) | Consolidar o descartar | sin fecha | ⏳ sin fecha |
@@ -90,7 +90,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | S1 | WP31 — backfill `tenantId` + uniques legacy | OK + snapshot para el `--apply` | sin fecha | ⏳ sin fecha |
 | S2 | Conflicto de merge en `companies/wolfim/intelligence/plan-ads-seo-2026-06-29.md` | Decidir resolución (markers desde 29/06) | sin fecha | ⏳ sin fecha |
 | S3 | `hermes-vps-ops/SKILL.md` en el techo de 100k chars | Partir el skill | sin fecha | ⏳ sin fecha |
-| S4 | **Bot de agenda: capturar crudo y no perder nada** | Que nunca pierda tu texto (guarda crudo + marca para triage) y responda en ≤2 s; si no da, se retira el canal y queda solo la bandeja | 2026-10-12 | 🟢 en fecha |
+|| S4 | **Bot de agenda: capturar crudo y no perder nada** | `HO-2026-10-09-003` creado (high): consultas y fragmentos vagos no crean tareas; conservar captura o pedir precisión; timeouts normales no ensucian logs | 2026-10-12 | 🟢 en fecha |
 | S5 | **PWA — pestaña "HOY"** (`HO-2026-10-09-001`) | Leer el día en 2 segundos sin pasar por el chat: render de `HOY.md` + `Frentes.md` | 2026-10-11 | 🟢 en fecha |
 
 ## 📌 Fechado — triado de la bandeja del bot (09/10)
