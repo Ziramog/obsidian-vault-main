@@ -549,10 +549,66 @@ def cmd_edit(vault: Path, task_ref: str, new_title: str, which: str = "hoy") -> 
     return agenda.edit_task(vault, day, task_ref, new_title)
 
 
+_HELP_ONLY = {
+    "/comandos", "/comanndos", "/ayuda", "/help",
+    "agenda", "comandos", "comanndos", "comando", "ayuda", "help", "opciones",
+    "lista de comandos", "listar comandos", "listar comanndos",
+    "listar los comandos", "listar comandos disponibles",
+    "que comandos hay", "qué comandos hay", "cuales son los comandos",
+    "cuáles son los comandos",
+}
+_HELP_RE = re.compile(
+    r"^(?:/?(?:listar|lista|ver|mostrar|mostrame|dame|cu[aá]les|cuales)\b).*"
+    r"\b(?:comandos?|comanndos?|ayuda|opciones)\b",
+    re.IGNORECASE,
+)
+_PERIOD_ONLY_RE = re.compile(
+    r"^(?:la\s+|el\s+|esta\s+|esto\s+|para\s+la\s+|para\s+el\s+)?"
+    r"(?:semana|mes)\s+que\s+(?:viene|entra)$",
+    re.IGNORECASE,
+)
+_DATE_TOKEN_RE = re.compile(
+    r"\b(?:hoy|ma[ñn]ana|pasado\s+ma[ñn]ana|ayer|lunes|martes|mi[eé]rcoles|jueves|viernes|"
+    r"s[aá]bado|domingo|lun|mar|mi[eé]|jue|vie|s[aá]b|dom|fin\s+de\s+mes|"
+    r"principio\s+de\s+mes|a\s+las\s+\d|\d{1,2}\s*[:/]\s*\d|\d{1,2}\s+de\s+\w+|"
+    r"\d{4}-\d{2}-\d{2})\b",
+    re.IGNORECASE,
+)
+_ACTION_VERB_RE = re.compile(
+    r"\b(?:llamar|llam[aá]|telefonear|pagar|mandar|manda|enviar|env[ií]a|comprar|ver|visitar|"
+    r"pasar|llevar|retirar|reuni[oó]n|reunir|turno|presentar|entregar|facturar|cobrar|"
+    r"arreglar|terminar|revisar|responder|contestar|escribir|avisar|recordar|record[aá]|"
+    r"agendar|anotar|sacar|gestionar|coordinar|confirmar|cerrar|firmar|depositar|transferir|"
+    r"imprimir|preparar|armar|llamarle|mandarle)\b",
+    re.IGNORECASE,
+)
+
+
+def _is_help_query(low: str) -> bool:
+    if low in _HELP_ONLY:
+        return True
+    if _HELP_RE.match(low):
+        return True
+    if _PERIOD_ONLY_RE.match(low):
+        return True
+    return False
+
+
+def _is_vague_fragment(low: str) -> bool:
+    if len(low.split()) > 4:
+        return False
+    if _DATE_TOKEN_RE.search(low):
+        return False
+    if _ACTION_VERB_RE.search(low):
+        return False
+    return True
+
+
 def handle_text(vault: Path, text: str, source: str, chat_id: Optional[str] = None) -> str:
     raw = text.strip()
     if not raw:
-        return "Mandame una tarea o un comando: /hoy, /mañana, /foco, /hecho, /posponer"    # Telegram group/private commands may arrive as /comando@BotName.
+        return "Mandame una tarea o un comando: /hoy, /mañana, /foco, /hecho, /posponer"
+    # Telegram group/private commands may arrive as /comando@BotName.
     # Normalize the first token before dispatching; otherwise commands fall
     # through to cmd_add() and pollute the agenda as tasks.
     if raw.startswith("/"):
@@ -687,6 +743,21 @@ def handle_text(vault: Path, text: str, source: str, chat_id: Optional[str] = No
         if not payload:
             return "Uso: agendar mañana 9 llamar a GAMA"
         return cmd_add(vault, payload, source=source)
+    # --- Frente S4 (HO-2026-10-09-003): una consulta o un fragmento vago NUNCA
+    # debe caer al alta de tareas. Consultas → ayuda; vagos → pedir aclaración.
+    if _is_help_query(low):
+        return (
+            "Bot Agenda — las consultas no crean tareas.\n"
+            "Consultar: /hoy · /mañana · /esta-semana · /todo · /pendientes · /foco · /revisar\n"
+            "Gestionar: ok 1 · /hecho ag-YYYYMMDD-NNN · /mover · /posponer · /cancelar · /editar · /prioridad\n"
+            "Agendar: «mañana 9 llamar a GAMA»\n"
+            "No guardé nada por esta consulta."
+        )
+    if _is_vague_fragment(low):
+        return (
+            "No me quedó claro qué tarea agendar. Reescribila con una acción y cuándo. "
+            "Ej: «mañana 9 llamar a GAMA». No guardé nada."
+        )
     return cmd_add(vault, raw, source=source)
 
 
