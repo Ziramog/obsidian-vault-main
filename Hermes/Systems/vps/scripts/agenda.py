@@ -1062,9 +1062,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--vault", default=str(DEFAULT_VAULT), help="Path al obsidian-vault")
     sub = p.add_subparsers(dest="cmd", required=True)
 
-    for name in ["today", "tomorrow", "list", "ensure", "focus", "reminders", "review", "week", "pending", "detail", "cleanup"]:
+    for name in ["today", "tomorrow", "list", "ensure", "focus", "reminders", "review", "week", "pending", "cleanup"]:
         sp = sub.add_parser(name)
-        if name in {"list", "ensure", "focus", "reminders", "review", "week", "pending", "detail", "cleanup"}:
+        if name in {"list", "ensure", "focus", "reminders", "review", "week", "pending", "cleanup"}:
             sp.add_argument("--date", default="hoy")
 
     add = sub.add_parser("add")
