@@ -1,36 +1,14 @@
 ---
 owner: brain-vps
-date: 2026-09-22
-updated-at: 2026-09-22T13:40:00-03:00
-summary-status: in-progress
-source: brain-vps-session
+date: 2026-10-08
+updated-at: 2026-10-08T22:25:00-03:00
+type: pointer
+points-to: Hermes/Agenda/2026-10-08.md
 ---
 
-# Agenda 2026-09-22
+# HOY — 2026-10-08 (jueves)
 
-## 🔴 Requiere decisión de Juan
+**Agenda del día:** `Hermes/Agenda/2026-10-08.md`
+**Ayer:** `Hermes/Agenda/2026-10-06.md` (el 07/10 no hubo archivo de agenda: ver `Hermes/Daily/2026-10-07-summary.md`)
 
-- [ ] **Cuota del token-plan agotada** — 8 jobs agent-mode caídos desde 20/09 (health check 04:00, morning report 08:00, `check-replies` 3×/día, `wolfim-campaign` 10:00, cierre de sesión 23:55, update diario, informe mensual Roggero, daily email summary). Reset informado por el proveedor: **27/09 22:55 UTC**. Propuesta pendiente de aprobación: pinear los jobs a DeepSeek (`hermes cron edit <id> --model deepseek-chat --provider deepseek`), probado OK en vivo hoy.
-- [ ] **Actualizar KPIs formales** (`Intelligence/kpis.md`) — vencidos desde 25/06; sin números de septiembre el semáforo no es confirmable.
-- [ ] **Briefing vencido** desde 25/06 (reality-check 28/06) — no se cambian prioridades globales sin confirmación de Juan.
-- [ ] **Confirmar cobro Víctor Abrile** — recibo `REC-WF-2026-08-31-VICTOR-001` (ARS 178.860) sin acreditación registrada.
-- [ ] **Follow-up comercial** — Luis Farias y Madelen sin movimiento desde 31/08.
-- [ ] **113 leads inmobiliarios del 31/08** — definir uso real o descarte.
-- [ ] **PRESOL antes de calle** — tarifa base/km, mínima, hora hidrogrúa, condición de cobro/fijo, responsable WhatsApp.
-
-## ✅ Hecho hoy (sesión brain-vps)
-
-- [x] Cron `Supabase Keep-Alive`: target de Telegram roto (`telegram:Juanchi777` → *Chat not found*) corregido a `telegram:1479438002`.
-- [x] Colisión de skills `email-suite` resuelta (dos `SKILL.md` con el mismo `name`): v1.1.0 fusionada en `skills/email/SKILL.md`, duplicado archivado en `skills/.archive/`. Era la causa por la que `check-replies` salteaba la skill.
-- [x] Memoria persistente bloqueada `hermes_env` limpiada (drift arrastrado desde 27/08); snapshot previo en `Hermes/Memory/archive/2026-09-22-agent-memory-snapshot-precleanup.md`.
-- [x] Handoffs cerrados archivados (>7 días): `HO-2026-06-30-001`, `HO-2026-07-06-001`, `HO-2026-07-12-001`, `HO-2026-07-12-002`.
-
-## 🟡 Operativo sin resolver
-
-- 9 handoffs en `vps-to-local` siguen `status: ready`; 8 con `due-at` vencido (el más viejo: 26/06). Requieren procesamiento local o decisión de archivo/rescope.
-- `hermes-vps-ops/SKILL.md` está en el techo de 100.000 caracteres: no admite más contenido, necesita partición.
-- Agenda `HOY.md` estuvo congelada desde el 02/09; se reescribe hoy con este archivo.
-
-## Próxima acción prioritaria
-
-Definir proveedor/modelo de los crons agent-mode (recupera la operación automática completa) y actualizar KPIs formales.
+🔴 Único bloqueo estructural del día: **`kpis.md` sin habilitar** (pending-first-write desde el 25/06) — los números nuevos no tienen dónde asentarse formalmente.

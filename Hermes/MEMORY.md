@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-10-07 23:55 ART | **Farias & Asociados COBRADO: USD 399 acreditados el 06/10 (informado por Juan el 07/10) — ítem 🥇 del briefing cerrado** | **Ingresos sep-2026 registrados por Juan el 24/09 (ver sección Flujo de caja)** · Semáforo: pendiente confirmación formal en kpis.md (vacío desde 25/06) · Cuota token-plan: recuperada el 22-23/09 (crons verificados OK el 24/09); cadena de fallback activa `qwen3.8-flash → deepseek-flash` · Backup Roggero: 100% OK local, offsite Drive roto — migración a R2 aprobada, pendiente bucket + API token · briefing vencido desde 25/06, refresh en curso con prioridades nuevas (cobro Faarias 🥇, Presol/Construvial 🥈, trading 🥉).
+**Última actualización:** 2026-10-08 22:25 ART | **Víctor Abrile: USD 100 COBRADOS el 08/10 — honorarios por gestión publicitaria Argenprop + Meta; el costo de pauta lo abonó él por separado (es ingreso propio, NO presupuesto de pauta) → ítem nuevo de octubre** | Farias & Asociados: USD 399 cobrados el 06/10 (informado por Juan el 07/10) — ítem 🥇 del briefing cerrado | **Ingresos sep-2026 registrados por Juan el 24/09 (ver sección Flujo de caja)** · Semáforo: pendiente confirmación formal en kpis.md (vacío desde 25/06) · Cuota token-plan: recuperada el 22-23/09 (crons verificados OK el 24/09); cadena de fallback activa `qwen3.8-flash → deepseek-flash` · Backup Roggero: 100% OK local, offsite Drive roto — migración a R2 aprobada, pendiente bucket + API token · briefing vencido desde 25/06, refresh en curso con prioridades nuevas (cobro Faarias 🥇, Presol/Construvial 🥈, trading 🥉).
 
 ---
 

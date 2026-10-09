@@ -43,6 +43,18 @@ applies-to:
 
 **Semáforo:** pendiente de confirmación formal (kpis.md sin gastos fijos desde 25/06). Con 932 USD cobrados + 733 pendientes, sep-2026 es el mejor mes registrado del sistema.
 
+## Foco financiero — octubre 2026 (parcial, reportado por Juan)
+
+| Concepto | Monto USD | Estado |
+|---|---|---|
+| Wolfim — Farias & Asociados (portal web) | 399 | ✅ Cobrado 06/10/2026 |
+| Wolfim — Víctor Abrile (honorarios gestión publicitaria Argenprop + Meta) | 100 | ✅ Cobrado 08/10/2026 |
+| **Cobrado oct-2026 (a la fecha)** | **499** | |
+
+> Asentado por brain-vps el 2026-10-08 a partir del reporte de Juan en el group chat "Brain Local". El costo de pauta de Víctor lo pagó el cliente por separado → los USD 100 son ingreso propio (no presupuesto de Ads) y **no habilitan gasto**.
+>
+> ⚠️ **Este bloque no refresca el briefing**: las prioridades siguen siendo las v2 y `reality-check-required-by: 2026-10-01` está vencido. El refresh completo requiere confirmación de Juan.
+
 ## Regla de activación
 
 Wolfim mantiene prioridad 🥇 mientras Faarias siga pendiente. Construvial/Presol pasa a trabajo activo confirmado (ya hay ingreso cobrado). Trading es frente personal de Juan coordinado por brain-local — no consume capacidad comercial del VPS.
