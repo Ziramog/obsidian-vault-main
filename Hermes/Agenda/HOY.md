@@ -10,7 +10,7 @@ frentes: Hermes/Agenda/Frentes.md
 # HOY — 2026-10-09 (viernes)
 
 **Agenda del día:** `Hermes/Agenda/2026-10-09.md`
-**Mapa de frentes abiertos:** `Hermes/Agenda/Frentes.md` — 27 abiertos = 🔴 14 vencidos · ⏰ 1 vence hoy · 🔒 1 bloqueado · ⏳ 10 sin fecha · 🟢 1 en fecha (criterio de conteo fijado en el archivo)
+**Mapa de frentes abiertos:** `Hermes/Agenda/Frentes.md` — 29 abiertos = 🔴 14 vencidos · ⏰ 1 vence hoy · 🔒 1 bloqueado · ⏳ 10 sin fecha · 🟢 3 en fecha (+3 sin clasificar, no son frentes) — criterio de conteo fijado en el archivo
 **Ayer:** `Hermes/Agenda/2026-10-08.md` + `Hermes/Daily/2026-10-08-summary.md`
 
 ## 🔥 Los 3 del día (WIP 3/3)
