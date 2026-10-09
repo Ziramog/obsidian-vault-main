@@ -552,8 +552,7 @@ def cmd_edit(vault: Path, task_ref: str, new_title: str, which: str = "hoy") -> 
 def handle_text(vault: Path, text: str, source: str, chat_id: Optional[str] = None) -> str:
     raw = text.strip()
     if not raw:
-        return "Mandame una tarea o un comando: /hoy, /mañana, /foco, /hecho, /posponer"
-    # Telegram group/private commands may arrive as /comando@BotName.
+        return "Mandame una tarea o un comando: /hoy, /mañana, /foco, /hecho, /posponer"    # Telegram group/private commands may arrive as /comando@BotName.
     # Normalize the first token before dispatching; otherwise commands fall
     # through to cmd_add() and pollute the agenda as tasks.
     if raw.startswith("/"):
