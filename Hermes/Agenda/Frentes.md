@@ -2,10 +2,10 @@
 owner: brain-vps
 type: registro-de-frentes
 created-at: 2026-10-08
-updated-at: 2026-10-09T07:25:00-03:00
+updated-at: 2026-10-09T16:45:00-03:00
 single-writer: brain-vps
 corte: 2026-10-09
-conteo-corte-2026-10-09: 24 abiertos = 5 vencidos · 2 vence-hoy · 1 bloqueado · 10 sin-fecha · 6 en-fecha
+conteo-corte-2026-10-09: 25 abiertos = 5 vencidos · 2 vence-hoy · 1 bloqueado · 11 sin-fecha · 6 en-fecha
 criterio-de-conteo: ver sección "Criterio de conteo" (buckets por due-at ISO vs fecha de corte)
 -rule: un frente sin dueño y sin due-at no es un frente, es ruido
 ---
@@ -29,7 +29,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | 🔒 **bloqueado** | el cierre depende de otro frente (se cuenta aparte; **no** suma a vencidos) |
 | ⏳ **sin fecha** | no hay `due-at` ISO → **violación de la regla**, se cuenta aparte y no entra en vencidos |
 
-**Corte 2026-10-09: 24 abiertos = 🔴 5 · ⏰ 2 · 🔒 1 · ⏳ 10 · 🟢 6.** *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)* Las capturas incompletas permanecen en `Agenda/bandeja.md`; no se cuentan como frentes.
+**Corte 2026-10-09: 25 abiertos = 🔴 5 · ⏰ 2 · 🔒 1 · ⏳ 11 · 🟢 6.** *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)* Las capturas incompletas permanecen en `Agenda/bandeja.md`; no se cuentan como frentes.
 
 ## 🔥 Hoy — los 3 del día (WIP 3/3)
 

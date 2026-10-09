@@ -1,9 +1,9 @@
 {
-  "offset": 606884281,
+  "offset": 606884285,
   "last_views": {
     "1479438002": {
       "label": "todo",
-      "at": "2026-10-09T06:53:37.131963-03:00",
+      "at": "2026-10-09T16:41:59.395910-03:00",
       "refs": [
         {
           "id": "",
@@ -531,14 +531,14 @@
           "title": "113 leads inmobiliarios"
         },
         {
-          "id": "ag-20261009-001",
-          "date": "2026-10-09",
-          "title": "Cotizacion para Palmero Ango cerrar el lunes"
+          "id": "ag-20261012-001",
+          "date": "2026-10-12",
+          "title": "ANGO — cerrar cotización para Palmero"
         },
         {
-          "id": "ag-20261009-002",
-          "date": "2026-10-09",
-          "title": "victor publicidad comenzar argenprop y meta martes que viene"
+          "id": "ag-20261013-001",
+          "date": "2026-10-13",
+          "title": "Wolfim — comenzar publicidad de Víctor en Argenprop y Meta"
         }
       ]
     }
