@@ -2,10 +2,10 @@
 owner: brain-vps
 type: registro-de-frentes
 created-at: 2026-10-08
-updated-at: 2026-10-09T16:45:00-03:00
+updated-at: 2026-10-09T17:06:00-03:00
 single-writer: brain-vps
 corte: 2026-10-09
-conteo-corte-2026-10-09: 25 abiertos = 5 vencidos · 2 vence-hoy · 1 bloqueado · 11 sin-fecha · 6 en-fecha
+conteo-corte-2026-10-09: 26 abiertos = 5 vencidos · 2 vence-hoy · 1 bloqueado · 12 sin-fecha · 6 en-fecha
 criterio-de-conteo: ver sección "Criterio de conteo" (buckets por due-at ISO vs fecha de corte)
 -rule: un frente sin dueño y sin due-at no es un frente, es ruido
 ---
@@ -29,7 +29,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | 🔒 **bloqueado** | el cierre depende de otro frente (se cuenta aparte; **no** suma a vencidos) |
 | ⏳ **sin fecha** | no hay `due-at` ISO → **violación de la regla**, se cuenta aparte y no entra en vencidos |
 
-**Corte 2026-10-09: 25 abiertos = 🔴 5 · ⏰ 2 · 🔒 1 · ⏳ 11 · 🟢 6.** *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)* Las capturas incompletas permanecen en `Agenda/bandeja.md`; no se cuentan como frentes.
+**Corte 2026-10-09: 26 abiertos = 🔴 5 · ⏰ 2 · 🔒 1 · ⏳ 12 · 🟢 6.** *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)* Las capturas incompletas permanecen en `Agenda/bandeja.md`; no se cuentan como frentes.
 
 ## 🔥 Hoy — los 3 del día (WIP 3/3)
 
@@ -90,9 +90,10 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | S1 | WP31 — backfill `tenantId` + uniques legacy | OK + snapshot para el `--apply` | sin fecha | ⏳ sin fecha |
 | S2 | Conflicto de merge en `companies/wolfim/intelligence/plan-ads-seo-2026-06-29.md` | Decidir resolución (markers desde 29/06) | sin fecha | ⏳ sin fecha |
 | S3 | `hermes-vps-ops/SKILL.md` en el techo de 100k chars | Partir el skill | sin fecha | ⏳ sin fecha |
-| S4 | **Bot de agenda: capturar crudo y no perder nada** | `HO-2026-10-09-003` creado (high): consultas y fragmentos vagos no crean tareas; conservar captura o pedir precisión; timeouts normales no ensucian logs | 2026-10-12 | 🟢 en fecha |
-| S5 | **PWA — pestaña "HOY"** (`HO-2026-10-09-001`) | Leer el día en 2 segundos sin pasar por el chat: render de `HOY.md` + `Frentes.md` | 2026-10-11 | 🟢 en fecha |
+| S4 | **Bot de agenda: capturar crudo y no perder nada** | `HO-2026-10-09-003` (high): consultas y fragmentos vagos no crean tareas; conservar captura o pedir precisión. **Rediseño 17:04:** el bot deja de tener lógica y pasa a ser **boca del core** (gate movido al core) | 2026-10-12 | 🟢 en fecha |
+| S5 | **PWA — pestaña "HOY"** (`HO-2026-10-09-001`) | Leer el día en 2 segundos sin chat: render de `HOY.md` + `Frentes.md`. **Rediseño 17:04:** suma **captura de voz** (dictado del navegador) y captura por el **core único** | 2026-10-11 | 🟢 en fecha |
 | S6 | **PWA móvil — los chats no abren** (el directorio se ve y el nodo VPS figura ok; el chat no abre en el celu) | Reproducir desde la PC: ruta por perfil (`/p/<profile>/api/sessions`), Bearer compartido y peer `:3300` caído (verificado hoy: sin respuesta) | sin fecha *(Juan lo chequea desde la PC)* | ⏳ sin fecha |
+| S7 | **ASR del VPS caído** (frena transcribir audios en el VPS) | Bailian/DashScope devuelve **401** con la key del config `token-plan`; `OPENAI_API_KEY` del `.env` es placeholder. Renovar key de Bailian **o** decidir vía alternativa (Gemini con aprobación / whisper local) | sin fecha | ⏳ sin fecha |
 
 ## 📌 Fechado — triado de la bandeja del bot (09/10)
 
