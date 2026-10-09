@@ -41,6 +41,8 @@ applies-to:
 | **Cobrado sep** | **932** | |
 | **Pendiente sep** | **733** | |
 
+> **Nota de verificación (2026-10-08, brain-vps):** el "Pendiente sep 733" de esta tabla es un **snapshot al 30/09**. Con la acreditación del 06/10 (`REG-WF-2026-10-06-FARIAS-001`), el único pendiente de septiembre queda en **Presol sem 2 (333)**. La fila **Faarias: el monto documentado es USD 399** (`DET-WF-2026-09-25-FARIAS-001`, repetido en el registro de cobro); el "400" es redondeo de la propuesta, no un faltante de 1 USD.
+
 **Semáforo:** pendiente de confirmación formal (kpis.md sin gastos fijos desde 25/06). Con 932 USD cobrados + 733 pendientes, sep-2026 es el mejor mes registrado del sistema.
 
 ## Foco financiero — octubre 2026 (parcial, reportado por Juan)
