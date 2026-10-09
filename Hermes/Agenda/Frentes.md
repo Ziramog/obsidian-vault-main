@@ -97,8 +97,8 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 
 | # (id del bot) | Frente | Próxima acción | Due | Estado |
 |---|---|---|---|---|
-| ag-20261009-001 | ANGO — cotización para Palmero | Cerrarla **antes del lunes** | 2026-10-12 | 🟢 en fecha |
-| ag-20261009-002 | Wolfim — publicidad Víctor (Argenprop + Meta) | Arrancar el trabajo **martes** | 2026-10-13 | 🟢 en fecha |
+| ag-20261012-001 | ANGO — cotización para Palmero | Cerrarla **antes del lunes** | 2026-10-12 | 🟢 en fecha |
+| ag-20261013-001 | Wolfim — publicidad Víctor (Argenprop + Meta) | Arrancar el trabajo **martes** | 2026-10-13 | 🟢 en fecha |
 
 ### Capturas incompletas preservadas fuera del mapa
 
