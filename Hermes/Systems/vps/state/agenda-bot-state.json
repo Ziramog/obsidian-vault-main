@@ -1,9 +1,9 @@
 {
-  "offset": 606884273,
+  "offset": 606884276,
   "last_views": {
     "1479438002": {
       "label": "todo",
-      "at": "2026-07-08T18:26:15.922541-03:00",
+      "at": "2026-10-09T06:53:37.131963-03:00",
       "refs": [
         {
           "id": "",
@@ -74,6 +74,471 @@
           "id": "ag-20260708-001",
           "date": "2026-07-08",
           "title": "ANGO, MONTECOR avisar de pagar importacion"
+        },
+        {
+          "id": "ag-20260708-002",
+          "date": "2026-07-08",
+          "title": "Hay formas de usar strategy quant para hacer bot y usarlos en empresas de fo deo , ejemplo the 5ers , necesito una investigacion , y saber de que manera puedo escalar mi dinero con algotrading , ejemplo empresas de fondeo detallar nombres. Darwinex . Deben permitir uso de bots"
+        },
+        {
+          "id": "ag-20260805-001",
+          "date": "2026-08-05",
+          "title": "enviar factura samuel"
+        },
+        {
+          "id": "",
+          "date": "2026-08-23",
+          "title": "Actualizar KPIs formales"
+        },
+        {
+          "id": "",
+          "date": "2026-08-23",
+          "title": "Decidir Web Viejas"
+        },
+        {
+          "id": "",
+          "date": "2026-08-23",
+          "title": "Revisar handoff Wolfim Motors Demo `HO-2026-08-03-002`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-23",
+          "title": "Corregir crons bloqueados por `HTTP 429`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-23",
+          "title": "Revisar emails accionables del Daily Email Summary"
+        },
+        {
+          "id": "",
+          "date": "2026-08-23",
+          "title": "Reducir ruido MiniMax rate limit"
+        },
+        {
+          "id": "",
+          "date": "2026-08-24",
+          "title": "Actualizar KPIs formales"
+        },
+        {
+          "id": "",
+          "date": "2026-08-24",
+          "title": "Decidir Web Viejas"
+        },
+        {
+          "id": "",
+          "date": "2026-08-24",
+          "title": "Revisar handoff Wolfim Motors Demo `HO-2026-08-03-002`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-24",
+          "title": "Corregir deuda técnica Hermes"
+        },
+        {
+          "id": "",
+          "date": "2026-08-24",
+          "title": "Revisar emails accionables del Daily Email Summary"
+        },
+        {
+          "id": "",
+          "date": "2026-08-24",
+          "title": "Reducir ruido operativo"
+        },
+        {
+          "id": "",
+          "date": "2026-08-25",
+          "title": "Actualizar KPIs formales"
+        },
+        {
+          "id": "",
+          "date": "2026-08-25",
+          "title": "Decidir Web Viejas"
+        },
+        {
+          "id": "",
+          "date": "2026-08-25",
+          "title": "Revisar handoff Wolfim Motors Demo `HO-2026-08-03-002`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-26",
+          "title": "Actualizar KPIs formales"
+        },
+        {
+          "id": "",
+          "date": "2026-08-26",
+          "title": "Decidir Web Viejas"
+        },
+        {
+          "id": "",
+          "date": "2026-08-26",
+          "title": "Revisar handoff Wolfim Motors Demo `HO-2026-08-03-002`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-26",
+          "title": "Corregir warning `email-suite` ambiguo"
+        },
+        {
+          "id": "",
+          "date": "2026-08-26",
+          "title": "Triage de `errors.log` Hermes"
+        },
+        {
+          "id": "",
+          "date": "2026-08-27",
+          "title": "Actualizar KPIs formales"
+        },
+        {
+          "id": "",
+          "date": "2026-08-27",
+          "title": "Decidir Web Viejas"
+        },
+        {
+          "id": "",
+          "date": "2026-08-27",
+          "title": "Revisar handoff Wolfim Motors Demo `HO-2026-08-03-002`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-27",
+          "title": "Corregir warning `email-suite` ambiguo"
+        },
+        {
+          "id": "",
+          "date": "2026-08-27",
+          "title": "Triage de `errors.log` Hermes"
+        },
+        {
+          "id": "",
+          "date": "2026-08-27",
+          "title": "Verificar Hermes update/gateway"
+        },
+        {
+          "id": "",
+          "date": "2026-08-28",
+          "title": "Actualizar KPIs formales"
+        },
+        {
+          "id": "",
+          "date": "2026-08-28",
+          "title": "Decidir Web Viejas"
+        },
+        {
+          "id": "",
+          "date": "2026-08-28",
+          "title": "Revisar handoff Wolfim Motors Demo `HO-2026-08-03-002`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-28",
+          "title": "Corregir warning `email-suite` ambiguo/no encontrado"
+        },
+        {
+          "id": "",
+          "date": "2026-08-28",
+          "title": "Triage de `errors.log` Hermes"
+        },
+        {
+          "id": "",
+          "date": "2026-08-28",
+          "title": "Verificar Hermes update/gateway"
+        },
+        {
+          "id": "",
+          "date": "2026-08-28",
+          "title": "Limpiar memoria persistente bloqueada `hermes_env`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-29",
+          "title": "Actualizar KPIs formales"
+        },
+        {
+          "id": "",
+          "date": "2026-08-29",
+          "title": "Decidir Web Viejas"
+        },
+        {
+          "id": "",
+          "date": "2026-08-29",
+          "title": "Hacer follow-up humano"
+        },
+        {
+          "id": "",
+          "date": "2026-08-29",
+          "title": "Revisar handoff Wolfim Motors Demo `HO-2026-08-03-002`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-29",
+          "title": "Cerrar/actualizar handoffs ANGO vencidos"
+        },
+        {
+          "id": "",
+          "date": "2026-08-29",
+          "title": "Triage Hermes update/gateway"
+        },
+        {
+          "id": "",
+          "date": "2026-08-29",
+          "title": "Revisar backup offsite Roggero & Roma"
+        },
+        {
+          "id": "",
+          "date": "2026-08-29",
+          "title": "Limpiar memoria persistente bloqueada `hermes_env`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-30",
+          "title": "Actualizar KPIs formales"
+        },
+        {
+          "id": "",
+          "date": "2026-08-30",
+          "title": "Decidir Web Viejas"
+        },
+        {
+          "id": "",
+          "date": "2026-08-30",
+          "title": "Hacer follow-up humano"
+        },
+        {
+          "id": "",
+          "date": "2026-08-30",
+          "title": "Revisar handoff Wolfim Motors Demo `HO-2026-08-03-002`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-30",
+          "title": "Cerrar/actualizar handoffs ANGO vencidos"
+        },
+        {
+          "id": "",
+          "date": "2026-08-30",
+          "title": "Triage Hermes update/gateway"
+        },
+        {
+          "id": "",
+          "date": "2026-08-30",
+          "title": "Revisar backup offsite Roggero & Roma"
+        },
+        {
+          "id": "",
+          "date": "2026-08-30",
+          "title": "Limpiar memoria persistente bloqueada `hermes_env`"
+        },
+        {
+          "id": "",
+          "date": "2026-08-31",
+          "title": "Actualizar KPIs formales"
+        },
+        {
+          "id": "",
+          "date": "2026-08-31",
+          "title": "Hacer follow-up humano a Luis Farias y Madelen"
+        },
+        {
+          "id": "",
+          "date": "2026-08-31",
+          "title": "Decidir cómo usar los 113 leads nuevos"
+        },
+        {
+          "id": "",
+          "date": "2026-08-31",
+          "title": "Confirmar cobro pendiente de Víctor Abrile"
+        },
+        {
+          "id": "",
+          "date": "2026-08-31",
+          "title": "Triage Hermes update/gateway"
+        },
+        {
+          "id": "",
+          "date": "2026-08-31",
+          "title": "Revisar Daily Email Summary"
+        },
+        {
+          "id": "",
+          "date": "2026-08-31",
+          "title": "Cerrar o revalidar handoffs vencidos"
+        },
+        {
+          "id": "",
+          "date": "2026-09-01",
+          "title": "Actualizar KPIs formales"
+        },
+        {
+          "id": "",
+          "date": "2026-09-01",
+          "title": "Hacer follow-up humano a Luis Farias y Madelen"
+        },
+        {
+          "id": "",
+          "date": "2026-09-01",
+          "title": "Confirmar cobro pendiente de Víctor Abrile"
+        },
+        {
+          "id": "",
+          "date": "2026-09-01",
+          "title": "Definir uso real de los 113 leads inmobiliarios del 31/08"
+        },
+        {
+          "id": "",
+          "date": "2026-09-01",
+          "title": "PRESOL día 0"
+        },
+        {
+          "id": "",
+          "date": "2026-09-01",
+          "title": "Responder AWS suspension warning"
+        },
+        {
+          "id": "",
+          "date": "2026-09-01",
+          "title": "Revisar vencimientos Naranja X y Ecogas"
+        },
+        {
+          "id": "",
+          "date": "2026-09-01",
+          "title": "Echo Project / Project Dubbing"
+        },
+        {
+          "id": "",
+          "date": "2026-09-01",
+          "title": "Triage Hermes update/gateway"
+        },
+        {
+          "id": "",
+          "date": "2026-09-01",
+          "title": "Cerrar/revalidar handoffs vencidos"
+        },
+        {
+          "id": "",
+          "date": "2026-09-02",
+          "title": "Actualizar KPIs formales"
+        },
+        {
+          "id": "",
+          "date": "2026-09-02",
+          "title": "Hacer follow-up humano a Luis Farias y Madelen"
+        },
+        {
+          "id": "",
+          "date": "2026-09-02",
+          "title": "Confirmar cobro pendiente de Víctor Abrile"
+        },
+        {
+          "id": "",
+          "date": "2026-09-02",
+          "title": "Definir uso real de los 113 leads inmobiliarios del 31/08"
+        },
+        {
+          "id": "",
+          "date": "2026-09-02",
+          "title": "PRESOL antes de calle"
+        },
+        {
+          "id": "",
+          "date": "2026-09-02",
+          "title": "Revisar n8n security update"
+        },
+        {
+          "id": "",
+          "date": "2026-09-02",
+          "title": "Revisar facturas Ziramog/Juanchi"
+        },
+        {
+          "id": "",
+          "date": "2026-09-02",
+          "title": "Triage Hermes update/gateway"
+        },
+        {
+          "id": "",
+          "date": "2026-09-02",
+          "title": "Cerrar/revalidar handoffs vencidos"
+        },
+        {
+          "id": "",
+          "date": "2026-09-22",
+          "title": "Cuota del token-plan agotada"
+        },
+        {
+          "id": "",
+          "date": "2026-09-22",
+          "title": "Confirmar cobro Víctor Abrile"
+        },
+        {
+          "id": "",
+          "date": "2026-09-22",
+          "title": "Follow-up comercial"
+        },
+        {
+          "id": "",
+          "date": "2026-09-22",
+          "title": "113 leads inmobiliarios del 31/08"
+        },
+        {
+          "id": "",
+          "date": "2026-09-22",
+          "title": "PRESOL antes de calle"
+        },
+        {
+          "id": "",
+          "date": "2026-09-24",
+          "title": "Cobro Faarias (400 USD)"
+        },
+        {
+          "id": "",
+          "date": "2026-10-06",
+          "title": "Farias (399–400 USD)"
+        },
+        {
+          "id": "",
+          "date": "2026-10-06",
+          "title": "Telegram"
+        },
+        {
+          "id": "",
+          "date": "2026-10-06",
+          "title": "Google Ads ANGO"
+        },
+        {
+          "id": "",
+          "date": "2026-10-06",
+          "title": "WP31"
+        },
+        {
+          "id": "",
+          "date": "2026-10-08",
+          "title": "Briefing vencido"
+        },
+        {
+          "id": "",
+          "date": "2026-10-08",
+          "title": "Víctor Abrile"
+        },
+        {
+          "id": "",
+          "date": "2026-10-08",
+          "title": "Presol semana 2 (333 USD)"
+        },
+        {
+          "id": "",
+          "date": "2026-10-08",
+          "title": "113 leads inmobiliarios"
+        },
+        {
+          "id": "ag-20261009-001",
+          "date": "2026-10-09",
+          "title": "Cotizacion para Palmero Ango cerrar el lunes"
+        },
+        {
+          "id": "ag-20261009-002",
+          "date": "2026-10-09",
+          "title": "victor publicidad comenzar argenprop y meta martes que viene"
         }
       ]
     }
