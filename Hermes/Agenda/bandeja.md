@@ -49,3 +49,4 @@ updated-at: 2026-10-09T08:20:00-03:00
 ## Crudo sin triar
 
 <!-- APPEND ACÁ: una línea por captura, al final de este archivo. -->
+- 2026-10-09T16:50-03:00 · [chat] · PWA en el celular: el directorio se ve y el nodo VPS figura ok, pero los chats no abren. Juan lo chequea después desde la PC.

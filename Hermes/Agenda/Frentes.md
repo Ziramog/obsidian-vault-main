@@ -92,6 +92,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | S3 | `hermes-vps-ops/SKILL.md` en el techo de 100k chars | Partir el skill | sin fecha | ⏳ sin fecha |
 | S4 | **Bot de agenda: capturar crudo y no perder nada** | `HO-2026-10-09-003` creado (high): consultas y fragmentos vagos no crean tareas; conservar captura o pedir precisión; timeouts normales no ensucian logs | 2026-10-12 | 🟢 en fecha |
 | S5 | **PWA — pestaña "HOY"** (`HO-2026-10-09-001`) | Leer el día en 2 segundos sin pasar por el chat: render de `HOY.md` + `Frentes.md` | 2026-10-11 | 🟢 en fecha |
+| S6 | **PWA móvil — los chats no abren** (el directorio se ve y el nodo VPS figura ok; el chat no abre en el celu) | Reproducir desde la PC: ruta por perfil (`/p/<profile>/api/sessions`), Bearer compartido y peer `:3300` caído (verificado hoy: sin respuesta) | sin fecha *(Juan lo chequea desde la PC)* | ⏳ sin fecha |
 
 ## 📌 Fechado — triado de la bandeja del bot (09/10)
 
