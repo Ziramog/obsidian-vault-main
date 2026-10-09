@@ -103,7 +103,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 ## Handoffs / coordinación
 
 - `local-to-vps`: `HO-2026-06-26-001` acknowledged; administrativamente archivable. `HO-2026-10-08-001` (ingreso Víctor USD 100) **ackado y aplicado** el 08/10 — asiento en Flujo de caja + briefing + Agenda 2026-10-08.
-- `vps-to-local`: **9 en `status: ready`**. Cerrados el 08/10: `HO-2026-06-25-001` y `HO-2026-06-27-001` (`cancelled`, ambos lados). Nuevo el 09/10: `HO-2026-10-09-001` (pestaña "HOY" de la PWA, high, due 11/10). `HO-2026-10-04-001` (poller Telegram) queda `ready` **a propósito**: el token del gateway del VPS sigue en `profiles/algolab/.env` de la PC → espera OK de Juan (frente D5). Pendiente de Juan: ¿los 4 ANGO de julio siguen vivos? Vivos: `07-13-001` (Sync V6), `08-03-001` (Almas Libres), `08-03-002` (Wolfim Motors, high). Convención de cierre: flip de `status` en el `request.md` (lado autor) + evento.
+- `vps-to-local`: **6 en `status: ready`** (`07-13-001` Sync V6, `08-03-001` Almas Libres, `08-03-002` Wolfim Motors high, `10-04-001` poller Telegram, `10-09-001` PWA "HOY", `10-09-002` ANGO consolidado). Cerrados: `06-25-001`+`06-27-001` (08/10) y los 4 ANGO de julio (`07-16/22/24/27`, **consolidados por Juan** en `HO-2026-10-09-002`, due 13/10). `10-04-001` sigue `ready` **a propósito**: el token del gateway del VPS está en `profiles/algolab/.env` de la PC → espera OK de Juan (D5). Convención de cierre: flip de `status` en el `request.md` (lado autor) + evento.
 - `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` y `2026-07-24-jobseeker-profile.md` esperan consolidación / decisión de Juan.
 
 ---
