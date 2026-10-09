@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-10-08 22:25 ART | **Víctor Abrile: USD 100 COBRADOS el 08/10 — honorarios por gestión publicitaria Argenprop + Meta; el costo de pauta lo abonó él por separado (es ingreso propio, NO presupuesto de pauta) → ítem nuevo de octubre** | Farias & Asociados: USD 399 cobrados el 06/10 — ítem 🥇 del briefing cerrado | Cobrado sep: 932 / pendiente 333 (Presol sem 2) · Semáforo: sin confirmar, `kpis.md` vacío desde 25/06 · Fallback `qwen3.8-flash → deepseek-flash` · Backup Roggero: local + offsite R2 OK · **Organización operativa desde el 09/10: `Agenda/Frentes.md` (30 frentes abiertos con dueño y `due-at`, criterio de conteo fijo en el archivo) + `Agenda/bandeja.md` (captura cruda sin espera; el bot de agenda no debe perder texto → S4)** · briefing vencido sin refresh (prioridades v2 de hecho: Presol 🥈, trading 🥉).
+**Última actualización:** 2026-10-09 07:50 ART | **Víctor Abrile: USD 100 COBRADOS el 08/10 — honorarios por gestión publicitaria Argenprop + Meta; el costo de pauta lo abonó él por separado (es ingreso propio, NO presupuesto de pauta) → ítem nuevo de octubre** | Farias & Asociados: USD 399 cobrados el 06/10 — ítem 🥇 del briefing cerrado | Cobrado sep: 932 / pendiente 333 (Presol sem 2) · Semáforo: sin confirmar, `kpis.md` vacío desde 25/06 · Fallback `qwen3.8-flash → deepseek-flash` · Backup Roggero: local + offsite R2 OK · **Organización operativa desde el 09/10: `Agenda/Frentes.md` (30 frentes abiertos con dueño y `due-at`, criterio de conteo fijo en el archivo) + `Agenda/bandeja.md` (captura cruda sin espera; el bot de agenda no debe perder texto → S4)** · briefing vencido sin refresh (prioridades v2 de hecho: Presol 🥈, trading 🥉).
 
 ---
 
@@ -103,7 +103,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 ## Handoffs / coordinación
 
 - `local-to-vps`: `HO-2026-06-26-001` acknowledged; administrativamente archivable. `HO-2026-10-08-001` (ingreso Víctor USD 100) **ackado y aplicado** el 08/10 — asiento en Flujo de caja + briefing + Agenda 2026-10-08.
-- `vps-to-local`: **8 en `status: ready`**, todos con `due-at` vencido. Cerrados el 08/10: `HO-2026-06-25-001` y `HO-2026-06-27-001` (flip a `cancelled` en ambos lados). `HO-2026-10-04-001` (poller de Telegram) queda `ready` **a propósito**: la escalada sigue abierta — el `TELEGRAM_BOT_TOKEN` del gateway del VPS todavía está en `profiles/algolab/.env` de la PC y el robo de long-poll se repite en el próximo restart local → espera aprobación de Juan. Pendiente de Juan: ¿los 4 ANGO de julio siguen vivos? Siguen vivos `07-13-001` (Sync V6), `08-03-001` (Almas Libres), `08-03-002` (Wolfim Motors, high). Convención de cierre: flip de `status` en `request.md` (lado autor) + evento.
+- `vps-to-local`: **9 en `status: ready`**. Cerrados el 08/10: `HO-2026-06-25-001` y `HO-2026-06-27-001` (`cancelled`, ambos lados). Nuevo el 09/10: `HO-2026-10-09-001` (pestaña "HOY" de la PWA, high, due 11/10). `HO-2026-10-04-001` (poller Telegram) queda `ready` **a propósito**: el token del gateway del VPS sigue en `profiles/algolab/.env` de la PC → espera OK de Juan (frente D5). Pendiente de Juan: ¿los 4 ANGO de julio siguen vivos? Vivos: `07-13-001` (Sync V6), `08-03-001` (Almas Libres), `08-03-002` (Wolfim Motors, high). Convención de cierre: flip de `status` en el `request.md` (lado autor) + evento.
 - `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` y `2026-07-24-jobseeker-profile.md` esperan consolidación / decisión de Juan.
 
 ---

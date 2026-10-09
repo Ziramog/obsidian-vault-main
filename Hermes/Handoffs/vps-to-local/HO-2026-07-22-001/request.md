@@ -1,6 +1,6 @@
 ---
 id: HO-2026-07-22-001
-status: ready
+status: cancelled
 from: brain-vps
 to: brain-local
 project: ango
