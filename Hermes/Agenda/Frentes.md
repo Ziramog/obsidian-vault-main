@@ -2,7 +2,7 @@
 owner: brain-vps
 type: registro-de-frentes
 created-at: 2026-10-08
-updated-at: 2026-10-08T23:05:00-03:00
+updated-at: 2026-10-09T06:50:00-03:00
 single-writer: brain-vps
 -rule: un frente sin dueño y sin due-at no es un frente, es ruido
 ---
@@ -14,6 +14,8 @@ single-writer: brain-vps
 > **WIP:** máximo **3 frentes activos por día**. El resto es backlog con dueño y fecha. Nadie arranca un frente nuevo con WIP lleno.
 
 ## 🔥 Hoy — los 3 del día (WIP 3/3)
+
+> Vienen **sin cerrar del 08/10**: se arrastran con aviso, no en silencio. Si hoy seguimos con el WIP lleno, no entra ningún frente nuevo.
 
 | # | Frente | Acción de hoy | Dueño |
 |---|---|---|---|
