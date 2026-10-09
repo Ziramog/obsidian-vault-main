@@ -63,7 +63,6 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - Salida real: `✅ Todos los leads han sido enviados. No hay más pendientes.`
 - Verificación tracker conocida: 121 leads fuente; 107 registros en tracker, 97 `sent`, 10 `bounced`, 0 `failed`.
 - Verificación inventario: 107 cubiertos por `sent`/`bounced`; 19 no componibles por reglas del script; 0 candidatos para próxima tanda.
-- Riesgo inmediato: seguir corriendo sin inventario no genera oportunidad comercial nueva.
 
 ### Corrida histórica breve
 - 08/29 a 09/02: cola agotada sostenida, 0 pendientes componibles, sin errores en stdout; última tanda útil 07/12 (2 enviados). El detalle diario ya no aporta: el canal está muerto hasta que haya inventario nuevo.
@@ -105,7 +104,6 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 - `local-to-vps`: `HO-2026-06-26-001` acknowledged; administrativamente archivable. `HO-2026-10-08-001` (ingreso Víctor USD 100) **ackado y aplicado** el 08/10 — asiento en Flujo de caja + briefing + Agenda 2026-10-08.
 - `vps-to-local`: **8 en `status: ready`**, todos con `due-at` vencido. Cerrados el 08/10: `HO-2026-06-25-001` y `HO-2026-06-27-001` (flip a `cancelled` en ambos lados). `HO-2026-10-04-001` (poller de Telegram) queda `ready` **a propósito**: la escalada sigue abierta — el `TELEGRAM_BOT_TOKEN` del gateway del VPS todavía está en `profiles/algolab/.env` de la PC y el robo de long-poll se repite en el próximo restart local → espera aprobación de Juan. Pendiente de Juan: ¿los 4 ANGO de julio siguen vivos? Siguen vivos `07-13-001` (Sync V6), `08-03-001` (Almas Libres), `08-03-002` (Wolfim Motors, high). Convención de cierre: flip de `status` en `request.md` (lado autor) + evento.
-- `vps-to-local` activos/vencidos principales: `HO-2026-08-03-002` Wolfim Motors Demo (high); `HO-2026-08-03-001` Almas Libres MVP; `HO-2026-07-13-001` Sync V6 profiles locales; `HO-2026-07-16-001`, `HO-2026-07-22-001`, `HO-2026-07-24-001`, `HO-2026-07-27-001` ANGO.
 - `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` y `2026-07-24-jobseeker-profile.md` esperan consolidación / decisión de Juan.
 
 ---
