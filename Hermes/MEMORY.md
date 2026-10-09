@@ -83,7 +83,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 ## Pipeline comercial activo
 
 - Franco Roma — Roggero & Roma ✅ cerrado/cobrado. Backup VPS operativo. Publicación/DNS dependen de Juan/NIC.
-- Víctor Abrile ✅ histórico cobrado: $450 USD total. Además, 2026-08-31 quedó emitido recibo `REC-WF-2026-08-31-VICTOR-001` por ARS 178.860, pendiente de cobro.
+- Víctor Abrile ✅ histórico cobrado: $450 USD total, **+ USD 100 el 08/10/2026 (honorarios de gestión publicitaria Argenprop + Meta, cobrados; el costo de pauta lo abonó él aparte)**. Además, 2026-08-31 quedó emitido recibo `REC-WF-2026-08-31-VICTOR-001` por ARS 178.860, todavía **sin acreditación registrada** (confirmar con Juan si los USD 100 de octubre lo tocan).
 - Luis Farias — Farias & Asociados ✅ **cobrado USD 399** (portal web inmobiliario, acreditado 06/10/2026). Registro `REG-WF-2026-10-06-FARIAS-001`; mantenimiento bonificado hasta mar-2027, luego USD 29/mes.
 - Madelen — Suelo Argentino 🔴 analizando propuesta desde 31/08; requiere follow-up si no vuelve.
 - GAMA Inmobiliaria ❌ caído: sin respuesta.
@@ -107,7 +107,8 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 
 ## Handoffs / coordinación
 
-- `local-to-vps`: `HO-2026-06-26-001` acknowledged; administrativamente archivable.
+- `local-to-vps`: `HO-2026-06-26-001` acknowledged; administrativamente archivable. `HO-2026-10-08-001` (ingreso Víctor USD 100) **ackado y aplicado** el 08/10 — asiento en Flujo de caja + briefing + Agenda 2026-10-08.
+- `vps-to-local`: **10 en `status: ready`, todos con `due-at` vencido** (el más viejo 25/06). Triage propuesto a Juan: archivar `HO-2026-06-25-001` (test de circuito) y `HO-2026-06-27-001` (aviso Agenda V2); decidir si los 4 ANGO de julio siguen vivos; `HO-2026-08-03-002` (Wolfim Motors, high) es el único con valor comercial claro. Detalle en `Hermes/Agenda/2026-10-08.md`.
 - `vps-to-local` activos/vencidos principales: `HO-2026-08-03-002` Wolfim Motors Demo (high); `HO-2026-08-03-001` Almas Libres MVP; `HO-2026-07-13-001` Sync V6 profiles locales; `HO-2026-07-16-001`, `HO-2026-07-22-001`, `HO-2026-07-24-001`, `HO-2026-07-27-001` ANGO.
 - `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` y `2026-07-24-jobseeker-profile.md` esperan consolidación / decisión de Juan.
 
