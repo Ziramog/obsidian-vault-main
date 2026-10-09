@@ -90,6 +90,29 @@ mismo doc): primer consumidor de `PermissionGate`/`ModuleGate` = **WP16 CRM Core
 - Briefing: reality-check vencido + TTL cae 2026-10-08T17:40 → pedir briefing nuevo antes de trabajo comercial.
 - Deuda #20 (`next build` bloqueado en Node 26): gate de pre-deploy + spike Node 20/22 cerca de WP29/WP31.
 
+## Autorización de Juan — 2026-10-07 (group chat "wolfim platform")
+
+Juan: *"@brain-local proceder hasta finalizar. he testeado, la verdad es solo una maqueta lo que
+tenemos ahora"*.
+
+1. **Modo Antigravity — interpretado como OK a (A)** `--dangerously-skip-permissions` (la opción que
+   web-builder y brain-local recomendaron). No eligió (A) ni (B) con esas letras, así que se declara la
+   interpretación y queda corregible: si no era eso, el freno es inmediato y la corrida se aborta.
+   Guardrails que siguen vigentes con (A): alcance TARGET-only (sin remote, sin push, sin red, sin `.env`,
+   prompt prohíbe git y prohíbe tocar SOURCE), revisión humana del diff antes del commit, verificación
+   post-corrida de SOURCE intacto + rango de auto-sync del vault.
+2. **Calibración de producto**: "es solo una maqueta" es correcto y es por diseño — WP00–WP14 entregan
+   fundación (db/tenant/auth/motores/repositorios), runners y el andamiaje de `platform-app` (AppShell +
+   rutas + tokens, sin consumidores de gates ni wiring real). El estado deja de ser maqueta en el camino
+   WP16→WP31 (CRM real, cotizaciones, reservas/ventas, portal público con paridad, cutover). Gaps honestos
+   en ese camino: (a) sin remote/`push` todavía (human gate); (b) `next build` bloqueado en este host →
+   spike Node 20/22 es precondición del pre-deploy y pasa a camino crítico; (c) el gap de P33
+   (`managerCanViewFinancials` sin WP) es cambio de alcance si el producto "real" incluye financieros.
+3. **Modo de trabajo acordado**: brain-local corre el tren de WPs hacia adelante sin volver a preguntar por
+   decisiones menores, y **frena sólo en** (i) audit gate FAIL, (ii) human gates del plan (WP31 deploy y
+   cutover, y cualquier push), (iii) cambio de alcance o contradicción con el briefing. Reporte macro cada
+   pocos WPs, con el detalle por WP en el registro de sesión.
+
 ## Referencias
 
 - `Hermes/Sessions/2026-10-04-wolfim-platform-wp00-kickoff.md` (WP00–WP14)
