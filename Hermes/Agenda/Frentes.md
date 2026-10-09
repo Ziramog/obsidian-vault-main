@@ -50,7 +50,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | # | Frente | Próxima acción | Due | Estado |
 |---|---|---|---|---|
 | D2 | Briefing reality-check | Confirmar prioridades y refrescar v2 | 2026-10-01 | 🔴 vencido |
-|| D5 | Telegram PC/VPS | Ejecutar en PC la baja del token duplicado de `algolab` + prueba end-to-end de `@Freedoom777bot`; arquitectura de dos bots ya aprobada por Juan | 2026-10-09 | ⏰ vence hoy |
+| D5 | Telegram PC/VPS | Ejecutar en PC la baja del token duplicado de `algolab` + prueba end-to-end de `@Freedoom777bot`; arquitectura de dos bots ya aprobada por Juan | 2026-10-09 | ⏰ vence hoy |
 | D7 | RWS / TrainAI dubbing | Arrancar la cola (160 jobs prioridad 0) o dar de baja la vía | sin fecha | ⏳ sin fecha |
 | D8 | `hermes-session-reset-policy` | OK de Juan | 2026-10-07 | 🔴 vencido |
 | D9 | `Memory/pending/` (2 items: Sync V6, JobSeeker) | Consolidar o descartar | sin fecha | ⏳ sin fecha |
