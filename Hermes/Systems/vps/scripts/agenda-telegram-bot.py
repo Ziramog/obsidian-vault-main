@@ -129,18 +129,28 @@ def save_state(state: Dict[str, Any]) -> None:
     tmp.replace(STATE_PATH)
 
 
-def telegram_api(token: str, method: str, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+def telegram_api(token: str, method: str, data: Optional[Dict[str, Any]] = None, timeout: int = 30) -> Dict[str, Any]:
     url = f"https://api.telegram.org/bot{token}/{method}"
     encoded = None
     if data is not None:
         encoded = urllib.parse.urlencode(data).encode()
     req = urllib.request.Request(url, data=encoded)
-    with urllib.request.urlopen(req, timeout=30) as resp:
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
         return json.loads(resp.read().decode())
 
 
 def get_updates(token: str, offset: int, timeout: int = 0) -> List[Dict[str, Any]]:
-    resp = telegram_api(token, "getUpdates", {"offset": offset, "timeout": timeout})
+    # El socket debe sobrevivir el long-poll completo: timeout HTTP = poll + margen.
+    http_timeout = (timeout or 0) + 15
+    try:
+        resp = telegram_api(token, "getUpdates", {"offset": offset, "timeout": timeout}, timeout=http_timeout)
+    except TimeoutError:
+        # Long-poll sin novedades: corte por timeout normal, NO es una falla operativa.
+        return []
+    except urllib.error.URLError as exc:
+        if isinstance(getattr(exc, "reason", None), TimeoutError):
+            return []
+        raise
     if not resp.get("ok"):
         raise RuntimeError(f"getUpdates failed: {resp}")
     return resp.get("result", [])
