@@ -2,10 +2,10 @@
 owner: brain-vps
 type: registro-de-frentes
 created-at: 2026-10-08
-updated-at: 2026-10-09T07:20:00-03:00
+updated-at: 2026-10-09T07:45:00-03:00
 single-writer: brain-vps
 corte: 2026-10-09
-conteo-corte-2026-10-09: 29 abiertos = 14 vencidos · 1 vence-hoy · 1 bloqueado · 10 sin-fecha · 3 en-fecha (+3 sin clasificar, no contados)
+conteo-corte-2026-10-09: 30 abiertos = 13 vencidos · 1 vence-hoy · 1 bloqueado · 10 sin-fecha · 5 en-fecha (+2 sin clasificar, no contados)
 criterio-de-conteo: ver sección "Criterio de conteo" (buckets por due-at ISO vs fecha de corte)
 -rule: un frente sin dueño y sin due-at no es un frente, es ruido
 ---
@@ -13,6 +13,7 @@ criterio-de-conteo: ver sección "Criterio de conteo" (buckets por due-at ISO vs
 # Frentes.md — mapa único de frentes abiertos
 
 > **Escritor único:** brain-vps. Los demás agentes piden altas/bajas por handoff o daily; Juan dicta por audio/texto y brain-vps convierte.
+> **Captura:** `Agenda/bandeja.md` — tirás texto o audio **crudo y sin esperar respuesta**. La bandeja no interpreta: guarda. brain-vps triagea después y lo convierte en frente con dueño y fecha (o lo devuelve con una pregunta).
 > **Regla:** cada frente tiene **un solo cerrador** (con permiso de escritura) y un **`due-at`**. Si el `due-at` pasa sin movimiento, el frente aparece solo en `Agenda/HOY.md`.
 > **WIP:** máximo **3 frentes activos por día**. El resto es backlog con dueño y fecha. Nadie arranca un frente nuevo con WIP lleno.
 
@@ -28,7 +29,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | 🔒 **bloqueado** | el cierre depende de otro frente (se cuenta aparte; **no** suma a vencidos) |
 | ⏳ **sin fecha** | no hay `due-at` ISO → **violación de la regla**, se cuenta aparte y no entra en vencidos |
 
-**Corte 2026-10-09: 29 abiertos = 🔴 14 · ⏰ 1 · 🔒 1 · ⏳ 10 · 🟢 3.** *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)* Los 3 `❓ sin clasificar` de la bandeja del bot **no se cuentan como frentes** (son ruido hasta que tengan dueño y fecha).
+**Corte 2026-10-09: 30 abiertos = 🔴 13 · ⏰ 1 · 🔒 1 · ⏳ 10 · 🟢 5.** *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)* Los `❓ sin clasificar` de la bandeja **no se cuentan como frentes** (son ruido hasta que tengan dueño y fecha).
 
 ## 🔥 Hoy — los 3 del día (WIP 3/3)
 
@@ -37,10 +38,12 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | # | Frente | Acción de hoy | Dueño |
 |---|---|---|---|
 | D1 | `kpis.md` (15 semanas vacío) | Habilitar el archivo o llenarlo — 30 seg | Juan |
-| D6 | Aviso **Contabo CCP** | Leerlo: **vencido desde el 08/10** (afecta soporte del VPS) | Juan |
+| D5 | Token Telegram `algolab` (PC) | "Dale": una línea + restart | Juan |
 | P1 | Presol sem 2 — **333 USD** | Cobrar **hoy** + confirmar continuidad de octubre | Juan |
 
-**Batch de 2 minutos (van juntos, no son frentes del día):** D5 (fix token `algolab`) y D3 (¿los USD 100 de Víctor tocan el recibo ARS 178.860?).
+**Batch de 2 minutos:** D3 (¿los USD 100 de Víctor tocan el recibo ARS 178.860?).
+
+> ✅ **D6 (Contabo CCP) cerrado hoy**: Juan confirmó que **ya está pago**.
 
 ---
 
@@ -53,7 +56,6 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | D3 | Víctor Abrile — recibo ARS 178.860 | ¿Los USD 100 del 08/10 son ítem nuevo o lo saldan? | 2026-10-08 | 🔴 vencido |
 | D4 | 4 handoffs ANGO de julio | ¿Siguen vivos o se rescopean a uno solo? | 2026-07-28 | 🔴 vencido |
 | D5 | Token Telegram en `profiles/algolab/.env` (PC) | "Dale" al fix de 1 línea + restart | 2026-10-04 | 🔴 vencido |
-| D6 | Aviso Contabo CCP | Leer | 2026-10-08 | 🔴 vencido |
 | D7 | RWS / TrainAI dubbing | Arrancar la cola (160 jobs prioridad 0) o dar de baja la vía | sin fecha | ⏳ sin fecha |
 | D8 | `hermes-session-reset-policy` | OK de Juan | 2026-10-07 | 🔴 vencido |
 | D9 | `Memory/pending/` (2 items: Sync V6, JobSeeker) | Consolidar o descartar | sin fecha | ⏳ sin fecha |
@@ -95,6 +97,8 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | S1 | WP31 — backfill `tenantId` + uniques legacy | OK + snapshot para el `--apply` | sin fecha | ⏳ sin fecha |
 | S2 | Conflicto de merge en `companies/wolfim/intelligence/plan-ads-seo-2026-06-29.md` | Decidir resolución (markers desde 29/06) | sin fecha | ⏳ sin fecha |
 | S3 | `hermes-vps-ops/SKILL.md` en el techo de 100k chars | Partir el skill | sin fecha | ⏳ sin fecha |
+| S4 | **Bot de agenda: capturar crudo y no perder nada** | Que nunca pierda tu texto (guarda crudo + marca para triage) y responda en ≤2 s; si no da, se retira el canal y queda solo la bandeja | 2026-10-12 | 🟢 en fecha |
+| S5 | **PWA — pestaña "HOY"** (`HO-2026-10-09-001`) | Leer el día en 2 segundos sin pasar por el chat: render de `HOY.md` + `Frentes.md` | 2026-10-11 | 🟢 en fecha |
 
 ## 📌 Fechado — triado de la bandeja del bot (09/10)
 
@@ -108,10 +112,16 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | id | Lo que entró | Qué falta |
 |---|---|---|
 | ag-20261009-003 | "agenda" | No dice qué de la agenda: ¿revisarla, arreglarla, mostrarla? |
-| ag-20261009-004 | "listar comandos" | Es un pedido al bot, no un frente: ¿de qué bot y para qué? |
 | ag-20261009-005 | "semana que viene" | Audio cortado: ¿qué cosa es para la semana que viene? |
 
 ---
+
+## Cerrado el 2026-10-09
+
+| Frente | Cómo cerró |
+|---|---|
+| D6 — Aviso Contabo (CCP) | Juan confirmó que **ya está pago** (09/10) |
+| ag-20261009-004 "listar comandos" | Respondido en el chat con la lista de comandos del bot; destapó la falla del fallback → S4 |
 
 ## Cerrado el 2026-10-08
 
