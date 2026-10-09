@@ -66,11 +66,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - Riesgo inmediato: seguir corriendo sin inventario no genera oportunidad comercial nueva.
 
 ### Corrida histórica breve
-- 09/02: cola agotada; 0 pendientes; cron_campaign.py OK (`Todos los leads han sido enviados`).
-- 09/01: cola agotada; 0 pendientes; check-replies 10/14/18: `Sin novedades`.
-- 08/31: cola agotada; 107 registros totales, 0 pendientes componibles; sin error visible en stdout.
-- 08/30: cola agotada; 107 registros totales, 0 pendientes componibles; sin error visible en stdout.
-- 08/29 y anteriores: canal llegó gradualmente a cola agotada; última tanda útil registrada 07/12 con 2 enviados.
+- 08/29 a 09/02: cola agotada sostenida, 0 pendientes componibles, sin errores en stdout; última tanda útil 07/12 (2 enviados). El detalle diario ya no aporta: el canal está muerto hasta que haya inventario nuevo.
 
 ### Configuración conocida
 - Remitente: `Juan Gomariz <juan@wolfim.com>`; reply-to `juan@wolfim.com` → Cloudflare → `ingjuangomariz@gmail.com`.
