@@ -113,6 +113,46 @@ tenemos ahora"*.
    cutover, y cualquier push), (iii) cambio de alcance o contradicción con el briefing. Reporte macro cada
    pocos WPs, con el detalle por WP en el registro de sesión.
 
+## WP15 — CIERRE (2026-10-08) · PASS con residuos declarados
+
+Verificado por brain-local, sin Git de escritura y sin tomar el reporte de nadie:
+
+```text
+commit 2        cebe9c5 (base 681949f) · 9 archivos · +753/-3 · SIN docs/
+(i)  git diff 681949f..HEAD --name-status   → set exacto: package.json root, packages/permissions/** ×7,
+                                              tests/wp15-permissions.test.ts
+(ii) diff de packages/tenant/src/modules.ts + vitest.config.ts → 0 líneas
+(iv) status -uall                            → 1 = ' M package.json'  (sólo la línea `dev` de Juan)
+(vi) git show cebe9c5:package.json           → contiene `test:wp15`, NO contiene `dev`
+     git diff HEAD -- package.json           → una sola inserción: la línea `dev` de Juan
+SOURCE          wolfim-motors-demo e9f774c + ' M AGENTS.md' (D1 intacto)
+gate            npm run test:wp15 → 18/18 passed (1.3 s) · npm run build EXIT 0 · suite 159|8 (167)
+```
+
+**Residuos R1/R2 reproducidos por brain-local** con probe propio contra el `dist` del commit
+(`cache/scratch/wp15-probe-brainlocal.mjs`, ctx sintético, rol VIEWER):
+
+```text
+R1  { module: 'crm' }  sin permission        → {"allowed":true,"step":"OK"}      ← módulo alcanza para permitir
+R2  { module: 'crm', resource: {} }          → {"allowed":true,"step":"OK"}      ← campo ausente = propio
+ctrl {} sin nada                             → PERMISSION / PERMISSION_UNKNOWN
+ctrl { module: 'crm', resource:{tenantId:'t2'} } → RESOURCE / RESOURCE_CROSS_TENANT
+ctrl { module: 'invented' }                  → MODULE / MODULE_UNKNOWN
+causa en código: authorize.ts l.38-42 (`permission?: string` opcional) + l.91 (`else if`)
+                 → R1 es de TIPOS; l.97 (`request.resource?.tenantId !== undefined &&`) → R2 es de RUNTIME
+```
+
+**Veredicto: PASS con residuos declarados.** La fila congelada se cumplió entera (5 must-break con el
+paso asertado + must-pass + capa unit in-memory con integración N/A + atomicidad script/archivo); R1/R2
+caen fuera de los casos enumerados, que es justamente por qué sobrevivieron. **No se reabre WP15**: no hay
+consumidor (P32) y reabrir un gate pasado por un hueco no explotable es churn.
+
+**Cláusula de cierre, pegada a P32** (no se minta un número nuevo para no sumar confusión con los `WP*`):
+WP16 CRM Core es el primer consumidor **y** cierra R1/R2 en su primer commit — (a) `permission` obligatorio
+en el tipo general y la ruta sólo-módulo en una API explícita, de modo que la omisión **no compile** (un
+parche de runtime no logra eso y la omisión volvería); (b) `resource` sin `tenantId` ⇒ deny, con su test.
+La fila de gate de WP16 debe assertar las dos de forma adversarial antes de declararse.
+
 ## Referencias
 
 - `Hermes/Sessions/2026-10-04-wolfim-platform-wp00-kickoff.md` (WP00–WP14)
