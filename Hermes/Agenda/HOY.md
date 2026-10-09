@@ -11,7 +11,7 @@ bandeja: Hermes/Agenda/bandeja.md
 # HOY — 2026-10-09 (viernes)
 
 **Agenda del día:** `Hermes/Agenda/2026-10-09.md`
-**Mapa de frentes:** `Hermes/Agenda/Frentes.md` — 26 abiertos = 🔴 8 vencidos · ⏰ 1 vence hoy · 🔒 1 bloqueado · ⏳ 10 sin fecha · 🟢 6 en fecha (+2 sin clasificar) — criterio de conteo fijado en el archivo
+**Mapa de frentes:** `Hermes/Agenda/Frentes.md` — 24 abiertos = 🔴 5 vencidos · ⏰ 2 vencen hoy · 🔒 1 bloqueado · ⏳ 10 sin fecha · 🟢 6 en fecha — criterio de conteo fijado en el archivo
 **Para tirar algo crudo sin esperar:** `Hermes/Agenda/bandeja.md`
 
 ## 🔥 Los 3 del día (WIP 3/3)

@@ -5,7 +5,7 @@ created-at: 2026-10-08
 updated-at: 2026-10-09T07:25:00-03:00
 single-writer: brain-vps
 corte: 2026-10-09
-conteo-corte-2026-10-09: 24 abiertos = 5 vencidos · 2 vence-hoy · 1 bloqueado · 10 sin-fecha · 6 en-fecha (+2 sin clasificar, no contados)
+conteo-corte-2026-10-09: 24 abiertos = 5 vencidos · 2 vence-hoy · 1 bloqueado · 10 sin-fecha · 6 en-fecha
 criterio-de-conteo: ver sección "Criterio de conteo" (buckets por due-at ISO vs fecha de corte)
 -rule: un frente sin dueño y sin due-at no es un frente, es ruido
 ---
@@ -29,7 +29,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | 🔒 **bloqueado** | el cierre depende de otro frente (se cuenta aparte; **no** suma a vencidos) |
 | ⏳ **sin fecha** | no hay `due-at` ISO → **violación de la regla**, se cuenta aparte y no entra en vencidos |
 
-**Corte 2026-10-09: 24 abiertos = 🔴 5 · ⏰ 2 · 🔒 1 · ⏳ 10 · 🟢 6.** *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)* Los `❓ sin clasificar` de la bandeja **no se cuentan como frentes** (son ruido hasta que tengan dueño y fecha).
+**Corte 2026-10-09: 24 abiertos = 🔴 5 · ⏰ 2 · 🔒 1 · ⏳ 10 · 🟢 6.** *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)* Las capturas incompletas permanecen en `Agenda/bandeja.md`; no se cuentan como frentes.
 
 ## 🔥 Hoy — los 3 del día (WIP 3/3)
 
@@ -90,7 +90,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | S1 | WP31 — backfill `tenantId` + uniques legacy | OK + snapshot para el `--apply` | sin fecha | ⏳ sin fecha |
 | S2 | Conflicto de merge en `companies/wolfim/intelligence/plan-ads-seo-2026-06-29.md` | Decidir resolución (markers desde 29/06) | sin fecha | ⏳ sin fecha |
 | S3 | `hermes-vps-ops/SKILL.md` en el techo de 100k chars | Partir el skill | sin fecha | ⏳ sin fecha |
-|| S4 | **Bot de agenda: capturar crudo y no perder nada** | `HO-2026-10-09-003` creado (high): consultas y fragmentos vagos no crean tareas; conservar captura o pedir precisión; timeouts normales no ensucian logs | 2026-10-12 | 🟢 en fecha |
+| S4 | **Bot de agenda: capturar crudo y no perder nada** | `HO-2026-10-09-003` creado (high): consultas y fragmentos vagos no crean tareas; conservar captura o pedir precisión; timeouts normales no ensucian logs | 2026-10-12 | 🟢 en fecha |
 | S5 | **PWA — pestaña "HOY"** (`HO-2026-10-09-001`) | Leer el día en 2 segundos sin pasar por el chat: render de `HOY.md` + `Frentes.md` | 2026-10-11 | 🟢 en fecha |
 
 ## 📌 Fechado — triado de la bandeja del bot (09/10)
@@ -100,12 +100,9 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | ag-20261009-001 | ANGO — cotización para Palmero | Cerrarla **antes del lunes** | 2026-10-12 | 🟢 en fecha |
 | ag-20261009-002 | Wolfim — publicidad Víctor (Argenprop + Meta) | Arrancar el trabajo **martes** | 2026-10-13 | 🟢 en fecha |
 
-### ❓ Sin clasificar (no son frentes todavía — falta contexto de Juan)
+### Capturas incompletas preservadas fuera del mapa
 
-| id | Lo que entró | Qué falta |
-|---|---|---|
-| ag-20261009-003 | "agenda" | No dice qué de la agenda: ¿revisarla, arreglarla, mostrarla? |
-| ag-20261009-005 | "semana que viene" | Audio cortado: ¿qué cosa es para la semana que viene? |
+`ag-20261009-003` ("agenda") y `ag-20261009-005` ("semana que viene") no son frentes. Permanecen en `Agenda/bandeja.md` como texto crudo, sin contaminar la agenda activa.
 
 ---
 
