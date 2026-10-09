@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-10-09 07:50 ART | **Víctor Abrile: USD 100 COBRADOS el 08/10 — honorarios por gestión publicitaria Argenprop + Meta; el costo de pauta lo abonó él por separado (es ingreso propio, NO presupuesto de pauta) → ítem nuevo de octubre** | Farias & Asociados: USD 399 cobrados el 06/10 — ítem 🥇 del briefing cerrado | Cobrado sep: 932 / pendiente 333 (Presol sem 2) · Semáforo: sin confirmar, `kpis.md` vacío desde 25/06 · Fallback `qwen3.8-flash → deepseek-flash` · Backup Roggero: local + offsite R2 OK · **Organización operativa desde el 09/10: `Agenda/Frentes.md` (30 frentes abiertos con dueño y `due-at`, criterio de conteo fijo en el archivo) + `Agenda/bandeja.md` (captura cruda sin espera; el bot de agenda no debe perder texto → S4)** · briefing vencido sin refresh (prioridades v2 de hecho: Presol 🥈, trading 🥉).
+**Última actualización:** 2026-10-09 07:25 ART | **Agenda saneada:** 24 frentes abiertos (5 vencidos, 2 vencen hoy, 1 bloqueado, 10 sin fecha, 6 en fecha). Juan autorizó a brain-vps a mantener `kpis.md`; USD 100 de Víctor confirmados como ingreso nuevo independiente; 4 handoffs ANGO de julio consolidados en `HO-2026-10-09-002`; Presol debe liquidarse por horas efectivamente trabajadas y no como USD 333 fijo sin cálculo. | **Octubre cobrado: USD 499** (Farias 399 + Víctor 100). Briefing v2 sigue vencido y pendiente de refresh.
 
 ---
 

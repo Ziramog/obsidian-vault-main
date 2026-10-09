@@ -16,12 +16,10 @@ bandeja: Hermes/Agenda/bandeja.md
 
 ## 🔥 Los 3 del día (WIP 3/3)
 
-1. **D1 — `kpis.md`**: habilitar el archivo o llenarlo con tus números. 30 segundos; desbloquea el semáforo formal (15 semanas vacío).
-2. **D5 — Token Telegram `algolab` (PC)**: "dale" a una línea + restart. Es lo que desbloquea el frente L8.
-3. **P1 — Presol sem 2**: cobrar **333 USD** + confirmar continuidad de octubre.
+1. **P1 — Presol:** relevar horas trabajadas + acordar criterio + calcular importe cobrable.
+2. **D5 — Telegram PC/VPS:** separar definitivamente los tokens y probar ambos bots.
+3. **ANGO — Palmero:** avanzar la cotización que vence antes del lunes 12/10.
 
-*Batch de 2 minutos:* **D3** (¿los USD 100 de Víctor tocan el recibo ARS 178.860?).
-
-✅ **Contabo cerrado hoy** — Juan confirmó que ya está pago.
+✅ Cerrados hoy: Contabo · KPIs habilitados · Víctor aclarado · 4 handoffs ANGO consolidados en `HO-2026-10-09-002`.
 
 > **Regla:** un frente sin dueño y sin `due-at` no es un frente, es ruido. WIP máximo **3 activos por día**; con el WIP lleno no entra un frente nuevo.
