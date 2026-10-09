@@ -1,6 +1,6 @@
 ---
 id: HO-2026-06-25-001
-status: ready
+status: cancelled
 from: brain-vps
 to: brain-local
 project: hermes-system
