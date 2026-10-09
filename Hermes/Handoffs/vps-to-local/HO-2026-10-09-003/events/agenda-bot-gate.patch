@@ -1,0 +1,128 @@
+--- a/Hermes/Systems/vps/scripts/agenda-telegram-bot.py
++++ b/Hermes/Systems/vps/scripts/agenda-telegram-bot.py
+@@ -581,8 +581,10 @@
+ _DATE_TOKEN_RE = re.compile(
+     r"\b(?:hoy|ma[ñn]ana|pasado\s+ma[ñn]ana|ayer|lunes|martes|mi[eé]rcoles|jueves|viernes|"
+     r"s[aá]bado|domingo|lun|mar|mi[eé]|jue|vie|s[aá]b|dom|fin\s+de\s+mes|"
+-    r"principio\s+de\s+mes|a\s+las\s+\d|\d{1,2}\s*[:/]\s*\d|\d{1,2}\s+de\s+\w+|"
+-    r"\d{4}-\d{2}-\d{2})\b",
++    r"principio\s+de\s+mes|a\s+la\s+(?:tarde|noche|ma[ñn]ana)|"
++    r"(?:antes|despu[eé]s)\s+de\s+las\s+\d{1,2}|a\s+las\s+\d{1,2}|"
++    r"\d{1,2}\s*[:/]\s*\d{1,2}|\d{1,2}\s+de\s+\w+|\d{4}-\d{2}-\d{2}|"
++    r"en\s+\d+\s+d[ií]as?|d[ií]a\s+\d{1,2})\b",
+     re.IGNORECASE,
+ )
+ _ACTION_VERB_RE = re.compile(
+@@ -613,6 +615,33 @@
+     if _ACTION_VERB_RE.search(low):
+         return False
+     return True
++
++
++# --- Gate invertido: el alta necesita señal positiva, no es el default.
++_QUERY_CUE_RE = re.compile(
++    r"^(?:/?(?:qu[eé]|cu[aá]l(?:es)?|cu[aá]nt[oa]s?|cu[aá]ndo|ten[eé]s|"
++    r"tengo\s+(?:algo|tareas?|pendientes?)|hay\s+(?:algo|tareas?)|"
++    r"mostr[aá]me|mostrar|mu[eé]strame|dame|listar|lista|ver\s+la\s+agenda))\b",
++    re.IGNORECASE,
++)
++
++
++def _is_query_cue(low: str) -> bool:
++    return bool(_QUERY_CUE_RE.match(low))
++
++
++def _has_task_signal(low: str) -> bool:
++    # Señal positiva: token de fecha/hora reconocido. Los comandos explícitos
++    # (/agendar, agendar …) ya se resolvieron antes de llegar acá.
++    return bool(_DATE_TOKEN_RE.search(low))
++
++
++def _answer_query(vault: Path, low: str, chat_id: Optional[str] = None) -> str:
++    if re.search(r"\bma[ñn]ana\b", low):
++        return cmd_list(vault, "mañana", chat_id=chat_id)
++    if re.search(r"\bhoy\b", low):
++        return cmd_list(vault, "hoy", chat_id=chat_id)
++    return cmd_overview(vault, chat_id=chat_id)
+ 
+ 
+ def handle_text(vault: Path, text: str, source: str, chat_id: Optional[str] = None) -> str:
+@@ -754,8 +783,8 @@
+         if not payload:
+             return "Uso: agendar mañana 9 llamar a GAMA"
+         return cmd_add(vault, payload, source=source)
+-    # --- Frente S4 (HO-2026-10-09-003): una consulta o un fragmento vago NUNCA
+-    # debe caer al alta de tareas. Consultas → ayuda; vagos → pedir aclaración.
++    # --- Frente S4 (HO-2026-10-09-003): el alta deja de ser el default.
++    # Orden: ayuda → consulta → señal positiva de tarea → pedir precisión.
+     if _is_help_query(low):
+         return (
+             "Bot Agenda — las consultas no crean tareas.\n"
+@@ -764,12 +793,25 @@
+             "Agendar: «mañana 9 llamar a GAMA»\n"
+             "No guardé nada por esta consulta."
+         )
+-    if _is_vague_fragment(low):
+-        return (
+-            "No me quedó claro qué tarea agendar. Reescribila con una acción y cuándo. "
+-            "Ej: «mañana 9 llamar a GAMA». No guardé nada."
+-        )
+-    return cmd_add(vault, raw, source=source)
++    if _is_query_cue(low):
++        return _answer_query(vault, low, chat_id=chat_id)
++    if _has_task_signal(low):
++        return cmd_add(vault, raw, source=source)
++    return (
++        f"No me quedó claro qué agendar: «{raw[:120]}». Si es una tarea, decime la acción "
++        "y cuándo (ej. «mañana 9 llamar a GAMA»). Si es una consulta: /hoy, /todo, /esta-semana. "
++        "No guardé nada."
++    )
++
++
++def safe_handle_text(vault: Path, text: str, source: str, chat_id: Optional[str] = None) -> str:
++    # agenda.py señala los errores de usuario con SystemExit; sin esto una sola
++    # orden inválida (p.ej. /detalle con un id inexistente) mata el poll_loop.
++    try:
++        return handle_text(vault, text, source=source, chat_id=chat_id)
++    except SystemExit as exc:
++        msg = str(exc).strip().rstrip(".")
++        return f"No pude completar eso: {msg}. No guardé nada."
+ 
+ 
+ def transcribe_voice_file(path: Path) -> str:
+@@ -793,7 +835,7 @@
+     source = "telegram-bot-agenda"
+     response_text: Optional[str] = None
+     if message.get("text"):
+-        response_text = handle_text(vault, str(message["text"]), source=source, chat_id=chat_id)
++        response_text = safe_handle_text(vault, str(message["text"]), source=source, chat_id=chat_id)
+     elif message.get("voice"):
+         file_id = message["voice"].get("file_id")
+         if not file_id:
+@@ -805,7 +847,7 @@
+                 transcript = transcribe_voice_file(local_path)
+                 response_text = (
+                     f"Transcripción: {transcript}\n\n" +
+-                    handle_text(vault, transcript, source="telegram-audio", chat_id=chat_id)
++                    safe_handle_text(vault, transcript, source="telegram-audio", chat_id=chat_id)
+                 )
+             except Exception as exc:
+                 response_text = f"Error al procesar audio: {exc}\nProbá mandarlo como texto."
+@@ -819,7 +861,7 @@
+             transcript = transcribe_voice_file(local_path)
+             response_text = (
+                 f"Transcripción: {transcript}\n\n" +
+-                handle_text(vault, transcript, source="telegram-audio", chat_id=chat_id)
++                safe_handle_text(vault, transcript, source="telegram-audio", chat_id=chat_id)
+             )
+     else:
+         response_text = "Mandame texto o audio."
+@@ -847,7 +889,7 @@
+             result = process_update(vault, token, upd, dry_run=dry_run)
+             if result:
+                 outputs.append(result)
+-        except Exception as exc:
++        except (Exception, SystemExit) as exc:
+             outputs.append(f"ERROR update_id={upd_id}: {type(exc).__name__}: {exc}")
+         if not dry_run:
+             latest_state = load_state()
