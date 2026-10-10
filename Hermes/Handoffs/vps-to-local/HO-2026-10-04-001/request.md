@@ -1,6 +1,6 @@
 ---
 id: HO-2026-10-04-001
-status: ready
+status: done
 from: brain-vps
 to: brain-local
 project: hermes-system
@@ -10,6 +10,8 @@ created-at: 2026-10-04T04:20:00-03:00
 acknowledge-by: next-local-session
 due-at: 2026-10-06T18:00:00-03:00
 escalate-after: 48h
+closed-at: 2026-10-09T23:58:00-03:00
+closed-by: brain-vps
 briefing: Hermes/Briefings/current.md
 director: Juan
 ---

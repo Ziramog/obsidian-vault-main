@@ -8,7 +8,7 @@ source: mixed
 
 # MEMORY.md — Estado de negocio
 
-**Última actualización:** 2026-10-09 07:25 ART | **Agenda saneada:** 24 frentes abiertos (5 vencidos, 2 vencen hoy, 1 bloqueado, 10 sin fecha, 6 en fecha). Juan autorizó a brain-vps a mantener `kpis.md`; USD 100 de Víctor confirmados como ingreso nuevo independiente; 4 handoffs ANGO de julio consolidados en `HO-2026-10-09-002`; Presol debe liquidarse por horas efectivamente trabajadas y no como USD 333 fijo sin cálculo. | **Octubre cobrado: USD 499** (Farias 399 + Víctor 100). Briefing v2 sigue vencido y pendiente de refresh.
+**Última actualización:** 2026-10-09 23:58 ART | **Cierre 09/10:** `kpis.md` **desbloqueado** (v1, owner brain-vps, USD 499 cobrados en octubre; **faltan gastos fijos → semáforo ⚪**); 4 handoffs ANGO de julio consolidados en `HO-2026-10-09-002`; token duplicado de Telegram en la PC **eliminado y verificado** (`HO-2026-10-04-001` → `done`); rediseño **"un core, dos bocas"** decidido (bot de agenda = boca del core, PWA suma voz). **Octubre cobrado: USD 499** (Farias 399 + Víctor 100). Día sin ventas ni contactos: el trabajo fue infraestructura.
 
 ---
 
@@ -33,19 +33,19 @@ source: mixed
 
 ## Backup Roggero & Roma — estado 2026-09-24
 
-- Cron sábado 10:00 OK; paso 1-4 (Mongo Atlas, Cloudinary 1390, GitHub mirror, tar+sha) sanos. Paso 5 Drive falla por `invalid_grant` (refresh token revocado ~agosto) → **sin offsite**.
-- Causa del doble run de los sábados: crontab del sistema Y cron Hermes lanzan `backup.sh` a las 10:00. 5 duplicados (2,8 GB) borrados el 24/09 tras verificar sha256 de los keep; quedan 5 backups = 5,3 GB. Pendiente: desactivar el crontab del sistema (lo edita solo Juan o con aprobación explícita).
-- Decisión de Juan: offsite a **Cloudflare R2** via rclone. **✅ IMPLEMENTADO 24/09**: remote `wolfim-r2` → bucket `wolfim-backups`. Paso 5 de backup.sh sube con reintentos+checksum+verificación y **alerta por Telegram si falla**; retención **últimos 3 backups en R2** (free tier 10 GB). Doble programador eliminado (crontab del sistema comentado, con backup). Prueba end-to-end OK: sha local = sha remoto.
-- **Farias & Asociados**: carpeta `farias-asociados/` en el mismo bucket. Script `/home/hermes/roggero_backup/scripts/farias_backup.sh` (wrapper en `~/.hermes/scripts/farias-backup-wrapper.sh`) + cron Hermes `farias-backup-R2` sábados 10:00, retención 3. Hoy solo respalda datos (CSV/JSON propiedades, 5 KB); cuando el portal se active, agregar fuente Supabase/repo al script.
+- Cron sábado 10:00 OK; pasos 1-4 (Mongo Atlas, Cloudinary 1390, GitHub mirror, tar+sha) sanos. Paso 5 Drive falla por `invalid_grant` (refresh token revocado ~agosto) → **sin offsite**.
+- El doble run de los sábados (crontab del sistema Y cron Hermes) quedó eliminado el 24/09 (crontab comentado con backup); 5 duplicados (2,8 GB) borrados tras verificar sha256; quedan 5 backups = 5,3 GB.
+- Offsite a **Cloudflare R2** (rclone `wolfim-r2` → bucket `wolfim-backups`): ✅ implementado 24/09 con reintentos+checksum+verificación, alerta por Telegram si falla y retención 3 backups. Prueba end-to-end OK (sha local = sha remoto).
+- **Farias & Asociados**: carpeta `farias-asociados/` en el mismo bucket; `/home/hermes/roggero_backup/scripts/farias_backup.sh` + cron `farias-backup-R2` sábados 10:00 (retención 3). Hoy sólo respalda CSV/JSON; al activarse el portal, sumar Supabase/repo.
 
 ---
 
 ## Semáforo financiero
 
 - Estado operativo histórico registrado: 🟢 ESCALA — junio cerró con Wolfim $1.000 USD + Ango $333 USD = $1.333 USD.
-- Advertencia activa: `Hermes/Intelligence/kpis.md` sigue vencido desde 2026-06-25 y sin números formales de Juan. No se puede confirmar el semáforo real de septiembre.
-- Regla prudente mientras no haya update formal: Wolfim prioritaria. Construvial/PRESOL solo como excepción por mandato documentado; no debe desplazar cierres Wolfim.
-- Briefing vigente también está vencido; no hay autorización fresca para cambiar prioridades globales.
+- **Actualizado 2026-10-09:** `Hermes/Intelligence/kpis.md` ya está **activo (v1)** y Juan autorizó a **brain-vps** a mantenerlo (era `owner: Juan` y `pending-first-write` desde el 25/06). Semáforo registrado: ⚪ **sin confirmar** — falta el **gasto fijo mensual** (no hay forma de calcular el gap sin ese dato).
+- Regla prudente mientras no haya update formal de gastos: Wolfim prioritaria. Construvial/PRESOL solo como excepción por mandato documentado; no debe desplazar cierres Wolfim.
+- Briefing vigente (v2) también está vencido (`reality-check-required-by: 2026-10-01`); no hay autorización fresca para cambiar prioridades globales.
 
 ---
 
@@ -65,13 +65,10 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - Verificación inventario: 107 cubiertos por `sent`/`bounced`; 19 no componibles por reglas del script; 0 candidatos para próxima tanda.
 
 ### Corrida histórica breve
-- 08/29 a 09/02: cola agotada sostenida, 0 pendientes componibles, sin errores en stdout; última tanda útil 07/12 (2 enviados). El detalle diario ya no aporta: el canal está muerto hasta que haya inventario nuevo.
+- 08/29 a 09/02: cola agotada sostenida, 0 pendientes componibles, sin errores en stdout; última tanda útil 07/12. El canal está muerto hasta que haya inventario nuevo.
 
 ### Configuración conocida
-- Remitente: `Juan Gomariz <juan@wolfim.com>`; reply-to `juan@wolfim.com` → Cloudflare → `ingjuangomariz@gmail.com`.
-- API: Resend (`[credencial: wolfim-outreach]`); logo `assets.wolfim.com/v2.svg`.
-- Cron: `wolfim-campaign` diario 10am + `check-replies` lun-vie 10/14/18.
-- Documentación: `Hermes/Projects/web-viejas-pipeline.md`.
+- Remitente: `Juan Gomariz <juan@wolfim.com>`; reply-to → Cloudflare → `ingjuangomariz@gmail.com`. API: Resend (`[credencial: wolfim-outreach]`); logo `assets.wolfim.com/v2.svg`. Crons: `wolfim-campaign` 10am + `check-replies` lun-vie 10/14/18. Doc: `Hermes/Projects/web-viejas-pipeline.md`.
 
 ---
 
@@ -103,7 +100,7 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 ## Handoffs / coordinación
 
 - `local-to-vps`: `HO-2026-06-26-001` acknowledged; administrativamente archivable. `HO-2026-10-08-001` (ingreso Víctor USD 100) **ackado y aplicado** el 08/10 — asiento en Flujo de caja + briefing + Agenda 2026-10-08.
-- `vps-to-local`: **7 en `status: ready`** (`07-13-001` Sync V6, `08-03-001` Almas Libres, `08-03-002` Wolfim Motors high, `10-04-001` poller Telegram, `10-09-001` PWA "HOY", `10-09-002` ANGO consolidado, `10-09-003` Agenda estricta). Cerrados: `06-25-001`+`06-27-001` (08/10) y los 4 ANGO de julio (`07-16/22/24/27`, **consolidados por Juan** en `HO-2026-10-09-002`, due 13/10). `10-04-001`: Juan autorizó el 09/10 quitar de `algolab` el token duplicado del bot general; ejecución y prueba end-to-end pendientes en brain-local. `10-09-003` implementa el frente S4: consultas/vagos no crean tareas y se corrige el ruido de timeouts.
+- `vps-to-local`: **6 en `status: ready`** (`07-13-001` Sync V6, `08-03-001` Almas Libres, `08-03-002` Wolfim Motors high, `10-09-001` PWA "HOY" + voz, `10-09-002` ANGO consolidado, `10-09-003` Agenda estricta). Cerrados: `06-25-001`+`06-27-001` (08/10, este último movido a `Hermes/Handoffs/archive/`), los 4 ANGO de julio (`07-16/22/24/27`, **consolidados por Juan** en `HO-2026-10-09-002`, due 13/10) y **`10-04-001` (poller Telegram) → `done`** el 09/10: token duplicado de `algolab` comentado en la PC + restart duro del gateway (09:16:41) y **VPS verificado sin `polling conflict` desde 09:16:11**. `10-09-003` es `high` y su parche de generalización (`events/agenda-bot-gate.patch`) **está sin aplicar** (zona VPS, un solo editor).
 - `Memory/pending`: `2026-07-12-sync-v6-architecture-update.md` y `2026-07-24-jobseeker-profile.md` esperan consolidación / decisión de Juan.
 
 ---
@@ -115,3 +112,6 @@ dork_scout → wa_checker → enrich_leads → campaign.py / cron_campaign.py �
 - Datos de pago: Juan los pasa al cliente, no al revés.
 - Recibos Wolfim: usar diseño fijo existente; no improvisar layouts nuevos ni variantes genéricas.
 - No escribir secrets, tokens ni API keys en el vault.
+- Comentar/borrar un `TELEGRAM_BOT_TOKEN` en el `.env` de un perfil servido por el multiplexer **no baja el adapter en caliente**: el re-scan sólo agrega adapters nuevos. Hace falta `hermes -p default gateway --accept-hooks restart` y verificar en `gateway_state.json` que la entrada desapareció. Detalle: `Hermes/Systems/local/telegram-multiplexer-token-reload.md`.
+- Un gate que sólo cubre los ejemplos enumerados no cierra la clase: "prohibido X" no es falsable, y el default debe ser seguro (alta sólo con señal explícita). Repetido en WP15 (R1/R2) y en el bot de agenda (10 de 16 entradas fuera de la lista seguían creando tareas).
+- Nada de caracteres chinos en las respuestas (filtración de modelos qwen): si aparecen, repetir el mensaje en castellano y registrarlo.
