@@ -2,10 +2,10 @@
 owner: brain-vps
 type: registro-de-frentes
 created-at: 2026-10-08
-updated-at: 2026-10-09T17:06:00-03:00
+updated-at: 2026-10-09T23:58:00-03:00
 single-writer: brain-vps
 corte: 2026-10-09
-conteo-corte-2026-10-09: 26 abiertos = 5 vencidos · 2 vence-hoy · 1 bloqueado · 12 sin-fecha · 6 en-fecha
+conteo-corte-2026-10-09-cierre: 24 abiertos = 5 vencidos · 1 vence-hoy · 0 bloqueado · 12 sin-fecha · 6 en-fecha
 criterio-de-conteo: ver sección "Criterio de conteo" (buckets por due-at ISO vs fecha de corte)
 -rule: un frente sin dueño y sin due-at no es un frente, es ruido
 ---
@@ -29,7 +29,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | 🔒 **bloqueado** | el cierre depende de otro frente (se cuenta aparte; **no** suma a vencidos) |
 | ⏳ **sin fecha** | no hay `due-at` ISO → **violación de la regla**, se cuenta aparte y no entra en vencidos |
 
-**Corte 2026-10-09: 26 abiertos = 🔴 5 · ⏰ 2 · 🔒 1 · ⏳ 12 · 🟢 6.** *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)* Las capturas incompletas permanecen en `Agenda/bandeja.md`; no se cuentan como frentes.
+**Corte 2026-10-09 (cierre): 24 abiertos = 🔴 5 · ⏰ 1 · 🔒 0 · ⏳ 12 · 🟢 6.** *(D5 y el handoff que bloqueaba — L8 — se cerraron hoy tras verificar el VPS: sin `polling conflict` desde las 09:16.)* *(`sin fecha` no es un estado válido de largo plazo: se fecha o se da de baja.)* Las capturas incompletas permanecen en `Agenda/bandeja.md`; no se cuentan como frentes.
 
 ## 🔥 Hoy — los 3 del día (WIP 3/3)
 
@@ -50,7 +50,7 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | # | Frente | Próxima acción | Due | Estado |
 |---|---|---|---|---|
 | D2 | Briefing reality-check | Confirmar prioridades y refrescar v2 | 2026-10-01 | 🔴 vencido |
-| D5 | Telegram PC/VPS | Ejecutar en PC la baja del token duplicado de `algolab` + prueba end-to-end de `@Freedoom777bot`; arquitectura de dos bots ya aprobada por Juan | 2026-10-09 | ⏰ vence hoy |
+| D5 | Telegram PC/VPS | ✅ **Cerrado 09/10** — token duplicado de `algolab` comentado + restart duro del gateway en la PC (09:16:41); VPS sin `polling conflict` desde 09:16:11 | — | ✅ cerrado |
 | D7 | RWS / TrainAI dubbing | Arrancar la cola (160 jobs prioridad 0) o dar de baja la vía | sin fecha | ⏳ sin fecha |
 | D8 | `hermes-session-reset-policy` | OK de Juan | 2026-10-07 | 🔴 vencido |
 | D9 | `Memory/pending/` (2 items: Sync V6, JobSeeker) | Consolidar o descartar | sin fecha | ⏳ sin fecha |
@@ -72,14 +72,13 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 | C3 | Google Ads ANGO (cuenta 901-572-7445) | Responder la asesoría gratuita ofrecida | sin fecha | ⏳ sin fecha |
 | C4 | Roggero & Roma — GA4 | Eventos custom en 0 desde ~30/07; aplicar fix cron backup (`no_agent` + wrapper) | sin fecha | ⏳ sin fecha |
 
-## 🖥️ Ejecución local (handoffs vivos — 6 `ready`)
+## 🖥️ Ejecución local (handoffs vivos — 5 `ready`)
 
 | # | Frente | Due | Estado |
 |---|---|---|---|
 | L1 | `HO-2026-07-13-001` Sync V6 a profiles locales | 2026-07-14 | 🔴 vencido |
 | L6 | `HO-2026-08-03-001` Almas Libres MVP + padrinazgo | 2026-08-07 | 🔴 vencido |
 | L7 | `HO-2026-08-03-002` Wolfim Motors demo portal (high) | 2026-08-05 | 🔴 vencido |
-| L8 | `HO-2026-10-04-001` poller Telegram | 2026-10-06 | 🔒 bloqueado por D5 |
 | L9 | `HO-2026-10-09-002` ANGO consolidado (landing + GA4 + Ads) | 2026-10-13 | 🟢 en fecha |
 | — | `HO-2026-10-09-001` (pestaña "HOY" de la PWA) | 2026-10-11 | 🟢 en fecha *(se cuenta como S5)* |
 
@@ -112,6 +111,8 @@ Cada frente cae en **un solo** bucket, por su `due-at` ISO contra la fecha de co
 
 | Frente | Cómo cerró |
 |---|---|
+| **D5 — Telegram PC/VPS** | Token duplicado de `profiles/algolab/.env` comentado en la PC (08:42) + **restart duro del gateway local** (09:16:41, el re-scan del `.env` no bajaba el adapter vivo). **VPS verificado:** último `polling conflict` 09:16:11, ninguno después. Evidencia: `HO-2026-10-04-001/events/2026-10-09T09-18-correction-hard-restart-needed.md` + `Hermes/Systems/local/telegram-multiplexer-token-reload.md` |
+| **L8 — `HO-2026-10-04-001` (poller Telegram)** | `status: done` — objetivo 1 (segundo poller identificado: perfil `algolab` de la PC) y objetivo 2 (desactivación) cumplidos; criterio 3 confirmado desde el VPS al cierre. |
 | D4 — 4 handoffs ANGO de julio | **Consolidados** por decisión de Juan en un solo trabajo → `HO-2026-10-09-002` (due 13/10); los 4 originales quedaron `cancelled` |
 | D1 — `kpis.md` | Juan autorizó a brain-vps a mantenerlo; versión 1 creada con cobros de octubre y gastos aún pendientes |
 | D3 — Víctor | Los USD 100 son ingreso nuevo e independiente; el recibo ARS 178.860 continúa separado |
